@@ -1,0 +1,89 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Linkedin, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { profile } from "@/data/resume";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — Steve Peele II" },
+      {
+        name: "description",
+        content:
+          "Reach Steve Peele II in Cincinnati, OH for fractional or full-time growth marketing leadership.",
+      },
+      { property: "og:title", content: "Contact — Steve Peele II" },
+      {
+        property: "og:description",
+        content: "Let's talk about fractional or full-time growth marketing leadership.",
+      },
+    ],
+  }),
+  component: ContactPage,
+});
+
+const items = [
+  { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+  { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\./g, "")}` },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/s", href: profile.linkedin },
+  { icon: Globe, label: "Website", value: "stevepeeleii.com", href: profile.website },
+];
+
+function ContactPage() {
+  return (
+    <div className="min-h-screen">
+      <SiteHeader />
+
+      <section className="hero-surface border-b border-border/60">
+        <div className="mx-auto max-w-4xl px-5 py-20 text-center">
+          <p className="eyebrow">Contact</p>
+          <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
+            Let's talk about <span className="text-gradient">your number.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+            Fractional engagements, advisory, or a full-time leadership seat — the fastest way to
+            start is a direct conversation.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-5 py-20">
+        <div className="grid gap-5 sm:grid-cols-2">
+          {items.map((i) => (
+            <a
+              key={i.label}
+              href={i.href}
+              target={i.href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
+              className="panel flex items-start gap-4 p-6 transition-colors hover:border-primary"
+            >
+              <i.icon className="mt-0.5 size-5 text-accent" />
+              <span>
+                <span className="block text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                  {i.label}
+                </span>
+                <span className="mt-1 block font-medium">{i.value}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <div className="panel mt-6 flex items-center gap-4 p-6">
+          <MapPin className="size-5 text-accent" />
+          <p className="text-sm text-muted-foreground">
+            Based in {profile.location} — working with teams remotely across the U.S.
+          </p>
+        </div>
+
+        <div className="mt-12 text-center">
+          <a href={`mailto:${profile.email}`} className="btn-primary">
+            Email me directly
+          </a>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </div>
+  );
+}
