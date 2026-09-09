@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Linkedin, Mail, MapPin, Phone, Globe } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, Globe, CalendarClock } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { profile } from "@/data/resume";
@@ -26,7 +26,8 @@ export const Route = createFileRoute("/contact")({
 const items = [
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
   { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\./g, "")}` },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/s", href: profile.linkedin },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/spii", href: profile.linkedin },
+  { icon: CalendarClock, label: "Book a call", value: "meet.stevepeeleii.com", href: profile.booking },
   { icon: Globe, label: "Website", value: "stevepeeleii.com", href: profile.website },
 ];
 
