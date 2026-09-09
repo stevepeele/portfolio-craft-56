@@ -2,10 +2,11 @@ export const profile = {
   name: "Steve Peele II",
   title: "Product-Focused Growth Marketing Executive",
   location: "Cincinnati, OH",
-  phone: "513.265.8594",
+  phone: "513.505.0624",
   email: "steve@stevepeeleii.com",
-  linkedin: "https://linkedin.com/in/s",
+  linkedin: "https://linkedin.com/in/spii",
   website: "https://stevepeeleii.com",
+  booking: "https://meet.stevepeeleii.com",
   summary:
     "Customer-driven growth and product marketing leader with 14+ years scaling SaaS and tech companies. Expert in aligning marketing, product, and sales strategies to drive customer adoption, lifecycle value, and sustainable revenue growth.",
 };
