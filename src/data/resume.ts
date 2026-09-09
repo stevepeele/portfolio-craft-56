@@ -1,0 +1,204 @@
+export const profile = {
+  name: "Steve Peele II",
+  title: "Product-Focused Growth Marketing Executive",
+  location: "Cincinnati, OH",
+  phone: "513.265.8594",
+  email: "steve@stevepeeleii.com",
+  linkedin: "https://linkedin.com/in/s",
+  website: "https://stevepeeleii.com",
+  summary:
+    "Customer-driven growth and product marketing leader with 14+ years scaling SaaS and tech companies. Expert in aligning marketing, product, and sales strategies to drive customer adoption, lifecycle value, and sustainable revenue growth.",
+};
+
+export const heroStats = [
+  { value: "14+", label: "Years scaling SaaS & tech" },
+  { value: "$350M+", label: "Pipeline revenue driven" },
+  { value: "$8M+", label: "Global budgets managed" },
+  { value: "2", label: "Startup exits contributed to" },
+];
+
+export const experience = [
+  {
+    company: "Launch by NTT DATA",
+    note: "formerly Nexient",
+    role: "Head of Marketing Operations & Global Integration Lead",
+    period: "06/2020 – Present",
+    tag: "Marketing Operations",
+    bullets: [
+      "Managed $8M+ global marketing budgets, achieving a 4:1 ROI across regional digital initiatives.",
+      "Streamlined operations and automated reporting, reducing execution timelines by 25% and driving $350M+ in pipeline revenue.",
+      "Led ABM strategies in collaboration with sales, boosting lead-to-deal conversions by 40% and closing $25M+ in new deals.",
+    ],
+  },
+  {
+    company: "Tixxy",
+    note: "Acquired",
+    role: "Founder, Head of Growth",
+    period: "12/2020 – 12/2023",
+    tag: "Founder",
+    bullets: [
+      "Scaled company to $1M+ ARR in Year 1 through referral campaigns, digital advertising, and partnerships, growing user base by 300%.",
+      "Secured a $7M acquisition valuation by driving platform growth and increasing visibility by 40%.",
+      "Reduced churn by 25% with lifecycle marketing improvements, increasing LTV by $200 per user.",
+    ],
+  },
+  {
+    company: "Amify",
+    role: "Fractional VP of Marketing, Organizational Repositioning Lead",
+    period: "06/2021 – 03/2022",
+    tag: "Fractional Leadership",
+    bullets: [
+      "Repositioned brand and GTM strategy, boosting brand recognition by 35% and generating $6M in incremental revenue.",
+      "Reduced CPA by 15% and improved retention by 10% through advanced paid acquisition strategies.",
+    ],
+  },
+  {
+    company: "Buyside",
+    role: "Director of Platform Growth",
+    period: "05/2020 – 12/2020",
+    tag: "Product Growth",
+    bullets: [
+      "Led product growth initiatives that increased platform adoption by 50%.",
+      "Enhanced marketing efficiency by 30% through data-driven optimization using Google Analytics and Tableau.",
+    ],
+  },
+  {
+    company: "Everything But The House (EBTH)",
+    role: "Digital Growth Manager",
+    period: "01/2020 – 05/2020",
+    tag: "Digital Growth",
+    bullets: [
+      "Increased user acquisition by 50% through multi-channel campaigns (PPC, SEO, email).",
+      "Improved conversion rates by 30% and reduced digital marketing costs by 20%.",
+    ],
+  },
+  {
+    company: "API Nation",
+    role: "Head of Growth Marketing",
+    period: "01/2019 – 12/2019",
+    tag: "Demand Generation",
+    bullets: [
+      "Drove 50% increase in demand generation through HubSpot CRM, Facebook Ads, and email marketing.",
+      "Increased ROI by 45% through strategic campaign measurement and optimization.",
+    ],
+  },
+  {
+    company: "Astronomer",
+    role: "Director of Growth Experimentation",
+    period: "04/2017 – 12/2017",
+    tag: "Experimentation",
+    bullets: [
+      "Increased lead generation by 60% through pricing, segmentation, and marketing experiments.",
+      "Improved conversion rates by 30% through data-driven insights using Mixpanel and direct user feedback.",
+    ],
+  },
+  {
+    company: "Inman News",
+    role: "Director of Demand Generation",
+    period: "02/2016 – 04/2017",
+    tag: "Demand Generation",
+    bullets: [
+      "Boosted website traffic by 70% through SEO, content marketing, and targeted demand gen campaigns.",
+      "Increased lead conversions by 30% through full-funnel strategy optimization.",
+    ],
+  },
+  {
+    company: "Dotloop",
+    note: "Acquired by Zillow Group",
+    role: "Marketing Operations Manager",
+    period: "08/2009 – 02/2016",
+    tag: "Marketing Operations",
+    bullets: [
+      "Led marketing operations from early-stage startup to acquisition, driving 400%+ user growth.",
+      "Reduced CAC by 35% through multi-channel marketing and optimized lead nurture workflows.",
+    ],
+  },
+];
+
+export const caseHighlights = [
+  {
+    sector: "SaaS Marketplace",
+    company: "Tixxy",
+    metrics: [
+      { value: "$1M+", label: "ARR in year one" },
+      { value: "300%", label: "User base growth" },
+      { value: "$7M", label: "Acquisition valuation" },
+    ],
+    summary:
+      "Built the growth engine from zero — referral campaigns, paid acquisition, and partnerships — then cut churn 25% with lifecycle marketing before the exit.",
+    tag: "Founder-led growth",
+  },
+  {
+    sector: "Global Services",
+    company: "Launch by NTT DATA",
+    metrics: [
+      { value: "$350M+", label: "Pipeline revenue" },
+      { value: "4:1", label: "ROI on $8M+ budget" },
+      { value: "40%", label: "Lift in lead-to-deal" },
+    ],
+    summary:
+      "Unified global marketing operations, automated reporting to cut execution timelines 25%, and partnered with sales on ABM that closed $25M+ in new deals.",
+    tag: "Marketing operations",
+  },
+  {
+    sector: "Ecommerce",
+    company: "Amify",
+    metrics: [
+      { value: "$6M", label: "Incremental revenue" },
+      { value: "35%", label: "Brand recognition lift" },
+      { value: "15%", label: "Lower CPA" },
+    ],
+    summary:
+      "Stepped in as fractional VP of Marketing to reposition the brand and GTM motion, then rebuilt paid acquisition for efficiency and retention.",
+    tag: "Fractional VP",
+  },
+];
+
+export const capabilities = [
+  {
+    title: "Growth & GTM Strategy",
+    body: "Positioning, segmentation, and go-to-market plans that connect product value to the customers who feel the problem most.",
+    items: ["GTM Strategy", "Product Marketing", "Growth Strategy", "Customer-Centered Innovation"],
+  },
+  {
+    title: "Demand Generation",
+    body: "Full-funnel demand programs across paid, search, content, and lifecycle that compound instead of spiking.",
+    items: ["Demand Generation", "ABM & Pipeline Acceleration", "Digital Advertising (Google, Meta)", "SEO/SEM"],
+  },
+  {
+    title: "Marketing Operations",
+    body: "The systems, data, and automation layer that makes reporting trustworthy and execution fast.",
+    items: ["Scalable Marketing Operations", "CRM & Automation (HubSpot, Salesforce, Marketo)", "Data Analytics", "Full-Funnel Optimization"],
+  },
+  {
+    title: "Leadership",
+    body: "Building high-performing teams and aligning marketing, product, and sales around one revenue number.",
+    items: ["Leadership & Team Building", "Cross-Functional Alignment", "Customer Lifecycle Programs", "Revenue Growth Management"],
+  },
+];
+
+export const certifications = [
+  "Salesforce Administrator",
+  "Salesforce Marketing Cloud Consultant",
+  "HubSpot Marketing Software",
+  "HubSpot Inbound Marketing",
+  "Google Analytics Advanced",
+  "Tableau Desktop Specialist",
+  "Meta Certified Digital Marketing Associate",
+  "Google Ads Search & Display",
+  "Marketo Certified Expert",
+  "LinkedIn Marketing Labs",
+  "SEMrush SEO Fundamentals",
+  "Ahrefs Advanced SEO",
+];
+
+export const awards = [
+  "Top 100 Marketing Leader — Marketing Operations Association",
+  "Operational Excellence in Marketing Award — B2B SaaS Growth Forum",
+];
+
+export const education = {
+  school: "University of Cincinnati",
+  location: "Cincinnati, OH",
+  degree: "B.S. Mechanical Engineering Technology",
+};
