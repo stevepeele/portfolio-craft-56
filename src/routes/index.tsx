@@ -47,7 +47,7 @@ function Home() {
             SaaS and tech companies.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="btn-primary">
+            <Link to="/Connect" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
             </Link>
             <Link to="/experience" className="btn-ghost">
@@ -163,7 +163,7 @@ function Home() {
             number you need to hit.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="btn-primary">
+            <Link to="/Connect" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
             </Link>
             <a href={`mailto:${profile.email}`} className="btn-ghost">
