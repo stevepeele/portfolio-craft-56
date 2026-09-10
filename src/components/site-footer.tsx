@@ -26,6 +26,9 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
+          <Link to="/portfolio" className="transition-colors hover:text-foreground">
+            Portfolio
+          </Link>
           <Link to="/contact" className="transition-colors hover:text-foreground">
             Contact
           </Link>
