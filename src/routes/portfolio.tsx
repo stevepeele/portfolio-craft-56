@@ -25,7 +25,8 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 function PortfolioPage() {
-  const [featured, ...projects] = portfolioProjects;
+  const featured = portfolioProjects[0]!;
+  const projects = portfolioProjects.slice(1);
 
   return (
     <div className="min-h-screen">
