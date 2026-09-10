@@ -100,6 +100,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        id: "hs-script-loader",
+        src: "https://js.hs-scripts.com/22009185.js",
+        async: true,
+        defer: true,
+      },
+    ],
   }),
 
   shellComponent: RootShell,
