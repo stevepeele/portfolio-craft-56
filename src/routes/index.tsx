@@ -1,7 +1,3 @@
-<!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/22009185.js"></script>
-<!-- End of HubSpot Embed Code -->
-
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
