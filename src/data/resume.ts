@@ -155,6 +155,97 @@ export const caseHighlights = [
   },
 ];
 
+export const portfolioProjects = [
+  {
+    company: "Launch by NTT DATA",
+    sector: "Global Services",
+    title: "Global marketing operations & ABM integration",
+    period: "2020 – Present",
+    tag: "Marketing Operations",
+    summary:
+      "Unified global marketing operations, automated reporting, and partnered with sales on ABM programs that shortened execution timelines and turned regional activity into measurable pipeline.",
+    metrics: [
+      { value: "$350M+", label: "Pipeline revenue driven" },
+      { value: "4:1", label: "ROI on $8M+ budget" },
+      { value: "40%", label: "Lead-to-deal lift" },
+    ],
+    levers: ["ABM", "Budget ownership", "Automation", "Sales alignment"],
+  },
+  {
+    company: "Tixxy",
+    sector: "SaaS Marketplace",
+    title: "Founder-led growth engine & acquisition",
+    period: "2020 – 2023",
+    tag: "Founder",
+    summary:
+      "Built the growth motion from zero with referral campaigns, digital advertising, partnerships, and lifecycle marketing, scaling the platform to seven figures in ARR before a $7M acquisition valuation.",
+    metrics: [
+      { value: "$1M+", label: "ARR in year one" },
+      { value: "300%", label: "User base growth" },
+      { value: "25%", label: "Churn reduction" },
+    ],
+    levers: ["Referral growth", "Paid acquisition", "Lifecycle marketing", "Partnerships"],
+  },
+  {
+    company: "Amify",
+    sector: "Ecommerce",
+    title: "Brand & go-to-market repositioning",
+    period: "2021 – 2022",
+    tag: "Fractional VP",
+    summary:
+      "Led an organizational repositioning as fractional VP of Marketing, sharpening the brand and GTM strategy while rebuilding paid acquisition for stronger efficiency and retention.",
+    metrics: [
+      { value: "$6M", label: "Incremental revenue" },
+      { value: "35%", label: "Brand recognition lift" },
+      { value: "15%", label: "Lower CPA" },
+    ],
+    levers: ["Positioning", "GTM strategy", "Paid acquisition", "Retention"],
+  },
+  {
+    company: "Buyside",
+    sector: "Real Estate Tech",
+    title: "Platform adoption & growth analytics",
+    period: "2020",
+    tag: "Product Growth",
+    summary:
+      "Led product growth initiatives and built a more data-driven operating cadence with Google Analytics and Tableau, improving platform adoption and marketing efficiency.",
+    metrics: [
+      { value: "50%", label: "Platform adoption lift" },
+      { value: "30%", label: "Marketing efficiency gain" },
+    ],
+    levers: ["Product growth", "Analytics", "Optimization"],
+  },
+  {
+    company: "Everything But The House",
+    sector: "Ecommerce Marketplace",
+    title: "Multi-channel acquisition & conversion program",
+    period: "2020",
+    tag: "Digital Growth",
+    summary:
+      "Ran multi-channel growth across PPC, SEO, and email while tightening the conversion path, lifting acquisition and conversion rates while reducing digital marketing costs.",
+    metrics: [
+      { value: "50%", label: "User acquisition lift" },
+      { value: "30%", label: "Conversion rate lift" },
+      { value: "20%", label: "Lower marketing costs" },
+    ],
+    levers: ["PPC", "SEO", "Email", "CRO"],
+  },
+  {
+    company: "Dotloop",
+    sector: "SaaS",
+    title: "Startup-to-acquisition marketing operations",
+    period: "2009 – 2016",
+    tag: "Acquisition",
+    summary:
+      "Built and scaled marketing operations from early-stage startup through acquisition by Zillow Group, supporting rapid user growth and lowering acquisition costs through optimized nurture workflows.",
+    metrics: [
+      { value: "400%+", label: "User growth" },
+      { value: "35%", label: "Lower CAC" },
+    ],
+    levers: ["Marketing ops", "Lead nurture", "Multi-channel growth"],
+  },
+];
+
 export const capabilities = [
   {
     title: "Growth & GTM Strategy",
