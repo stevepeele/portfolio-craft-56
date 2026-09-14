@@ -7,17 +7,16 @@ import { heroStats, portfolioProjects, profile } from "@/data/resume";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Steve Peele II" },
+      { title: "Portfolio — Steve Peele II, Fractional CMO" },
       {
         name: "description",
         content:
-          "Past growth marketing projects and results across SaaS, ecommerce, and global services — pipeline, revenue, adoption, and exits.",
+          "Fractional CMO Steve Peele II's past growth marketing projects and results across SaaS, ecommerce, and global services — pipeline, revenue, adoption, and exits.",
       },
-      { property: "og:title", content: "Portfolio — Steve Peele II" },
+      { property: "og:title", content: "Portfolio — Steve Peele II, Fractional CMO" },
       {
         property: "og:description",
-        content:
-          "Selected growth marketing projects and measurable results from Steve Peele II's work across SaaS, ecommerce, and global services.",
+        content: "Selected growth marketing projects and measurable results from fractional CMO Steve Peele II.",
       },
     ],
   }),

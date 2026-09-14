@@ -7,16 +7,16 @@ import { caseHighlights, heroStats } from "@/data/resume";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Results — Steve Peele II" },
+      { title: "Results — Steve Peele II, Fractional CMO" },
       {
         name: "description",
         content:
-          "Selected growth results: $1M+ ARR in year one, $350M+ pipeline revenue, $6M incremental revenue, and a $7M acquisition.",
+          "Fractional CMO Steve Peele II's selected growth results: $1M+ ARR in year one, $350M+ pipeline revenue, $6M incremental revenue, and a $7M acquisition.",
       },
-      { property: "og:title", content: "Results — Steve Peele II" },
+      { property: "og:title", content: "Results — Steve Peele II, Fractional CMO" },
       {
         property: "og:description",
-        content: "Selected growth marketing outcomes across SaaS, services, and ecommerce.",
+        content: "Selected growth marketing outcomes from a fractional CMO across SaaS, services, and ecommerce.",
       },
     ],
   }),

@@ -77,13 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Steve Peele II — Growth Marketing Executive" },
+      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
       {
         name: "description",
         content:
-          "Product-focused growth marketing executive with 14+ years scaling SaaS and tech companies.",
+          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing.",
       },
       { name: "author", content: "Steve Peele II" },
+      {
+        name: "keywords",
+        content:
+          "fractional cmo, fractional chief marketing officer, fractional cmo services, growth marketing, product marketing, GTM strategy, demand generation, SaaS marketing, Steve Peele II, Cincinnati",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

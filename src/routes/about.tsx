@@ -7,16 +7,16 @@ import { capabilities, education, profile } from "@/data/resume";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Steve Peele II" },
+      { title: "About — Steve Peele II, Fractional CMO" },
       {
         name: "description",
         content:
-          "Steve Peele II is a Cincinnati-based growth and product marketing leader focused on solving real customer problems and building brands that endure.",
+          "Steve Peele II is a Cincinnati-based fractional CMO and growth marketing leader focused on solving real customer problems and building brands that endure.",
       },
-      { property: "og:title", content: "About — Steve Peele II" },
+      { property: "og:title", content: "About — Steve Peele II, Fractional CMO" },
       {
         property: "og:description",
-        content: "A growth leader who pairs customer insight with the operations to scale it.",
+        content: "A fractional CMO and growth leader who pairs customer insight with the operations to scale it.",
       },
     ],
   }),

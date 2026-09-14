@@ -7,16 +7,16 @@ import { profile } from "@/data/resume";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Steve Peele II" },
+      { title: "Contact — Steve Peele II, Fractional CMO" },
       {
         name: "description",
         content:
-          "Reach Steve Peele II in Cincinnati, OH for fractional or full-time growth marketing leadership.",
+          "Reach fractional CMO Steve Peele II in Cincinnati, OH for fractional or full-time growth marketing leadership.",
       },
-      { property: "og:title", content: "Contact — Steve Peele II" },
+      { property: "og:title", content: "Contact — Steve Peele II, Fractional CMO" },
       {
         property: "og:description",
-        content: "Let's talk about fractional or full-time growth marketing leadership.",
+        content: "Let's talk about fractional CMO or full-time growth marketing leadership.",
       },
     ],
   }),
