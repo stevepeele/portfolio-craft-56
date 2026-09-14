@@ -246,7 +246,7 @@ export const portfolioProjects = [
   },
 ];
 
-export const recommendations = [
+export const featuredRecommendations = [
   {
     quote:
       "Steve is a very seasoned growth and ops expert. His ability to craft and implement strategies that effectively drive growth and optimize operations across email, paid media, social, and web experiences is incredible.",
@@ -290,6 +290,76 @@ export const recommendations = [
     relationship: "Managed Steve directly",
   },
 ];
+
+export const moreRecommendations = [
+  {
+    quote:
+      "Steve leads with empathy and a genuine passion for connecting people. His people-first approach and ability to create efficiencies in any tech-driven space — simplifying tools, reorganizing teams, or addressing process gaps — set him apart.",
+    name: "Nando Zegarra",
+    title: "Automation, AI & Digital Strategy",
+    relationship: "Worked with Steve on the same team",
+  },
+  {
+    quote:
+      "Steve was someone I knew I ABSOLUTELY could count on, no matter the situation, need, client, project. He was a stellar leader as the marketing team went through a hard transition. I would, without question, work with Steve again on any team.",
+    name: "Aubrey Wade",
+    title: "Business Strategy | Enterprise Delivery | Transformation",
+    relationship: "Worked with Steve on different teams",
+  },
+  {
+    quote:
+      "Steve provided clear guidance, great communication, and made me feel heard at all times. He went above and beyond identifying and seizing every opportunity to level up not only the company, but his team as well.",
+    name: "Kelsey Huffner",
+    title: "Social Media Marketing Manager",
+    relationship: "Reported to Steve directly",
+  },
+  {
+    quote:
+      "Steve is the epitome of a team player. As an expert in marketing and automation he stood up several of the systems we now use everyday and created campaigns to engage our clients. His passion and positive attitude are unparalleled.",
+    name: "Tom Shively",
+    title: "Head of Engagement at Rayse",
+    relationship: "Worked with Steve on different teams",
+  },
+  {
+    quote:
+      "Very few people bring the energy that Steve brings. His true passion to serve manifests through his work with an impact on the lives of clients and customers. He joined our team at a pivotal time and jumped in headfirst to deliver results.",
+    name: "Michael Davidovich",
+    title: "CEO @ API Nation",
+    relationship: "Managed Steve directly",
+  },
+  {
+    quote:
+      "One of the things I love the most about Steve is his experimentation orientation. He led our company through dozens of experiments to generate inbound demand, and I appreciate the diligence and zeal he brought to the job every day.",
+    name: "Ry Walker",
+    title: "Founder/CEO of Tembo",
+    relationship: "Senior to Steve",
+  },
+  {
+    quote:
+      "Steve brings great energy, expertise and strategy to any team looking to grow their digital presence. He does an excellent job immersing, understanding and furthering the business and is an absolute workhorse to get the job done.",
+    name: "Kyle Rentschler",
+    title: "Software Engineer",
+    relationship: "Worked with Steve on the same team",
+  },
+  {
+    quote:
+      "What sets Steve apart is his unique ability to maintain focus on objectives. Whenever Steve is on a team, he does an excellent job of keeping everyone on course. Efficient, focused, and driven — a proven, ambitious professional.",
+    name: "Harmony House",
+    title: "Neurodiversity Educator & Program Strategist",
+    relationship: "Worked with Steve at different companies",
+  },
+  {
+    quote:
+      "Steve has always been a hard-working and trustworthy guy. He is never afraid to do whatever it takes to get the job done. I would jump at the opportunity to have Steve on my team every single time.",
+    name: "Collin Browning",
+    title: "FP&A Leader | EMBA",
+    relationship: "Studied together",
+  },
+];
+
+export const recommendations = [...featuredRecommendations, ...moreRecommendations];
+
+export const capabilities = [
 
 export const capabilities = [
   {
