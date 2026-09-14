@@ -38,7 +38,7 @@ function Home() {
             <span className="text-gradient">builds real pipeline.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg text-muted-foreground">
-            I'm Steve Peele II — a product-focused growth marketing executive with 14+ years aligning
+            I'm Steve Peele II — a fractional CMO and growth marketing executive with 14+ years aligning
             marketing, product, and sales to drive adoption, lifecycle value, and durable revenue for
             SaaS and tech companies.
           </p>
