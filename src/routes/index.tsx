@@ -7,17 +7,17 @@ import { capabilities, caseHighlights, experience, heroStats, profile } from "@/
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Steve Peele II — Growth & Product Marketing Executive" },
+      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
       {
         name: "description",
         content:
-          "Growth and product marketing executive with 14+ years scaling SaaS and tech companies — $350M+ pipeline driven, multiple startup exits.",
+          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing. $350M+ pipeline driven.",
       },
-      { property: "og:title", content: "Steve Peele II — Growth & Product Marketing Executive" },
+      { property: "og:title", content: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
       {
         property: "og:description",
         content:
-          "14+ years scaling SaaS and tech companies through demand generation, GTM strategy, and marketing operations.",
+          "Fractional CMO and growth marketing leader with 14+ years scaling SaaS and tech companies — $350M+ pipeline driven, multiple startup exits.",
       },
     ],
   }),
