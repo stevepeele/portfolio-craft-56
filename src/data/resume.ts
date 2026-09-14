@@ -246,6 +246,51 @@ export const portfolioProjects = [
   },
 ];
 
+export const recommendations = [
+  {
+    quote:
+      "Steve is a very seasoned growth and ops expert. His ability to craft and implement strategies that effectively drive growth and optimize operations across email, paid media, social, and web experiences is incredible.",
+    name: "Jacob Bonta",
+    title: "Revenue Operations & Strategy Consultant",
+    relationship: "Worked with Steve on the same team",
+  },
+  {
+    quote:
+      "You will struggle to find someone more genuine, committed and caring than Steve. He has deep marketing operations expertise, is quick to praise and slow to judge, collaborates well and makes things happen.",
+    name: "Morgan McLintic",
+    title: "Firebrand — PR and Marketing Agency for Tech Brands",
+    relationship: "Steve was Morgan's client",
+  },
+  {
+    quote:
+      "Steve was our main client contact when he stepped into the VP of Marketing role. His focus and expertise was squarely in lead generation — he is always thinking of ways to improve on what has been done and brings a lot of energy to the team.",
+    name: "Robin Foster Bectel",
+    title: "Senior Vice President, Public Relations at REQ",
+    relationship: "Steve was Robin's client",
+  },
+  {
+    quote:
+      "I consider Steve the quintessential marketing guru, manager, and director built for the future of workforce leadership. His strategic thinking with regard to all things marketing is top notch, heads and shoulders above the rest.",
+    name: "Dan Pesta",
+    title: "Narrative-Focused Communications Leader",
+    relationship: "Worked with Steve on different teams",
+  },
+  {
+    quote:
+      "Steve's ability to generate demand effectively is something of an art form, gained through asking good questions, listening to both people and data, and relentlessly experimenting with new tactics and tools to achieve better results.",
+    name: "Laurel Brunk",
+    title: "Content Strategist and Startup Ops",
+    relationship: "Worked with Steve on the same team",
+  },
+  {
+    quote:
+      "Steve is a highly dynamic and experienced marketing technologist with an incredible work ethic. He can strategize around gaps and opportunities from 10,000 feet up, then dive in and get his hands dirty implementing everything.",
+    name: "David Pearce",
+    title: "Head of Data & Analytics at Conveyor",
+    relationship: "Managed Steve directly",
+  },
+];
+
 export const capabilities = [
   {
     title: "Growth & GTM Strategy",
