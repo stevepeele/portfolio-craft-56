@@ -7,16 +7,16 @@ import { awards, certifications, education, experience } from "@/data/resume";
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
-      { title: "Experience — Steve Peele II" },
+      { title: "Experience — Steve Peele II, Fractional CMO" },
       {
         name: "description",
         content:
-          "14+ years of growth marketing leadership across Launch by NTT DATA, Tixxy, Amify, Astronomer, Dotloop and more.",
+          "Fractional CMO Steve Peele II — 14+ years of growth marketing leadership across Launch by NTT DATA, Tixxy, Amify, Astronomer, Dotloop and more.",
       },
-      { property: "og:title", content: "Experience — Steve Peele II" },
+      { property: "og:title", content: "Experience — Steve Peele II, Fractional CMO" },
       {
         property: "og:description",
-        content: "Roles, results, certifications, and awards across 14+ years in SaaS growth marketing.",
+        content: "Roles, results, certifications, and awards across 14+ years as a fractional CMO in SaaS growth marketing.",
       },
     ],
   }),
