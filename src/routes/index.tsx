@@ -151,6 +151,42 @@ function Home() {
         </div>
       </section>
 
+      <section className="border-y border-border/60 bg-surface/40">
+        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow">LinkedIn recommendations</p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
+                What leaders and teammates say.
+              </h2>
+            </div>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              See all on LinkedIn <ArrowRight className="size-4" />
+            </a>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {recommendations.map((r) => (
+              <figure key={r.name} className="panel flex flex-col p-7">
+                <Quote className="size-6 text-primary" aria-hidden="true" />
+                <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  "{r.quote}"
+                </blockquote>
+                <figcaption className="mt-6 border-t border-border pt-5">
+                  <p className="font-display text-base font-bold">{r.name}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{r.title}</p>
+                  <p className="mt-1 text-xs text-muted-foreground/70">{r.relationship}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="hero-surface border-t border-border/60">
         <div className="mx-auto max-w-3xl px-5 py-24 text-center">
           <h2 className="text-4xl font-bold sm:text-5xl">Need a growth engine that lasts?</h2>
