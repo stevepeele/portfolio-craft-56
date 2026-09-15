@@ -6,7 +6,7 @@ export const profile = {
   email: "steve@stevepeeleii.com",
   linkedin: "https://linkedin.com/in/spii",
   website: "https://stevepeeleii.com",
-  booking: "https://meet.stevepeeleii.com",
+  booking: "https://meet.stevepeeleii.com/",
   summary:
     "Customer-driven growth and product marketing leader with 14+ years scaling SaaS and tech companies. Expert in aligning marketing, product, and sales strategies to drive customer adoption, lifecycle value, and sustainable revenue growth.",
 };
