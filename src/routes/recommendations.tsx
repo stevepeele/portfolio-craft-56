@@ -108,7 +108,7 @@ function RecommendationsPage() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href={profile.bookingUrl}
+            href={profile.booking}
             target="_blank"
             rel="noreferrer"
             className="btn-primary"

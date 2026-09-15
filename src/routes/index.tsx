@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { capabilities, caseHighlights, experience, heroStats, profile, recommendations } from "@/data/resume";
+import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations } from "@/data/resume";
 
 export const Route = createFileRoute("/")({
   head: () => ({
