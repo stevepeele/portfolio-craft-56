@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import {
   profile,
   recommendations,
@@ -63,6 +65,8 @@ function QuoteCard({
 
 function RecommendationsPage() {
   return (
+    <div>
+      <SiteHeader />
     <main className="mx-auto max-w-6xl px-5">
       {/* Hero */}
       <section className="py-20 text-center">
@@ -129,5 +133,7 @@ function RecommendationsPage() {
         </div>
       </section>
     </main>
+      <SiteFooter />
+    </div>
   );
 }
