@@ -26,6 +26,14 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
+          <a
+            href={profile.cv}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
+            Download CV
+          </a>
           <Link to="/portfolio" className="transition-colors hover:text-foreground">
             Portfolio
           </Link>

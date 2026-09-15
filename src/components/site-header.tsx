@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileDown } from "lucide-react";
+import { profile } from "@/data/resume";
 
 const links = [
   { to: "/experience", label: "Experience" },
