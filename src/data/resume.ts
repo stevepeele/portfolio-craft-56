@@ -360,8 +360,6 @@ export const moreRecommendations = [
 export const recommendations = [...featuredRecommendations, ...moreRecommendations];
 
 export const capabilities = [
-
-export const capabilities = [
   {
     title: "Growth & GTM Strategy",
     body: "Positioning, segmentation, and go-to-market plans that connect product value to the customers who feel the problem most.",
