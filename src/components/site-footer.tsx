@@ -29,6 +29,9 @@ export function SiteFooter() {
           <Link to="/portfolio" className="transition-colors hover:text-foreground">
             Portfolio
           </Link>
+          <Link to="/recommendations" className="transition-colors hover:text-foreground">
+            Recommendations
+          </Link>
           <Link to="/contact" className="transition-colors hover:text-foreground">
             Contact
           </Link>
