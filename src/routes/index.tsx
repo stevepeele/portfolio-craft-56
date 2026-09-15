@@ -160,17 +160,12 @@ function Home() {
                 What leaders and teammates say.
               </h2>
             </div>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
-              See all on LinkedIn <ArrowRight className="size-4" />
-            </a>
+            <Link to="/recommendations" className="btn-ghost">
+              See all recommendations <ArrowRight className="size-4" />
+            </Link>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {recommendations.map((r) => (
+            {featuredRecommendations.map((r) => (
               <figure key={r.name} className="panel flex flex-col p-7">
                 <Quote className="size-6 text-primary" aria-hidden="true" />
                 <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
