@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, FileDown } from "lucide-react";
-import { profile } from "@/data/resume";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/experience", label: "Experience" },
   { to: "/portfolio", label: "Portfolio" },
   { to: "/work", label: "Results" },
   { to: "/recommendations", label: "Recommendations" },
+  { to: "/advisory", label: "Advisory" },
+  { to: "/cv", label: "CV" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -22,7 +23,7 @@ export function SiteHeader() {
           Steve Peele <span className="text-gradient">II</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 md:flex">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -36,14 +37,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={profile.cv}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-ghost hidden !px-4 !py-2.5 md:inline-flex"
-          >
-            <FileDown className="size-4" /> CV
-          </a>
           <Link to="/contact" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
             Let's Talk
           </Link>
@@ -59,15 +52,6 @@ export function SiteHeader() {
 
       {open && (
         <nav className="border-t border-border/60 bg-background px-5 py-4 md:hidden">
-          <a
-            href={profile.cv}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setOpen(false)}
-            className="btn-ghost mb-4 inline-flex"
-          >
-            <FileDown className="size-4" /> Download CV
-          </a>
           <div className="flex flex-col gap-4">
             {links.map((l) => (
               <Link
