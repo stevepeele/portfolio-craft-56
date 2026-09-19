@@ -11,11 +11,18 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CvRouteImport } from './routes/cv'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
+import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
+import { Route as ServicesWebsiteBuildRouteImport } from './routes/services.website-build'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -27,9 +34,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvisoryRoute = AdvisoryRouteImport.update({
+  id: '/advisory',
+  path: '/advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CvRoute = CvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -47,77 +64,145 @@ const RecommendationsRoute = RecommendationsRouteImport.update({
   path: '/recommendations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGtmAuditRoute = ServicesGtmAuditRouteImport.update({
+  id: '/gtm-audit',
+  path: '/gtm-audit',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesLogisticsRoute = ServicesLogisticsRouteImport.update({
+  id: '/logistics',
+  path: '/logistics',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesWebsiteBuildRoute = ServicesWebsiteBuildRouteImport.update({
+  id: '/website-build',
+  path: '/website-build',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/services': typeof ServicesRouteWithChildren
   '/work': typeof WorkRoute
+  '/services/gtm-audit': typeof ServicesGtmAuditRoute
+  '/services/logistics': typeof ServicesLogisticsRoute
+  '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/work': typeof WorkRoute
+  '/services/gtm-audit': typeof ServicesGtmAuditRoute
+  '/services/logistics': typeof ServicesLogisticsRoute
+  '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/services': typeof ServicesRouteWithChildren
   '/work': typeof WorkRoute
+  '/services/gtm-audit': typeof ServicesGtmAuditRoute
+  '/services/logistics': typeof ServicesLogisticsRoute
+  '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/advisory'
     | '/contact'
+    | '/cv'
     | '/experience'
     | '/portfolio'
     | '/recommendations'
+    | '/services'
     | '/work'
+    | '/services/gtm-audit'
+    | '/services/logistics'
+    | '/services/website-build'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/advisory'
     | '/contact'
+    | '/cv'
     | '/experience'
     | '/portfolio'
     | '/recommendations'
     | '/work'
+    | '/services/gtm-audit'
+    | '/services/logistics'
+    | '/services/website-build'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/advisory'
     | '/contact'
+    | '/cv'
     | '/experience'
     | '/portfolio'
     | '/recommendations'
+    | '/services'
     | '/work'
+    | '/services/gtm-audit'
+    | '/services/logistics'
+    | '/services/website-build'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdvisoryRoute: typeof AdvisoryRoute
   ContactRoute: typeof ContactRoute
+  CvRoute: typeof CvRoute
   ExperienceRoute: typeof ExperienceRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   WorkRoute: typeof WorkRoute
 }
 
@@ -137,11 +222,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advisory': {
+      id: '/advisory'
+      path: '/advisory'
+      fullPath: '/advisory'
+      preLoaderRoute: typeof AdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cv': {
+      id: '/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof CvRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience': {
@@ -165,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecommendationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -172,16 +278,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/gtm-audit': {
+      id: '/services/gtm-audit'
+      path: '/gtm-audit'
+      fullPath: '/services/gtm-audit'
+      preLoaderRoute: typeof ServicesGtmAuditRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/logistics': {
+      id: '/services/logistics'
+      path: '/logistics'
+      fullPath: '/services/logistics'
+      preLoaderRoute: typeof ServicesLogisticsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/website-build': {
+      id: '/services/website-build'
+      path: '/website-build'
+      fullPath: '/services/website-build'
+      preLoaderRoute: typeof ServicesWebsiteBuildRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesGtmAuditRoute: typeof ServicesGtmAuditRoute
+  ServicesLogisticsRoute: typeof ServicesLogisticsRoute
+  ServicesWebsiteBuildRoute: typeof ServicesWebsiteBuildRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesGtmAuditRoute: ServicesGtmAuditRoute,
+  ServicesLogisticsRoute: ServicesLogisticsRoute,
+  ServicesWebsiteBuildRoute: ServicesWebsiteBuildRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdvisoryRoute: AdvisoryRoute,
   ContactRoute: ContactRoute,
+  CvRoute: CvRoute,
   ExperienceRoute: ExperienceRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
