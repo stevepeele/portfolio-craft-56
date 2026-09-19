@@ -42,7 +42,7 @@ function CvPage() {
                   {profile.summary}
                 </p>
               </div>
-              <a href={profile.cv} target="_blank" rel="noreferrer" className="btn-primary w-fit">
+              <a href={profile.cv} target="_blank" rel="noreferrer" suppressHydrationWarning className="btn-primary w-fit">
                 <Download className="size-4" /> Download CV
               </a>
             </div>
@@ -125,7 +125,7 @@ function CvPage() {
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Start with a direct conversation about the growth problem in front of you.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-primary">Let's Talk <ArrowRight className="size-4" /></Link>
-            <a href={profile.cv} target="_blank" rel="noreferrer" className="btn-ghost"><Download className="size-4" /> Download CV</a>
+            <a href={profile.cv} target="_blank" rel="noreferrer" suppressHydrationWarning className="btn-ghost"><Download className="size-4" /> Download CV</a>
           </div>
         </section>
       </main>
