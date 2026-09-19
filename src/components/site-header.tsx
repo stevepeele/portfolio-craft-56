@@ -23,7 +23,7 @@ export function SiteHeader() {
           Steve Peele <span className="text-gradient">II</span>
         </Link>
 
-        <nav className="hidden items-center gap-5 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -37,12 +37,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/contact" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
+          <Link to="/contact" className="btn-primary hidden !px-5 !py-2.5 lg:inline-flex">
             Let's Talk
           </Link>
           <button
             aria-label="Toggle menu"
-            className="rounded-md p-2 text-foreground md:hidden"
+            className="rounded-md p-2 text-foreground lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -51,7 +51,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 bg-background px-5 py-4 md:hidden">
+        <nav className="border-t border-border/60 bg-background px-5 py-4 lg:hidden">
           <div className="flex flex-col gap-4">
             {links.map((l) => (
               <Link
