@@ -30,6 +30,7 @@ export function SiteFooter() {
             href={profile.cv}
             target="_blank"
             rel="noreferrer"
+            suppressHydrationWarning
             className="transition-colors hover:text-foreground"
           >
             Download CV
@@ -39,6 +40,12 @@ export function SiteFooter() {
           </Link>
           <Link to="/recommendations" className="transition-colors hover:text-foreground">
             Recommendations
+          </Link>
+          <Link to="/advisory" className="transition-colors hover:text-foreground">
+            Advisory
+          </Link>
+          <Link to="/cv" className="transition-colors hover:text-foreground">
+            View CV
           </Link>
           <Link to="/contact" className="transition-colors hover:text-foreground">
             Contact
