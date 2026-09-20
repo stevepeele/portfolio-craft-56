@@ -1,32 +1,26 @@
 # Identity-led homepage entrance and connected pathways
 
 ## Goal
-Turn the first visit to `stevepeeleii.com` into a brief, memorable identity-selection experience that reveals Steve’s different modes of work without blocking the fully loaded homepage. Build first-class SPIIX, consulting, and music pathways inside the main site, while preserving clear bridges to their related subdomains.
+Turn the first visit to `stevepeeleii.com` into a brief, sophisticated intent-selection experience that responds to what the visitor needs or is curious about without blocking the fully loaded homepage. Build first-class SPIIX, consulting, and music pathways inside the main site, while preserving clear bridges to their related subdomains.
 
 ## Homepage entrance
 - Add a full-viewport, accessible entrance layer over the already-rendered homepage, following the selected **Editorial identity selector** direction.
-- Lead with an original, self-aware question in the spirit of “So, who am I to you?” and six polished identity choices:
-  - Growth builder
-  - Experimental challenger
-  - Executive operator / proof maker
-  - Mentor and listener
-  - Thinker and sharer
-  - Artist and performer
-- Give every choice a short, human teaser and a visible destination cue; avoid service-card language.
-- Map choices intentionally:
-  - Growth builder → Results
-  - Experimental challenger → SPIIX Advisory
-  - Executive operator → Experience
-  - Mentor and listener → SPIIX Advisory
-  - Thinker and sharer → About
-  - Artist and performer → Music
+- Lead with a concise, adult question such as “What brings you here?” or “Where does your curiosity lead?” rather than asking visitors to label Steve.
+- Frame six polished choices around visitor intent:
+  - I need growth to work → Results
+  - I need a sharper point of view → SPIIX Advisory
+  - I want to see the proof → Experience
+  - I could use an experienced sounding board → SPIIX Advisory
+  - I’m here for the ideas → About
+  - I’m curious about the music → Music
+- Give every choice a short, human teaser and a visible destination cue; avoid archetypes, gimmicks, quizzes, and service-card language.
 - Add **Meet Steve** to enter the homepage and a separate **Don’t show this again** action that permanently remembers the choice in that browser.
 - Keep the entrance dismissible with Escape, keyboard navigable, focus-trapped while open, correctly announced to assistive technology, and restored only if browser storage is cleared.
 
 ## Motion and visual treatment
 - Preserve the site’s deep navy/electric-blue system, but add a sharper editorial and liner-notes character instead of changing the whole brand.
 - Animate the main question with restrained typographic movement and a subtle cursor/focus-responsive treatment; do not distort readability.
-- Let the six identities respond through precise focus, underline, edge-light, and copy transitions rather than large visual effects.
+- Let the six intentions respond through precise focus, underline, edge-light, and copy transitions rather than large visual effects.
 - Choreograph entry and dismissal quickly, lock background scrolling while open, and provide a complete reduced-motion fallback.
 - Create a compact mobile composition that fits the selection flow without clipped controls or inaccessible scrolling.
 
