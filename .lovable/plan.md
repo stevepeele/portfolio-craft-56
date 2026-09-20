@@ -45,6 +45,12 @@ Turn the first visit to `stevepeeleii.com` into a brief, sophisticated intent-se
 - Review Advisory and Services metadata and link language so SPIIX and consulting intent are distinct.
 - Update shared footer pathways and ensure all internal destinations use native site navigation.
 
+## Holistic polish and repair pass
+- Review the complete public experience—not only the new entrance—for visual consistency, concise copy, spacing, hierarchy, responsive behavior, and clear next actions.
+- Keep the result premium and expressive without adding decorative complexity, unnecessary screens, or new product features.
+- Exercise every visible navigation item, button, form action, modal behavior, external link, and mobile menu; repair any broken, dead, misleading, or inconsistent interaction found.
+- Resolve current route and metadata inconsistencies, including legacy links that compete with the new pathways, while preserving valid public URLs.
+
 ## Technical details
 - Implement the entrance as a client-safe React component mounted only on the homepage.
 - Read dismissal state after hydration to avoid server/client mismatch; store only the permanent dismissal flag locally and no personal data.
@@ -55,4 +61,5 @@ Turn the first visit to `stevepeeleii.com` into a brief, sophisticated intent-se
 - Verify first visit, Meet Steve, each identity selection, Escape, focus trapping, browser refresh, and permanent dismissal behavior.
 - Verify desktop and mobile layouts, reduced motion, scroll locking, touch targets, and no text overlap.
 - Verify `/music`, `/advisory`, `/services`, all shared navigation links, related-property links, and CTA destinations.
+- Test every current public route and interactive control, not only newly edited screens, and fix failures before completion.
 - Confirm every content route has complete unique metadata, then check the final build, runtime logs, browser console, and network requests.
