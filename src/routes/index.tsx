@@ -49,6 +49,9 @@ function Home() {
             <Link to="/experience" className="btn-ghost">
               View experience
             </Link>
+            <Link to="/advisory" className="btn-ghost">
+              Advisory & mentorship
+            </Link>
           </div>
         </div>
       </section>
@@ -117,6 +120,35 @@ function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+        <p className="eyebrow">Ways to work with me</p>
+        <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
+          Two ways in, depending on what you need.
+        </h2>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <article className="panel flex flex-col p-7">
+            <h3 className="font-display text-2xl font-bold">SPIIX advisory & mentorship</h3>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+              Ongoing advisory for founders, new marketing leaders, and operators building a growth
+              engine that has to keep working after the call ends.
+            </p>
+            <Link to="/advisory" className="btn-ghost mt-6 w-fit">
+              Explore advisory <ArrowRight className="size-4" />
+            </Link>
+          </article>
+          <article className="panel flex flex-col p-7">
+            <h3 className="font-display text-2xl font-bold">Fixed-scope offers</h3>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+              Clear, bounded engagements — a GTM and funnel audit, a conversion-focused website
+              build, or ongoing digital presence management.
+            </p>
+            <Link to="/services" className="btn-ghost mt-6 w-fit">
+              See the offers <ArrowRight className="size-4" />
+            </Link>
+          </article>
         </div>
       </section>
 
@@ -192,6 +224,9 @@ function Home() {
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
+            </Link>
+            <Link to="/advisory" className="btn-ghost">
+              Start an advisory conversation
             </Link>
             <a href={`mailto:${profile.email}`} className="btn-ghost">
               {profile.email}

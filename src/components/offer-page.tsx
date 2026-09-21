@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Mail, Phone } from "lucide-react";
 import { CheckList, HowItRuns, Pricing, StatRow } from "@/components/offer-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { offerEntity, type Offer } from "@/data/offers";
+import { offerEntity, offers, type Offer } from "@/data/offers";
 import { profile } from "@/data/resume";
 
 export function OfferPage({ offer }: { offer: Offer }) {
@@ -59,6 +59,34 @@ export function OfferPage({ offer }: { offer: Offer }) {
                 <Phone className="size-4" /> {offerEntity.phone}
               </a>
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-5 py-20">
+          <p className="eyebrow">Keep looking</p>
+          <h2 className="mt-4 text-3xl font-bold">Other ways I can help.</h2>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {offers
+              .filter((o) => o.slug !== offer.slug)
+              .map((o) => (
+                <article key={o.slug} className="panel flex flex-col p-7">
+                  <h3 className="font-display text-xl font-bold">{o.name}</h3>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{o.summary}</p>
+                  <Link to={`/services/${o.slug}`} className="btn-ghost mt-6 w-fit">
+                    View the offer <ArrowRight className="size-4" />
+                  </Link>
+                </article>
+              ))}
+            <article className="panel flex flex-col p-7">
+              <h3 className="font-display text-xl font-bold">SPIIX advisory & mentorship</h3>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                Ongoing advisory for founders and marketing leaders who need a second set of eyes on
+                the whole growth engine.
+              </p>
+              <Link to="/advisory" className="btn-ghost mt-6 w-fit">
+                Explore advisory <ArrowRight className="size-4" />
+              </Link>
+            </article>
           </div>
         </section>
       </main>

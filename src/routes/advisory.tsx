@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { HowItRuns, Pricing, StatRow } from "@/components/offer-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { advisory } from "@/data/offers";
+import { advisory, offers } from "@/data/offers";
 import { profile } from "@/data/resume";
 
 export const Route = createFileRoute("/advisory")({
@@ -69,11 +69,30 @@ function AdvisoryPage() {
           </div>
         </section>
 
+        <section className="border-y border-border/60 bg-surface/40">
+          <div className="mx-auto max-w-6xl px-5 py-20">
+            <p className="eyebrow">If you'd rather start with one project</p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">Fixed-scope offers.</h2>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {offers.map((offer) => (
+                <article key={offer.slug} className="panel flex flex-col p-7">
+                  <p className="eyebrow">{offer.eyebrow}</p>
+                  <h3 className="mt-4 font-display text-xl font-bold">{offer.name}</h3>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{offer.summary}</p>
+                  <Link to={`/services/${offer.slug}`} className="btn-ghost mt-6 w-fit">
+                    View the offer <ArrowRight className="size-4" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="hero-surface border-t border-border/60">
           <div className="mx-auto max-w-3xl px-5 py-20 text-center">
             <h2 className="text-4xl font-bold">Bring the hard problem.</h2>
             <p className="mx-auto mt-5 max-w-xl text-muted-foreground">We'll find the real constraint and the next useful move.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3"><a href={profile.booking} target="_blank" rel="noreferrer" className="btn-primary">Request an advisory conversation <ArrowRight className="size-4" /></a><a href={`mailto:${profile.email}`} className="btn-ghost">Email Steve</a></div>
+            <div className="mt-8 flex flex-wrap justify-center gap-3"><a href={profile.booking} target="_blank" rel="noreferrer" className="btn-primary">Request an advisory conversation <ArrowRight className="size-4" /></a><a href={`mailto:${profile.email}`} className="btn-ghost">Email Steve</a><Link to="/contact" className="btn-ghost">All the ways to reach me</Link></div>
           </div>
         </section>
       </main>
