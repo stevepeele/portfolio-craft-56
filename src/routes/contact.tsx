@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Linkedin, Mail, MapPin, Phone, Globe, CalendarClock } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -81,6 +81,30 @@ function ContactPage() {
           <a href={`mailto:${profile.email}`} className="btn-primary">
             Email me directly
           </a>
+        </div>
+
+        <div className="mt-20 border-t border-border pt-12">
+          <p className="eyebrow text-center">Before you write — what are you here for?</p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            <Link to="/advisory" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">Advisory & mentorship</span>
+              <span className="mt-2 block text-sm text-muted-foreground">
+                Ongoing help building a growth engine that keeps working.
+              </span>
+            </Link>
+            <Link to="/services" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">Fixed-scope offers</span>
+              <span className="mt-2 block text-sm text-muted-foreground">
+                A GTM audit, a website build, or ongoing digital presence.
+              </span>
+            </Link>
+            <Link to="/work" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">The proof</span>
+              <span className="mt-2 block text-sm text-muted-foreground">
+                Results, pipeline, and the work behind the numbers.
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
