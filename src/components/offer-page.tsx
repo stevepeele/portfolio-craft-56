@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Mail, Phone } from "lucide-react";
 import { CheckList, HowItRuns, Pricing, StatRow } from "@/components/offer-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { offerEntity, type Offer } from "@/data/offers";
+import { offerEntity, offers, type Offer } from "@/data/offers";
 import { profile } from "@/data/resume";
 
 export function OfferPage({ offer }: { offer: Offer }) {

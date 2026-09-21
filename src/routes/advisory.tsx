@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { HowItRuns, Pricing, StatRow } from "@/components/offer-sections";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { advisory } from "@/data/offers";
+import { advisory, offers } from "@/data/offers";
 import { profile } from "@/data/resume";
 
 export const Route = createFileRoute("/advisory")({
