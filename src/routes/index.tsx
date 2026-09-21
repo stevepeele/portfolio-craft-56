@@ -49,6 +49,9 @@ function Home() {
             <Link to="/experience" className="btn-ghost">
               View experience
             </Link>
+            <Link to="/advisory" className="btn-ghost">
+              Advisory & mentorship
+            </Link>
           </div>
         </div>
       </section>
