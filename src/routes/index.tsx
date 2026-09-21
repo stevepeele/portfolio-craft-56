@@ -152,8 +152,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-surface/40">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Career track</p>
