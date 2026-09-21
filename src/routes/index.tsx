@@ -225,6 +225,9 @@ function Home() {
             <Link to="/contact" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
             </Link>
+            <Link to="/advisory" className="btn-ghost">
+              Start an advisory conversation
+            </Link>
             <a href={`mailto:${profile.email}`} className="btn-ghost">
               {profile.email}
             </a>
