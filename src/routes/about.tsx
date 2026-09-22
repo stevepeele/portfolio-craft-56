@@ -56,6 +56,13 @@ function AboutPage() {
             {education.school} still shapes how I approach it: instrument everything, test, then
             scale what works.
           </p>
+          <p>
+            And there's the music. I've played guitar and written music my whole adult life —
+            currently with ColdHarbour, and a long creative history before that.{" "}
+            <Link to="/music" className="font-medium text-primary hover:underline">
+              The other practice lives here.
+            </Link>
+          </p>
         </div>
 
         <div className="panel mt-14 p-8">
