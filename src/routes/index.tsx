@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { Entrance } from "@/components/entrance";
 import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations } from "@/data/resume";
 
 export const Route = createFileRoute("/")({
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="min-h-screen">
+      <Entrance />
       <SiteHeader />
 
       <section className="hero-surface relative overflow-hidden">
