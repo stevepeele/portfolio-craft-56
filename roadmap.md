@@ -5,3 +5,5 @@
 - [x] Build the unlisted services overview and three detailed offer pages with internal offer links.
 - [x] Verify metadata, navigation, responsive rendering, and current preview health.
 - [x] Wire the SPIIX pathway across home, advisory, offers, and contact with internal links.
+- [x] Build the Music page with band photo slots, five projects, and accessible band modals.
+- [x] Build the homepage entrance overlay with five need-based identity paths.

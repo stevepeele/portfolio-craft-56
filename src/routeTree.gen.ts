@@ -15,6 +15,7 @@ import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -52,6 +53,11 @@ const CvRoute = CvRouteImport.update({
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
   path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicRoute = MusicRouteImport.update({
+  id: '/music',
+  path: '/music',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
+  '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
+  '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/work': typeof WorkRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/experience': typeof ExperienceRoute
+  '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/experience'
+    | '/music'
     | '/portfolio'
     | '/recommendations'
     | '/services'
@@ -168,6 +178,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/experience'
+    | '/music'
     | '/portfolio'
     | '/recommendations'
     | '/work'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/experience'
+    | '/music'
     | '/portfolio'
     | '/recommendations'
     | '/services'
@@ -200,6 +212,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
   ExperienceRoute: typeof ExperienceRoute
+  MusicRoute: typeof MusicRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
@@ -248,6 +261,13 @@ declare module '@tanstack/react-router' {
       path: '/experience'
       fullPath: '/experience'
       preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music': {
+      id: '/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -334,6 +354,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
   ExperienceRoute: ExperienceRoute,
+  MusicRoute: MusicRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
   ServicesRoute: ServicesRouteWithChildren,

@@ -44,6 +44,9 @@ export function SiteFooter() {
           <Link to="/advisory" className="transition-colors hover:text-foreground">
             Advisory
           </Link>
+          <Link to="/music" className="transition-colors hover:text-foreground">
+            Music
+          </Link>
           <Link to="/cv" className="transition-colors hover:text-foreground">
             View CV
           </Link>
