@@ -85,7 +85,7 @@ function ContactPage() {
 
         <div className="mt-20 border-t border-border pt-12">
           <p className="eyebrow text-center">Before you write — what are you here for?</p>
-          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
             <Link to="/advisory" className="panel p-6 transition-colors hover:border-primary">
               <span className="block font-display text-lg font-bold">Advisory & mentorship</span>
               <span className="mt-2 block text-sm text-muted-foreground">
@@ -102,6 +102,12 @@ function ContactPage() {
               <span className="block font-display text-lg font-bold">The proof</span>
               <span className="mt-2 block text-sm text-muted-foreground">
                 Results, pipeline, and the work behind the numbers.
+              </span>
+            </Link>
+            <Link to="/music" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">Music</span>
+              <span className="mt-2 block text-sm text-muted-foreground">
+                ColdHarbour, Vacillantes, shows, and collaborations.
               </span>
             </Link>
           </div>

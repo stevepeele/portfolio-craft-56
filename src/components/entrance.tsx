@@ -13,32 +13,34 @@ type Path = {
 
 const paths: Path[] = [
   {
-    need: "I need growth to work",
-    destination: "The growth leader — pipeline, revenue, proof",
-    to: null,
+    need: "The persistent growth operator",
+    destination: "Pipeline, revenue, and the numbers behind them",
+    to: "/work",
   },
   {
-    need: "I could use a sounding board",
-    destination: "SPIIX advisory & mentorship",
-    to: "/advisory",
-    external: "spiix.stevepeeleii.com",
-  },
-  {
-    need: "I need something built",
-    destination: "Fixed-scope builds & consulting",
+    need: "The experimental rule breaker",
+    destination: "Audits, builds, and fixed-scope fixes",
     to: "/services",
-    external: "build.stevepeeleii.com",
   },
   {
-    need: "I'm here for the music",
-    destination: "Bands, records, the creative practice",
+    need: "The executive leader and proof maker",
+    destination: "Fourteen years of companies, roles, and outcomes",
+    to: "/experience",
+  },
+  {
+    need: "The mentor and listener",
+    destination: "SPIIX advisory for leaders making hard calls",
+    to: "/advisory",
+  },
+  {
+    need: "The thinker and sharer",
+    destination: "How I think about growth, systems, and people",
+    to: "/about",
+  },
+  {
+    need: "The artist and performer",
+    destination: "ColdHarbour, Vacillantes, and the creative practice",
     to: "/music",
-    external: "music.stevepeeleii.com",
-  },
-  {
-    need: "Show me the credentials",
-    destination: "The full CV, no small talk",
-    to: "/cv",
   },
 ];
 
@@ -125,14 +127,14 @@ export function Entrance() {
           </button>
         </div>
 
-        <p className="eyebrow text-center">Before you wander</p>
+        <p className="eyebrow text-center">Pick a side</p>
         <h2
           id="entrance-title"
           className="mt-4 text-center text-4xl leading-[1.05] font-bold sm:text-5xl"
         >
           So, who am I?
           <br />
-          <span className="text-gradient">Depends what you need.</span>
+          <span className="text-gradient">Depends which one you came for.</span>
         </h2>
 
         <div className="mt-10 space-y-2.5">
@@ -145,12 +147,7 @@ export function Entrance() {
             >
               <div>
                 <p className="font-display text-base font-bold sm:text-lg">{p.need}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-                  {p.destination}
-                  {p.external ? (
-                    <span className="text-muted-foreground/60"> · {p.external}</span>
-                  ) : null}
-                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">{p.destination}</p>
               </div>
               <ArrowRight className="size-5 shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
             </button>
@@ -160,10 +157,7 @@ export function Entrance() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
           <button
             type="button"
-            onClick={() => {
-              dismissForever();
-              navigate({ to: "/about" });
-            }}
+            onClick={close}
             className="font-medium text-foreground hover:underline"
           >
             Meet Steve
@@ -173,7 +167,7 @@ export function Entrance() {
             onClick={dismissForever}
             className="text-muted-foreground hover:text-foreground"
           >
-            Just looking around — don't show this again
+            Don't show this again
           </button>
         </div>
       </div>
