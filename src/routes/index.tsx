@@ -128,9 +128,9 @@ function Home() {
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <p className="eyebrow">Ways to work with me</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
-          Two ways in, depending on what you need.
+          Three ways in, depending on what you need.
         </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           <article className="panel flex flex-col p-7">
             <h3 className="font-display text-2xl font-bold">SPIIX advisory & mentorship</h3>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -149,6 +149,16 @@ function Home() {
             </p>
             <Link to="/services" className="btn-ghost mt-6 w-fit">
               See the offers <ArrowRight className="size-4" />
+            </Link>
+          </article>
+          <article className="panel flex flex-col p-7">
+            <h3 className="font-display text-2xl font-bold">Music</h3>
+            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+              Guitar for ColdHarbour and a long run with Vacillantes. Same discipline, louder —
+              and open to collaborations, shows, and shop talk.
+            </p>
+            <Link to="/music" className="btn-ghost mt-6 w-fit">
+              Explore the music <ArrowRight className="size-4" />
             </Link>
           </article>
         </div>
