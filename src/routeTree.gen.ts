@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
+import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
@@ -48,6 +49,11 @@ const ContactRoute = ContactRouteImport.update({
 const CvRoute = CvRouteImport.update({
   id: '/cv',
   path: '/cv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemandCurveAnalysisRoute = DemandCurveAnalysisRouteImport.update({
+  id: '/demand-curve-analysis',
+  path: '/demand-curve-analysis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
+  '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/cv'
+    | '/demand-curve-analysis'
     | '/experience'
     | '/music'
     | '/portfolio'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/cv'
+    | '/demand-curve-analysis'
     | '/experience'
     | '/music'
     | '/portfolio'
@@ -193,6 +204,7 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/cv'
+    | '/demand-curve-analysis'
     | '/experience'
     | '/music'
     | '/portfolio'
@@ -211,6 +223,7 @@ export interface RootRouteChildren {
   AdvisoryRoute: typeof AdvisoryRoute
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
+  DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
   ExperienceRoute: typeof ExperienceRoute
   MusicRoute: typeof MusicRoute
   PortfolioRoute: typeof PortfolioRoute
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/cv'
       fullPath: '/cv'
       preLoaderRoute: typeof CvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demand-curve-analysis': {
+      id: '/demand-curve-analysis'
+      path: '/demand-curve-analysis'
+      fullPath: '/demand-curve-analysis'
+      preLoaderRoute: typeof DemandCurveAnalysisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience': {
@@ -353,6 +373,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdvisoryRoute: AdvisoryRoute,
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
+  DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
   ExperienceRoute: ExperienceRoute,
   MusicRoute: MusicRoute,
   PortfolioRoute: PortfolioRoute,
