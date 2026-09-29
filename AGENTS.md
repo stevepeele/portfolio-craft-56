@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep independent company analyses on unlisted, noindex leaf routes with explicit non-affiliation language so editorial work remains distinct from the main portfolio.
+- Use native CSS view-timeline reveals for restrained site-wide motion; this keeps interaction lightweight, hydration-safe, and reduced-motion aware.

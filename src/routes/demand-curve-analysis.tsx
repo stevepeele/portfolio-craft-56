@@ -13,7 +13,7 @@ import {
   Scale,
   Target,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const pageUrl = "https://stevepeeleii.com/demand-curve-analysis";
@@ -87,6 +87,31 @@ const segmentRows = [
   ["Enterprise", "Demand generation", "Qualification", "Pipeline + revenue"],
 ] as const;
 
+function useActiveSection() {
+  const [activeSection, setActiveSection] = useState<string>(sections[0].id);
+
+  useEffect(() => {
+    const elements = sections
+      .map((section) => document.getElementById(section.id))
+      .filter((element): element is HTMLElement => element !== null);
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-18% 0px -62%", threshold: [0, 0.2, 0.5] },
+    );
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
+  return activeSection;
+}
+
 function ReadingProgress() {
   const [progress, setProgress] = useState(0);
 
@@ -151,7 +176,7 @@ function DetailBlock({
   accent?: boolean;
 }) {
   return (
-    <div className={accent ? "border-l-2 border-primary pl-5" : "border-l border-border pl-5"}>
+    <div className={`min-w-0 ${accent ? "border-l-2 border-primary pl-5" : "border-l border-border pl-5"}`}>
       <h3 className="text-xs font-bold tracking-[0.16em] text-muted-foreground uppercase">{title}</h3>
       <div className="mt-3 text-[0.98rem] leading-7 text-foreground/85">{children}</div>
     </div>
@@ -189,7 +214,7 @@ function Opportunity({
   closing?: React.ReactNode;
 }) {
   return (
-    <article className="border-t border-border py-14 first:border-t-0 first:pt-0 sm:py-20">
+    <article className="min-w-0 border-t border-border py-14 first:border-t-0 first:pt-0 sm:py-20">
       <SectionLabel number={number}>Opportunity</SectionLabel>
       <h2 className="mt-5 max-w-4xl text-3xl font-bold sm:text-4xl">{title}</h2>
       <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -212,8 +237,27 @@ function Opportunity({
 }
 
 function DemandCurveAnalysis() {
+  const activeSection = useActiveSection();
+  const loopRef = useRef<HTMLOListElement>(null);
+  const [loopActive, setLoopActive] = useState(false);
+
+  useEffect(() => {
+    const element = loopRef.current;
+    if (!element || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setLoopActive(true);
+        observer.disconnect();
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen overflow-x-clip bg-background">
       <ReadingProgress />
       <AnalysisHeader />
 
@@ -259,6 +303,28 @@ function DemandCurveAnalysis() {
           </div>
         </section>
 
+        <nav
+          className="sticky top-16 z-40 overflow-x-auto border-b border-border/60 bg-background/90 px-5 backdrop-blur-xl lg:hidden"
+          aria-label="Analysis sections"
+        >
+          <ol className="mx-auto flex w-max min-w-full gap-6 py-4 text-xs font-semibold whitespace-nowrap">
+            {sections.map((section, index) => {
+              const active = activeSection === section.id;
+              return (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    aria-current={active ? "location" : undefined}
+                    className={active ? "text-primary" : "text-muted-foreground transition-colors hover:text-foreground"}
+                  >
+                    0{index + 1} {section.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+
         <div className="mx-auto max-w-7xl px-5">
           <div className="grid gap-12 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-20">
             <aside className="hidden lg:block">
@@ -271,7 +337,8 @@ function DemandCurveAnalysis() {
                     <li key={section.id}>
                       <a
                         href={`#${section.id}`}
-                        className="flex gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        aria-current={activeSection === section.id ? "location" : undefined}
+                        className={`flex gap-3 text-sm transition-colors hover:text-foreground ${activeSection === section.id ? "text-foreground" : "text-muted-foreground"}`}
                       >
                         <span className="font-display text-xs text-primary">0{index + 1}</span>
                         {section.label}
@@ -310,9 +377,15 @@ function DemandCurveAnalysis() {
 
                 <div className="mt-16 border-y border-border py-8">
                   <p className="eyebrow">The operating loop</p>
-                  <ol className="mt-7 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3 xl:grid-cols-6">
+                  <ol ref={loopRef} className="mt-7 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3 xl:grid-cols-6">
                     {framework.map((item, index) => (
-                      <li key={item.label} className="relative bg-background p-5">
+                      <li
+                        key={item.label}
+                        tabIndex={0}
+                        data-active={loopActive}
+                        className="analysis-loop-node relative bg-background p-5 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
+                        style={{ "--loop-delay": `${index * 70}ms` } as React.CSSProperties}
+                      >
                         <item.icon className="size-5 text-primary" aria-hidden="true" />
                         <span className="mt-5 block text-xs text-muted-foreground">0{index + 1}</span>
                         <span className="mt-1 block text-sm font-semibold">{item.label}</span>
@@ -444,7 +517,7 @@ function DemandCurveAnalysis() {
                       </p>
                     }
                     experiment={
-                      <div className="overflow-x-auto">
+                      <div className="max-w-full overflow-x-auto overscroll-x-contain">
                         <table className="w-full min-w-[34rem] text-left text-sm">
                           <thead>
                             <tr className="border-b border-border text-xs text-muted-foreground uppercase">
@@ -619,7 +692,7 @@ function DemandCurveAnalysis() {
                       items: ["Expand from pages to conversion systems", "Build the proprietary learning loop", "Tie experiments to revenue economics"],
                     },
                   ].map((item, index) => (
-                    <article key={item.phase} className="bg-surface p-7 sm:p-8">
+                    <article key={item.phase} className="interactive-lift bg-surface p-7 sm:p-8">
                       <span className="font-display text-4xl font-bold text-gradient">0{index + 1}</span>
                       <h3 className="mt-5 text-2xl font-bold">{item.phase}</h3>
                       <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
