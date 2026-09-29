@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep independent company analyses on unlisted, noindex leaf routes with explicit non-affiliation language so editorial work remains distinct from the main portfolio.
+- Use the shared IntersectionObserver-based scroll motion layer for restrained site-wide reveals; this keeps motion consistent, lightweight, and reduced-motion safe.
