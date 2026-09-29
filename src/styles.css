@@ -154,12 +154,34 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html[data-motion="ready"] [data-reveal]:not([data-revealed="true"]) {
+  @supports (animation-timeline: view()) {
+    main section h1,
+    main section h2,
+    main section article,
+    main section .panel,
+    main section [data-reveal] {
+      animation: editorial-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 28%;
+    }
+  }
+
+  @supports not (animation-timeline: view()) {
+    main section h1,
+    main section h2,
+    main section article,
+    main section .panel,
+    main section [data-reveal] {
+      animation: editorial-reveal 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+
+  .motion-staged {
     opacity: 0;
     transform: translateY(18px);
   }
 
-  html[data-motion="ready"] [data-reveal][data-revealed="true"] {
+  .motion-staged[data-visible="true"] {
     animation: editorial-reveal 520ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) both;
   }
 
