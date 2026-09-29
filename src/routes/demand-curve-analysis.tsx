@@ -88,7 +88,7 @@ const segmentRows = [
 ] as const;
 
 function useActiveSection() {
-  const [activeSection, setActiveSection] = useState(sections[0].id);
+  const [activeSection, setActiveSection] = useState<string>(sections[0].id);
 
   useEffect(() => {
     const elements = sections
