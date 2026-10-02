@@ -1,3 +1,9 @@
+import coldharbourArt from "@/assets/music/coldharbour.jpg";
+import vacillantesArt from "@/assets/music/vacillantes.jpg";
+import untilArt from "@/assets/music/until-the-dead-walk.jpg";
+import graveArt from "@/assets/music/grave-friends.jpg";
+import wastedArt from "@/assets/music/wasted-away.jpg";
+
 export type MusicProject = {
   id: string;
   name: string;
@@ -7,6 +13,8 @@ export type MusicProject = {
   description: string;
   influence: string[];
   links: { label: string; href: string }[];
+  /** Editorial generated artwork; replace with official imagery when supplied. */
+  image: string;
 };
 
 export const musicIntro = {
@@ -33,6 +41,7 @@ export const sharedThreads = [
 export const musicProjects: MusicProject[] = [
   {
     id: "coldharbour",
+    image: coldharbourArt,
     name: "ColdHarbour",
     role: "Guitar",
     status: "Current",
@@ -47,6 +56,7 @@ export const musicProjects: MusicProject[] = [
   },
   {
     id: "vacillantes",
+    image: vacillantesArt,
     name: "Vacillantes",
     status: "Past",
     tagline: "A long-running creative history.",
@@ -60,6 +70,7 @@ export const musicProjects: MusicProject[] = [
   },
   {
     id: "until-the-dead-walk",
+    image: untilArt,
     name: "Until the Dead Walk",
     status: "Past",
     tagline: "Heavy, deliberate, committed.",
@@ -71,6 +82,7 @@ export const musicProjects: MusicProject[] = [
   },
   {
     id: "grave-friends",
+    image: graveArt,
     name: "Grave Friends",
     status: "Past",
     tagline: "Friends first, volume second.",
@@ -82,6 +94,7 @@ export const musicProjects: MusicProject[] = [
   },
   {
     id: "wasted-away",
+    image: wastedArt,
     name: "Wasted Away",
     status: "Past",
     tagline: "An early chapter.",

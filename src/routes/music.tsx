@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Guitar, Music2, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Music2, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
@@ -54,8 +54,8 @@ function MusicPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <p className="eyebrow">Projects</p>
+      <section id="projects" className="scroll-mt-28 mx-auto max-w-6xl px-5 py-20 sm:py-28">
+        <p className="eyebrow">Music / Projects</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
           Five bands. One through-line: show up and make the thing.
         </h2>
@@ -68,20 +68,19 @@ function MusicPage() {
               className="panel group flex flex-col p-0 text-left transition-colors hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               aria-haspopup="dialog"
             >
-              <div className="flex aspect-[4/3] items-center justify-center rounded-t-[inherit] border-b border-border/60 bg-surface-raised">
-                <div className="text-center">
-                  <Guitar
-                    className="mx-auto size-10 text-muted-foreground/50 transition-colors group-hover:text-primary"
-                    aria-hidden="true"
-                  />
-                  <p className="mt-3 font-display text-lg font-bold">{p.name}</p>
-                  <p className="mt-1 text-xs tracking-widest text-muted-foreground uppercase">
-                    Photo coming soon
-                  </p>
-                </div>
+              <div className="aspect-square overflow-hidden rounded-t-[inherit] border-b border-border/60 bg-surface-raised">
+                <img
+                  src={p.image}
+                  alt={`Editorial artwork for ${p.name}`}
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center gap-2">
+                <h3 className="font-display text-xl font-bold">{p.name}</h3>
+                <div className="mt-2 flex items-center gap-2">
                   <span
                     className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${
                       p.status === "Current"
@@ -168,7 +167,15 @@ function MusicPage() {
         <DialogContent className="max-w-lg">
           {active ? (
             <>
+              <img
+                src={active.image}
+                alt={`Editorial artwork for ${active.name}`}
+                width={1024}
+                height={1024}
+                className="aspect-[16/9] w-full rounded-lg object-cover"
+              />
               <DialogHeader>
+                <p className="text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">Music / {active.name}</p>
                 <div className="flex items-center gap-2">
                   <span
                     className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${
