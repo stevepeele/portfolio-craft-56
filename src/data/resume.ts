@@ -1,22 +1,22 @@
 export const profile = {
   name: "Steve Peele II",
-  title: "Product-Focused Growth Marketing Executive",
+  title: "Growth Marketing Leader, Operator & Musician",
   location: "Cincinnati, OH",
   phone: "513.505.0624",
   email: "steve@stevepeeleii.com",
   linkedin: "https://linkedin.com/in/spii",
-  website: "https://stevepeeleii.com",
+  website: "https://stevepeeleii.com/",
   booking: "https://meet.stevepeeleii.com/",
-  cv: "https://cv.stevepeeleii.com",
+  cv: "https://cv.stevepeeleii.com/",
   summary:
-    "Customer-driven growth and product marketing leader with 14+ years scaling SaaS and tech companies. Expert in aligning marketing, product, and sales strategies to drive customer adoption, lifecycle value, and sustainable revenue growth.",
+    "Growth marketing leader and operator with 14+ years building the systems behind acquisition, retention, revenue, and operational efficiency for SaaS, technology, and growth-stage companies.",
 };
 
 export const heroStats = [
   { value: "14+", label: "Years scaling SaaS & tech" },
-  { value: "$350M+", label: "Pipeline revenue driven" },
+  { value: "$350M+", label: "Annual pipeline supported" },
   { value: "$8M+", label: "Global budgets managed" },
-  { value: "2", label: "Startup exits contributed to" },
+  { value: "4", label: "Exit-related outcomes" },
 ];
 
 export const experience = [
@@ -27,81 +27,9 @@ export const experience = [
     period: "06/2020 – Present",
     tag: "Marketing Operations",
     bullets: [
-      "Managed $8M+ global marketing budgets, achieving a 4:1 ROI across regional digital initiatives.",
-      "Streamlined operations and automated reporting, reducing execution timelines by 25% and driving $350M+ in pipeline revenue.",
-      "Led ABM strategies in collaboration with sales, boosting lead-to-deal conversions by 40% and closing $25M+ in new deals.",
-    ],
-  },
-  {
-    company: "Tixxy",
-    note: "Acquired",
-    role: "Founder, Head of Growth",
-    period: "12/2020 – 12/2023",
-    tag: "Founder",
-    bullets: [
-      "Scaled company to $1M+ ARR in Year 1 through referral campaigns, digital advertising, and partnerships, growing user base by 300%.",
-      "Secured a $7M acquisition valuation by driving platform growth and increasing visibility by 40%.",
-      "Reduced churn by 25% with lifecycle marketing improvements, increasing LTV by $200 per user.",
-    ],
-  },
-  {
-    company: "Amify",
-    role: "Fractional VP of Marketing, Organizational Repositioning Lead",
-    period: "06/2021 – 03/2022",
-    tag: "Fractional Leadership",
-    bullets: [
-      "Repositioned brand and GTM strategy, boosting brand recognition by 35% and generating $6M in incremental revenue.",
-      "Reduced CPA by 15% and improved retention by 10% through advanced paid acquisition strategies.",
-    ],
-  },
-  {
-    company: "Buyside",
-    role: "Director of Platform Growth",
-    period: "05/2020 – 12/2020",
-    tag: "Product Growth",
-    bullets: [
-      "Led product growth initiatives that increased platform adoption by 50%.",
-      "Enhanced marketing efficiency by 30% through data-driven optimization using Google Analytics and Tableau.",
-    ],
-  },
-  {
-    company: "Everything But The House (EBTH)",
-    role: "Digital Growth Manager",
-    period: "01/2020 – 05/2020",
-    tag: "Digital Growth",
-    bullets: [
-      "Increased user acquisition by 50% through multi-channel campaigns (PPC, SEO, email).",
-      "Improved conversion rates by 30% and reduced digital marketing costs by 20%.",
-    ],
-  },
-  {
-    company: "API Nation",
-    role: "Head of Growth Marketing",
-    period: "01/2019 – 12/2019",
-    tag: "Demand Generation",
-    bullets: [
-      "Drove 50% increase in demand generation through HubSpot CRM, Facebook Ads, and email marketing.",
-      "Increased ROI by 45% through strategic campaign measurement and optimization.",
-    ],
-  },
-  {
-    company: "Astronomer",
-    role: "Director of Growth Experimentation",
-    period: "04/2017 – 12/2017",
-    tag: "Experimentation",
-    bullets: [
-      "Increased lead generation by 60% through pricing, segmentation, and marketing experiments.",
-      "Improved conversion rates by 30% through data-driven insights using Mixpanel and direct user feedback.",
-    ],
-  },
-  {
-    company: "Inman News",
-    role: "Director of Demand Generation",
-    period: "02/2016 – 04/2017",
-    tag: "Demand Generation",
-    bullets: [
-      "Boosted website traffic by 70% through SEO, content marketing, and targeted demand gen campaigns.",
-      "Increased lead conversions by 30% through full-funnel strategy optimization.",
+      "Led marketing operations and integration across 5+ regions, supporting approximately $350M+ in annual pipeline.",
+      "Managed systems, campaigns, process, technology, data, and cross-functional workflows across global teams.",
+      "Improved campaign execution speed by approximately 25%, collaboration by 30%, and productivity by 20%, while reducing errors by 15%.",
     ],
   },
   {
@@ -119,40 +47,28 @@ export const experience = [
 
 export const caseHighlights = [
   {
-    sector: "SaaS Marketplace",
-    company: "Tixxy",
-    metrics: [
-      { value: "$1M+", label: "ARR in year one" },
-      { value: "300%", label: "User base growth" },
-      { value: "$7M", label: "Acquisition valuation" },
-    ],
-    summary:
-      "Built the growth engine from zero — referral campaigns, paid acquisition, and partnerships — then cut churn 25% with lifecycle marketing before the exit.",
-    tag: "Founder-led growth",
-  },
-  {
     sector: "Global Services",
     company: "Launch by NTT DATA",
     metrics: [
-      { value: "$350M+", label: "Pipeline revenue" },
-      { value: "4:1", label: "ROI on $8M+ budget" },
-      { value: "40%", label: "Lift in lead-to-deal" },
+      { value: "$350M+", label: "Annual pipeline supported" },
+      { value: "5+", label: "Regions integrated" },
+      { value: "25%", label: "Faster campaign execution" },
     ],
     summary:
-      "Unified global marketing operations, automated reporting to cut execution timelines 25%, and partnered with sales on ABM that closed $25M+ in new deals.",
+      "Led the operating system behind global campaigns: processes, technology, data, and cross-functional workflows across more than five regions.",
     tag: "Marketing operations",
   },
   {
-    sector: "Ecommerce",
-    company: "Amify",
+    sector: "Real Estate SaaS",
+    company: "Dotloop",
     metrics: [
-      { value: "$6M", label: "Incremental revenue" },
-      { value: "35%", label: "Brand recognition lift" },
-      { value: "15%", label: "Lower CPA" },
+      { value: "~400%", label: "User growth" },
+      { value: "35%", label: "CAC reduction" },
+      { value: "Zillow", label: "Acquirer" },
     ],
     summary:
-      "Stepped in as fractional VP of Marketing to reposition the brand and GTM motion, then rebuilt paid acquisition for efficiency and retention.",
-    tag: "Fractional VP",
+      "Joined the founding team and helped build marketing operations through a major growth period and the company's acquisition by Zillow.",
+    tag: "Startup scale",
   },
 ];
 
@@ -166,70 +82,11 @@ export const portfolioProjects = [
     summary:
       "Unified global marketing operations, automated reporting, and partnered with sales on ABM programs that shortened execution timelines and turned regional activity into measurable pipeline.",
     metrics: [
-      { value: "$350M+", label: "Pipeline revenue driven" },
+      { value: "$350M+", label: "Annual pipeline supported" },
       { value: "4:1", label: "ROI on $8M+ budget" },
       { value: "40%", label: "Lead-to-deal lift" },
     ],
     levers: ["ABM", "Budget ownership", "Automation", "Sales alignment"],
-  },
-  {
-    company: "Tixxy",
-    sector: "SaaS Marketplace",
-    title: "Founder-led growth engine & acquisition",
-    period: "2020 – 2023",
-    tag: "Founder",
-    summary:
-      "Built the growth motion from zero with referral campaigns, digital advertising, partnerships, and lifecycle marketing, scaling the platform to seven figures in ARR before a $7M acquisition valuation.",
-    metrics: [
-      { value: "$1M+", label: "ARR in year one" },
-      { value: "300%", label: "User base growth" },
-      { value: "25%", label: "Churn reduction" },
-    ],
-    levers: ["Referral growth", "Paid acquisition", "Lifecycle marketing", "Partnerships"],
-  },
-  {
-    company: "Amify",
-    sector: "Ecommerce",
-    title: "Brand & go-to-market repositioning",
-    period: "2021 – 2022",
-    tag: "Fractional VP",
-    summary:
-      "Led an organizational repositioning as fractional VP of Marketing, sharpening the brand and GTM strategy while rebuilding paid acquisition for stronger efficiency and retention.",
-    metrics: [
-      { value: "$6M", label: "Incremental revenue" },
-      { value: "35%", label: "Brand recognition lift" },
-      { value: "15%", label: "Lower CPA" },
-    ],
-    levers: ["Positioning", "GTM strategy", "Paid acquisition", "Retention"],
-  },
-  {
-    company: "Buyside",
-    sector: "Real Estate Tech",
-    title: "Platform adoption & growth analytics",
-    period: "2020",
-    tag: "Product Growth",
-    summary:
-      "Led product growth initiatives and built a more data-driven operating cadence with Google Analytics and Tableau, improving platform adoption and marketing efficiency.",
-    metrics: [
-      { value: "50%", label: "Platform adoption lift" },
-      { value: "30%", label: "Marketing efficiency gain" },
-    ],
-    levers: ["Product growth", "Analytics", "Optimization"],
-  },
-  {
-    company: "Everything But The House",
-    sector: "Ecommerce Marketplace",
-    title: "Multi-channel acquisition & conversion program",
-    period: "2020",
-    tag: "Digital Growth",
-    summary:
-      "Ran multi-channel growth across PPC, SEO, and email while tightening the conversion path, lifting acquisition and conversion rates while reducing digital marketing costs.",
-    metrics: [
-      { value: "50%", label: "User acquisition lift" },
-      { value: "30%", label: "Conversion rate lift" },
-      { value: "20%", label: "Lower marketing costs" },
-    ],
-    levers: ["PPC", "SEO", "Email", "CRO"],
   },
   {
     company: "Dotloop",
@@ -396,11 +253,6 @@ export const certifications = [
   "LinkedIn Marketing Labs",
   "SEMrush SEO Fundamentals",
   "Ahrefs Advanced SEO",
-];
-
-export const awards = [
-  "Top 100 Marketing Leader — Marketing Operations Association",
-  "Operational Excellence in Marketing Award — B2B SaaS Growth Forum",
 ];
 
 export const education = {

@@ -6,7 +6,7 @@ import { offers } from "@/data/offers";
 import { profile } from "@/data/resume";
 
 export const Route = createFileRoute("/services/")({
-  head: () => ({ meta: [{ title: "Focused Growth Offers — Steve Peele II" }, { name: "description", content: "Fixed-scope growth, website, and logistics marketing offers from Steve Peele II." }, { name: "robots", content: "noindex, nofollow" }, { property: "og:title", content: "Focused Growth Offers — Steve Peele II" }, { property: "og:description", content: "Clear, fixed-scope support for growth systems, websites, and digital presence." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
+  head: () => ({ meta: [{ title: "Focused Growth Offers — Steve Peele II" }, { name: "description", content: "Fixed-scope growth, website, and logistics marketing offers from Steve Peele II." }, { name: "robots", content: "noindex, nofollow" }, { property: "og:title", content: "Focused Growth Offers — Steve Peele II" }, { property: "og:description", content: "Clear, fixed-scope support for growth systems, websites, and digital presence." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }], links: [{ rel: "canonical", href: "https://stevepeeleii.com/services" }] }),
   component: ServicesPage,
 });
 

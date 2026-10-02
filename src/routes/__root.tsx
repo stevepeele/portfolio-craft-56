@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -35,7 +36,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -78,17 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { title: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         name: "description",
         content:
-          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing.",
+          "Steve Peele II is a growth marketing leader, operator, musician, and connector with 14+ years building scalable growth systems.",
       },
       { name: "author", content: "Steve Peele II" },
       {
         name: "keywords",
         content:
-          "fractional cmo, fractional chief marketing officer, fractional cmo services, growth marketing, product marketing, GTM strategy, demand generation, SaaS marketing, Steve Peele II, Cincinnati",
+          "growth marketing leader, marketing operations, demand generation, revenue growth, SaaS growth, fractional growth leader, go-to-market strategy, marketing technology, lifecycle marketing, Steve Peele II, Cincinnati",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -105,14 +106,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-    scripts: [
-      {
-        id: "hs-script-loader",
-        src: "https://js.hs-scripts.com/22009185.js",
-        async: true,
-        defer: true,
-      },
     ],
   }),
 
@@ -138,6 +131,16 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    if (document.getElementById("hs-script-loader")) return;
+    const script = document.createElement("script");
+    script.id = "hs-script-loader";
+    script.src = "https://js.hs-scripts.com/22009185.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

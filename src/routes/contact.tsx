@@ -7,18 +7,21 @@ import { profile } from "@/data/resume";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Steve Peele II, Fractional CMO" },
+      { title: "Contact Steve Peele II — Growth Marketing Leader" },
       {
         name: "description",
         content:
-          "Reach fractional CMO Steve Peele II in Cincinnati, OH for fractional or full-time growth marketing leadership.",
+          "Contact Steve Peele II about growth leadership, marketing operations, advisory work, creative projects, or the next hard problem.",
       },
-      { property: "og:title", content: "Contact — Steve Peele II, Fractional CMO" },
+      { property: "og:title", content: "Contact Steve Peele II — Growth Marketing Leader" },
       {
         property: "og:description",
-        content: "Let's talk about fractional CMO or full-time growth marketing leadership.",
+        content: "Let's talk about growth leadership, marketing operations, advisory work, or creative projects.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/contact" }],
   }),
   component: ContactPage,
 });
@@ -35,6 +38,7 @@ function ContactPage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <main>
 
       <section className="hero-surface border-b border-border/60">
         <div className="mx-auto max-w-4xl px-5 py-20 text-center">
@@ -114,6 +118,7 @@ function ContactPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

@@ -73,8 +73,8 @@ export const musicProjects: MusicProject[] = [
     image: untilArt,
     name: "Until the Dead Walk",
     status: "Past",
-    tagline: "Heavy, deliberate, committed.",
-    description: "One of the projects along the way. More detail coming soon.",
+    tagline: "Part of a long creative history.",
+    description: "One of the music projects that shaped the larger body of work.",
     influence: [
       "Every project leaves something behind — a way of working, a standard, a riff you can't stop hearing.",
     ],
@@ -85,8 +85,8 @@ export const musicProjects: MusicProject[] = [
     image: graveArt,
     name: "Grave Friends",
     status: "Past",
-    tagline: "Friends first, volume second.",
-    description: "One of the projects along the way. More detail coming soon.",
+    tagline: "Another chapter in the work.",
+    description: "One of the music projects that shaped the larger body of work.",
     influence: [
       "The name says it — the best creative work happens with people you actually trust.",
     ],
@@ -97,8 +97,8 @@ export const musicProjects: MusicProject[] = [
     image: wastedArt,
     name: "Wasted Away",
     status: "Past",
-    tagline: "An early chapter.",
-    description: "One of the projects along the way. More detail coming soon.",
+    tagline: "An earlier chapter in the work.",
+    description: "One of the music projects that shaped the larger body of work.",
     influence: [
       "Early projects are where you learn to finish things — a skill that transfers to everything.",
     ],

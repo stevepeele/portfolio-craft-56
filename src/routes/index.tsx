@@ -7,17 +7,55 @@ import { capabilities, caseHighlights, experience, heroStats, profile, featuredR
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { title: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         name: "description",
         content:
-          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing. $350M+ pipeline driven.",
+          "Steve Peele II is a growth marketing leader, operator, musician, and connector with 14+ years building scalable marketing, revenue, and growth systems.",
       },
-      { property: "og:title", content: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { property: "og:title", content: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         property: "og:description",
         content:
-          "Fractional CMO and growth marketing leader with 14+ years scaling SaaS and tech companies — $350M+ pipeline driven, multiple startup exits.",
+          "A growth marketing leader and operator connecting strategy, people, technology, data, creative, and execution.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+              sameAs: ["https://linkedin.com/in/spii"],
+              jobTitle: "Growth Marketing Leader and Operator",
+              knowsAbout: [
+                "Growth Marketing",
+                "Marketing Operations",
+                "Demand Generation",
+                "Go-to-Market Strategy",
+                "Revenue Operations",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+            },
+            {
+              "@type": "ProfessionalService",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+              areaServed: "United States",
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -28,6 +66,7 @@ function Home() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <main>
 
       <section className="hero-surface relative overflow-hidden">
         <div className="mx-auto max-w-4xl px-5 py-24 text-center sm:py-32">
@@ -38,9 +77,8 @@ function Home() {
             <span className="text-gradient">builds real pipeline.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg text-muted-foreground">
-            I'm Steve Peele II — a fractional CMO and growth marketing executive with 14+ years aligning
-            marketing, product, and sales to drive adoption, lifecycle value, and durable revenue for
-            SaaS and tech companies.
+            I'm Steve Peele II — a growth marketing leader and operator with 14+ years connecting
+            strategy, people, technology, data, creative, and execution for SaaS and tech companies.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-primary">
@@ -281,6 +319,7 @@ function Home() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

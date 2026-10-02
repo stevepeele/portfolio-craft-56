@@ -43,9 +43,12 @@ export function SpiiGuide() {
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onDown);
+    const previousOverflow = document.body.style.overflow;
+    if (window.matchMedia("(max-width: 639px)").matches) document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onDown);
+      document.body.style.overflow = previousOverflow;
     };
   }, [open]);
 
@@ -60,7 +63,7 @@ export function SpiiGuide() {
         <div
           ref={panelRef}
           role="dialog"
-          aria-modal="false"
+          aria-modal="true"
           aria-labelledby="spii-guide-title"
           className="spii-guide-panel pointer-events-auto mb-3 max-h-[min(70vh,560px)] w-full overflow-y-auto overscroll-contain rounded-2xl border border-border bg-surface p-4 shadow-2xl sm:w-[380px]"
         >

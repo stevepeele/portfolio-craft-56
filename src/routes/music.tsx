@@ -31,6 +31,7 @@ export const Route = createFileRoute("/music")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/music" }],
   }),
   component: MusicPage,
 });
@@ -41,6 +42,7 @@ function MusicPage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <main>
 
       <section className="hero-surface relative overflow-hidden">
         <div className="mx-auto max-w-4xl px-5 py-24 text-center sm:py-32">
@@ -161,6 +163,7 @@ function MusicPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
 
       <Dialog open={active !== null} onOpenChange={(open) => !open && setActive(null)}>
