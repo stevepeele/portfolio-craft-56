@@ -31,6 +31,7 @@ export const Route = createFileRoute("/music")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/music" }],
   }),
   component: MusicPage,
 });

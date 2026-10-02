@@ -11,3 +11,5 @@
 
 - Keep independent company analyses on unlisted, noindex leaf routes with explicit non-affiliation language so editorial work remains distinct from the main portfolio.
 - Use native CSS view-timeline reveals for restrained site-wide motion; this keeps interaction lightweight, hydration-safe, and reduced-motion aware.
+- Keep the public information architecture centered on Home, Work, SPIIX, Music, and Contact; preserve retired public URLs with redirects into those destinations.
+- Treat generated Music images as replaceable editorial thumbnails, never as official release art or archival photography.

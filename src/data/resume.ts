@@ -1,6 +1,6 @@
 export const profile = {
   name: "Steve Peele II",
-  title: "Product-Focused Growth Marketing Executive",
+  title: "Growth Marketing Leader, Operator & Musician",
   location: "Cincinnati, OH",
   phone: "513.505.0624",
   email: "steve@stevepeeleii.com",
@@ -14,9 +14,9 @@ export const profile = {
 
 export const heroStats = [
   { value: "14+", label: "Years scaling SaaS & tech" },
-  { value: "$350M+", label: "Pipeline revenue driven" },
+  { value: "$350M+", label: "Annual pipeline supported" },
   { value: "$8M+", label: "Global budgets managed" },
-  { value: "2", label: "Startup exits contributed to" },
+  { value: "4", label: "Exit-related outcomes" },
 ];
 
 export const experience = [
@@ -27,21 +27,9 @@ export const experience = [
     period: "06/2020 – Present",
     tag: "Marketing Operations",
     bullets: [
-      "Managed $8M+ global marketing budgets, achieving a 4:1 ROI across regional digital initiatives.",
-      "Streamlined operations and automated reporting, reducing execution timelines by 25% and driving $350M+ in pipeline revenue.",
-      "Led ABM strategies in collaboration with sales, boosting lead-to-deal conversions by 40% and closing $25M+ in new deals.",
-    ],
-  },
-  {
-    company: "Tixxy",
-    note: "Acquired",
-    role: "Founder, Head of Growth",
-    period: "12/2020 – 12/2023",
-    tag: "Founder",
-    bullets: [
-      "Scaled company to $1M+ ARR in Year 1 through referral campaigns, digital advertising, and partnerships, growing user base by 300%.",
-      "Secured a $7M acquisition valuation by driving platform growth and increasing visibility by 40%.",
-      "Reduced churn by 25% with lifecycle marketing improvements, increasing LTV by $200 per user.",
+      "Led marketing operations and integration across 5+ regions, supporting approximately $350M+ in annual pipeline.",
+      "Managed systems, campaigns, process, technology, data, and cross-functional workflows across global teams.",
+      "Improved campaign execution speed by approximately 25%, collaboration by 30%, and productivity by 20%, while reducing errors by 15%.",
     ],
   },
   {
@@ -119,40 +107,28 @@ export const experience = [
 
 export const caseHighlights = [
   {
-    sector: "SaaS Marketplace",
-    company: "Tixxy",
-    metrics: [
-      { value: "$1M+", label: "ARR in year one" },
-      { value: "300%", label: "User base growth" },
-      { value: "$7M", label: "Acquisition valuation" },
-    ],
-    summary:
-      "Built the growth engine from zero — referral campaigns, paid acquisition, and partnerships — then cut churn 25% with lifecycle marketing before the exit.",
-    tag: "Founder-led growth",
-  },
-  {
     sector: "Global Services",
     company: "Launch by NTT DATA",
     metrics: [
-      { value: "$350M+", label: "Pipeline revenue" },
-      { value: "4:1", label: "ROI on $8M+ budget" },
-      { value: "40%", label: "Lift in lead-to-deal" },
+      { value: "$350M+", label: "Annual pipeline supported" },
+      { value: "5+", label: "Regions integrated" },
+      { value: "25%", label: "Faster campaign execution" },
     ],
     summary:
-      "Unified global marketing operations, automated reporting to cut execution timelines 25%, and partnered with sales on ABM that closed $25M+ in new deals.",
+      "Led the operating system behind global campaigns: processes, technology, data, and cross-functional workflows across more than five regions.",
     tag: "Marketing operations",
   },
   {
-    sector: "Ecommerce",
-    company: "Amify",
+    sector: "Real Estate SaaS",
+    company: "Dotloop",
     metrics: [
-      { value: "$6M", label: "Incremental revenue" },
-      { value: "35%", label: "Brand recognition lift" },
-      { value: "15%", label: "Lower CPA" },
+      { value: "~400%", label: "User growth" },
+      { value: "35%", label: "CAC reduction" },
+      { value: "Zillow", label: "Acquirer" },
     ],
     summary:
-      "Stepped in as fractional VP of Marketing to reposition the brand and GTM motion, then rebuilt paid acquisition for efficiency and retention.",
-    tag: "Fractional VP",
+      "Joined the founding team and helped build marketing operations through a major growth period and the company's acquisition by Zillow.",
+    tag: "Startup scale",
   },
 ];
 
@@ -171,21 +147,6 @@ export const portfolioProjects = [
       { value: "40%", label: "Lead-to-deal lift" },
     ],
     levers: ["ABM", "Budget ownership", "Automation", "Sales alignment"],
-  },
-  {
-    company: "Tixxy",
-    sector: "SaaS Marketplace",
-    title: "Founder-led growth engine & acquisition",
-    period: "2020 – 2023",
-    tag: "Founder",
-    summary:
-      "Built the growth motion from zero with referral campaigns, digital advertising, partnerships, and lifecycle marketing, scaling the platform to seven figures in ARR before a $7M acquisition valuation.",
-    metrics: [
-      { value: "$1M+", label: "ARR in year one" },
-      { value: "300%", label: "User base growth" },
-      { value: "25%", label: "Churn reduction" },
-    ],
-    levers: ["Referral growth", "Paid acquisition", "Lifecycle marketing", "Partnerships"],
   },
   {
     company: "Amify",
@@ -396,11 +357,6 @@ export const certifications = [
   "LinkedIn Marketing Labs",
   "SEMrush SEO Fundamentals",
   "Ahrefs Advanced SEO",
-];
-
-export const awards = [
-  "Top 100 Marketing Leader — Marketing Operations Association",
-  "Operational Excellence in Marketing Award — B2B SaaS Growth Forum",
 ];
 
 export const education = {

@@ -39,15 +39,15 @@ export const offers: Offer[] = [
       "A five-day diagnostic of your funnel, channels, and conversion points, delivered as a prioritized action plan you can execute immediately.",
     stats: [
       { value: "14+", label: "Years in growth marketing" },
-      { value: "$350M+", label: "Pipeline revenue driven" },
-      { value: "$25M+", label: "Revenue closed via ABM" },
-      { value: "$1M ARR", label: "Built in Year 1 at Tixxy" },
+      { value: "$350M+", label: "Annual pipeline supported" },
+      { value: "$8M+", label: "Marketing budgets managed" },
+      { value: "5+", label: "Regions integrated" },
     ],
     whatYouGet: [
       "A full review of your current funnel, channels, and conversion points.",
       "A written, prioritized action plan — ranked by impact vs. effort, not a wish list.",
       "A 45-minute walkthrough call to present findings and answer questions.",
-      "Zero fluff: built the same way I've run GTM for teams that closed $25M+ in pipeline.",
+      "A direct read on what matters now, what can wait, and what the team should stop doing.",
     ],
     howItRuns: [
       {
@@ -180,7 +180,7 @@ export const offers: Offer[] = [
       "Monthly social content, website upkeep, and plain-language reporting for carriers and logistics operators.",
     stats: [
       { value: "14+ yrs", label: "Growth marketing experience" },
-      { value: "$350M+", label: "Pipeline driven in past roles" },
+      { value: "$350M+", label: "Annual pipeline supported" },
       { value: "Fixed", label: "Monthly price, no surprises" },
       { value: "1", label: "Dedicated point of contact" },
     ],
@@ -257,8 +257,8 @@ export const advisory = {
     "SPIIX is the advisory and mentorship practice built off Pan Labs Consulting — direct access to the strategy, systems, and judgment behind $350M+ in pipeline, for the operators and leaders building their own.",
   stats: [
     { value: "14+", label: "Years scaling SaaS & tech" },
-    { value: "$350M+", label: "Pipeline revenue driven" },
-    { value: "2", label: "Startup exits contributed to" },
+    { value: "$350M+", label: "Annual pipeline supported" },
+    { value: "4", label: "Exit-related outcomes" },
   ],
   framing: {
     title: "Pan Labs is where I do the work. SPIIX is where I teach it.",
@@ -328,10 +328,10 @@ export const advisory = {
   ],
   advisor: [
     { label: "Now", detail: "Head of Marketing Operations & Global Integration, Launch by NTT DATA" },
-    { label: "Built", detail: "Tixxy — founder-led growth to a $7M acquisition" },
-    { label: "Repositioned", detail: "Amify's brand and GTM as fractional VP of Marketing" },
+    { label: "Scaled", detail: "Dotloop — founding team through acquisition by Zillow" },
+    { label: "Operated", detail: "Across SaaS, technology, marketplaces, and growth-stage teams" },
     { label: "Base", detail: "Cincinnati, OH" },
   ],
   advisorBody:
-    "Steve Peele II has spent 14+ years aligning marketing, product, and sales to drive pipeline and revenue for SaaS and tech companies — $350M+ in pipeline generated, $8M+ in global budgets managed, and two startup exits along the way. SPIIX is where that experience becomes someone else's shortcut. Not a framework to memorize — the actual judgment calls, applied to your business, your team, and your numbers.",
+    "Steve Peele II has spent 14+ years connecting marketing, product, sales, systems, and data for SaaS and technology companies — with $350M+ in annual pipeline exposure, $8M+ in managed budgets, and four exit-related outcomes. SPIIX turns that experience into practical judgment for your business, your team, and your numbers.",
 };

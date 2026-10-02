@@ -19,7 +19,10 @@ export const Route = createFileRoute("/")({
         content:
           "Fractional CMO and growth marketing leader with 14+ years scaling SaaS and tech companies — $350M+ pipeline driven, multiple startup exits.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com" }],
   }),
   component: Home,
 });
@@ -38,9 +41,8 @@ function Home() {
             <span className="text-gradient">builds real pipeline.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg text-muted-foreground">
-            I'm Steve Peele II — a fractional CMO and growth marketing executive with 14+ years aligning
-            marketing, product, and sales to drive adoption, lifecycle value, and durable revenue for
-            SaaS and tech companies.
+            I'm Steve Peele II — a growth marketing leader and operator with 14+ years connecting
+            strategy, people, technology, data, creative, and execution for SaaS and tech companies.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link to="/contact" className="btn-primary">

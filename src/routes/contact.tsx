@@ -18,7 +18,10 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Let's talk about fractional CMO or full-time growth marketing leadership.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/contact" }],
   }),
   component: ContactPage,
 });
