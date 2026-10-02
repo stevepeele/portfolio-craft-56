@@ -23,7 +23,7 @@ function crumbsFor(path: string): Crumb[] {
       { label: "Home", to: "/" },
       { label: "SPIIX", to: "/advisory" },
       { label: "Offers", to: "/services" },
-      { label: offerNames[p.split("/")[2]] ?? "Offer" },
+      { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
   if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
   if (p === "/contact") return [{ label: "Home", to: "/" }, { label: "Let's Talk" }];
