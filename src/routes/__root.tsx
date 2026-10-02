@@ -78,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { title: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         name: "description",
         content:
-          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing.",
+          "Steve Peele II is a growth marketing leader, operator, musician, and connector with 14+ years building scalable growth systems.",
       },
       { name: "author", content: "Steve Peele II" },
       {

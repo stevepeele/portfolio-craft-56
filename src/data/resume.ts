@@ -142,7 +142,7 @@ export const portfolioProjects = [
     summary:
       "Unified global marketing operations, automated reporting, and partnered with sales on ABM programs that shortened execution timelines and turned regional activity into measurable pipeline.",
     metrics: [
-      { value: "$350M+", label: "Pipeline revenue driven" },
+      { value: "$350M+", label: "Annual pipeline supported" },
       { value: "4:1", label: "ROI on $8M+ budget" },
       { value: "40%", label: "Lead-to-deal lift" },
     ],

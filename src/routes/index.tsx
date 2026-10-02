@@ -7,17 +7,17 @@ import { capabilities, caseHighlights, experience, heroStats, profile, featuredR
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { title: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         name: "description",
         content:
-          "Fractional CMO and growth marketing leader Steve Peele II — 14+ years scaling SaaS through GTM strategy, demand generation, and lifecycle marketing. $350M+ pipeline driven.",
+          "Steve Peele II is a growth marketing leader, operator, musician, and connector with 14+ years building scalable marketing, revenue, and growth systems.",
       },
-      { property: "og:title", content: "Steve Peele II — Fractional CMO & Growth Marketing Leader" },
+      { property: "og:title", content: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
       {
         property: "og:description",
         content:
-          "Fractional CMO and growth marketing leader with 14+ years scaling SaaS and tech companies — $350M+ pipeline driven, multiple startup exits.",
+          "A growth marketing leader and operator connecting strategy, people, technology, data, creative, and execution.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
