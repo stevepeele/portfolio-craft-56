@@ -247,7 +247,11 @@ export const offers: Offer[] = [
   },
 ];
 
-export const getOffer = (slug: Offer["slug"]) => offers.find((o) => o.slug === slug)!;
+export const getOffer = (slug: Offer["slug"]) => {
+  const offer = offers.find((item) => item.slug === slug);
+  if (!offer) throw new Error(`Unknown offer: ${slug}`);
+  return offer;
+};
 
 // SPIIX — advisory & mentorship practice of Pan Labs Consulting
 export const advisory = {

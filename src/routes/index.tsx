@@ -23,6 +23,41 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://stevepeeleii.com" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+              sameAs: ["https://linkedin.com/in/spii"],
+              jobTitle: "Growth Marketing Leader and Operator",
+              knowsAbout: [
+                "Growth Marketing",
+                "Marketing Operations",
+                "Demand Generation",
+                "Go-to-Market Strategy",
+                "Revenue Operations",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+            },
+            {
+              "@type": "ProfessionalService",
+              name: "Steve Peele II",
+              url: "https://stevepeeleii.com",
+              areaServed: "United States",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Home,
 });
@@ -31,6 +66,7 @@ function Home() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <main>
 
       <section className="hero-surface relative overflow-hidden">
         <div className="mx-auto max-w-4xl px-5 py-24 text-center sm:py-32">
@@ -283,6 +319,7 @@ function Home() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );

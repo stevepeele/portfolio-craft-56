@@ -38,6 +38,7 @@ function ContactPage() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <main>
 
       <section className="hero-surface border-b border-border/60">
         <div className="mx-auto max-w-4xl px-5 py-20 text-center">
@@ -117,6 +118,7 @@ function ContactPage() {
         </div>
       </section>
 
+      </main>
       <SiteFooter />
     </div>
   );
