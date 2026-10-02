@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -35,7 +36,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -88,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "fractional cmo, fractional chief marketing officer, fractional cmo services, growth marketing, product marketing, GTM strategy, demand generation, SaaS marketing, Steve Peele II, Cincinnati",
+          "growth marketing leader, marketing operations, demand generation, revenue growth, SaaS growth, fractional growth leader, go-to-market strategy, marketing technology, lifecycle marketing, Steve Peele II, Cincinnati",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
