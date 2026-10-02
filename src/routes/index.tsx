@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Entrance } from "@/components/entrance";
 import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations } from "@/data/resume";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +27,6 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="min-h-screen">
-      <Entrance />
       <SiteHeader />
 
       <section className="hero-surface relative overflow-hidden">
@@ -48,8 +46,8 @@ function Home() {
             <Link to="/contact" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
             </Link>
-            <Link to="/experience" className="btn-ghost">
-              View experience
+            <Link to="/work" className="btn-ghost">
+              See the work
             </Link>
             <Link to="/advisory" className="btn-ghost">
               Advisory & mentorship
@@ -125,6 +123,42 @@ function Home() {
         </div>
       </section>
 
+      <section id="about" className="scroll-mt-24 border-y border-border/60 bg-surface/40">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:py-28 lg:grid-cols-[1fr_1.1fr]">
+          <div>
+            <p className="eyebrow">Home / About Steve</p>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              Growth is a system, <span className="text-gradient">not a campaign.</span>
+            </h2>
+            <p className="mt-6 leading-relaxed text-muted-foreground">
+              I've spent 14+ years helping SaaS, tech, and growth-stage companies build the systems
+              behind acquisition, retention, and revenue. I move between strategy, tools, data,
+              campaigns, and people — and I'm comfortable doing the actual work.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              I'm also a lifelong musician. Bands taught me most of what I know about teams,
+              launches, and reading a room.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/work" className="btn-ghost">See the work <ArrowRight className="size-4" /></Link>
+              <Link to="/music" className="btn-ghost">Explore music</Link>
+            </div>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {[
+              "Strategy without execution is just a document.",
+              "Execution without strategy is just activity.",
+              "Good systems make good work easier.",
+              "Technology should reduce friction, not create it.",
+              "Data matters when it improves decisions.",
+              "The goal is not to do more marketing. The goal is to make marketing matter.",
+            ].map((q) => (
+              <li key={q} className="panel p-5 font-display text-base leading-snug font-semibold">{q}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <p className="eyebrow">Ways to work with me</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
@@ -170,7 +204,7 @@ function Home() {
             <p className="eyebrow">Career track</p>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Where I've done the work.</h2>
           </div>
-          <Link to="/experience" className="btn-ghost">
+          <Link to="/work" hash="experience" className="btn-ghost">
             Full experience <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -204,7 +238,7 @@ function Home() {
                 What leaders and teammates say.
               </h2>
             </div>
-            <Link to="/recommendations" className="btn-ghost">
+            <Link to="/work" hash="recommendations" className="btn-ghost">
               See all recommendations <ArrowRight className="size-4" />
             </Link>
           </div>

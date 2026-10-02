@@ -745,7 +745,7 @@ function DemandCurveAnalysis() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/experience">
+                <Link to="/work" hash="experience">
                   View experience <RouteIcon />
                 </Link>
               </Button>
