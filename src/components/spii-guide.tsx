@@ -30,10 +30,10 @@ export function SpiiGuide() {
         const last = items[items.length - 1];
         if (e.shiftKey && document.activeElement === first) {
           e.preventDefault();
-          last.focus();
+          last?.focus();
         } else if (!e.shiftKey && document.activeElement === last) {
           e.preventDefault();
-          first.focus();
+          first?.focus();
         }
       }
     };
@@ -85,7 +85,7 @@ export function SpiiGuide() {
               <li key={p.id}>
                 <Link
                   to={p.to}
-                  hash={p.hash}
+                  {...(p.hash ? { hash: p.hash } : {})}
                   onClick={() => close(false)}
                   className="group block rounded-xl border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-surface-raised focus-visible:border-primary focus-visible:outline-none"
                 >
