@@ -164,7 +164,7 @@ function MusicPage() {
       <SiteFooter />
 
       <Dialog open={active !== null} onOpenChange={(open) => !open && setActive(null)}>
-        <DialogContent className="max-w-lg">
+        <DialogContent className="max-h-[90vh] max-w-lg overflow-y-auto">
           {active ? (
             <>
               <img
