@@ -7,7 +7,7 @@ export const profile = {
   linkedin: "https://linkedin.com/in/spii",
   website: "https://stevepeeleii.com",
   booking: "https://meet.stevepeeleii.com/",
-  cv: "https://cv.stevepeeleii.com",
+  cv: "https://cv.stevepeeleii.com/",
   summary:
     "Growth marketing leader and operator with 14+ years building the systems behind acquisition, retention, revenue, and operational efficiency for SaaS, technology, and growth-stage companies.",
 };
