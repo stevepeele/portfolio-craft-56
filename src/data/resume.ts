@@ -5,7 +5,7 @@ export const profile = {
   phone: "513.505.0624",
   email: "steve@stevepeeleii.com",
   linkedin: "https://linkedin.com/in/spii",
-  website: "https://stevepeeleii.com",
+  website: "https://stevepeeleii.com/",
   booking: "https://meet.stevepeeleii.com/",
   cv: "https://cv.stevepeeleii.com/",
   summary:
