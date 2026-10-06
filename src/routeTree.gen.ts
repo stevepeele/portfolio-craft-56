@@ -20,11 +20,15 @@ import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
 import { Route as ServicesWebsiteBuildRouteImport } from './routes/services.website-build'
+import { Route as SpiixIndexRouteImport } from './routes/spiix.index'
+import { Route as SpiixOsRouteImport } from './routes/spiix.os'
+import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -81,6 +85,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SpiixRoute = SpiixRouteImport.update({
+  id: '/spiix',
+  path: '/spiix',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -106,6 +115,21 @@ const ServicesWebsiteBuildRoute = ServicesWebsiteBuildRouteImport.update({
   path: '/website-build',
   getParentRoute: () => ServicesRoute,
 } as any)
+const SpiixIndexRoute = SpiixIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixOsRoute = SpiixOsRouteImport.update({
+  id: '/os',
+  path: '/os',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixSignalsRoute = SpiixSignalsRouteImport.update({
+  id: '/signals',
+  path: '/signals',
+  getParentRoute: () => SpiixRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,11 +143,15 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
+  '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
   '/services/': typeof ServicesIndexRoute
+  '/spiix/': typeof SpiixIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -140,7 +168,10 @@ export interface FileRoutesByTo {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
   '/services': typeof ServicesIndexRoute
+  '/spiix': typeof SpiixIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -155,11 +186,15 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
+  '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
   '/services/': typeof ServicesIndexRoute
+  '/spiix/': typeof SpiixIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -175,11 +210,15 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/services'
+    | '/spiix'
     | '/work'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/os'
+    | '/spiix/signals'
     | '/services/'
+    | '/spiix/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -196,7 +235,10 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/os'
+    | '/spiix/signals'
     | '/services'
+    | '/spiix'
   id:
     | '__root__'
     | '/'
@@ -210,11 +252,15 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/services'
+    | '/spiix'
     | '/work'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/os'
+    | '/spiix/signals'
     | '/services/'
+    | '/spiix/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -229,6 +275,7 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SpiixRoute: typeof SpiixRouteWithChildren
   WorkRoute: typeof WorkRoute
 }
 
@@ -311,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/spiix': {
+      id: '/spiix'
+      path: '/spiix'
+      fullPath: '/spiix'
+      preLoaderRoute: typeof SpiixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -346,6 +400,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesWebsiteBuildRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/spiix/': {
+      id: '/spiix/'
+      path: '/'
+      fullPath: '/spiix/'
+      preLoaderRoute: typeof SpiixIndexRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/os': {
+      id: '/spiix/os'
+      path: '/os'
+      fullPath: '/spiix/os'
+      preLoaderRoute: typeof SpiixOsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/signals': {
+      id: '/spiix/signals'
+      path: '/signals'
+      fullPath: '/spiix/signals'
+      preLoaderRoute: typeof SpiixSignalsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
   }
 }
 
@@ -367,6 +442,20 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
   ServicesRouteChildren,
 )
 
+interface SpiixRouteChildren {
+  SpiixOsRoute: typeof SpiixOsRoute
+  SpiixSignalsRoute: typeof SpiixSignalsRoute
+  SpiixIndexRoute: typeof SpiixIndexRoute
+}
+
+const SpiixRouteChildren: SpiixRouteChildren = {
+  SpiixOsRoute: SpiixOsRoute,
+  SpiixSignalsRoute: SpiixSignalsRoute,
+  SpiixIndexRoute: SpiixIndexRoute,
+}
+
+const SpiixRouteWithChildren = SpiixRoute._addFileChildren(SpiixRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -379,6 +468,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SpiixRoute: SpiixRouteWithChildren,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
