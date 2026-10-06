@@ -1,9 +1,10 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Compass, X } from "lucide-react";
 import { OPEN_GUIDE_EVENT, pathways } from "@/data/navigation";
 
 export function SpiiGuide() {
+  const pathname = useLocation({ select: (location) => location.pathname });
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -56,6 +57,8 @@ export function SpiiGuide() {
     setOpen(false);
     if (restore) (returnFocus.current ?? triggerRef.current)?.focus?.();
   }
+
+  if (pathname.startsWith("/spiix")) return null;
 
   return (
     <div className="pointer-events-none fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-[60] flex flex-col items-end sm:inset-x-auto sm:right-6 sm:bottom-6">
