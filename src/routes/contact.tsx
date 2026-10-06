@@ -90,16 +90,16 @@ function ContactPage() {
         <div className="mt-20 border-t border-border pt-12">
           <p className="eyebrow text-center">Before you write — what are you here for?</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            <Link to="/advisory" className="panel p-6 transition-colors hover:border-primary">
-              <span className="block font-display text-lg font-bold">Advisory & mentorship</span>
+            <Link to="/spiix" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">SPIIX</span>
               <span className="mt-2 block text-sm text-muted-foreground">
-                Ongoing help building a growth engine that keeps working.
+                Strategic operating support for a growth engine that has to hold up.
               </span>
             </Link>
-            <Link to="/services" className="panel p-6 transition-colors hover:border-primary">
-              <span className="block font-display text-lg font-bold">Fixed-scope offers</span>
+            <Link to="/spiix/compare" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">SPIIX engagements</span>
               <span className="mt-2 block text-sm text-muted-foreground">
-                A GTM audit, a website build, or ongoing digital presence.
+                Compare the GTM audit, fractional advisory, and elite mentorship.
               </span>
             </Link>
             <Link to="/work" className="panel p-6 transition-colors hover:border-primary">

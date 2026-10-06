@@ -87,8 +87,8 @@ function Home() {
             <Link to="/work" className="btn-ghost">
               See the work
             </Link>
-            <Link to="/advisory" className="btn-ghost">
-              Advisory & mentorship
+            <Link to="/spiix" className="btn-ghost">
+              Explore SPIIX
             </Link>
           </div>
         </div>
@@ -204,23 +204,23 @@ function Home() {
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <article className="panel flex flex-col p-7">
-            <h3 className="font-display text-2xl font-bold">SPIIX advisory & mentorship</h3>
+            <h3 className="font-display text-2xl font-bold">SPIIX strategic operating system</h3>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              Ongoing advisory for founders, new marketing leaders, and operators building a growth
-              engine that has to keep working after the call ends.
+              Strategic advisory, operating diagnostics, and mentorship for founders and leaders
+              building a growth engine that has to hold up under pressure.
             </p>
-            <Link to="/advisory" className="btn-ghost mt-6 w-fit">
-              Explore advisory <ArrowRight className="size-4" />
+            <Link to="/spiix" className="btn-ghost mt-6 w-fit">
+              Enter SPIIX <ArrowRight className="size-4" />
             </Link>
           </article>
           <article className="panel flex flex-col p-7">
-            <h3 className="font-display text-2xl font-bold">Fixed-scope offers</h3>
+            <h3 className="font-display text-2xl font-bold">Find the constraint</h3>
             <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              Clear, bounded engagements — a GTM and funnel audit, a conversion-focused website
-              build, or ongoing digital presence management.
+              Compare a GTM audit, embedded fractional advisory, and private mentorship through one
+              operating framework.
             </p>
-            <Link to="/services" className="btn-ghost mt-6 w-fit">
-              See the offers <ArrowRight className="size-4" />
+            <Link to="/spiix/compare" className="btn-ghost mt-6 w-fit">
+              Compare engagements <ArrowRight className="size-4" />
             </Link>
           </article>
           <article className="panel flex flex-col p-7">
@@ -309,8 +309,8 @@ function Home() {
             <Link to="/contact" className="btn-primary">
               Let's Talk <ArrowRight className="size-4" />
             </Link>
-            <Link to="/advisory" className="btn-ghost">
-              Start an advisory conversation
+            <Link to="/spiix/connect" className="btn-ghost">
+              Send SPIIX a signal
             </Link>
             <a href={`mailto:${profile.email}`} className="btn-ghost">
               {profile.email}

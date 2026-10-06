@@ -147,16 +147,16 @@ function MusicPage() {
             </a>
           </div>
           <div className="mt-14 grid gap-4 text-left sm:grid-cols-2">
-            <Link to="/advisory" className="panel p-6 transition-colors hover:border-primary">
-              <span className="block font-display text-lg font-bold">SPIIX advisory & mentorship</span>
+            <Link to="/spiix" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">SPIIX strategic operating system</span>
               <span className="mt-2 block text-sm text-muted-foreground">
                 The day job, with the same ear for what's working.
               </span>
             </Link>
-            <Link to="/services" className="panel p-6 transition-colors hover:border-primary">
-              <span className="block font-display text-lg font-bold">Fixed-scope offers</span>
+            <Link to="/spiix/compare" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">SPIIX engagements</span>
               <span className="mt-2 block text-sm text-muted-foreground">
-                Audits, website builds, and digital presence.
+                Audit, fractional advisory, and private mentorship.
               </span>
             </Link>
           </div>

@@ -20,11 +20,24 @@ import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
 import { Route as ServicesWebsiteBuildRouteImport } from './routes/services.website-build'
+import { Route as SpiixIndexRouteImport } from './routes/spiix.index'
+import { Route as SpiixCompareRouteImport } from './routes/spiix.compare'
+import { Route as SpiixConnectRouteImport } from './routes/spiix.connect'
+import { Route as SpiixDiagnosticsRouteImport } from './routes/spiix.diagnostics'
+import { Route as SpiixImpactRouteImport } from './routes/spiix.impact'
+import { Route as SpiixOsRouteImport } from './routes/spiix.os'
+import { Route as SpiixSignalReportRouteImport } from './routes/spiix.signal-report'
+import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
+import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
+import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
+import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
+import { Route as SpiixEngageGtmAuditRouteImport } from './routes/spiix.engage.gtm-audit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -81,6 +94,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SpiixRoute = SpiixRouteImport.update({
+  id: '/spiix',
+  path: '/spiix',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -106,6 +124,68 @@ const ServicesWebsiteBuildRoute = ServicesWebsiteBuildRouteImport.update({
   path: '/website-build',
   getParentRoute: () => ServicesRoute,
 } as any)
+const SpiixIndexRoute = SpiixIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixCompareRoute = SpiixCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixConnectRoute = SpiixConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixDiagnosticsRoute = SpiixDiagnosticsRouteImport.update({
+  id: '/diagnostics',
+  path: '/diagnostics',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixImpactRoute = SpiixImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixOsRoute = SpiixOsRouteImport.update({
+  id: '/os',
+  path: '/os',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixSignalReportRoute = SpiixSignalReportRouteImport.update({
+  id: '/signal-report',
+  path: '/signal-report',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixSignalsRoute = SpiixSignalsRouteImport.update({
+  id: '/signals',
+  path: '/signals',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixWhoIHelpRoute = SpiixWhoIHelpRouteImport.update({
+  id: '/who-i-help',
+  path: '/who-i-help',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixEngageEliteMentorshipRoute =
+  SpiixEngageEliteMentorshipRouteImport.update({
+    id: '/engage/elite-mentorship',
+    path: '/engage/elite-mentorship',
+    getParentRoute: () => SpiixRoute,
+  } as any)
+const SpiixEngageFractionalAdvisoryRoute =
+  SpiixEngageFractionalAdvisoryRouteImport.update({
+    id: '/engage/fractional-advisory',
+    path: '/engage/fractional-advisory',
+    getParentRoute: () => SpiixRoute,
+  } as any)
+const SpiixEngageGtmAuditRoute = SpiixEngageGtmAuditRouteImport.update({
+  id: '/engage/gtm-audit',
+  path: '/engage/gtm-audit',
+  getParentRoute: () => SpiixRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -119,11 +199,24 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
+  '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal-report': typeof SpiixSignalReportRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services/': typeof ServicesIndexRoute
+  '/spiix/': typeof SpiixIndexRoute
+  '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
+  '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
+  '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -140,7 +233,19 @@ export interface FileRoutesByTo {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal-report': typeof SpiixSignalReportRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services': typeof ServicesIndexRoute
+  '/spiix': typeof SpiixIndexRoute
+  '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
+  '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
+  '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -155,11 +260,24 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
+  '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal-report': typeof SpiixSignalReportRoute
+  '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services/': typeof ServicesIndexRoute
+  '/spiix/': typeof SpiixIndexRoute
+  '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
+  '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
+  '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -175,11 +293,24 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/services'
+    | '/spiix'
     | '/work'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/diagnostics'
+    | '/spiix/impact'
+    | '/spiix/os'
+    | '/spiix/signal-report'
+    | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services/'
+    | '/spiix/'
+    | '/spiix/engage/elite-mentorship'
+    | '/spiix/engage/fractional-advisory'
+    | '/spiix/engage/gtm-audit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -196,7 +327,19 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/diagnostics'
+    | '/spiix/impact'
+    | '/spiix/os'
+    | '/spiix/signal-report'
+    | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services'
+    | '/spiix'
+    | '/spiix/engage/elite-mentorship'
+    | '/spiix/engage/fractional-advisory'
+    | '/spiix/engage/gtm-audit'
   id:
     | '__root__'
     | '/'
@@ -210,11 +353,24 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/services'
+    | '/spiix'
     | '/work'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/diagnostics'
+    | '/spiix/impact'
+    | '/spiix/os'
+    | '/spiix/signal-report'
+    | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services/'
+    | '/spiix/'
+    | '/spiix/engage/elite-mentorship'
+    | '/spiix/engage/fractional-advisory'
+    | '/spiix/engage/gtm-audit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -229,6 +385,7 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SpiixRoute: typeof SpiixRouteWithChildren
   WorkRoute: typeof WorkRoute
 }
 
@@ -311,6 +468,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/spiix': {
+      id: '/spiix'
+      path: '/spiix'
+      fullPath: '/spiix'
+      preLoaderRoute: typeof SpiixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -346,6 +510,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesWebsiteBuildRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/spiix/': {
+      id: '/spiix/'
+      path: '/'
+      fullPath: '/spiix/'
+      preLoaderRoute: typeof SpiixIndexRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/compare': {
+      id: '/spiix/compare'
+      path: '/compare'
+      fullPath: '/spiix/compare'
+      preLoaderRoute: typeof SpiixCompareRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/connect': {
+      id: '/spiix/connect'
+      path: '/connect'
+      fullPath: '/spiix/connect'
+      preLoaderRoute: typeof SpiixConnectRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/diagnostics': {
+      id: '/spiix/diagnostics'
+      path: '/diagnostics'
+      fullPath: '/spiix/diagnostics'
+      preLoaderRoute: typeof SpiixDiagnosticsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/impact': {
+      id: '/spiix/impact'
+      path: '/impact'
+      fullPath: '/spiix/impact'
+      preLoaderRoute: typeof SpiixImpactRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/os': {
+      id: '/spiix/os'
+      path: '/os'
+      fullPath: '/spiix/os'
+      preLoaderRoute: typeof SpiixOsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/signal-report': {
+      id: '/spiix/signal-report'
+      path: '/signal-report'
+      fullPath: '/spiix/signal-report'
+      preLoaderRoute: typeof SpiixSignalReportRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/signals': {
+      id: '/spiix/signals'
+      path: '/signals'
+      fullPath: '/spiix/signals'
+      preLoaderRoute: typeof SpiixSignalsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/who-i-help': {
+      id: '/spiix/who-i-help'
+      path: '/who-i-help'
+      fullPath: '/spiix/who-i-help'
+      preLoaderRoute: typeof SpiixWhoIHelpRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/engage/elite-mentorship': {
+      id: '/spiix/engage/elite-mentorship'
+      path: '/engage/elite-mentorship'
+      fullPath: '/spiix/engage/elite-mentorship'
+      preLoaderRoute: typeof SpiixEngageEliteMentorshipRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/engage/fractional-advisory': {
+      id: '/spiix/engage/fractional-advisory'
+      path: '/engage/fractional-advisory'
+      fullPath: '/spiix/engage/fractional-advisory'
+      preLoaderRoute: typeof SpiixEngageFractionalAdvisoryRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/engage/gtm-audit': {
+      id: '/spiix/engage/gtm-audit'
+      path: '/engage/gtm-audit'
+      fullPath: '/spiix/engage/gtm-audit'
+      preLoaderRoute: typeof SpiixEngageGtmAuditRouteImport
+      parentRoute: typeof SpiixRoute
+    }
   }
 }
 
@@ -367,6 +615,38 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
   ServicesRouteChildren,
 )
 
+interface SpiixRouteChildren {
+  SpiixCompareRoute: typeof SpiixCompareRoute
+  SpiixConnectRoute: typeof SpiixConnectRoute
+  SpiixDiagnosticsRoute: typeof SpiixDiagnosticsRoute
+  SpiixImpactRoute: typeof SpiixImpactRoute
+  SpiixOsRoute: typeof SpiixOsRoute
+  SpiixSignalReportRoute: typeof SpiixSignalReportRoute
+  SpiixSignalsRoute: typeof SpiixSignalsRoute
+  SpiixWhoIHelpRoute: typeof SpiixWhoIHelpRoute
+  SpiixIndexRoute: typeof SpiixIndexRoute
+  SpiixEngageEliteMentorshipRoute: typeof SpiixEngageEliteMentorshipRoute
+  SpiixEngageFractionalAdvisoryRoute: typeof SpiixEngageFractionalAdvisoryRoute
+  SpiixEngageGtmAuditRoute: typeof SpiixEngageGtmAuditRoute
+}
+
+const SpiixRouteChildren: SpiixRouteChildren = {
+  SpiixCompareRoute: SpiixCompareRoute,
+  SpiixConnectRoute: SpiixConnectRoute,
+  SpiixDiagnosticsRoute: SpiixDiagnosticsRoute,
+  SpiixImpactRoute: SpiixImpactRoute,
+  SpiixOsRoute: SpiixOsRoute,
+  SpiixSignalReportRoute: SpiixSignalReportRoute,
+  SpiixSignalsRoute: SpiixSignalsRoute,
+  SpiixWhoIHelpRoute: SpiixWhoIHelpRoute,
+  SpiixIndexRoute: SpiixIndexRoute,
+  SpiixEngageEliteMentorshipRoute: SpiixEngageEliteMentorshipRoute,
+  SpiixEngageFractionalAdvisoryRoute: SpiixEngageFractionalAdvisoryRoute,
+  SpiixEngageGtmAuditRoute: SpiixEngageGtmAuditRoute,
+}
+
+const SpiixRouteWithChildren = SpiixRoute._addFileChildren(SpiixRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -379,6 +659,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SpiixRoute: SpiixRouteWithChildren,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport

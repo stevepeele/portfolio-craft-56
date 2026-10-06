@@ -13,3 +13,4 @@
 - Use native CSS view-timeline reveals for restrained site-wide motion; this keeps interaction lightweight, hydration-safe, and reduced-motion aware.
 - Keep the public information architecture centered on Home, Work, SPIIX, Music, and Contact; preserve retired public URLs with redirects into those destinations.
 - Treat generated Music images as replaceable editorial thumbnails, never as official release art or archival photography.
+- Keep SPIIX under `/spiix` with its own scoped industrial visual system and shared shell; this preserves a distinct microsite without a second router.

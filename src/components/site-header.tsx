@@ -9,20 +9,20 @@ const offerNames: Record<string, string> = {
   logistics: "Logistics Digital Management",
 };
 
-type Crumb = { label: string; to?: "/" | "/advisory" | "/services" | "/music" | "/work" };
+type Crumb = { label: string; to?: "/" | "/spiix" | "/spiix/compare" | "/music" | "/work" };
 
 function crumbsFor(path: string): Crumb[] {
   const p = path.replace(/\/$/, "") || "/";
   if (p === "/") return [];
   if (p === "/work") return [{ label: "Home", to: "/" }, { label: "Work" }];
-  if (p === "/advisory") return [{ label: "Home", to: "/" }, { label: "SPIIX" }];
+  if (p === "/spiix") return [{ label: "Home", to: "/" }, { label: "SPIIX" }];
   if (p === "/services")
-    return [{ label: "Home", to: "/" }, { label: "SPIIX", to: "/advisory" }, { label: "Offers" }];
+    return [{ label: "Home", to: "/" }, { label: "SPIIX", to: "/spiix" }, { label: "Offers" }];
   if (p.startsWith("/services/"))
     return [
       { label: "Home", to: "/" },
-      { label: "SPIIX", to: "/advisory" },
-      { label: "Offers", to: "/services" },
+      { label: "SPIIX", to: "/spiix" },
+      { label: "Offers", to: "/spiix/compare" },
       { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
   if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
