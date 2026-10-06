@@ -14,4 +14,4 @@
 - [x] Rebuild the linked SPIIX Growth Engine experience as an integrated microsite.
 - [x] Replace the current advisory and mentorship presentation with the new SPIIX content and structure.
 - [x] Update all relevant portfolio crosslinks, redirects, metadata, and pathway destinations.
-- [ ] Verify every SPIIX page and interaction on desktop and mobile.
+- [x] Verify every SPIIX page and interaction on desktop and mobile.
