@@ -27,8 +27,12 @@ import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audi
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
 import { Route as ServicesWebsiteBuildRouteImport } from './routes/services.website-build'
 import { Route as SpiixIndexRouteImport } from './routes/spiix.index'
+import { Route as SpiixCompareRouteImport } from './routes/spiix.compare'
+import { Route as SpiixConnectRouteImport } from './routes/spiix.connect'
+import { Route as SpiixImpactRouteImport } from './routes/spiix.impact'
 import { Route as SpiixOsRouteImport } from './routes/spiix.os'
 import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
+import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -120,6 +124,21 @@ const SpiixIndexRoute = SpiixIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SpiixRoute,
 } as any)
+const SpiixCompareRoute = SpiixCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixConnectRoute = SpiixConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixImpactRoute = SpiixImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => SpiixRoute,
+} as any)
 const SpiixOsRoute = SpiixOsRouteImport.update({
   id: '/os',
   path: '/os',
@@ -128,6 +147,11 @@ const SpiixOsRoute = SpiixOsRouteImport.update({
 const SpiixSignalsRoute = SpiixSignalsRouteImport.update({
   id: '/signals',
   path: '/signals',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixWhoIHelpRoute = SpiixWhoIHelpRouteImport.update({
+  id: '/who-i-help',
+  path: '/who-i-help',
   getParentRoute: () => SpiixRoute,
 } as any)
 
@@ -148,8 +172,12 @@ export interface FileRoutesByFullPath {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
 }
@@ -168,8 +196,12 @@ export interface FileRoutesByTo {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
 }
@@ -191,8 +223,12 @@ export interface FileRoutesById {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/compare': typeof SpiixCompareRoute
+  '/spiix/connect': typeof SpiixConnectRoute
+  '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signals': typeof SpiixSignalsRoute
+  '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
 }
@@ -215,8 +251,12 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/impact'
     | '/spiix/os'
     | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services/'
     | '/spiix/'
   fileRoutesByTo: FileRoutesByTo
@@ -235,8 +275,12 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/impact'
     | '/spiix/os'
     | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services'
     | '/spiix'
   id:
@@ -257,8 +301,12 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/compare'
+    | '/spiix/connect'
+    | '/spiix/impact'
     | '/spiix/os'
     | '/spiix/signals'
+    | '/spiix/who-i-help'
     | '/services/'
     | '/spiix/'
   fileRoutesById: FileRoutesById
@@ -407,6 +455,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixIndexRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/spiix/compare': {
+      id: '/spiix/compare'
+      path: '/compare'
+      fullPath: '/spiix/compare'
+      preLoaderRoute: typeof SpiixCompareRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/connect': {
+      id: '/spiix/connect'
+      path: '/connect'
+      fullPath: '/spiix/connect'
+      preLoaderRoute: typeof SpiixConnectRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/impact': {
+      id: '/spiix/impact'
+      path: '/impact'
+      fullPath: '/spiix/impact'
+      preLoaderRoute: typeof SpiixImpactRouteImport
+      parentRoute: typeof SpiixRoute
+    }
     '/spiix/os': {
       id: '/spiix/os'
       path: '/os'
@@ -419,6 +488,13 @@ declare module '@tanstack/react-router' {
       path: '/signals'
       fullPath: '/spiix/signals'
       preLoaderRoute: typeof SpiixSignalsRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/who-i-help': {
+      id: '/spiix/who-i-help'
+      path: '/who-i-help'
+      fullPath: '/spiix/who-i-help'
+      preLoaderRoute: typeof SpiixWhoIHelpRouteImport
       parentRoute: typeof SpiixRoute
     }
   }
@@ -443,14 +519,22 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 )
 
 interface SpiixRouteChildren {
+  SpiixCompareRoute: typeof SpiixCompareRoute
+  SpiixConnectRoute: typeof SpiixConnectRoute
+  SpiixImpactRoute: typeof SpiixImpactRoute
   SpiixOsRoute: typeof SpiixOsRoute
   SpiixSignalsRoute: typeof SpiixSignalsRoute
+  SpiixWhoIHelpRoute: typeof SpiixWhoIHelpRoute
   SpiixIndexRoute: typeof SpiixIndexRoute
 }
 
 const SpiixRouteChildren: SpiixRouteChildren = {
+  SpiixCompareRoute: SpiixCompareRoute,
+  SpiixConnectRoute: SpiixConnectRoute,
+  SpiixImpactRoute: SpiixImpactRoute,
   SpiixOsRoute: SpiixOsRoute,
   SpiixSignalsRoute: SpiixSignalsRoute,
+  SpiixWhoIHelpRoute: SpiixWhoIHelpRoute,
   SpiixIndexRoute: SpiixIndexRoute,
 }
 
