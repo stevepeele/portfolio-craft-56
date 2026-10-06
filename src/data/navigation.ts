@@ -1,7 +1,7 @@
 export const primaryNav = [
   { to: "/", label: "Home", exact: true, match: ["/"] },
   { to: "/work", label: "Work", exact: false, match: ["/work"] },
-  { to: "/advisory", label: "SPIIX", exact: false, match: ["/advisory", "/services"] },
+  { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
   { to: "/music", label: "Music", exact: false, match: ["/music"] },
 ] as const;
 
@@ -10,7 +10,7 @@ export type Pathway = {
   label: string;
   need: string;
   destination: string;
-  to: "/" | "/work" | "/advisory" | "/services" | "/music";
+  to: "/" | "/work" | "/spiix" | "/spiix/compare" | "/music";
   hash?: string;
 };
 
@@ -28,7 +28,7 @@ export const pathways: Pathway[] = [
     label: "The experimental rule breaker",
     need: "You want something scoped, built, and shipped fast.",
     destination: "SPIIX / Offers",
-    to: "/services",
+    to: "/spiix/compare",
   },
   {
     id: "executive",
@@ -43,7 +43,7 @@ export const pathways: Pathway[] = [
     label: "The mentor and listener",
     need: "You could use an experienced sounding board.",
     destination: "SPIIX / Advisory",
-    to: "/advisory",
+    to: "/spiix",
   },
   {
     id: "thinker",
