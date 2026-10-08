@@ -15,8 +15,8 @@
 - [x] Replace the current advisory and mentorship presentation with the new SPIIX content and structure.
 - [x] Update all relevant portfolio crosslinks, redirects, metadata, and pathway destinations.
 - [x] Verify every SPIIX page and interaction on desktop and mobile.
-- [ ] Add AI-powered growth challenge guidance with relevant SPIIX pathways and next steps.
-- [ ] Repair SPIIX styling across pages and screen sizes.
-- [ ] Surface Portfolio in main navigation without duplicating Work.
-- [ ] Redesign Music and prioritize ColdHarbour, Until the Dead Walk, Wasted Away, Grave Friends, Vacillantes.
-- [ ] Verify the AI recommendation and updated pages in the browser.
+- [x] Add AI-powered growth challenge guidance with relevant SPIIX pathways and next steps.
+- [x] Repair SPIIX styling across pages and screen sizes.
+- [x] Surface Portfolio in main navigation without duplicating Work.
+- [x] Redesign Music and prioritize ColdHarbour, Until the Dead Walk, Wasted Away, Grave Friends, Vacillantes.
+- [x] Verify the AI recommendation and updated pages in the browser.
