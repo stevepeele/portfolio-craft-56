@@ -14,7 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      spiix_ai_service_state: {
+        Row: {
+          message: string
+          service: string
+          status: number
+          updated_at: string
+        }
+        Insert: {
+          message: string
+          service: string
+          status?: number
+          updated_at?: string
+        }
+        Update: {
+          message?: string
+          service?: string
+          status?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

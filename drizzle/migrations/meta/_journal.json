@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791503024034,
+      "tag": "0000_spiix_ai_service_state",
+      "breakpoints": true
+    }
+  ]
 }
