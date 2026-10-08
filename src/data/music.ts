@@ -38,7 +38,7 @@ export const sharedThreads = [
   },
 ];
 
-export const musicProjects: MusicProject[] = [
+const projects: MusicProject[] = [
   {
     id: "coldharbour",
     image: coldharbourArt,
@@ -105,3 +105,5 @@ export const musicProjects: MusicProject[] = [
     links: [],
   },
 ];
+
+export const musicProjects = ["coldharbour", "until-the-dead-walk", "wasted-away", "grave-friends", "vacillantes"].flatMap(id => projects.filter(project => project.id === id));

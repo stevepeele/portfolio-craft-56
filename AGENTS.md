@@ -11,6 +11,8 @@
 
 - Keep independent company analyses on unlisted, noindex leaf routes with explicit non-affiliation language so editorial work remains distinct from the main portfolio.
 - Use native CSS view-timeline reveals for restrained site-wide motion; this keeps interaction lightweight, hydration-safe, and reduced-motion aware.
-- Keep the public information architecture centered on Home, Work, SPIIX, Music, and Contact; preserve retired public URLs with redirects into those destinations.
+- Keep the public information architecture centered on Home, Portfolio (the consolidated Work route), SPIIX, Music, and Contact; preserve retired public URLs with redirects into those destinations to avoid duplicate proof pages.
 - Treat generated Music images as replaceable editorial thumbnails, never as official release art or archival photography.
 - Keep SPIIX under `/spiix` with its own scoped industrial visual system and shared shell; this preserves a distinct microsite without a second router.
+- Use a public, validated server function for one-shot SPIIX pathway guidance with server-only Responses SDK helpers; prospective clients should not need accounts or expose API credentials.
+- Persist AI access-denial state in a service-only table and never store visitor challenges; this stops blocked calls across restarts without collecting intake data.

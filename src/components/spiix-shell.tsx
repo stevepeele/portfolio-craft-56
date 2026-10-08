@@ -13,7 +13,7 @@ export function SpiixShell() {
     <div className="spiix min-h-screen">
       <header className="spiix-header">
         <div className="spiix-wrap flex h-20 items-center justify-between gap-6">
-          <Link to="/spiix" className="spiix-logo" aria-label="SPIIX home"><strong>SPIIX</strong><span>/ STRATEGIC OS</span></Link>
+          <Link to="/spiix" className="spiix-logo" aria-label="SPIIX home"><strong>SPIIX</strong><span className="hidden sm:inline">/ STRATEGIC OS</span></Link>
           <nav aria-label="SPIIX" className="hidden items-center gap-5 xl:flex">
             {spiixNav.map((item) => <Link key={item.to} to={item.to} activeProps={{ className: "is-active" }}>{item.label}</Link>)}
             <Link to="/" className="spiix-main-link">Main site <ArrowUpRight /></Link>
