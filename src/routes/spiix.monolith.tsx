@@ -8,7 +8,7 @@ import { VelocityModeler, ImpactEngine } from "@/components/spiix-impact-tools";
 import { glossary } from "@/data/spiix-frameworks";
 
 export const Route=createFileRoute("/spiix/monolith")({head:()=>({meta:[{title:"The Monolith — SPIIX Operating Manual"},{name:"description",content:"The definitive SPIIX working document: strategic architecture, operating blueprint, pipeline math, signal discipline, and principles."},{property:"og:title",content:"The Monolith — SPIIX"},{property:"og:description",content:"Eight chapters. One strategic operating system."},{property:"og:type",content:"article"},{name:"twitter:card",content:"summary"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://stevepeeleii.com/spiix/monolith"}]}),component:Monolith});
-const chapters=["The thesis","The strategic operating system","The blueprint","Velocity — the math of pipeline","Signal — reading and acting","The engagement models","Operator principles","Glossary"];
+const chapters=["The thesis","The strategic operating system","The blueprint","Velocity — the math of pipeline","Signal — reading and acting","The engagement models","Operator principles","Glossary"] as const;
 function Monolith(){
   const [access,setAccess]=useState(false); const navigate=useNavigate();
   useEffect(()=>{if(hasMonolithAccess())setAccess(true);else void navigate({to:"/spiix/get-the-signal",replace:true});},[navigate]);
