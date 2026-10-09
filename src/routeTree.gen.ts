@@ -17,6 +17,7 @@ import { Route as CvRouteImport } from './routes/cv'
 import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as FractionalGrowthAdvisoryRouteImport } from './routes/fractional-growth-advisory'
+import { Route as GrowthLaddersRouteImport } from './routes/growth-ladders'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
@@ -84,6 +85,11 @@ const FractionalGrowthAdvisoryRoute =
     path: '/fractional-growth-advisory',
     getParentRoute: () => rootRouteImport,
   } as any)
+const GrowthLaddersRoute = GrowthLaddersRouteImport.update({
+  id: '/growth-ladders',
+  path: '/growth-ladders',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MusicRoute = MusicRouteImport.update({
   id: '/music',
   path: '/music',
@@ -221,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
+  '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -256,6 +263,7 @@ export interface FileRoutesByTo {
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
+  '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -290,6 +298,7 @@ export interface FileRoutesById {
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
+  '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -327,6 +336,7 @@ export interface FileRouteTypes {
     | '/demand-curve-analysis'
     | '/experience'
     | '/fractional-growth-advisory'
+    | '/growth-ladders'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -362,6 +372,7 @@ export interface FileRouteTypes {
     | '/demand-curve-analysis'
     | '/experience'
     | '/fractional-growth-advisory'
+    | '/growth-ladders'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -395,6 +406,7 @@ export interface FileRouteTypes {
     | '/demand-curve-analysis'
     | '/experience'
     | '/fractional-growth-advisory'
+    | '/growth-ladders'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -431,6 +443,7 @@ export interface RootRouteChildren {
   DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
   ExperienceRoute: typeof ExperienceRoute
   FractionalGrowthAdvisoryRoute: typeof FractionalGrowthAdvisoryRoute
+  GrowthLaddersRoute: typeof GrowthLaddersRoute
   MusicRoute: typeof MusicRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
@@ -495,6 +508,13 @@ declare module '@tanstack/react-router' {
       path: '/fractional-growth-advisory'
       fullPath: '/fractional-growth-advisory'
       preLoaderRoute: typeof FractionalGrowthAdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growth-ladders': {
+      id: '/growth-ladders'
+      path: '/growth-ladders'
+      fullPath: '/growth-ladders'
+      preLoaderRoute: typeof GrowthLaddersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/music': {
@@ -740,6 +760,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
   ExperienceRoute: ExperienceRoute,
   FractionalGrowthAdvisoryRoute: FractionalGrowthAdvisoryRoute,
+  GrowthLaddersRoute: GrowthLaddersRoute,
   MusicRoute: MusicRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
