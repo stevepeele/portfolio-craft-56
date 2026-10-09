@@ -34,3 +34,6 @@
 - [x] Expand OS and Signals with decision frameworks and explicitly illustrative worked scenarios.
 - [x] Point portfolio SPIIX navigation at the Monolith and deepen secondary CTA destinations.
 - [x] Verify delivery requests, access, content, mobile rendering, and unchanged portfolio styling.
+- [x] Confirm SPIIX appears in portfolio navigation to the Monolith on preview and the live site.
+- [x] Switch Signal form delivery to the activated FormSubmit token URL; verify build and a live POST.
+- [ ] Confirm the token endpoint's own FormSubmit activation link is clicked so email actually arrives.

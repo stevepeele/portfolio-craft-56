@@ -7,7 +7,7 @@ export const signalSubmissionSchema = signalRequestSchema.extend({
   pageName: z.string().trim().min(1).max(200),
 });
 export type SignalSubmission = z.infer<typeof signalSubmissionSchema>;
-export const formsubmitSignalEndpoint = "https://formsubmit.co/ajax/steve@stevepeeleii.com";
+export const formsubmitSignalEndpoint = "https://formsubmit.co/ajax/3d3ff26bdc6ac727ee48ee558c9efc12";
 export function formsubmitSignalPayload(input: SignalSubmission) {
   const data = signalSubmissionSchema.parse(input);
   return { name: data.name, email: data.email, company: data.company, role: data.role,
