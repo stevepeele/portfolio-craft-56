@@ -93,7 +93,7 @@ function SpiixServicePage() {
               <Link to="/spiix/signal" className="btn-primary">
                 GET THE SIGNAL <ArrowRight className="inline size-4" />
               </Link>
-              <Link to="/spiix/os" className="btn-outline">
+              <Link to="/spiix/os" className="btn-ghost">
                 READ THE OS <ArrowRight className="inline size-4" />
               </Link>
             </div>
@@ -124,7 +124,7 @@ function SpiixServicePage() {
           </div>
         </section>
 
-        <section className="border-y border-border/60 bg-surface-2/40">
+        <section className="border-y border-border/60 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 py-20">
             <p className="eyebrow">Three ways in</p>
             <h2 className="mt-6 text-3xl font-bold">One filter for qualified work.</h2>
