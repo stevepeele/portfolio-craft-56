@@ -20,5 +20,5 @@
 - [x] Surface Portfolio in main navigation without duplicating Work.
 - [x] Redesign Music and prioritize ColdHarbour, Until the Dead Walk, Wasted Away, Grave Friends, Vacillantes.
 - [x] Verify the AI recommendation and updated pages in the browser.
-- [ ] Restore original SPIIX sections, reference copy, sharp industrial styling, and scoped motion.
-- [ ] Verify SPIIX charts, modelers, accordion, intake, mobile navigation, and calculator modal; confirm main-site pages unchanged.
+- [x] Restore original SPIIX sections, reference copy, sharp industrial styling, and scoped motion.
+- [x] Verify SPIIX charts, modelers, accordion, intake, mobile navigation, and calculator modal; confirm main-site pages unchanged.
