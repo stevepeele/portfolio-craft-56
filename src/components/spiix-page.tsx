@@ -4,7 +4,7 @@ import { getSpiixEngagement, spiixEngagements, type SpiixEngagement } from "@/da
 import { profile } from "@/data/resume";
 
 export function SpiixPageHead({ code, title, copy }: { code: string; title: string; copy: string }) {
-  return <section className="spiix-page-head"><div className="spiix-wrap"><p className="spiix-kicker">/ {code}</p><h1>{title}</h1><p>{copy}</p></div></section>;
+  return <section className="spiix-page-head"><div className="spiix-wrap"><p className="spiix-kicker">{code.startsWith("/")?code:`/ ${code}`}</p><h1>{title}</h1><p>{copy}</p></div></section>;
 }
 
 export function SpiixEngagementPage({ slug }: { slug: SpiixEngagement["slug"] }) {

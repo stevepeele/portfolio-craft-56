@@ -14,5 +14,6 @@
 - Keep the public information architecture centered on Home, Portfolio (the consolidated Work route), SPIIX, Music, and Contact; preserve retired public URLs with redirects into those destinations to avoid duplicate proof pages.
 - Treat generated Music images as replaceable editorial thumbnails, never as official release art or archival photography.
 - Keep SPIIX under `/spiix` with its own scoped industrial visual system and shared shell; this preserves a distinct microsite without a second router.
+- Keep SPIIX fidelity styles scoped, reference transcriptions in shared data modules, and blueprint/impact tools reusable across leaf routes; this isolates the portfolio and keeps source fidelity and interactions consistent.
 - Use a public, validated server function for one-shot SPIIX pathway guidance with server-only Responses SDK helpers; prospective clients should not need accounts or expose API credentials.
 - Persist AI access-denial state in a service-only table and never store visitor challenges; this stops blocked calls across restarts without collecting intake data.
