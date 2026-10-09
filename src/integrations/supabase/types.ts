@@ -35,6 +35,39 @@ export type Database = {
         }
         Relationships: []
       }
+      spiix_signal_submissions: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          id: string
+          name: string
+          page_name: string
+          page_url: string
+          role: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          id: string
+          name: string
+          page_name: string
+          page_url: string
+          role: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          page_name?: string
+          page_url?: string
+          role?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

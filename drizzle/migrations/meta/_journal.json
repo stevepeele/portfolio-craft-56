@@ -8,6 +8,13 @@
       "when": 1791503024034,
       "tag": "0000_spiix_ai_service_state",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791532242303,
+      "tag": "0001_spiix_signal_submissions",
+      "breakpoints": true
     }
   ]
 }
