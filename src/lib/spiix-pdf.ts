@@ -28,8 +28,9 @@ export async function downloadMonolithPdf(root: HTMLElement) {
     const clean=value.replace(/\s+/g," ").trim();if(!clean)return;
     pdf.setFont("Document",bold?"bold":"normal");pdf.setFontSize(size);pdf.setTextColor(ink);
     const lines=pdf.splitTextToSize(clean,width) as string[];
-    const leading=size*.47;
-    if(bold)room(lines.length*leading+16);
+    const leading=size*.44;
+    if(bold&&size>=12)room(lines.length*leading+12);
+    else if(lines.length*leading<70)room(lines.length*leading);
     for(const item of lines){room(leading);pdf.text(item,margin,y);y+=leading;}
     y+=bold?4:3;
   };
