@@ -2,6 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronRight, Compass, Menu, X } from "lucide-react";
 import { openGuide, primaryNav } from "@/data/navigation";
+import { EbookBanner } from "@/components/ebook-banner";
 
 const offerNames: Record<string, string> = {
   "gtm-audit": "GTM & Funnel Audit",
@@ -45,6 +46,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+        <EbookBanner />
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <Link to="/" className="font-display text-base font-bold tracking-tight">
             Steve Peele <span className="text-gradient">II</span>
