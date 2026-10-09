@@ -70,11 +70,12 @@ export async function downloadMonolithPdf(root: HTMLElement) {
   };
   pdf.setFillColor(ink);pdf.rect(0,0,210,297,"F");pdf.setFillColor(orange);pdf.rect(margin,28,22,2,"F");pdf.setFont("Document","bold");pdf.setTextColor(paper);pdf.setFontSize(18);pdf.text("SPIIX / DOCUMENT 01",margin,49);pdf.setFontSize(48);pdf.text(["THE","MONOLITH"],margin,104,{lineHeightFactor:1.05});pdf.setFontSize(13);pdf.text("THE STRATEGIC OPERATING MANUAL",margin,166);pdf.setFont("Document","normal");pdf.setFontSize(11);pdf.text(["The architecture behind repeatable growth.","Evidence. Choices. Workflows. Allocation."],margin,188,{lineHeightFactor:1.8});pdf.text("STEVE PEELE II / SPIIX",margin,247);pdf.setFontSize(9);pdf.text("Worked examples are illustrative. Scenarios are not forecasts.",margin,268);
   page();text("Contents",28,true);const tocPage=pdf.getNumberOfPages();
-  for(let i=0;i<monolithChapters.length;i++){text(`${String(i+1).padStart(2,"0")} / ${monolithChapters[i]}`,12,true);y+=8;}
+  const tocPositions:number[]=[];
+  for(let i=0;i<monolithChapters.length;i++){tocPositions.push(y);text(`${String(i+1).padStart(2,"0")} / ${monolithChapters[i]}`,12,true);y+=8;}
   text("A working guide, not a promise of outcomes. Definitions, cohort maturity, economics, and operating capacity determine how these frameworks should be used.",10);
   const sections=Array.from(root.querySelectorAll<HTMLElement>(".sx-document-chapter"));
   for(const section of sections){page();chapterPages.push(pdf.getNumberOfPages());for(const child of Array.from(section.children))await walk(child);}
-  pdf.setPage(tocPage);pdf.setFont("Document","normal");pdf.setFontSize(11);pdf.setTextColor(orange);chapterPages.forEach((number,i)=>pdf.text(String(number),188,45+i*25.28,{align:"right"}));
+  pdf.setPage(tocPage);pdf.setFont("Document","normal");pdf.setFontSize(11);pdf.setTextColor(orange);chapterPages.forEach((number,i)=>pdf.text(String(number),198,tocPositions[i]??24,{align:"right"}));
   const total=pdf.getNumberOfPages();for(let i=2;i<=total;i++){pdf.setPage(i);pdf.setDrawColor(line);pdf.setLineWidth(.15);pdf.line(margin,282,192,282);pdf.setTextColor(ink);pdf.setFont("Document","normal");pdf.setFontSize(8);pdf.text("SPIIX / THE MONOLITH / STEVE PEELE II",margin,288);pdf.text(`${i} / ${total}`,192,288,{align:"right"});}
   pdf.setProperties({title:"The Monolith — SPIIX Operating Manual",author:"Steve Peele II",subject:"Strategic growth operating systems"});pdf.save("SPIIX-The-Monolith.pdf");
 }
