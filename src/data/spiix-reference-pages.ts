@@ -431,5 +431,410 @@ export const spiixReferencePages = {
       "cap": 1.5,
       "drift": 0.03
     }
+  ],
+  "Gq": [
+    {
+      "id": "dotloop",
+      "company": "Dotloop",
+      "tag": "Real Estate Software · Acquired by Zillow Group",
+      "role": "Marketing Operations Manager",
+      "headline": "From campaign-by-campaign nurture to a system that ran itself.",
+      "before": {
+        "label": "BEFORE / THE CONSTRAINT",
+        "lines": [
+          "Adoption ran on one-off campaigns and manual follow-up — growth stopped the moment the team did.",
+          "Acquisition costs climbing, with no trusted reporting to say which channel was worth the spend.",
+          "Operations dependent on heroics: no single point of failure, many."
+        ]
+      },
+      "after": {
+        "label": "AFTER / THE ENGINE WIRED",
+        "lines": [
+          "Multi-channel nurture wired as an automation loop — repeatable, instrumented, running without heroics.",
+          "Lifecycle reporting rebuilt into one dashboard the whole revenue team trusted.",
+          "The engine, not the effort, carried the company through to its acquisition by Zillow Group."
+        ]
+      },
+      "deltas": [
+        {
+          "value": "+400%",
+          "label": "Adoption velocity"
+        },
+        {
+          "value": "−35%",
+          "label": "Customer acquisition cost"
+        },
+        {
+          "value": "EXIT",
+          "label": "Acquired by Zillow Group"
+        }
+      ]
+    },
+    {
+      "id": "ntt-data",
+      "company": "Launch by NTT DATA",
+      "tag": "Global Services · Acquired",
+      "role": "Head of Marketing Operations",
+      "headline": "From fragmented regional ops to one global revenue machine.",
+      "before": {
+        "label": "BEFORE / THE CONSTRAINT",
+        "lines": [
+          "Regional marketing ops fragmented — every geography ran its own stack, its own numbers.",
+          "Reporting rebuilt by hand every cycle; timelines slipped while the data was re-stitched.",
+          "Sales and marketing aimed at different numbers, so pipeline attribution stayed a guess."
+        ]
+      },
+      "after": {
+        "label": "AFTER / THE ENGINE WIRED",
+        "lines": [
+          "Global marketing ops unified — one system, one funnel, one number every region reported against.",
+          "Reporting automated, cutting reporting timelines 25% and freeing the team to act on signal, not assembly.",
+          "ABM wired with sales, aimed at named accounts — and it closed."
+        ]
+      },
+      "deltas": [
+        {
+          "value": "$25M+",
+          "label": "Closed via wired ABM"
+        },
+        {
+          "value": "−25%",
+          "label": "Reporting timelines, automated"
+        },
+        {
+          "value": "$350M+",
+          "label": "Pipeline driven across the arc"
+        }
+      ]
+    },
+    {
+      "id": "astronomer",
+      "company": "Astronomer",
+      "tag": "Data Infrastructure · B2B SaaS",
+      "role": "Director of Growth Experimentation",
+      "headline": "From gut-feel experiments to a measured velocity loop.",
+      "before": {
+        "label": "BEFORE / THE CONSTRAINT",
+        "lines": [
+          "Inbound flat — positioning aimed at everyone, so it landed on no one.",
+          "Experimentation ad hoc: tests launched on instinct, read on gut, kept on sentiment.",
+          "No instrumentation discipline, so wins and losses were indistinguishable at scale."
+        ]
+      },
+      "after": {
+        "label": "AFTER / THE ENGINE WIRED",
+        "lines": [
+          "Positioning and segmentation re-aimed at the buyers who feel the problem most.",
+          "A calculated, high-velocity experimentation loop installed — every test read against real signal, kept or cut without sentiment.",
+          "Inbound bent into a compounding curve, with conversion climbing on top of it."
+        ]
+      },
+      "deltas": [
+        {
+          "value": "+60%",
+          "label": "Inbound velocity"
+        },
+        {
+          "value": "+30%",
+          "label": "Conversion rate lift"
+        },
+        {
+          "value": "LOOP",
+          "label": "Experimentation system installed"
+        }
+      ]
+    }
+  ],
+  "Xq": [
+    {
+      "company": "Dotloop",
+      "tagline": "REAL ESTATE SOFTWARE · PLATFORM",
+      "curve": [
+        22,
+        38,
+        68,
+        100
+      ],
+      "arc": [
+        {
+          "tag": "T+00 / SIGNAL",
+          "title": "Instrument the machine",
+          "body": "The audit found growth was being steered blind — attribution couldn't be trusted. We wired measurement across every channel before touching anything downstream.",
+          "metric": "100% TRACKED",
+          "metricNote": "every touchpoint attributed"
+        },
+        {
+          "tag": "T+30 / STRATEGY",
+          "title": "Aim the sequence",
+          "body": "With clean signal, the real drop-offs showed. Nurture and paid were re-sequenced around the moments buyers actually moved — not the calendar.",
+          "metric": "DROPOFFS MAPPED",
+          "metricNote": "3 leaks found, 3 closed"
+        },
+        {
+          "tag": "T+90 / SYSTEMS",
+          "title": "Build the machinery",
+          "body": "Multi-channel nurture wired into the CRM until it ran itself — lifecycle loops, scoring, and routing with no single point of human failure.",
+          "metric": "0 HANDOFFS LOST",
+          "metricNote": "runs without heroics"
+        },
+        {
+          "tag": "T+180 / SCALE",
+          "title": "Align and compound",
+          "body": "Product, marketing, and sales pulled to one revenue number. The loops compounded quarter over quarter — and the market noticed.",
+          "metric": "ACQUIRED",
+          "metricNote": "by Zillow Group"
+        }
+      ],
+      "metrics": [
+        {
+          "prefix": "+",
+          "value": 400,
+          "suffix": "%",
+          "label": "ADOPTION VELOCITY"
+        },
+        {
+          "prefix": "−",
+          "value": 35,
+          "suffix": "%",
+          "label": "CUSTOMER ACQUISITION COST"
+        }
+      ],
+      "outcome": {
+        "headline": "ZILLOW GROUP",
+        "label": "THE EXIT THE MACHINERY CARRIED"
+      }
+    },
+    {
+      "company": "Astronomer",
+      "tagline": "DATA INFRASTRUCTURE · B2B SAAS",
+      "curve": [
+        30,
+        48,
+        80,
+        100
+      ],
+      "arc": [
+        {
+          "tag": "T+00 / SIGNAL",
+          "title": "Turn the lights on",
+          "body": "Deployed instrumentation across the full funnel — every step, every drop-off, measurable for the first time.",
+          "metric": "FULL-FUNNEL VISION",
+          "metricNote": "zero dark spots left"
+        },
+        {
+          "tag": "T+30 / STRATEGY",
+          "title": "Aim at the drop-offs",
+          "body": "The drop-off map pointed at activation. Onboarding and nurture were re-sequenced around the three moments buyers actually moved.",
+          "metric": "3 LEAKS MAPPED",
+          "metricNote": "3 leaks closed"
+        },
+        {
+          "tag": "T+90 / SYSTEMS",
+          "title": "Automate the follow-through",
+          "body": "Lifecycle loops and routing wired into the CRM until the follow-through ran itself — no leads parked, no handoffs dropped.",
+          "metric": "0 DROPPED HANDOFFS",
+          "metricNote": "the machine kept its promises"
+        },
+        {
+          "tag": "T+180 / SCALE",
+          "title": "Let the signal compound",
+          "body": "Conversion rate climbed 30% before a single new campaign ran. The instrumentation did the heavy lifting — the aim did the rest.",
+          "metric": "+30% CONVERSION RATE",
+          "metricNote": "before any new spend"
+        }
+      ],
+      "metrics": [
+        {
+          "prefix": "+",
+          "value": 30,
+          "suffix": "%",
+          "label": "CONVERSION RATE"
+        },
+        {
+          "prefix": "",
+          "value": 0,
+          "suffix": "",
+          "label": "NEW CAMPAIGNS REQUIRED"
+        }
+      ],
+      "outcome": {
+        "headline": "MEASURED GROWTH",
+        "label": "THE INSTRUMENTATION DID THE HEAVY LIFTING"
+      }
+    },
+    {
+      "company": "EBTH",
+      "tagline": "EVERYTHING BUT THE HOUSE · MARKETPLACE",
+      "curve": [
+        25,
+        40,
+        70,
+        100
+      ],
+      "arc": [
+        {
+          "tag": "T+00 / SIGNAL",
+          "title": "Audit the spend",
+          "body": "Multi-channel acquisition audited — spend, attribution, and the true cost per acquisition laid bare, channel by channel.",
+          "metric": "EVERY CHANNEL AUDITED",
+          "metricNote": "no budget on autopilot"
+        },
+        {
+          "tag": "T+30 / STRATEGY",
+          "title": "Re-aim the budget",
+          "body": "Budget re-aimed at the channels buyers actually came from. Creative re-sequenced around the bid moment, not the blast.",
+          "metric": "SPEND RE-AIMED",
+          "metricNote": "dollar per dollar accountable"
+        },
+        {
+          "tag": "T+90 / SYSTEMS",
+          "title": "Bend the cost curve",
+          "body": "The acquisition machinery rebuilt across channels until scaling didn't raise the cost of winning a customer.",
+          "metric": "COST CURVE BENT",
+          "metricNote": "scale without the tax"
+        },
+        {
+          "tag": "T+180 / SCALE",
+          "title": "Scale on better terms",
+          "body": "Acquisition velocity scaled 50% while conversion rate climbed 30% and cost per acquisition fell 20%. Growth without the hangover.",
+          "metric": "+50% SCALED",
+          "metricNote": "on cheaper customers"
+        }
+      ],
+      "metrics": [
+        {
+          "prefix": "+",
+          "value": 30,
+          "suffix": "%",
+          "label": "CONVERSION RATE"
+        },
+        {
+          "prefix": "−",
+          "value": 20,
+          "suffix": "%",
+          "label": "COST PER ACQUISITION"
+        }
+      ],
+      "outcome": {
+        "headline": "+50% ACQUISITION",
+        "label": "SCALED ON TOP OF A CHEAPER ENGINE"
+      }
+    },
+    {
+      "company": "Zillow Group",
+      "tagline": "POST-ACQUISITION · THE MACHINERY CARRIES",
+      "curve": [
+        45,
+        60,
+        82,
+        100
+      ],
+      "arc": [
+        {
+          "tag": "T+00 / SIGNAL",
+          "title": "Map what actually ran",
+          "body": "Post-acquisition, the first move was mapping what Dotloop's growth machinery actually ran — every loop, every number, every dependency.",
+          "metric": "MACHINERY MAPPED",
+          "metricNote": "nothing ran on folklore"
+        },
+        {
+          "tag": "T+30 / STRATEGY",
+          "title": "Decide what carries",
+          "body": "The loops that compounded stayed. The one-off heroics were retired. Signal kept, noise cut.",
+          "metric": "SIGNAL KEPT",
+          "metricNote": "noise cut"
+        },
+        {
+          "tag": "T+90 / SYSTEMS",
+          "title": "Absorb without dropping",
+          "body": "The nurture, scoring, and routing machinery was absorbed into the larger machine — without dropping a single handoff.",
+          "metric": "100% ABSORBED",
+          "metricNote": "no handoff lost in the merge"
+        },
+        {
+          "tag": "T+180 / SCALE",
+          "title": "One team, one number",
+          "body": "The engine that carried the exit now ran inside the acquirer — aligned to one revenue number across the combined machine.",
+          "metric": "1 REVENUE NUMBER",
+          "metricNote": "the whole machine aligned"
+        }
+      ],
+      "metrics": [
+        {
+          "prefix": "",
+          "value": 100,
+          "suffix": "%",
+          "label": "MACHINERY MIGRATED"
+        },
+        {
+          "prefix": "",
+          "value": 1,
+          "suffix": "",
+          "label": "REVENUE NUMBER"
+        }
+      ],
+      "outcome": {
+        "headline": "CARRIED THROUGH",
+        "label": "THE ENGINE THAT CARRIED THE EXIT, RUNNING INSIDE THE ACQUIRER"
+      }
+    },
+    {
+      "company": "Hoist Hydration",
+      "tagline": "DTC · CONSUMER HYDRATION",
+      "curve": [
+        20,
+        32,
+        58,
+        100
+      ],
+      "arc": [
+        {
+          "tag": "T+00 / SIGNAL",
+          "title": "Make margin visible",
+          "body": "Instrumented the funnel end to end — acquisition cost, margin, and repeat behavior visible for the first time. The spend story didn't survive the audit.",
+          "metric": "FULL MARGIN VISION",
+          "metricNote": "every dollar traceable"
+        },
+        {
+          "tag": "T+30 / STRATEGY",
+          "title": "Re-aim the offer",
+          "body": "Repositioned around the use case buyers actually hydrate for — offer, creative, and pricing re-sequenced before another dollar of spend.",
+          "metric": "OFFER RE-AIMED",
+          "metricNote": "buyers aimed at, not sprayed"
+        },
+        {
+          "tag": "T+90 / SYSTEMS",
+          "title": "Wire the reorder loop",
+          "body": "Retention and replenishment loops wired until reorder ran without paid spend carrying it — subscription, email, and lifecycle running as one machine.",
+          "metric": "REPLENISH ON AUTOPILOT",
+          "metricNote": "orders that didn't need ads"
+        },
+        {
+          "tag": "T+180 / SCALE",
+          "title": "Let margin compound",
+          "body": "Acquisition stopped eating margin: CAC fell while repeat purchase carried the growth. The bottom line finally had an engine under it.",
+          "metric": "MARGIN COMPOUNDING",
+          "metricNote": "growth with an engine under it"
+        }
+      ],
+      "metrics": [
+        {
+          "prefix": "−",
+          "value": 31,
+          "suffix": "%",
+          "label": "CUSTOMER ACQUISITION COST"
+        },
+        {
+          "prefix": "+",
+          "value": 48,
+          "suffix": "%",
+          "label": "REPEAT PURCHASE"
+        }
+      ],
+      "outcome": {
+        "headline": "COMPOUNDING MARGIN",
+        "label": "GROWTH THAT FINALLY PAYS FOR ITSELF"
+      }
+    }
   ]
 } as const;
