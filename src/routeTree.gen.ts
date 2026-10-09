@@ -34,6 +34,7 @@ import { Route as SpiixGetTheSignalRouteImport } from './routes/spiix.get-the-si
 import { Route as SpiixImpactRouteImport } from './routes/spiix.impact'
 import { Route as SpiixMonolithRouteImport } from './routes/spiix.monolith'
 import { Route as SpiixOsRouteImport } from './routes/spiix.os'
+import { Route as SpiixSignalRouteImport } from './routes/spiix.signal'
 import { Route as SpiixSignalReportRouteImport } from './routes/spiix.signal-report'
 import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
@@ -166,6 +167,11 @@ const SpiixOsRoute = SpiixOsRouteImport.update({
   path: '/os',
   getParentRoute: () => SpiixRoute,
 } as any)
+const SpiixSignalRoute = SpiixSignalRouteImport.update({
+  id: '/signal',
+  path: '/signal',
+  getParentRoute: () => SpiixRoute,
+} as any)
 const SpiixSignalReportRoute = SpiixSignalReportRouteImport.update({
   id: '/signal-report',
   path: '/signal-report',
@@ -223,6 +229,7 @@ export interface FileRoutesByFullPath {
   '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal': typeof SpiixSignalRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
@@ -254,6 +261,7 @@ export interface FileRoutesByTo {
   '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal': typeof SpiixSignalRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
@@ -288,6 +296,7 @@ export interface FileRoutesById {
   '/spiix/impact': typeof SpiixImpactRoute
   '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
+  '/spiix/signal': typeof SpiixSignalRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
@@ -323,6 +332,7 @@ export interface FileRouteTypes {
     | '/spiix/impact'
     | '/spiix/monolith'
     | '/spiix/os'
+    | '/spiix/signal'
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
@@ -354,6 +364,7 @@ export interface FileRouteTypes {
     | '/spiix/impact'
     | '/spiix/monolith'
     | '/spiix/os'
+    | '/spiix/signal'
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
@@ -387,6 +398,7 @@ export interface FileRouteTypes {
     | '/spiix/impact'
     | '/spiix/monolith'
     | '/spiix/os'
+    | '/spiix/signal'
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
@@ -590,6 +602,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixOsRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/spiix/signal': {
+      id: '/spiix/signal'
+      path: '/signal'
+      fullPath: '/spiix/signal'
+      preLoaderRoute: typeof SpiixSignalRouteImport
+      parentRoute: typeof SpiixRoute
+    }
     '/spiix/signal-report': {
       id: '/spiix/signal-report'
       path: '/signal-report'
@@ -661,6 +680,7 @@ interface SpiixRouteChildren {
   SpiixImpactRoute: typeof SpiixImpactRoute
   SpiixMonolithRoute: typeof SpiixMonolithRoute
   SpiixOsRoute: typeof SpiixOsRoute
+  SpiixSignalRoute: typeof SpiixSignalRoute
   SpiixSignalReportRoute: typeof SpiixSignalReportRoute
   SpiixSignalsRoute: typeof SpiixSignalsRoute
   SpiixWhoIHelpRoute: typeof SpiixWhoIHelpRoute
@@ -678,6 +698,7 @@ const SpiixRouteChildren: SpiixRouteChildren = {
   SpiixImpactRoute: SpiixImpactRoute,
   SpiixMonolithRoute: SpiixMonolithRoute,
   SpiixOsRoute: SpiixOsRoute,
+  SpiixSignalRoute: SpiixSignalRoute,
   SpiixSignalReportRoute: SpiixSignalReportRoute,
   SpiixSignalsRoute: SpiixSignalsRoute,
   SpiixWhoIHelpRoute: SpiixWhoIHelpRoute,
