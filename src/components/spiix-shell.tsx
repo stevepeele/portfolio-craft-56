@@ -22,7 +22,7 @@ export function SpiixShell() {
  useEffect(()=>{
   const root=shell.current;if(!root)return;
   root.classList.add("sx-motion-ready");
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{threshold:.08});
+   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{threshold:0,rootMargin:"0px 0px -35px 0px"});
   const observe=()=>{
     root.querySelectorAll("main :is(.spiix-section,.sx-document-chapter)> .spiix-wrap,main .sx-document-chapter,main .spiix-stat-strip,main .sx-leaf-narrative,main .sx-leaf-specs,main .spiix-guidance-result").forEach(element=>{
       if(element.classList.contains("sx-reveal"))return;
@@ -35,6 +35,17 @@ export function SpiixShell() {
   observe();const mutations=new MutationObserver(observe);mutations.observe(root,{childList:true,subtree:true});
   return()=>{observer.disconnect();mutations.disconnect();};
  },[pathname]);
+  useEffect(()=>{
+   const root=shell.current;if(!root)return;
+   const media=window.matchMedia("(prefers-reduced-motion: reduce)");
+   let frame=0,targetX=0,targetY=0,x=0,y=0,mark:HTMLElement|null=null;
+   const animate=()=>{frame=0;if(!mark||media.matches)return;x+=(targetX-x)*.14;y+=(targetY-y)*.14;mark.style.transform=`rotateX(${x}deg) rotateY(${y}deg)`;if(Math.abs(targetX-x)+Math.abs(targetY-y)>.01)frame=requestAnimationFrame(animate);};
+   const pointer=(event:PointerEvent)=>{if(media.matches||event.pointerType!=="mouse")return;const stage=event.target instanceof Element?event.target.closest(".sx-mark-stage"):null;const next=stage?.querySelector<HTMLElement>(".sx-mark-reveal");if(!stage||!next){targetX=0;targetY=0;}else{if(mark&&mark!==next)mark.style.transform="";mark=next;const box=stage.getBoundingClientRect();targetX=-(event.clientY-box.top-box.height/2)/box.height*6;targetY=(event.clientX-box.left-box.width/2)/box.width*8;}if(!frame)frame=requestAnimationFrame(animate);};
+   const leave=()=>{targetX=0;targetY=0;if(!frame)frame=requestAnimationFrame(animate);};
+   const anchor=(event:MouseEvent)=>{const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href^="#"]'):null;if(!link||event.ctrlKey||event.metaKey||event.shiftKey)return;const id=link.getAttribute("href")?.slice(1);if(!id)return;const target=document.getElementById(id);if(!target)return;event.preventDefault();target.scrollIntoView({behavior:media.matches?"instant":"smooth",block:"start"});history.replaceState(null,"",`#${id}`);target.setAttribute("tabindex","-1");target.focus({preventScroll:true});};
+   root.addEventListener("pointermove",pointer,{passive:true});root.addEventListener("pointerleave",leave);root.addEventListener("click",anchor);
+   return()=>{cancelAnimationFrame(frame);if(mark)mark.style.transform="";root.removeEventListener("pointermove",pointer);root.removeEventListener("pointerleave",leave);root.removeEventListener("click",anchor);};
+  },[pathname]);
  return <div ref={shell} className="spiix min-h-screen">
   <div ref={progress} className="sx-scroll-progress" />
   <header className={`spiix-header ${scrolled?"is-scrolled":""}`}>
