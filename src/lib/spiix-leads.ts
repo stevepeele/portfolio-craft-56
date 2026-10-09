@@ -7,24 +7,26 @@ export const signalSubmissionSchema = signalRequestSchema.extend({
   pageName: z.string().trim().min(1).max(200),
 });
 export type SignalSubmission = z.infer<typeof signalSubmissionSchema>;
-export const hubspotSignalEndpoint = "https://forms.hubspot.com/uploads/form/v2/22009185/22be66f6-4bd0-493e-8f01-a3d141f82297";
-export function hubspotSignalPayload(input: SignalSubmission) {
+export const formsubmitSignalEndpoint = "https://formsubmit.co/ajax/steve@stevepeeleii.com";
+export function formsubmitSignalPayload(input: SignalSubmission) {
   const data = signalSubmissionSchema.parse(input);
-  const [firstname = "", ...rest] = data.name.split(/\s+/);
-  return new URLSearchParams({ firstname, lastname: rest.join(" "), email: data.email,
-    company: data.company, jobtitle: data.role,
-    hs_context: JSON.stringify({ pageUrl: data.pageUrl, pageName: data.pageName }),
-  });
+  return { name: data.name, email: data.email, company: data.company, role: data.role,
+    _subject: "New SPIIX Signal request", _template: "table" };
 }
-export async function deliverSignalToHubspot(input: SignalSubmission) {
-  const payload = hubspotSignalPayload(input);
+export async function deliverSignalToFormsubmit(input: SignalSubmission) {
+  const payload = JSON.stringify(formsubmitSignalPayload(input));
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      const response = await fetch(hubspotSignalEndpoint, {
+      const response = await fetch(formsubmitSignalEndpoint, {
         method: "POST", body: payload, keepalive: true,
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
       });
-      if (response.ok) return true;
+      if (response.ok) {
+        const result: unknown = await response.json().catch(() => null);
+        if (result && typeof result === "object" && "success" in result &&
+          (result.success === false || result.success === "false")) continue;
+        return true;
+      }
     } catch { /* Reading access never depends on delivery. */ }
   }
   return false;
