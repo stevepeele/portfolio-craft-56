@@ -17,3 +17,6 @@ Disallow: /log/
 User-agent: *
 Allow: /
 Disallow: /log/
+
+Sitemap: https://stevepeeleii.com/sitemap.xml
+

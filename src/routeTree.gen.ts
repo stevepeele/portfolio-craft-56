@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
 import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as FractionalGrowthAdvisoryRouteImport } from './routes/fractional-growth-advisory'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
@@ -77,6 +78,12 @@ const ExperienceRoute = ExperienceRouteImport.update({
   path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FractionalGrowthAdvisoryRoute =
+  FractionalGrowthAdvisoryRouteImport.update({
+    id: '/fractional-growth-advisory',
+    path: '/fractional-growth-advisory',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const MusicRoute = MusicRouteImport.update({
   id: '/music',
   path: '/music',
@@ -213,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -247,6 +255,7 @@ export interface FileRoutesByTo {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -280,6 +289,7 @@ export interface FileRoutesById {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
@@ -316,6 +326,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/fractional-growth-advisory'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -350,6 +361,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/fractional-growth-advisory'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -382,6 +394,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/fractional-growth-advisory'
     | '/music'
     | '/portfolio'
     | '/recommendations'
@@ -417,6 +430,7 @@ export interface RootRouteChildren {
   CvRoute: typeof CvRoute
   DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
   ExperienceRoute: typeof ExperienceRoute
+  FractionalGrowthAdvisoryRoute: typeof FractionalGrowthAdvisoryRoute
   MusicRoute: typeof MusicRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
@@ -474,6 +488,13 @@ declare module '@tanstack/react-router' {
       path: '/experience'
       fullPath: '/experience'
       preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fractional-growth-advisory': {
+      id: '/fractional-growth-advisory'
+      path: '/fractional-growth-advisory'
+      fullPath: '/fractional-growth-advisory'
+      preLoaderRoute: typeof FractionalGrowthAdvisoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/music': {
@@ -718,6 +739,7 @@ const rootRouteChildren: RootRouteChildren = {
   CvRoute: CvRoute,
   DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
   ExperienceRoute: ExperienceRoute,
+  FractionalGrowthAdvisoryRoute: FractionalGrowthAdvisoryRoute,
   MusicRoute: MusicRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,

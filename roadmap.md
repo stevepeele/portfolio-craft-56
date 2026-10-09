@@ -37,3 +37,6 @@
 - [x] Confirm SPIIX appears in portfolio navigation to the Monolith on preview and the live site.
 - [x] Switch Signal form delivery to the activated FormSubmit token URL; verify build and a live POST.
 - [ ] Confirm the token endpoint's own FormSubmit activation link is clicked so email actually arrives.
+- [x] Build the standalone /fractional-growth-advisory service page on the main shell with indexable metadata, JSON-LD, engagement links, and CTAs.
+- [x] Add public/sitemap.xml with all indexable routes and a Sitemap directive in robots.txt.
+- [x] Verify the page at desktop and mobile widths, including head tags, canonical, and internal links.
