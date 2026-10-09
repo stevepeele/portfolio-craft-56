@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      growth_ladders_signups: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          id: string
+          name: string
+          role: string
+          scores: Json | null
+          weakest_rung: string | null
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          id: string
+          name: string
+          role: string
+          scores?: Json | null
+          weakest_rung?: string | null
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          role?: string
+          scores?: Json | null
+          weakest_rung?: string | null
+        }
+        Relationships: []
+      }
       spiix_ai_service_state: {
         Row: {
           message: string
