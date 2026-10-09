@@ -73,6 +73,12 @@ const problems = [
   "CAC climbing while reporting stays fuzzy",
 ];
 
+const engageLinks = {
+  "gtm-audit": "/spiix/engage/gtm-audit",
+  "fractional-advisory": "/spiix/engage/fractional-advisory",
+  "elite-mentorship": "/spiix/engage/elite-mentorship",
+} as const;
+
 function SpiixServicePage() {
   return (
     <div className="min-h-screen">
@@ -131,8 +137,7 @@ function SpiixServicePage() {
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {spiixOriginal.gm.map((item, i) => (
                 <Link
-                  to="/spiix/engage/$slug"
-                  params={{ slug: item.slug }}
+                  to={engageLinks[item.slug]}
                   key={item.slug}
                   className="panel flex flex-col p-6 transition-colors hover:border-primary"
                 >
