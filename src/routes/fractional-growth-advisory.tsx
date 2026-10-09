@@ -201,7 +201,7 @@ function SpiixServicePage() {
           </div>
         </section>
 
-        <section className="border-y border-border/60 bg-surface-2/40">
+        <section className="border-y border-border/60 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 py-20">
             <p className="eyebrow">The record behind the work</p>
             <div className="mt-8 grid gap-10 md:grid-cols-2">
@@ -245,7 +245,7 @@ function SpiixServicePage() {
             <Link to="/spiix/signal" className="btn-primary">
               GET THE SIGNAL <ArrowRight className="inline size-4" />
             </Link>
-            <a href={`mailto:${profile.email}`} className="btn-outline">
+            <a href={`mailto:${profile.email}`} className="btn-ghost">
               {profile.email}
             </a>
           </div>
