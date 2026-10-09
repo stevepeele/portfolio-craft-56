@@ -17,3 +17,6 @@
 - Keep SPIIX fidelity styles scoped, reference transcriptions in shared data modules, and blueprint/impact tools reusable across leaf routes; this isolates the portfolio and keeps source fidelity and interactions consistent.
 - Use a public, validated server function for one-shot SPIIX pathway guidance with server-only Responses SDK helpers; prospective clients should not need accounts or expose API credentials.
 - Persist AI access-denial state in a service-only table and never store visitor challenges; this stops blocked calls across restarts without collecting intake data.
+
+- Keep Monolith access as a hydration-safe, local-only flag with schema-validated form values never persisted; this implements the requested friction gate without implying secure access control or lead delivery.
+- Keep instrument mathematics in pure tested modules and label assumptions and units; this keeps projections reproducible without presenting scenarios as client results.

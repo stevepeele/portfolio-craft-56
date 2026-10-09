@@ -34,7 +34,7 @@ export const spiixOriginal = {
       "step": "01",
       "name": "Audit",
       "title": "Find the real constraint",
-      "summary": "Most growth problems aren't growth problems. They're a constraint hiding under the symptom you asked about. The first move is always to find it — the thing underneath the thing.",
+      "summary": "Trace the commercial problem to its limiting step. Audit the funnel, channel economics, handoffs, and data before choosing the intervention.",
       "deliverables": [
         "Funnel architecture review",
         "Channel efficiency diagnostic",
@@ -49,7 +49,7 @@ export const spiixOriginal = {
       "step": "02",
       "name": "Strategy",
       "title": "Position for the customers who feel it most",
-      "summary": "Connect product value to the customers who feel the problem most. Positioning, segmentation, and a go-to-market plan that compounds instead of spiking — built to hold up after the call ends.",
+      "summary": "Choose the buyer, positioning, channel sequence, and commercial test. Make the next investment accountable to a clear hypothesis.",
       "deliverables": [
         "Positioning & narrative",
         "ICP & segmentation",
@@ -64,7 +64,7 @@ export const spiixOriginal = {
       "step": "03",
       "name": "Build",
       "title": "Wire the systems that make execution fast",
-      "summary": "The systems, data, and automation layer — with AI-driven modeling underneath — that makes reporting trustworthy and execution fast. This is where strategy becomes something a team can actually run — repeatably.",
+      "summary": "Install the CRM, workflows, campaigns, and measurement behind the strategy. Validate the real buyer path and make the process repeatable.",
       "deliverables": [
         "CRM & automation architecture",
         "Marketing operations stack",
@@ -79,7 +79,7 @@ export const spiixOriginal = {
       "step": "04",
       "name": "Scale",
       "title": "Align one team around one revenue number",
-      "summary": "Build the team and align marketing, product, and sales around one revenue number. Reporting you can trust, a team that runs without you in the room, and growth that compounds instead of spiking.",
+      "summary": "Align owners, definitions, and reporting around commercial outcomes. Increase volume only when quality, economics, and operating capacity hold.",
       "deliverables": [
         "Team design & hiring",
         "Cross-functional alignment",
@@ -194,7 +194,7 @@ export const spiixOriginal = {
       "label": "The Lens",
       "name": "The GTM Audit",
       "tagline": "Sharp. Analytical. Diagnostic.",
-      "summary": "A fixed-scope, five-day diagnostic that finds your highest-leverage fixes — delivered as a ready-to-execute action plan, not a deck. Built the same way I've run GTM for teams that closed $25M+ in pipeline.",
+      "summary": "A fixed-scope, five-day diagnostic. Find the constraint, rank the fixes, and leave with an actionable plan.",
       "availability": "Starts within 5 business days",
       "kpi": "Highest-leverage fix, ranked by impact vs. effort",
       "accent": "diagnostic",
@@ -223,7 +223,7 @@ export const spiixOriginal = {
         "A written, prioritized action plan — ranked by impact vs. effort, not a wish list.",
         "Every finding modeled against AI-driven scenario and automation models — leverage quantified before a dollar moves.",
         "A 45-minute walkthrough call to present findings and answer questions.",
-        "Zero fluff: built the same way I've run GTM for teams that closed $25M+ in pipeline."
+        "A clear decision brief: findings, priorities, ownership, and next steps."
       ],
       "process": [
         {
@@ -284,12 +284,12 @@ export const spiixOriginal = {
       "label": "The Engine",
       "name": "Fractional Advisory",
       "tagline": "Long-term. Structural. Embedded.",
-      "summary": "Ongoing advisory for the leaders building a growth engine that has to keep working after the call ends. Not a course to memorize — the actual judgment calls, applied to your business, your team, and your numbers.",
-      "availability": "Limited engagements — apply to confirm",
+      "summary": "Ongoing operating judgment for founders and marketing leaders. Review decisions, align execution, and keep the commercial system accountable.",
+      "availability": "Limited engagements — request availability",
       "kpi": "A growth engine that holds up under pressure",
       "accent": "structural",
       "hero": "The engine that keeps running after the call.",
-      "sub": "Ongoing advisory set to the pace your situation needs — weekly, monthly, or on-call for the hard calls. Consulting solves one company's problem. This is the other side: the judgment, applied to yours.",
+      "sub": "Senior judgment on your priorities, plans, and operating decisions. Set the cadence to the work: weekly, monthly, or on-call.",
       "stats": [
         {
           "value": "14+",
@@ -318,13 +318,13 @@ export const spiixOriginal = {
       "process": [
         {
           "step": "01",
-          "name": "Apply",
-          "detail": "Tell me where you're stuck and what you're building toward. Every engagement starts with the real problem, not a form."
+          "name": "Connect",
+          "detail": "Name the problem, the commercial goal, and the operating context."
         },
         {
           "step": "02",
           "name": "Diagnose",
-          "detail": "One working session to find the actual constraint — the thing underneath the thing you asked about."
+          "detail": "Locate the constraint and agree on the next decision."
         },
         {
           "step": "03",
@@ -374,12 +374,12 @@ export const spiixOriginal = {
       "label": "The Catalyst",
       "name": "Mentorship",
       "tagline": "Personal. Rapid. High-intensity.",
-      "summary": "Direct 1:1 mentorship for founders and new marketing leaders figuring out the job in real time. No cohorts padded for scale, no framework to memorize — just the calls that actually move you forward.",
-      "availability": "By application — limited seats",
+      "summary": "Direct 1:1 mentorship for founders and marketing leaders. Work through real decisions and build the judgment to make the next one.",
+      "availability": "Limited 1:1 availability",
       "kpi": "The operator's edge, built in real time",
       "accent": "catalyst",
       "hero": "Growth is a skill. This is where you build it.",
-      "sub": "SPIIX is where the experience becomes someone else's shortcut. For the people building what I've already built — pipeline, teams, and go-to-market systems that hold up under pressure.",
+      "sub": "Build your operating judgment through real work: the constraint, the trade-off, the decision, and the next move.",
       "stats": [
         {
           "value": "14+",
@@ -408,18 +408,18 @@ export const spiixOriginal = {
       "process": [
         {
           "step": "01",
-          "name": "Apply",
-          "detail": "Tell me what you're building toward and where you're stuck. Seats are limited — this isn't padded for scale."
+          "name": "Connect",
+          "detail": "Start with the decision you need to make and the context around it."
         },
         {
           "step": "02",
           "name": "Diagnose",
-          "detail": "We find the actual constraint underneath the symptom, and set the focus for the cycle."
+          "detail": "Identify the constraint and set the focus for the cycle."
         },
         {
           "step": "03",
           "name": "Build",
-          "detail": "Direct 1:1 cadence — the calls that actually move you forward, with async access between them."
+          "detail": "1:1 decision work with asynchronous access between sessions."
         }
       ],
       "tiers": [
