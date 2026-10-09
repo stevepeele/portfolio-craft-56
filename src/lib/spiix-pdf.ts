@@ -57,9 +57,12 @@ export async function downloadMonolithPdf(root: HTMLElement) {
   };
   const walk=async(element:Element):Promise<void>=>{
     if(element.matches("button,a,input,select,textarea,[data-pdf-exclude]"))return;
+    if(element.matches(".sx-slider")){text(`${element.querySelector("label")?.textContent??"Input"}: ${element.querySelector("output")?.textContent??""}`,10,true);return;}
+    if(element.matches(".sx-segment-field")){text(`${element.querySelector("p")?.textContent??"Scenario"}: ${element.querySelector('[aria-pressed="true"]')?.textContent??""}`,10,true);return;}
+    if(element.matches(".sx-model-totals")){for(const item of Array.from(element.children))text(`${item.querySelector("span")?.textContent??"Output"}: ${item.querySelector("strong")?.textContent??""}`,10,true);return;}
     if(element instanceof HTMLTableElement){table(element);return;}
     if(element instanceof SVGSVGElement){if(element.classList.contains("sx-pipeline-chart"))await chart(element);return;}
-    if(element.matches("figure:not(:has(svg))")){
+    if(element.matches("figure")){
       const caption=element.querySelector("figcaption");if(caption)text(caption.textContent??"",9,true);
       const blocks=element.querySelectorAll(".sx-architecture-stack>div,.sx-operator-flow>div>div,.sx-revenue-chain>div");
       if(blocks.length){for(const block of blocks){const content=block.textContent?.replace(/\s+/g," ").trim()??"";pdf.setFont("Document","normal");pdf.setFontSize(9);const lines=pdf.splitTextToSize(content,width-12) as string[];const h=lines.length*4.5+9;room(h);pdf.setDrawColor(orange);pdf.setLineWidth(.35);pdf.rect(margin,y,width,h);pdf.setTextColor(ink);pdf.text(lines,margin+6,y+6,{lineHeightFactor:1.4});y+=h+3;}const foot=element.querySelector(".sx-footnote");if(foot)text(foot.textContent??"",9);y+=5;return;}

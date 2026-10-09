@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/spiix/spiix-hero.jpg";
 import girdersImage from "@/assets/spiix/spiix-girders.jpg";
 import { spiixOriginal } from "@/data/spiix-reference";
@@ -16,9 +16,8 @@ export const Route = createFileRoute("/spiix/")({
 const clients=spiixOriginal.fm.map(item=>({category:item.tag,name:item.name,stat:item.metric,role:item.role}));
 const bars=[{name:"Inman",value:70},{name:"Astronomer",value:60},{name:"API Nation",value:50},{name:"Percy",value:50},{name:"EBTH",value:50}];
 function SpiixHome(){
- const mark=useRef<HTMLHeadingElement>(null);const [live,setLive]=useState(331.0);
+ const [live,setLive]=useState(331.0);
  useEffect(()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;const timer=window.setInterval(()=>setLive(v=>v+.037),1100);return()=>window.clearInterval(timer);},[]);
- function tilt(event:React.MouseEvent<HTMLDivElement>){if(!mark.current||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;const box=event.currentTarget.getBoundingClientRect();mark.current.style.transform=`rotateX(${-(event.clientY-box.top-box.height/2)/box.height*6}deg) rotateY(${(event.clientX-box.left-box.width/2)/box.width*8}deg)`;}
  return <main>
   <section id="monolith" className="spiix-hero"><img src={heroImage} alt="Brutalist tower against a dark sky" width={1920} height={1088}/><div className="sx-hero-grid"/><div className="sx-grain"/><div className="spiix-wrap"><div className="spiix-hero-content"><p className="spiix-kicker sx-rise-1">/ STRATEGIC OPERATING SYSTEM · CINCINNATI · OH · AVAILABLE · EST. PAN LABS CONSULTING</p><div className="sx-hero-main"><div><div className="sx-mark-stage" onMouseMove={tilt} onMouseLeave={()=>{if(mark.current)mark.current.style.transform="";}}><h1 ref={mark} className="sx-mark-reveal">SPIIX</h1></div><h2 className="sx-rise-1">Strategy is potential. <span>Execution is kinetic. Signal turns the first into the second.</span></h2><p className="spiix-lede sx-rise-2">14+ years across SaaS, startups, and global marketing operations. $350M+ in annual pipeline exposure. Senior judgment for the growth system you need to build.</p><div className="sx-actions sx-rise-3"><Button asChild className="spiix-button"><Link to="/spiix/signal">GET THE SIGNAL <ArrowRight/></Link></Button><Button asChild variant="ghost" className="spiix-button spiix-button-outline"><a href="#blueprint">How I build <ArrowRight/></a></Button></div></div><div className="sx-live-panel sx-clip sx-rise-4"><p className="spiix-kicker">/ LIVE — SIGNAL PULSE</p><strong>{live.toFixed(3)}</strong><p>Illustrative activity counter · not a result</p></div></div><div className="sx-hero-stats sx-rise-5">{[["14+","Years scaling SaaS & tech"],["$350M+","Pipeline revenue driven"],["10M+","Clients, sign-ups & users served"],["55%","Pipeline velocity increase"],["4","Startup exits contributed to"]].map(([value,label])=><div key={value}><strong>{value}</strong><span>{label}</span></div>)}</div></div></div></section>
   <section className="spiix-section"><div className="spiix-wrap sx-practice"><p className="spiix-kicker">/ THE PRACTICE</p><h2>Pan Labs is where I do the work.<br/><span>SPIIX is where I teach it.</span></h2><p>Pan Labs delivers the work. SPIIX transfers the judgment: how to read the constraint, choose the next move, and build the system behind it. For founders, marketing leaders, and operators who need decisions—not another course.</p><div className="sx-audience">{spiixOriginal.vm.map(item=><p key={item}><span>▸</span>{item}</p>)}</div></div></section>
