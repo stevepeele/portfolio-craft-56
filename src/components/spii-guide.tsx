@@ -58,7 +58,7 @@ export function SpiiGuide() {
     if (restore) (returnFocus.current ?? triggerRef.current)?.focus?.();
   }
 
-  if (pathname.startsWith("/spiix")) return null;
+  if (pathname.startsWith("/spiix") || pathname.startsWith("/growth-ladders")) return null;
 
   return (
     <div className="pointer-events-none fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-[60] flex flex-col items-end sm:inset-x-auto sm:right-6 sm:bottom-6">

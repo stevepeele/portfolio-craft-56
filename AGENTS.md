@@ -23,3 +23,4 @@
 
 - Generate the Monolith PDF client-side from the rendered semantic document with embedded Unicode fonts, paginated vector tables and diagrams, and current chart readings; this keeps the complete guide consistent with its live content and avoids collecting visitor data.
 - Scope SPIIX entrance, stagger, reveal, progress, and instrument motion to its shared shell and fidelity stylesheet with reduced-motion guards; this keeps all leaf experiences consistent without affecting the portfolio.
+- Keep Growth Ladders at `/growth-ladders` as a self-contained brand (own scoped stylesheet under `.gl-root`, no portfolio shell); signups reuse the service-only table + FormSubmit pattern and never block the download.
