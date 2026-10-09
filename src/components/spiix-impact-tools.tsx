@@ -1,4 +1,5 @@
 import { useId, useState, type CSSProperties } from "react";
+import { spiixReferencePages } from "@/data/spiix-reference-pages";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,17 +20,21 @@ export function PipelineChart({ multiplier = 1, projection = false, values: cust
 }
 export function VelocityModeler(){
  const [velocity,setVelocity]=useState(55),[adoption,setAdoption]=useState(50);
- const pipeline=Array.from({length:12},(_,index)=>2*(index+1)*(1+velocity/100*index/30));
- const adoptionCurve=Array.from({length:12},(_,index)=>100/(1+Math.exp(-((index+1)-8)/(1.3+adoption/30)))*(adoption/100));
+ const rate=velocity/100*.06;
+ const pipeline=Array.from({length:12},(_,index)=>rate===0?2*(index+1):2*((1+rate)**(index+1)-1)/rate);
+ const ceiling=20+adoption*.8;
+ const adoptionCurve=Array.from({length:12},(_,index)=>ceiling-(ceiling-8)*.85**(index+1));
  const total=pipeline.at(-1)??0;
  return <div className="sx-modeler sx-clip"><div className="sx-modeler-title"><p className="spiix-kicker">FIG.03 — THE VELOCITY MODELER</p><span className="sx-live">● LIVE · DRAG TO MODEL</span></div><h3>Model the velocity</h3><div className="sx-modeler-grid"><div><p className="spiix-kicker">INPUTS</p><p className="sx-section-narrative">Two levers. Drag either one and the model re-runs on every frame.</p><SpiixSlider label="Pipeline velocity increase" value={velocity} onChange={setVelocity}/><SpiixSlider label="Adoption rate target" value={adoption} onChange={setAdoption}/><p className="sx-footnote">Illustrative scenario, not a forecast.</p></div><div className="sx-model-charts"><div><p className="sx-chart-label">PIPELINE VELOCITY</p><strong>{formatMoney(total*1000000)}</strong><PipelineChart projection values={pipeline} maxValue={40} labels={["M1","M4","M7","M10","M12"]}/><p className="sx-footnote">12-month cumulative, $2.0M monthly base.</p></div><div><p className="sx-chart-label">ADOPTION RATE</p><strong>{(adoptionCurve.at(-1)??0).toFixed(1)}%</strong><PipelineChart projection values={adoptionCurve} maxValue={100} axis="percent" labels={["M1","M4","M7","M10","M12"]}/><p className="sx-footnote">S-curve climb toward the adoption ceiling.</p></div></div></div></div>;
 }
 export function ImpactEngine(){
- const [revenue,setRevenue]=useState(100000),[headroom,setHeadroom]=useState(20),[horizon,setHorizon]=useState(12);
- const ramp=(month:number)=>Math.min(month/horizon,1);
- const curve=Array.from({length:25},(_,month)=>revenue*headroom/100*ramp(month)*month/1000000);
- const incremental=revenue*(headroom/100)*horizon;
- return <div className="sx-impact-engine"><SpiixSlider label="Monthly revenue" value={revenue} onChange={setRevenue} min={10000} max={1000000} step={10000} display={formatMoney(revenue)}/><div className="sx-segment-field"><p>CONVERSION HEADROOM</p><div role="group" aria-label="Conversion headroom">{[10,20,30,50].map(n=><Button key={n} variant="ghost" className="sx-segment" aria-pressed={headroom===n} onClick={()=>setHeadroom(n)}>{n}%</Button>)}</div></div><div className="sx-segment-field"><p>HORIZON</p><div role="group" aria-label="Time horizon">{[{n:3,label:"90D"},{n:6,label:"6MO"},{n:12,label:"12MO"}].map(({n,label})=><Button key={n} variant="ghost" className="sx-segment" aria-pressed={horizon===n} onClick={()=>setHorizon(n)}>{label}</Button>)}</div></div><PipelineChart projection values={curve} maxValue={Math.max(revenue/1000000*12,1)}/><div className="sx-model-totals" aria-live="polite"><div><span>INCREMENTAL REVENUE / {horizon} MONTHS</span><strong>{formatMoney(incremental)}</strong></div><div><span>MODELED MONTHLY VALUE</span><strong>{formatMoney(revenue*(1+headroom/100))}</strong></div></div><p className="sx-footnote">Illustrative conversion scenario, not a forecast. Acquisition, retention, and cost assumptions remain unchanged.</p></div>;
+ const [revenue,setRevenue]=useState(100000),[headroom,setHeadroom]=useState(1.5),[horizon,setHorizon]=useState(12);
+ const config=spiixReferencePages.Sm[horizon===3?0:horizon===6?1:2];
+ const factor=headroom<=1?1.15:headroom<=2?1:headroom<=4?.85:.7;
+ const ramp=(month:number)=>{if(month<config.rampStart)return 0;const progress=Math.min((month-config.rampStart)/(config.rampEnd-config.rampStart),1);return config.cap*(1-(1-progress)**3)+(progress>=1?config.drift*(month-config.rampEnd)*config.cap:0);};
+ const curve=Array.from({length:25},(_,month)=>revenue*(1+ramp(month)*factor)/1000000);
+ const incremental=curve.reduce((total,value)=>total+value*1000000-revenue,0);
+ return <div className="sx-impact-engine"><SpiixSlider label="Monthly revenue" value={revenue} onChange={setRevenue} min={10000} max={500000} step={10000} display={formatMoney(revenue)}/><div className="sx-segment-field"><p>CONVERSION HEADROOM</p><div role="group" aria-label="Conversion headroom">{[{n:.8,label:"<1%"},{n:1.5,label:"1–2%"},{n:3,label:"2–4%"},{n:6,label:">4%"}].map(({n,label})=><Button key={n} variant="ghost" className="sx-segment" aria-pressed={headroom===n} onClick={()=>setHeadroom(n)}>{label}</Button>)}</div></div><div className="sx-segment-field"><p>HORIZON</p><div role="group" aria-label="Time horizon">{[{n:3,label:"90D"},{n:6,label:"6MO"},{n:12,label:"12MO"}].map(({n,label})=><Button key={n} variant="ghost" className="sx-segment" aria-pressed={horizon===n} onClick={()=>setHorizon(n)}>{label}</Button>)}</div></div><PipelineChart projection values={curve} maxValue={Math.max((curve.at(-1)??1)*1.1,.1)}/><div className="sx-model-totals" aria-live="polite"><div><span>24-MONTH CUMULATIVE UPLIFT</span><strong>{formatMoney(incremental)}</strong></div><div><span>MODELED MONTHLY VALUE</span><strong>{formatMoney((curve.at(-1)??0)*1000000)}</strong></div></div><p className="sx-footnote">Illustrative conversion scenario, not a forecast. Acquisition, retention, and cost assumptions remain unchanged.</p></div>;
 }
 export function FloatingImpactCalc() {
   return <Dialog><DialogTrigger asChild><Button className="sx-floating-calc spiix-button spiix-button-outline"><Calculator /> OS IMPACT CALC</Button></DialogTrigger><DialogContent className="spiix sx-impact-dialog"><p className="spiix-kicker">/ OS IMPACT CALCULATOR</p><DialogTitle>Find the leverage.</DialogTitle><DialogDescription>Model the economic effect of conversion headroom.</DialogDescription><ImpactEngine /><div className="sx-actions"><Button asChild variant="ghost" className="spiix-button spiix-button-outline"><Link to="/spiix/impact">Full engine <ArrowRight /></Link></Button><Button asChild className="spiix-button"><Link to="/spiix/engage/gtm-audit">The diagnostic <ArrowRight /></Link></Button></div></DialogContent></Dialog>;
