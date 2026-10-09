@@ -30,3 +30,7 @@
 - [x] Complete SPIIX-wide motion and interaction states.
 - [x] Deepen all eight Monolith chapters and add complete client-generated PDF with print fallback.
 - [x] Verify conversion, access, PDF, every SPIIX route, motion, and unchanged main site.
+- [x] Deliver Signal requests to HubSpot with one retry and instant Monolith access; keep a private submission record.
+- [x] Expand OS and Signals with decision frameworks and explicitly illustrative worked scenarios.
+- [x] Point portfolio SPIIX navigation at the Monolith and deepen secondary CTA destinations.
+- [x] Verify delivery requests, access, content, mobile rendering, and unchanged portfolio styling.
