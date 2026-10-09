@@ -223,10 +223,10 @@ function SpiixServicePage() {
               <div className="panel flex flex-col p-6">
                 <span className="text-5xl text-accent">"</span>
                 <blockquote className="mt-2 flex-1 text-muted-foreground">
-                  {featuredRecommendations[0].quote}
+                  {featuredRecommendations[0]?.quote}
                 </blockquote>
-                <p className="mt-4 font-semibold">{featuredRecommendations[0].name}</p>
-                <p className="text-sm text-muted-foreground">{featuredRecommendations[0].title}</p>
+                <p className="mt-4 font-semibold">{featuredRecommendations[0]?.name}</p>
+                <p className="text-sm text-muted-foreground">{featuredRecommendations[0]?.title}</p>
               </div>
             </div>
           </div>
