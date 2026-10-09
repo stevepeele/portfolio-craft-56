@@ -4,6 +4,8 @@ build a professional portfolio website modeled off of this: https://fractionalde
 
 This project was built with [Lovable](https://lovable.dev).
 
+Hi :) 
+
 **Live app**: https://portfolio-craft-56.lovable.app
 
 ## Build with Lovable
