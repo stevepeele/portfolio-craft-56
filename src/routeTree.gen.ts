@@ -30,7 +30,9 @@ import { Route as SpiixIndexRouteImport } from './routes/spiix.index'
 import { Route as SpiixCompareRouteImport } from './routes/spiix.compare'
 import { Route as SpiixConnectRouteImport } from './routes/spiix.connect'
 import { Route as SpiixDiagnosticsRouteImport } from './routes/spiix.diagnostics'
+import { Route as SpiixGetTheSignalRouteImport } from './routes/spiix.get-the-signal'
 import { Route as SpiixImpactRouteImport } from './routes/spiix.impact'
+import { Route as SpiixMonolithRouteImport } from './routes/spiix.monolith'
 import { Route as SpiixOsRouteImport } from './routes/spiix.os'
 import { Route as SpiixSignalReportRouteImport } from './routes/spiix.signal-report'
 import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
@@ -144,9 +146,19 @@ const SpiixDiagnosticsRoute = SpiixDiagnosticsRouteImport.update({
   path: '/diagnostics',
   getParentRoute: () => SpiixRoute,
 } as any)
+const SpiixGetTheSignalRoute = SpiixGetTheSignalRouteImport.update({
+  id: '/get-the-signal',
+  path: '/get-the-signal',
+  getParentRoute: () => SpiixRoute,
+} as any)
 const SpiixImpactRoute = SpiixImpactRouteImport.update({
   id: '/impact',
   path: '/impact',
+  getParentRoute: () => SpiixRoute,
+} as any)
+const SpiixMonolithRoute = SpiixMonolithRouteImport.update({
+  id: '/monolith',
+  path: '/monolith',
   getParentRoute: () => SpiixRoute,
 } as any)
 const SpiixOsRoute = SpiixOsRouteImport.update({
@@ -207,7 +219,9 @@ export interface FileRoutesByFullPath {
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/get-the-signal': typeof SpiixGetTheSignalRoute
   '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
@@ -236,7 +250,9 @@ export interface FileRoutesByTo {
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/get-the-signal': typeof SpiixGetTheSignalRoute
   '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
@@ -268,7 +284,9 @@ export interface FileRoutesById {
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
+  '/spiix/get-the-signal': typeof SpiixGetTheSignalRoute
   '/spiix/impact': typeof SpiixImpactRoute
+  '/spiix/monolith': typeof SpiixMonolithRoute
   '/spiix/os': typeof SpiixOsRoute
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
@@ -301,7 +319,9 @@ export interface FileRouteTypes {
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
+    | '/spiix/get-the-signal'
     | '/spiix/impact'
+    | '/spiix/monolith'
     | '/spiix/os'
     | '/spiix/signal-report'
     | '/spiix/signals'
@@ -330,7 +350,9 @@ export interface FileRouteTypes {
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
+    | '/spiix/get-the-signal'
     | '/spiix/impact'
+    | '/spiix/monolith'
     | '/spiix/os'
     | '/spiix/signal-report'
     | '/spiix/signals'
@@ -361,7 +383,9 @@ export interface FileRouteTypes {
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
+    | '/spiix/get-the-signal'
     | '/spiix/impact'
+    | '/spiix/monolith'
     | '/spiix/os'
     | '/spiix/signal-report'
     | '/spiix/signals'
@@ -538,11 +562,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixDiagnosticsRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/spiix/get-the-signal': {
+      id: '/spiix/get-the-signal'
+      path: '/get-the-signal'
+      fullPath: '/spiix/get-the-signal'
+      preLoaderRoute: typeof SpiixGetTheSignalRouteImport
+      parentRoute: typeof SpiixRoute
+    }
     '/spiix/impact': {
       id: '/spiix/impact'
       path: '/impact'
       fullPath: '/spiix/impact'
       preLoaderRoute: typeof SpiixImpactRouteImport
+      parentRoute: typeof SpiixRoute
+    }
+    '/spiix/monolith': {
+      id: '/spiix/monolith'
+      path: '/monolith'
+      fullPath: '/spiix/monolith'
+      preLoaderRoute: typeof SpiixMonolithRouteImport
       parentRoute: typeof SpiixRoute
     }
     '/spiix/os': {
@@ -619,7 +657,9 @@ interface SpiixRouteChildren {
   SpiixCompareRoute: typeof SpiixCompareRoute
   SpiixConnectRoute: typeof SpiixConnectRoute
   SpiixDiagnosticsRoute: typeof SpiixDiagnosticsRoute
+  SpiixGetTheSignalRoute: typeof SpiixGetTheSignalRoute
   SpiixImpactRoute: typeof SpiixImpactRoute
+  SpiixMonolithRoute: typeof SpiixMonolithRoute
   SpiixOsRoute: typeof SpiixOsRoute
   SpiixSignalReportRoute: typeof SpiixSignalReportRoute
   SpiixSignalsRoute: typeof SpiixSignalsRoute
@@ -634,7 +674,9 @@ const SpiixRouteChildren: SpiixRouteChildren = {
   SpiixCompareRoute: SpiixCompareRoute,
   SpiixConnectRoute: SpiixConnectRoute,
   SpiixDiagnosticsRoute: SpiixDiagnosticsRoute,
+  SpiixGetTheSignalRoute: SpiixGetTheSignalRoute,
   SpiixImpactRoute: SpiixImpactRoute,
+  SpiixMonolithRoute: SpiixMonolithRoute,
   SpiixOsRoute: SpiixOsRoute,
   SpiixSignalReportRoute: SpiixSignalReportRoute,
   SpiixSignalsRoute: SpiixSignalsRoute,
