@@ -18,5 +18,8 @@
 - Use a public, validated server function for one-shot SPIIX pathway guidance with server-only Responses SDK helpers; prospective clients should not need accounts or expose API credentials.
 - Persist AI access-denial state in a service-only table and never store visitor challenges; this stops blocked calls across restarts without collecting intake data.
 
-- Keep Monolith access as a hydration-safe, local-only flag with schema-validated form values never persisted; this implements the requested friction gate without implying secure access control or lead delivery.
+- Use `/spiix/signal` as the single conversion page, redirect the retired form route, and keep Monolith access as a hydration-safe, local-only flag with schema-validated form values never persisted; this implements the requested friction gate without implying secure access control or lead delivery.
 - Keep instrument mathematics in pure tested modules and label assumptions and units; this keeps projections reproducible without presenting scenarios as client results.
+
+- Generate the Monolith PDF client-side from the rendered semantic document with embedded Unicode fonts, paginated vector tables and diagrams, and current chart readings; this keeps the complete guide consistent with its live content and avoids collecting visitor data.
+- Scope SPIIX entrance, stagger, reveal, progress, and instrument motion to its shared shell and fidelity stylesheet with reduced-motion guards; this keeps all leaf experiences consistent without affecting the portfolio.

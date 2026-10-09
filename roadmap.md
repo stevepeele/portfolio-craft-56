@@ -25,3 +25,8 @@
 - [x] Tighten SPIIX instruments and invitations; deepen OS and Signals.
 - [x] Add the four-field signal gate and illustrated Monolith with instant local unlock.
 - [x] Verify all SPIIX routes, gating, instruments, copy, and unchanged portfolio.
+
+- [x] Build the single Signal conversion page and preserve the retired form URL.
+- [x] Complete SPIIX-wide motion and interaction states.
+- [x] Deepen all eight Monolith chapters and add complete client-generated PDF with print fallback.
+- [x] Verify conversion, access, PDF, every SPIIX route, motion, and unchanged main site.
