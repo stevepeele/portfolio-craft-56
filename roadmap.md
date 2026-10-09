@@ -22,6 +22,6 @@
 - [x] Verify the AI recommendation and updated pages in the browser.
 - [x] Restore original SPIIX sections, reference copy, sharp industrial styling, and scoped motion.
 - [x] Verify SPIIX charts, modelers, accordion, intake, mobile navigation, and calculator modal; confirm main-site pages unchanged.
-- [ ] Tighten SPIIX instruments and invitations; deepen OS and Signals.
-- [ ] Add the four-field signal gate and illustrated Monolith with instant local unlock.
-- [ ] Verify all SPIIX routes, gating, instruments, copy, and unchanged portfolio.
+- [x] Tighten SPIIX instruments and invitations; deepen OS and Signals.
+- [x] Add the four-field signal gate and illustrated Monolith with instant local unlock.
+- [x] Verify all SPIIX routes, gating, instruments, copy, and unchanged portfolio.
