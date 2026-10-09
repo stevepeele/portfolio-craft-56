@@ -18,7 +18,7 @@
 - Use a public, validated server function for one-shot SPIIX pathway guidance with server-only Responses SDK helpers; prospective clients should not need accounts or expose API credentials.
 - Persist AI access-denial state in a service-only table and never store visitor challenges; this stops blocked calls across restarts without collecting intake data.
 
-- Use `/spiix/signal` as the single conversion page, redirect the retired form route, and keep Monolith access as a hydration-safe, local-only flag with schema-validated form values never persisted; this implements the requested friction gate without implying secure access control or lead delivery.
+- Use `/spiix/signal` as the single conversion page, retain hydration-safe local Monolith access, and deliver validated requests independently to the public HubSpot form with one retry plus a service-only submission record; lead delivery must never delay reading access.
 - Keep instrument mathematics in pure tested modules and label assumptions and units; this keeps projections reproducible without presenting scenarios as client results.
 
 - Generate the Monolith PDF client-side from the rendered semantic document with embedded Unicode fonts, paginated vector tables and diagrams, and current chart readings; this keeps the complete guide consistent with its live content and avoids collecting visitor data.
