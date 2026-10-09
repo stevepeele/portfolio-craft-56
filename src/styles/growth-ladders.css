@@ -1,0 +1,116 @@
+/* Growth Ladders — scoped brand. Everything lives under .gl-root. */
+.gl-root {
+  --gl-ink: oklch(0.96 0.01 90);
+  --gl-void: oklch(0.13 0.01 260);
+  --gl-ground: oklch(0.18 0.02 60);
+  --gl-signal: oklch(0.86 0.22 145);
+  --gl-signal-bg: oklch(0.12 0.03 160);
+  --gl-strategy: oklch(0.55 0.22 27);
+  --gl-strategy-bg: oklch(0.95 0.02 85);
+  --gl-strategy-ink: oklch(0.18 0.02 40);
+  --gl-systems: oklch(0.92 0.04 230);
+  --gl-systems-bg: oklch(0.32 0.12 258);
+  --gl-scale: oklch(0.82 0.17 75);
+  --gl-scale-bg: oklch(0.2 0.06 45);
+  --gl-summit: oklch(0.98 0 0);
+  --gl-skew: 0deg;
+  background: var(--gl-void);
+  color: var(--gl-ink);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  overflow-x: clip;
+}
+.gl-root ::selection { background: var(--gl-scale); color: var(--gl-void); }
+
+/* HUD */
+.gl-hud { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 40;
+  display: flex; align-items: center; gap: .75rem; pointer-events: none; mix-blend-mode: difference; color: oklch(1 0 0); }
+.gl-rail { position: relative; width: 3px; height: 50vh; background: color-mix(in oklab, currentColor 25%, transparent); }
+.gl-rail-fill { position: absolute; bottom: 0; left: 0; right: 0; background: currentColor; }
+.gl-tick { position: absolute; left: -6px; width: 15px; height: 2px; background: currentColor; }
+.gl-alt { writing-mode: vertical-rl; transform: rotate(180deg); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; }
+.gl-alt b { font-size: 1.4rem; letter-spacing: .05em; font-variant-numeric: tabular-nums; }
+.gl-top { position: fixed; left: 1rem; top: 1rem; z-index: 40; font-size: .65rem; letter-spacing: .3em;
+  text-transform: uppercase; mix-blend-mode: difference; color: oklch(1 0 0); text-decoration: none; }
+.gl-warn { position: fixed; inset: auto 0 2rem 0; margin: auto; width: max-content; max-width: 90vw; z-index: 50;
+  padding: .6rem 1rem; background: var(--gl-strategy); color: var(--gl-summit); font-size: .75rem; letter-spacing: .2em;
+  text-transform: uppercase; animation: gl-blink .18s steps(2) 6; }
+@keyframes gl-blink { 50% { opacity: 0; } }
+
+/* Screens */
+.gl-screen { position: relative; min-height: 100svh; padding: 6rem 4.5rem 6rem 1.5rem; display: grid; align-content: center; isolation: isolate; }
+@media (min-width: 768px) { .gl-screen { padding: 6rem 8rem; } }
+.gl-inner { max-width: 72rem; width: 100%; margin: 0 auto; transform: skewY(var(--gl-skew)); transition: transform .3s ease-out; }
+.gl-bar { height: 22px; background: repeating-linear-gradient(90deg, var(--gl-ground) 0 12px, oklch(0.3 0.03 60) 12px 14px);
+  border-block: 2px solid oklch(0.08 0 0); box-shadow: 0 10px 30px -10px oklch(0 0 0 / .8); position: relative; z-index: 2; }
+.gl-num { font-size: clamp(6rem, 22vw, 20rem); line-height: .8; opacity: .14; position: absolute; right: 1rem; bottom: 1rem; z-index: -1; pointer-events: none; }
+.gl-q { font-size: clamp(2rem, 6vw, 5rem); line-height: .98; margin: 1rem 0 2rem; }
+.gl-meta { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: 2.5rem; }
+.gl-meta dt { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; opacity: .65; margin-bottom: .35rem; }
+.gl-meta dd { font-size: 1rem; line-height: 1.45; }
+.gl-kicker { font-size: .7rem; letter-spacing: .35em; text-transform: uppercase; }
+.gl-reveal { animation: gl-rise linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+@keyframes gl-rise { from { opacity: 0; transform: translateY(4rem); } to { opacity: 1; transform: none; } }
+.gl-hot { outline: 3px solid currentColor; outline-offset: -1.5rem; }
+.gl-hot::after { content: "YOUR CONSTRAINT LIVES HERE"; position: absolute; top: 2rem; left: 50%; translate: -50% 0;
+  font-size: .7rem; letter-spacing: .3em; padding: .4rem .8rem; background: currentColor; }
+.gl-hot::after { color: inherit; }
+
+/* Ground */
+.gl-ground { background: radial-gradient(ellipse at 50% 120%, oklch(0.32 0.06 60), var(--gl-void) 70%); }
+.gl-ground::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .12;
+  background: repeating-linear-gradient(0deg, transparent 0 70px, var(--gl-ink) 70px 74px),
+    linear-gradient(90deg, transparent 38%, var(--gl-ink) 38% 39%, transparent 39% 61%, var(--gl-ink) 61% 62%, transparent 62%);
+  mask: linear-gradient(to top, black, transparent 85%); transform: perspective(600px) rotateX(35deg); transform-origin: bottom; }
+.gl-title { font-family: "Anton", Impact, sans-serif; font-size: clamp(4.5rem, 17vw, 15rem); line-height: .82; text-transform: uppercase; letter-spacing: -.01em; }
+.gl-title span { display: block; color: transparent; -webkit-text-stroke: 2px var(--gl-ink); }
+
+/* Rungs */
+.gl-signal { background: var(--gl-signal-bg); color: var(--gl-signal); }
+.gl-signal::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: repeating-linear-gradient(0deg, oklch(0 0 0 / .35) 0 1px, transparent 1px 3px); }
+.gl-signal .gl-q { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-shadow: 0 0 18px color-mix(in oklab, var(--gl-signal) 60%, transparent); }
+.gl-signal .gl-q::after { content: "_"; animation: gl-blink 1s steps(2) infinite; }
+
+.gl-strategy { background: var(--gl-strategy-bg); color: var(--gl-strategy-ink); font-family: "Fraunces", Georgia, serif; }
+.gl-strategy .gl-q { font-style: italic; font-weight: 400; letter-spacing: -.03em; }
+.gl-strategy .gl-q em { color: var(--gl-strategy); text-decoration: line-through; text-decoration-thickness: 4px; font-style: normal; }
+.gl-strategy .gl-num { color: var(--gl-strategy); opacity: .2; }
+
+.gl-systems { background: var(--gl-systems-bg); color: var(--gl-systems); font-family: "Barlow Condensed", sans-serif;
+  background-image: linear-gradient(color-mix(in oklab, var(--gl-systems) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--gl-systems) 12%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px; }
+.gl-systems .gl-q { text-transform: uppercase; font-weight: 600; letter-spacing: .02em; }
+.gl-flow { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-size: .9rem; letter-spacing: .15em; text-transform: uppercase; }
+.gl-flow span { border: 1px dashed currentColor; padding: .4rem .7rem; }
+
+.gl-scale { background: radial-gradient(circle at 30% 20%, oklch(0.42 0.12 55), var(--gl-scale-bg) 60%); color: var(--gl-scale); font-family: "Anton", Impact, sans-serif; }
+.gl-scale .gl-q { font-size: clamp(3rem, 10vw, 9rem); text-transform: uppercase; line-height: .85; }
+.gl-scale .gl-meta { font-family: "IBM Plex Mono", monospace; }
+
+/* Summit */
+.gl-summit { background: var(--gl-summit); color: var(--gl-void); }
+.gl-summit .gl-title { font-size: clamp(3rem, 10vw, 8rem); }
+.gl-field { display: grid; gap: .3rem; }
+.gl-field label { font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; }
+.gl-field input { font: inherit; padding: .85rem 1rem; border: 2px solid var(--gl-void); background: transparent; color: inherit; border-radius: 0; }
+.gl-field input:focus { outline: 3px solid var(--gl-strategy); outline-offset: 2px; }
+.gl-btn { font: inherit; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; padding: 1rem 1.5rem; cursor: pointer;
+  background: var(--gl-void); color: var(--gl-summit); border: 2px solid var(--gl-void); transition: transform .15s, box-shadow .15s; display: inline-block; text-decoration: none; }
+.gl-btn:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--gl-scale); }
+.gl-btn-ghost { background: transparent; color: inherit; border-color: currentColor; }
+.gl-ground .gl-btn { background: var(--gl-ink); color: var(--gl-void); border-color: var(--gl-ink); }
+.gl-ground .gl-btn-ghost { background: transparent; color: var(--gl-ink); }
+
+/* Diagnostic */
+.gl-dialog { position: fixed; inset: 0; z-index: 60; background: oklch(0.08 0 0 / .94); color: var(--gl-ink); overflow-y: auto; padding: 4rem 1.25rem; }
+.gl-dialog-inner { max-width: 44rem; margin: 0 auto; }
+.gl-item { border-top: 1px solid color-mix(in oklab, var(--gl-ink) 25%, transparent); padding: 1.1rem 0; }
+.gl-chips { display: flex; gap: .5rem; margin-top: .7rem; }
+.gl-chip { font: inherit; font-size: .75rem; padding: .45rem .8rem; border: 1px solid var(--gl-ink); background: transparent; color: var(--gl-ink); cursor: pointer; }
+.gl-chip[aria-pressed="true"] { background: var(--gl-scale); border-color: var(--gl-scale); color: var(--gl-void); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-root * { animation: none !important; transition: none !important; }
+  .gl-inner { transform: none !important; }
+}
