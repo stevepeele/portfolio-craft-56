@@ -40,7 +40,7 @@ export function SpiixGuidance() {
             <p className="spiix-kicker">/ RECOMMENDED · {engagement.code}</p><h3>{engagement.label}</h3><p className="spiix-guidance-headline">{result.headline}</p><p>{result.rationale}</p>
             <ol>{result.nextSteps.map((step, index) => <li key={index}><span>0{index + 1}</span>{step}</li>)}</ol><p className="spiix-guidance-question">{result.question}</p>
             <Button asChild variant="ghost" className="spiix-button"><Link to={`/spiix/engage/${engagement.slug}`}>Explore {engagement.label} <ArrowRight /></Link></Button>
-          </> : <><p className="spiix-kicker">/ CONTEXT BEFORE COMMITMENT</p><h3>{busy ? "Finding the useful next move." : "A constraint. A pathway. A next move."}</h3><p>{busy ? "Connecting your context to the right operating shape." : "Diagnosis, ongoing operating support, or a sounding board for the decisions on your desk."}</p></>}
+          </> : <><p className="spiix-kicker">/ SIGNAL ROUTING</p><h3>{busy ? "Finding the useful next move." : "A constraint. A pathway. A next move."}</h3><p>{busy ? "Connecting your context to the right operating shape." : "Diagnosis, ongoing operating support, or a sounding board for the decisions on your desk."}</p></>}
         </div>
       </div>
     </div>

@@ -1,9 +1,6 @@
-export const spiixPhases = [
-  { code: "01", name: "Audit", verb: "Find the constraint", line: "Signal before strategy.", detail: "Instrument the funnel, trace the economics, and isolate the one constraint suppressing the number.", modules: ["Funnel economics", "Data integrity", "Customer signal", "Constraint memo"] },
-  { code: "02", name: "Strategy", verb: "Aim the system", line: "Position for the buyers who feel it most.", detail: "Positioning, segmentation, channel sequencing, and pricing pressure-tested against real buyers, not opinions.", modules: ["Positioning & narrative", "ICP & segmentation", "Channel sequencing", "Pricing & packaging"] },
-  { code: "03", name: "Build", verb: "Wire the machinery", line: "Execution that runs without heroics.", detail: "CRM architecture, automation, demand programs, and lifecycle loops that make the strategy repeatable.", modules: ["CRM architecture", "Demand programs", "Lifecycle systems", "Reporting cadence"] },
-  { code: "04", name: "Scale", verb: "Compound what works", line: "Scale signal, not activity.", detail: "Turn operating rhythm, measurement, and learning into a growth engine that keeps improving after the call ends.", modules: ["Experiment cadence", "Pipeline velocity", "Revenue alignment", "Learning loop"] },
-] as const;
+import { spiixOriginal } from "./spiix-reference";
+
+export const spiixPhases = spiixOriginal.dm.map(phase => ({ code: phase.step, name: phase.name, verb: phase.title, line: phase.title, detail: phase.summary, modules: phase.deliverables, cadence: phase.meta }));
 
 export type SpiixEngagement = {
   slug: "gtm-audit" | "fractional-advisory" | "elite-mentorship";
@@ -68,6 +65,6 @@ export const spiixEvidence = [
 
 export const spiixNav = [
   { label: "The OS", to: "/spiix/os" }, { label: "Impact", to: "/spiix/impact" },
-  { label: "Signals", to: "/spiix/signals" }, { label: "Who I Help", to: "/spiix/who-i-help" },
+  { label: "Signals", to: "/spiix/signals" },
   { label: "Compare", to: "/spiix/compare" }, { label: "Connect", to: "/spiix/connect" },
 ] as const;
