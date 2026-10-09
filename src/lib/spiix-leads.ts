@@ -21,7 +21,12 @@ export async function deliverSignalToFormsubmit(input: SignalSubmission) {
         method: "POST", body: payload, keepalive: true,
         headers: { "Content-Type": "application/json", Accept: "application/json" },
       });
-      if (response.ok) return true;
+      if (response.ok) {
+        const result: unknown = await response.json().catch(() => null);
+        if (result && typeof result === "object" && "success" in result &&
+          (result.success === false || result.success === "false")) continue;
+        return true;
+      }
     } catch { /* Reading access never depends on delivery. */ }
   }
   return false;

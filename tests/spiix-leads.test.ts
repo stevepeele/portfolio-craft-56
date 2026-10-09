@@ -17,4 +17,8 @@ describe("Signal delivery",()=>{
     const request=spyOn(globalThis,"fetch").mockRejectedValue(new TypeError("Network unavailable"));
     try{expect(await deliverSignalToFormsubmit(input)).toBe(false);expect(request).toHaveBeenCalledTimes(2);}finally{request.mockRestore();}
   });
+  it("retries a FormSubmit failure returned with HTTP 200",async()=>{
+    const request=spyOn(globalThis,"fetch").mockImplementation(async()=>Response.json({success:"false"}));
+    try{expect(await deliverSignalToFormsubmit(input)).toBe(false);expect(request).toHaveBeenCalledTimes(2);}finally{request.mockRestore();}
+  });
 });
