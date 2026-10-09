@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { velocityScenario, impactScenario } from "./spiix-models";
-import { signalRequestSchema } from "./spiix-access";
+import { velocityScenario, impactScenario } from "../src/lib/spiix-models";
+import { signalRequestSchema } from "../src/lib/spiix-access";
 describe("SPIIX instruments", () => {
   test("zero lift preserves baseline", () => {
     expect(velocityScenario(0, 100).total).toBe(24_000_000);
