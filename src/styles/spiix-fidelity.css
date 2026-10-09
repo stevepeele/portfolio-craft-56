@@ -219,6 +219,9 @@
 .spiix .sx-operator-flow span{display:block;font:500 10px "JetBrains Mono",monospace;color:var(--sx-kinetic);margin-bottom:16px;}
 .spiix .sx-operator-flow strong{font:500 11px/1.8 "JetBrains Mono",monospace;}
 @media(prefers-reduced-motion:no-preference){
+ @supports(animation-timeline:view()){
+  .spiix .sx-document-depth>:is(p,.sx-framework-table,.sx-worked-example,.sx-operator-flow),.spiix .sx-document-chapter>:is(.sx-os-stack,.sx-blueprint-deep,.sx-framework-table,.sx-decision-loop,.sx-principles){animation:sx-rise .6s ease both;animation-timeline:view();animation-range:entry 0% entry 15%;}
+ }
  .spiix.sx-motion-ready .sx-reveal{transition-delay:0s;}
  .spiix.sx-motion-ready .sx-reveal .sx-stagger-item{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;transition-delay:var(--sx-stagger,0ms);}
  .spiix.sx-motion-ready .sx-reveal.is-visible .sx-stagger-item{opacity:1;transform:translateY(0);}

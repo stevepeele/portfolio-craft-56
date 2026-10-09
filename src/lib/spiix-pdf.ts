@@ -29,6 +29,7 @@ export async function downloadMonolithPdf(root: HTMLElement) {
     pdf.setFont("Document",bold?"bold":"normal");pdf.setFontSize(size);pdf.setTextColor(ink);
     const lines=pdf.splitTextToSize(clean,width) as string[];
     const leading=size*.47;
+    if(bold)room(lines.length*leading+16);
     for(const item of lines){room(leading);pdf.text(item,margin,y);y+=leading;}
     y+=bold?4:3;
   };
@@ -65,7 +66,7 @@ export async function downloadMonolithPdf(root: HTMLElement) {
     if(element.matches("figure")){
       const caption=element.querySelector("figcaption");if(caption)text(caption.textContent??"",9,true);
       const blocks=element.querySelectorAll(".sx-architecture-stack>div,.sx-operator-flow>div>div,.sx-revenue-chain>div");
-      if(blocks.length){for(const block of blocks){const content=block.textContent?.replace(/\s+/g," ").trim()??"";pdf.setFont("Document","normal");pdf.setFontSize(9);const lines=pdf.splitTextToSize(content,width-12) as string[];const h=lines.length*4.5+9;room(h);pdf.setDrawColor(orange);pdf.setLineWidth(.35);pdf.rect(margin,y,width,h);pdf.setTextColor(ink);pdf.text(lines,margin+6,y+6,{lineHeightFactor:1.4});y+=h+3;}const foot=element.querySelector(".sx-footnote");if(foot)text(foot.textContent??"",9);y+=5;return;}
+      if(blocks.length){for(const block of blocks){const content=Array.from(block.childNodes).map(node=>node.textContent?.trim()??"").filter(Boolean).join(" / ").replace(/\s+/g," ").trim();pdf.setFont("Document","normal");pdf.setFontSize(9);const lines=pdf.splitTextToSize(content,width-12) as string[];const h=lines.length*4.5+9;room(h);pdf.setDrawColor(orange);pdf.setLineWidth(.35);pdf.rect(margin,y,width,h);pdf.setTextColor(ink);pdf.text(lines,margin+6,y+6,{lineHeightFactor:1.4});y+=h+3;}const foot=element.querySelector(".sx-footnote");if(foot)text(foot.textContent??"",9);y+=5;return;}
     }
     if(element.matches("h2,h3,h4,p,figcaption,dt,dd,li,output")){text(element.textContent??"",element.matches("h2")?20:element.matches("h3,h4")?14:element.matches("dt,figcaption")?9:10,element.matches("h2,h3,h4,dt,figcaption"));return;}
     if(element.children.length===0){text(element.textContent??"",10,element.matches("strong"));return;}
