@@ -39,7 +39,7 @@ export const principles = [
 ] as const;
 
 export const glossary = [
-  ["Signal", "Evidence that changes a commercial or operating decision."], ["Noise", "Activity or data that does not resolve the decision at hand."],
+  ["Signal", "A defined measure with an agreed unit, cohort, time window, and decision attached."], ["Get the Signal", "The framework for defining measures, reading constraints, choosing an intervention, and checking the result."], ["The OS", "The mechanism that puts the framework to work through owners, workflows, decision rights, and review cadence."], ["Monolith", "The entire body of work: Get the Signal, the OS, Growth Ladders, operating guides, playbooks, instruments, and principles."], ["Noise", "Activity or data that does not resolve the decision at hand."],
   ["Constraint", "The limiting step that caps the system’s useful output."], ["Qualified opportunity", "A sales-accepted opportunity meeting an agreed buyer, need, and commercial definition."],
   ["Pipeline", "The value of open opportunities. Not booked revenue."], ["Pipeline velocity", "Expected won value per unit of time: opportunities × deal value × win rate ÷ sales-cycle length."],
   ["Conversion rate", "The share of a defined starting cohort that reaches a defined next stage."], ["Percentage point", "An absolute difference between rates. Moving from 2% to 3% is +1 point and +50% relative lift."],

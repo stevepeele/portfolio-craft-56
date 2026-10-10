@@ -81,6 +81,6 @@ export async function downloadMonolithPdf(root: HTMLElement) {
   const sections=Array.from(root.querySelectorAll<HTMLElement>(".sx-document-chapter"));
   for(const section of sections){page();chapterPages.push(pdf.getNumberOfPages());for(const child of Array.from(section.children))await walk(child);}
   pdf.setPage(tocPage);pdf.setFont("Document","normal");pdf.setFontSize(11);pdf.setTextColor(orange);chapterPages.forEach((number,i)=>pdf.text(String(number),198,tocPositions[i]??24,{align:"right"}));
-  const total=pdf.getNumberOfPages();for(let i=2;i<=total;i++){pdf.setPage(i);pdf.setDrawColor(line);pdf.setLineWidth(.15);pdf.line(margin,282,192,282);pdf.setTextColor(ink);pdf.setFont("Document","normal");pdf.setFontSize(8);pdf.text("SPIIX / THE MONOLITH / STEVE PEELE II",margin,288);pdf.text(`${i} / ${total}`,192,288,{align:"right"});}
-  pdf.setProperties({title:"The Monolith — SPIIX Operating Manual",author:"Steve Peele II",subject:"Strategic growth operating systems"});pdf.save("SPIIX-The-Monolith.pdf");
+  const total=pdf.getNumberOfPages();for(let i=2;i<=total;i++){pdf.setPage(i);pdf.setDrawColor(line);pdf.setLineWidth(.15);pdf.line(margin,282,192,282);pdf.setTextColor(ink);pdf.setFont("Document","normal");pdf.setFontSize(8);pdf.text("MONOLITH / SPIIX OPERATING GUIDE / STEVE PEELE II",margin,288);pdf.text(`${i} / ${total}`,192,288,{align:"right"});}
+  pdf.setProperties({title:"Monolith — The SPIIX Operating Guide",author:"Steve Peele II",subject:"Get the Signal framework and its operating system"});pdf.save("Monolith-SPIIX-Operating-Guide.pdf");
 }

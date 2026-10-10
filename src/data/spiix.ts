@@ -28,6 +28,6 @@ export const spiixEvidence = [
 
 export const spiixNav = [
   { label: "The OS", to: "/spiix/os" }, { label: "Impact", to: "/spiix/impact" },
-  { label: "Signals", to: "/spiix/signals" },
+   { label: "Signal", to: "/spiix/signals" },
   { label: "Compare", to: "/spiix/compare" }, { label: "Connect", to: "/spiix/connect" },
 ] as const;

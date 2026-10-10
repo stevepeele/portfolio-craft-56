@@ -1,11 +1,11 @@
-export const monolithChapters = ["The thesis", "The strategic operating system", "The blueprint", "Velocity — the math of pipeline", "Signal — reading and acting", "The engagement models", "Operator principles", "Glossary"] as const;
+export const monolithChapters = ["Get the Signal — the framework", "The OS — the framework in operation", "The blueprint", "Velocity — the math of pipeline", "Signal — defining and reading the measure", "The engagement models", "Operator principles", "Glossary"] as const;
 
 export const monolithPreviews = [
-  "Find the commercial constraint, not another campaign idea.",
-  "Stack evidence, choices, workflows, and allocation in the right order.",
+  "Define the measure, read the constraint, choose an intervention, and check the result.",
+  "Put the framework to work through owners, workflows, decision rights, and review cadence.",
   "Move from diagnostic to durable execution with explicit exit tests.",
   "Read pipeline in dollars per day. Model the trade-offs.",
-  "Separate useful evidence from accurate but irrelevant activity.",
+  "Specify the unit, cohort, and time window before interpreting the reading.",
   "Choose diagnosis, ongoing operating judgment, or leadership development.",
   "Use decision rules that survive changing channels and tools.",
   "Agree on the denominator before debating the number.",
