@@ -48,7 +48,7 @@ export const Route = createFileRoute("/growth-ladders")({
 type RungDef = { id: Rung; n: string; name: string; q: React.ReactNode; work: string; artifact: string; exit: string; line: string; chapters: string };
 const RUNGS: RungDef[] = [
   { id: "signal", n: "01", name: "Signal", q: "What do we know, and what decision does it change?",
-    work: "Audit: read the system. Opinion becomes a ranked constraint with named evidence.", artifact: "Signal Register + ranked audit",
+    work: "Audit: define the measure, unit, cohort, and window. Read the system. Opinion becomes a ranked constraint with named evidence.", artifact: "Signal Register + ranked audit",
     exit: "Owners agree; gaps are named as the first tests.", line: "A 2 you can't show is a 1.", chapters: "Chapter 06 and the Signal Playbook" },
   { id: "strategy", n: "02", name: "Strategy", q: <>What <em>channel list</em> bounded intervention do we choose?</>,
     work: "Choose: bound the bet. The constraint becomes one hypothesis on one cohort.", artifact: "Decision Brief",
@@ -156,7 +156,7 @@ function GrowthLadders() {
               <p style={{ fontSize: "1.15rem", maxWidth: "42rem", margin: "1.5rem 0 2rem" }}>
                 {ladder
                   ? <>Your weakest rung is <strong>{ladder.n} · {ladder.name}</strong>. {ladder.chapters} start there. Get the full Operators Edition, free.</>
-                  : <>326 pages. Playbooks, role tracks, the math, twelve field cases, and a facilitator guide. Free.</>}
+                  : <>The Operators Edition within Growth Ladders Monolith: playbooks, role tracks, the math, twelve field cases, and a facilitator guide. Free.</>}
               </p>
               <form onSubmit={onSubmit} noValidate style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))" }}>
@@ -207,10 +207,10 @@ function GrowthLadders() {
       {/* GROUND */}
       <section id="gl-ground" className="gl-screen gl-ground">
         <div className="gl-inner">
-          <p className="gl-kicker">ALT 0000 m · Ground · Operators Edition · Steve Peele II</p>
+          <p className="gl-kicker">ALT 0000 m · Ground · Growth Ladders Monolith · Operators Edition · Steve Peele II</p>
           <h1 className="gl-title" style={{ margin: "1.5rem 0" }}>Growth<span>Ladders</span></h1>
           <p style={{ fontSize: "1.15rem", maxWidth: "38rem", lineHeight: 1.5 }}>
-            What to climb so that every step matters. Read first. Choose small. Build what holds. Scale what earns it. The order isn't a preference — it's the cheapest sequence in which to be wrong.
+            Growth Ladders is the book within Monolith, the complete body of work. Get the Signal is the framework; the OS puts it to work; Signal is the defined measure. Read first. Choose small. Build what holds. Scale what earns it. The order isn't a preference — it's the cheapest sequence in which to be wrong.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
             <button className="gl-btn" onClick={() => setDiagOpen(true)}>Find my weakest rung</button>

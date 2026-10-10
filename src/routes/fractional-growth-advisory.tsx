@@ -168,22 +168,22 @@ function SpiixServicePage() {
               {
                 to: "/spiix/monolith",
                 title: "The Monolith",
-                desc: "The complete operating manual — eight chapters, one system.",
+                desc: "The entire body of work. Start with its eight-chapter SPIIX operating guide.",
               },
               {
                 to: "/spiix/os",
                 title: "The OS",
-                desc: "The operating layer: dependencies, decision rights, failure maps.",
+                desc: "The mechanism that puts the framework to work: owners, workflows, and decision rights.",
               },
               {
                 to: "/spiix/signals",
-                title: "The Signal Framework",
-                desc: "How to read the constraint and choose the next move.",
+                title: "Signal",
+                desc: "The defined measure: its unit, cohort, window, and decision.",
               },
               {
                 to: "/spiix/signal",
                 title: "Get the Signal",
-                desc: "Instant access to the full guide, delivered to your inbox.",
+                desc: "The framework for reading constraints and choosing the next move. Includes instant guide access.",
               },
             ].map((card) => (
               <Link
