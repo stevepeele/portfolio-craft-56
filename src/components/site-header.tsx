@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useState } from "react";
-import { ChevronRight, Compass, Menu, X } from "lucide-react";
-import { openGuide, primaryNav } from "@/data/navigation";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronRight, Compass, Menu, X } from "lucide-react";
+import { hackingMatch, hackingNav, openGuide, primaryNav } from "@/data/navigation";
 import { EbookBanner } from "@/components/ebook-banner";
 
 const offerNames: Record<string, string> = {
@@ -10,7 +10,7 @@ const offerNames: Record<string, string> = {
   logistics: "Logistics Digital Management",
 };
 
-type Crumb = { label: string; to?: "/" | "/spiix" | "/spiix/compare" | "/music" | "/work" };
+type Crumb = { label: string; to?: string };
 
 function crumbsFor(path: string): Crumb[] {
   const p = path.replace(/\/$/, "") || "/";
@@ -27,16 +27,43 @@ function crumbsFor(path: string): Crumb[] {
       { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
   if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
+  if (p === "/writing") return [{ label: "Home", to: "/" }, { label: "Writing" }];
+  if (p === "/hacking") return [{ label: "Home", to: "/" }, { label: "Hacking" }];
+  if (p.startsWith("/hacking/"))
+    return [
+      { label: "Home", to: "/" },
+      { label: "Hacking", to: "/hacking" },
+      { label: hackingNav.find((h) => h.to === p)?.label ?? "Page" },
+    ];
   if (p === "/contact") return [{ label: "Home", to: "/" }, { label: "Let's Talk" }];
   return [];
 }
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [hackingOpen, setHackingOpen] = useState(false);
+  const [mobileHackingOpen, setMobileHackingOpen] = useState(false);
+  const hackingRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation({ select: (l) => l.pathname });
   const isActive = (match: readonly string[], exact: boolean) =>
     match.some((m) => (exact ? pathname === m : pathname === m || pathname.startsWith(m + "/")));
+  const hackingActive = hackingMatch.some((m) => pathname === m || pathname.startsWith(m + "/"));
   const crumbs = crumbsFor(pathname);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (hackingRef.current && !hackingRef.current.contains(e.target as Node)) setHackingOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setHackingOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   const navClass = (active: boolean) =>
     `relative text-sm font-medium transition-colors ${
@@ -61,6 +88,42 @@ export function SiteHeader() {
                 </Link>
               );
             })}
+
+            {/* Hacking dropdown */}
+            <div ref={hackingRef} className="relative" onMouseEnter={() => setHackingOpen(true)} onMouseLeave={() => setHackingOpen(false)}>
+              <button
+                type="button"
+                aria-expanded={hackingOpen}
+                aria-haspopup="true"
+                onClick={() => setHackingOpen((v) => !v)}
+                className={`${navClass(hackingActive)} inline-flex items-center gap-1`}
+              >
+                Hacking
+                <ChevronDown className={`size-3.5 transition-transform ${hackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+              </button>
+              {hackingOpen && (
+                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3" role="menu" aria-label="Hacking">
+                  <div className="overflow-hidden rounded-xl border border-border bg-popover shadow-2xl">
+                    {hackingNav.map((h) => (
+                      <Link
+                        key={h.to}
+                        to={h.to}
+                        role="menuitem"
+                        onClick={() => setHackingOpen(false)}
+                        className="flex items-start justify-between gap-3 px-4 py-3 transition-colors hover:bg-surface"
+                      >
+                        <span>
+                          <span className="block text-sm font-medium text-foreground">{h.label}</span>
+                          <span className="block text-xs text-muted-foreground">{h.blurb}</span>
+                        </span>
+                        <ChevronRight className="mt-1 size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -98,6 +161,33 @@ export function SiteHeader() {
                     </Link>
                   );
                 },
+              )}
+
+              {/* Mobile Hacking section */}
+              <button
+                type="button"
+                aria-expanded={mobileHackingOpen}
+                onClick={() => setMobileHackingOpen((v) => !v)}
+                className={`flex w-full items-center justify-between rounded-lg border-l-2 px-3 py-2.5 text-sm font-medium ${
+                  hackingActive ? "border-primary bg-surface text-foreground" : "border-transparent text-muted-foreground"
+                }`}
+              >
+                Hacking
+                <ChevronDown className={`size-4 transition-transform ${mobileHackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+              </button>
+              {mobileHackingOpen && (
+                <div className="ml-3 flex flex-col gap-1 border-l border-border/60 pl-3">
+                  {hackingNav.map((h) => (
+                    <Link
+                      key={h.to}
+                      to={h.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
+                    >
+                      {h.label}
+                    </Link>
+                  ))}
+                </div>
               )}
             </div>
           </nav>

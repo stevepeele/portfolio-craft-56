@@ -24,6 +24,16 @@ import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WritingRouteImport } from './routes/writing'
+import { Route as HackingIndexRouteImport } from './routes/hacking.index'
+import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
+import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
+import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
+import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
+import { Route as HackingSmartAccessRouteImport } from './routes/hacking.smart-access'
+import { Route as HackingStageplotAiRouteImport } from './routes/hacking.stageplot-ai'
+import { Route as HackingStatusRouteImport } from './routes/hacking.status'
+import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
@@ -118,6 +128,56 @@ const SpiixRoute = SpiixRouteImport.update({
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingIndexRoute = HackingIndexRouteImport.update({
+  id: '/hacking/',
+  path: '/hacking/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingBinslyRoute = HackingBinslyRouteImport.update({
+  id: '/hacking/binsly',
+  path: '/hacking/binsly',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingNexusRoute = HackingNexusRouteImport.update({
+  id: '/hacking/nexus',
+  path: '/hacking/nexus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingProfolioRoute = HackingProfolioRouteImport.update({
+  id: '/hacking/profolio',
+  path: '/hacking/profolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingProgressRoute = HackingProgressRouteImport.update({
+  id: '/hacking/progress',
+  path: '/hacking/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingSmartAccessRoute = HackingSmartAccessRouteImport.update({
+  id: '/hacking/smart-access',
+  path: '/hacking/smart-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingStageplotAiRoute = HackingStageplotAiRouteImport.update({
+  id: '/hacking/stageplot-ai',
+  path: '/hacking/stageplot-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingStatusRoute = HackingStatusRouteImport.update({
+  id: '/hacking/status',
+  path: '/hacking/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
+  id: '/hacking/whats-next',
+  path: '/hacking/whats-next',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -234,6 +294,15 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
+  '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/nexus': typeof HackingNexusRoute
+  '/hacking/profolio': typeof HackingProfolioRoute
+  '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/smart-access': typeof HackingSmartAccessRoute
+  '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/status': typeof HackingStatusRoute
+  '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -248,6 +317,7 @@ export interface FileRoutesByFullPath {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
@@ -268,6 +338,15 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
+  '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/nexus': typeof HackingNexusRoute
+  '/hacking/profolio': typeof HackingProfolioRoute
+  '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/smart-access': typeof HackingSmartAccessRoute
+  '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/status': typeof HackingStatusRoute
+  '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -282,6 +361,7 @@ export interface FileRoutesByTo {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/hacking': typeof HackingIndexRoute
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
@@ -305,6 +385,15 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
+  '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/nexus': typeof HackingNexusRoute
+  '/hacking/profolio': typeof HackingProfolioRoute
+  '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/smart-access': typeof HackingSmartAccessRoute
+  '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/status': typeof HackingStatusRoute
+  '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -319,6 +408,7 @@ export interface FileRoutesById {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
@@ -343,6 +433,15 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/work'
+    | '/writing'
+    | '/hacking/binsly'
+    | '/hacking/nexus'
+    | '/hacking/profolio'
+    | '/hacking/progress'
+    | '/hacking/smart-access'
+    | '/hacking/stageplot-ai'
+    | '/hacking/status'
+    | '/hacking/whats-next'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -357,6 +456,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/hacking/'
     | '/services/'
     | '/spiix/'
     | '/spiix/engage/elite-mentorship'
@@ -377,6 +477,15 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/work'
+    | '/writing'
+    | '/hacking/binsly'
+    | '/hacking/nexus'
+    | '/hacking/profolio'
+    | '/hacking/progress'
+    | '/hacking/smart-access'
+    | '/hacking/stageplot-ai'
+    | '/hacking/status'
+    | '/hacking/whats-next'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -391,6 +500,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/hacking'
     | '/services'
     | '/spiix'
     | '/spiix/engage/elite-mentorship'
@@ -413,6 +523,15 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/work'
+    | '/writing'
+    | '/hacking/binsly'
+    | '/hacking/nexus'
+    | '/hacking/profolio'
+    | '/hacking/progress'
+    | '/hacking/smart-access'
+    | '/hacking/stageplot-ai'
+    | '/hacking/status'
+    | '/hacking/whats-next'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -427,6 +546,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/hacking/'
     | '/services/'
     | '/spiix/'
     | '/spiix/engage/elite-mentorship'
@@ -450,6 +570,16 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRouteWithChildren
   SpiixRoute: typeof SpiixRouteWithChildren
   WorkRoute: typeof WorkRoute
+  WritingRoute: typeof WritingRoute
+  HackingBinslyRoute: typeof HackingBinslyRoute
+  HackingNexusRoute: typeof HackingNexusRoute
+  HackingProfolioRoute: typeof HackingProfolioRoute
+  HackingProgressRoute: typeof HackingProgressRoute
+  HackingSmartAccessRoute: typeof HackingSmartAccessRoute
+  HackingStageplotAiRoute: typeof HackingStageplotAiRoute
+  HackingStatusRoute: typeof HackingStatusRoute
+  HackingWhatsNextRoute: typeof HackingWhatsNextRoute
+  HackingIndexRoute: typeof HackingIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -557,6 +687,76 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/': {
+      id: '/hacking/'
+      path: '/hacking'
+      fullPath: '/hacking/'
+      preLoaderRoute: typeof HackingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/binsly': {
+      id: '/hacking/binsly'
+      path: '/hacking/binsly'
+      fullPath: '/hacking/binsly'
+      preLoaderRoute: typeof HackingBinslyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/nexus': {
+      id: '/hacking/nexus'
+      path: '/hacking/nexus'
+      fullPath: '/hacking/nexus'
+      preLoaderRoute: typeof HackingNexusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/profolio': {
+      id: '/hacking/profolio'
+      path: '/hacking/profolio'
+      fullPath: '/hacking/profolio'
+      preLoaderRoute: typeof HackingProfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/progress': {
+      id: '/hacking/progress'
+      path: '/hacking/progress'
+      fullPath: '/hacking/progress'
+      preLoaderRoute: typeof HackingProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/smart-access': {
+      id: '/hacking/smart-access'
+      path: '/hacking/smart-access'
+      fullPath: '/hacking/smart-access'
+      preLoaderRoute: typeof HackingSmartAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/stageplot-ai': {
+      id: '/hacking/stageplot-ai'
+      path: '/hacking/stageplot-ai'
+      fullPath: '/hacking/stageplot-ai'
+      preLoaderRoute: typeof HackingStageplotAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/status': {
+      id: '/hacking/status'
+      path: '/hacking/status'
+      fullPath: '/hacking/status'
+      preLoaderRoute: typeof HackingStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/whats-next': {
+      id: '/hacking/whats-next'
+      path: '/hacking/whats-next'
+      fullPath: '/hacking/whats-next'
+      preLoaderRoute: typeof HackingWhatsNextRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -767,6 +967,16 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRouteWithChildren,
   SpiixRoute: SpiixRouteWithChildren,
   WorkRoute: WorkRoute,
+  WritingRoute: WritingRoute,
+  HackingBinslyRoute: HackingBinslyRoute,
+  HackingNexusRoute: HackingNexusRoute,
+  HackingProfolioRoute: HackingProfolioRoute,
+  HackingProgressRoute: HackingProgressRoute,
+  HackingSmartAccessRoute: HackingSmartAccessRoute,
+  HackingStageplotAiRoute: HackingStageplotAiRoute,
+  HackingStatusRoute: HackingStatusRoute,
+  HackingWhatsNextRoute: HackingWhatsNextRoute,
+  HackingIndexRoute: HackingIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
