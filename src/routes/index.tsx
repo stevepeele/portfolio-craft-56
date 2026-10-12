@@ -87,8 +87,8 @@ function Home() {
             <Link to="/work" className="btn-ghost">
               See the work
             </Link>
-            <Link to="/spiix" className="btn-ghost">
-              Explore SPIIX
+            <Link to="/fractional-growth-advisory" className="btn-ghost">
+              Explore growth advisory
             </Link>
           </div>
         </div>
@@ -209,8 +209,8 @@ function Home() {
               Strategic advisory, operating diagnostics, and mentorship for founders and leaders
               building a growth engine that has to hold up under pressure.
             </p>
-            <Link to="/spiix" className="btn-ghost mt-6 w-fit">
-              Enter SPIIX <ArrowRight className="size-4" />
+             <Link to="/fractional-growth-advisory" className="btn-ghost mt-6 w-fit">
+               Explore fractional advisory <ArrowRight className="size-4" />
             </Link>
           </article>
           <article className="panel flex flex-col p-7">

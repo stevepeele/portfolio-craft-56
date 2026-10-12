@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, CircleX, Gauge, Network, Search, Workflow } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { spiixOriginal } from "@/data/spiix-reference";
@@ -8,17 +8,17 @@ import { featuredRecommendations, profile } from "@/data/resume";
 export const Route = createFileRoute("/fractional-growth-advisory")({
   head: () => ({
     meta: [
-      { title: "Fractional Growth Advisory — SPIIX by Steve Peele II" },
+      { title: "Fractional Growth Advisor & Marketing Leader | Steve Peele II" },
       {
         name: "description",
         content:
-          "SPIIX is Steve Peele II's fractional growth advisory for SaaS and startup operators: GTM audits, fractional marketing leadership, and the operating system behind repeatable growth.",
+          "Fractional growth advisory for SaaS and technology teams. Steve Peele II connects growth strategy, marketing operations, demand generation, lifecycle, and execution.",
       },
-      { property: "og:title", content: "Fractional Growth Advisory — SPIIX by Steve Peele II" },
+      { property: "og:title", content: "Fractional Growth Advisor & Marketing Leader | Steve Peele II" },
       {
         property: "og:description",
         content:
-          "Strategy is potential. Execution is kinetic. Fractional growth leadership, GTM audits, and advisory for teams that need growth to work.",
+          "Senior growth leadership for teams that need clearer decisions, stronger systems, and execution tied to revenue.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/fractional-growth-advisory")({
               "@type": "ProfessionalService",
               name: "SPIIX",
               description:
-                "Fractional growth advisory: GTM audits, fractional marketing leadership, and mentorship for SaaS and startup operators.",
+                "Fractional growth advisory connecting strategy, demand generation, lifecycle, marketing operations, measurement, and execution for SaaS and technology teams.",
               url: "https://stevepeeleii.com/fractional-growth-advisory",
               founder: { "@type": "Person", name: "Steve Peele II" },
               areaServed: "United States",
@@ -42,6 +42,9 @@ export const Route = createFileRoute("/fractional-growth-advisory")({
                 "Fractional growth marketing leadership",
                 "GTM and funnel audit",
                 "Growth marketing advisory",
+                "Marketing operations consulting",
+                "Demand generation consulting",
+                "SaaS marketing consulting",
               ],
             },
             {
@@ -73,6 +76,65 @@ const problems = [
   "CAC climbing while reporting stays fuzzy",
 ];
 
+const serviceAreas = [
+  {
+    icon: Search,
+    title: "GTM and funnel diagnosis",
+    body: "Find the actual constraint before adding another campaign. Read acquisition, conversion, handoffs, lifecycle, and economics as one connected system.",
+  },
+  {
+    icon: Gauge,
+    title: "Growth strategy and demand",
+    body: "Turn a revenue target into a focused growth plan: audience, positioning, channel choices, campaign architecture, experiments, and the measures that decide what happens next.",
+  },
+  {
+    icon: Workflow,
+    title: "Marketing operations",
+    body: "Make the machinery usable. Clarify process, CRM architecture, automation, lead management, data quality, attribution, reporting, and campaign execution.",
+  },
+  {
+    icon: Network,
+    title: "Lifecycle and alignment",
+    body: "Connect acquisition to activation, retention, expansion, and revenue. Give sales and marketing shared definitions, decision rights, and a cadence they can maintain.",
+  },
+];
+
+const fit = [
+  "A founder needs senior marketing judgment without building a large leadership layer first.",
+  "A growth-stage team has activity everywhere, but no trusted view of what is moving revenue.",
+  "A marketing leader needs an experienced operator who can diagnose the system and work in the details.",
+  "Sales and marketing disagree about ownership, qualification, handoffs, or the numbers themselves.",
+];
+
+const notFit = [
+  "You only need an extra pair of hands to execute a fixed task list.",
+  "You want a guaranteed result before the baseline, constraints, and economics are understood.",
+  "You need a software engineer rather than an operator who applies technology to growth problems.",
+];
+
+const questions = [
+  [
+    "What does a fractional growth advisor do?",
+    "A fractional growth advisor brings senior judgment into the business without requiring a full-time executive hire. The work can include diagnosing the funnel, setting growth priorities, aligning sales and marketing, improving marketing operations, and helping the team turn strategy into repeatable execution.",
+  ],
+  [
+    "Is this the same as a fractional CMO?",
+    "There is overlap, but titles are less useful than scope. Steve can operate as a fractional marketing leader when the company needs executive direction, team alignment, and operating cadence. SPIIX also goes deeper into systems, data, workflows, and hands-on execution than a purely executive advisory role.",
+  ],
+  [
+    "When should a SaaS company bring in a growth marketing consultant?",
+    "The useful moment is usually when growth has become harder to explain: acquisition is inconsistent, CAC is rising, reporting is disputed, the lifecycle leaks, or campaign volume is increasing without a clear revenue effect. The first job is diagnosis, not adding more activity.",
+  ],
+  [
+    "Can you work with an existing marketing team?",
+    "Yes. The work is designed to clarify priorities, ownership, measurement, and operating rhythm around the team already in place. It can support a founder, CMO, CRO, COO, or marketing leader without pretending context can be replaced from the outside.",
+  ],
+  [
+    "How is progress measured?",
+    "A Signal is a defined measure with a unit, cohort, time window, context, and decision attached. Get the Signal is the framework for reading those measures. The OS gives the work owners, workflows, systems, and a review cadence so decisions become execution.",
+  ],
+];
+
 const engageLinks = {
   "gtm-audit": "/spiix/engage/gtm-audit",
   "fractional-advisory": "/spiix/engage/fractional-advisory",
@@ -85,15 +147,15 @@ function SpiixServicePage() {
       <SiteHeader />
       <main>
         <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20 text-center">
-            <p className="eyebrow">SPIIX · Fractional Growth Advisory</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Growth is a system, <span className="text-gradient">not a campaign.</span>
+          <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:py-28">
+            <p className="eyebrow">SPIIX · Fractional growth advisor · Cincinnati / Remote</p>
+            <h1 className="mt-5 text-4xl font-bold sm:text-6xl">
+              Senior growth leadership.<br/><span className="text-gradient">Without the theater.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              SPIIX is how Steve Peele II works with founders and operators: senior growth
-              leadership on a fractional basis — strategy, marketing operations, and execution
-              installed as a system that holds up without you babysitting it.
+              Steve Peele II helps SaaS, technology, and growth-stage teams connect growth strategy,
+              demand generation, marketing operations, lifecycle, data, and execution. SPIIX is the
+              advisory practice behind that work.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link to="/spiix/signal" className="btn-primary">
@@ -106,6 +168,12 @@ function SpiixServicePage() {
           </div>
         </section>
 
+        <section className="border-b border-border/60 bg-surface/40">
+          <div className="mx-auto grid max-w-6xl gap-px px-5 py-10 sm:grid-cols-3">
+            {[["14+ years","Across SaaS, technology, startups, and growth-stage companies"],["$350M+","Annual pipeline exposure across global marketing operations"],["Operator first","Strategy, systems, people, tools, data, and the actual work"]].map(([value,label])=><div key={value} className="px-5 py-4 text-center"><strong className="font-display text-2xl">{value}</strong><p className="mt-2 text-sm text-muted-foreground">{label}</p></div>)}
+          </div>
+        </section>
+
         <section className="mx-auto max-w-5xl px-5 py-20">
           <p className="eyebrow">Who it's for</p>
           <div className="mt-6 grid gap-10 md:grid-cols-2">
@@ -114,9 +182,10 @@ function SpiixServicePage() {
                 Built for operators who <span className="text-gradient">wear multiple hats.</span>
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Resource-constrained SaaS and startup teams where everyone does the work of three
-                people and strategy has to become execution immediately. You get senior judgment
-                and hands-on execution without building a big team first.
+                Resource-constrained SaaS and technology teams where strategy has to become execution
+                immediately. The role sits between a fractional marketing leader, a growth marketing
+                consultant, and a marketing operations operator because the problem rarely respects
+                department lines.
               </p>
             </div>
             <ul className="grid gap-3">
@@ -127,6 +196,25 @@ function SpiixServicePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="border-y border-border/60 bg-muted/30">
+          <div className="mx-auto max-w-6xl px-5 py-20">
+            <p className="eyebrow">What the work covers</p>
+            <h2 className="mt-5 max-w-3xl text-3xl font-bold sm:text-4xl">The system behind demand, not another layer of marketing activity.</h2>
+            <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">Growth problems arrive wearing different clothes. A weak campaign may really be a positioning problem. A reporting problem may be an ownership problem. A lead-volume problem may be a lifecycle problem. The work follows the constraint instead of forcing every company into the same playbook.</p>
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {serviceAreas.map(({icon:Icon,title,body})=><article key={title} className="panel p-7"><Icon className="size-5 text-accent" aria-hidden="true"/><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-5 py-20">
+          <p className="eyebrow">Why fractional</p>
+          <div className="mt-6 grid gap-10 md:grid-cols-[1fr_1.15fr]">
+            <h2 className="text-3xl font-bold sm:text-4xl">Enough leadership to change the system. Close enough to change the work.</h2>
+            <div className="space-y-5 leading-relaxed text-muted-foreground"><p>A full-time executive hire is not always the first answer. Sometimes the company needs a senior operator to establish the baseline, make the tradeoffs visible, repair the operating rhythm, and help the existing team move.</p><p>That is the useful version of fractional leadership: not borrowed authority and not a slide deck delivered from a distance. It is context, judgment, clear decisions, and practical execution for the period the business needs it.</p><p>Steve has worked in early-stage environments, growth periods, acquisition-related outcomes, and global marketing operations. That range matters because the right system depends on the company’s stage, economics, team, and actual constraint.</p></div>
           </div>
         </section>
 
@@ -203,6 +291,16 @@ function SpiixServicePage() {
 
         <section className="border-y border-border/60 bg-muted/30">
           <div className="mx-auto max-w-5xl px-5 py-20">
+            <p className="eyebrow">Fit matters</p>
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              <div><h2 className="text-2xl font-bold">This is probably useful when…</h2><ul className="mt-6 space-y-4">{fit.map(item=><li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent"/>{item}</li>)}</ul></div>
+              <div><h2 className="text-2xl font-bold">It is probably not the right fit when…</h2><ul className="mt-6 space-y-4">{notFit.map(item=><li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><CircleX className="mt-0.5 size-4 shrink-0"/>{item}</li>)}</ul></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-border/60 bg-muted/30">
+          <div className="mx-auto max-w-5xl px-5 py-20">
             <p className="eyebrow">The record behind the work</p>
             <div className="mt-8 grid gap-10 md:grid-cols-2">
               <div className="grid gap-4 sm:grid-cols-2">
@@ -232,14 +330,21 @@ function SpiixServicePage() {
           </div>
         </section>
 
+        <section className="mx-auto max-w-5xl px-5 py-20">
+          <p className="eyebrow">A clear language for the work</p>
+          <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Measure. Decide. Mechanize. See the whole.</h2>
+          <div className="mt-8 divide-y divide-border border-y border-border">
+            {[["Signal","A defined measure: its unit, cohort, window, context, and the decision it informs."],["Get the Signal","The framework for reading measures, locating the constraint, and choosing what to do."],["The OS","The mechanization: owners, workflows, systems, decision rights, and review cadence."],["Monolith","The entirety: the framework, OS, Growth Ladders, playbooks, instruments, and operating principles."]].map(([name,meaning])=><div key={name} className="grid gap-2 py-6 sm:grid-cols-[12rem_1fr]"><h3 className="text-xl font-bold">{name}</h3><p className="text-sm leading-relaxed text-muted-foreground">{meaning}</p></div>)}
+          </div>
+        </section>
+
         <section className="mx-auto max-w-3xl px-5 py-20 text-center">
           <p className="eyebrow">Direct line</p>
           <h2 className="mt-5 text-3xl font-bold">
-            Bring the hard problem. <span className="text-gradient">Get the signal.</span>
+             Bring the hard problem. <span className="text-gradient">Get the Signal.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            The fastest way in is the guide itself. When you're ready to talk, the direct line is
-            open.
+             Start with the framework, book a direct conversation, or email Steve. No elaborate funnel required.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link to="/spiix/signal" className="btn-primary">
@@ -248,10 +353,26 @@ function SpiixServicePage() {
             <a href={`mailto:${profile.email}`} className="btn-ghost">
               {profile.email}
             </a>
+             <a href={profile.booking} target="_blank" rel="noreferrer" className="btn-ghost">Book a call</a>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
             {profile.phone} · Cincinnati, OH
           </p>
+        </section>
+
+        <section className="border-y border-border/60 bg-muted/30">
+          <div className="mx-auto max-w-5xl px-5 py-20">
+            <p className="eyebrow">Common questions</p>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Before we talk.</h2>
+            <div className="mt-10 divide-y divide-border border-y border-border">{questions.map(([question,answer])=><details key={question} className="group py-5"><summary className="cursor-pointer list-none font-display text-lg font-bold">{question}</summary><p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-5 py-20">
+          <p className="eyebrow">Do the diligence</p>
+          <h2 className="mt-5 text-3xl font-bold">Read the record before you start a conversation.</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">The portfolio shows the work, the experience page shows where it happened, and the recommendations show what it was like to work together.</p>
+          <div className="mt-8 flex flex-wrap gap-3"><Link to="/work" hash="results" className="btn-ghost">View portfolio <ArrowRight className="size-4"/></Link><Link to="/work" hash="experience" className="btn-ghost">View experience</Link><Link to="/work" hash="recommendations" className="btn-ghost">Read recommendations</Link></div>
         </section>
       </main>
       <SiteFooter />
