@@ -18,7 +18,13 @@ export const Route = createFileRoute("/writing")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/writing" }],
+    links: [
+      { rel: "canonical", href: "https://stevepeeleii.com/writing" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap",
+      },
+    ],
   }),
   component: WritingPage,
 });
@@ -85,6 +91,7 @@ function WritingPage() {
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState<string[]>([]);
   const [liveUpdated, setLiveUpdated] = useState(false);
+  const [filter, setFilter] = useState<"All" | "Substack" | "Medium">("All");
 
   useEffect(() => {
     let cancelled = false;
@@ -127,26 +134,42 @@ function WritingPage() {
     };
   }, []);
 
-  const [featured, ...rest] = items;
+  const visible = items.filter((i) => filter === "All" || i.source === filter);
+  const [featured, ...rest] = visible;
 
   return (
     <div className="min-h-screen overflow-x-clip">
       <SiteHeader />
       <main>
+        {/* Masthead */}
         <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20 text-center">
+          <div className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
             <p className="eyebrow">Writing</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Notes on growth, systems, <span className="text-gradient">and building.</span>
+            <h1 className="mt-5 font-serif text-5xl font-medium tracking-tight text-balance sm:text-6xl">
+              Notes on growth, systems,{" "}
+              <em className="text-gradient not-italic sm:italic">and building.</em>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              Essays and working notes, pulled live from Substack and Medium. Click through to read
-              the full piece where it lives.
+            <p className="mt-6 max-w-2xl font-serif text-lg text-muted-foreground italic sm:text-xl">
+              Essays and working notes, pulled live from Substack and Medium. Click through to
+              read the full piece where it lives.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {FEEDS.map((f) => (
+                <a
+                  key={f.source}
+                  href={f.home}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-input px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+                >
+                  {f.source} <ArrowUpRight className="size-4" />
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-5 py-20">
+        <section className="mx-auto max-w-4xl px-5 py-14 sm:py-20">
           {loading && (
             <div className="flex items-center justify-center gap-3 py-20 text-muted-foreground">
               <Rss className="size-5 animate-pulse" aria-hidden="true" />
@@ -157,7 +180,7 @@ function WritingPage() {
           {!loading && items.length === 0 && (
             <div className="mx-auto max-w-xl py-20 text-center">
               <Newspaper className="mx-auto size-10 text-muted-foreground" aria-hidden="true" />
-              <h2 className="mt-6 text-2xl font-bold">The feeds are quiet right now.</h2>
+              <h2 className="mt-6 font-serif text-3xl font-medium">The feeds are quiet right now.</h2>
               <p className="mt-4 text-muted-foreground">
                 Couldn't reach the feeds this moment. Read directly instead:
               </p>
@@ -177,63 +200,106 @@ function WritingPage() {
             </div>
           )}
 
+          {/* Featured spread */}
           {!loading && featured && (
             <a
               href={featured.link}
               target="_blank"
               rel="noreferrer"
-              className="panel interactive-lift group block p-8 sm:p-12"
+              className="group block border-y border-border py-10 sm:py-14"
             >
-              <div className="flex items-center gap-3">
-                <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-foreground">
+              <div className="flex flex-wrap items-center gap-3 text-xs">
+                <span className="rounded-full bg-primary/15 px-3 py-1 font-semibold text-foreground">
                   {featured.source}
                 </span>
                 {featured.pubDate && (
-                  <span className="text-xs text-muted-foreground">{formatDate(featured.pubDate)}</span>
+                  <span className="text-muted-foreground">{formatDate(featured.pubDate)}</span>
                 )}
-                <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                <span className="font-semibold tracking-widest text-muted-foreground uppercase">
                   Latest
                 </span>
               </div>
-              <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl">{featured.title}</h2>
+              <h2 className="mt-6 font-serif text-4xl font-medium leading-tight tracking-tight text-balance transition-colors group-hover:text-primary sm:text-5xl">
+                {featured.title}
+              </h2>
               {featured.excerpt && (
-                <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">{featured.excerpt}</p>
+                <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-muted-foreground">
+                  {featured.excerpt}
+                </p>
               )}
-              <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+              <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
                 Read the full piece{" "}
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </a>
           )}
 
-          {rest.length > 0 && (
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {rest.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="panel interactive-lift group flex flex-col p-7"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-surface-raised px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                      {item.source}
-                    </span>
-                    {item.pubDate && (
-                      <span className="text-xs text-muted-foreground">{formatDate(item.pubDate)}</span>
-                    )}
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-bold">{item.title}</h3>
-                  {item.excerpt && (
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{item.excerpt}</p>
-                  )}
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-foreground">
-                    Read{" "}
-                    <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
-                </a>
-              ))}
+          {/* Filter + archive index */}
+          {!loading && items.length > 0 && (
+            <div className="mt-12">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <h3 className="font-display text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+                  The archive
+                </h3>
+                <div className="flex gap-2">
+                  {(["All", "Substack", "Medium"] as const).map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onClick={() => setFilter(s)}
+                      aria-pressed={filter === s}
+                      className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
+                        filter === s
+                          ? "bg-foreground text-background"
+                          : "border border-input text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {rest.length > 0 ? (
+                <ol className="mt-6 divide-y divide-border/60 border-y border-border/60">
+                  {rest.map((item, i) => (
+                    <li key={item.id}>
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-baseline gap-5 py-6 sm:gap-8 sm:py-7"
+                      >
+                        <span className="w-8 shrink-0 font-mono text-xs text-muted-foreground tabular-nums">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-serif text-2xl font-medium leading-snug tracking-tight text-balance transition-colors group-hover:text-primary sm:text-[1.7rem]">
+                            {item.title}
+                          </span>
+                          {item.excerpt && (
+                            <span className="mt-2 line-clamp-2 block text-sm leading-relaxed text-muted-foreground">
+                              {item.excerpt}
+                            </span>
+                          )}
+                          <span className="mt-3 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                            <span className="font-semibold text-foreground/80">{item.source}</span>
+                            {item.pubDate && <span>{formatDate(item.pubDate)}</span>}
+                          </span>
+                        </span>
+                        <ArrowUpRight
+                          className="size-5 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+                          aria-hidden="true"
+                        />
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="mt-6 border-y border-border/60 py-10 text-center text-sm text-muted-foreground">
+                  Nothing from {filter} in the latest pull — try another source.
+                </p>
+              )}
             </div>
           )}
 

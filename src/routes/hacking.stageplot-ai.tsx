@@ -39,9 +39,9 @@ function StagePlotPage() {
         <section className="hero-surface border-b border-border/60">
           <div className="mx-auto max-w-4xl px-5 py-20">
             <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Hacking
+              <ArrowLeft className="size-4" /> Building
             </Link>
-            <p className="eyebrow mt-8">Hacking / StagePlot AI</p>
+            <p className="eyebrow mt-8">Building / StagePlot AI</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
               Input list in. <span className="text-gradient">Stage plot out.</span>
             </h1>
@@ -79,6 +79,25 @@ function StagePlotPage() {
                 <p className="text-sm text-muted-foreground">{f}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <p className="eyebrow">What's next</p>
+            <h3 className="mt-4 text-2xl font-bold">On the build queue</h3>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Drag-and-drop stage canvas editor",
+                "Venue profile presets",
+                "Share an editable plot with bandmates",
+                "Combined stage plot + input list production PDF",
+                "Input list templates by ensemble type",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-16 text-center">

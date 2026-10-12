@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
 const KEY = "gl-banner-dismissed-v1";
+// Feature flag — set to true to re-enable the Growth Ladders banner.
+const ENABLED = false;
 
 export function EbookBanner() {
   const [show, setShow] = useState(false);
   useEffect(() => { setShow(localStorage.getItem(KEY) !== "1"); }, []);
-  if (!show) return null;
+  if (!ENABLED || !show) return null;
   return (
     <div className="ebook-banner">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-2 text-xs sm:text-sm">
