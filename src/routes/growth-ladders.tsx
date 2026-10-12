@@ -210,12 +210,15 @@ function GrowthLadders() {
           <p className="gl-kicker">ALT 0000 m · Ground · Growth Ladders Monolith · Operators Edition · Steve Peele II</p>
           <h1 className="gl-title" style={{ margin: "1.5rem 0" }}>Growth<span>Ladders</span></h1>
           <p style={{ fontSize: "1.15rem", maxWidth: "38rem", lineHeight: 1.5 }}>
-            Growth Ladders is the book within Monolith, the complete body of work. Get the Signal is the framework; the OS puts it to work; Signal is the defined measure. Read first. Choose small. Build what holds. Scale what earns it. The order isn't a preference — it's the cheapest sequence in which to be wrong.
+            Growth Ladders is the SPIIX book — the complete body of work, built on the SPIIX strategic operating system. Get the Signal is the framework; the OS puts it to work; Signal is the defined measure. Read first. Choose small. Build what holds. Scale what earns it. The order isn't a preference — it's the cheapest sequence in which to be wrong.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
             <button className="gl-btn" onClick={() => setDiagOpen(true)}>Find my weakest rung</button>
             <button className="gl-btn gl-btn-ghost" onClick={() => go("gl-signal")}>Just climb ↑</button>
           </div>
+          <p style={{ marginTop: "1.5rem", fontSize: ".85rem", opacity: .7 }}>
+            Built on <Link to="/spiix" style={{ textDecoration: "underline" }}>SPIIX</Link> — the strategic operating system for repeatable growth.
+          </p>
           <p className="gl-kicker" style={{ marginTop: "3rem", opacity: .6 }}>Scroll up. The ladder goes up.</p>
         </div>
       </section>
