@@ -232,6 +232,12 @@ export const statusLog: StatusEntry[] = [
       "The Hacking nav is now Building, with the picklist grouped into Board and Apps sections. Same pages, cleaner path.",
   },
   {
+    date: "2026-10-12",
+    title: "Monitor Mix Cheat v2 launched",
+    detail:
+      "Share links, dark venue mode, print layout, editable cells. Supabase schema migration pilot complete (soak healthy).",
+  },
+  {
     date: "2026-10-11",
     title: "Linear board goes native on the site",
     detail:
@@ -281,8 +287,8 @@ export const hackingProgress: ProgressItem[] = [
     app: "Monitor Mix Cheat",
     status: "live",
     url: "https://monitor-mix-cheat-stevepeeles-projects.vercel.app/",
-    updated: "2026-10-10",
-    note: "Launched. Monitoring traction.",
+    updated: "2026-10-12",
+    note: "v2 live: share links, dark venue mode, print layout. Launch posts going out.",
   },
   {
     app: "Binsly",
