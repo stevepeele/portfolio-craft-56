@@ -1,0 +1,272 @@
+commit 8e4b857823ce04aee3192092a07b79747b60d4e4
+Author: Muse <muse@stevepeeleii.com>
+Date:   Mon Oct 12 14:22:39 2026 +0000
+
+    Segment: richer site events (PLX-246)
+
+diff --git a/src/lib/segment.ts b/src/lib/segment.ts
+index 90b5947..36f7dfd 100644
+--- a/src/lib/segment.ts
++++ b/src/lib/segment.ts
+@@ -132,3 +132,33 @@ export function trackEmailCapture(form: string, location: string) {
+ export function trackSignalStart(location: string) {
+   track("Signal Flow Started", { location });
+ }
++
++/** Fire when a form is first interacted with. */
++export function trackFormStart(form: string, location: string) {
++  track("Form Started", { form, location });
++}
++
++/** Fire when a form submits successfully. */
++export function trackFormComplete(form: string, location: string) {
++  track("Form Completed", { form, location });
++}
++
++/** Fire when a step of the SPIIX connect flow completes. */
++export function trackSignalStep(step: string) {
++  track("Signal Step Completed", { step });
++}
++
++/** Fire when a SPIIX flow finishes (signal unlock or connect brief ready). */
++export function trackSignalComplete(flow: string) {
++  track("Signal Flow Completed", { flow });
++}
++
++/** Fire on /sprint booking CTA clicks. */
++export function trackSprintCta(cta: string, section: string, destination: string) {
++  track("Sprint CTA Clicked", { cta, section, destination });
++}
++
++/** Fire on /sprint firm preview link clicks. */
++export function trackSprintPreview(firm: string, url: string) {
++  track("Sprint Preview Clicked", { firm, url });
++}
+diff --git a/src/lib/site-analytics.ts b/src/lib/site-analytics.ts
+new file mode 100644
+index 0000000..8c5d031
+--- /dev/null
++++ b/src/lib/site-analytics.ts
+@@ -0,0 +1,82 @@
++/**
++ * Sitewide behavioral analytics (Segment).
++ * Scroll depth, outbound link clicks, engaged time. Resets per page view.
++ * Passive listeners only; everything is guarded and cleaned up on route change.
++ */
++import { useEffect, useRef } from "react";
++import { track } from "@/lib/segment";
++
++const SCROLL_DEPTHS = [25, 50, 75, 90] as const;
++const ENGAGED_AT = [30, 120] as const;
++
++export function useSiteAnalytics(path: string) {
++  const fired = useRef<Set<string>>(new Set());
++
++  useEffect(() => {
++    if (typeof window === "undefined") return;
++    fired.current = new Set();
++    const seen = fired.current;
++
++    // Scroll depth — passive, rAF-throttled, once per threshold per page.
++    let ticking = false;
++    const onScroll = () => {
++      if (ticking) return;
++      ticking = true;
++      requestAnimationFrame(() => {
++        ticking = false;
++        const el = document.documentElement;
++        const max = el.scrollHeight - el.clientHeight;
++        if (max <= 0) return;
++        const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
++        for (const d of SCROLL_DEPTHS) {
++          const key = `scroll-${d}`;
++          if (pct >= d && !seen.has(key)) {
++            seen.add(key);
++            track("Scroll Depth Reached", { depth: d, path });
++          }
++        }
++      });
++    };
++    window.addEventListener("scroll", onScroll, { passive: true });
++
++    // Outbound links — delegated; skips internal, mailto:, tel:.
++    const onClick = (e: MouseEvent) => {
++      const a = (e.target as HTMLElement).closest?.("a") as HTMLAnchorElement | null;
++      if (!a?.href) return;
++      if (a.href.startsWith("mailto:") || a.href.startsWith("tel:")) return;
++      let url: URL;
++      try {
++        url = new URL(a.href, location.href);
++      } catch {
++        return;
++      }
++      if (url.hostname === location.hostname) return;
++      track("Outbound Link Clicked", {
++        url: url.href,
++        text: (a.textContent || "").trim().slice(0, 80),
++        location: path,
++      });
++    };
++    document.addEventListener("click", onClick);
++
++    // Engaged time — counts active-tab seconds only.
++    let active = 0;
++    const id = window.setInterval(() => {
++      if (document.hidden) return;
++      active += 1;
++      for (const s of ENGAGED_AT) {
++        const key = `engaged-${s}`;
++        if (active >= s && !seen.has(key)) {
++          seen.add(key);
++          track("Page Engaged", { seconds: s, path });
++        }
++      }
++    }, 1000);
++
++    return () => {
++      window.removeEventListener("scroll", onScroll);
++      document.removeEventListener("click", onClick);
++      window.clearInterval(id);
++    };
++  }, [path]);
++}
+diff --git a/src/routes/__root.tsx b/src/routes/__root.tsx
+index 6ec59e3..6229161 100644
+--- a/src/routes/__root.tsx
++++ b/src/routes/__root.tsx
+@@ -15,6 +15,8 @@ import appCss from "../styles.css?url";
+ import { reportLovableError } from "../lib/lovable-error-reporting";
+ import posthog from "posthog-js";
+ import { initSegment, segmentPage } from "@/lib/segment";
++import { useSiteAnalytics } from "@/lib/site-analytics";
++import { useLocation } from "@tanstack/react-router";
+ 
+ /* ------------------------------------------------------------------ */
+ /* PostHog analytics (decision made 2026-10-11).                       */
+@@ -202,6 +204,10 @@ function RootShell({ children }: { children: ReactNode }) {
+ function RootComponent() {
+   const { queryClient } = Route.useRouteContext();
+   const router = useRouter();
++  const pathname = useLocation({ select: (s) => s.pathname });
++
++  // Behavioral analytics: scroll depth, outbound links, engaged time (resets per page).
++  useSiteAnalytics(pathname);
+ 
+   useEffect(() => {
+     if (document.getElementById("hs-script-loader")) return;
+diff --git a/src/routes/growth-ladders.tsx b/src/routes/growth-ladders.tsx
+index 2c12ae0..6885fa6 100644
+--- a/src/routes/growth-ladders.tsx
++++ b/src/routes/growth-ladders.tsx
+@@ -4,6 +4,7 @@ import "@/styles/growth-ladders.css";
+ import { diagnosticItems, weakestRung, type Rung, type Score } from "@/lib/growth-ladders-diagnostic";
+ import { deliverGrowthLadderSignup, growthLadderSignupSchema } from "@/lib/growth-ladders-leads";
+ import { recordGrowthLadderSignup } from "@/lib/growth-ladders.functions";
++import { trackFormStart, trackFormComplete } from "@/lib/segment";
+ 
+ const URL_ = "https://stevepeeleii.com/growth-ladders";
+ const TITLE = "Growth Ladders — Operators Edition | Steve Peele II";
+@@ -118,6 +119,7 @@ function GrowthLadders() {
+     });
+     if (!parsed.success) { setError("Check each field — name, a real email, company, and role."); return; }
+     setError(null); setDone(true);
++    trackFormComplete("growth-ladders", "growth-ladders");
+     void recordGrowthLadderSignup({ data: parsed.data }).catch(() => undefined);
+     void deliverGrowthLadderSignup(parsed.data);
+   };
+@@ -158,7 +160,7 @@ function GrowthLadders() {
+                   ? <>Your weakest rung is <strong>{ladder.n} · {ladder.name}</strong>. {ladder.chapters} start there. Get the full Operators Edition, free.</>
+                   : <>The Operators Edition within Growth Ladders Monolith: playbooks, role tracks, the math, twelve field cases, and a facilitator guide. Free.</>}
+               </p>
+-              <form onSubmit={onSubmit} noValidate style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
++              <form onSubmit={onSubmit} noValidate onFocus={event=>{const f=event.currentTarget;if(f.dataset["tracked"])return;f.dataset["tracked"]="1";trackFormStart("growth-ladders","growth-ladders");}} style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
+                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))" }}>
+                   {[["name", "Name", "name"], ["email", "Work email", "email"], ["company", "Company", "organization"], ["role", "Role", "organization-title"]].map(([n, l, ac]) => (
+                     <div key={n} className="gl-field">
+diff --git a/src/routes/spiix.connect.tsx b/src/routes/spiix.connect.tsx
+index 3aad224..00bdc78 100644
+--- a/src/routes/spiix.connect.tsx
++++ b/src/routes/spiix.connect.tsx
+@@ -1,10 +1,11 @@
+ import { createFileRoute, Link } from "@tanstack/react-router";
+ import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
+-import { useState } from "react";
++import { useState, type FormEvent } from "react";
+ import { Button } from "@/components/ui/button";
+ import { SpiixPageHead } from "@/components/spiix-page";
+ import { signalRequestSchema } from "@/lib/spiix-access";
+ import { profile } from "@/data/resume";
++import { trackFormStart, trackSignalStep, trackSignalComplete } from "@/lib/segment";
+ export const Route = createFileRoute("/spiix/connect")({ head: () => ({ meta: [{ title: "Start the Conversation — SPIIX" }, { name: "description", content: "Start a SPIIX advisory, audit, or mentorship conversation with Steve Peele II." }, { property: "og:title", content: "Start the Conversation — SPIIX" }, { property: "og:description", content: "Bring the hard problem. Start with the context and the number." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }], links: [{ rel: "canonical", href: "https://stevepeeleii.com/spiix/connect" }] }), component: ConnectPage });
+ 
+ const steps=["Identify","Situation","Constraint","Stage","Connect"];
+@@ -12,5 +13,7 @@ function ConnectPage(){
+  const [step,setStep]=useState(1),[data,setData]=useState({name:"",company:"",role:"",email:"",need:"",context:"",cadence:""}),[done,setDone]=useState(false),[error,setError]=useState("");
+  const set=(key:keyof typeof data,value:string)=>setData(previous=>({...previous,[key]:value}));
+  const brief=`Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company}\nRole: ${data.role}\nSituation: ${data.need}\nConstraint: ${data.context}\nStage: ${data.cadence}`;
+- return <main><SpiixPageHead code="/ SIGNAL REQUEST / FIVE STEPS" title="Start the conversation." copy="Start with the commercial goal and the constraint. Five short steps prepare the context for a direct conversation."/><section className="spiix-section sx-intake-section"><div className="spiix-wrap"><div className="sx-contact-row"><a href={`mailto:${profile.email}`}>DIRECT LINE / {profile.email}</a><a href={`tel:${profile.phone.replace(/\./g,"")}`}>PHONE / {profile.phone}</a><a href={profile.booking} target="_blank" rel="noreferrer">BOOK DIRECTLY / meet.stevepeeleii.com →</a></div><form className="sx-intake-panel sx-clip" onSubmit={event=>{event.preventDefault();const parsed=signalRequestSchema.safeParse(data);if(!parsed.success){setError(parsed.error.issues[0]?.message??"Check your details.");return;}setError("");if(step<5)setStep(step+1);else setDone(true);}}>{done?<><p className="spiix-kicker">/ READY TO CONNECT</p><h2>The context is ready.</h2><p className="spiix-lede">Nothing has been sent or stored. Send your prepared brief to Steve or request a conversation directly.</p><Button asChild className="spiix-button"><a href={`mailto:${profile.email}?subject=${encodeURIComponent(`SPIIX inquiry — ${data.company||data.name}`)}&body=${encodeURIComponent(brief)}`}>Send the brief <Mail/></a></Button></>:<><div className="sx-modeler-title"><p className="spiix-kicker">STEP {step} / 5 — {steps[step-1]}</p><span className="spiix-kicker">{step*20}% COMPLETE</span></div><div className="spiix-progress" role="progressbar" aria-label="Intake progress" aria-valuenow={step*20} aria-valuemin={0} aria-valuemax={100}><span style={{width:`${step*20}%`}}/></div><div className="sx-intake-indicators">{steps.map((name,index)=><span key={name} className={index+1===step?"is-active":index+1<step?"is-done":""} aria-current={index+1===step?"step":undefined}>0{index+1}<small>{name}</small></span>)}</div><h2 className="sx-intake-title">{steps[step-1]}</h2>{step===1&&<div className="sx-intake-fields">{(["name","company","role","email"] as const).map(key=><div className="spiix-field" key={key}><label htmlFor={`intake-${key}`}>{key}</label><input id={`intake-${key}`} type={key==="email"?"email":"text"} autoComplete={key==="name"?"name":key==="email"?"email":key==="company"?"organization":"organization-title"} required maxLength={key==="email"?254:key==="company"?120:100} value={data[key]} onChange={event=>set(key,event.target.value)}/></div>)}</div>}{step===2&&<div className="spiix-field"><label htmlFor="intake-need">What are you building toward?</label><textarea id="intake-need" rows={5} maxLength={1000} value={data.need} onChange={event=>set("need",event.target.value)}/></div>}{step===3&&<div className="spiix-field"><label htmlFor="intake-context">What is getting in the way?</label><textarea id="intake-context" rows={5} maxLength={1000} value={data.context} onChange={event=>set("context",event.target.value)}/></div>}{step===4&&<div className="spiix-field"><label htmlFor="intake-stage">Where are you in the process?</label><input id="intake-stage" maxLength={200} value={data.cadence} onChange={event=>set("cadence",event.target.value)}/></div>}{step===5&&<pre className="sx-intake-review">{brief}</pre>}{error&&<p className="sx-intake-error" role="alert">{error}</p>}<div className="sx-intake-actions"><Button type="button" variant="ghost" className="spiix-button spiix-button-outline" disabled={step===1} onClick={()=>setStep(step-1)}><ArrowLeft/>Back</Button><Button type="submit" className="spiix-button">{step===5?"Prepare request":"Continue"}<ArrowRight/></Button></div></>}</form><p className="sx-intake-skip">Prefer to skip the form? <a href={profile.booking} target="_blank" rel="noreferrer">Request a conversation directly</a> or <Link to="/spiix/compare">browse the engagements.</Link></p><p className="sx-intake-skip">Still deciding? A decoded copy of transmission TX.07 — the unlisted anatomy of an engagement — <Link to="/spiix/signal-report">lives here.</Link></p></div></section></main>;
++ const submit=(event:FormEvent)=>{event.preventDefault();const parsed=signalRequestSchema.safeParse(data);if(!parsed.success){setError(parsed.error.issues[0]?.message??"Check your details.");return;}setError("");if(step<5){trackSignalStep(steps[step-1] ?? ("Step "+step));setStep(step+1);}else{trackSignalComplete("signal-connect");setDone(true);}};
++ const formStart=(event:FormEvent<HTMLFormElement>)=>{const f=event.currentTarget as HTMLFormElement;if(f.dataset["tracked"])return;f.dataset["tracked"]="1";trackFormStart("signal-connect","spiix/connect");};
++ return <main><SpiixPageHead code="/ SIGNAL REQUEST / FIVE STEPS" title="Start the conversation." copy="Start with the commercial goal and the constraint. Five short steps prepare the context for a direct conversation."/><section className="spiix-section sx-intake-section"><div className="spiix-wrap"><div className="sx-contact-row"><a href={`mailto:${profile.email}`}>DIRECT LINE / {profile.email}</a><a href={`tel:${profile.phone.replace(/\./g,"")}`}>PHONE / {profile.phone}</a><a href={profile.booking} target="_blank" rel="noreferrer">BOOK DIRECTLY / meet.stevepeeleii.com →</a></div><form className="sx-intake-panel sx-clip" onFocus={formStart} onSubmit={submit}>{done?<><p className="spiix-kicker">/ READY TO CONNECT</p><h2>The context is ready.</h2><p className="spiix-lede">Nothing has been sent or stored. Send your prepared brief to Steve or request a conversation directly.</p><Button asChild className="spiix-button"><a href={`mailto:${profile.email}?subject=${encodeURIComponent(`SPIIX inquiry — ${data.company||data.name}`)}&body=${encodeURIComponent(brief)}`}>Send the brief <Mail/></a></Button></>:<><div className="sx-modeler-title"><p className="spiix-kicker">STEP {step} / 5 — {steps[step-1]}</p><span className="spiix-kicker">{step*20}% COMPLETE</span></div><div className="spiix-progress" role="progressbar" aria-label="Intake progress" aria-valuenow={step*20} aria-valuemin={0} aria-valuemax={100}><span style={{width:`${step*20}%`}}/></div><div className="sx-intake-indicators">{steps.map((name,index)=><span key={name} className={index+1===step?"is-active":index+1<step?"is-done":""} aria-current={index+1===step?"step":undefined}>0{index+1}<small>{name}</small></span>)}</div><h2 className="sx-intake-title">{steps[step-1]}</h2>{step===1&&<div className="sx-intake-fields">{(["name","company","role","email"] as const).map(key=><div className="spiix-field" key={key}><label htmlFor={`intake-${key}`}>{key}</label><input id={`intake-${key}`} type={key==="email"?"email":"text"} autoComplete={key==="name"?"name":key==="email"?"email":key==="company"?"organization":"organization-title"} required maxLength={key==="email"?254:key==="company"?120:100} value={data[key]} onChange={event=>set(key,event.target.value)}/></div>)}</div>}{step===2&&<div className="spiix-field"><label htmlFor="intake-need">What are you building toward?</label><textarea id="intake-need" rows={5} maxLength={1000} value={data.need} onChange={event=>set("need",event.target.value)}/></div>}{step===3&&<div className="spiix-field"><label htmlFor="intake-context">What is getting in the way?</label><textarea id="intake-context" rows={5} maxLength={1000} value={data.context} onChange={event=>set("context",event.target.value)}/></div>}{step===4&&<div className="spiix-field"><label htmlFor="intake-stage">Where are you in the process?</label><input id="intake-stage" maxLength={200} value={data.cadence} onChange={event=>set("cadence",event.target.value)}/></div>}{step===5&&<pre className="sx-intake-review">{brief}</pre>}{error&&<p className="sx-intake-error" role="alert">{error}</p>}<div className="sx-intake-actions"><Button type="button" variant="ghost" className="spiix-button spiix-button-outline" disabled={step===1} onClick={()=>setStep(step-1)}><ArrowLeft/>Back</Button><Button type="submit" className="spiix-button">{step===5?"Prepare request":"Continue"}<ArrowRight/></Button></div></>}</form><p className="sx-intake-skip">Prefer to skip the form? <a href={profile.booking} target="_blank" rel="noreferrer">Request a conversation directly</a> or <Link to="/spiix/compare">browse the engagements.</Link></p><p className="sx-intake-skip">Still deciding? A decoded copy of transmission TX.07 — the unlisted anatomy of an engagement — <Link to="/spiix/signal-report">lives here.</Link></p></div></section></main>;
+ }
+diff --git a/src/routes/spiix.signal.tsx b/src/routes/spiix.signal.tsx
+index 85f0dd3..a7e278c 100644
+--- a/src/routes/spiix.signal.tsx
++++ b/src/routes/spiix.signal.tsx
+@@ -10,7 +10,7 @@ import { signalRequestSchema, unlockMonolith } from "@/lib/spiix-access";
+ import { monolithChapters, monolithPreviews } from "@/data/spiix-monolith";
+ import { featuredRecommendations } from "@/data/resume";
+ import heroImage from "@/assets/spiix/spiix-hero.jpg";
+-import { trackEmailCapture, trackSignalStart } from "@/lib/segment";
++import { trackEmailCapture, trackSignalStart, trackFormStart, trackFormComplete, trackSignalComplete } from "@/lib/segment";
+ 
+ export const Route=createFileRoute("/spiix/signal")({head:()=>({meta:[{title:"Get the Signal — The Growth Decision Framework | SPIIX"},{name:"description",content:"Get the Signal is the growth decision framework. Signal is the measure; the SPIIX OS puts the framework to work; Growth Ladders holds the complete body of work."},{property:"og:title",content:"Get the Signal — SPIIX"},{property:"og:description",content:"Signal is the measure. Get the Signal is the framework. The OS puts it to work. Growth Ladders holds the whole."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}],links:[{rel:"canonical",href:"https://stevepeeleii.com/spiix/signal"}]}),component:SignalPage});
+ 
+@@ -20,7 +20,7 @@ function SignalPage(){
+   <section className="spiix-section sx-signal-proof"><div className="spiix-wrap"><p className="spiix-kicker">BUILT FROM OPERATING EXPERIENCE / NOT BORROWED CERTAINTY</p><div className="sx-mini-stats">{[["14+","Years across SaaS, startups & technology"],["$350M+","Annual pipeline exposure at NTT DATA/Nexient"],["5+","Regions across global marketing integration"],["4","Acquisition-related outcomes"]].map(([value,label])=><div key={value}><strong>{value}</strong><span>{label}</span></div>)}</div></div></section>
+   <section id="inside" className="spiix-section"><div className="spiix-wrap"><p className="sx-section-label"><span>01</span><i/>THE FRAMEWORK / THE MECHANISM / THE WHOLE</p><h2 className="sx-heading">Different names. Different jobs.</h2><p className="sx-section-narrative">Get the Signal is not another name for the book. It is the framework within it. The OS is how that framework becomes repeatable work.</p><FrameworkTable caption="THE WORK / FOUR CLEAR DEFINITIONS" headings={["Name","Meaning"]} rows={[["Signal","A defined measure: what is counted, for which cohort, in what unit and window, and which decision it informs."],["Get the Signal","The framework: define, observe, locate, decide, act, and read back."],["The OS","The mechanism: owners, decision rights, workflows, tools, and review cadence that put the framework to work."],["Growth Ladders","The entirety: the framework, operating system, ladders, playbooks, instruments, and principles — the SPIIX book."]]}/><h3 className="sx-document-subhead">Inside the SPIIX operating guide.</h3><p className="sx-section-narrative">Growth Ladders is the SPIIX book — the framework, the operating system, and the ladders in one volume. The Operators Edition adds playbooks, role tracks, and the diagnostic.</p><div className="sx-actions"><Link to="/growth-ladders" className="spiix-text-link">Explore Growth Ladders <ArrowUpRight/></Link></div><div className="sx-chapter-preview">{monolithChapters.map((chapter,i)=><article key={chapter}><span>0{i+1}</span><div><h3>{chapter}</h3><p>{monolithPreviews[i]}</p></div><ArrowUpRight/></article>)}</div></div></section>
+   <section className="spiix-section"><div className="spiix-wrap"><p className="sx-section-label"><span>02</span><i> </i>THE OPERATOR / WHAT LEADERS SAY</p><div className="sx-testimonial-grid">{featuredRecommendations.slice(0,3).map(item=><article key={item.name}><span className="sx-quote-mark">“</span><blockquote>{item.quote}</blockquote><h3>{item.name}</h3><p>{item.title}</p></article>)}</div></div></section>
+-  <section id="signal-access" className="spiix-section"><div className="spiix-wrap sx-gate-layout"><div><p className="sx-section-label"><span>03</span><i/>GET THE SIGNAL / INSTANT ACCESS</p><h2 className="sx-heading">Use the framework.<br/>Read Growth Ladders.</h2><p className="sx-section-narrative">Start with Get the Signal, see how the OS puts it to work, and read Growth Ladders — the SPIIX book. Use the live instruments and download that guide. Growth Ladders has its own book and reading path.</p><div className="sx-document-stamp"><FileText/><span>GROWTH LADDERS / THE SPIIX BOOK<br/>STEVE PEELE II / SPIIX</span></div></div><form className="sx-intake-panel sx-clip" noValidate onSubmit={event=>{event.preventDefault();const parsed=signalRequestSchema.safeParse(data);if(!parsed.success){setErrors(Object.fromEntries(parsed.error.issues.map(issue=>[String(issue.path[0]),issue.message])));return;}setErrors({});trackEmailCapture("get-the-signal", "spiix/signal");trackSignalStart("spiix/signal");const submission={...parsed.data,id:crypto.randomUUID(),pageUrl:window.location.href,pageName:document.title};void deliverSignalToFormsubmit(submission);void record({data:submission}).then(result=>{if(!result.stored)void record({data:submission}).catch(()=>{});}).catch(()=>{void record({data:submission}).catch(()=>{});});if(!unlockMonolith()){setStorageError("Allow browser storage to save your access, then try again.");return;}void navigate({to:"/growth-ladders"});}}><p className="spiix-kicker">YOUR CONTEXT / FOUR DETAILS</p><div className="sx-intake-fields">{(["name","email","company","role"] as const).map(key=><div className="spiix-field" key={key}><label htmlFor={`signal-${key}`}>{key}</label><input id={`signal-${key}`} value={data[key]} type={key==="email"?"email":"text"} autoComplete={key==="email"?"email":key==="name"?"name":key==="company"?"organization":"organization-title"} required maxLength={key==="email"?254:key==="company"?120:100} aria-invalid={Boolean(errors[key])} aria-describedby={errors[key]?`signal-error-${key}`:undefined} onChange={e=>setData({...data,[key]:e.target.value})}/>{errors[key]&&<p id={`signal-error-${key}`} className="sx-intake-error">{errors[key]}</p>}</div>)}</div>{Object.keys(errors).length>0&&<p role="alert" className="sx-intake-error">Complete the four details to open the guide.</p>}{storageError&&<p role="alert" className="sx-intake-error">{storageError}</p>}<Button type="submit" className="spiix-button">GET THE SIGNAL <ArrowRight/></Button><p className="sx-footnote">Access is saved on this browser only. Your details are sent through FormSubmit for email delivery to Steve and recorded for follow-up. This is a local access step, not a private document vault.</p><Link to="/spiix/connect" className="spiix-text-link">Start a conversation instead →</Link></form></div></section>
++  <section id="signal-access" className="spiix-section"><div className="spiix-wrap sx-gate-layout"><div><p className="sx-section-label"><span>03</span><i/>GET THE SIGNAL / INSTANT ACCESS</p><h2 className="sx-heading">Use the framework.<br/>Read Growth Ladders.</h2><p className="sx-section-narrative">Start with Get the Signal, see how the OS puts it to work, and read Growth Ladders — the SPIIX book. Use the live instruments and download that guide. Growth Ladders has its own book and reading path.</p><div className="sx-document-stamp"><FileText/><span>GROWTH LADDERS / THE SPIIX BOOK<br/>STEVE PEELE II / SPIIX</span></div></div><form className="sx-intake-panel sx-clip" noValidate onFocus={event=>{const f=event.currentTarget;if(f.dataset["tracked"])return;f.dataset["tracked"]="1";trackFormStart("get-the-signal","spiix/signal");}} onSubmit={event=>{event.preventDefault();const parsed=signalRequestSchema.safeParse(data);if(!parsed.success){setErrors(Object.fromEntries(parsed.error.issues.map(issue=>[String(issue.path[0]),issue.message])));return;}setErrors({});trackEmailCapture("get-the-signal", "spiix/signal");trackSignalStart("spiix/signal");trackFormComplete("get-the-signal","spiix/signal");trackSignalComplete("get-the-signal");const submission={...parsed.data,id:crypto.randomUUID(),pageUrl:window.location.href,pageName:document.title};void deliverSignalToFormsubmit(submission);void record({data:submission}).then(result=>{if(!result.stored)void record({data:submission}).catch(()=>{});}).catch(()=>{void record({data:submission}).catch(()=>{});});if(!unlockMonolith()){setStorageError("Allow browser storage to save your access, then try again.");return;}void navigate({to:"/growth-ladders"});}}><p className="spiix-kicker">YOUR CONTEXT / FOUR DETAILS</p><div className="sx-intake-fields">{(["name","email","company","role"] as const).map(key=><div className="spiix-field" key={key}><label htmlFor={`signal-${key}`}>{key}</label><input id={`signal-${key}`} value={data[key]} type={key==="email"?"email":"text"} autoComplete={key==="email"?"email":key==="name"?"name":key==="company"?"organization":"organization-title"} required maxLength={key==="email"?254:key==="company"?120:100} aria-invalid={Boolean(errors[key])} aria-describedby={errors[key]?`signal-error-${key}`:undefined} onChange={e=>setData({...data,[key]:e.target.value})}/>{errors[key]&&<p id={`signal-error-${key}`} className="sx-intake-error">{errors[key]}</p>}</div>)}</div>{Object.keys(errors).length>0&&<p role="alert" className="sx-intake-error">Complete the four details to open the guide.</p>}{storageError&&<p role="alert" className="sx-intake-error">{storageError}</p>}<Button type="submit" className="spiix-button">GET THE SIGNAL <ArrowRight/></Button><p className="sx-footnote">Access is saved on this browser only. Your details are sent through FormSubmit for email delivery to Steve and recorded for follow-up. This is a local access step, not a private document vault.</p><Link to="/spiix/connect" className="spiix-text-link">Start a conversation instead →</Link></form></div></section>
+   <section className="spiix-section"><div className="spiix-wrap sx-signal-faq"><div><p className="sx-section-label"><span>04</span><i/>BEFORE YOU OPEN IT</p><h2 className="sx-heading">Clear expectations.</h2></div><div>{[["Who is this for?","Founders, growth leaders, and operators who need commercial decisions to connect to execution. The frameworks apply across motions; the right intervention depends on your context."],["Is this a course or a sales deck?","Neither. Get the Signal is a decision framework. The OS puts it into operation. Growth Ladders contains the full body of work. Engagement models are covered, with no obligation to engage."],["Do the models predict my results?","No. Every worked example is hypothetical. Instruments label the baseline, units, and assumptions. Use them to pressure-test a decision, then validate it with your own cohorts and economics."],["What happens to my details?","Your name, email, company, and role are sent through FormSubmit for email delivery to Steve and recorded for follow-up. Reading access is instant, even if delivery is delayed. Only the access flag is saved in your browser."],["Can I keep a copy?","Yes. Once inside, download the Growth Ladders PDF with the current instrument readings. A print-ready version is also available. Access on another browser requires this short step again."]].map(([question,answer])=><details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div></section>
+   <section className="spiix-section"><div className="spiix-wrap sx-direct-line"><p className="spiix-kicker">THE NEXT DECISION / START HERE</p><h2>Activity is easy.<br/>Useful output isn’t.</h2><div className="sx-actions"><Button asChild className="spiix-button"><a href="#signal-access">GET THE SIGNAL <ArrowRight/></a></Button><Link to="/spiix" className="spiix-text-link">← Back to SPIIX</Link></div></div></section></main>;
+ }
+\ No newline at end of file
+diff --git a/src/routes/sprint.tsx b/src/routes/sprint.tsx
+index a28b588..9fcd9b3 100644
+--- a/src/routes/sprint.tsx
++++ b/src/routes/sprint.tsx
+@@ -1,6 +1,9 @@
+ import { createFileRoute } from "@tanstack/react-router";
+ import { ArrowRight, Phone, Mail } from "lucide-react";
+ import { Button } from "@/components/ui/button";
++import { trackSprintCta } from "@/lib/segment";
++
++const SPRINT_CALL = "https://cal.com/peele/sprint-call";
+ 
+ export const Route = createFileRoute("/sprint")({
+   head: () => ({
+@@ -79,6 +82,7 @@ function SprintPage() {
+                   href="https://cal.com/peele/sprint-call"
+                   target="_blank"
+                   rel="noreferrer"
++                  onClick={() => trackSprintCta("Book your sprint", "hero", SPRINT_CALL)}
+                 >
+                   BOOK YOUR SPRINT <ArrowRight />
+                 </a>
+@@ -266,6 +270,7 @@ function SprintPage() {
+                 href="https://cal.com/peele/sprint-call"
+                 target="_blank"
+                 rel="noreferrer"
++                onClick={() => trackSprintCta("Book your sprint", "pricing", SPRINT_CALL)}
+               >
+                 BOOK YOUR SPRINT <ArrowRight />
+               </a>
+@@ -389,6 +394,7 @@ function SprintPage() {
+                 href="https://cal.com/peele/sprint-call"
+                 target="_blank"
+                 rel="noreferrer"
++                onClick={() => trackSprintCta("Start your sprint", "close", SPRINT_CALL)}
+               >
+                 START YOUR SPRINT <ArrowRight />
+               </a>
