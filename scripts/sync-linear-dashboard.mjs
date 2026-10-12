@@ -7,7 +7,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const PROJECTS = ["P-PLX-7", "P-PLX-8", "P-PLX-9", "P-PLX-10", "P-PLX-11", "P-PLX-12", "P-PLX-13"];
+const PROJECTS = ["P-PLX-7", "P-PLX-8", "P-PLX-9", "P-PLX-10", "P-PLX-11", "P-PLX-12", "P-PLX-13", "P-PLX-14", "P-PLX-15", "P-PLX-16", "P-PLX-17", "P-PLX-18"];
 
 function call(name, args) {
   const out = execSync(`linear call-tool --name ${name} --arguments-json '${JSON.stringify(args)}'`, {
