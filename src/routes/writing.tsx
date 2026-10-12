@@ -84,10 +84,25 @@ function WritingPage() {
   const [items, setItems] = useState<FeedItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState<string[]>([]);
+  const [liveUpdated, setLiveUpdated] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      // 1. Load the build-time snapshot instantly (no CORS/proxy dependency).
+      try {
+        const res = await fetch("/writing-feeds.json");
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled && Array.isArray(data.items) && data.items.length > 0) {
+            setItems(data.items);
+            setLoading(false);
+          }
+        }
+      } catch {
+        // fall through to live fetch
+      }
+      // 2. Attempt a live refresh in the background for the freshest items.
       const all: FeedItem[] = [];
       const misses: string[] = [];
       for (const feed of FEEDS) {
@@ -99,8 +114,11 @@ function WritingPage() {
         }
       }
       if (cancelled) return;
-      all.sort((a, b) => +new Date(b.pubDate) - +new Date(a.pubDate));
-      setItems(all);
+      if (all.length > 0) {
+        all.sort((a, b) => +new Date(b.pubDate) - +new Date(a.pubDate));
+        setItems(all);
+        setLiveUpdated(true);
+      }
       setFailed(misses);
       setLoading(false);
     })();
@@ -219,7 +237,7 @@ function WritingPage() {
             </div>
           )}
 
-          {failed.length > 0 && items.length > 0 && (
+          {failed.length > 0 && items.length > 0 && !liveUpdated && (
             <p className="mt-10 text-center text-xs text-muted-foreground">
               Couldn't reach: {failed.join(", ")} — showing what's available.
             </p>
