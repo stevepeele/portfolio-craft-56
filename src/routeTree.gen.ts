@@ -23,6 +23,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SpiixRouteImport } from './routes/spiix'
+import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WritingRouteImport } from './routes/writing'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
@@ -123,6 +124,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const SpiixRoute = SpiixRouteImport.update({
   id: '/spiix',
   path: '/spiix',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SprintRoute = SprintRouteImport.update({
+  id: '/sprint',
+  path: '/sprint',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkRoute = WorkRouteImport.update({
@@ -293,6 +299,7 @@ export interface FileRoutesByFullPath {
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
+  '/sprint': typeof SprintRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
@@ -337,6 +344,7 @@ export interface FileRoutesByTo {
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/sprint': typeof SprintRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
@@ -384,6 +392,7 @@ export interface FileRoutesById {
   '/recommendations': typeof RecommendationsRoute
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
+  '/sprint': typeof SprintRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
@@ -432,6 +441,7 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/services'
     | '/spiix'
+    | '/sprint'
     | '/work'
     | '/writing'
     | '/hacking/binsly'
@@ -476,6 +486,7 @@ export interface FileRouteTypes {
     | '/music'
     | '/portfolio'
     | '/recommendations'
+    | '/sprint'
     | '/work'
     | '/writing'
     | '/hacking/binsly'
@@ -522,6 +533,7 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/services'
     | '/spiix'
+    | '/sprint'
     | '/work'
     | '/writing'
     | '/hacking/binsly'
@@ -569,6 +581,7 @@ export interface RootRouteChildren {
   RecommendationsRoute: typeof RecommendationsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SpiixRoute: typeof SpiixRouteWithChildren
+  SprintRoute: typeof SprintRoute
   WorkRoute: typeof WorkRoute
   WritingRoute: typeof WritingRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
@@ -680,6 +693,13 @@ declare module '@tanstack/react-router' {
       path: '/spiix'
       fullPath: '/spiix'
       preLoaderRoute: typeof SpiixRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sprint': {
+      id: '/sprint'
+      path: '/sprint'
+      fullPath: '/sprint'
+      preLoaderRoute: typeof SprintRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -966,6 +986,7 @@ const rootRouteChildren: RootRouteChildren = {
   RecommendationsRoute: RecommendationsRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SpiixRoute: SpiixRouteWithChildren,
+  SprintRoute: SprintRoute,
   WorkRoute: WorkRoute,
   WritingRoute: WritingRoute,
   HackingBinslyRoute: HackingBinslyRoute,
