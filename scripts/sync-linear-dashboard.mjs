@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Pulls the 7 website/dev Linear projects + their issues into src/data/linear-dashboard.json
+// Pulls Linear projects + their issues into src/data/linear-dashboard.json
+// RULE: only projects carrying the "Pub" project label are included.
 // Run: node scripts/sync-linear-dashboard.mjs
 import { execSync } from "node:child_process";
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -8,6 +9,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PROJECTS = ["P-PLX-7", "P-PLX-8", "P-PLX-9", "P-PLX-10", "P-PLX-11", "P-PLX-12", "P-PLX-13", "P-PLX-14", "P-PLX-15", "P-PLX-16", "P-PLX-17", "P-PLX-18"];
+const PUB_LABEL = "Pub";
 
 function call(name, args) {
   const out = execSync(`linear call-tool --name ${name} --arguments-json '${JSON.stringify(args)}'`, {
@@ -18,9 +20,18 @@ function call(name, args) {
   return JSON.parse(d.result.content[0].text);
 }
 
+function hasPubLabel(proj) {
+  const labels = proj.labels ?? [];
+  return labels.some((l) => (typeof l === "string" ? l : l?.name) === PUB_LABEL);
+}
+
 const projects = [];
 for (const pid of PROJECTS) {
   const proj = call("get_project", { query: pid });
+  if (!hasPubLabel(proj)) {
+    console.log(pid, proj.name, "-> skipped (no Pub label)");
+    continue;
+  }
   const iss = call("list_issues", { project: pid, limit: 100 });
   const issues = (iss.issues ?? []).map((x) => ({
     id: x.id,

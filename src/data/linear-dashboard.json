@@ -2,165 +2,20 @@
  "generatedAt": "2026-10-12",
  "projects": [
   {
-   "identifier": "P-PLX-7",
-   "name": "Lightweight Apps Sprint",
-   "color": "#4EA7FC",
-   "url": "https://linear.app/plxio/project/lightweight-apps-sprint-8780147ef93e",
-   "status": "Backlog",
-   "issues": [
-    {
-     "id": "PLX-117",
-     "title": "Standardize tech stack across current and future app builds",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-117/standardize-tech-stack-across-current-and-future-app-builds",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-41",
-     "title": "[Non-sprint] Profolio — professional baseline builder",
-     "status": "In Progress",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-41/non-sprint-profolio-professional-baseline-builder",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-32",
-     "title": "#8 Landing Page Roast — URL → scored AI teardown",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-32/8-landing-page-roast-url-scored-ai-teardown",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-31",
-     "title": "#7 UTM Builder Pro — smart UTM links + history",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-31/7-utm-builder-pro-smart-utm-links-history",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-30",
-     "title": "#6 Proposal Pilot — brief → structured proposal",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-30/6-proposal-pilot-brief-structured-proposal",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-29",
-     "title": "#5 Repurpose Engine — one post → 10 platform versions",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-29/5-repurpose-engine-one-post-10-platform-versions",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-28",
-     "title": "#3 SubjectLine Lab — AI subject line generator + scorer",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-28/3-subjectline-lab-ai-subject-line-generator-scorer",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-27",
-     "title": "#2 Monitor Mix Cheat — starting-point mix settings",
-     "status": "In Progress",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-27/2-monitor-mix-cheat-starting-point-mix-settings",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-26",
-     "title": "#1 StagePlot AI — input list → stage plot PDF",
-     "status": "In Progress",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-26/1-stageplot-ai-input-list-stage-plot-pdf",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-42",
-     "title": "#4 Stampd — no-training shift & pay tracker",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-42/4-stampd-no-training-shift-and-pay-tracker",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-40",
-     "title": "[Non-sprint] Vercel preview-site git sync (20 sites)",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-40/non-sprint-vercel-preview-site-git-sync-20-sites",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-39",
-     "title": "[Non-sprint] HubSpot tracking + chat rollout",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-39/non-sprint-hubspot-tracking-chat-rollout",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-38",
-     "title": "[Non-sprint] Fox & Scott site preview (client pitch)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-38/non-sprint-fox-and-scott-site-preview-client-pitch",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-37",
-     "title": "[Non-sprint] HEADROOM merch store",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-37/non-sprint-headroom-merch-store",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-36",
-     "title": "[Non-sprint] Dardo — AI sidekick for real estate agents",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-36/non-sprint-dardo-ai-sidekick-for-real-estate-agents",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-35",
-     "title": "[Non-sprint] Foster — emergency home services site",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-35/non-sprint-foster-emergency-home-services-site",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-34",
-     "title": "[Non-sprint] Fractional Demand Portfolio (stevepeeleii.com)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-34/non-sprint-fractional-demand-portfolio-stevepeeleiicom",
-     "updated": "2026-10-10"
-    },
-    {
-     "id": "PLX-33",
-     "title": "🗺️ Sprint Roadmap — 4-week plan",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-33/sprint-roadmap-4-week-plan",
-     "updated": "2026-10-10"
-    }
-   ]
-  },
-  {
    "identifier": "P-PLX-8",
    "name": "Main Site (stevepeeleii.com)",
    "color": "#5E6AD2",
    "url": "https://linear.app/plxio/project/main-site-stevepeeleiicom-43680919b7a1",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "PLX-149",
+     "title": "Sync Linear board data on mainsite (12 projects)",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-149/sync-linear-board-data-on-mainsite-12-projects",
+     "updated": "2026-10-12"
+    },
     {
      "id": "PLX-118",
      "title": "Analytics tracking on mainsite and every application",
@@ -1072,23 +927,6 @@
      "status": "Backlog",
      "priority": "No priority",
      "url": "https://linear.app/plxio/issue/PLX-131/saved-customers-quote-history",
-     "updated": "2026-10-12"
-    }
-   ]
-  },
-  {
-   "identifier": "P-PLX-18",
-   "name": "Mission Control",
-   "color": "#26b5ce",
-   "url": "https://linear.app/plxio/project/mission-control-d8ae05c2a6fc",
-   "status": "In Progress",
-   "issues": [
-    {
-     "id": "PLX-148",
-     "title": "v1 build: Mission Control",
-     "status": "In Progress",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-148/v1-build-mission-control",
      "updated": "2026-10-12"
     }
    ]
