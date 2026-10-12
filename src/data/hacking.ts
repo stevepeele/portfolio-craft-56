@@ -59,8 +59,8 @@ export const hackingApps: HackingApp[] = [
     slug: "dardo",
     label: "Dardo",
     blurb: "AI sidekick for agents",
-    status: "building",
-    url: "https://dardo-agent-flow.base44.app",
+    status: "live",
+    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
     description:
       "An AI sidekick for real estate agents. One-tap capture, passive mileage and routing, and an evening brief with drafted follow-ups. $4.99/mo.",
     why: "The admin work between appointments eats the day. Dardo closes the day itself — and it's explicitly not another CRM.",
@@ -69,7 +69,8 @@ export const hackingApps: HackingApp[] = [
     slug: "stampd",
     label: "Stampd",
     blurb: "Shift & pay tracker",
-    status: "building",
+    status: "live",
+    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
     description:
       "A no-training shift and pay tracker for contractors and day laborers. Tap to clock in and out; the pay math handles itself. $29 one-time.",
     why: "The people doing the hardest work have the worst time records. If you can tap a button, you can use Stampd.",
@@ -78,7 +79,8 @@ export const hackingApps: HackingApp[] = [
     slug: "repurpose-engine",
     label: "Repurpose Engine",
     blurb: "One post, ten platforms",
-    status: "queued",
+    status: "live",
+    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
     description:
       "Write one post, get ten platform-native versions back — each shaped for where it lives, not the same text pasted everywhere.",
     why: "Rewriting the same post for every platform is a second job. The thinking stays yours; the reformatting shouldn't eat your afternoon.",
@@ -87,7 +89,8 @@ export const hackingApps: HackingApp[] = [
     slug: "gigsplit",
     label: "GigSplit",
     blurb: "Band pay splitter",
-    status: "building",
+    status: "live",
+    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
     description:
       "Enter the gig pay, add members and expenses, and see who gets what — with penny-exact math and paid tracking. $9 one-time.",
     why: "The payout argument in the parking lot is a tradition nobody likes. One clean screen ends it.",
@@ -96,7 +99,8 @@ export const hackingApps: HackingApp[] = [
     slug: "quotequick",
     label: "QuoteQuick",
     blurb: "Contractor quotes in minutes",
-    status: "building",
+    status: "live",
+    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
     description:
       "Line items plus a job-site photo turn into a branded PDF quote, ready to send before you leave the driveway. $19 one-time.",
     why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
