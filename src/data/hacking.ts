@@ -138,14 +138,44 @@ export const buildQueue: BuildQueueItem[] = [
     url: "https://monitor-mix-cheat-stevepeeles-projects.vercel.app/",
   },
   {
-    name: "SubjectLine Lab",
-    status: "next",
-    description: "AI subject line generator + spam/deliverability scorer. Freemium → $12/mo.",
+    name: "Dardo",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "AI sidekick for real estate agents — one-tap capture, evening brief. $4.99/mo.",
+    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "Stampd",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "No-training shift & pay tracker for contractors and day laborers. $29 one-time.",
+    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
   },
   {
     name: "Repurpose Engine",
-    status: "queued",
-    description: "One post → 10 platform-native versions. $15/mo.",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "One post → platform-native versions for everywhere it lives.",
+    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "GigSplit",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "Band pay splitter — penny-exact payouts, who got paid tracking. $9 one-time.",
+    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "QuoteQuick",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "Contractor quotes in minutes — line items + job-site photo → branded PDF. $19 one-time.",
+    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "SubjectLine Lab",
+    status: "next",
+    description: "AI subject line generator + spam/deliverability scorer. Freemium → $12/mo.",
   },
   {
     name: "Proposal Pilot",
@@ -171,6 +201,30 @@ export type StatusEntry = {
 };
 
 export const statusLog: StatusEntry[] = [
+  {
+    date: "2026-10-12",
+    title: "Five apps shipped in one day",
+    detail:
+      "Dardo, Stampd, Repurpose Engine, GigSplit, and QuoteQuick all went live on Vercel — custom code, PostHog wired in, Linear projects + backlogs for each.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Mission Control launched (private)",
+    detail:
+      "Private dashboard tracking all ten properties — traffic, revenue, Linear status, recent activity. Password login, per-app detail pages.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Analytics live across the board",
+    detail:
+      "PostHog capturing on the main site and all five new apps, feeding Mission Control's traffic views.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Public board shows Pub projects only",
+    detail:
+      "New rule: the Linear board on the site only pulls projects carrying the Pub label. Sprint and Mission Control stay private.",
+  },
   {
     date: "2026-10-11",
     title: "Building nav simplified",
@@ -235,24 +289,65 @@ export const hackingProgress: ProgressItem[] = [
     status: "live",
     url: "https://linklib.base44.app",
     updated: "2026-10-09",
-    note: "Link library experiment, ongoing.",
+    note: "Link library experiment, ongoing. Native Android app scoped.",
+  },
+  {
+    app: "Dardo",
+    status: "live",
+    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "v1 live with Supabase auth. Brief automation next.",
+  },
+  {
+    app: "Stampd",
+    status: "live",
+    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
+    updated: "2026-10-12",
+    note: "v1 live. v2 in progress: accounts, exports, work types, employer share links.",
+  },
+  {
+    app: "Repurpose Engine",
+    status: "live",
+    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "Live in demo mode — needs an LLM key for real generation.",
+  },
+  {
+    app: "GigSplit",
+    status: "live",
+    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "Live. Monitoring traction.",
+  },
+  {
+    app: "QuoteQuick",
+    status: "live",
+    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "Live. Monitoring traction.",
   },
   {
     app: "SubjectLine Lab",
     status: "building",
-    updated: "2026-10-10",
+    updated: "2026-10-12",
     note: "Next in the queue.",
-  },
-  {
-    app: "Repurpose Engine",
-    status: "queued",
-    updated: "2026-10-10",
-    note: "In the build queue.",
   },
   {
     app: "Proposal Pilot",
     status: "queued",
-    updated: "2026-10-10",
+    updated: "2026-10-12",
+    note: "In the build queue.",
+  },
+  {
+    app: "UTM Builder Pro",
+    status: "queued",
+    updated: "2026-10-12",
+    note: "In the build queue.",
+  },
+  {
+    app: "Landing Page Roast",
+    status: "queued",
+    updated: "2026-10-12",
     note: "In the build queue.",
   },
 ];
