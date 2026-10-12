@@ -85,6 +85,25 @@ function ProfolioPage() {
             ))}
           </div>
 
+          <div className="mt-16">
+            <p className="eyebrow">What's next</p>
+            <h3 className="mt-4 text-2xl font-bold">On the build queue</h3>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Public directory of published baselines",
+                "Baseline version history",
+                "PDF export of a baseline",
+                "Template gallery for baselines",
+                "AI baseline draft generator",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mt-16 text-center">
             <a
               href="https://profolio-stevepeeles-projects.vercel.app/"

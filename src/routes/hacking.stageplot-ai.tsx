@@ -81,6 +81,25 @@ function StagePlotPage() {
             ))}
           </div>
 
+          <div className="mt-16">
+            <p className="eyebrow">What's next</p>
+            <h3 className="mt-4 text-2xl font-bold">On the build queue</h3>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Drag-and-drop stage canvas editor",
+                "Venue profile presets",
+                "Share an editable plot with bandmates",
+                "Combined stage plot + input list production PDF",
+                "Input list templates by ensemble type",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mt-16 text-center">
             <a
               href="https://stageplot-ai-stevepeeles-projects.vercel.app/"
