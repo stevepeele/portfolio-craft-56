@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Circle, CircleDot, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { LinearDashboard } from "@/components/linear-dashboard";
 import { buildQueue } from "@/data/hacking";
 
 const title = "What's Next — The Build Queue | Steve Peele II";
@@ -37,9 +38,9 @@ function WhatsNextPage() {
         <section className="hero-surface border-b border-border/60">
           <div className="mx-auto max-w-4xl px-5 py-20">
             <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Hacking
+              <ArrowLeft className="size-4" /> Building
             </Link>
-            <p className="eyebrow mt-8">Hacking / What's next</p>
+            <p className="eyebrow mt-8">Building / What's next</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
               The <span className="text-gradient">build queue.</span>
             </h1>
@@ -89,6 +90,21 @@ function WhatsNextPage() {
           <p className="mt-10 text-center text-sm text-muted-foreground">
             Build tiny, ship fast, quit faster. — the operating principle
           </p>
+        </section>
+
+        <section className="border-t border-border/60">
+          <div className="mx-auto max-w-6xl px-5 py-20">
+            <p className="eyebrow">Building / Live board</p>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              The <span className="text-gradient">Linear board.</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-muted-foreground">
+              The full tracker behind the queue — every project, every open issue.
+            </p>
+            <div className="mt-10">
+              <LinearDashboard />
+            </div>
+          </div>
         </section>
       </main>
       <SiteFooter />

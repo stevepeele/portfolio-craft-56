@@ -122,6 +122,12 @@ export type StatusEntry = {
 
 export const statusLog: StatusEntry[] = [
   {
+    date: "2026-10-11",
+    title: "Linear board goes native on the site",
+    detail:
+      "The dev tracker now lives on /hacking/status, /hacking/whats-next, and /hacking/progress — real Linear data, synced on every build. Hacking pages renamed to Building.",
+  },
+  {
     date: "2026-10-10",
     title: "Monitor Mix Cheat launched",
     detail: "Input list + venue → per-channel monitor mix starting points. Third app of the day.",

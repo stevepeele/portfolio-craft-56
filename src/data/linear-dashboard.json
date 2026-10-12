@@ -1,0 +1,420 @@
+{
+ "generatedAt": "2026-10-12",
+ "projects": [
+  {
+   "identifier": "P-PLX-7",
+   "name": "7 Apps Sprint",
+   "color": "#4EA7FC",
+   "url": "https://linear.app/plxio/project/7-apps-sprint-8780147ef93e",
+   "status": "Backlog",
+   "issues": [
+    {
+     "id": "PLX-41",
+     "title": "[Non-sprint] Profolio — professional baseline builder",
+     "status": "In Progress",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-41/non-sprint-profolio-professional-baseline-builder",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-32",
+     "title": "#8 Landing Page Roast — URL → scored AI teardown",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-32/8-landing-page-roast-url-scored-ai-teardown",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-31",
+     "title": "#7 UTM Builder Pro — smart UTM links + history",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-31/7-utm-builder-pro-smart-utm-links-history",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-30",
+     "title": "#6 Proposal Pilot — brief → structured proposal",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-30/6-proposal-pilot-brief-structured-proposal",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-29",
+     "title": "#5 Repurpose Engine — one post → 10 platform versions",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-29/5-repurpose-engine-one-post-10-platform-versions",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-28",
+     "title": "#3 SubjectLine Lab — AI subject line generator + scorer",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-28/3-subjectline-lab-ai-subject-line-generator-scorer",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-27",
+     "title": "#2 Monitor Mix Cheat — starting-point mix settings",
+     "status": "In Progress",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-27/2-monitor-mix-cheat-starting-point-mix-settings",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-26",
+     "title": "#1 StagePlot AI — input list → stage plot PDF",
+     "status": "In Progress",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/PLX-26/1-stageplot-ai-input-list-stage-plot-pdf",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-42",
+     "title": "#4 Stampd — no-training shift & pay tracker",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-42/4-stampd-no-training-shift-and-pay-tracker",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-40",
+     "title": "[Non-sprint] Vercel preview-site git sync (20 sites)",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-40/non-sprint-vercel-preview-site-git-sync-20-sites",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-39",
+     "title": "[Non-sprint] HubSpot tracking + chat rollout",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-39/non-sprint-hubspot-tracking-chat-rollout",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-38",
+     "title": "[Non-sprint] Fox & Scott site preview (client pitch)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-38/non-sprint-fox-and-scott-site-preview-client-pitch",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-37",
+     "title": "[Non-sprint] HEADROOM merch store",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-37/non-sprint-headroom-merch-store",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-36",
+     "title": "[Non-sprint] Dardo — AI sidekick for real estate agents",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-36/non-sprint-dardo-ai-sidekick-for-real-estate-agents",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-35",
+     "title": "[Non-sprint] Foster — emergency home services site",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-35/non-sprint-foster-emergency-home-services-site",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-34",
+     "title": "[Non-sprint] Fractional Demand Portfolio (stevepeeleii.com)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-34/non-sprint-fractional-demand-portfolio-stevepeeleiicom",
+     "updated": "2026-10-10"
+    },
+    {
+     "id": "PLX-33",
+     "title": "🗺️ Sprint Roadmap — 4-week plan",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/PLX-33/sprint-roadmap-4-week-plan",
+     "updated": "2026-10-10"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-8",
+   "name": "Main Site (stevepeeleii.com)",
+   "color": "#5E6AD2",
+   "url": "https://linear.app/plxio/project/main-site-stevepeeleiicom-43680919b7a1",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-69",
+     "title": "Embed Linear dev dashboard into /hacking/status, /hacking/whats-next, /hacking/progress",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-69/embed-linear-dev-dashboard-into-hackingstatus-hackingwhats-next",
+     "updated": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-9",
+   "name": "Profolio",
+   "color": "#34D399",
+   "url": "https://linear.app/plxio/project/profolio-1327a17817e2",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-52",
+     "title": "Per-page analytics (views, clicks)",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-52/per-page-analytics-views-clicks",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-51",
+     "title": "Custom domain support for Pro users",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-51/custom-domain-support-for-pro-users",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-50",
+     "title": "Email verification and password reset flows",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-50/email-verification-and-password-reset-flows",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-49",
+     "title": "Fix empty first-run state for new signups",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-49/fix-empty-first-run-state-for-new-signups",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-48",
+     "title": "Connect Stripe for $29 Pro tier checkout",
+     "status": "Backlog",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/PLX-48/connect-stripe-for-dollar29-pro-tier-checkout",
+     "updated": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-10",
+   "name": "StagePlot AI",
+   "color": "#4EA7FC",
+   "url": "https://linear.app/plxio/project/stageplot-ai-bd5d413c4adc",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-47",
+     "title": "Autosave drafts and crash recovery",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-47/autosave-drafts-and-crash-recovery",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-46",
+     "title": "Shareable read-only plot links",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-46/shareable-read-only-plot-links",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-45",
+     "title": "Expand instrument/gear symbol library",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-45/expand-instrumentgear-symbol-library",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-44",
+     "title": "Mobile layout breaks on small screens",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-44/mobile-layout-breaks-on-small-screens",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-43",
+     "title": "Add PDF/print export for stage plots",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-43/add-pdfprint-export-for-stage-plots",
+     "updated": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-11",
+   "name": "Binsly",
+   "color": "#F472B6",
+   "url": "https://linear.app/plxio/project/binsly-865787006a1d",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-63",
+     "title": "Ship public roadmap page",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/PLX-63/ship-public-roadmap-page",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-62",
+     "title": "Add 'play with sound' hint on hero video",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/PLX-62/add-play-with-sound-hint-on-hero-video",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-61",
+     "title": "Integration credits exhausted — evaluate plan",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-61/integration-credits-exhausted-evaluate-plan",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-60",
+     "title": "Logged-out marketing page spot-check",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-60/logged-out-marketing-page-spot-check",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-59",
+     "title": "Fix long-post body limit (NewsPost.body)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-59/fix-long-post-body-limit-newspostbody",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-58",
+     "title": "Run security scan (status: Out of date)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-58/run-security-scan-status-out-of-date",
+     "updated": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-12",
+   "name": "Monitor Mix Cheat",
+   "color": "#F59E0B",
+   "url": "https://linear.app/plxio/project/monitor-mix-cheat-733474845ebe",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-57",
+     "title": "Search and filter across mix entries",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/PLX-57/search-and-filter-across-mix-entries",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-56",
+     "title": "Print-friendly cheat sheet layout",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-56/print-friendly-cheat-sheet-layout",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-55",
+     "title": "IEM vs wedge quick-toggle presets",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-55/iem-vs-wedge-quick-toggle-presets",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-54",
+     "title": "Offline mode for venue use",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-54/offline-mode-for-venue-use",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-53",
+     "title": "Decide publish / launch (go or no-go)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-53/decide-publish-launch-go-or-no-go",
+     "updated": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "identifier": "P-PLX-13",
+   "name": "Dardo",
+   "color": "#A78BFA",
+   "url": "https://linear.app/plxio/project/dardo-6604296e937b",
+   "status": "In Progress",
+   "issues": [
+    {
+     "id": "PLX-68",
+     "title": "Validate mileage tracking accuracy",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-68/validate-mileage-tracking-accuracy",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-67",
+     "title": "Recruit 10-agent pilot cohort",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/PLX-67/recruit-10-agent-pilot-cohort",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-66",
+     "title": "Legal: ToS and privacy policy for agent data",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-66/legal-tos-and-privacy-policy-for-agent-data",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-65",
+     "title": "Automate the AI evening brief (scheduled job)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/PLX-65/automate-the-ai-evening-brief-scheduled-job",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "PLX-64",
+     "title": "Take Stripe live for $4.99/mo billing",
+     "status": "Backlog",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/PLX-64/take-stripe-live-for-dollar499mo-billing",
+     "updated": "2026-10-12"
+    }
+   ]
+  }
+ ]
+}
