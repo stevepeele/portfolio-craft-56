@@ -90,10 +90,10 @@ function ContactPage() {
         <div className="mt-20 border-t border-border pt-12">
           <p className="eyebrow text-center">Before you write — what are you here for?</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            <Link to="/spiix" className="panel p-6 transition-colors hover:border-primary">
-              <span className="block font-display text-lg font-bold">SPIIX</span>
+            <Link to="/fractional-growth-advisory" className="panel p-6 transition-colors hover:border-primary">
+              <span className="block font-display text-lg font-bold">Fractional growth advisory</span>
               <span className="mt-2 block text-sm text-muted-foreground">
-                Strategic operating support for a growth engine that has to hold up.
+                Senior growth leadership, marketing operations, and execution through SPIIX.
               </span>
             </Link>
             <Link to="/spiix/compare" className="panel p-6 transition-colors hover:border-primary">

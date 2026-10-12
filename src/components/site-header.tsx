@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronRight, Compass, Menu, X } from "lucide-react";
-import { hackingMatch, hackingNav, openGuide, primaryNav } from "@/data/navigation";
+import { hackingMatch, hackingNav, hackingNavGroups, openGuide, primaryNav } from "@/data/navigation";
 import { EbookBanner } from "@/components/ebook-banner";
 
 const offerNames: Record<string, string> = {
@@ -28,11 +28,11 @@ function crumbsFor(path: string): Crumb[] {
     ];
   if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
   if (p === "/writing") return [{ label: "Home", to: "/" }, { label: "Writing" }];
-  if (p === "/hacking") return [{ label: "Home", to: "/" }, { label: "Hacking" }];
+  if (p === "/hacking") return [{ label: "Home", to: "/" }, { label: "Building" }];
   if (p.startsWith("/hacking/"))
     return [
       { label: "Home", to: "/" },
-      { label: "Hacking", to: "/hacking" },
+      { label: "Building", to: "/hacking" },
       { label: hackingNav.find((h) => h.to === p)?.label ?? "Page" },
     ];
   if (p === "/contact") return [{ label: "Home", to: "/" }, { label: "Let's Talk" }];
@@ -89,7 +89,7 @@ export function SiteHeader() {
               );
             })}
 
-            {/* Hacking dropdown */}
+            {/* Building dropdown */}
             <div ref={hackingRef} className="relative" onMouseEnter={() => setHackingOpen(true)} onMouseLeave={() => setHackingOpen(false)}>
               <button
                 type="button"
@@ -98,26 +98,37 @@ export function SiteHeader() {
                 onClick={() => setHackingOpen((v) => !v)}
                 className={`${navClass(hackingActive)} inline-flex items-center gap-1`}
               >
-                Hacking
+                Building
                 <ChevronDown className={`size-3.5 transition-transform ${hackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
               {hackingOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3" role="menu" aria-label="Hacking">
-                  <div className="overflow-hidden rounded-xl border border-border bg-popover shadow-2xl">
-                    {hackingNav.map((h) => (
-                      <Link
-                        key={h.to}
-                        to={h.to}
-                        role="menuitem"
-                        onClick={() => setHackingOpen(false)}
-                        className="flex items-start justify-between gap-3 px-4 py-3 transition-colors hover:bg-surface"
-                      >
-                        <span>
-                          <span className="block text-sm font-medium text-foreground">{h.label}</span>
-                          <span className="block text-xs text-muted-foreground">{h.blurb}</span>
-                        </span>
-                        <ChevronRight className="mt-1 size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
-                      </Link>
+                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3" role="menu" aria-label="Building">
+                  <div className="overflow-hidden rounded-xl border border-border bg-popover py-2 shadow-2xl">
+                    {hackingNavGroups.map((g) => (
+                      <div key={g.key}>
+                        {g.label !== "" && (
+                          <p className="px-4 pt-2 pb-1 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
+                            {g.label}
+                          </p>
+                        )}
+                        {hackingNav
+                          .filter((h) => h.group === g.key)
+                          .map((h) => (
+                            <Link
+                              key={h.to}
+                              to={h.to}
+                              role="menuitem"
+                              onClick={() => setHackingOpen(false)}
+                              className="flex items-start justify-between gap-3 px-4 py-2.5 transition-colors hover:bg-surface"
+                            >
+                              <span>
+                                <span className="block text-sm font-medium text-foreground">{h.label}</span>
+                                <span className="block text-xs text-muted-foreground">{h.blurb}</span>
+                              </span>
+                              <ChevronRight className="mt-1 size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                            </Link>
+                          ))}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -163,7 +174,7 @@ export function SiteHeader() {
                 },
               )}
 
-              {/* Mobile Hacking section */}
+              {/* Mobile Building section */}
               <button
                 type="button"
                 aria-expanded={mobileHackingOpen}
@@ -172,20 +183,31 @@ export function SiteHeader() {
                   hackingActive ? "border-primary bg-surface text-foreground" : "border-transparent text-muted-foreground"
                 }`}
               >
-                Hacking
+                Building
                 <ChevronDown className={`size-4 transition-transform ${mobileHackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
               </button>
               {mobileHackingOpen && (
                 <div className="ml-3 flex flex-col gap-1 border-l border-border/60 pl-3">
-                  {hackingNav.map((h) => (
-                    <Link
-                      key={h.to}
-                      to={h.to}
-                      onClick={() => setOpen(false)}
-                      className="rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
-                    >
-                      {h.label}
-                    </Link>
+                  {hackingNavGroups.map((g) => (
+                    <div key={g.key} className="flex flex-col gap-1">
+                      {g.label !== "" && (
+                        <p className="px-3 pt-2 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
+                          {g.label}
+                        </p>
+                      )}
+                      {hackingNav
+                        .filter((h) => h.group === g.key)
+                        .map((h) => (
+                          <Link
+                            key={h.to}
+                            to={h.to}
+                            onClick={() => setOpen(false)}
+                            className="rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
+                          >
+                            {h.label}
+                          </Link>
+                        ))}
+                    </div>
                   ))}
                 </div>
               )}

@@ -6,22 +6,36 @@ export const primaryNav = [
   { to: "/writing", label: "Writing", exact: false, match: ["/writing"] },
 ] as const;
 
+export type HackingNavGroup = "start" | "board" | "apps";
+
 export type HackingNavItem = {
   to: string;
   label: string;
   blurb: string;
+  group: HackingNavGroup;
 };
 
 export const hackingNav: HackingNavItem[] = [
-  { to: "/hacking", label: "Why I hack", blurb: "The playground thesis" },
-  { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer" },
-  { to: "/hacking/profolio", label: "Profolio", blurb: "One baseline, many stories" },
-  { to: "/hacking/status", label: "Status", blurb: "Build log" },
-  { to: "/hacking/smart-access", label: "Smart Access", blurb: "Coming soon" },
-  { to: "/hacking/stageplot-ai", label: "StagePlot AI", blurb: "Input list → stage plot" },
-  { to: "/hacking/nexus", label: "Nexus", blurb: "Coming soon" },
-  { to: "/hacking/whats-next", label: "What's next", blurb: "The build queue" },
-  { to: "/hacking/progress", label: "Progress", blurb: "Live build board" },
+  { to: "/hacking", label: "Why I build", blurb: "The building thesis", group: "start" },
+  { to: "/hacking/status", label: "Status", blurb: "Build log", group: "board" },
+  { to: "/hacking/whats-next", label: "What's next", blurb: "The build queue", group: "board" },
+  { to: "/hacking/progress", label: "Progress", blurb: "Live build board", group: "board" },
+  { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer", group: "apps" },
+  { to: "/hacking/profolio", label: "Profolio", blurb: "One baseline, many stories", group: "apps" },
+  { to: "/hacking/stageplot-ai", label: "StagePlot AI", blurb: "Input list → stage plot", group: "apps" },
+  { to: "/hacking/dardo", label: "Dardo", blurb: "AI sidekick for agents", group: "apps" },
+  { to: "/hacking/stampd", label: "Stampd", blurb: "Shift & pay tracker", group: "apps" },
+  { to: "/hacking/repurpose-engine", label: "Repurpose Engine", blurb: "One post, ten platforms", group: "apps" },
+  { to: "/hacking/gigsplit", label: "GigSplit", blurb: "Band pay splitter", group: "apps" },
+  { to: "/hacking/quotequick", label: "QuoteQuick", blurb: "Contractor quotes in minutes", group: "apps" },
+  { to: "/hacking/smart-access", label: "Smart Access", blurb: "Coming soon", group: "apps" },
+  { to: "/hacking/nexus", label: "Nexus", blurb: "Coming soon", group: "apps" },
+];
+
+export const hackingNavGroups: { key: HackingNavGroup; label: string }[] = [
+  { key: "start", label: "" },
+  { key: "board", label: "Board" },
+  { key: "apps", label: "Apps" },
 ];
 
 export const hackingMatch = ["/hacking"];
