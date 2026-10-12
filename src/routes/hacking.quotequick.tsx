@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { trackCta } from "@/lib/segment";
 
 const title = "QuoteQuick — Contractor Quotes in Minutes | Steve Peele II";
 const description =
@@ -70,7 +71,7 @@ function QuoteQuickPage() {
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
-              >
+               onClick={() => trackCta("Try App", "hacking page", "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app")}>
                 Try it live <ArrowUpRight className="size-4" />
               </a>
             </div>
@@ -96,7 +97,7 @@ function QuoteQuickPage() {
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"
-            >
+             onClick={() => trackCta("Try App", "hacking page", "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app")}>
               Open the app <ArrowUpRight className="size-4" />
             </a>
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
