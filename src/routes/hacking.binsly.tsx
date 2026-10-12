@@ -3,9 +3,9 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const title = "Binsly — Own Your Link Layer | Steve Peele II";
+const title = "Binsly — Save Anything. Read It Later. | Steve Peele II";
 const description =
-  "Binsly: Steve Peele II's experiment in owning the link layer. Why he built it, how it works, what he thinks, and what he's seeing.";
+  "Binsly: Steve Peele II's read-it-later inbox. Save anything, read it later. Why he built it, how it works, and what's next.";
 
 export const Route = createFileRoute("/hacking/binsly")({
   head: () => ({
@@ -24,24 +24,24 @@ export const Route = createFileRoute("/hacking/binsly")({
 
 const sections = [
   {
-    kicker: "Why",
-    heading: "The link in bio is rented land.",
-    body: "Every link-in-bio tool sits between you and your audience, and the terms can change whenever the platform feels like it. Your links — the actual paths people take to find your work — shouldn't live on someone else's lease. Binsly is the experiment in owning that layer outright: your links, your rules, no algorithmic middleman deciding who sees what.",
+    kicker: "The problem",
+    heading: "Your reading list is scattered everywhere.",
+    body: "Articles in one tab graveyard, videos in another, threads you'll never find again. The stuff you actually want to read gets buried under the stuff screaming for your attention right now. I needed one place where everything I save goes to wait for me — calm, organized, mine.",
   },
   {
-    kicker: "How",
-    heading: "A link library that works like you do.",
-    body: "Binsly is a personal link hub and library. Drop in links, organize them, share one URL. It's built to be fast and invisible — the tool gets out of the way so the destination does the talking. No vanity metrics dashboard you'll never open, no upsell maze. Links in, links out.",
+    kicker: "What it is",
+    heading: "A read-it-later inbox. Save anything, read it later.",
+    body: "Binsly is a personal reading inbox. Drop in a link — an article, a video, a thread — and it waits for you in a clean, distraction-free space. No feed, no algorithm, no infinite scroll. Just the things you chose to save, presented the way they deserve to be read.",
   },
   {
-    kicker: "What I think",
-    heading: "Small tools beat platforms at one job.",
-    body: "The pattern I keep coming back to: a tiny tool that does exactly one thing will outlast every platform that tries to do everything. Binsly doesn't want to be your CRM or your analytics suite. It wants to be the most reliable link you own. That restraint is the whole product strategy.",
+    kicker: "How it works",
+    heading: "Save it. Come back when you're ready.",
+    body: "Send links to your Binsly inbox from anywhere. They land in a warm, readable library — rich post rendering, organized the way you think, searchable when you need something back. It's built for the way people actually consume: in bursts, on your own time, without the noise.",
   },
   {
-    kicker: "Results I'm seeing",
-    heading: "Early days, learning in public.",
-    body: "Binsly is still in the learning phase — I'm watching how people actually use their link layer versus how I assumed they would. The honest finding so far: the people who care about owning their links really care, and everyone else just wants the thing to work. Both are fine. The tool serves both.",
+    kicker: "What's next",
+    heading: "Making the inbox smarter.",
+    body: "The roadmap is about turning a great reading list into a great reading habit: better organization, smarter surfacing of what you saved but forgot, and sharing that doesn't feel like shouting into the void. The inbox is the foundation — everything else builds on making it the calmest place on your internet.",
   },
 ];
 
@@ -57,10 +57,12 @@ function BinslyPage() {
             </Link>
             <p className="eyebrow mt-8">Hacking / Binsly</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Own your <span className="text-gradient">link layer.</span>
+              Save anything. <span className="text-gradient">Read it later.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              A link-in-bio and link library experiment. Your links, your rules.
+              Binsly is a read-it-later inbox — one calm place for everything
+              you want to read, watch, or come back to. No feed. No algorithm.
+              Just your stuff, waiting for you.
             </p>
             <div className="mt-8">
               <a
