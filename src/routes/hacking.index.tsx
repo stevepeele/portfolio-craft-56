@@ -3,9 +3,9 @@ import { ArrowRight, ArrowUpRight, FlaskConical } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { hackingApps } from "@/data/hacking";
-import { hackingNav } from "@/data/navigation";
+import { hackingNav, hackingNavGroups } from "@/data/navigation";
 
-const title = "Hacking — Why I Build Little Apps | Steve Peele II";
+const title = "Building — Why I Build Little Apps | Steve Peele II";
 const description =
   "Steve Peele II's playground: small apps and experiments built fast to see what's possible. Binsly, Profolio, StagePlot AI, and what's next.";
 
@@ -26,6 +26,13 @@ export const Route = createFileRoute("/hacking/")({
 
 const subPages = hackingNav.filter((n) => n.to !== "/hacking");
 
+const appStatusMeta = {
+  live: { label: "Live", cls: "bg-emerald-500/15 text-emerald-400" },
+  building: { label: "Building", cls: "bg-amber-500/15 text-amber-400" },
+  queued: { label: "Queued", cls: "bg-muted text-muted-foreground" },
+  soon: { label: "Soon", cls: "bg-amber-500/15 text-amber-400" },
+} as const;
+
 function HackingPage() {
   return (
     <div className="min-h-screen overflow-x-clip">
@@ -33,7 +40,7 @@ function HackingPage() {
       <main>
         <section className="hero-surface border-b border-border/60">
           <div className="mx-auto max-w-4xl px-5 py-20 text-center">
-            <p className="eyebrow">Hacking / The playground</p>
+            <p className="eyebrow">Building / The workbench</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
               I build little apps to see <span className="text-gradient">what I can make.</span>
             </h1>
@@ -57,7 +64,7 @@ function HackingPage() {
         </section>
 
         <section className="mx-auto max-w-6xl px-5 py-20">
-          <p className="eyebrow">Hacking / The apps</p>
+          <p className="eyebrow">Building / The apps</p>
           <h2 className="mt-4 text-3xl font-bold sm:text-4xl">On the bench right now.</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {hackingApps.map((app) => (
@@ -69,13 +76,9 @@ function HackingPage() {
                 <div className="flex items-center justify-between">
                   <FlaskConical className="size-5 text-muted-foreground" aria-hidden="true" />
                   <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                      app.status === "live"
-                        ? "bg-emerald-500/15 text-emerald-400"
-                        : "bg-amber-500/15 text-amber-400"
-                    }`}
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium ${appStatusMeta[app.status].cls}`}
                   >
-                    {app.status === "live" ? "Live" : "Soon"}
+                    {appStatusMeta[app.status].label}
                   </span>
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-bold">{app.label}</h3>
@@ -91,23 +94,34 @@ function HackingPage() {
 
         <section className="border-t border-border/60">
           <div className="mx-auto max-w-6xl px-5 py-20">
-            <p className="eyebrow">Hacking / Everything else</p>
+            <p className="eyebrow">Building / Everything else</p>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">The full index.</h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {subPages.map((p) => (
-                <Link
-                  key={p.to}
-                  to={p.to}
-                  className="flex items-center justify-between rounded-xl border border-border/60 px-5 py-4 transition-colors hover:border-border hover:bg-surface"
-                >
-                  <span>
-                    <span className="block text-sm font-semibold text-foreground">{p.label}</span>
-                    <span className="block text-xs text-muted-foreground">{p.blurb}</span>
-                  </span>
-                  <ArrowRight className="size-4 text-muted-foreground" aria-hidden="true" />
-                </Link>
+            {hackingNavGroups
+              .filter((g) => g.key !== "start")
+              .map((g) => (
+                <div key={g.key} className="mt-10">
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                    {g.label}
+                  </p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {subPages
+                      .filter((p) => p.group === g.key)
+                      .map((p) => (
+                        <Link
+                          key={p.to}
+                          to={p.to}
+                          className="flex items-center justify-between rounded-xl border border-border/60 px-5 py-4 transition-colors hover:border-border hover:bg-surface"
+                        >
+                          <span>
+                            <span className="block text-sm font-semibold text-foreground">{p.label}</span>
+                            <span className="block text-xs text-muted-foreground">{p.blurb}</span>
+                          </span>
+                          <ArrowRight className="size-4 text-muted-foreground" aria-hidden="true" />
+                        </Link>
+                      ))}
+                  </div>
+                </div>
               ))}
-            </div>
           </div>
         </section>
       </main>

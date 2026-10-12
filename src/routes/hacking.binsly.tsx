@@ -53,9 +53,9 @@ function BinslyPage() {
         <section className="hero-surface border-b border-border/60">
           <div className="mx-auto max-w-4xl px-5 py-20">
             <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Hacking
+              <ArrowLeft className="size-4" /> Building
             </Link>
-            <p className="eyebrow mt-8">Hacking / Binsly</p>
+            <p className="eyebrow mt-8">Building / Binsly</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
               Save anything. <span className="text-gradient">Read it later.</span>
             </h1>
