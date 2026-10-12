@@ -45,3 +45,5 @@
 - [ ] Connect SPIIX Signal submissions to managed owner email at steve@stevepeeleii.com; blocked until sender-domain setup is completed.
 - [ ] Expand /fractional-growth-advisory into the long-form search landing page and add contextual internal links.
 - [ ] Verify lead delivery, instant Monolith access, SEO metadata, links, and responsive rendering.
+
+<!-- sync-trigger 2026-10-12: force Lovable rebuild -->
