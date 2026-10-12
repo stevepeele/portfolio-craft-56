@@ -76,7 +76,7 @@ function SprintPage() {
             <div className="sx-actions sx-rise-3">
               <Button asChild className="spiix-button">
                 <a
-                  href="https://meet.stevepeeleii.com"
+                  href="https://cal.com/peele/sprint-call"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -263,7 +263,7 @@ function SprintPage() {
           >
             <Button asChild className="spiix-button">
               <a
-                href="https://meet.stevepeeleii.com"
+                href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -386,7 +386,7 @@ function SprintPage() {
           <div style={{ marginTop: 36 }}>
             <Button asChild className="spiix-button">
               <a
-                href="https://meet.stevepeeleii.com"
+                href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
               >
