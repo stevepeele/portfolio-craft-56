@@ -169,6 +169,13 @@ function WorkPage() {
         </div>
       </section>
 
+        <section className="mx-auto max-w-5xl px-5 py-16 text-center">
+          <p className="eyebrow">Put the experience to work</p>
+          <h2 className="mt-4 text-3xl font-bold">Need senior growth leadership without a full-time hire?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">See how SPIIX combines fractional growth leadership, marketing operations, demand generation, and execution.</p>
+          <Link to="/fractional-growth-advisory" className="btn-primary mt-7">Explore fractional growth advisory <ArrowRight className="size-4"/></Link>
+        </section>
+
       </main>
       <SiteFooter />
     </div>
