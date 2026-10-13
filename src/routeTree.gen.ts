@@ -28,11 +28,16 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as WritingRouteImport } from './routes/writing'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
+import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
+import { Route as HackingGigsplitRouteImport } from './routes/hacking.gigsplit'
 import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
 import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
 import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
+import { Route as HackingQuotequickRouteImport } from './routes/hacking.quotequick'
+import { Route as HackingRepurposeEngineRouteImport } from './routes/hacking.repurpose-engine'
 import { Route as HackingSmartAccessRouteImport } from './routes/hacking.smart-access'
 import { Route as HackingStageplotAiRouteImport } from './routes/hacking.stageplot-ai'
+import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -151,6 +156,16 @@ const HackingBinslyRoute = HackingBinslyRouteImport.update({
   path: '/hacking/binsly',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HackingDardoRoute = HackingDardoRouteImport.update({
+  id: '/hacking/dardo',
+  path: '/hacking/dardo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingGigsplitRoute = HackingGigsplitRouteImport.update({
+  id: '/hacking/gigsplit',
+  path: '/hacking/gigsplit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HackingNexusRoute = HackingNexusRouteImport.update({
   id: '/hacking/nexus',
   path: '/hacking/nexus',
@@ -166,6 +181,16 @@ const HackingProgressRoute = HackingProgressRouteImport.update({
   path: '/hacking/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HackingQuotequickRoute = HackingQuotequickRouteImport.update({
+  id: '/hacking/quotequick',
+  path: '/hacking/quotequick',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingRepurposeEngineRoute = HackingRepurposeEngineRouteImport.update({
+  id: '/hacking/repurpose-engine',
+  path: '/hacking/repurpose-engine',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HackingSmartAccessRoute = HackingSmartAccessRouteImport.update({
   id: '/hacking/smart-access',
   path: '/hacking/smart-access',
@@ -174,6 +199,11 @@ const HackingSmartAccessRoute = HackingSmartAccessRouteImport.update({
 const HackingStageplotAiRoute = HackingStageplotAiRouteImport.update({
   id: '/hacking/stageplot-ai',
   path: '/hacking/stageplot-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingStampdRoute = HackingStampdRouteImport.update({
+  id: '/hacking/stampd',
+  path: '/hacking/stampd',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingStatusRoute = HackingStatusRouteImport.update({
@@ -303,11 +333,16 @@ export interface FileRoutesByFullPath {
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/dardo': typeof HackingDardoRoute
+  '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/quotequick': typeof HackingQuotequickRoute
+  '/hacking/repurpose-engine': typeof HackingRepurposeEngineRoute
   '/hacking/smart-access': typeof HackingSmartAccessRoute
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
@@ -348,11 +383,16 @@ export interface FileRoutesByTo {
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/dardo': typeof HackingDardoRoute
+  '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/quotequick': typeof HackingQuotequickRoute
+  '/hacking/repurpose-engine': typeof HackingRepurposeEngineRoute
   '/hacking/smart-access': typeof HackingSmartAccessRoute
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
@@ -396,11 +436,16 @@ export interface FileRoutesById {
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/hacking/binsly': typeof HackingBinslyRoute
+  '/hacking/dardo': typeof HackingDardoRoute
+  '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
+  '/hacking/quotequick': typeof HackingQuotequickRoute
+  '/hacking/repurpose-engine': typeof HackingRepurposeEngineRoute
   '/hacking/smart-access': typeof HackingSmartAccessRoute
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
+  '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
@@ -445,11 +490,16 @@ export interface FileRouteTypes {
     | '/work'
     | '/writing'
     | '/hacking/binsly'
+    | '/hacking/dardo'
+    | '/hacking/gigsplit'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
+    | '/hacking/quotequick'
+    | '/hacking/repurpose-engine'
     | '/hacking/smart-access'
     | '/hacking/stageplot-ai'
+    | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
     | '/services/gtm-audit'
@@ -490,11 +540,16 @@ export interface FileRouteTypes {
     | '/work'
     | '/writing'
     | '/hacking/binsly'
+    | '/hacking/dardo'
+    | '/hacking/gigsplit'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
+    | '/hacking/quotequick'
+    | '/hacking/repurpose-engine'
     | '/hacking/smart-access'
     | '/hacking/stageplot-ai'
+    | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
     | '/services/gtm-audit'
@@ -537,11 +592,16 @@ export interface FileRouteTypes {
     | '/work'
     | '/writing'
     | '/hacking/binsly'
+    | '/hacking/dardo'
+    | '/hacking/gigsplit'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
+    | '/hacking/quotequick'
+    | '/hacking/repurpose-engine'
     | '/hacking/smart-access'
     | '/hacking/stageplot-ai'
+    | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
     | '/services/gtm-audit'
@@ -585,11 +645,16 @@ export interface RootRouteChildren {
   WorkRoute: typeof WorkRoute
   WritingRoute: typeof WritingRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
+  HackingDardoRoute: typeof HackingDardoRoute
+  HackingGigsplitRoute: typeof HackingGigsplitRoute
   HackingNexusRoute: typeof HackingNexusRoute
   HackingProfolioRoute: typeof HackingProfolioRoute
   HackingProgressRoute: typeof HackingProgressRoute
+  HackingQuotequickRoute: typeof HackingQuotequickRoute
+  HackingRepurposeEngineRoute: typeof HackingRepurposeEngineRoute
   HackingSmartAccessRoute: typeof HackingSmartAccessRoute
   HackingStageplotAiRoute: typeof HackingStageplotAiRoute
+  HackingStampdRoute: typeof HackingStampdRoute
   HackingStatusRoute: typeof HackingStatusRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
   HackingIndexRoute: typeof HackingIndexRoute
@@ -730,6 +795,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HackingBinslyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hacking/dardo': {
+      id: '/hacking/dardo'
+      path: '/hacking/dardo'
+      fullPath: '/hacking/dardo'
+      preLoaderRoute: typeof HackingDardoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/gigsplit': {
+      id: '/hacking/gigsplit'
+      path: '/hacking/gigsplit'
+      fullPath: '/hacking/gigsplit'
+      preLoaderRoute: typeof HackingGigsplitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hacking/nexus': {
       id: '/hacking/nexus'
       path: '/hacking/nexus'
@@ -751,6 +830,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HackingProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hacking/quotequick': {
+      id: '/hacking/quotequick'
+      path: '/hacking/quotequick'
+      fullPath: '/hacking/quotequick'
+      preLoaderRoute: typeof HackingQuotequickRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/repurpose-engine': {
+      id: '/hacking/repurpose-engine'
+      path: '/hacking/repurpose-engine'
+      fullPath: '/hacking/repurpose-engine'
+      preLoaderRoute: typeof HackingRepurposeEngineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hacking/smart-access': {
       id: '/hacking/smart-access'
       path: '/hacking/smart-access'
@@ -763,6 +856,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/stageplot-ai'
       fullPath: '/hacking/stageplot-ai'
       preLoaderRoute: typeof HackingStageplotAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/stampd': {
+      id: '/hacking/stampd'
+      path: '/hacking/stampd'
+      fullPath: '/hacking/stampd'
+      preLoaderRoute: typeof HackingStampdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/status': {
@@ -990,11 +1090,16 @@ const rootRouteChildren: RootRouteChildren = {
   WorkRoute: WorkRoute,
   WritingRoute: WritingRoute,
   HackingBinslyRoute: HackingBinslyRoute,
+  HackingDardoRoute: HackingDardoRoute,
+  HackingGigsplitRoute: HackingGigsplitRoute,
   HackingNexusRoute: HackingNexusRoute,
   HackingProfolioRoute: HackingProfolioRoute,
   HackingProgressRoute: HackingProgressRoute,
+  HackingQuotequickRoute: HackingQuotequickRoute,
+  HackingRepurposeEngineRoute: HackingRepurposeEngineRoute,
   HackingSmartAccessRoute: HackingSmartAccessRoute,
   HackingStageplotAiRoute: HackingStageplotAiRoute,
+  HackingStampdRoute: HackingStampdRoute,
   HackingStatusRoute: HackingStatusRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
   HackingIndexRoute: HackingIndexRoute,
