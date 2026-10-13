@@ -23,6 +23,7 @@ export const hackingNav: HackingNavItem[] = [
   { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer", group: "apps" },
   { to: "/hacking/profolio", label: "Profolio", blurb: "One baseline, many stories", group: "apps" },
   { to: "/hacking/stageplot-ai", label: "StagePlot AI", blurb: "Input list → stage plot", group: "apps" },
+  { to: "/hacking/monitor-mix-cheat", label: "Monitor Mix Cheat", blurb: "Input list → monitor mix", group: "apps" },
   { to: "/hacking/dardo", label: "Dardo", blurb: "AI sidekick for agents", group: "apps" },
   { to: "/hacking/stampd", label: "Stampd", blurb: "Shift & pay tracker", group: "apps" },
   { to: "/hacking/repurpose-engine", label: "Repurpose Engine", blurb: "One post, ten platforms", group: "apps" },

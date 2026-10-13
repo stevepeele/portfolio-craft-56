@@ -48,6 +48,16 @@ export const hackingApps: HackingApp[] = [
     why: "90% of mic choices are automatic. The layout is standard. The channel sheet is formatting. So why do it by hand?",
   },
   {
+    slug: "monitor-mix-cheat",
+    label: "Monitor Mix Cheat",
+    blurb: "Input list → monitor mix",
+    status: "live",
+    url: "https://monitor-mix-cheat.vercel.app",
+    description:
+      "Paste the band's input list and venue type, get per-channel monitor mix starting points — EQ, compression, and levels before the first soundcheck note.",
+    why: "The 1am soundcheck scribble is a tradition nobody misses. If the input list is standard, the starting mix can be too.",
+  },
+  {
     slug: "nexus",
     label: "Nexus",
     blurb: "Coming soon",
@@ -60,7 +70,7 @@ export const hackingApps: HackingApp[] = [
     label: "Dardo",
     blurb: "AI sidekick for agents",
     status: "live",
-    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
+    url: "https://dardo-smoky.vercel.app",
     description:
       "An AI sidekick for real estate agents. One-tap capture, passive mileage and routing, and an evening brief with drafted follow-ups. $4.99/mo.",
     why: "The admin work between appointments eats the day. Dardo closes the day itself — and it's explicitly not another CRM.",
@@ -70,7 +80,7 @@ export const hackingApps: HackingApp[] = [
     label: "Stampd",
     blurb: "Shift & pay tracker",
     status: "live",
-    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
     description:
       "A no-training shift and pay tracker for contractors and day laborers. Tap to clock in and out; the pay math handles itself. $29 one-time.",
     why: "The people doing the hardest work have the worst time records. If you can tap a button, you can use Stampd.",
@@ -80,7 +90,7 @@ export const hackingApps: HackingApp[] = [
     label: "Repurpose Engine",
     blurb: "One post, ten platforms",
     status: "live",
-    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
+    url: "https://repurpose-engine-beryl.vercel.app",
     description:
       "Write one post, get ten platform-native versions back — each shaped for where it lives, not the same text pasted everywhere.",
     why: "Rewriting the same post for every platform is a second job. The thinking stays yours; the reformatting shouldn't eat your afternoon.",
@@ -90,7 +100,7 @@ export const hackingApps: HackingApp[] = [
     label: "GigSplit",
     blurb: "Band pay splitter",
     status: "live",
-    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
     description:
       "Enter the gig pay, add members and expenses, and see who gets what — with penny-exact math and paid tracking. $9 one-time.",
     why: "The payout argument in the parking lot is a tradition nobody likes. One clean screen ends it.",
@@ -100,7 +110,7 @@ export const hackingApps: HackingApp[] = [
     label: "QuoteQuick",
     blurb: "Contractor quotes in minutes",
     status: "live",
-    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
     description:
       "Line items plus a job-site photo turn into a branded PDF quote, ready to send before you leave the driveway. $19 one-time.",
     why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
@@ -135,42 +145,42 @@ export const buildQueue: BuildQueueItem[] = [
     status: "shipped",
     shippedDate: "2026-10-10",
     description: "Input list + venue type → monitor mix starting points (EQ, comp, levels).",
-    url: "https://monitor-mix-cheat-stevepeeles-projects.vercel.app/",
+    url: "https://monitor-mix-cheat.vercel.app/",
   },
   {
     name: "Dardo",
     status: "shipped",
     shippedDate: "2026-10-11",
     description: "AI sidekick for real estate agents — one-tap capture, evening brief. $4.99/mo.",
-    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
+    url: "https://dardo-smoky.vercel.app",
   },
   {
     name: "Stampd",
     status: "shipped",
     shippedDate: "2026-10-11",
     description: "No-training shift & pay tracker for contractors and day laborers. $29 one-time.",
-    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
   },
   {
     name: "Repurpose Engine",
     status: "shipped",
     shippedDate: "2026-10-11",
     description: "One post → platform-native versions for everywhere it lives.",
-    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
+    url: "https://repurpose-engine-beryl.vercel.app",
   },
   {
     name: "GigSplit",
     status: "shipped",
     shippedDate: "2026-10-11",
     description: "Band pay splitter — penny-exact payouts, who got paid tracking. $9 one-time.",
-    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
   },
   {
     name: "QuoteQuick",
     status: "shipped",
     shippedDate: "2026-10-11",
     description: "Contractor quotes in minutes — line items + job-site photo → branded PDF. $19 one-time.",
-    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
   },
   {
     name: "SubjectLine Lab",
@@ -201,6 +211,18 @@ export type StatusEntry = {
 };
 
 export const statusLog: StatusEntry[] = [
+  {
+    date: "2026-10-12",
+    title: "Monitor Mix Cheat joins the Building nav",
+    detail:
+      "v2 (share links, dark venue mode, print layout) now has its own page under Building — every live app is linked from the site.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Repurpose Engine v2 live with real generation",
+    detail:
+      "History, tone presets, and the LLM generate route went live on Vercel — the demo-mode asterisk is gone.",
+  },
   {
     date: "2026-10-12",
     title: "Five apps shipped in one day",
@@ -286,7 +308,7 @@ export const hackingProgress: ProgressItem[] = [
   {
     app: "Monitor Mix Cheat",
     status: "live",
-    url: "https://monitor-mix-cheat-stevepeeles-projects.vercel.app/",
+    url: "https://monitor-mix-cheat.vercel.app/",
     updated: "2026-10-12",
     note: "v2 live: share links, dark venue mode, print layout. Launch posts going out.",
   },
@@ -300,35 +322,35 @@ export const hackingProgress: ProgressItem[] = [
   {
     app: "Dardo",
     status: "live",
-    url: "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app",
+    url: "https://dardo-smoky.vercel.app",
     updated: "2026-10-11",
     note: "v1 live with Supabase auth. Brief automation next.",
   },
   {
     app: "Stampd",
     status: "live",
-    url: "https://stampd-9hb1ltkj2-stevepeeles-projects.vercel.app",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
     updated: "2026-10-12",
     note: "v1 live. v2 in progress: accounts, exports, work types, employer share links.",
   },
   {
     app: "Repurpose Engine",
     status: "live",
-    url: "https://repurpose-engine-c7kardbx3-stevepeeles-projects.vercel.app",
-    updated: "2026-10-11",
-    note: "Live in demo mode — needs an LLM key for real generation.",
+    url: "https://repurpose-engine-beryl.vercel.app",
+    updated: "2026-10-12",
+    note: "v2 live: history + tone presets + real LLM generation.",
   },
   {
     app: "GigSplit",
     status: "live",
-    url: "https://gigsplit-kvjmybaou-stevepeeles-projects.vercel.app",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
     updated: "2026-10-11",
     note: "Live. Monitoring traction.",
   },
   {
     app: "QuoteQuick",
     status: "live",
-    url: "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
     updated: "2026-10-11",
     note: "Live. Monitoring traction.",
   },

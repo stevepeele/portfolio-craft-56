@@ -132,3 +132,33 @@ export function trackEmailCapture(form: string, location: string) {
 export function trackSignalStart(location: string) {
   track("Signal Flow Started", { location });
 }
+
+/** Fire when a form is first interacted with. */
+export function trackFormStart(form: string, location: string) {
+  track("Form Started", { form, location });
+}
+
+/** Fire when a form submits successfully. */
+export function trackFormComplete(form: string, location: string) {
+  track("Form Completed", { form, location });
+}
+
+/** Fire when a step of the SPIIX connect flow completes. */
+export function trackSignalStep(step: string) {
+  track("Signal Step Completed", { step });
+}
+
+/** Fire when a SPIIX flow finishes (signal unlock or connect brief ready). */
+export function trackSignalComplete(flow: string) {
+  track("Signal Flow Completed", { flow });
+}
+
+/** Fire on /sprint booking CTA clicks. */
+export function trackSprintCta(cta: string, section: string, destination: string) {
+  track("Sprint CTA Clicked", { cta, section, destination });
+}
+
+/** Fire on /sprint firm preview link clicks. */
+export function trackSprintPreview(firm: string, url: string) {
+  track("Sprint Preview Clicked", { firm, url });
+}
