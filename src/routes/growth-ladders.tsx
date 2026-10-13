@@ -4,6 +4,7 @@ import "@/styles/growth-ladders.css";
 import { diagnosticItems, weakestRung, type Rung, type Score } from "@/lib/growth-ladders-diagnostic";
 import { deliverGrowthLadderSignup, growthLadderSignupSchema } from "@/lib/growth-ladders-leads";
 import { recordGrowthLadderSignup } from "@/lib/growth-ladders.functions";
+import { trackFormStart, trackFormComplete } from "@/lib/segment";
 
 const URL_ = "https://stevepeeleii.com/growth-ladders";
 const TITLE = "Growth Ladders — Operators Edition | Steve Peele II";
@@ -118,6 +119,7 @@ function GrowthLadders() {
     });
     if (!parsed.success) { setError("Check each field — name, a real email, company, and role."); return; }
     setError(null); setDone(true);
+    trackFormComplete("growth-ladders", "growth-ladders");
     void recordGrowthLadderSignup({ data: parsed.data }).catch(() => undefined);
     void deliverGrowthLadderSignup(parsed.data);
   };
@@ -158,7 +160,7 @@ function GrowthLadders() {
                   ? <>Your weakest rung is <strong>{ladder.n} · {ladder.name}</strong>. {ladder.chapters} start there. Get the full Operators Edition, free.</>
                   : <>The Operators Edition within Growth Ladders Monolith: playbooks, role tracks, the math, twelve field cases, and a facilitator guide. Free.</>}
               </p>
-              <form onSubmit={onSubmit} noValidate style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
+              <form onSubmit={onSubmit} noValidate onFocus={event=>{const f=event.currentTarget;if(f.dataset["tracked"])return;f.dataset["tracked"]="1";trackFormStart("growth-ladders","growth-ladders");}} style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))" }}>
                   {[["name", "Name", "name"], ["email", "Work email", "email"], ["company", "Company", "organization"], ["role", "Role", "organization-title"]].map(([n, l, ac]) => (
                     <div key={n} className="gl-field">

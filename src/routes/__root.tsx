@@ -15,6 +15,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import posthog from "posthog-js";
 import { initSegment, segmentPage } from "@/lib/segment";
+import { useSiteAnalytics } from "@/lib/site-analytics";
+import { useLocation } from "@tanstack/react-router";
 
 /* ------------------------------------------------------------------ */
 /* PostHog analytics (decision made 2026-10-11).                       */
@@ -171,6 +173,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      { src: "https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js" },
+      {
+        children: `window.DD_RUM && window.DD_RUM.init({clientToken:'pub0722b229b08951a6e9d8e723dce79005',applicationId:'c1a7361a-873c-4035-a0d5-556078770b73',site:'datadoghq.com',service:'main-site',sessionSampleRate:100,sessionReplaySampleRate:20,trackUserInteractions:true,trackResources:true,trackLongTasks:true});`,
+      },
+    ],
   }),
 
   shellComponent: RootShell,
@@ -196,6 +204,10 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
+  const pathname = useLocation({ select: (s) => s.pathname });
+
+  // Behavioral analytics: scroll depth, outbound links, engaged time (resets per page).
+  useSiteAnalytics(pathname);
 
   useEffect(() => {
     if (document.getElementById("hs-script-loader")) return;
