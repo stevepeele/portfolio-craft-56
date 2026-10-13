@@ -213,6 +213,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-12",
+    title: "Hidden /scaffolding architecture page",
+    detail:
+      "Unlisted, noindex reference page: portfolio architecture diagrams, Supabase data map, per-app properties, the live Mission Control embed, monitoring tiles, and the runbook. Regenerates from the architecture data file.",
+  },
+  {
+    date: "2026-10-12",
     title: "Segment analytics merged sitewide",
     detail:
       "Page tracking on every route, event tracking on every CTA and the Signal signup — the whole site now reports into one place.",

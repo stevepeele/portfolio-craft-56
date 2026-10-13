@@ -30,6 +30,7 @@ import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
 import { Route as HackingGigsplitRouteImport } from './routes/hacking.gigsplit'
+import { Route as HackingMonitorMixCheatRouteImport } from './routes/hacking.monitor-mix-cheat'
 import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
 import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
 import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
@@ -40,6 +41,7 @@ import { Route as HackingStageplotAiRouteImport } from './routes/hacking.stagepl
 import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
+import { Route as ScaffoldingArchitectureRouteImport } from './routes/scaffolding.architecture'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
@@ -166,6 +168,11 @@ const HackingGigsplitRoute = HackingGigsplitRouteImport.update({
   path: '/hacking/gigsplit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HackingMonitorMixCheatRoute = HackingMonitorMixCheatRouteImport.update({
+  id: '/hacking/monitor-mix-cheat',
+  path: '/hacking/monitor-mix-cheat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HackingNexusRoute = HackingNexusRouteImport.update({
   id: '/hacking/nexus',
   path: '/hacking/nexus',
@@ -214,6 +221,11 @@ const HackingStatusRoute = HackingStatusRouteImport.update({
 const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
   id: '/hacking/whats-next',
   path: '/hacking/whats-next',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScaffoldingArchitectureRoute = ScaffoldingArchitectureRouteImport.update({
+  id: '/scaffolding/architecture',
+  path: '/scaffolding/architecture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -335,6 +347,7 @@ export interface FileRoutesByFullPath {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -345,6 +358,7 @@ export interface FileRoutesByFullPath {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -385,6 +399,7 @@ export interface FileRoutesByTo {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -395,6 +410,7 @@ export interface FileRoutesByTo {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -438,6 +454,7 @@ export interface FileRoutesById {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -448,6 +465,7 @@ export interface FileRoutesById {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -492,6 +510,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -502,6 +521,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -542,6 +562,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -552,6 +573,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -594,6 +616,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -604,6 +627,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -647,6 +671,7 @@ export interface RootRouteChildren {
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
   HackingGigsplitRoute: typeof HackingGigsplitRoute
+  HackingMonitorMixCheatRoute: typeof HackingMonitorMixCheatRoute
   HackingNexusRoute: typeof HackingNexusRoute
   HackingProfolioRoute: typeof HackingProfolioRoute
   HackingProgressRoute: typeof HackingProgressRoute
@@ -657,6 +682,7 @@ export interface RootRouteChildren {
   HackingStampdRoute: typeof HackingStampdRoute
   HackingStatusRoute: typeof HackingStatusRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
+  ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRoute
   HackingIndexRoute: typeof HackingIndexRoute
 }
 
@@ -809,6 +835,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HackingGigsplitRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hacking/monitor-mix-cheat': {
+      id: '/hacking/monitor-mix-cheat'
+      path: '/hacking/monitor-mix-cheat'
+      fullPath: '/hacking/monitor-mix-cheat'
+      preLoaderRoute: typeof HackingMonitorMixCheatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hacking/nexus': {
       id: '/hacking/nexus'
       path: '/hacking/nexus'
@@ -877,6 +910,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/whats-next'
       fullPath: '/hacking/whats-next'
       preLoaderRoute: typeof HackingWhatsNextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scaffolding/architecture': {
+      id: '/scaffolding/architecture'
+      path: '/scaffolding/architecture'
+      fullPath: '/scaffolding/architecture'
+      preLoaderRoute: typeof ScaffoldingArchitectureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -1092,6 +1132,7 @@ const rootRouteChildren: RootRouteChildren = {
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
   HackingGigsplitRoute: HackingGigsplitRoute,
+  HackingMonitorMixCheatRoute: HackingMonitorMixCheatRoute,
   HackingNexusRoute: HackingNexusRoute,
   HackingProfolioRoute: HackingProfolioRoute,
   HackingProgressRoute: HackingProgressRoute,
@@ -1102,6 +1143,7 @@ const rootRouteChildren: RootRouteChildren = {
   HackingStampdRoute: HackingStampdRoute,
   HackingStatusRoute: HackingStatusRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
+  ScaffoldingArchitectureRoute: ScaffoldingArchitectureRoute,
   HackingIndexRoute: HackingIndexRoute,
 }
 export const routeTree = rootRouteImport
