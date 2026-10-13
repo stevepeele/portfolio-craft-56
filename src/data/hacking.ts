@@ -213,6 +213,18 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-12",
+    title: "Segment analytics merged sitewide",
+    detail:
+      "Page tracking on every route, event tracking on every CTA and the Signal signup — the whole site now reports into one place.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Publish queue: Lovable build cache",
+    detail:
+      "Site deploys are paused on a stale Lovable build error referencing files that don't exist. Support ticket filed — everything merged is waiting on their clear.",
+  },
+  {
+    date: "2026-10-12",
     title: "Monitor Mix Cheat joins the Building nav",
     detail:
       "v2 (share links, dark venue mode, print layout) now has its own page under Building — every live app is linked from the site.",
