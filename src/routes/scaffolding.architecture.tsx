@@ -7,7 +7,7 @@ import { LinearDashboard } from "@/components/linear-dashboard";
 
 const title = "Scaffolding — Architecture | Steve Peele II";
 const description =
-  "Private reference: portfolio architecture diagrams, data map, per-app properties, live ops views, and the runbook. Unlisted.";
+  "Private reference: portfolio architecture diagrams, data map, per-app properties, live app directory, and the runbook. Unlisted.";
 
 export const Route = createFileRoute("/scaffolding/architecture")({
   head: () => ({
@@ -82,6 +82,12 @@ function GitHubTile() {
 
 const LINK_TILES: { name: string; fact: string; href: string; live: boolean }[] = [
   {
+    name: "Mission Control",
+    fact: "Linear / PostHog / Stripe read-only ops views, app cards, ship status. Requires sign-in (steve@stevepeeleii.com).",
+    href: "https://mission-control-hw8t1tbra-stevepeeles-projects.vercel.app",
+    live: false,
+  },
+  {
     name: "Vercel",
     fact: "Free tier · 100 deploys/day — quota blocked 2 deploys on 10/12. App projects deploy via file upload; none are git-connected.",
     href: "https://vercel.com/dashboard",
@@ -147,7 +153,8 @@ function ArchitecturePage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
               Private reference — what's connected to what, what holds what, every app's
-              properties, and the live ops views. Unlisted and noindex; nothing links here.
+              properties, and the live app directory. Unlisted and noindex; nothing links here.
+              Everything on this page loads with no sign-in.
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
               Generated 2026-10-12 · source: <code>~/workspace/your_files/portfolio-architecture/data.json</code> · regenerate with <code>python3 build.py</code> (emits this page too)
@@ -308,25 +315,137 @@ function ArchitecturePage() {
         </section>
 
         <section className="mx-auto max-w-6xl space-y-6 px-5 py-20">
-          <SectionHead n="04" sub="The Mission Control app, live — Linear / PostHog / Stripe read-only views, app cards, ship status. Restricted to steve@stevepeeleii.com; sign in inside the frame if prompted.">
-            Mission Control, <span className="text-gradient">live.</span>
+          <SectionHead n="04" sub="Every app, one tap away. All public links — nothing on this page needs a sign-in.">
+            Live <span className="text-gradient">apps.</span>
           </SectionHead>
-          <div className="panel overflow-hidden">
-            <iframe
-              title="Mission Control — live ops dashboard"
-              src="https://mission-control-hw8t1tbra-stevepeeles-projects.vercel.app"
-              className="h-[1100px] w-full bg-black"
-              loading="lazy"
-            />
-          </div>
-          <a
-            href="https://mission-control-hw8t1tbra-stevepeeles-projects.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
-          >
-            Open Mission Control full screen <ArrowUpRight className="size-4" />
-          </a>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><a href="https://stevepeeleii.com" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Main site</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Fractional Demand Portfolio — public home base (SPIIX, engagements, signal capture)</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://profolio-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Profolio</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Portfolio baselines — PDF export, per-page analytics, $29/yr paid tier</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://dardo-smoky.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Dardo</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">AI sidekick for real-estate agents — one-tap capture, mileage, evening brief</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://stampd-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Stampd</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Time tracking — multi-rate + overtime, crew view, 3-tap start, employer share links</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://repurpose-engine-beryl.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Repurpose Engine</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Content repurposing — history, favorites, tone presets, AI generate</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://gigsplit-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">GigSplit</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Band share sheet — saved lineups, splits</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://quotequick-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">QuoteQuick</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Quotes — customers, service catalog, approval links</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://stageplot-ai-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">StagePlot AI</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Stage plots — drag-drop canvas, production PDF, shareable plot links</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://monitor-mix-cheat.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Monitor Mix Cheat</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Monitor-mix cheat sheets — print layout, share links, dark venue mode</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<a href="https://mission-control-hw8t1tbra-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Mission Control</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Internal ops dashboard — Linear / PostHog / Stripe read-only views</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<div className="panel flex flex-col p-5 opacity-80">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Snout</p>
+        <span className="text-xs text-amber-400">● pending</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Plain-language prompt → 4-tier tech-stack recommendations (MVP → top tier) with pricing</p>
+      <span className="mt-3 text-xs text-muted-foreground">TBD</span>
+    </div>
+<a href="https://fliplist-26qtxmr7u-stevepeeles-projects.vercel.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">FlipList</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Marketplace listing manager — format once for FB / Craigslist / Nextdoor, track status</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<div className="panel flex flex-col p-5 opacity-80">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">AI Ops Command Center</p>
+        <span className="text-xs text-amber-400">● pending</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Internal read-only AI observability — SRE, FinOps, governance, usage intelligence</p>
+      <span className="mt-3 text-xs text-muted-foreground">not deployed yet</span>
+    </div>
+<div className="panel flex flex-col p-5 opacity-80">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Local Growth Engine app</p>
+        <span className="text-xs text-amber-400">● pending</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Private internal ops app for Local Growth Fix ($750 site-conversion service)</p>
+      <span className="mt-3 text-xs text-muted-foreground">not deployed yet</span>
+    </div>
+<a href="https://linklib.base44.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Binsly</p>
+        <span className="text-xs text-emerald-400">● live</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Link-in-bio / content (stays on Base44 per his order)</p>
+      <span className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground">Open <ArrowUpRight className="size-3.5" /></span>
+    </a>
+<div className="panel flex flex-col p-5 opacity-80">
+      <div className="flex items-center justify-between gap-2">
+        <p className="font-semibold">Roast</p>
+        <span className="text-xs text-muted-foreground">● not started</span>
+      </div>
+      <p className="mt-2 text-sm text-muted-foreground">Landing Page Roast — URL → scored AI teardown, free teaser → $29 report</p>
+      <span className="mt-3 text-xs text-muted-foreground">n/a</span>
+    </div></div>
         </section>
 
         <section className="mx-auto max-w-6xl space-y-6 px-5 py-20">

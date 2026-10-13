@@ -213,6 +213,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-12",
+    title: "Scaffolding page is now fully login-free",
+    detail:
+      "Dropped the Mission Control iframe from /scaffolding/architecture — the page now shows only data that needs no sign-in. Section 04 is a live-apps directory (every app, one tap away); Mission Control stays one tap away as a deep link.",
+  },
+  {
+    date: "2026-10-12",
     title: "Hidden /scaffolding architecture page",
     detail:
       "Unlisted, noindex reference page: portfolio architecture diagrams, Supabase data map, per-app properties, the live Mission Control embed, monitoring tiles, and the runbook. Regenerates from the architecture data file.",
