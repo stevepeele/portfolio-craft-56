@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackSprintCta } from "@/lib/segment";
+
+const SPRINT_CALL = "https://cal.com/peele/sprint-call";
 
 export const Route = createFileRoute("/sprint")({
   head: () => ({
@@ -79,6 +82,7 @@ function SprintPage() {
                   href="https://cal.com/peele/sprint-call"
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => trackSprintCta("Book your sprint", "hero", SPRINT_CALL)}
                 >
                   BOOK YOUR SPRINT <ArrowRight />
                 </a>
@@ -266,6 +270,7 @@ function SprintPage() {
                 href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackSprintCta("Book your sprint", "pricing", SPRINT_CALL)}
               >
                 BOOK YOUR SPRINT <ArrowRight />
               </a>
@@ -389,6 +394,7 @@ function SprintPage() {
                 href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackSprintCta("Start your sprint", "close", SPRINT_CALL)}
               >
                 START YOUR SPRINT <ArrowRight />
               </a>

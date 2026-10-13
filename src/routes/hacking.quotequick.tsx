@@ -67,11 +67,11 @@ function QuoteQuickPage() {
             </p>
             <div className="mt-8">
               <a
-                href="https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app"
+                href="https://quotequick-stevepeeles-projects.vercel.app"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
-               onClick={() => trackCta("Try App", "hacking page", "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app")}>
+               onClick={() => trackCta("Try App", "hacking page", "https://quotequick-stevepeeles-projects.vercel.app")}>
                 Try it live <ArrowUpRight className="size-4" />
               </a>
             </div>
@@ -93,11 +93,11 @@ function QuoteQuickPage() {
 
           <div className="mt-16 text-center">
             <a
-              href="https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app"
+              href="https://quotequick-stevepeeles-projects.vercel.app"
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"
-             onClick={() => trackCta("Try App", "hacking page", "https://quotequick-mbi8p6ty9-stevepeeles-projects.vercel.app")}>
+             onClick={() => trackCta("Try App", "hacking page", "https://quotequick-stevepeeles-projects.vercel.app")}>
               Open the app <ArrowUpRight className="size-4" />
             </a>
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
