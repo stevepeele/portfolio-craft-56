@@ -27,61 +27,42 @@ export function initSegment() {
   loaded = true;
 
   (function () {
-    // @ts-expect-error — Segment snippet pattern
-    var i = "analytics", analytics = (window[i] = window[i] || []);
-    // @ts-expect-error
+    var w: any = window; var i = "analytics", analytics: any = (w[i] = w[i] || []);
     if (!analytics.initialize)
-      // @ts-expect-error
       if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
       else {
-        // @ts-expect-error
         analytics.invoked = !0;
-        // @ts-expect-error
         analytics.methods = ["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];
-        // @ts-expect-error
-        analytics.factory = function (e) {
+        analytics.factory = function (e: any) {
           return function () {
-            // @ts-expect-error
-            if (window[i].initialized) return window[i][e].apply(window[i], arguments);
-            // @ts-expect-error
+            if (w[i].initialized) return w[i][e].apply(w[i], arguments);
             var n = Array.prototype.slice.call(arguments);
             if (["track","screen","alias","group","page","identify"].indexOf(e) > -1) {
               var c = document.querySelector("link[rel='canonical']");
               n.push({ __t: "bpc", c: (c && c.getAttribute("href")) || void 0, p: location.pathname, u: location.href, s: location.search, t: document.title, r: document.referrer });
             }
             n.unshift(e);
-            // @ts-expect-error
             analytics.push(n);
-            // @ts-expect-error
             return analytics;
           };
         };
-        // @ts-expect-error
         for (var n = 0; n < analytics.methods.length; n++) {
-          // @ts-expect-error
           var key = analytics.methods[n];
-          // @ts-expect-error
           analytics[key] = analytics.factory(key);
         }
-        // @ts-expect-error
-        analytics.load = function (key, n) {
+        analytics.load = function (key: string, n?: any) {
           var t = document.createElement("script");
           t.type = "text/javascript";
           t.async = !0;
           t.setAttribute("data-global-segment-analytics-key", i);
           t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
           var r = document.getElementsByTagName("script")[0];
-          r.parentNode.insertBefore(t, r);
-          // @ts-expect-error
+          if (r && r.parentNode) r.parentNode.insertBefore(t, r); else document.head.appendChild(t);
           analytics._loadOptions = n;
         };
-        // @ts-expect-error
         analytics._writeKey = WRITE_KEY;
-        // @ts-expect-error
         analytics.SNIPPET_VERSION = "5.2.0";
-        // @ts-expect-error
         analytics.load(WRITE_KEY);
-        // @ts-expect-error
         analytics.page();
       }
   })();

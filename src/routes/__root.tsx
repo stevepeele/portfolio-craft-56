@@ -23,9 +23,9 @@ import { useLocation } from "@tanstack/react-router";
 /* Activates only when VITE_POSTHOG_KEY is set; until then every       */
 /* capture is skipped. Client-side only — never runs during SSR.       */
 /* ------------------------------------------------------------------ */
-const POSTHOG_KEY = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
+const POSTHOG_KEY = import.meta.env['VITE_POSTHOG_KEY'] as string | undefined;
 const POSTHOG_HOST =
-  (import.meta.env.VITE_POSTHOG_HOST as string | undefined) ?? "https://us.i.posthog.com";
+  (import.meta.env['VITE_POSTHOG_HOST'] as string | undefined) ?? "https://us.i.posthog.com";
 
 let posthogReady = false;
 
