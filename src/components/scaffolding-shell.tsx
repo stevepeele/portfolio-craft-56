@@ -19,6 +19,7 @@ export function scaffoldingHead(path: string, title: string, description: string
   };
 }
 
+// Hub nav — single source of truth for the /scaffolding sidebar.
 export const SCAFFOLDING_NAV: { to: string; label: string; group: string }[] = [
   { to: "/scaffolding", label: "Overview", group: "Docs" },
   { to: "/scaffolding/snapshot", label: "Snapshot · Oct 2026", group: "Docs" },
