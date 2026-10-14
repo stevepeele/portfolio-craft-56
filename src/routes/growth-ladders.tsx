@@ -5,6 +5,7 @@ import { diagnosticItems, weakestRung, type Rung, type Score } from "@/lib/growt
 import { deliverGrowthLadderSignup, growthLadderSignupSchema } from "@/lib/growth-ladders-leads";
 import { recordGrowthLadderSignup } from "@/lib/growth-ladders.functions";
 import { hasMonolithAccess } from "@/lib/spiix-access";
+import { useSpamGuard } from "@/lib/spam-guard";
 
 const URL_ = "https://stevepeeleii.com/growth-ladders";
 const TITLE = "Growth Ladders — Operators Edition | Steve Peele II";
@@ -74,6 +75,7 @@ function GrowthLadders() {
   useEffect(() => { if (hasMonolithAccess()) setDone(true); }, []);
   const [error, setError] = useState<string | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const { isSpam, HoneypotField } = useSpamGuard("growth-ladders");
   const reduced = useRef(false);
 
   // Start at the ground, track altitude, skew with velocity, warn on rung-skipping.
@@ -114,6 +116,7 @@ function GrowthLadders() {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSpam()) return; // silently reject bots
     const f = new FormData(e.currentTarget);
     const parsed = growthLadderSignupSchema.safeParse({
       id: crypto.randomUUID(), name: f.get("name"), email: f.get("email"), company: f.get("company"), role: f.get("role"),
@@ -162,6 +165,7 @@ function GrowthLadders() {
                   : <>The Operators Edition within Growth Ladders Monolith: playbooks, role tracks, the math, twelve field cases, and a facilitator guide. Free.</>}
               </p>
               <form onSubmit={onSubmit} noValidate style={{ display: "grid", gap: "1rem", maxWidth: "40rem" }}>
+                <HoneypotField />
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))" }}>
                   {[["name", "Name", "name"], ["email", "Work email", "email"], ["company", "Company", "organization"], ["role", "Role", "organization-title"]].map(([n, l, ac]) => (
                     <div key={n} className="gl-field">
