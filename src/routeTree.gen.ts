@@ -33,7 +33,6 @@ import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
 import { Route as HackingGigsplitRouteImport } from './routes/hacking.gigsplit'
-import { Route as HackingMonitorMixCheatRouteImport } from './routes/hacking.monitor-mix-cheat'
 import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
 import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
 import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
@@ -64,6 +63,8 @@ import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
 import { Route as StudioSplatRouteImport } from './routes/studio.$'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.category.$slug'
+import { Route as ScaffoldingArchitectureAnalyticsRouteImport } from './routes/scaffolding.architecture.analytics'
+import { Route as ScaffoldingArchitectureDataFlowsRouteImport } from './routes/scaffolding.architecture.data-flows'
 import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
 import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
 import { Route as SpiixEngageGtmAuditRouteImport } from './routes/spiix.engage.gtm-audit'
@@ -187,11 +188,6 @@ const HackingDardoRoute = HackingDardoRouteImport.update({
 const HackingGigsplitRoute = HackingGigsplitRouteImport.update({
   id: '/hacking/gigsplit',
   path: '/hacking/gigsplit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HackingMonitorMixCheatRoute = HackingMonitorMixCheatRouteImport.update({
-  id: '/hacking/monitor-mix-cheat',
-  path: '/hacking/monitor-mix-cheat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingNexusRoute = HackingNexusRouteImport.update({
@@ -344,6 +340,18 @@ const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
   path: '/blog/category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScaffoldingArchitectureAnalyticsRoute =
+  ScaffoldingArchitectureAnalyticsRouteImport.update({
+    id: '/analytics',
+    path: '/analytics',
+    getParentRoute: () => ScaffoldingArchitectureRoute,
+  } as any)
+const ScaffoldingArchitectureDataFlowsRoute =
+  ScaffoldingArchitectureDataFlowsRouteImport.update({
+    id: '/data-flows',
+    path: '/data-flows',
+    getParentRoute: () => ScaffoldingArchitectureRoute,
+  } as any)
 const SpiixEngageEliteMentorshipRoute =
   SpiixEngageEliteMentorshipRouteImport.update({
     id: '/engage/elite-mentorship',
@@ -385,7 +393,6 @@ export interface FileRoutesByFullPath {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
-  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -397,7 +404,7 @@ export interface FileRoutesByFullPath {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
-  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -418,6 +425,8 @@ export interface FileRoutesByFullPath {
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
+  '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -443,7 +452,6 @@ export interface FileRoutesByTo {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
-  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -455,7 +463,7 @@ export interface FileRoutesByTo {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
-  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -476,6 +484,8 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
+  '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -504,7 +514,6 @@ export interface FileRoutesById {
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
-  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -516,7 +525,7 @@ export interface FileRoutesById {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
-  '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -537,6 +546,8 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
+  '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -566,7 +577,6 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
-    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -599,6 +609,8 @@ export interface FileRouteTypes {
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/scaffolding/architecture/analytics'
+    | '/scaffolding/architecture/data-flows'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -624,7 +636,6 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
-    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -657,6 +668,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/blog/category/$slug'
+    | '/scaffolding/architecture/analytics'
+    | '/scaffolding/architecture/data-flows'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -684,7 +697,6 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
-    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -717,6 +729,8 @@ export interface FileRouteTypes {
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/scaffolding/architecture/analytics'
+    | '/scaffolding/architecture/data-flows'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -745,7 +759,6 @@ export interface RootRouteChildren {
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
   HackingGigsplitRoute: typeof HackingGigsplitRoute
-  HackingMonitorMixCheatRoute: typeof HackingMonitorMixCheatRoute
   HackingNexusRoute: typeof HackingNexusRoute
   HackingProfolioRoute: typeof HackingProfolioRoute
   HackingProgressRoute: typeof HackingProgressRoute
@@ -757,7 +770,7 @@ export interface RootRouteChildren {
   HackingStatusRoute: typeof HackingStatusRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
   PreviewSlugRoute: typeof PreviewSlugRoute
-  ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRoute
+  ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRouteWithChildren
   BlogIndexRoute: typeof BlogIndexRoute
   HackingIndexRoute: typeof HackingIndexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
@@ -931,13 +944,6 @@ declare module '@tanstack/react-router' {
       path: '/hacking/gigsplit'
       fullPath: '/hacking/gigsplit'
       preLoaderRoute: typeof HackingGigsplitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hacking/monitor-mix-cheat': {
-      id: '/hacking/monitor-mix-cheat'
-      path: '/hacking/monitor-mix-cheat'
-      fullPath: '/hacking/monitor-mix-cheat'
-      preLoaderRoute: typeof HackingMonitorMixCheatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/nexus': {
@@ -1150,6 +1156,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scaffolding/architecture/analytics': {
+      id: '/scaffolding/architecture/analytics'
+      path: '/analytics'
+      fullPath: '/scaffolding/architecture/analytics'
+      preLoaderRoute: typeof ScaffoldingArchitectureAnalyticsRouteImport
+      parentRoute: typeof ScaffoldingArchitectureRoute
+    }
+    '/scaffolding/architecture/data-flows': {
+      id: '/scaffolding/architecture/data-flows'
+      path: '/data-flows'
+      fullPath: '/scaffolding/architecture/data-flows'
+      preLoaderRoute: typeof ScaffoldingArchitectureDataFlowsRouteImport
+      parentRoute: typeof ScaffoldingArchitectureRoute
+    }
     '/spiix/engage/elite-mentorship': {
       id: '/spiix/engage/elite-mentorship'
       path: '/engage/elite-mentorship'
@@ -1241,6 +1261,24 @@ const StudioRouteChildren: StudioRouteChildren = {
 const StudioRouteWithChildren =
   StudioRoute._addFileChildren(StudioRouteChildren)
 
+interface ScaffoldingArchitectureRouteChildren {
+  ScaffoldingArchitectureAnalyticsRoute: typeof ScaffoldingArchitectureAnalyticsRoute
+  ScaffoldingArchitectureDataFlowsRoute: typeof ScaffoldingArchitectureDataFlowsRoute
+}
+
+const ScaffoldingArchitectureRouteChildren: ScaffoldingArchitectureRouteChildren =
+  {
+    ScaffoldingArchitectureAnalyticsRoute:
+      ScaffoldingArchitectureAnalyticsRoute,
+    ScaffoldingArchitectureDataFlowsRoute:
+      ScaffoldingArchitectureDataFlowsRoute,
+  }
+
+const ScaffoldingArchitectureRouteWithChildren =
+  ScaffoldingArchitectureRoute._addFileChildren(
+    ScaffoldingArchitectureRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -1264,7 +1302,6 @@ const rootRouteChildren: RootRouteChildren = {
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
   HackingGigsplitRoute: HackingGigsplitRoute,
-  HackingMonitorMixCheatRoute: HackingMonitorMixCheatRoute,
   HackingNexusRoute: HackingNexusRoute,
   HackingProfolioRoute: HackingProfolioRoute,
   HackingProgressRoute: HackingProgressRoute,
@@ -1276,7 +1313,7 @@ const rootRouteChildren: RootRouteChildren = {
   HackingStatusRoute: HackingStatusRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
   PreviewSlugRoute: PreviewSlugRoute,
-  ScaffoldingArchitectureRoute: ScaffoldingArchitectureRoute,
+  ScaffoldingArchitectureRoute: ScaffoldingArchitectureRouteWithChildren,
   BlogIndexRoute: BlogIndexRoute,
   HackingIndexRoute: HackingIndexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
@@ -1284,3 +1321,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
