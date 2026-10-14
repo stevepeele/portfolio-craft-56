@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { ScaffoldingShell, SectionHead, scaffoldingHead, SCAFFOLDING_NAV } from "@/components/scaffolding-shell";
 
@@ -25,6 +25,13 @@ const CARDS: { to: string; name: string; blurb: string }[] = [
 ];
 
 function ScaffoldingIndexPage() {
+  // Child routes (/projects, /infrastructure, ...) render through the Outlet;
+  // this page's own content only renders at the exact parent path.
+  const matchRoute = useMatchRoute();
+  const onIndex = matchRoute({ to: "/scaffolding", fuzzy: false });
+  if (!onIndex) {
+    return <Outlet />;
+  }
   return (
     <ScaffoldingShell
       path="/scaffolding"
