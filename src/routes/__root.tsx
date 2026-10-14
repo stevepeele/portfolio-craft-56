@@ -157,6 +157,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://stevepeeleii.com/og-image.png" },
       { name: "theme-color", content: "#0a0a0a" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Steve Peele II",
+          url: "https://stevepeeleii.com/",
+          jobTitle: "Growth Marketing Leader",
+          description:
+            "Growth marketing leader, operator, musician, and connector with 14+ years building scalable growth systems. $350M+ pipeline driven. Creator of SPIIX and Growth Ladders.",
+          sameAs: [
+            "https://linkedin.com/in/spii",
+            "https://x.com/stevepeeleii",
+            "https://instagram.com/stevepeeleii",
+          ],
+        }),
+      },
+    ],
     links: [
       {
         rel: "stylesheet",
@@ -170,6 +189,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "canonical", href: "https://stevepeeleii.com/" },
     ],
   }),
 
