@@ -51,7 +51,7 @@ function StagePlotPage() {
             </p>
             <div className="mt-8">
               <a
-                href="https://stageplot-ai-stevepeeles-projects.vercel.app/"
+                href="https://stageplot.stevepeeleii.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
@@ -102,7 +102,7 @@ function StagePlotPage() {
 
           <div className="mt-16 text-center">
             <a
-              href="https://stageplot-ai-stevepeeles-projects.vercel.app/"
+              href="https://stageplot.stevepeeleii.com/"
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"

@@ -67,11 +67,11 @@ function DardoPage() {
             </p>
             <div className="mt-8">
               <a
-                href="https://dardo-n2acgwnec-stevepeeles-projects.vercel.app"
+                href="https://dardo.stevepeeleii.com"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
-               onClick={() => trackCta("Try App", "hacking page", "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app")}>
+               onClick={() => trackCta("Try App", "hacking page", "https://dardo.stevepeeleii.com")}>
                 Try it live <ArrowUpRight className="size-4" />
               </a>
             </div>
@@ -93,11 +93,11 @@ function DardoPage() {
 
           <div className="mt-16 text-center">
             <a
-              href="https://dardo-n2acgwnec-stevepeeles-projects.vercel.app"
+              href="https://dardo.stevepeeleii.com"
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"
-             onClick={() => trackCta("Try App", "hacking page", "https://dardo-n2acgwnec-stevepeeles-projects.vercel.app")}>
+             onClick={() => trackCta("Try App", "hacking page", "https://dardo.stevepeeleii.com")}>
               Open the app <ArrowUpRight className="size-4" />
             </a>
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>

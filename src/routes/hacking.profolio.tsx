@@ -49,7 +49,7 @@ function ProfolioPage() {
             </p>
             <div className="mt-8">
               <a
-                href="https://profolio-stevepeeles-projects.vercel.app/"
+                href="https://profolioapp.stevepeeleii.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
@@ -106,7 +106,7 @@ function ProfolioPage() {
 
           <div className="mt-16 text-center">
             <a
-              href="https://profolio-stevepeeles-projects.vercel.app/"
+              href="https://profolioapp.stevepeeleii.com/"
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"

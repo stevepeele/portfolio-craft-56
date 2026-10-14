@@ -33,6 +33,7 @@ import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
 import { Route as HackingGigsplitRouteImport } from './routes/hacking.gigsplit'
+import { Route as HackingMonitorMixCheatRouteImport } from './routes/hacking.monitor-mix-cheat'
 import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
 import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
 import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
@@ -61,6 +62,7 @@ import { Route as SpiixSignalRouteImport } from './routes/spiix.signal'
 import { Route as SpiixSignalReportRouteImport } from './routes/spiix.signal-report'
 import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
+import { Route as StudioSplatRouteImport } from './routes/studio.$'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.category.$slug'
 import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
 import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
@@ -185,6 +187,11 @@ const HackingDardoRoute = HackingDardoRouteImport.update({
 const HackingGigsplitRoute = HackingGigsplitRouteImport.update({
   id: '/hacking/gigsplit',
   path: '/hacking/gigsplit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingMonitorMixCheatRoute = HackingMonitorMixCheatRouteImport.update({
+  id: '/hacking/monitor-mix-cheat',
+  path: '/hacking/monitor-mix-cheat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingNexusRoute = HackingNexusRouteImport.update({
@@ -327,6 +334,11 @@ const SpiixWhoIHelpRoute = SpiixWhoIHelpRouteImport.update({
   path: '/who-i-help',
   getParentRoute: () => SpiixRoute,
 } as any)
+const StudioSplatRoute = StudioSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => StudioRoute,
+} as any)
 const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
   id: '/blog/category/$slug',
   path: '/blog/category/$slug',
@@ -366,13 +378,14 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
-  '/studio': typeof StudioRoute
+  '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -399,6 +412,7 @@ export interface FileRoutesByFullPath {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -422,13 +436,14 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/sprint': typeof SprintRoute
-  '/studio': typeof StudioRoute
+  '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -455,6 +470,7 @@ export interface FileRoutesByTo {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/studio/$': typeof StudioSplatRoute
   '/blog': typeof BlogIndexRoute
   '/hacking': typeof HackingIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -481,13 +497,14 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
-  '/studio': typeof StudioRoute
+  '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
+  '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -514,6 +531,7 @@ export interface FileRoutesById {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -548,6 +566,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -574,6 +593,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/studio/$'
     | '/blog/'
     | '/hacking/'
     | '/services/'
@@ -604,6 +624,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -630,6 +651,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/studio/$'
     | '/blog'
     | '/hacking'
     | '/services'
@@ -662,6 +684,7 @@ export interface FileRouteTypes {
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
+    | '/hacking/monitor-mix-cheat'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -688,6 +711,7 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/studio/$'
     | '/blog/'
     | '/hacking/'
     | '/services/'
@@ -714,13 +738,14 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRouteWithChildren
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
-  StudioRoute: typeof StudioRoute
+  StudioRoute: typeof StudioRouteWithChildren
   WorkRoute: typeof WorkRoute
   WritingRoute: typeof WritingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
   HackingGigsplitRoute: typeof HackingGigsplitRoute
+  HackingMonitorMixCheatRoute: typeof HackingMonitorMixCheatRoute
   HackingNexusRoute: typeof HackingNexusRoute
   HackingProfolioRoute: typeof HackingProfolioRoute
   HackingProgressRoute: typeof HackingProgressRoute
@@ -906,6 +931,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/gigsplit'
       fullPath: '/hacking/gigsplit'
       preLoaderRoute: typeof HackingGigsplitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/monitor-mix-cheat': {
+      id: '/hacking/monitor-mix-cheat'
+      path: '/hacking/monitor-mix-cheat'
+      fullPath: '/hacking/monitor-mix-cheat'
+      preLoaderRoute: typeof HackingMonitorMixCheatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/nexus': {
@@ -1104,6 +1136,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixWhoIHelpRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/studio/$': {
+      id: '/studio/$'
+      path: '/$'
+      fullPath: '/studio/$'
+      preLoaderRoute: typeof StudioSplatRouteImport
+      parentRoute: typeof StudioRoute
+    }
     '/blog/category/$slug': {
       id: '/blog/category/$slug'
       path: '/blog/category/$slug'
@@ -1191,6 +1230,17 @@ const SpiixRouteChildren: SpiixRouteChildren = {
 
 const SpiixRouteWithChildren = SpiixRoute._addFileChildren(SpiixRouteChildren)
 
+interface StudioRouteChildren {
+  StudioSplatRoute: typeof StudioSplatRoute
+}
+
+const StudioRouteChildren: StudioRouteChildren = {
+  StudioSplatRoute: StudioSplatRoute,
+}
+
+const StudioRouteWithChildren =
+  StudioRoute._addFileChildren(StudioRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -1207,13 +1257,14 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRouteWithChildren,
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
-  StudioRoute: StudioRoute,
+  StudioRoute: StudioRouteWithChildren,
   WorkRoute: WorkRoute,
   WritingRoute: WritingRoute,
   BlogSlugRoute: BlogSlugRoute,
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
   HackingGigsplitRoute: HackingGigsplitRoute,
+  HackingMonitorMixCheatRoute: HackingMonitorMixCheatRoute,
   HackingNexusRoute: HackingNexusRoute,
   HackingProfolioRoute: HackingProfolioRoute,
   HackingProgressRoute: HackingProgressRoute,
@@ -1233,13 +1284,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
