@@ -115,6 +115,16 @@ export const hackingApps: HackingApp[] = [
       "Line items plus a job-site photo turn into a branded PDF quote, ready to send before you leave the driveway. $19 one-time.",
     why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
   },
+  {
+    slug: "muse-templates",
+    label: "Muse Templates",
+    blurb: "Prompts, skills & automations",
+    status: "live",
+    url: "https://muse-templates-stevepeeles-projects.vercel.app/",
+    description:
+      "A gallery of ready-made templates for Muse — 12 system prompts, skills, crons, and workflows with copy-to-clipboard install. Stop prompting from scratch.",
+    why: "The best Muse setups are built, not discovered. Templates make the good ones shareable.",
+  },
 ];
 
 export type BuildQueueItem = {
@@ -126,6 +136,13 @@ export type BuildQueueItem = {
 };
 
 export const buildQueue: BuildQueueItem[] = [
+  {
+    name: "Muse Templates",
+    status: "shipped",
+    shippedDate: "2026-10-13",
+    description: "Template gallery for Muse — 12 ready-made system prompts, skills, crons & workflows with copy-paste install.",
+    url: "https://muse-templates-stevepeeles-projects.vercel.app/",
+  },
   {
     name: "StagePlot AI",
     status: "shipped",
@@ -211,6 +228,12 @@ export type StatusEntry = {
 };
 
 export const statusLog: StatusEntry[] = [
+  {
+    date: "2026-10-13",
+    title: "Muse Templates launched",
+    detail:
+      "Shipped a public template gallery for Muse — 12 ready-made system prompts, skills, crons & workflows (Second-in-Command, Morning Briefing, Inbox Triage, Deep Research, and 8 more) with copy-to-clipboard install. Live at muse-templates-stevepeeles-projects.vercel.app. (PLX-295)",
+  },
   {
     date: "2026-10-13",
     title: "Proven-results cards reordered + acquired badges",
