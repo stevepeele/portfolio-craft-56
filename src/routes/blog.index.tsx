@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getFeaturedPost, getLatestPosts } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
-import { getExternalFeeds, type ExternalFeedItem } from "@/lib/external-feeds";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 
 const title = "Blog — Notes on Growth, Systems & Building | Steve Peele II";
@@ -13,12 +13,8 @@ const description =
 
 export const Route = createFileRoute("/blog/")({
   loader: async () => {
-    const [featured, posts, externalFeeds] = await Promise.all([
-      getFeaturedPost(),
-      getLatestPosts(24),
-      getExternalFeeds().catch(() => ({ fetchedAt: new Date().toISOString(), items: [] })),
-    ]);
-    return { featured, posts, externalFeeds };
+    const [featured, posts] = await Promise.all([getFeaturedPost(), getLatestPosts(24)]);
+    return { featured, posts };
   },
   head: () => ({
     meta: [
@@ -83,6 +79,15 @@ function PostCard({ post }: { post: SanityPostCard }) {
   );
 }
 
+type ExternalFeedItem = {
+  id: string;
+  title: string;
+  link: string;
+  pubDate: string;
+  excerpt: string;
+  source: "Substack" | "Medium";
+};
+
 function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
   const date = item.pubDate
     ? new Date(item.pubDate).toLocaleDateString("en-US", {
@@ -115,7 +120,28 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
 }
 
 function BlogIndexPage() {
-  const { featured, posts, externalFeeds } = Route.useLoaderData();
+  const { featured, posts } = Route.useLoaderData();
+  const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/writing-feeds.json");
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled && Array.isArray(data.items) && data.items.length > 0) {
+            setExternalItems(data.items.slice(0, 6));
+          }
+        }
+      } catch {
+        // Graceful fallback: section stays hidden
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const rest = featured
     ? (posts as SanityPostCard[]).filter((p: SanityPostCard) => p._id !== featured._id)
     : (posts as SanityPostCard[]);
@@ -200,7 +226,7 @@ function BlogIndexPage() {
             </div>
           )}
 
-          {externalFeeds.items.length > 0 && (
+          {externalItems.length > 0 && (
             <div className="mt-16 border-t border-border/40 pt-10">
               <div className="flex items-baseline justify-between">
                 <h3 className="font-display text-xs font-medium tracking-widest text-muted-foreground/70 uppercase">
@@ -211,7 +237,7 @@ function BlogIndexPage() {
                 </p>
               </div>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {externalFeeds.items.map((item) => (
+                {externalItems.map((item) => (
                   <ExternalFeedCard key={item.id} item={item} />
                 ))}
               </div>
