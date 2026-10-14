@@ -141,7 +141,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "14+ years building scalable growth systems. $350M+ pipeline driven. Creator of SPIIX and Growth Ladders.",
       },
       { property: "og:url", content: "https://stevepeeleii.com/" },
-      { property: "og:image", content: "https://stevepeeleii.com/og-image.png" },
+      { property: "og:image", content: "https://stevepeeleii.com/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Steve Peele II — Growth Marketing Leader" },
@@ -154,7 +154,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "14+ years building scalable growth systems. $350M+ pipeline driven. Creator of SPIIX and Growth Ladders.",
       },
-      { name: "twitter:image", content: "https://stevepeeleii.com/og-image.png" },
+      { name: "twitter:image", content: "https://stevepeeleii.com/og-image.jpg" },
       { name: "theme-color", content: "#0a0a0a" },
     ],
     scripts: [
