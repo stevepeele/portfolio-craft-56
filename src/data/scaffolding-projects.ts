@@ -272,10 +272,10 @@ export const SCAFFOLDING_PROJECTS: ScaffoldingProject[] = [
     linearIssue: "PLX-339",
     repo: "~/workspace/interview-prep-app",
     vercelProject: "prepwise",
-    liveUrl: "https://prepwise.vercel.app",
+    liveUrl: "https://prepwise.stevepeeleii.com",
     stack: "Next.js 16 App Router · Supabase (shared dardo project, interview_prep_ai schema) · OpenAI gpt-4o-mini (key pasted in Settings) · Segment server-side",
     description: "Interview preparation app, currently in build (PLX-339 In Progress).",
-    notes: ["TWO duplicate Linear projects exist (P-PLX-25 and P-PLX-26, created seconds apart 2026-10-14) — consolidation pending", "Live URL inferred from Vercel project-name convention — verify before sharing"],
+    notes: ["statusLog 2026-10-14 reports the live splash at prepwise.stevepeeleii.com — treat the subdomain as canonical", "TWO duplicate Linear projects exist (P-PLX-25 and P-PLX-26, created seconds apart 2026-10-14) — consolidation pending", "Supersedes the earlier PrepEdge v1 (~/workspace/interview-prep-ai-app)"],
     confidence: "inferred",
   },
   {
