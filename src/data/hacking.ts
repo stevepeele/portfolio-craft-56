@@ -246,6 +246,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-14",
+    title: "Scaffolding docs microsite: complete /scaffolding hub",
+    detail:
+      "PLX-398: built the complete scaffolding documentation hub — /scaffolding index plus 12 pages: architecture (cross-linked into the hub), projects index with 24 per-project doc pages (repo, Vercel project, live URL, stack, Linear project, notes — reconciled against a 23-project research inventory), infrastructure (Vercel/GitHub/Supabase/Sanity/Segment/HubSpot, secret locations, connector inventory), diagrams (portfolio topology, Supabase data map, deploy pipeline, lead/analytics/blog flows), tech considerations (build standards, ADRs, gotchas, security posture), runbook (8 incident playbooks), monitoring (status tiles, deploy watchers, cron inventory), deploys log, and changelog. All pages unlisted + noindex + canonical, no nav links. Changelog and deploys are data-driven JSON, kept current by a new daily cron (scaffolding-changelog-updater, ~06:30 ET) that merges GitHub commits, Linear completions, and Vercel deploys, then pushes via the connector so Vercel auto-deploys.",
+  },
+  {
+    date: "2026-10-14",
     title: "Scaffolding: analytics/data-flows sub-pages fixed + real analytics deep dive",
     detail:
       "PLX-364: the /scaffolding/architecture/analytics and /data-flows sub-pages existed in the repo (PLX-335) but live they rendered the parent page's content — the parent route never rendered <Outlet/>, so child components never mounted (only the child's <title> showed). Fixed by converting /scaffolding/architecture to a bare-Outlet layout (services.tsx pattern) and moving the infrastructure content to a new /scaffolding/architecture/ index route. The analytics page got the full deep dive: Segment lifecycle (src/lib/segment.ts → __root.tsx, initSegment + segmentPage on nav), a 10-row event taxonomy table (event → where fired → destination, covering site-analytics.ts behavioral events, formsubmit.co lead routing, and HubSpot), integration notes (HubSpot portal 22009185 script, formsubmit.co routing via spiix-leads.ts / growth-ladders-leads.ts, Sanity CDN image flow), and PostHog gating (dormant unless VITE_POSTHOG_KEY set). No secrets or values — env names only; pages stay unlisted + noindex.",
