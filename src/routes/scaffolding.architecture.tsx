@@ -190,6 +190,27 @@ function ArchitecturePage() {
             <p className="mt-4 text-xs text-muted-foreground">
               Rebuilt 2026-10-14 after the Lovable → Vercel migration (PLX-335) · prior version generated 2026-10-12
             </p>
+            <div className="mt-6 flex flex-wrap gap-2 text-xs">
+              {[
+                ["/scaffolding", "Docs home"],
+                ["/scaffolding/projects", "Projects"],
+                ["/scaffolding/infrastructure", "Infrastructure"],
+                ["/scaffolding/diagrams", "Diagrams"],
+                ["/scaffolding/tech", "Tech considerations"],
+                ["/scaffolding/runbook", "Runbook"],
+                ["/scaffolding/monitoring", "Monitoring"],
+                ["/scaffolding/deploys", "Deploys"],
+                ["/scaffolding/changelog", "Changelog"],
+              ].map(([to, label]) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="rounded-full border border-border/60 px-3 py-1.5 text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
