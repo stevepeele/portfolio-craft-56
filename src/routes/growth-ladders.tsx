@@ -4,6 +4,7 @@ import "@/styles/growth-ladders.css";
 import { diagnosticItems, weakestRung, type Rung, type Score } from "@/lib/growth-ladders-diagnostic";
 import { deliverGrowthLadderSignup, growthLadderSignupSchema } from "@/lib/growth-ladders-leads";
 import { recordGrowthLadderSignup } from "@/lib/growth-ladders.functions";
+import { hasMonolithAccess } from "@/lib/spiix-access";
 
 const URL_ = "https://stevepeeleii.com/growth-ladders";
 const TITLE = "Growth Ladders — Operators Edition | Steve Peele II";
@@ -69,6 +70,8 @@ function GrowthLadders() {
   const [scores, setScores] = useState<(Score | null)[]>(() => diagnosticItems.map(() => null));
   const [result, setResult] = useState<Rung | null>(null);
   const [done, setDone] = useState(false);
+  // Visitors who already gave their details on /spiix/signal get the download without a second form.
+  useEffect(() => { if (hasMonolithAccess()) setDone(true); }, []);
   const [error, setError] = useState<string | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const reduced = useRef(false);

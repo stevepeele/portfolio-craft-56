@@ -254,9 +254,9 @@ function SpiixServicePage() {
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                to: "/spiix/monolith",
-                title: "The Monolith",
-                desc: "The entire body of work. Start with its eight-chapter SPIIX operating guide.",
+                to: "/growth-ladders",
+                title: "Growth Ladders",
+                desc: "The entire body of work: the SPIIX book, with the diagnostic and free download.",
               },
               {
                 to: "/spiix/os",
