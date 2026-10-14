@@ -457,6 +457,12 @@
 .ebook-banner-tag { background: var(--banner-fg); color: var(--banner-bg); padding: 0.1rem 0.45rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.65rem; }
 .ebook-banner-link { font-weight: 700; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
 
+/* Muse referral banner (PLX-424) — deep violet on dark editorial, restrained */
+:root { --muse-bg: oklch(0.32 0.12 290); --muse-fg: oklch(0.95 0.02 290); }
+.muse-banner { background: linear-gradient(90deg, oklch(0.25 0.10 290), var(--muse-bg) 50%, oklch(0.25 0.10 290)); color: var(--muse-fg); }
+.muse-banner-tag { background: var(--muse-fg); color: var(--muse-bg); padding: 0.1rem 0.45rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.65rem; }
+.muse-banner-link { font-weight: 700; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+
 /* Logo marquee — home page "where I've done the work" strip */
 @keyframes logo-marquee {
   from {
