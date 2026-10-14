@@ -148,10 +148,51 @@ export const caseHighlights = [
       "Joined the founding team and helped build marketing operations through a major growth period and the company's acquisition by Zillow.",
     tag: "Startup scale",
   },
+  {
+    sector: "Event SaaS",
+    company: "Tixxy",
+    metrics: [
+      { value: "$1M+", label: "ARR in Year 1" },
+      { value: "300%", label: "User growth" },
+      { value: "25%", label: "Churn reduction" },
+    ],
+    summary:
+      "Founded and scaled a ticketing SaaS from zero to $1M+ ARR in its first year — full-funnel GTM, lifecycle programs, then acquisition.",
+    tag: "Founder",
+  },
+  {
+    sector: "E-commerce Services",
+    company: "Amify",
+    metrics: [
+      { value: "$6M", label: "Incremental revenue" },
+      { value: "35%", label: "Brand recognition lift" },
+      { value: "15%", label: "Lower acquisition cost" },
+    ],
+    summary:
+      "Fractional VP: company-wide brand repositioning paired with paid-media rigor and retention programs that compounded revenue.",
+    tag: "Fractional leadership",
+  },
 ];
 
-export const portfolioProjects = [
-  {
+export const workedWith = [
+  "Launch by NTT DATA",
+  "Zillow",
+  "Salesforce",
+  "HubSpot",
+  "Webflow",
+  "Dotloop",
+  "Tixxy",
+  "Amify",
+  "Astronomer",
+  "Hoist Hydration",
+  "Nexient",
+  "Buyside",
+  "EBTH",
+  "API Nation",
+  "Inman News",
+];
+
+export const portfolioProjects = [  {
     company: "Launch by NTT DATA",
     sector: "Global Services",
     title: "Global marketing operations & ABM integration",

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations } from "@/data/resume";
+import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations, workedWith } from "@/data/resume";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -105,30 +105,53 @@ function Home() {
         </div>
       </section>
 
+      <section aria-label="Companies Steve has worked with" className="border-b border-border/60">
+        <div className="mx-auto max-w-6xl px-5 pt-10">
+          <p className="text-center text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+            Where I've done the work
+          </p>
+        </div>
+        <div className="logo-marquee overflow-hidden py-8 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+          <div className="logo-marquee-track flex w-max items-center gap-14 pr-14">
+            {workedWith.map((name) => (
+              <span
+                key={name}
+                className="font-display text-lg font-semibold whitespace-nowrap text-muted-foreground/70 transition-colors hover:text-foreground"
+              >
+                {name}
+              </span>
+            ))}
+            {workedWith.map((name) => (
+              <span
+                key={`dup-${name}`}
+                aria-hidden="true"
+                className="font-display text-lg font-semibold whitespace-nowrap text-muted-foreground/70 transition-colors hover:text-foreground"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <p className="eyebrow">Proven results</p>
         <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
           Real pipeline. Real revenue. Real exits.
         </h2>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {caseHighlights.map((c) => (
             <article key={c.company} className="panel flex flex-col p-7">
-              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-                {c.sector}
-              </p>
-              <h3 className="mt-1 font-display text-2xl font-bold">{c.company}</h3>
-              <div className="mt-6 space-y-4 border-t border-border pt-6">
+              <h3 className="font-display text-2xl font-bold">{c.company}</h3>
+              <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
                 {c.metrics.map((m) => (
                   <div key={m.label}>
-                    <p className="font-display text-2xl font-bold text-gradient">{m.value}</p>
-                    <p className="text-sm text-muted-foreground">{m.label}</p>
+                    <p className="font-display text-xl font-bold text-gradient sm:text-2xl">{m.value}</p>
+                    <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{m.label}</p>
                   </div>
                 ))}
               </div>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
-              <span className="mt-6 inline-flex w-fit rounded-full border border-input px-3 py-1 text-xs font-semibold">
-                {c.tag}
-              </span>
             </article>
           ))}
         </div>

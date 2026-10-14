@@ -218,6 +218,12 @@ export const statusLog: StatusEntry[] = [
       "Restored all 10 roles to the site (Amify, Tixxy, Buyside, EBTH, API Nation, Astronomer, Inman News, Advisory alongside Launch and Dotloop) with metrics from the canonical resume, added 6 new portfolio project entries, and rewrote all 15 testimonials for sharper professional-capability focus. (PLX-287)",
   },
   {
+    date: "2026-10-13",
+    title: "Home refresh: results cards + logo strip",
+    detail:
+      "Proven-results cards simplified and doubled to four (Tixxy, Amify join Launch and Dotloop), plus a subtle marquee of everywhere the work got done. (PLX-291)",
+  },
+  {
     date: "2026-10-12",
     title: "Scaffolding page is now fully login-free",
     detail:

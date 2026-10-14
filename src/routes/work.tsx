@@ -66,7 +66,7 @@ function WorkPage() {
             </div>
           ))}
         </div>
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
           {caseHighlights.map((c) => (
             <article key={c.company} className="panel interactive-lift flex flex-col p-7">
               <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">{c.sector}</p>
