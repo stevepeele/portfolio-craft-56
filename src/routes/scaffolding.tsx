@@ -4,7 +4,7 @@ import { ScaffoldingShell, SectionHead, scaffoldingHead, SCAFFOLDING_NAV } from 
 
 const title = "Scaffolding — Steve's Technical Reference | Steve Peele II";
 const description =
-  "Private documentation hub: architecture, projects, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog. Unlisted.";
+  "Private documentation hub: command center, stack, playbooks, architecture, projects, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog. Unlisted.";
 
 export const Route = createFileRoute("/scaffolding")({
   head: () => scaffoldingHead("/scaffolding", title, description),
@@ -12,6 +12,9 @@ export const Route = createFileRoute("/scaffolding")({
 });
 
 const CARDS: { to: string; name: string; blurb: string }[] = [
+  { to: "/scaffolding/command", name: "Command Center", blurb: "Steve's personal AI command center — systems, rhythm, quick links, current focus." },
+  { to: "/scaffolding/stack", name: "The Stack", blurb: "Every tool and service in the operation, and what each one is for." },
+  { to: "/scaffolding/playbooks", name: "Playbooks", blurb: "How he ships and how he works — for collaborators." },
   { to: "/scaffolding/snapshot", name: "Snapshot · Oct 2026", blurb: "Frozen memorial of the portfolio as it stood the day the hub launched." },
   { to: "/scaffolding/architecture", name: "Architecture", blurb: "Main-site stack, scripts, data flows, env vars, DNS, redirects." },
   { to: "/scaffolding/projects", name: "Projects", blurb: "Every app, site, and service — repo, hosting, stack, status, Linear project." },
@@ -91,7 +94,7 @@ function ScaffoldingIndexPage() {
             <p className="font-semibold">Tracked in Linear</p>
             <p className="mt-2 text-sm text-muted-foreground">
               This hub lives in P-PLX-8 (Main Site). The build issue is PLX-398; it extends PLX-276, PLX-335, and
-              PLX-364.
+              PLX-364. The Command group (Command Center, Stack, Playbooks) is PLX-429.
             </p>
           </div>
         </div>

@@ -21,12 +21,12 @@ import { Route as GrowthLaddersRouteImport } from './routes/growth-ladders'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as ScaffoldingRouteImport } from './routes/scaffolding'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WorkRouteImport } from './routes/work'
-import { Route as WritingRouteImport } from './routes/writing'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
@@ -47,6 +47,18 @@ import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
 import { Route as PreviewSlugRouteImport } from './routes/preview.$slug'
 import { Route as ScaffoldingArchitectureRouteImport } from './routes/scaffolding.architecture'
+import { Route as ScaffoldingChangelogRouteImport } from './routes/scaffolding.changelog'
+import { Route as ScaffoldingCommandRouteImport } from './routes/scaffolding.command'
+import { Route as ScaffoldingDeploysRouteImport } from './routes/scaffolding.deploys'
+import { Route as ScaffoldingDiagramsRouteImport } from './routes/scaffolding.diagrams'
+import { Route as ScaffoldingInfrastructureRouteImport } from './routes/scaffolding.infrastructure'
+import { Route as ScaffoldingMonitoringRouteImport } from './routes/scaffolding.monitoring'
+import { Route as ScaffoldingPlaybooksRouteImport } from './routes/scaffolding.playbooks'
+import { Route as ScaffoldingProjectsRouteImport } from './routes/scaffolding.projects'
+import { Route as ScaffoldingRunbookRouteImport } from './routes/scaffolding.runbook'
+import { Route as ScaffoldingSnapshotRouteImport } from './routes/scaffolding.snapshot'
+import { Route as ScaffoldingStackRouteImport } from './routes/scaffolding.stack'
+import { Route as ScaffoldingTechRouteImport } from './routes/scaffolding.tech'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
@@ -65,8 +77,11 @@ import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
 import { Route as StudioSplatRouteImport } from './routes/studio.$'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.category.$slug'
+import { Route as HackingAppSlugChangelogRouteImport } from './routes/hacking.$appSlug.changelog'
+import { Route as ScaffoldingArchitectureIndexRouteImport } from './routes/scaffolding.architecture.index'
 import { Route as ScaffoldingArchitectureAnalyticsRouteImport } from './routes/scaffolding.architecture.analytics'
 import { Route as ScaffoldingArchitectureDataFlowsRouteImport } from './routes/scaffolding.architecture.data-flows'
+import { Route as ScaffoldingProjectsSlugRouteImport } from './routes/scaffolding.projects.$slug'
 import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
 import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
 import { Route as SpiixEngageGtmAuditRouteImport } from './routes/spiix.engage.gtm-audit'
@@ -132,6 +147,11 @@ const RecommendationsRoute = RecommendationsRouteImport.update({
   path: '/recommendations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScaffoldingRoute = ScaffoldingRouteImport.update({
+  id: '/scaffolding',
+  path: '/scaffolding',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -155,11 +175,6 @@ const StudioRoute = StudioRouteImport.update({
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WritingRoute = WritingRouteImport.update({
-  id: '/writing',
-  path: '/writing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -258,9 +273,70 @@ const PreviewSlugRoute = PreviewSlugRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScaffoldingArchitectureRoute = ScaffoldingArchitectureRouteImport.update({
-  id: '/scaffolding/architecture',
-  path: '/scaffolding/architecture',
-  getParentRoute: () => rootRouteImport,
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingChangelogRoute = ScaffoldingChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingCommandRoute = ScaffoldingCommandRouteImport.update({
+  id: '/command',
+  path: '/command',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingDeploysRoute = ScaffoldingDeploysRouteImport.update({
+  id: '/deploys',
+  path: '/deploys',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingDiagramsRoute = ScaffoldingDiagramsRouteImport.update({
+  id: '/diagrams',
+  path: '/diagrams',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingInfrastructureRoute =
+  ScaffoldingInfrastructureRouteImport.update({
+    id: '/infrastructure',
+    path: '/infrastructure',
+    getParentRoute: () => ScaffoldingRoute,
+  } as any)
+const ScaffoldingMonitoringRoute = ScaffoldingMonitoringRouteImport.update({
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingPlaybooksRoute = ScaffoldingPlaybooksRouteImport.update({
+  id: '/playbooks',
+  path: '/playbooks',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingProjectsRoute = ScaffoldingProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingRunbookRoute = ScaffoldingRunbookRouteImport.update({
+  id: '/runbook',
+  path: '/runbook',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingSnapshotRoute = ScaffoldingSnapshotRouteImport.update({
+  id: '/snapshot',
+  path: '/snapshot',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingStackRoute = ScaffoldingStackRouteImport.update({
+  id: '/stack',
+  path: '/stack',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
+const ScaffoldingTechRoute = ScaffoldingTechRouteImport.update({
+  id: '/tech',
+  path: '/tech',
+  getParentRoute: () => ScaffoldingRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
@@ -352,6 +428,17 @@ const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
   path: '/blog/category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HackingAppSlugChangelogRoute = HackingAppSlugChangelogRouteImport.update({
+  id: '/hacking/$appSlug/changelog',
+  path: '/hacking/$appSlug/changelog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScaffoldingArchitectureIndexRoute =
+  ScaffoldingArchitectureIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => ScaffoldingArchitectureRoute,
+  } as any)
 const ScaffoldingArchitectureAnalyticsRoute =
   ScaffoldingArchitectureAnalyticsRouteImport.update({
     id: '/analytics',
@@ -364,6 +451,11 @@ const ScaffoldingArchitectureDataFlowsRoute =
     path: '/data-flows',
     getParentRoute: () => ScaffoldingArchitectureRoute,
   } as any)
+const ScaffoldingProjectsSlugRoute = ScaffoldingProjectsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ScaffoldingProjectsRoute,
+} as any)
 const SpiixEngageEliteMentorshipRoute =
   SpiixEngageEliteMentorshipRouteImport.update({
     id: '/engage/elite-mentorship',
@@ -395,12 +487,12 @@ export interface FileRoutesByFullPath {
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
-  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -419,6 +511,18 @@ export interface FileRoutesByFullPath {
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
+  '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
+  '/scaffolding/command': typeof ScaffoldingCommandRoute
+  '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
+  '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
+  '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
+  '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
+  '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
+  '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
+  '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -439,11 +543,14 @@ export interface FileRoutesByFullPath {
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/scaffolding/architecture/': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -458,10 +565,10 @@ export interface FileRoutesByTo {
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
-  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -479,7 +586,18 @@ export interface FileRoutesByTo {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
-  '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
+  '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
+  '/scaffolding/command': typeof ScaffoldingCommandRoute
+  '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
+  '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
+  '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
+  '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
+  '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
+  '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
+  '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -500,11 +618,14 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/scaffolding/architecture': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -520,12 +641,12 @@ export interface FileRoutesById {
   '/music': typeof MusicRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
+  '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
-  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -544,6 +665,18 @@ export interface FileRoutesById {
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
+  '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
+  '/scaffolding/command': typeof ScaffoldingCommandRoute
+  '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
+  '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
+  '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
+  '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
+  '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
+  '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
+  '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
@@ -564,11 +697,14 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/scaffolding/architecture/': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -585,12 +721,12 @@ export interface FileRouteTypes {
     | '/music'
     | '/portfolio'
     | '/recommendations'
+    | '/scaffolding'
     | '/services'
     | '/spiix'
     | '/sprint'
     | '/studio'
     | '/work'
-    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -609,6 +745,18 @@ export interface FileRouteTypes {
     | '/hacking/whats-next'
     | '/preview/$slug'
     | '/scaffolding/architecture'
+    | '/scaffolding/changelog'
+    | '/scaffolding/command'
+    | '/scaffolding/deploys'
+    | '/scaffolding/diagrams'
+    | '/scaffolding/infrastructure'
+    | '/scaffolding/monitoring'
+    | '/scaffolding/playbooks'
+    | '/scaffolding/projects'
+    | '/scaffolding/runbook'
+    | '/scaffolding/snapshot'
+    | '/scaffolding/stack'
+    | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -629,11 +777,14 @@ export interface FileRouteTypes {
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/scaffolding/architecture/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -648,10 +799,10 @@ export interface FileRouteTypes {
     | '/music'
     | '/portfolio'
     | '/recommendations'
+    | '/scaffolding'
     | '/sprint'
     | '/studio'
     | '/work'
-    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -669,7 +820,18 @@ export interface FileRouteTypes {
     | '/hacking/status'
     | '/hacking/whats-next'
     | '/preview/$slug'
-    | '/scaffolding/architecture'
+    | '/scaffolding/changelog'
+    | '/scaffolding/command'
+    | '/scaffolding/deploys'
+    | '/scaffolding/diagrams'
+    | '/scaffolding/infrastructure'
+    | '/scaffolding/monitoring'
+    | '/scaffolding/playbooks'
+    | '/scaffolding/projects'
+    | '/scaffolding/runbook'
+    | '/scaffolding/snapshot'
+    | '/scaffolding/stack'
+    | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -690,11 +852,14 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/blog/category/$slug'
+    | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/scaffolding/architecture'
   id:
     | '__root__'
     | '/'
@@ -709,12 +874,12 @@ export interface FileRouteTypes {
     | '/music'
     | '/portfolio'
     | '/recommendations'
+    | '/scaffolding'
     | '/services'
     | '/spiix'
     | '/sprint'
     | '/studio'
     | '/work'
-    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -733,6 +898,18 @@ export interface FileRouteTypes {
     | '/hacking/whats-next'
     | '/preview/$slug'
     | '/scaffolding/architecture'
+    | '/scaffolding/changelog'
+    | '/scaffolding/command'
+    | '/scaffolding/deploys'
+    | '/scaffolding/diagrams'
+    | '/scaffolding/infrastructure'
+    | '/scaffolding/monitoring'
+    | '/scaffolding/playbooks'
+    | '/scaffolding/projects'
+    | '/scaffolding/runbook'
+    | '/scaffolding/snapshot'
+    | '/scaffolding/stack'
+    | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
@@ -753,11 +930,14 @@ export interface FileRouteTypes {
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/scaffolding/architecture/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -773,12 +953,12 @@ export interface RootRouteChildren {
   MusicRoute: typeof MusicRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  ScaffoldingRoute: typeof ScaffoldingRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
   WorkRoute: typeof WorkRoute
-  WritingRoute: typeof WritingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
@@ -796,10 +976,10 @@ export interface RootRouteChildren {
   HackingStatusRoute: typeof HackingStatusRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
   PreviewSlugRoute: typeof PreviewSlugRoute
-  ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRouteWithChildren
   BlogIndexRoute: typeof BlogIndexRoute
   HackingIndexRoute: typeof HackingIndexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
+  HackingAppSlugChangelogRoute: typeof HackingAppSlugChangelogRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -888,6 +1068,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecommendationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scaffolding': {
+      id: '/scaffolding'
+      path: '/scaffolding'
+      fullPath: '/scaffolding'
+      preLoaderRoute: typeof ScaffoldingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -921,13 +1108,6 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/writing': {
-      id: '/writing'
-      path: '/writing'
-      fullPath: '/writing'
-      preLoaderRoute: typeof WritingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -1065,10 +1245,94 @@ declare module '@tanstack/react-router' {
     }
     '/scaffolding/architecture': {
       id: '/scaffolding/architecture'
-      path: '/scaffolding/architecture'
+      path: '/architecture'
       fullPath: '/scaffolding/architecture'
       preLoaderRoute: typeof ScaffoldingArchitectureRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/changelog': {
+      id: '/scaffolding/changelog'
+      path: '/changelog'
+      fullPath: '/scaffolding/changelog'
+      preLoaderRoute: typeof ScaffoldingChangelogRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/command': {
+      id: '/scaffolding/command'
+      path: '/command'
+      fullPath: '/scaffolding/command'
+      preLoaderRoute: typeof ScaffoldingCommandRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/deploys': {
+      id: '/scaffolding/deploys'
+      path: '/deploys'
+      fullPath: '/scaffolding/deploys'
+      preLoaderRoute: typeof ScaffoldingDeploysRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/diagrams': {
+      id: '/scaffolding/diagrams'
+      path: '/diagrams'
+      fullPath: '/scaffolding/diagrams'
+      preLoaderRoute: typeof ScaffoldingDiagramsRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/infrastructure': {
+      id: '/scaffolding/infrastructure'
+      path: '/infrastructure'
+      fullPath: '/scaffolding/infrastructure'
+      preLoaderRoute: typeof ScaffoldingInfrastructureRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/monitoring': {
+      id: '/scaffolding/monitoring'
+      path: '/monitoring'
+      fullPath: '/scaffolding/monitoring'
+      preLoaderRoute: typeof ScaffoldingMonitoringRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/playbooks': {
+      id: '/scaffolding/playbooks'
+      path: '/playbooks'
+      fullPath: '/scaffolding/playbooks'
+      preLoaderRoute: typeof ScaffoldingPlaybooksRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/projects': {
+      id: '/scaffolding/projects'
+      path: '/projects'
+      fullPath: '/scaffolding/projects'
+      preLoaderRoute: typeof ScaffoldingProjectsRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/runbook': {
+      id: '/scaffolding/runbook'
+      path: '/runbook'
+      fullPath: '/scaffolding/runbook'
+      preLoaderRoute: typeof ScaffoldingRunbookRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/snapshot': {
+      id: '/scaffolding/snapshot'
+      path: '/snapshot'
+      fullPath: '/scaffolding/snapshot'
+      preLoaderRoute: typeof ScaffoldingSnapshotRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/stack': {
+      id: '/scaffolding/stack'
+      path: '/stack'
+      fullPath: '/scaffolding/stack'
+      preLoaderRoute: typeof ScaffoldingStackRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
+    '/scaffolding/tech': {
+      id: '/scaffolding/tech'
+      path: '/tech'
+      fullPath: '/scaffolding/tech'
+      preLoaderRoute: typeof ScaffoldingTechRouteImport
+      parentRoute: typeof ScaffoldingRoute
     }
     '/services/': {
       id: '/services/'
@@ -1196,6 +1460,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hacking/$appSlug/changelog': {
+      id: '/hacking/$appSlug/changelog'
+      path: '/hacking/$appSlug/changelog'
+      fullPath: '/hacking/$appSlug/changelog'
+      preLoaderRoute: typeof HackingAppSlugChangelogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scaffolding/architecture/': {
+      id: '/scaffolding/architecture/'
+      path: '/'
+      fullPath: '/scaffolding/architecture/'
+      preLoaderRoute: typeof ScaffoldingArchitectureIndexRouteImport
+      parentRoute: typeof ScaffoldingArchitectureRoute
+    }
     '/scaffolding/architecture/analytics': {
       id: '/scaffolding/architecture/analytics'
       path: '/analytics'
@@ -1209,6 +1487,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/scaffolding/architecture/data-flows'
       preLoaderRoute: typeof ScaffoldingArchitectureDataFlowsRouteImport
       parentRoute: typeof ScaffoldingArchitectureRoute
+    }
+    '/scaffolding/projects/$slug': {
+      id: '/scaffolding/projects/$slug'
+      path: '/$slug'
+      fullPath: '/scaffolding/projects/$slug'
+      preLoaderRoute: typeof ScaffoldingProjectsSlugRouteImport
+      parentRoute: typeof ScaffoldingProjectsRoute
     }
     '/spiix/engage/elite-mentorship': {
       id: '/spiix/engage/elite-mentorship'
@@ -1233,6 +1518,73 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface ScaffoldingArchitectureRouteChildren {
+  ScaffoldingArchitectureAnalyticsRoute: typeof ScaffoldingArchitectureAnalyticsRoute
+  ScaffoldingArchitectureDataFlowsRoute: typeof ScaffoldingArchitectureDataFlowsRoute
+  ScaffoldingArchitectureIndexRoute: typeof ScaffoldingArchitectureIndexRoute
+}
+
+const ScaffoldingArchitectureRouteChildren: ScaffoldingArchitectureRouteChildren =
+  {
+    ScaffoldingArchitectureAnalyticsRoute:
+      ScaffoldingArchitectureAnalyticsRoute,
+    ScaffoldingArchitectureDataFlowsRoute:
+      ScaffoldingArchitectureDataFlowsRoute,
+    ScaffoldingArchitectureIndexRoute: ScaffoldingArchitectureIndexRoute,
+  }
+
+const ScaffoldingArchitectureRouteWithChildren =
+  ScaffoldingArchitectureRoute._addFileChildren(
+    ScaffoldingArchitectureRouteChildren,
+  )
+
+interface ScaffoldingProjectsRouteChildren {
+  ScaffoldingProjectsSlugRoute: typeof ScaffoldingProjectsSlugRoute
+}
+
+const ScaffoldingProjectsRouteChildren: ScaffoldingProjectsRouteChildren = {
+  ScaffoldingProjectsSlugRoute: ScaffoldingProjectsSlugRoute,
+}
+
+const ScaffoldingProjectsRouteWithChildren =
+  ScaffoldingProjectsRoute._addFileChildren(ScaffoldingProjectsRouteChildren)
+
+interface ScaffoldingRouteChildren {
+  ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRouteWithChildren
+  ScaffoldingChangelogRoute: typeof ScaffoldingChangelogRoute
+  ScaffoldingCommandRoute: typeof ScaffoldingCommandRoute
+  ScaffoldingDeploysRoute: typeof ScaffoldingDeploysRoute
+  ScaffoldingDiagramsRoute: typeof ScaffoldingDiagramsRoute
+  ScaffoldingInfrastructureRoute: typeof ScaffoldingInfrastructureRoute
+  ScaffoldingMonitoringRoute: typeof ScaffoldingMonitoringRoute
+  ScaffoldingPlaybooksRoute: typeof ScaffoldingPlaybooksRoute
+  ScaffoldingProjectsRoute: typeof ScaffoldingProjectsRouteWithChildren
+  ScaffoldingRunbookRoute: typeof ScaffoldingRunbookRoute
+  ScaffoldingSnapshotRoute: typeof ScaffoldingSnapshotRoute
+  ScaffoldingStackRoute: typeof ScaffoldingStackRoute
+  ScaffoldingTechRoute: typeof ScaffoldingTechRoute
+}
+
+const ScaffoldingRouteChildren: ScaffoldingRouteChildren = {
+  ScaffoldingArchitectureRoute: ScaffoldingArchitectureRouteWithChildren,
+  ScaffoldingChangelogRoute: ScaffoldingChangelogRoute,
+  ScaffoldingCommandRoute: ScaffoldingCommandRoute,
+  ScaffoldingDeploysRoute: ScaffoldingDeploysRoute,
+  ScaffoldingDiagramsRoute: ScaffoldingDiagramsRoute,
+  ScaffoldingInfrastructureRoute: ScaffoldingInfrastructureRoute,
+  ScaffoldingMonitoringRoute: ScaffoldingMonitoringRoute,
+  ScaffoldingPlaybooksRoute: ScaffoldingPlaybooksRoute,
+  ScaffoldingProjectsRoute: ScaffoldingProjectsRouteWithChildren,
+  ScaffoldingRunbookRoute: ScaffoldingRunbookRoute,
+  ScaffoldingSnapshotRoute: ScaffoldingSnapshotRoute,
+  ScaffoldingStackRoute: ScaffoldingStackRoute,
+  ScaffoldingTechRoute: ScaffoldingTechRoute,
+}
+
+const ScaffoldingRouteWithChildren = ScaffoldingRoute._addFileChildren(
+  ScaffoldingRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesGtmAuditRoute: typeof ServicesGtmAuditRoute
@@ -1301,24 +1653,6 @@ const StudioRouteChildren: StudioRouteChildren = {
 const StudioRouteWithChildren =
   StudioRoute._addFileChildren(StudioRouteChildren)
 
-interface ScaffoldingArchitectureRouteChildren {
-  ScaffoldingArchitectureAnalyticsRoute: typeof ScaffoldingArchitectureAnalyticsRoute
-  ScaffoldingArchitectureDataFlowsRoute: typeof ScaffoldingArchitectureDataFlowsRoute
-}
-
-const ScaffoldingArchitectureRouteChildren: ScaffoldingArchitectureRouteChildren =
-  {
-    ScaffoldingArchitectureAnalyticsRoute:
-      ScaffoldingArchitectureAnalyticsRoute,
-    ScaffoldingArchitectureDataFlowsRoute:
-      ScaffoldingArchitectureDataFlowsRoute,
-  }
-
-const ScaffoldingArchitectureRouteWithChildren =
-  ScaffoldingArchitectureRoute._addFileChildren(
-    ScaffoldingArchitectureRouteChildren,
-  )
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -1332,12 +1666,12 @@ const rootRouteChildren: RootRouteChildren = {
   MusicRoute: MusicRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
+  ScaffoldingRoute: ScaffoldingRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
   WorkRoute: WorkRoute,
-  WritingRoute: WritingRoute,
   BlogSlugRoute: BlogSlugRoute,
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
@@ -1355,10 +1689,10 @@ const rootRouteChildren: RootRouteChildren = {
   HackingStatusRoute: HackingStatusRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
   PreviewSlugRoute: PreviewSlugRoute,
-  ScaffoldingArchitectureRoute: ScaffoldingArchitectureRouteWithChildren,
   BlogIndexRoute: BlogIndexRoute,
   HackingIndexRoute: HackingIndexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
+  HackingAppSlugChangelogRoute: HackingAppSlugChangelogRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
