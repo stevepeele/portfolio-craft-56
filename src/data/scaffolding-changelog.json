@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "id": "manual-20261014-vault-community",
+      "date": "2026-10-14",
+      "title": "Vault Community v1 staged — aibuilderclub-style community for Muse users",
+      "detail": "PLX-443: community built ON the Vault product at vault.stevepeeleii.com/community.html — member feed for sharing template builds (post/comment/like), 7-day leaderboard, Supabase Auth (email/password + magic link), member profiles + settings, founder section, FAQ, seed content, admin pin/delete for him. Backend on the shared Dardo Supabase project (community_profiles/posts/comments/likes with RLS; signup trigger auto-creates profiles and flags him admin). Segment events structured, Meet SPII corner card, banners off, no Chatflows. Launches FREE; courses (PLX-444), hard membership gate (PLX-445), and paid tier (PLX-446) parked as backlog. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push; one phone-side step remains for him — add vault.stevepeeleii.com/** to Supabase Auth redirect URLs for magic-link sign-in.",
+      "source": "manual",
+      "ref": "PLX-443"
+    },
+    {
       "id": "manual-20261014-vault-kits",
       "date": "2026-10-14",
       "title": "Scaffolding Kits shipped to the Muse Vault",
