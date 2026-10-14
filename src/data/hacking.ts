@@ -230,6 +230,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-14",
+    title: "Content Studio — review workflow (stage for review, never direct publish)",
+    detail:
+      "Sanity Studio at /studio now enforces Steve's standing rule: drafted posts are staged for review before anything is published. Added a 'Staged for review' flag on articles, a Review Queue list in the studio, and a warning-tone badge on staged drafts. Still needed: add stevepeeleii.com + www.stevepeeleii.com to the Sanity project's CORS origins and set SANITY_PREVIEW_TOKEN on Vercel for draft previews. (PLX-331)",
+  },
+  {
+    date: "2026-10-14",
     title: "PromptVault — renamed, 63 templates, About page, subdomain",
     detail:
       "Muse Templates renamed to PromptVault (clearer brand, cleaner subdomain). Gallery grew from 32 to 63 templates with 30 new additions (tax prep, elder care, garden planner, retirement countdown, and 26 more). All 63 templates got upgraded install guides (prerequisites, steps, customization, troubleshooting). Category/track selector bug fixed via event delegation. About page added. Wired to vault.stevepeeleii.com — DNS CNAME record pending at GoDaddy. (PLX-306–PLX-311)",

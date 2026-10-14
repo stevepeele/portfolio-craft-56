@@ -83,6 +83,14 @@ export const post = defineType({
       initialValue: false,
     }),
     defineField({
+      name: "stagedForReview",
+      title: "Staged for review",
+      type: "boolean",
+      description:
+        "Ready for review — staged, NOT published. Only check this when the draft is ready for review.",
+      initialValue: false,
+    }),
+    defineField({
       name: "seoTitle",
       title: "SEO title",
       type: "string",

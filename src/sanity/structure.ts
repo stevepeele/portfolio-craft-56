@@ -5,6 +5,17 @@ export const structure: StructureResolver = (S) =>
     .title("Content")
     .items([
       S.listItem()
+        .title("Staged for review")
+        .child(
+          S.documentList()
+            .title("Staged for review")
+            .filter(
+              '_type == "post" && _id in path("drafts.**") && stagedForReview == true'
+            )
+            .defaultOrdering([{ field: "_updatedAt", direction: "desc" }])
+        ),
+      S.divider(),
+      S.listItem()
         .title("Articles")
         .schemaType("post")
         .child(S.documentTypeList("post").title("Articles")),
