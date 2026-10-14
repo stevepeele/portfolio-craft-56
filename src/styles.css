@@ -475,3 +475,10 @@
     animation-play-state: paused;
   }
 }
+
+/* Blog article body typography — matches site editorial voice */
+.prose-blog { font-size: 1.125rem; line-height: 1.8; color: var(--foreground); }
+.prose-blog > p { margin-block: 1.5rem; }
+.prose-blog > p:first-child { margin-top: 0; }
+.prose-blog strong { font-weight: 600; }
+.prose-blog em { font-style: italic; }

@@ -1,1 +1,34 @@
-aW1wb3J0IHsgZGVmaW5lRmllbGQsIGRlZmluZVR5cGUgfSBmcm9tICJzYW5pdHkiOwoKZXhwb3J0IGNvbnN0IGNhdGVnb3J5ID0gZGVmaW5lVHlwZSh7CiAgbmFtZTogImNhdGVnb3J5IiwKICB0aXRsZTogIkNhdGVnb3J5IiwKICB0eXBlOiAiZG9jdW1lbnQiLAogIGZpZWxkczogWwogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAibmFtZSIsCiAgICAgIHRpdGxlOiAiTmFtZSIsCiAgICAgIHR5cGU6ICJzdHJpbmciLAogICAgICB2YWxpZGF0aW9uOiAocnVsZSkgPT4gcnVsZS5yZXF1aXJlZCgpLAogICAgfSksCiAgICBkZWZpbmVGaWVsZCh7CiAgICAgIG5hbWU6ICJzbHVnIiwKICAgICAgdGl0bGU6ICJTbHVnIiwKICAgICAgdHlwZTogInNsdWciLAogICAgICBvcHRpb25zOiB7IHNvdXJjZTogIm5hbWUiLCBtYXhMZW5ndGg6IDk2IH0sCiAgICAgIHZhbGlkYXRpb246IChydWxlKSA9PiBydWxlLnJlcXVpcmVkKCksCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImRlc2NyaXB0aW9uIiwKICAgICAgdGl0bGU6ICJEZXNjcmlwdGlvbiIsCiAgICAgIHR5cGU6ICJ0ZXh0IiwKICAgICAgcm93czogMywKICAgIH0pLAogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAiaW1hZ2UiLAogICAgICB0aXRsZTogIkltYWdlIiwKICAgICAgdHlwZTogImltYWdlIiwKICAgICAgb3B0aW9uczogeyBob3RzcG90OiB0cnVlIH0sCiAgICB9KSwKICBdLAp9KTsK
+import { defineField, defineType } from "sanity";
+
+export const category = defineType({
+  name: "category",
+  title: "Category",
+  type: "document",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Name",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name", maxLength: 96 },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+  ],
+});

@@ -1,1 +1,123 @@
-aW1wb3J0IHsgZGVmaW5lRmllbGQsIGRlZmluZVR5cGUgfSBmcm9tICJzYW5pdHkiOwoKZXhwb3J0IGNvbnN0IHBvc3QgPSBkZWZpbmVUeXBlKHsKICBuYW1lOiAicG9zdCIsCiAgdGl0bGU6ICJBcnRpY2xlIiwKICB0eXBlOiAiZG9jdW1lbnQiLAogIGZpZWxkczogWwogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAidGl0bGUiLAogICAgICB0aXRsZTogIlRpdGxlIiwKICAgICAgdHlwZTogInN0cmluZyIsCiAgICAgIHZhbGlkYXRpb246IChydWxlKSA9PiBydWxlLnJlcXVpcmVkKCksCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogInNsdWciLAogICAgICB0aXRsZTogIlNsdWciLAogICAgICB0eXBlOiAic2x1ZyIsCiAgICAgIG9wdGlvbnM6IHsgc291cmNlOiAidGl0bGUiLCBtYXhMZW5ndGg6IDk2IH0sCiAgICAgIHZhbGlkYXRpb246IChydWxlKSA9PiBydWxlLnJlcXVpcmVkKCksCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImV4Y2VycHQiLAogICAgICB0aXRsZTogIkV4Y2VycHQiLAogICAgICB0eXBlOiAidGV4dCIsCiAgICAgIHJvd3M6IDMsCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogIm1haW5JbWFnZSIsCiAgICAgIHRpdGxlOiAiTWFpbiBpbWFnZSIsCiAgICAgIHR5cGU6ICJpbWFnZSIsCiAgICAgIG9wdGlvbnM6IHsgaG90c3BvdDogdHJ1ZSB9LAogICAgICBmaWVsZHM6IFsKICAgICAgICBkZWZpbmVGaWVsZCh7CiAgICAgICAgICBuYW1lOiAiYWx0IiwKICAgICAgICAgIHRpdGxlOiAiQWx0IHRleHQiLAogICAgICAgICAgdHlwZTogInN0cmluZyIsCiAgICAgICAgfSksCiAgICAgIF0sCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImF1dGhvciIsCiAgICAgIHRpdGxlOiAiQXV0aG9yIiwKICAgICAgdHlwZTogInJlZmVyZW5jZSIsCiAgICAgIHRvOiBbeyB0eXBlOiAiYXV0aG9yIiB9XSwKICAgIH0pLAogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAiY2F0ZWdvcmllcyIsCiAgICAgIHRpdGxlOiAiQ2F0ZWdvcmllcyIsCiAgICAgIHR5cGU6ICJhcnJheSIsCiAgICAgIG9mOiBbeyB0eXBlOiAicmVmZXJlbmNlIiwgdG86IFt7IHR5cGU6ICJjYXRlZ29yeSIgfV0gfV0sCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogInRhZ3MiLAogICAgICB0aXRsZTogIlRhZ3MiLAogICAgICB0eXBlOiAiYXJyYXkiLAogICAgICBvZjogW3sgdHlwZTogInN0cmluZyIgfV0sCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImJvZHkiLAogICAgICB0aXRsZTogIkJvZHkiLAogICAgICB0eXBlOiAiYXJyYXkiLAogICAgICBvZjogWwogICAgICAgIHsgdHlwZTogImJsb2NrIiB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJpbWFnZSIsCiAgICAgICAgICBvcHRpb25zOiB7IGhvdHNwb3Q6IHRydWUgfSwKICAgICAgICAgIGZpZWxkczogWwogICAgICAgICAgICBkZWZpbmVGaWVsZCh7IG5hbWU6ICJhbHQiLCB0aXRsZTogIkFsdCB0ZXh0IiwgdHlwZTogInN0cmluZyIgfSksCiAgICAgICAgICAgIGRlZmluZUZpZWxkKHsgbmFtZTogImNhcHRpb24iLCB0aXRsZTogIkNhcHRpb24iLCB0eXBlOiAic3RyaW5nIiB9KSwKICAgICAgICAgIF0sCiAgICAgICAgfSwKICAgICAgXSwKICAgIH0pLAogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAicHVibGlzaGVkQXQiLAogICAgICB0aXRsZTogIlB1YmxpY2F0aW9uIGRhdGUiLAogICAgICB0eXBlOiAiZGF0ZXRpbWUiLAogICAgfSksCiAgICBkZWZpbmVGaWVsZCh7CiAgICAgIG5hbWU6ICJmZWF0dXJlZCIsCiAgICAgIHRpdGxlOiAiRmVhdHVyZWQiLAogICAgICB0eXBlOiAiYm9vbGVhbiIsCiAgICAgIGluaXRpYWxWYWx1ZTogZmFsc2UsCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogInNlb1RpdGxlIiwKICAgICAgdGl0bGU6ICJTRU8gdGl0bGUiLAogICAgICB0eXBlOiAic3RyaW5nIiwKICAgIH0pLAogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAic2VvRGVzY3JpcHRpb24iLAogICAgICB0aXRsZTogIlNFTyBkZXNjcmlwdGlvbiIsCiAgICAgIHR5cGU6ICJ0ZXh0IiwKICAgICAgcm93czogMiwKICAgIH0pLAogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAic29jaWFsSW1hZ2UiLAogICAgICB0aXRsZTogIlNvY2lhbCBpbWFnZSIsCiAgICAgIHR5cGU6ICJpbWFnZSIsCiAgICAgIG9wdGlvbnM6IHsgaG90c3BvdDogdHJ1ZSB9LAogICAgfSksCiAgICBkZWZpbmVGaWVsZCh7CiAgICAgIG5hbWU6ICJyZWxhdGVkUG9zdHMiLAogICAgICB0aXRsZTogIlJlbGF0ZWQgYXJ0aWNsZXMiLAogICAgICB0eXBlOiAiYXJyYXkiLAogICAgICBvZjogW3sgdHlwZTogInJlZmVyZW5jZSIsIHRvOiBbeyB0eXBlOiAicG9zdCIgfV0gfV0sCiAgICB9KSwKICBdLAogIHByZXZpZXc6IHsKICAgIHNlbGVjdDogewogICAgICB0aXRsZTogInRpdGxlIiwKICAgICAgYXV0aG9yOiAiYXV0aG9yLm5hbWUiLAogICAgICBtZWRpYTogIm1haW5JbWFnZSIsCiAgICB9LAogICAgcHJlcGFyZSh7IHRpdGxlLCBhdXRob3IsIG1lZGlhIH06IFJlY29yZDxzdHJpbmcsIHVua25vd24+KSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdGl0bGU6ICh0aXRsZSBhcyBzdHJpbmcpID8/ICJVbnRpdGxlZCIsCiAgICAgICAgc3VidGl0bGU6IGF1dGhvciA/IGBieSAke2F1dGhvciBhcyBzdHJpbmd9YCA6ICIgIiwKICAgICAgICBtZWRpYTogbWVkaWEgYXMgbmV2ZXIsCiAgICAgIH07CiAgICB9LAogIH0sCn0pOwo=
+import { defineField, defineType } from "sanity";
+
+export const post = defineType({
+  name: "post",
+  title: "Article",
+  type: "document",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title", maxLength: 96 },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "mainImage",
+      title: "Main image",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+        }),
+      ],
+    }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "reference",
+      to: [{ type: "author" }],
+    }),
+    defineField({
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "category" }] }],
+    }),
+    defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "array",
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({ name: "alt", title: "Alt text", type: "string" }),
+            defineField({ name: "caption", title: "Caption", type: "string" }),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "publishedAt",
+      title: "Publication date",
+      type: "datetime",
+    }),
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
+      name: "seoTitle",
+      title: "SEO title",
+      type: "string",
+    }),
+    defineField({
+      name: "seoDescription",
+      title: "SEO description",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "socialImage",
+      title: "Social image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "relatedPosts",
+      title: "Related articles",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "post" }] }],
+    }),
+  ],
+  preview: {
+    select: {
+      title: "title",
+      author: "author.name",
+      media: "mainImage",
+    },
+    prepare({ title, author, media }: Record<string, unknown>) {
+      return {
+        title: (title as string) ?? "Untitled",
+        subtitle: author ? `by ${author as string}` : " ",
+        media: media as never,
+      };
+    },
+  },
+});
