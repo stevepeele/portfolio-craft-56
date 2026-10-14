@@ -15,6 +15,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import posthog from "posthog-js";
 import { initSegment, segmentPage } from "@/lib/segment";
+import { useSiteAnalytics } from "@/lib/site-analytics";
+import { useLocation } from "@tanstack/react-router";
 
 /* ------------------------------------------------------------------ */
 /* PostHog analytics (decision made 2026-10-11).                       */
@@ -216,6 +218,10 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
+  const pathname = useLocation({ select: (s) => s.pathname });
+
+  // Behavioral analytics: scroll depth, outbound links, engaged time (resets per page).
+  useSiteAnalytics(pathname);
 
   useEffect(() => {
     if (document.getElementById("hs-script-loader")) return;
