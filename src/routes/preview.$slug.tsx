@@ -1,1 +1,83 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IHVzZUVmZmVjdCwgdXNlU3RhdGUgfSBmcm9tICJyZWFjdCI7CmltcG9ydCB7IEFycm93TGVmdCB9IGZyb20gImx1Y2lkZS1yZWFjdCI7CmltcG9ydCB7IFBvcnRhYmxlVGV4dCB9IGZyb20gIkBwb3J0YWJsZXRleHQvcmVhY3QiOwppbXBvcnQgeyBTaXRlSGVhZGVyIH0gZnJvbSAiQC9jb21wb25lbnRzL3NpdGUtaGVhZGVyIjsKaW1wb3J0IHsgU2l0ZUZvb3RlciB9IGZyb20gIkAvY29tcG9uZW50cy9zaXRlLWZvb3RlciI7CmltcG9ydCB7IGZldGNoRHJhZnRQb3N0IH0gZnJvbSAiQC9saWIvc2FuaXR5LXByZXZpZXcuZnVuY3Rpb25zIjsKCmV4cG9ydCBjb25zdCBSb3V0ZSA9IGNyZWF0ZUZpbGVSb3V0ZSgiL3ByZXZpZXcvJHNsdWciKSh7CiAgaGVhZDogKCkgPT4gKHsKICAgIG1ldGE6IFsKICAgICAgeyBuYW1lOiAicm9ib3RzIiwgY29udGVudDogIm5vaW5kZXgsIG5vZm9sbG93IiB9LAogICAgICB7IHRpdGxlOiAiRHJhZnQgUHJldmlldyIgfSwKICAgIF0sCiAgfSksCiAgY29tcG9uZW50OiBQcmV2aWV3UGFnZSwKfSk7CgpmdW5jdGlvbiBQcmV2aWV3UGFnZSgpIHsKICBjb25zdCB7IHNsdWcgfSA9IFJvdXRlLnVzZVBhcmFtcygpOwogIGNvbnN0IFtwb3N0LCBzZXRQb3N0XSA9IHVzZVN0YXRlPEF3YWl0ZWQ8UmV0dXJuVHlwZTx0eXBlb2YgZmV0Y2hEcmFmdFBvc3Q+PiB8IG51bGw+KG51bGwpOwogIGNvbnN0IFtzdGF0ZSwgc2V0U3RhdGVdID0gdXNlU3RhdGU8ImxvYWRpbmciIHwgImVycm9yIiB8ICJkb25lIj4oImxvYWRpbmciKTsKCiAgdXNlRWZmZWN0KCgpID0+IHsKICAgIGxldCBjYW5jZWxsZWQgPSBmYWxzZTsKICAgIGZldGNoRHJhZnRQb3N0KHsgZGF0YTogc2x1ZyB9KQogICAgICAudGhlbigocCkgPT4gewogICAgICAgIGlmIChjYW5jZWxsZWQpIHJldHVybjsKICAgICAgICBzZXRQb3N0KHApOwogICAgICAgIHNldFN0YXRlKCJkb25lIik7CiAgICAgIH0pCiAgICAgIC5jYXRjaCgoKSA9PiB7CiAgICAgICAgaWYgKCFjYW5jZWxsZWQpIHNldFN0YXRlKCJlcnJvciIpOwogICAgICB9KTsKICAgIHJldHVybiAoKSA9PiB7CiAgICAgIGNhbmNlbGxlZCA9IHRydWU7CiAgICB9OwogIH0sIFtzbHVnXSk7CgogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0ibWluLWgtc2NyZWVuIj4KICAgICAgPGRpdiBjbGFzc05hbWU9ImJvcmRlci1iIGJvcmRlci1hbWJlci01MDAvNDAgYmctYW1iZXItNTAwLzEwIHB4LTUgcHktMiB0ZXh0LWNlbnRlciB0ZXh0LXhzIGZvbnQtc2VtaWJvbGQgdHJhY2tpbmctd2lkZXN0IHVwcGVyY2FzZSI+CiAgICAgICAgRHJhZnQgcHJldmlldyDigJQgbm90IHB1YmxpYwogICAgICA8L2Rpdj4KICAgICAgPFNpdGVIZWFkZXIgLz4KICAgICAgPG1haW4gY2xhc3NOYW1lPSJteC1hdXRvIG1heC13LTN4bCBweC01IHB5LTE0Ij4KICAgICAgICB7c3RhdGUgPT09ICJsb2FkaW5nIiAmJiA8cCBjbGFzc05hbWU9InRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+TG9hZGluZyBkcmFmdOKApjwvcD59CiAgICAgICAge3N0YXRlID09PSAiZXJyb3IiICYmICgKICAgICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj4KICAgICAgICAgICAgQ291bGRuJ3QgbG9hZCB0aGlzIGRyYWZ0LiBQcmV2aWV3cyBuZWVkIGEgY29uZmlndXJlZCBwcmV2aWV3IHRva2VuLgogICAgICAgICAgPC9wPgogICAgICAgICl9CiAgICAgICAge3N0YXRlID09PSAiZG9uZSIgJiYgIXBvc3QgJiYgKAogICAgICAgICAgPHAgY2xhc3NOYW1lPSJ0ZXh0LW11dGVkLWZvcmVncm91bmQiPk5vIGRyYWZ0IGZvdW5kIGZvciB0aGlzIHNsdWcuPC9wPgogICAgICAgICl9CiAgICAgICAge3N0YXRlID09PSAiZG9uZSIgJiYgcG9zdCAmJiAoCiAgICAgICAgICA8YXJ0aWNsZT4KICAgICAgICAgICAgPExpbmsKICAgICAgICAgICAgICB0bz0iL2Jsb2ciCiAgICAgICAgICAgICAgY2xhc3NOYW1lPSJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCBob3Zlcjp0ZXh0LWZvcmVncm91bmQiCiAgICAgICAgICAgID4KICAgICAgICAgICAgICA8QXJyb3dMZWZ0IGNsYXNzTmFtZT0ic2l6ZS00IiAvPiBCYWNrIHRvIHRoZSBibG9nCiAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgICAgPGgxIGNsYXNzTmFtZT0ibXQtNiBmb250LXNlcmlmIHRleHQtNHhsIGZvbnQtbWVkaXVtIHRyYWNraW5nLXRpZ2h0IHRleHQtYmFsYW5jZSBzbTp0ZXh0LTV4bCI+CiAgICAgICAgICAgICAge3Bvc3QudGl0bGV9CiAgICAgICAgICAgIDwvaDE+CiAgICAgICAgICAgIHtwb3N0LmV4Y2VycHQgJiYgKAogICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0ibXQtNiBmb250LXNlcmlmIHRleHQteGwgaXRhbGljIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+CiAgICAgICAgICAgICAgICB7cG9zdC5leGNlcnB0fQogICAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgKX0KICAgICAgICAgICAge3Bvc3QuYm9keSAmJiAoCiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9InByb3NlLWJsb2cgbXQtOCI+CiAgICAgICAgICAgICAgICA8UG9ydGFibGVUZXh0IHZhbHVlPXtwb3N0LmJvZHkgYXMgbmV2ZXJ9IC8+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICl9CiAgICAgICAgICA8L2FydGljbGU+CiAgICAgICAgKX0KICAgICAgPC9tYWluPgogICAgICA8U2l0ZUZvb3RlciAvPgogICAgPC9kaXY+CiAgKTsKfQo=
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { fetchDraftPost } from "@/lib/sanity-preview.functions";
+
+export const Route = createFileRoute("/preview/$slug")({
+  head: () => ({
+    meta: [
+      { name: "robots", content: "noindex, nofollow" },
+      { title: "Draft Preview" },
+    ],
+  }),
+  component: PreviewPage,
+});
+
+function PreviewPage() {
+  const { slug } = Route.useParams();
+  const [post, setPost] = useState<Awaited<ReturnType<typeof fetchDraftPost>> | null>(null);
+  const [state, setState] = useState<"loading" | "error" | "done">("loading");
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchDraftPost({ data: slug })
+      .then((p) => {
+        if (cancelled) return;
+        setPost(p);
+        setState("done");
+      })
+      .catch(() => {
+        if (!cancelled) setState("error");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  return (
+    <div className="min-h-screen">
+      <div className="border-b border-amber-500/40 bg-amber-500/10 px-5 py-2 text-center text-xs font-semibold tracking-widest uppercase">
+        Draft preview — not public
+      </div>
+      <SiteHeader />
+      <main className="mx-auto max-w-3xl px-5 py-14">
+        {state === "loading" && <p className="text-muted-foreground">Loading draft…</p>}
+        {state === "error" && (
+          <p className="text-muted-foreground">
+            Couldn't load this draft. Previews need a configured preview token.
+          </p>
+        )}
+        {state === "done" && !post && (
+          <p className="text-muted-foreground">No draft found for this slug.</p>
+        )}
+        {state === "done" && post && (
+          <article>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+            >
+              <ArrowLeft className="size-4" /> Back to the blog
+            </Link>
+            <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-balance sm:text-5xl">
+              {post.title}
+            </h1>
+            {post.excerpt && (
+              <p className="mt-6 font-serif text-xl italic text-muted-foreground">
+                {post.excerpt}
+              </p>
+            )}
+            {post.body && (
+              <div className="prose-blog mt-8">
+                <PortableText value={post.body as never} />
+              </div>
+            )}
+          </article>
+        )}
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}

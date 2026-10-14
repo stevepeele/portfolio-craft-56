@@ -1,1 +1,27 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IFN1c3BlbnNlLCBsYXp5IH0gZnJvbSAicmVhY3QiOwoKY29uc3QgU2FuaXR5U3R1ZGlvID0gbGF6eSgoKSA9PiBpbXBvcnQoIkAvY29tcG9uZW50cy9zYW5pdHktc3R1ZGlvIikpOwoKZXhwb3J0IGNvbnN0IFJvdXRlID0gY3JlYXRlRmlsZVJvdXRlKCIvc3R1ZGlvIikoewogIGhlYWQ6ICgpID0+ICh7CiAgICBtZXRhOiBbeyBuYW1lOiAicm9ib3RzIiwgY29udGVudDogIm5vaW5kZXgsIG5vZm9sbG93IiB9LCB7IHRpdGxlOiAiQ29udGVudCBTdHVkaW8iIH1dLAogIH0pLAogIGNvbXBvbmVudDogU3R1ZGlvUGFnZSwKfSk7CgpmdW5jdGlvbiBTdHVkaW9QYWdlKCkgewogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0ibWluLWgtc2NyZWVuIGJnLXdoaXRlIj4KICAgICAgPFN1c3BlbnNlCiAgICAgICAgZmFsbGJhY2s9ewogICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggbWluLWgtc2NyZWVuIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciI+CiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0idGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPkxvYWRpbmcgc3R1ZGlv4oCmPC9wPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgfQogICAgICA+CiAgICAgICAgPFNhbml0eVN0dWRpbyAvPgogICAgICA8L1N1c3BlbnNlPgogICAgPC9kaXY+CiAgKTsKfQo=
+import { createFileRoute } from "@tanstack/react-router";
+import { Suspense, lazy } from "react";
+
+const SanityStudio = lazy(() => import("@/components/sanity-studio"));
+
+export const Route = createFileRoute("/studio")({
+  head: () => ({
+    meta: [{ name: "robots", content: "noindex, nofollow" }, { title: "Content Studio" }],
+  }),
+  component: StudioPage,
+});
+
+function StudioPage() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Suspense
+        fallback={
+          <div className="flex min-h-screen items-center justify-center">
+            <p className="text-sm text-muted-foreground">Loading studio…</p>
+          </div>
+        }
+      >
+        <SanityStudio />
+      </Suspense>
+    </div>
+  );
+}

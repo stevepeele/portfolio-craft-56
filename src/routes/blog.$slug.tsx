@@ -1,1 +1,257 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rLCBub3RGb3VuZCB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwppbXBvcnQgeyBBcnJvd0xlZnQsIEFycm93VXBSaWdodCB9IGZyb20gImx1Y2lkZS1yZWFjdCI7CmltcG9ydCB7IFBvcnRhYmxlVGV4dCB9IGZyb20gIkBwb3J0YWJsZXRleHQvcmVhY3QiOwppbXBvcnQgeyBTaXRlSGVhZGVyIH0gZnJvbSAiQC9jb21wb25lbnRzL3NpdGUtaGVhZGVyIjsKaW1wb3J0IHsgU2l0ZUZvb3RlciB9IGZyb20gIkAvY29tcG9uZW50cy9zaXRlLWZvb3RlciI7CmltcG9ydCB7IGdldFBvc3RCeVNsdWcgfSBmcm9tICJAL2xpYi9zYW5pdHktcXVlcmllcyI7CmltcG9ydCB0eXBlIHsgU2FuaXR5UG9zdENhcmQgfSBmcm9tICJAL2xpYi9zYW5pdHktcXVlcmllcyI7CmltcG9ydCB7IHNhbml0eUltYWdlVXJsIGFzIHVybEZvciwgZm9ybWF0U2FuaXR5RGF0ZSB9IGZyb20gIkAvbGliL3Nhbml0eSI7Cgpjb25zdCBzaXRlVXJsID0gImh0dHBzOi8vc3RldmVwZWVsZWlpLmNvbSI7CgpleHBvcnQgY29uc3QgUm91dGUgPSBjcmVhdGVGaWxlUm91dGUoIi9ibG9nLyRzbHVnIikoewogIGxvYWRlcjogYXN5bmMgKHsgcGFyYW1zIH0pID0+IHsKICAgIGNvbnN0IHBvc3QgPSBhd2FpdCBnZXRQb3N0QnlTbHVnKHBhcmFtcy5zbHVnKTsKICAgIGlmICghcG9zdCkgdGhyb3cgbm90Rm91bmQoKTsKICAgIHJldHVybiB7IHBvc3QgfTsKICB9LAogIGhlYWQ6ICh7IGxvYWRlckRhdGEgfSkgPT4gewogICAgY29uc3QgcG9zdCA9IGxvYWRlckRhdGE/LnBvc3Q7CiAgICBpZiAoIXBvc3QpIHJldHVybiB7IG1ldGE6IFt7IHRpdGxlOiAiTm90IGZvdW5kIiB9XSB9OwogICAgY29uc3QgcGFnZVRpdGxlID0gcG9zdC5zZW9UaXRsZSB8fCBgJHtwb3N0LnRpdGxlfSB8IFN0ZXZlIFBlZWxlIElJYDsKICAgIGNvbnN0IG1ldGFEZXNjID0gcG9zdC5zZW9EZXNjcmlwdGlvbiB8fCBwb3N0LmV4Y2VycHQgfHwgIiI7CiAgICBjb25zdCBjYW5vbmljYWwgPSBgJHtzaXRlVXJsfS9ibG9nLyR7cG9zdC5zbHVnfWA7CiAgICBjb25zdCBvZ0ltYWdlID0gcG9zdC5zb2NpYWxJbWFnZQogICAgICA/IHVybEZvcihwb3N0LnNvY2lhbEltYWdlKS53aWR0aCgxMjAwKS5oZWlnaHQoNjMwKS51cmwoKQogICAgICA6IHBvc3QubWFpbkltYWdlCiAgICAgICAgPyB1cmxGb3IocG9zdC5tYWluSW1hZ2UpLndpZHRoKDEyMDApLmhlaWdodCg2MzApLnVybCgpCiAgICAgICAgOiB1bmRlZmluZWQ7CiAgICByZXR1cm4gewogICAgICBtZXRhOiBbCiAgICAgICAgeyB0aXRsZTogcGFnZVRpdGxlIH0sCiAgICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiBtZXRhRGVzYyB9LAogICAgICAgIHsgcHJvcGVydHk6ICJvZzp0aXRsZSIsIGNvbnRlbnQ6IHBhZ2VUaXRsZSB9LAogICAgICAgIHsgcHJvcGVydHk6ICJvZzpkZXNjcmlwdGlvbiIsIGNvbnRlbnQ6IG1ldGFEZXNjIH0sCiAgICAgICAgeyBwcm9wZXJ0eTogIm9nOnR5cGUiLCBjb250ZW50OiAiYXJ0aWNsZSIgfSwKICAgICAgICB7IHByb3BlcnR5OiAib2c6dXJsIiwgY29udGVudDogY2Fub25pY2FsIH0sCiAgICAgICAgLi4uKG9nSW1hZ2UgPyBbeyBwcm9wZXJ0eTogIm9nOmltYWdlIiwgY29udGVudDogb2dJbWFnZSB9XSA6IFtdKSwKICAgICAgICB7IG5hbWU6ICJ0d2l0dGVyOmNhcmQiLCBjb250ZW50OiAic3VtbWFyeV9sYXJnZV9pbWFnZSIgfSwKICAgICAgICAuLi4ocG9zdC5wdWJsaXNoZWRBdAogICAgICAgICAgPyBbeyBwcm9wZXJ0eTogImFydGljbGU6cHVibGlzaGVkX3RpbWUiLCBjb250ZW50OiBwb3N0LnB1Ymxpc2hlZEF0IH1dCiAgICAgICAgICA6IFtdKSwKICAgICAgXSwKICAgICAgbGlua3M6IFt7IHJlbDogImNhbm9uaWNhbCIsIGhyZWY6IGNhbm9uaWNhbCB9XSwKICAgICAgc2NyaXB0czogWwogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJhcHBsaWNhdGlvbi9sZCtqc29uIiwKICAgICAgICAgIGNoaWxkcmVuOiBKU09OLnN0cmluZ2lmeSh7CiAgICAgICAgICAgICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICAgICAgICAgICAiQHR5cGUiOiAiQmxvZ1Bvc3RpbmciLAogICAgICAgICAgICBoZWFkbGluZTogcG9zdC50aXRsZSwKICAgICAgICAgICAgZGVzY3JpcHRpb246IG1ldGFEZXNjLAogICAgICAgICAgICBkYXRlUHVibGlzaGVkOiBwb3N0LnB1Ymxpc2hlZEF0LAogICAgICAgICAgICBhdXRob3I6IHBvc3QuYXV0aG9yCiAgICAgICAgICAgICAgPyB7ICJAdHlwZSI6ICJQZXJzb24iLCBuYW1lOiBwb3N0LmF1dGhvci5uYW1lIH0KICAgICAgICAgICAgICA6IHsgIkB0eXBlIjogIlBlcnNvbiIsIG5hbWU6ICJTdGV2ZSBQZWVsZSBJSSIgfSwKICAgICAgICAgICAgbWFpbkVudGl0eU9mUGFnZTogY2Fub25pY2FsLAogICAgICAgICAgfSksCiAgICAgICAgfSwKICAgICAgXSwKICAgIH07CiAgfSwKICBjb21wb25lbnQ6IEJsb2dQb3N0UGFnZSwKICBub3RGb3VuZENvbXBvbmVudDogKCkgPT4gKAogICAgPGRpdiBjbGFzc05hbWU9Im1pbi1oLXNjcmVlbiI+CiAgICAgIDxTaXRlSGVhZGVyIC8+CiAgICAgIDxtYWluIGNsYXNzTmFtZT0ibXgtYXV0byBtYXgtdy00eGwgcHgtNSBweS0yNCB0ZXh0LWNlbnRlciI+CiAgICAgICAgPGgxIGNsYXNzTmFtZT0iZm9udC1zZXJpZiB0ZXh0LTR4bCBmb250LW1lZGl1bSI+QXJ0aWNsZSBub3QgZm91bmQuPC9oMT4KICAgICAgICA8cCBjbGFzc05hbWU9Im10LTQgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj4KICAgICAgICAgIFRoaXMgcGllY2UgbWF5IGhhdmUgYmVlbiB1bnB1Ymxpc2hlZCBvciBtb3ZlZC4KICAgICAgICA8L3A+CiAgICAgICAgPExpbmsKICAgICAgICAgIHRvPSIvYmxvZyIKICAgICAgICAgIGNsYXNzTmFtZT0ibXQtOCBpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtZm9yZWdyb3VuZCIKICAgICAgICA+CiAgICAgICAgICA8QXJyb3dMZWZ0IGNsYXNzTmFtZT0ic2l6ZS00IiAvPiBCYWNrIHRvIHRoZSBibG9nCiAgICAgICAgPC9MaW5rPgogICAgICA8L21haW4+CiAgICAgIDxTaXRlRm9vdGVyIC8+CiAgICA8L2Rpdj4KICApLAp9KTsKCmNvbnN0IHBvcnRhYmxlQ29tcG9uZW50cyA9IHsKICB0eXBlczogewogICAgaW1hZ2U6ICh7IHZhbHVlIH06IHsgdmFsdWU6IHsgYXNzZXQ6IHsgX3JlZjogc3RyaW5nIH07IGFsdD86IHN0cmluZzsgY2FwdGlvbj86IHN0cmluZyB9IH0pID0+ICgKICAgICAgPGZpZ3VyZSBjbGFzc05hbWU9Im15LTEwIj4KICAgICAgICB7LyogZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEBuZXh0L25leHQvbm8taW1nLWVsZW1lbnQgKi99CiAgICAgICAgPGltZwogICAgICAgICAgc3JjPXt1cmxGb3IodmFsdWUpLndpZHRoKDEyMDApLnVybCgpfQogICAgICAgICAgYWx0PXt2YWx1ZS5hbHQgfHwgIiJ9CiAgICAgICAgICBsb2FkaW5nPSJsYXp5IgogICAgICAgICAgY2xhc3NOYW1lPSJ3LWZ1bGwgcm91bmRlZC1sZyIKICAgICAgICAvPgogICAgICAgIHt2YWx1ZS5jYXB0aW9uICYmICgKICAgICAgICAgIDxmaWdjYXB0aW9uIGNsYXNzTmFtZT0ibXQtMyB0ZXh0LWNlbnRlciB0ZXh0LXNtIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCI+CiAgICAgICAgICAgIHt2YWx1ZS5jYXB0aW9ufQogICAgICAgICAgPC9maWdjYXB0aW9uPgogICAgICAgICl9CiAgICAgIDwvZmlndXJlPgogICAgKSwKICB9LAogIGJsb2NrOiB7CiAgICBoMjogKHsgY2hpbGRyZW4gfTogeyBjaGlsZHJlbj86IFJlYWN0LlJlYWN0Tm9kZSB9KSA9PiAoCiAgICAgIDxoMiBjbGFzc05hbWU9Im10LTEyIGZvbnQtc2VyaWYgdGV4dC0zeGwgZm9udC1tZWRpdW0gdHJhY2tpbmctdGlnaHQiPntjaGlsZHJlbn08L2gyPgogICAgKSwKICAgIGgzOiAoeyBjaGlsZHJlbiB9OiB7IGNoaWxkcmVuPzogUmVhY3QuUmVhY3ROb2RlIH0pID0+ICgKICAgICAgPGgzIGNsYXNzTmFtZT0ibXQtMTAgZm9udC1zZXJpZiB0ZXh0LTJ4bCBmb250LW1lZGl1bSB0cmFja2luZy10aWdodCI+e2NoaWxkcmVufTwvaDM+CiAgICApLAogICAgaDQ6ICh7IGNoaWxkcmVuIH06IHsgY2hpbGRyZW4/OiBSZWFjdC5SZWFjdE5vZGUgfSkgPT4gKAogICAgICA8aDQgY2xhc3NOYW1lPSJtdC04IHRleHQteGwgZm9udC1zZW1pYm9sZCI+e2NoaWxkcmVufTwvaDQ+CiAgICApLAogICAgYmxvY2txdW90ZTogKHsgY2hpbGRyZW4gfTogeyBjaGlsZHJlbj86IFJlYWN0LlJlYWN0Tm9kZSB9KSA9PiAoCiAgICAgIDxibG9ja3F1b3RlIGNsYXNzTmFtZT0ibXktOCBib3JkZXItbC0yIGJvcmRlci1wcmltYXJ5LzQwIHBsLTYgZm9udC1zZXJpZiB0ZXh0LXhsIGl0YWxpYyB0ZXh0LW11dGVkLWZvcmVncm91bmQiPgogICAgICAgIHtjaGlsZHJlbn0KICAgICAgPC9ibG9ja3F1b3RlPgogICAgKSwKICB9LAogIGxpc3Q6IHsKICAgIGJ1bGxldDogKHsgY2hpbGRyZW4gfTogeyBjaGlsZHJlbj86IFJlYWN0LlJlYWN0Tm9kZSB9KSA9PiAoCiAgICAgIDx1bCBjbGFzc05hbWU9Im15LTYgbGlzdC1kaXNjIHNwYWNlLXktMiBwbC02Ij57Y2hpbGRyZW59PC91bD4KICAgICksCiAgICBudW1iZXI6ICh7IGNoaWxkcmVuIH06IHsgY2hpbGRyZW4/OiBSZWFjdC5SZWFjdE5vZGUgfSkgPT4gKAogICAgICA8b2wgY2xhc3NOYW1lPSJteS02IGxpc3QtZGVjaW1hbCBzcGFjZS15LTIgcGwtNiI+e2NoaWxkcmVufTwvb2w+CiAgICApLAogIH0sCiAgbWFya3M6IHsKICAgIGxpbms6ICh7CiAgICAgIGNoaWxkcmVuLAogICAgICB2YWx1ZSwKICAgIH06IHsKICAgICAgY2hpbGRyZW4/OiBSZWFjdC5SZWFjdE5vZGU7CiAgICAgIHZhbHVlPzogeyBocmVmPzogc3RyaW5nIH07CiAgICB9KSA9PiAoCiAgICAgIDxhCiAgICAgICAgaHJlZj17dmFsdWU/LmhyZWZ9CiAgICAgICAgdGFyZ2V0PXt2YWx1ZT8uaHJlZj8uc3RhcnRzV2l0aCgiaHR0cCIpID8gIl9ibGFuayIgOiB1bmRlZmluZWR9CiAgICAgICAgcmVsPXt2YWx1ZT8uaHJlZj8uc3RhcnRzV2l0aCgiaHR0cCIpID8gIm5vcmVmZXJyZXIiIDogdW5kZWZpbmVkfQogICAgICAgIGNsYXNzTmFtZT0idGV4dC1wcmltYXJ5IHVuZGVybGluZSBkZWNvcmF0aW9uLXByaW1hcnkvNDAgdW5kZXJsaW5lLW9mZnNldC00IGhvdmVyOmRlY29yYXRpb24tcHJpbWFyeSIKICAgICAgPgogICAgICAgIHtjaGlsZHJlbn0KICAgICAgPC9hPgogICAgKSwKICB9LAp9OwoKZnVuY3Rpb24gQmxvZ1Bvc3RQYWdlKCkgewogIGNvbnN0IHsgcG9zdCB9ID0gUm91dGUudXNlTG9hZGVyRGF0YSgpOwoKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9Im1pbi1oLXNjcmVlbiBvdmVyZmxvdy14LWNsaXAiPgogICAgICA8U2l0ZUhlYWRlciAvPgogICAgICA8bWFpbj4KICAgICAgICA8YXJ0aWNsZSBjbGFzc05hbWU9Im14LWF1dG8gbWF4LXctM3hsIHB4LTUgcHktMTQgc206cHktMjAiPgogICAgICAgICAgPExpbmsKICAgICAgICAgICAgdG89Ii9ibG9nIgogICAgICAgICAgICBjbGFzc05hbWU9ImlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIGhvdmVyOnRleHQtZm9yZWdyb3VuZCIKICAgICAgICAgID4KICAgICAgICAgICAgPEFycm93TGVmdCBjbGFzc05hbWU9InNpemUtNCIgLz4gQWxsIGFydGljbGVzCiAgICAgICAgICA8L0xpbms+CgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTggZmxleCBmbGV4LXdyYXAgaXRlbXMtY2VudGVyIGdhcC0zIHRleHQteHMiPgogICAgICAgICAgICB7cG9zdC5jYXRlZ29yaWVzPy5tYXAoKGM6IHsgc2x1Zzogc3RyaW5nOyBuYW1lOiBzdHJpbmcgfSkgPT4gKAogICAgICAgICAgICAgIDxMaW5rCiAgICAgICAgICAgICAgICBrZXk9e2Muc2x1Z30KICAgICAgICAgICAgICAgIHRvPSIvYmxvZy9jYXRlZ29yeS8kc2x1ZyIKICAgICAgICAgICAgICAgIHBhcmFtcz17eyBzbHVnOiBjLnNsdWcgfX0KICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0icm91bmRlZC1mdWxsIGJnLXByaW1hcnkvMTUgcHgtMyBweS0xIGZvbnQtc2VtaWJvbGQgdGV4dC1mb3JlZ3JvdW5kIGhvdmVyOmJnLXByaW1hcnkvMjUiCiAgICAgICAgICAgICAgPgogICAgICAgICAgICAgICAge2MubmFtZX0KICAgICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICAgICkpfQogICAgICAgICAgICB7cG9zdC5wdWJsaXNoZWRBdCAmJiAoCiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJ0ZXh0LW11dGVkLWZvcmVncm91bmQiPgogICAgICAgICAgICAgICAge2Zvcm1hdFNhbml0eURhdGUocG9zdC5wdWJsaXNoZWRBdCl9CiAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICApfQogICAgICAgICAgICB7cG9zdC5hdXRob3IgJiYgKAogICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0idGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj5ieSB7cG9zdC5hdXRob3IubmFtZX08L3NwYW4+CiAgICAgICAgICAgICl9CiAgICAgICAgICA8L2Rpdj4KCiAgICAgICAgICA8aDEgY2xhc3NOYW1lPSJtdC02IGZvbnQtc2VyaWYgdGV4dC00eGwgZm9udC1tZWRpdW0gbGVhZGluZy10aWdodCB0cmFja2luZy10aWdodCB0ZXh0LWJhbGFuY2Ugc206dGV4dC01eGwiPgogICAgICAgICAgICB7cG9zdC50aXRsZX0KICAgICAgICAgIDwvaDE+CgogICAgICAgICAge3Bvc3QuZXhjZXJwdCAmJiAoCiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0ibXQtNiBmb250LXNlcmlmIHRleHQteGwgbGVhZGluZy1yZWxheGVkIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCBpdGFsaWMiPgogICAgICAgICAgICAgIHtwb3N0LmV4Y2VycHR9CiAgICAgICAgICAgIDwvcD4KICAgICAgICAgICl9CgogICAgICAgICAge3Bvc3QubWFpbkltYWdlICYmICgKICAgICAgICAgICAgPGZpZ3VyZSBjbGFzc05hbWU9Im15LTEwIj4KICAgICAgICAgICAgICB7LyogZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEBuZXh0L25leHQvbm8taW1nLWVsZW1lbnQgKi99CiAgICAgICAgICAgICAgPGltZwogICAgICAgICAgICAgICAgc3JjPXt1cmxGb3IocG9zdC5tYWluSW1hZ2UpLndpZHRoKDE2MDApLnVybCgpfQogICAgICAgICAgICAgICAgYWx0PXtwb3N0Lm1haW5JbWFnZS5hbHQgfHwgcG9zdC50aXRsZX0KICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0idy1mdWxsIHJvdW5kZWQtbGciCiAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9maWd1cmU+CiAgICAgICAgICApfQoKICAgICAgICAgIHtwb3N0LmJvZHkgJiYgKAogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icHJvc2UtYmxvZyBtdC04Ij4KICAgICAgICAgICAgICA8UG9ydGFibGVUZXh0IHZhbHVlPXtwb3N0LmJvZHkgYXMgbmV2ZXJ9IGNvbXBvbmVudHM9e3BvcnRhYmxlQ29tcG9uZW50c30gLz4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICApfQoKICAgICAgICAgIHtwb3N0LnRhZ3MgJiYgcG9zdC50YWdzLmxlbmd0aCA+IDAgJiYgKAogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtMTIgZmxleCBmbGV4LXdyYXAgZ2FwLTIgYm9yZGVyLXQgYm9yZGVyLWJvcmRlciBwdC04Ij4KICAgICAgICAgICAgICB7cG9zdC50YWdzLm1hcCgodGFnOiBzdHJpbmcpID0+ICgKICAgICAgICAgICAgICAgIDxzcGFuCiAgICAgICAgICAgICAgICAgIGtleT17dGFnfQogICAgICAgICAgICAgICAgICBjbGFzc05hbWU9InJvdW5kZWQtZnVsbCBib3JkZXIgYm9yZGVyLWlucHV0IHB4LTMgcHktMSB0ZXh0LXhzIHRleHQtbXV0ZWQtZm9yZWdyb3VuZCIKICAgICAgICAgICAgICAgID4KICAgICAgICAgICAgICAgICAge3RhZ30KICAgICAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICAgICAgICApKX0KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICApfQoKICAgICAgICAgIHtwb3N0LnJlbGF0ZWRQb3N0cyAmJiBwb3N0LnJlbGF0ZWRQb3N0cy5sZW5ndGggPiAwICYmICgKICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTEyIGJvcmRlci10IGJvcmRlci1ib3JkZXIgcHQtMTAiPgogICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9ImZvbnQtZGlzcGxheSB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdHJhY2tpbmctd2lkZXN0IHRleHQtbXV0ZWQtZm9yZWdyb3VuZCB1cHBlcmNhc2UiPgogICAgICAgICAgICAgICAgUmVsYXRlZCByZWFkaW5nCiAgICAgICAgICAgICAgPC9oMz4KICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0ibXQtNCBzcGFjZS15LTYiPgogICAgICAgICAgICAgICAge3Bvc3QucmVsYXRlZFBvc3RzLm1hcCgocmVsOiBTYW5pdHlQb3N0Q2FyZCkgPT4gKAogICAgICAgICAgICAgICAgICA8TGluawogICAgICAgICAgICAgICAgICAgIGtleT17cmVsLl9pZH0KICAgICAgICAgICAgICAgICAgICB0bz0iL2Jsb2cvJHNsdWciCiAgICAgICAgICAgICAgICAgICAgcGFyYW1zPXt7IHNsdWc6IHJlbC5zbHVnIH19CiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJncm91cCBibG9jayIKICAgICAgICAgICAgICAgICAgPgogICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9ImZvbnQtc2VyaWYgdGV4dC14bCBmb250LW1lZGl1bSB0cmFuc2l0aW9uLWNvbG9ycyBncm91cC1ob3Zlcjp0ZXh0LXByaW1hcnkiPgogICAgICAgICAgICAgICAgICAgICAge3JlbC50aXRsZX0KICAgICAgICAgICAgICAgICAgICA8L2g0PgogICAgICAgICAgICAgICAgICAgIHtyZWwuZXhjZXJwdCAmJiAoCiAgICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9Im10LTEgdGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQgbGluZS1jbGFtcC0yIj4KICAgICAgICAgICAgICAgICAgICAgICAge3JlbC5leGNlcnB0fQogICAgICAgICAgICAgICAgICAgICAgPC9wPgogICAgICAgICAgICAgICAgICAgICl9CiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJtdC0yIGlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1mb3JlZ3JvdW5kIj4KICAgICAgICAgICAgICAgICAgICAgIFJlYWR7IiAifQogICAgICAgICAgICAgICAgICAgICAgPEFycm93VXBSaWdodCBjbGFzc05hbWU9InNpemUtMy41IHRyYW5zaXRpb24tdHJhbnNmb3JtIGdyb3VwLWhvdmVyOnRyYW5zbGF0ZS14LTAuNSBncm91cC1ob3ZlcjotdHJhbnNsYXRlLXktMC41IiAvPgogICAgICAgICAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICAgICAgICAgICAgPC9MaW5rPgogICAgICAgICAgICAgICAgKSl9CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgKX0KICAgICAgICA8L2FydGljbGU+CiAgICAgIDwvbWFpbj4KICAgICAgPFNpdGVGb290ZXIgLz4KICAgIDwvZGl2PgogICk7Cn0K
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { getPostBySlug } from "@/lib/sanity-queries";
+import type { SanityPostCard } from "@/lib/sanity-queries";
+import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
+
+const siteUrl = "https://stevepeeleii.com";
+
+export const Route = createFileRoute("/blog/$slug")({
+  loader: async ({ params }) => {
+    const post = await getPostBySlug(params.slug);
+    if (!post) throw notFound();
+    return { post };
+  },
+  head: ({ loaderData }) => {
+    const post = loaderData?.post;
+    if (!post) return { meta: [{ title: "Not found" }] };
+    const pageTitle = post.seoTitle || `${post.title} | Steve Peele II`;
+    const metaDesc = post.seoDescription || post.excerpt || "";
+    const canonical = `${siteUrl}/blog/${post.slug}`;
+    const ogImage = post.socialImage
+      ? urlFor(post.socialImage).width(1200).height(630).url()
+      : post.mainImage
+        ? urlFor(post.mainImage).width(1200).height(630).url()
+        : undefined;
+    return {
+      meta: [
+        { title: pageTitle },
+        { name: "description", content: metaDesc },
+        { property: "og:title", content: pageTitle },
+        { property: "og:description", content: metaDesc },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: canonical },
+        ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(post.publishedAt
+          ? [{ property: "article:published_time", content: post.publishedAt }]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: canonical }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: metaDesc,
+            datePublished: post.publishedAt,
+            author: post.author
+              ? { "@type": "Person", name: post.author.name }
+              : { "@type": "Person", name: "Steve Peele II" },
+            mainEntityOfPage: canonical,
+          }),
+        },
+      ],
+    };
+  },
+  component: BlogPostPage,
+  notFoundComponent: () => (
+    <div className="min-h-screen">
+      <SiteHeader />
+      <main className="mx-auto max-w-4xl px-5 py-24 text-center">
+        <h1 className="font-serif text-4xl font-medium">Article not found.</h1>
+        <p className="mt-4 text-muted-foreground">
+          This piece may have been unpublished or moved.
+        </p>
+        <Link
+          to="/blog"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground"
+        >
+          <ArrowLeft className="size-4" /> Back to the blog
+        </Link>
+      </main>
+      <SiteFooter />
+    </div>
+  ),
+});
+
+const portableComponents = {
+  types: {
+    image: ({ value }: { value: { asset: { _ref: string }; alt?: string; caption?: string } }) => (
+      <figure className="my-10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={urlFor(value).width(1200).url()}
+          alt={value.alt || ""}
+          loading="lazy"
+          className="w-full rounded-lg"
+        />
+        {value.caption && (
+          <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+            {value.caption}
+          </figcaption>
+        )}
+      </figure>
+    ),
+  },
+  block: {
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <h2 className="mt-12 font-serif text-3xl font-medium tracking-tight">{children}</h2>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <h3 className="mt-10 font-serif text-2xl font-medium tracking-tight">{children}</h3>
+    ),
+    h4: ({ children }: { children?: React.ReactNode }) => (
+      <h4 className="mt-8 text-xl font-semibold">{children}</h4>
+    ),
+    blockquote: ({ children }: { children?: React.ReactNode }) => (
+      <blockquote className="my-8 border-l-2 border-primary/40 pl-6 font-serif text-xl italic text-muted-foreground">
+        {children}
+      </blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }: { children?: React.ReactNode }) => (
+      <ul className="my-6 list-disc space-y-2 pl-6">{children}</ul>
+    ),
+    number: ({ children }: { children?: React.ReactNode }) => (
+      <ol className="my-6 list-decimal space-y-2 pl-6">{children}</ol>
+    ),
+  },
+  marks: {
+    link: ({
+      children,
+      value,
+    }: {
+      children?: React.ReactNode;
+      value?: { href?: string };
+    }) => (
+      <a
+        href={value?.href}
+        target={value?.href?.startsWith("http") ? "_blank" : undefined}
+        rel={value?.href?.startsWith("http") ? "noreferrer" : undefined}
+        className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+      >
+        {children}
+      </a>
+    ),
+  },
+};
+
+function BlogPostPage() {
+  const { post } = Route.useLoaderData();
+
+  return (
+    <div className="min-h-screen overflow-x-clip">
+      <SiteHeader />
+      <main>
+        <article className="mx-auto max-w-3xl px-5 py-14 sm:py-20">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="size-4" /> All articles
+          </Link>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-xs">
+            {post.categories?.map((c: { slug: string; name: string }) => (
+              <Link
+                key={c.slug}
+                to="/blog/category/$slug"
+                params={{ slug: c.slug }}
+                className="rounded-full bg-primary/15 px-3 py-1 font-semibold text-foreground hover:bg-primary/25"
+              >
+                {c.name}
+              </Link>
+            ))}
+            {post.publishedAt && (
+              <span className="text-muted-foreground">
+                {formatSanityDate(post.publishedAt)}
+              </span>
+            )}
+            {post.author && (
+              <span className="text-muted-foreground">by {post.author.name}</span>
+            )}
+          </div>
+
+          <h1 className="mt-6 font-serif text-4xl font-medium leading-tight tracking-tight text-balance sm:text-5xl">
+            {post.title}
+          </h1>
+
+          {post.excerpt && (
+            <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground italic">
+              {post.excerpt}
+            </p>
+          )}
+
+          {post.mainImage && (
+            <figure className="my-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={urlFor(post.mainImage).width(1600).url()}
+                alt={post.mainImage.alt || post.title}
+                className="w-full rounded-lg"
+              />
+            </figure>
+          )}
+
+          {post.body && (
+            <div className="prose-blog mt-8">
+              <PortableText value={post.body as never} components={portableComponents} />
+            </div>
+          )}
+
+          {post.tags && post.tags.length > 0 && (
+            <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-8">
+              {post.tags.map((tag: string) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-input px-3 py-1 text-xs text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {post.relatedPosts && post.relatedPosts.length > 0 && (
+            <div className="mt-12 border-t border-border pt-10">
+              <h3 className="font-display text-sm font-semibold tracking-widest text-muted-foreground uppercase">
+                Related reading
+              </h3>
+              <div className="mt-4 space-y-6">
+                {post.relatedPosts.map((rel: SanityPostCard) => (
+                  <Link
+                    key={rel._id}
+                    to="/blog/$slug"
+                    params={{ slug: rel.slug }}
+                    className="group block"
+                  >
+                    <h4 className="font-serif text-xl font-medium transition-colors group-hover:text-primary">
+                      {rel.title}
+                    </h4>
+                    {rel.excerpt && (
+                      <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                        {rel.excerpt}
+                      </p>
+                    )}
+                    <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-foreground">
+                      Read{" "}
+                      <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </article>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}
