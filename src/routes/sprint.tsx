@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackSprintCta } from "@/lib/segment";
 
 export const Route = createFileRoute("/sprint")({
   head: () => ({
@@ -121,6 +122,52 @@ function SprintPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FREE AUDIT WEDGE */}
+      <section className="spiix-section">
+        <div className="spiix-wrap">
+          <p className="spiix-kicker">/ START FREE</p>
+          <h2 className="sx-heading" style={{ fontSize: "clamp(36px, 7vw, 60px)" }}>
+            Not sure yet? Get the teardown first.
+          </h2>
+          <p
+            style={{
+              maxWidth: 640,
+              color: "var(--sx-muted)",
+              fontSize: 14,
+              lineHeight: 1.85,
+              marginTop: 20,
+            }}
+          >
+            Free website audit — I run your site through a full diagnostic:
+            messaging, structure, UX, conversion paths, and exactly what's
+            costing you customers. You get the teardown report whether or not
+            we ever work together.
+          </p>
+          <div className="sx-actions" style={{ marginTop: 32 }}>
+            <Button asChild className="spiix-button">
+              <a
+                href="https://local-growth-engine-stevepeeles-projects.vercel.app/intake"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackSprintCta("Free Audit", "audit wedge", "https://local-growth-engine-stevepeeles-projects.vercel.app/intake")}
+              >
+                GET MY FREE AUDIT <ArrowRight />
+              </a>
+            </Button>
+          </div>
+          <p
+            style={{
+              marginTop: 16,
+              fontSize: 12,
+              color: "var(--sx-muted)",
+              fontFamily: '"JetBrains Mono",monospace',
+            }}
+          >
+            Takes 2 minutes. Report in your inbox within 48 hours.
+          </p>
         </div>
       </section>
 
@@ -263,11 +310,26 @@ function SprintPage() {
           >
             <Button asChild className="spiix-button">
               <a
+                href="https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackSprintCta("Pay $750", "price section", "https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00")}
+              >
+                PAY $750 — START YOUR SPRINT <ArrowRight />
+              </a>
+            </Button>
+          </div>
+          <div
+            className="sx-actions"
+            style={{ justifyContent: "center", marginTop: 16 }}
+          >
+            <Button asChild variant="outline" className="spiix-button">
+              <a
                 href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
               >
-                BOOK YOUR SPRINT <ArrowRight />
+                OR BOOK A CALL FIRST
               </a>
             </Button>
           </div>
