@@ -75,7 +75,7 @@ function GrowthLadders() {
   useEffect(() => { if (hasMonolithAccess()) setDone(true); }, []);
   const [error, setError] = useState<string | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
-  const { isSpam, HoneypotField } = useSpamGuard("growth-ladders");
+  const { isSpam, HoneypotField, getGuardFields } = useSpamGuard("growth-ladders");
   const reduced = useRef(false);
 
   // Start at the ground, track altitude, skew with velocity, warn on rung-skipping.
@@ -124,7 +124,8 @@ function GrowthLadders() {
     });
     if (!parsed.success) { setError("Check each field — name, a real email, company, and role."); return; }
     setError(null); setDone(true);
-    void recordGrowthLadderSignup({ data: parsed.data }).catch(() => undefined);
+    const guarded = { ...parsed.data, ...getGuardFields() };
+    void recordGrowthLadderSignup({ data: guarded }).catch(() => undefined);
     void deliverGrowthLadderSignup(parsed.data);
   };
 

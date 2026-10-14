@@ -40,6 +40,15 @@ export function useSpamGuard(formId: string) {
     return false;
   }
 
+  /**
+   * Guard payload for the server-side check. Spread into the server fn data
+   * so the backend can enforce the honeypot + time checks independently
+   * of the client (PLX-76).
+   */
+  function getGuardFields(): { honeypot: string; formStartedAt: number } {
+    return { honeypot: honeypot.trim(), formStartedAt: mountedAt.current };
+  }
+
   /** Render this inside your <form>. Invisible to humans, irresistible to bots. */
   function HoneypotField() {
     return (
@@ -70,5 +79,5 @@ export function useSpamGuard(formId: string) {
     );
   }
 
-  return { isSpam, HoneypotField };
+  return { isSpam, HoneypotField, getGuardFields };
 }

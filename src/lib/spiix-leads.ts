@@ -5,6 +5,11 @@ export const signalSubmissionSchema = signalRequestSchema.extend({
   id: z.string().uuid(),
   pageUrl: z.string().url().max(2048),
   pageName: z.string().trim().min(1).max(200),
+  // Spam-guard fields (PLX-76): verified server-side in recordSignalSubmission.
+  // Optional so older cached clients still validate; a missing formStartedAt
+  // is treated as spam by the server check.
+  honeypot: z.string().max(200).optional().default(""),
+  formStartedAt: z.number().int().positive().optional(),
 });
 export type SignalSubmission = z.infer<typeof signalSubmissionSchema>;
 export const formsubmitSignalEndpoint = "https://formsubmit.co/ajax/3d3ff26bdc6ac727ee48ee558c9efc12";

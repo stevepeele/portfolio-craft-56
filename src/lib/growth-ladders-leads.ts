@@ -10,6 +10,11 @@ export const growthLadderSignupSchema = z.object({
   role: z.string().trim().min(1).max(160),
   weakestRung: z.enum(rungs).nullable(),
   scores: z.array(z.number().int().min(0).max(2)).max(8).nullable(),
+  // Spam-guard fields (PLX-76): verified server-side in recordGrowthLadderSignup.
+  // Optional so older cached clients still validate; a missing formStartedAt
+  // is treated as spam by the server check.
+  honeypot: z.string().max(200).optional().default(""),
+  formStartedAt: z.number().int().positive().optional(),
 });
 export type GrowthLadderSignup = z.infer<typeof growthLadderSignupSchema>;
 
