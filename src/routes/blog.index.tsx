@@ -69,8 +69,18 @@ function CrossPostedBadge({ sources }: { sources: string[] }) {
   );
 }
 
+function isNewPost(publishedAt?: string): boolean {
+  if (!publishedAt) return false;
+  const published = new Date(publishedAt);
+  const now = new Date();
+  const diffDays = (now.getTime() - published.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= 7;
+}
+
 function PostCard({ post, external }: { post: SanityPostCard; external: ExternalFeedItem[] }) {
   const crossPosted = findCrossPostedSources(post.title, external);
+  const isNew = isNewPost(post.publishedAt);
+  const isHot = post.featured === true;
   return (
     <Link
       to="/blog/$slug"
@@ -89,7 +99,17 @@ function PostCard({ post, external }: { post: SanityPostCard; external: External
         </div>
       )}
       <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-3 text-xs">
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          {isNew && (
+            <span className="rounded-full bg-green-500/15 px-3 py-1 font-bold text-green-700 dark:text-green-400 uppercase tracking-wide">
+              New
+            </span>
+          )}
+          {isHot && (
+            <span className="rounded-full bg-orange-500/15 px-3 py-1 font-bold text-orange-700 dark:text-orange-400 uppercase tracking-wide">
+              Hot
+            </span>
+          )}
           {post.categories?.map((c) => (
             <span
               key={c.slug}
@@ -100,6 +120,9 @@ function PostCard({ post, external }: { post: SanityPostCard; external: External
           ))}
           {post.publishedAt && (
             <span className="text-muted-foreground">{formatSanityDate(post.publishedAt)}</span>
+          )}
+          {post.author?.name && (
+            <span className="text-muted-foreground">by {post.author.name}</span>
           )}
           <CrossPostedBadge sources={crossPosted} />
         </div>
