@@ -1,1 +1,55 @@
-aW1wb3J0IHsgZGVmaW5lRmllbGQsIGRlZmluZVR5cGUgfSBmcm9tICJzYW5pdHkiOwoKZXhwb3J0IGNvbnN0IGF1dGhvciA9IGRlZmluZVR5cGUoewogIG5hbWU6ICJhdXRob3IiLAogIHRpdGxlOiAiQXV0aG9yIiwKICB0eXBlOiAiZG9jdW1lbnQiLAogIGZpZWxkczogWwogICAgZGVmaW5lRmllbGQoewogICAgICBuYW1lOiAibmFtZSIsCiAgICAgIHRpdGxlOiAiTmFtZSIsCiAgICAgIHR5cGU6ICJzdHJpbmciLAogICAgICB2YWxpZGF0aW9uOiAocnVsZSkgPT4gcnVsZS5yZXF1aXJlZCgpLAogICAgfSksCiAgICBkZWZpbmVGaWVsZCh7CiAgICAgIG5hbWU6ICJzbHVnIiwKICAgICAgdGl0bGU6ICJTbHVnIiwKICAgICAgdHlwZTogInNsdWciLAogICAgICBvcHRpb25zOiB7IHNvdXJjZTogIm5hbWUiLCBtYXhMZW5ndGg6IDk2IH0sCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImltYWdlIiwKICAgICAgdGl0bGU6ICJQcm9maWxlIGltYWdlIiwKICAgICAgdHlwZTogImltYWdlIiwKICAgICAgb3B0aW9uczogeyBob3RzcG90OiB0cnVlIH0sCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogImJpbyIsCiAgICAgIHRpdGxlOiAiQmlvZ3JhcGh5IiwKICAgICAgdHlwZTogInRleHQiLAogICAgICByb3dzOiA0LAogICAgfSksCiAgICBkZWZpbmVGaWVsZCh7CiAgICAgIG5hbWU6ICJ0aXRsZSIsCiAgICAgIHRpdGxlOiAiUHJvZmVzc2lvbmFsIHRpdGxlIiwKICAgICAgdHlwZTogInN0cmluZyIsCiAgICB9KSwKICAgIGRlZmluZUZpZWxkKHsKICAgICAgbmFtZTogInNvY2lhbExpbmtzIiwKICAgICAgdGl0bGU6ICJTb2NpYWwgbGlua3MiLAogICAgICB0eXBlOiAiYXJyYXkiLAogICAgICBvZjogWwogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJvYmplY3QiLAogICAgICAgICAgZmllbGRzOiBbCiAgICAgICAgICAgIGRlZmluZUZpZWxkKHsgbmFtZTogImxhYmVsIiwgdGl0bGU6ICJMYWJlbCIsIHR5cGU6ICJzdHJpbmciIH0pLAogICAgICAgICAgICBkZWZpbmVGaWVsZCh7IG5hbWU6ICJ1cmwiLCB0aXRsZTogIlVSTCIsIHR5cGU6ICJ1cmwiIH0pLAogICAgICAgICAgXSwKICAgICAgICB9LAogICAgICBdLAogICAgfSksCiAgXSwKICBwcmV2aWV3OiB7CiAgICBzZWxlY3Q6IHsgdGl0bGU6ICJuYW1lIiwgc3VidGl0bGU6ICJ0aXRsZSIsIG1lZGlhOiAiaW1hZ2UiIH0sCiAgfSwKfSk7Cg==
+import { defineField, defineType } from "sanity";
+
+export const author = defineType({
+  name: "author",
+  title: "Author",
+  type: "document",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Name",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name", maxLength: 96 },
+    }),
+    defineField({
+      name: "image",
+      title: "Profile image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "bio",
+      title: "Biography",
+      type: "text",
+      rows: 4,
+    }),
+    defineField({
+      name: "title",
+      title: "Professional title",
+      type: "string",
+    }),
+    defineField({
+      name: "socialLinks",
+      title: "Social links",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "label", title: "Label", type: "string" }),
+            defineField({ name: "url", title: "URL", type: "url" }),
+          ],
+        },
+      ],
+    }),
+  ],
+  preview: {
+    select: { title: "name", subtitle: "title", media: "image" },
+  },
+});

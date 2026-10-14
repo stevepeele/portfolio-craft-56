@@ -24,8 +24,11 @@ import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
+import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WritingRouteImport } from './routes/writing'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
@@ -40,6 +43,7 @@ import { Route as HackingStageplotAiRouteImport } from './routes/hacking.stagepl
 import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
+import { Route as PreviewSlugRouteImport } from './routes/preview.$slug'
 import { Route as ScaffoldingArchitectureRouteImport } from './routes/scaffolding.architecture'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
@@ -57,6 +61,7 @@ import { Route as SpiixSignalRouteImport } from './routes/spiix.signal'
 import { Route as SpiixSignalReportRouteImport } from './routes/spiix.signal-report'
 import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
+import { Route as BlogCategorySlugRouteImport } from './routes/blog.category.$slug'
 import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
 import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
 import { Route as SpiixEngageGtmAuditRouteImport } from './routes/spiix.engage.gtm-audit'
@@ -137,6 +142,11 @@ const SprintRoute = SprintRouteImport.update({
   path: '/sprint',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -145,6 +155,16 @@ const WorkRoute = WorkRouteImport.update({
 const WritingRoute = WritingRouteImport.update({
   id: '/writing',
   path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingIndexRoute = HackingIndexRouteImport.update({
@@ -215,6 +235,11 @@ const HackingStatusRoute = HackingStatusRouteImport.update({
 const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
   id: '/hacking/whats-next',
   path: '/hacking/whats-next',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewSlugRoute = PreviewSlugRouteImport.update({
+  id: '/preview/$slug',
+  path: '/preview/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScaffoldingArchitectureRoute = ScaffoldingArchitectureRouteImport.update({
@@ -302,6 +327,11 @@ const SpiixWhoIHelpRoute = SpiixWhoIHelpRouteImport.update({
   path: '/who-i-help',
   getParentRoute: () => SpiixRoute,
 } as any)
+const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
+  id: '/blog/category/$slug',
+  path: '/blog/category/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpiixEngageEliteMentorshipRoute =
   SpiixEngageEliteMentorshipRouteImport.update({
     id: '/engage/elite-mentorship',
@@ -336,8 +366,10 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
+  '/studio': typeof StudioRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
@@ -351,6 +383,7 @@ export interface FileRoutesByFullPath {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -366,9 +399,11 @@ export interface FileRoutesByFullPath {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
+  '/blog/category/$slug': typeof BlogCategorySlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -387,8 +422,10 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/sprint': typeof SprintRoute
+  '/studio': typeof StudioRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
@@ -402,6 +439,7 @@ export interface FileRoutesByTo {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -417,9 +455,11 @@ export interface FileRoutesByTo {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/blog': typeof BlogIndexRoute
   '/hacking': typeof HackingIndexRoute
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
+  '/blog/category/$slug': typeof BlogCategorySlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -441,8 +481,10 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
+  '/studio': typeof StudioRoute
   '/work': typeof WorkRoute
   '/writing': typeof WritingRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
@@ -456,6 +498,7 @@ export interface FileRoutesById {
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -471,9 +514,11 @@ export interface FileRoutesById {
   '/spiix/signal-report': typeof SpiixSignalReportRoute
   '/spiix/signals': typeof SpiixSignalsRoute
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
+  '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
+  '/blog/category/$slug': typeof BlogCategorySlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
@@ -496,8 +541,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/sprint'
+    | '/studio'
     | '/work'
     | '/writing'
+    | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
@@ -511,6 +558,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/preview/$slug'
     | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -526,9 +574,11 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/blog/'
     | '/hacking/'
     | '/services/'
     | '/spiix/'
+    | '/blog/category/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -547,8 +597,10 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/sprint'
+    | '/studio'
     | '/work'
     | '/writing'
+    | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
@@ -562,6 +614,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/preview/$slug'
     | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -577,9 +630,11 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/blog'
     | '/hacking'
     | '/services'
     | '/spiix'
+    | '/blog/category/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -600,8 +655,10 @@ export interface FileRouteTypes {
     | '/services'
     | '/spiix'
     | '/sprint'
+    | '/studio'
     | '/work'
     | '/writing'
+    | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
@@ -615,6 +672,7 @@ export interface FileRouteTypes {
     | '/hacking/stampd'
     | '/hacking/status'
     | '/hacking/whats-next'
+    | '/preview/$slug'
     | '/scaffolding/architecture'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -630,9 +688,11 @@ export interface FileRouteTypes {
     | '/spiix/signal-report'
     | '/spiix/signals'
     | '/spiix/who-i-help'
+    | '/blog/'
     | '/hacking/'
     | '/services/'
     | '/spiix/'
+    | '/blog/category/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
@@ -654,8 +714,10 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRouteWithChildren
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
+  StudioRoute: typeof StudioRoute
   WorkRoute: typeof WorkRoute
   WritingRoute: typeof WritingRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
   HackingGigsplitRoute: typeof HackingGigsplitRoute
@@ -669,8 +731,11 @@ export interface RootRouteChildren {
   HackingStampdRoute: typeof HackingStampdRoute
   HackingStatusRoute: typeof HackingStatusRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
+  PreviewSlugRoute: typeof PreviewSlugRoute
   ScaffoldingArchitectureRoute: typeof ScaffoldingArchitectureRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   HackingIndexRoute: typeof HackingIndexRoute
+  BlogCategorySlugRoute: typeof BlogCategorySlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -780,6 +845,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SprintRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -792,6 +864,20 @@ declare module '@tanstack/react-router' {
       path: '/writing'
       fullPath: '/writing'
       preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/': {
@@ -890,6 +976,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/whats-next'
       fullPath: '/hacking/whats-next'
       preLoaderRoute: typeof HackingWhatsNextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/$slug': {
+      id: '/preview/$slug'
+      path: '/preview/$slug'
+      fullPath: '/preview/$slug'
+      preLoaderRoute: typeof PreviewSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scaffolding/architecture': {
@@ -1011,6 +1104,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixWhoIHelpRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/blog/category/$slug': {
+      id: '/blog/category/$slug'
+      path: '/blog/category/$slug'
+      fullPath: '/blog/category/$slug'
+      preLoaderRoute: typeof BlogCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/spiix/engage/elite-mentorship': {
       id: '/spiix/engage/elite-mentorship'
       path: '/engage/elite-mentorship'
@@ -1107,8 +1207,10 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRouteWithChildren,
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
+  StudioRoute: StudioRoute,
   WorkRoute: WorkRoute,
   WritingRoute: WritingRoute,
+  BlogSlugRoute: BlogSlugRoute,
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
   HackingGigsplitRoute: HackingGigsplitRoute,
@@ -1122,8 +1224,11 @@ const rootRouteChildren: RootRouteChildren = {
   HackingStampdRoute: HackingStampdRoute,
   HackingStatusRoute: HackingStatusRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
+  PreviewSlugRoute: PreviewSlugRoute,
   ScaffoldingArchitectureRoute: ScaffoldingArchitectureRoute,
+  BlogIndexRoute: BlogIndexRoute,
   HackingIndexRoute: HackingIndexRoute,
+  BlogCategorySlugRoute: BlogCategorySlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
