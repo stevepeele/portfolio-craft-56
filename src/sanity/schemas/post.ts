@@ -62,6 +62,7 @@ export const post = defineType({
       of: [
         { type: "block" },
         { type: "ctaButton" },
+        { type: "videoBlock" },
         {
           type: "image",
           options: { hotspot: true },
@@ -81,6 +82,14 @@ export const post = defineType({
       name: "featured",
       title: "Featured",
       type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
+      name: "stagedForReview",
+      title: "Staged for review",
+      type: "boolean",
+      description:
+        "Ready for review — staged, NOT published. Only check this when the draft is ready for review.",
       initialValue: false,
     }),
     defineField({
