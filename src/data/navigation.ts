@@ -30,7 +30,6 @@ export const hackingNav: HackingNavItem[] = [
   { to: "/hacking/quotequick", label: "QuoteQuick", blurb: "Contractor quotes in minutes", group: "apps" },
   { to: "/hacking/monitor-mix-cheat", label: "Monitor Mix Cheat", blurb: "Input list → monitor mix", group: "apps" },
   { to: "/hacking/muse-vault", label: "Muse Vault", blurb: "Prompts, skills & automations", group: "apps" },
-  { to: "/hacking/local-growth-fix", label: "Local Growth Fix", blurb: "The $750 audit", group: "apps" },
   { to: "/hacking/smart-access", label: "Smart Access", blurb: "Coming soon", group: "apps" },
   { to: "/hacking/nexus", label: "Nexus", blurb: "Coming soon", group: "apps" },
 ];

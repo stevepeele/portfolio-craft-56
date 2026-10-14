@@ -26,6 +26,7 @@ import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WritingRouteImport } from './routes/writing'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
@@ -33,6 +34,7 @@ import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
 import { Route as HackingGigsplitRouteImport } from './routes/hacking.gigsplit'
 import { Route as HackingMonitorMixCheatRouteImport } from './routes/hacking.monitor-mix-cheat'
+import { Route as HackingMuseVaultRouteImport } from './routes/hacking.muse-vault'
 import { Route as HackingNexusRouteImport } from './routes/hacking.nexus'
 import { Route as HackingProfolioRouteImport } from './routes/hacking.profolio'
 import { Route as HackingProgressRouteImport } from './routes/hacking.progress'
@@ -155,6 +157,11 @@ const WorkRoute = WorkRouteImport.update({
   path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -188,6 +195,11 @@ const HackingGigsplitRoute = HackingGigsplitRouteImport.update({
 const HackingMonitorMixCheatRoute = HackingMonitorMixCheatRouteImport.update({
   id: '/hacking/monitor-mix-cheat',
   path: '/hacking/monitor-mix-cheat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingMuseVaultRoute = HackingMuseVaultRouteImport.update({
+  id: '/hacking/muse-vault',
+  path: '/hacking/muse-vault',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingNexusRoute = HackingNexusRouteImport.update({
@@ -388,11 +400,13 @@ export interface FileRoutesByFullPath {
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
+  '/hacking/muse-vault': typeof HackingMuseVaultRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -447,11 +461,13 @@ export interface FileRoutesByTo {
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
+  '/hacking/muse-vault': typeof HackingMuseVaultRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -509,11 +525,13 @@ export interface FileRoutesById {
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/writing': typeof WritingRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
   '/hacking/gigsplit': typeof HackingGigsplitRoute
   '/hacking/monitor-mix-cheat': typeof HackingMonitorMixCheatRoute
+  '/hacking/muse-vault': typeof HackingMuseVaultRoute
   '/hacking/nexus': typeof HackingNexusRoute
   '/hacking/profolio': typeof HackingProfolioRoute
   '/hacking/progress': typeof HackingProgressRoute
@@ -572,11 +590,13 @@ export interface FileRouteTypes {
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
     | '/hacking/monitor-mix-cheat'
+    | '/hacking/muse-vault'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -631,11 +651,13 @@ export interface FileRouteTypes {
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
     | '/hacking/monitor-mix-cheat'
+    | '/hacking/muse-vault'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -692,11 +714,13 @@ export interface FileRouteTypes {
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/writing'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
     | '/hacking/gigsplit'
     | '/hacking/monitor-mix-cheat'
+    | '/hacking/muse-vault'
     | '/hacking/nexus'
     | '/hacking/profolio'
     | '/hacking/progress'
@@ -754,11 +778,13 @@ export interface RootRouteChildren {
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
   WorkRoute: typeof WorkRoute
+  WritingRoute: typeof WritingRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
   HackingGigsplitRoute: typeof HackingGigsplitRoute
   HackingMonitorMixCheatRoute: typeof HackingMonitorMixCheatRoute
+  HackingMuseVaultRoute: typeof HackingMuseVaultRoute
   HackingNexusRoute: typeof HackingNexusRoute
   HackingProfolioRoute: typeof HackingProfolioRoute
   HackingProgressRoute: typeof HackingProgressRoute
@@ -897,6 +923,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -944,6 +977,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/monitor-mix-cheat'
       fullPath: '/hacking/monitor-mix-cheat'
       preLoaderRoute: typeof HackingMonitorMixCheatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/muse-vault': {
+      id: '/hacking/muse-vault'
+      path: '/hacking/muse-vault'
+      fullPath: '/hacking/muse-vault'
+      preLoaderRoute: typeof HackingMuseVaultRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/nexus': {
@@ -1297,11 +1337,13 @@ const rootRouteChildren: RootRouteChildren = {
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
   WorkRoute: WorkRoute,
+  WritingRoute: WritingRoute,
   BlogSlugRoute: BlogSlugRoute,
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,
   HackingGigsplitRoute: HackingGigsplitRoute,
   HackingMonitorMixCheatRoute: HackingMonitorMixCheatRoute,
+  HackingMuseVaultRoute: HackingMuseVaultRoute,
   HackingNexusRoute: HackingNexusRoute,
   HackingProfolioRoute: HackingProfolioRoute,
   HackingProgressRoute: HackingProgressRoute,

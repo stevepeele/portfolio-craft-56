@@ -247,6 +247,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-14",
+    title: "/hacking/local-growth-fix now redirects to /sprint",
+    detail:
+      "The Local Growth Fix Building page is retired — the URL 301-redirects to /sprint (the 48-hour Website Sprint $750 offer page, unchanged). Avoids duplicate offer pages. (PLX-362)",
+  },
+  {
+    date: "2026-10-14",
     title: "Blog post template upgraded — CTAs, author card, auto related posts",
     detail:
       "New ctaButton block type in the Sanity post schema with a PortableText renderer (primary/secondary styles) for in-article CTAs like the Muse Vault post's browse/submit buttons. Every post now ends with a template-level author closing-note card (contact links + booking). Related reading falls back to automatic matching by shared categories/tags when no manual picks are set. (PLX-354)",
