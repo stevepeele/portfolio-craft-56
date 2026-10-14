@@ -2,7 +2,7 @@ import { sanityClient, sanityConfigured } from "./sanity";
 
 // Returns empty results until the blog content source is configured.
 async function safeFetch<T = any>(query: string, params: Record<string, unknown> = {}): Promise<T> {
-  if (!sanityConfigured) return (/^\s*\*\[[^\]]*\]\s*\[0\]/.test(query) ? null : []) as T;
+  if (!sanityConfigured) return (/\[0\]\s*\{/.test(query) ? null : []) as T;
   return sanityClient.fetch<T>(query, params);
 }
 
