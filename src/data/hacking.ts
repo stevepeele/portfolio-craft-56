@@ -213,6 +213,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-13",
+    title: "Proven-results cards reordered + acquired badges",
+    detail:
+      "Card order is now Launch by NTT DATA, Dotloop / Zillow, Astronomer, Amify (Tixxy moved out of the highlight set). Launch and Dotloop / Zillow carry an \"Acquired\" badge on the homepage and /work. (PLX-292)",
+  },
+  {
+    date: "2026-10-13",
     title: "Full professional experience restored + testimonials rewritten",
     detail:
       "Restored all 10 roles to the site (Amify, Tixxy, Buyside, EBTH, API Nation, Astronomer, Inman News, Advisory alongside Launch and Dotloop) with metrics from the canonical resume, added 6 new portfolio project entries, and rewrote all 15 testimonials for sharper professional-capability focus. (PLX-287)",

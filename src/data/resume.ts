@@ -127,6 +127,7 @@ export const caseHighlights = [
   {
     sector: "Global Services",
     company: "Launch by NTT DATA",
+    acquired: true,
     metrics: [
       { value: "$350M+", label: "Annual pipeline supported" },
       { value: "5+", label: "Regions integrated" },
@@ -138,7 +139,8 @@ export const caseHighlights = [
   },
   {
     sector: "Real Estate SaaS",
-    company: "Dotloop",
+    company: "Dotloop / Zillow",
+    acquired: true,
     metrics: [
       { value: "~400%", label: "User growth" },
       { value: "35%", label: "CAC reduction" },
@@ -149,20 +151,21 @@ export const caseHighlights = [
     tag: "Startup scale",
   },
   {
-    sector: "Event SaaS",
-    company: "Tixxy",
+    sector: "Data Infrastructure",
+    company: "Astronomer",
+    acquired: false,
     metrics: [
-      { value: "$1M+", label: "ARR in Year 1" },
-      { value: "300%", label: "User growth" },
-      { value: "25%", label: "Churn reduction" },
+      { value: "60%", label: "More qualified leads" },
+      { value: "30%", label: "Higher funnel conversion" },
     ],
     summary:
-      "Founded and scaled a ticketing SaaS from zero to $1M+ ARR in its first year — full-funnel GTM, lifecycle programs, then acquisition.",
-    tag: "Founder",
+      "Built and ran a rapid experimentation program across pricing, segmentation, and funnel stages — converting test velocity into qualified pipeline.",
+    tag: "Growth",
   },
   {
     sector: "E-commerce Services",
     company: "Amify",
+    acquired: false,
     metrics: [
       { value: "$6M", label: "Incremental revenue" },
       { value: "35%", label: "Brand recognition lift" },

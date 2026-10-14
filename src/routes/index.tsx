@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, BadgeCheck, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations, workedWith } from "@/data/resume";
@@ -142,7 +142,15 @@ function Home() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {caseHighlights.map((c) => (
             <article key={c.company} className="panel flex flex-col p-7">
-              <h3 className="font-display text-2xl font-bold">{c.company}</h3>
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="font-display text-2xl font-bold">{c.company}</h3>
+                {c.acquired && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-raised px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                    <BadgeCheck className="size-3.5" />
+                    Acquired
+                  </span>
+                )}
+              </div>
               <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
                 {c.metrics.map((m) => (
                   <div key={m.label}>
