@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getPostBySlug } from "@/lib/sanity-queries";
+import { getPostBySlug, getRelatedPosts, getLatestPostsExcluding } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 
@@ -13,7 +13,20 @@ export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     const post = await getPostBySlug(params.slug);
     if (!post) throw notFound();
-    return { post };
+    // Manual picks first; automatic fallback keeps every post's related section alive.
+    let related = post.relatedPosts ?? [];
+    if (related.length === 0) {
+      related = await getRelatedPosts(
+        post._id,
+        (post.categories ?? []).map((c) => c._id),
+        post.tags ?? [],
+        3,
+      );
+    }
+    if (related.length === 0) {
+      related = await getLatestPostsExcluding(post._id, 3);
+    }
+    return { post, related };
   },
   head: ({ loaderData }) => {
     const post = loaderData?.post;
@@ -82,6 +95,29 @@ export const Route = createFileRoute("/blog/$slug")({
 
 const portableComponents = {
   types: {
+    ctaButton: ({
+      value,
+    }: {
+      value?: { text?: string; url?: string; variant?: string };
+    }) => {
+      const primary = (value?.variant ?? "primary") === "primary";
+      const external = value?.url?.startsWith("http");
+      return (
+        <a
+          href={value?.url}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noreferrer" : undefined}
+          className={
+            primary
+              ? "mr-3 mb-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              : "mr-3 mb-6 inline-flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
+          }
+        >
+          {value?.text}
+          <ArrowUpRight className="size-4" />
+        </a>
+      );
+    },
     image: ({ value }: { value: { asset: { _ref: string }; alt?: string; caption?: string } }) => (
       <figure className="my-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -143,8 +179,41 @@ const portableComponents = {
   },
 };
 
+function AuthorNote({ authorName }: { authorName?: string | undefined }) {
+  const name = authorName || "Steve Peele II";
+  return (
+    <div className="mt-12 rounded-lg border border-border bg-muted/40 p-6 sm:p-8">
+      <p className="font-display text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+        A note from the author
+      </p>
+      <p className="mt-4 font-serif text-lg leading-relaxed">
+        Thanks for reading. If this sparked something — a question, a
+        disagreement, a project idea — I want to hear it.
+      </p>
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        The fastest way to reach me is{" "}
+        <a
+          href="mailto:steve@stevepeeleii.com"
+          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+        >
+          steve@stevepeeleii.com
+        </a>
+        , or say hello through the{" "}
+        <Link
+          to="/contact"
+          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+        >
+          contact page
+        </Link>
+        .
+      </p>
+      <p className="mt-4 font-serif text-lg italic">— {name}</p>
+    </div>
+  );
+}
+
 function BlogPostPage() {
-  const { post } = Route.useLoaderData();
+  const { post, related } = Route.useLoaderData();
 
   return (
     <div className="min-h-screen overflow-x-clip">
@@ -219,13 +288,15 @@ function BlogPostPage() {
             </div>
           )}
 
-          {post.relatedPosts && post.relatedPosts.length > 0 && (
+          <AuthorNote authorName={post.author?.name} />
+
+          {related && related.length > 0 && (
             <div className="mt-12 border-t border-border pt-10">
               <h3 className="font-display text-sm font-semibold tracking-widest text-muted-foreground uppercase">
                 Related reading
               </h3>
               <div className="mt-4 space-y-6">
-                {post.relatedPosts.map((rel: SanityPostCard) => (
+                {related.map((rel: SanityPostCard) => (
                   <Link
                     key={rel._id}
                     to="/blog/$slug"

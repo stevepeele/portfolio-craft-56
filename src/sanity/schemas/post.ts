@@ -61,6 +61,7 @@ export const post = defineType({
       type: "array",
       of: [
         { type: "block" },
+        { type: "ctaButton" },
         {
           type: "image",
           options: { hotspot: true },

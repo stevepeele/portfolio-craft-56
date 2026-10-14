@@ -246,6 +246,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-14",
+    title: "Blog: CTA buttons, author closing note, auto related posts",
+    detail:
+      "Every blog post now ends with an 'A note from the author' card (contact: steve@stevepeeleii.com + contact page) and a Related reading section — manual picks first, automatic fallback by shared categories/tags, then latest posts. New ctaButton block type in the Sanity schema + renderer so posts can carry real CTA buttons (primary/secondary); the Muse Vault post gets Browse-the-Vault + Submit-a-template buttons. (PLX-354)",
+  },
+  {
+    date: "2026-10-14",
     title: "PrepEdge — Interview Prep AI v1 built, deployed",
     detail:
       "Built and deployed the Interview Prep AI: resume upload (PDF/DOCX) + LinkedIn paste, job req fetch + parse, AI prep guide (likely Q&A tied to your experience, STAR story bank, questions to ask, salary talking points, company intel), printable guide, past preps saved per user, Segment tracking. Live splash at prepwise.stevepeeleii.com. Two loose ends: authed routes need a redeploy once Vercel's daily deploy limit resets (402 free-tier cap), and the GitHub repo creation needs his sign-in in the agent browser. (PLX-339)",
