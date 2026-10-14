@@ -250,17 +250,17 @@ export const SCAFFOLDING_PROJECTS: ScaffoldingProject[] = [
   {
     slug: "muse-templates",
     name: "Muse Templates (Vault)",
-    tagline: "98 prompt templates, skills, crons, workflows",
+    tagline: "98 prompt templates, skills, crons, workflows + 5 scaffolding kits",
     status: "Live",
     linearProject: "P-PLX-24",
-    linearIssue: "PLX-363",
+    linearIssue: "PLX-418",
     repo: "~/workspace/muse-templates",
     vercelProject: "muse-templates",
     liveUrl: "https://vault.stevepeeleii.com",
-    stack: "Vanilla JS static (no build step) · client-rendered gallery (templates-a–e.js)",
+    stack: "Vanilla JS static (no build step) · client-rendered gallery (templates-a–e.js + kits.js)",
     description:
-      "The Muse Vault — 98 templates: 32 system prompts, 25 skills, 15 crons & automations, 26 workflows; 3 curated packs (Founder, Creator, Job Hunt). Rebranded promptvault → Muse Templates. Launched on Product Hunt 2026-10-14 09:00 ET (channels: PH + Medium + website only).",
-    notes: ["Site is client-rendered — text fetches show it empty; verify in the live browser", "Launch post at /blog/promptvault-launch (PLX-330)"],
+      "The Muse Vault — 98 templates: 32 system prompts, 25 skills, 15 crons & automations, 26 workflows; 3 curated packs (Founder, Creator, Job Hunt). Rebranded promptvault → Muse Templates. Launched on Product Hunt 2026-10-14 09:00 ET (channels: PH + Medium + website only). Scaffolding Kits (PLX-418, built 2026-10-14): 5 pre-wired frameworks (Morning OS, Content Flywheel, Job Hunt Engine, Money Autopilot, Desktop Operator) with interactive SVG skill-map diagrams showing interconnections + orchestration order, a cross-kit interconnect map, and copyable kit prompts.",
+    notes: ["Site is client-rendered — text fetches show it empty; verify in the live browser", "Launch post at /blog/promptvault-launch (PLX-330)", "Kits deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET (Vercel 100/day cap blocked the 10-14 push); deploy.py FILES now includes kits.js"],
     confidence: "confirmed",
   },
   {
