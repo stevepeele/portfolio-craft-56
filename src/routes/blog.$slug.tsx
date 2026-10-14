@@ -1,11 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Mail } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getPostBySlug, getRelatedPosts, getLatestPostsExcluding } from "@/lib/sanity-queries";
+import { getPostBySlug, getRelatedPosts } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
+import { profile } from "@/data/resume";
 
 const siteUrl = "https://stevepeeleii.com";
 
@@ -13,18 +14,13 @@ export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     const post = await getPostBySlug(params.slug);
     if (!post) throw notFound();
-    // Manual picks first; automatic fallback keeps every post's related section alive.
+    // Manual relatedPosts win; fall back to automatic by shared categories/tags.
     let related = post.relatedPosts ?? [];
     if (related.length === 0) {
-      related = await getRelatedPosts(
-        post._id,
-        (post.categories ?? []).map((c) => c._id),
-        post.tags ?? [],
-        3,
-      );
-    }
-    if (related.length === 0) {
-      related = await getLatestPostsExcluding(post._id, 3);
+      const categoryIds = (post.categories ?? [])
+        .map((c) => c._id)
+        .filter(Boolean);
+      related = await getRelatedPosts(post.slug, categoryIds, post.tags ?? [], 3);
     }
     return { post, related };
   },
@@ -95,29 +91,6 @@ export const Route = createFileRoute("/blog/$slug")({
 
 const portableComponents = {
   types: {
-    ctaButton: ({
-      value,
-    }: {
-      value?: { text?: string; url?: string; variant?: string };
-    }) => {
-      const primary = (value?.variant ?? "primary") === "primary";
-      const external = value?.url?.startsWith("http");
-      return (
-        <a
-          href={value?.url}
-          target={external ? "_blank" : undefined}
-          rel={external ? "noreferrer" : undefined}
-          className={
-            primary
-              ? "mr-3 mb-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              : "mr-3 mb-6 inline-flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
-          }
-        >
-          {value?.text}
-          <ArrowUpRight className="size-4" />
-        </a>
-      );
-    },
     image: ({ value }: { value: { asset: { _ref: string }; alt?: string; caption?: string } }) => (
       <figure className="my-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -134,6 +107,31 @@ const portableComponents = {
         )}
       </figure>
     ),
+    ctaButton: ({
+      value,
+    }: {
+      value: { label?: string; url?: string; variant?: string };
+    }) => {
+      if (!value?.label || !value?.url) return null;
+      const isExternal = /^https?:\/\//.test(value.url);
+      const isPrimary = value.variant !== "secondary";
+      return (
+        <div className="my-8">
+          <a
+            href={value.url}
+            {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+            className={
+              isPrimary
+                ? "inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                : "inline-flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-semibold transition-colors hover:bg-accent"
+            }
+          >
+            {value.label}
+            <ArrowUpRight className="size-4" />
+          </a>
+        </div>
+      );
+    },
   },
   block: {
     h2: ({ children }: { children?: React.ReactNode }) => (
@@ -178,39 +176,6 @@ const portableComponents = {
     ),
   },
 };
-
-function AuthorNote({ authorName }: { authorName?: string | undefined }) {
-  const name = authorName || "Steve Peele II";
-  return (
-    <div className="mt-12 rounded-lg border border-border bg-muted/40 p-6 sm:p-8">
-      <p className="font-display text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-        A note from the author
-      </p>
-      <p className="mt-4 font-serif text-lg leading-relaxed">
-        Thanks for reading. If this sparked something — a question, a
-        disagreement, a project idea — I want to hear it.
-      </p>
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-        The fastest way to reach me is{" "}
-        <a
-          href="mailto:steve@stevepeeleii.com"
-          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
-        >
-          steve@stevepeeleii.com
-        </a>
-        , or say hello through the{" "}
-        <Link
-          to="/contact"
-          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
-        >
-          contact page
-        </Link>
-        .
-      </p>
-      <p className="mt-4 font-serif text-lg italic">— {name}</p>
-    </div>
-  );
-}
 
 function BlogPostPage() {
   const { post, related } = Route.useLoaderData();
@@ -275,6 +240,44 @@ function BlogPostPage() {
             </div>
           )}
 
+          <aside className="mt-14 rounded-2xl border border-border bg-card p-8">
+            <p className="font-display text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+              A note from the author
+            </p>
+            <p className="mt-4 font-serif text-lg leading-relaxed">
+              I'm {profile.name} — growth operator, musician, and builder. I write
+              about the systems behind pipeline, and the builds that come out of
+              them. If something here hit, reach out.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold">
+              <a
+                href={`mailto:${profile.email}`}
+                className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+              >
+                <Mail className="size-4" /> {profile.email}
+              </a>
+              <Link to="/contact" className="text-foreground hover:text-primary">
+                Let's talk
+              </Link>
+              <a
+                href={profile.booking}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-foreground hover:text-primary"
+              >
+                Book a call <ArrowUpRight className="size-3.5" />
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-foreground hover:text-primary"
+              >
+                LinkedIn <ArrowUpRight className="size-3.5" />
+              </a>
+            </div>
+          </aside>
+
           {post.tags && post.tags.length > 0 && (
             <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-8">
               {post.tags.map((tag: string) => (
@@ -287,8 +290,6 @@ function BlogPostPage() {
               ))}
             </div>
           )}
-
-          <AuthorNote authorName={post.author?.name} />
 
           {related && related.length > 0 && (
             <div className="mt-12 border-t border-border pt-10">

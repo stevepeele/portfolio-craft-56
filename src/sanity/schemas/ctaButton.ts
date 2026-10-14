@@ -2,23 +2,21 @@ import { defineField, defineType } from "sanity";
 
 export const ctaButton = defineType({
   name: "ctaButton",
-  title: "CTA button",
+  title: "CTA Button",
   type: "object",
-  description:
-    "A call-to-action button inside a post body. Two in a row sit side by side.",
   fields: [
     defineField({
-      name: "text",
-      title: "Button text",
+      name: "label",
+      title: "Button label",
       type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: "url",
-      title: "Button URL",
+      title: "Link URL",
+      description: "Relative path (e.g. /hacking/muse-vault) or full URL",
       type: "url",
-      validation: (rule) =>
-        rule.required().uri({ allowRelative: true, scheme: ["http", "https"] }),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "variant",
@@ -26,8 +24,8 @@ export const ctaButton = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Primary (filled)", value: "primary" },
-          { title: "Secondary (outline)", value: "secondary" },
+          { title: "Primary", value: "primary" },
+          { title: "Secondary", value: "secondary" },
         ],
         layout: "radio",
       },
@@ -35,11 +33,11 @@ export const ctaButton = defineType({
     }),
   ],
   preview: {
-    select: { title: "text", subtitle: "url" },
+    select: { title: "label", subtitle: "url" },
     prepare({ title, subtitle }: Record<string, unknown>) {
       return {
-        title: `🔘 ${(title as string) ?? "Button"}`,
-        subtitle: subtitle as string,
+        title: `CTA: ${(title as string) ?? "Untitled"}`,
+        subtitle: (subtitle as string) ?? "",
       };
     },
   },

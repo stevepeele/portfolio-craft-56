@@ -98,32 +98,17 @@ export async function getAllPostSlugs(): Promise<string[]> {
 }
 
 /**
- * Related posts for a post page. Prefers posts sharing categories or tags;
- * callers fall back to getLatestPostsExcluding when this returns nothing.
+ * Automatic related-post fallback: posts sharing categories or tags with the
+ * current post, newest first. Used when no manual relatedPosts are set.
  */
 export async function getRelatedPosts(
-  postId: string,
+  slug: string,
   categoryIds: string[] = [],
   tags: string[] = [],
   limit = 3,
 ): Promise<SanityPostCard[]> {
-  if (categoryIds.length === 0 && tags.length === 0) return [];
   return safeFetch(
-    `*[_type == "post" && _id != $postId && defined(publishedAt) && publishedAt <= now() && (
-      count((categories[]->_id)[@ in $categoryIds]) > 0 ||
-      count(tags[@ in $tags]) > 0
-    )] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
-    { postId, categoryIds, tags, limit },
-  );
-}
-
-/** Newest posts excluding one — final fallback so every post shows related reading. */
-export async function getLatestPostsExcluding(
-  postId: string,
-  limit = 3,
-): Promise<SanityPostCard[]> {
-  return safeFetch(
-    `*[_type == "post" && _id != $postId && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
-    { postId, limit },
+    `*[_type == "post" && slug.current != $slug && defined(publishedAt) && publishedAt <= now() && (references($categoryIds) || count((tags[@ in $tags])) > 0)] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    { slug, categoryIds, tags, limit },
   );
 }
