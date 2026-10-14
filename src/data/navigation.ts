@@ -2,10 +2,11 @@ export const primaryNav = [
   { to: "/", label: "Home", exact: true, match: ["/"] },
   { to: "/work", label: "Portfolio", exact: false, match: ["/work", "/portfolio"] },
   { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
+  { to: "/music", label: "Music", exact: false, match: ["/music"] },
   { to: "/blog", label: "Blog", exact: false, match: ["/blog"] },
 ] as const;
 
-export type HackingNavGroup = "start" | "board" | "apps";
+export type HackingNavGroup = "start" | "board" | "apps" | "changelogs";
 
 export type HackingNavItem = {
   to: string;
@@ -27,16 +28,26 @@ export const hackingNav: HackingNavItem[] = [
   { to: "/hacking/repurpose-engine", label: "Repurpose Engine", blurb: "One post, ten platforms", group: "apps" },
   { to: "/hacking/gigsplit", label: "GigSplit", blurb: "Band pay splitter", group: "apps" },
   { to: "/hacking/quotequick", label: "QuoteQuick", blurb: "Contractor quotes in minutes", group: "apps" },
-  { to: "/hacking/monitor-mix-cheat", label: "Monitor Mix Cheat", blurb: "Input list → monitor mix", group: "apps" },
-  { to: "/hacking/muse-vault", label: "Muse Vault", blurb: "Prompts, skills & automations", group: "apps" },
   { to: "/hacking/smart-access", label: "Smart Access", blurb: "Coming soon", group: "apps" },
   { to: "/hacking/nexus", label: "Nexus", blurb: "Coming soon", group: "apps" },
+  { to: "/hacking/binsly/changelog", label: "Binsly changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/profolio/changelog", label: "Profolio changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/stageplot-ai/changelog", label: "StagePlot AI changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/monitor-mix-cheat/changelog", label: "Monitor Mix Cheat changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/dardo/changelog", label: "Dardo changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/stampd/changelog", label: "Stampd changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/repurpose-engine/changelog", label: "Repurpose Engine changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/gigsplit/changelog", label: "GigSplit changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/quotequick/changelog", label: "QuoteQuick changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/promptvault/changelog", label: "PromptVault changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/prepwise/changelog", label: "Prepwise changelog", blurb: "Ship history", group: "changelogs" },
 ];
 
 export const hackingNavGroups: { key: HackingNavGroup; label: string }[] = [
   { key: "start", label: "" },
   { key: "board", label: "Board" },
   { key: "apps", label: "Apps" },
+  { key: "changelogs", label: "Changelogs" },
 ];
 
 export const hackingMatch = ["/hacking"];
