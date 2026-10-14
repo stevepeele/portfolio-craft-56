@@ -2,16 +2,15 @@ import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url";
 
-const projectId = import.meta.env["VITE_SANITY_PROJECT_ID"] as string | undefined;
-const dataset = import.meta.env["VITE_SANITY_DATASET"] as string | undefined;
+const envProjectId = import.meta.env["VITE_SANITY_PROJECT_ID"] as string | undefined;
+const envDataset = import.meta.env["VITE_SANITY_DATASET"] as string | undefined;
 const apiVersion =
   (import.meta.env["VITE_SANITY_API_VERSION"] as string | undefined) ?? "2026-10-01";
 
-if (!projectId || !dataset) {
-  throw new Error(
-    "Missing Sanity configuration. Set VITE_SANITY_PROJECT_ID and VITE_SANITY_DATASET in your environment.",
-  );
-}
+/** False until the blog's content source is configured; the site must still load. */
+export const sanityConfigured = Boolean(envProjectId && envDataset);
+const projectId = envProjectId || "unconfigured";
+const dataset = envDataset || "production";
 
 export const sanityConfig = { projectId, dataset, apiVersion };
 
