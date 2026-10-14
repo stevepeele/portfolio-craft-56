@@ -112,3 +112,18 @@ export async function getRelatedPosts(
     { slug, categoryIds, tags, limit },
   );
 }
+
+/**
+ * Latest-posts fallback for Related reading: newest published posts excluding
+ * the current one. Used when no manual relatedPosts and no category/tag
+ * matches are found.
+ */
+export async function getLatestPostsExcluding(
+  excludeId: string,
+  limit = 3,
+): Promise<SanityPostCard[]> {
+  return safeFetch(
+    `*[_type == "post" && _id != $excludeId && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    { excludeId, limit },
+  );
+}
