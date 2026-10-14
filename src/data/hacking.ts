@@ -1,1 +1,458 @@
-ZXhwb3J0IHR5cGUgSGFja2luZ0FwcCA9IHsKICBzbHVnOiBzdHJpbmc7CiAgbGFiZWw6IHN0cmluZzsKICBibHVyYjogc3RyaW5nOwogIHN0YXR1czogImxpdmUiIHwgImJ1aWxkaW5nIiB8ICJxdWV1ZWQiIHwgInNvb24iOwogIHVybD86IHN0cmluZzsKICBkZXNjcmlwdGlvbjogc3RyaW5nOwogIHdoeTogc3RyaW5nOwp9OwoKZXhwb3J0IGNvbnN0IGhhY2tpbmdBcHBzOiBIYWNraW5nQXBwW10gPSBbCiAgewogICAgc2x1ZzogImJpbnNseSIsCiAgICBsYWJlbDogIkJpbnNseSIsCiAgICBibHVyYjogIk93biB5b3VyIGxpbmsgbGF5ZXIiLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL2xpbmtsaWIuYmFzZTQ0LmFwcCIsCiAgICBkZXNjcmlwdGlvbjoKICAgICAgIkEgbGluay1pbi1iaW8gYW5kIGxpbmsgbGlicmFyeSBleHBlcmltZW50IOKAlCB5b3VyIGxpbmtzLCB5b3VyIHJ1bGVzLCBubyBhbGdvcml0aG1pYyBtaWRkbGVtYW4gZGVjaWRpbmcgd2hvIHNlZXMgd2hhdC4iLAogICAgd2h5OiAiVGhlIGxpbmsgaW4gYmlvIGlzIHJlbnRlZCBsYW5kLiBCaW5zbHkgaXMgdGhlIGV4cGVyaW1lbnQgaW4gb3duaW5nIGl0LiIsCiAgfSwKICB7CiAgICBzbHVnOiAicHJvZm9saW8iLAogICAgbGFiZWw6ICJQcm9mb2xpbyIsCiAgICBibHVyYjogIk9uZSBiYXNlbGluZSwgbWFueSBzdG9yaWVzIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9wcm9mb2xpby1zdGV2ZXBlZWxlcy1wcm9qZWN0cy52ZXJjZWwuYXBwLyIsCiAgICBkZXNjcmlwdGlvbjoKICAgICAgIkEgcHJvZmVzc2lvbmFsIHBvcnRmb2xpbyBidWlsZGVyLiBPbmUgcHJpdmF0ZSBiYXNlbGluZSBvZiBwcm9qZWN0cywgc2tpbGxzLCBhbmQgY3JlZGVudGlhbHMg4oCUIHRoZW4gdGFpbG9yZWQgdmlld3MgZm9yIHdob2V2ZXIgeW91J3JlIHRhbGtpbmcgdG8uIiwKICAgIHdoeTogIk9uZSByZXN1bWUgZm9yIGV2ZXJ5IGF1ZGllbmNlIGlzIGxhenkuIE1haW50YWluaW5nIGZpdmUgdmVyc2lvbnMgaXMgYSBqb2IuIE9uZSBiYXNlbGluZSwgbWFueSB2aWV3cy4iLAogIH0sCiAgewogICAgc2x1ZzogInNtYXJ0LWFjY2VzcyIsCiAgICBsYWJlbDogIlNtYXJ0IEFjY2VzcyIsCiAgICBibHVyYjogIkNvbWluZyBzb29uIiwKICAgIHN0YXR1czogInNvb24iLAogICAgZGVzY3JpcHRpb246ICJEZXRhaWxzIGNvbWluZyBzb29uIOKAlCB0aGlzIG9uZSdzIHN0aWxsIHRha2luZyBzaGFwZSBvbiB0aGUgd29ya2JlbmNoLiIsCiAgICB3aHk6ICJXYXRjaCB0aGlzIHNwYWNlLiIsCiAgfSwKICB7CiAgICBzbHVnOiAic3RhZ2VwbG90LWFpIiwKICAgIGxhYmVsOiAiU3RhZ2VQbG90IEFJIiwKICAgIGJsdXJiOiAiSW5wdXQgbGlzdCDihpIgc3RhZ2UgcGxvdCIsCiAgICBzdGF0dXM6ICJsaXZlIiwKICAgIHVybDogImh0dHBzOi8vc3RhZ2VwbG90LWFpLXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAvIiwKICAgIGRlc2NyaXB0aW9uOgogICAgICAiUGFzdGUgYSBiYW5kJ3MgaW5wdXQgbGlzdCwgZ2V0IGEgcHJvZmVzc2lvbmFsIHN0YWdlIHBsb3QgKyBjaGFubmVsIHNoZWV0IGluIHNlY29uZHMuIEJ1aWx0IGZvciBsaXZlIHNvdW5kIGVuZ2luZWVycyB3aG8gYXJlIHRpcmVkIG9mIGRyYXdpbmcgcmVjdGFuZ2xlcyBpbiBQb3dlclBvaW50IGF0IDFhbS4iLAogICAgd2h5OiAiOTAlIG9mIG1pYyBjaG9pY2VzIGFyZSBhdXRvbWF0aWMuIFRoZSBsYXlvdXQgaXMgc3RhbmRhcmQuIFRoZSBjaGFubmVsIHNoZWV0IGlzIGZvcm1hdHRpbmcuIFNvIHdoeSBkbyBpdCBieSBoYW5kPyIsCiAgfSwKICB7CiAgICBzbHVnOiAibW9uaXRvci1taXgtY2hlYXQiLAogICAgbGFiZWw6ICJNb25pdG9yIE1peCBDaGVhdCIsCiAgICBibHVyYjogIklucHV0IGxpc3Qg4oaSIG1vbml0b3IgbWl4IiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9tb25pdG9yLW1peC1jaGVhdC52ZXJjZWwuYXBwIiwKICAgIGRlc2NyaXB0aW9uOgogICAgICAiUGFzdGUgdGhlIGJhbmQncyBpbnB1dCBsaXN0IGFuZCB2ZW51ZSB0eXBlLCBnZXQgcGVyLWNoYW5uZWwgbW9uaXRvciBtaXggc3RhcnRpbmcgcG9pbnRzIOKAlCBFUSwgY29tcHJlc3Npb24sIGFuZCBsZXZlbHMgYmVmb3JlIHRoZSBmaXJzdCBzb3VuZGNoZWNrIG5vdGUuIiwKICAgIHdoeTogIlRoZSAxYW0gc291bmRjaGVjayBzY3JpYmJsZSBpcyBhIHRyYWRpdGlvbiBub2JvZHkgbWlzc2VzLiBJZiB0aGUgaW5wdXQgbGlzdCBpcyBzdGFuZGFyZCwgdGhlIHN0YXJ0aW5nIG1peCBjYW4gYmUgdG9vLiIsCiAgfSwKICB7CiAgICBzbHVnOiAibmV4dXMiLAogICAgbGFiZWw6ICJOZXh1cyIsCiAgICBibHVyYjogIkNvbWluZyBzb29uIiwKICAgIHN0YXR1czogInNvb24iLAogICAgZGVzY3JpcHRpb246ICJEZXRhaWxzIGNvbWluZyBzb29uIOKAlCB0aGlzIG9uZSdzIHN0aWxsIHRha2luZyBzaGFwZSBvbiB0aGUgd29ya2JlbmNoLiIsCiAgICB3aHk6ICJXYXRjaCB0aGlzIHNwYWNlLiIsCiAgfSwKICB7CiAgICBzbHVnOiAiZGFyZG8iLAogICAgbGFiZWw6ICJEYXJkbyIsCiAgICBibHVyYjogIkFJIHNpZGVraWNrIGZvciBhZ2VudHMiLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL2RhcmRvLXNtb2t5LnZlcmNlbC5hcHAiLAogICAgZGVzY3JpcHRpb246CiAgICAgICJBbiBBSSBzaWRla2ljayBmb3IgcmVhbCBlc3RhdGUgYWdlbnRzLiBPbmUtdGFwIGNhcHR1cmUsIHBhc3NpdmUgbWlsZWFnZSBhbmQgcm91dGluZywgYW5kIGFuIGV2ZW5pbmcgYnJpZWYgd2l0aCBkcmFmdGVkIGZvbGxvdy11cHMuICQ0Ljk5L21vLiIsCiAgICB3aHk6ICJUaGUgYWRtaW4gd29yayBiZXR3ZWVuIGFwcG9pbnRtZW50cyBlYXRzIHRoZSBkYXkuIERhcmRvIGNsb3NlcyB0aGUgZGF5IGl0c2VsZiDigJQgYW5kIGl0J3MgZXhwbGljaXRseSBub3QgYW5vdGhlciBDUk0uIiwKICB9LAogIHsKICAgIHNsdWc6ICJzdGFtcGQiLAogICAgbGFiZWw6ICJTdGFtcGQiLAogICAgYmx1cmI6ICJTaGlmdCAmIHBheSB0cmFja2VyIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9zdGFtcGQtc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcCIsCiAgICBkZXNjcmlwdGlvbjoKICAgICAgIkEgbm8tdHJhaW5pbmcgc2hpZnQgYW5kIHBheSB0cmFja2VyIGZvciBjb250cmFjdG9ycyBhbmQgZGF5IGxhYm9yZXJzLiBUYXAgdG8gY2xvY2sgaW4gYW5kIG91dDsgdGhlIHBheSBtYXRoIGhhbmRsZXMgaXRzZWxmLiAkMjkgb25lLXRpbWUuIiwKICAgIHdoeTogIlRoZSBwZW9wbGUgZG9pbmcgdGhlIGhhcmRlc3Qgd29yayBoYXZlIHRoZSB3b3JzdCB0aW1lIHJlY29yZHMuIElmIHlvdSBjYW4gdGFwIGEgYnV0dG9uLCB5b3UgY2FuIHVzZSBTdGFtcGQuIiwKICB9LAogIHsKICAgIHNsdWc6ICJyZXB1cnBvc2UtZW5naW5lIiwKICAgIGxhYmVsOiAiUmVwdXJwb3NlIEVuZ2luZSIsCiAgICBibHVyYjogIk9uZSBwb3N0LCB0ZW4gcGxhdGZvcm1zIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9yZXB1cnBvc2UtZW5naW5lLWJlcnlsLnZlcmNlbC5hcHAiLAogICAgZGVzY3JpcHRpb246CiAgICAgICJXcml0ZSBvbmUgcG9zdCwgZ2V0IHRlbiBwbGF0Zm9ybS1uYXRpdmUgdmVyc2lvbnMgYmFjayDigJQgZWFjaCBzaGFwZWQgZm9yIHdoZXJlIGl0IGxpdmVzLCBub3QgdGhlIHNhbWUgdGV4dCBwYXN0ZWQgZXZlcnl3aGVyZS4iLAogICAgd2h5OiAiUmV3cml0aW5nIHRoZSBzYW1lIHBvc3QgZm9yIGV2ZXJ5IHBsYXRmb3JtIGlzIGEgc2Vjb25kIGpvYi4gVGhlIHRoaW5raW5nIHN0YXlzIHlvdXJzOyB0aGUgcmVmb3JtYXR0aW5nIHNob3VsZG4ndCBlYXQgeW91ciBhZnRlcm5vb24uIiwKICB9LAogIHsKICAgIHNsdWc6ICJnaWdzcGxpdCIsCiAgICBsYWJlbDogIkdpZ1NwbGl0IiwKICAgIGJsdXJiOiAiQmFuZCBwYXkgc3BsaXR0ZXIiLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL2dpZ3NwbGl0LXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAiLAogICAgZGVzY3JpcHRpb246CiAgICAgICJFbnRlciB0aGUgZ2lnIHBheSwgYWRkIG1lbWJlcnMgYW5kIGV4cGVuc2VzLCBhbmQgc2VlIHdobyBnZXRzIHdoYXQg4oCUIHdpdGggcGVubnktZXhhY3QgbWF0aCBhbmQgcGFpZCB0cmFja2luZy4gJDkgb25lLXRpbWUuIiwKICAgIHdoeTogIlRoZSBwYXlvdXQgYXJndW1lbnQgaW4gdGhlIHBhcmtpbmcgbG90IGlzIGEgdHJhZGl0aW9uIG5vYm9keSBsaWtlcy4gT25lIGNsZWFuIHNjcmVlbiBlbmRzIGl0LiIsCiAgfSwKICB7CiAgICBzbHVnOiAicXVvdGVxdWljayIsCiAgICBsYWJlbDogIlF1b3RlUXVpY2siLAogICAgYmx1cmI6ICJDb250cmFjdG9yIHF1b3RlcyBpbiBtaW51dGVzIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9xdW90ZXF1aWNrLXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAiLAogICAgZGVzY3JpcHRpb246CiAgICAgICJMaW5lIGl0ZW1zIHBsdXMgYSBqb2Itc2l0ZSBwaG90byB0dXJuIGludG8gYSBicmFuZGVkIFBERiBxdW90ZSwgcmVhZHkgdG8gc2VuZCBiZWZvcmUgeW91IGxlYXZlIHRoZSBkcml2ZXdheS4gJDE5IG9uZS10aW1lLiIsCiAgICB3aHk6ICJTbG93IHF1b3RlcyBsb3NlIGpvYnMuIFRoZSBjb250cmFjdG9yIHdobyBhbnN3ZXJzIGluIGFuIGhvdXIgd2l0aCBhIGNsZWFuIG51bWJlciB3aW5zLiIsCiAgfSwKICB7CiAgICBzbHVnOiAibXVzZS10ZW1wbGF0ZXMiLAogICAgbGFiZWw6ICJNdXNlIFRlbXBsYXRlcyIsCiAgICBibHVyYjogIlByb21wdHMsIHNraWxscyAmIGF1dG9tYXRpb25zIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9tdXNlLXRlbXBsYXRlcy1zdGV2ZXBlZWxlcy1wcm9qZWN0cy52ZXJjZWwuYXBwLyIsCiAgICBkZXNjcmlwdGlvbjoKICAgICAgIkEgZ2FsbGVyeSBvZiAzMiByZWFkeS1tYWRlIHRlbXBsYXRlcyBmb3IgTXVzZSDigJQgc3lzdGVtIHByb21wdHMsIHNraWxscywgY3JvbnMsIGFuZCB3b3JrZmxvd3MgYWNyb3NzIFdvcmssIE1vbmV5LCBDYXJlZXIsIENyZWF0ZSwgSG9tZSAmIExpZmUsIGFuZCBIZWFsdGggJiBGYW1pbHkgdHJhY2tzLiBSYXRpbmdzLCByZXZpZXdzLCBjdXJhdGVkIGNvbGxlY3Rpb25zLCBvbmUtY2xpY2sgaW5zdGFsbCBwYWNrcywgYW5kIGNvbW11bml0eSBzdWJtaXNzaW9ucy4iLAogICAgd2h5OiAiVGhlIGJlc3QgTXVzZSBzZXR1cHMgYXJlIGJ1aWx0LCBub3QgZGlzY292ZXJlZC4gVGVtcGxhdGVzIG1ha2UgdGhlIGdvb2Qgb25lcyBzaGFyZWFibGUuIiwKICB9LApdOwoKZXhwb3J0IHR5cGUgQnVpbGRRdWV1ZUl0ZW0gPSB7CiAgbmFtZTogc3RyaW5nOwogIHN0YXR1czogInNoaXBwZWQiIHwgIm5leHQiIHwgInF1ZXVlZCI7CiAgc2hpcHBlZERhdGU/OiBzdHJpbmc7CiAgZGVzY3JpcHRpb246IHN0cmluZzsKICB1cmw/OiBzdHJpbmc7Cn07CgpleHBvcnQgY29uc3QgYnVpbGRRdWV1ZTogQnVpbGRRdWV1ZUl0ZW1bXSA9IFsKICB7CiAgICBuYW1lOiAiTXVzZSBUZW1wbGF0ZXMiLAogICAgc3RhdHVzOiAic2hpcHBlZCIsCiAgICBzaGlwcGVkRGF0ZTogIjIwMjYtMTAtMTMiLAogICAgZGVzY3JpcHRpb246ICJUZW1wbGF0ZSBnYWxsZXJ5IGZvciBNdXNlIOKAlCAzMiByZWFkeS1tYWRlIHRlbXBsYXRlcyBhY3Jvc3MgNiB1c2UtY2FzZSB0cmFja3MsIHdpdGggcmF0aW5ncywgY3VyYXRlZCBjb2xsZWN0aW9ucywgb25lLWNsaWNrIGluc3RhbGwgcGFja3MsIGFuZCBjb21tdW5pdHkgc3VibWlzc2lvbnMuIiwKICAgIHVybDogImh0dHBzOi8vbXVzZS10ZW1wbGF0ZXMtc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcC8iLAogIH0sCiAgewogICAgbmFtZTogIlN0YWdlUGxvdCBBSSIsCiAgICBzdGF0dXM6ICJzaGlwcGVkIiwKICAgIHNoaXBwZWREYXRlOiAiMjAyNi0xMC0xMCIsCiAgICBkZXNjcmlwdGlvbjogIklucHV0IGxpc3Qg4oaSIHN0YWdlIHBsb3QgKyBjaGFubmVsIHNoZWV0IGZvciBsaXZlIHNvdW5kIGVuZ2luZWVycy4iLAogICAgdXJsOiAiaHR0cHM6Ly9zdGFnZXBsb3QtYWktc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcC8iLAogIH0sCiAgewogICAgbmFtZTogIlByb2ZvbGlvIiwKICAgIHN0YXR1czogInNoaXBwZWQiLAogICAgc2hpcHBlZERhdGU6ICIyMDI2LTEwLTEwIiwKICAgIGRlc2NyaXB0aW9uOiAiUHJvZmVzc2lvbmFsIHBvcnRmb2xpbyBidWlsZGVyIOKAlCBvbmUgYmFzZWxpbmUsIG1hbnkgdGFpbG9yZWQgdmlld3MuIiwKICAgIHVybDogImh0dHBzOi8vcHJvZm9saW8tc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcC8iLAogIH0sCiAgewogICAgbmFtZTogIk1vbml0b3IgTWl4IENoZWF0IiwKICAgIHN0YXR1czogInNoaXBwZWQiLAogICAgc2hpcHBlZERhdGU6ICIyMDI2LTEwLTEwIiwKICAgIGRlc2NyaXB0aW9uOiAiSW5wdXQgbGlzdCArIHZlbnVlIHR5cGUg4oaSIG1vbml0b3IgbWl4IHN0YXJ0aW5nIHBvaW50cyAoRVEsIGNvbXAsIGxldmVscykuIiwKICAgIHVybDogImh0dHBzOi8vbW9uaXRvci1taXgtY2hlYXQudmVyY2VsLmFwcC8iLAogIH0sCiAgewogICAgbmFtZTogIkRhcmRvIiwKICAgIHN0YXR1czogInNoaXBwZWQiLAogICAgc2hpcHBlZERhdGU6ICIyMDI2LTEwLTExIiwKICAgIGRlc2NyaXB0aW9uOiAiQUkgc2lkZWtpY2sgZm9yIHJlYWwgZXN0YXRlIGFnZW50cyDigJQgb25lLXRhcCBjYXB0dXJlLCBldmVuaW5nIGJyaWVmLiAkNC45OS9tby4iLAogICAgdXJsOiAiaHR0cHM6Ly9kYXJkby1zbW9reS52ZXJjZWwuYXBwIiwKICB9LAogIHsKICAgIG5hbWU6ICJTdGFtcGQiLAogICAgc3RhdHVzOiAic2hpcHBlZCIsCiAgICBzaGlwcGVkRGF0ZTogIjIwMjYtMTAtMTEiLAogICAgZGVzY3JpcHRpb246ICJOby10cmFpbmluZyBzaGlmdCAmIHBheSB0cmFja2VyIGZvciBjb250cmFjdG9ycyBhbmQgZGF5IGxhYm9yZXJzLiAkMjkgb25lLXRpbWUuIiwKICAgIHVybDogImh0dHBzOi8vc3RhbXBkLXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAiLAogIH0sCiAgewogICAgbmFtZTogIlJlcHVycG9zZSBFbmdpbmUiLAogICAgc3RhdHVzOiAic2hpcHBlZCIsCiAgICBzaGlwcGVkRGF0ZTogIjIwMjYtMTAtMTEiLAogICAgZGVzY3JpcHRpb246ICJPbmUgcG9zdCDihpIgcGxhdGZvcm0tbmF0aXZlIHZlcnNpb25zIGZvciBldmVyeXdoZXJlIGl0IGxpdmVzLiIsCiAgICB1cmw6ICJodHRwczovL3JlcHVycG9zZS1lbmdpbmUtYmVyeWwudmVyY2VsLmFwcCIsCiAgfSwKICB7CiAgICBuYW1lOiAiR2lnU3BsaXQiLAogICAgc3RhdHVzOiAic2hpcHBlZCIsCiAgICBzaGlwcGVkRGF0ZTogIjIwMjYtMTAtMTEiLAogICAgZGVzY3JpcHRpb246ICJCYW5kIHBheSBzcGxpdHRlciDigJQgcGVubnktZXhhY3QgcGF5b3V0cywgd2hvIGdvdCBwYWlkIHRyYWNraW5nLiAkOSBvbmUtdGltZS4iLAogICAgdXJsOiAiaHR0cHM6Ly9naWdzcGxpdC1zdGV2ZXBlZWxlcy1wcm9qZWN0cy52ZXJjZWwuYXBwIiwKICB9LAogIHsKICAgIG5hbWU6ICJRdW90ZVF1aWNrIiwKICAgIHN0YXR1czogInNoaXBwZWQiLAogICAgc2hpcHBlZERhdGU6ICIyMDI2LTEwLTExIiwKICAgIGRlc2NyaXB0aW9uOiAiQ29udHJhY3RvciBxdW90ZXMgaW4gbWludXRlcyDigJQgbGluZSBpdGVtcyArIGpvYi1zaXRlIHBob3RvIOKGkiBicmFuZGVkIFBERi4gJDE5IG9uZS10aW1lLiIsCiAgICB1cmw6ICJodHRwczovL3F1b3RlcXVpY2stc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcCIsCiAgfSwKICB7CiAgICBuYW1lOiAiU3ViamVjdExpbmUgTGFiIiwKICAgIHN0YXR1czogIm5leHQiLAogICAgZGVzY3JpcHRpb246ICJBSSBzdWJqZWN0IGxpbmUgZ2VuZXJhdG9yICsgc3BhbS9kZWxpdmVyYWJpbGl0eSBzY29yZXIuIEZyZWVtaXVtIOKGkiAkMTIvbW8uIiwKICB9LAogIHsKICAgIG5hbWU6ICJQcm9wb3NhbCBQaWxvdCIsCiAgICBzdGF0dXM6ICJxdWV1ZWQiLAogICAgZGVzY3JpcHRpb246ICJDbGllbnQgYnJpZWYg4oaSIHN0cnVjdHVyZWQgcHJvcG9zYWwuICQ0OSBvbmUtdGltZS4iLAogIH0sCiAgewogICAgbmFtZTogIlVUTSBCdWlsZGVyIFBybyIsCiAgICBzdGF0dXM6ICJxdWV1ZWQiLAogICAgZGVzY3JpcHRpb246ICJTbWFydCBVVE0gbGlua3MgKyBoaXN0b3J5LiBGcmVlIOKGkiAkOC9tby4iLAogIH0sCiAgewogICAgbmFtZTogIkxhbmRpbmcgUGFnZSBSb2FzdCIsCiAgICBzdGF0dXM6ICJxdWV1ZWQiLAogICAgZGVzY3JpcHRpb246ICJVUkwg4oaSIHNjb3JlZCBBSSB0ZWFyZG93bi4gRnJlZSB0ZWFzZXIg4oaSICQyOSByZXBvcnQuIiwKICB9LApdOwoKZXhwb3J0IHR5cGUgU3RhdHVzRW50cnkgPSB7CiAgZGF0ZTogc3RyaW5nOwogIHRpdGxlOiBzdHJpbmc7CiAgZGV0YWlsOiBzdHJpbmc7Cn07CgpleHBvcnQgY29uc3Qgc3RhdHVzTG9nOiBTdGF0dXNFbnRyeVtdID0gWwogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTE0IiwKICAgIHRpdGxlOiAiTXVzZSBUZW1wbGF0ZXMgdjIg4oCUIDMyIHRlbXBsYXRlcywgZnVsbCBmZWF0dXJlIHNldCIsCiAgICBkZXRhaWw6CiAgICAgICJTaGlwcGVkIHRoZSBjb21wbGV0ZSBNdXNlIFRlbXBsYXRlcyBidWlsZDogZ2FsbGVyeSBncmV3IGZyb20gMTIgdG8gMzIgdGVtcGxhdGVzIChzYWxhcnkgbmVnb3RpYXRpb24sIGNvbGQgb3V0cmVhY2gsIGludm9pY2UgY2hhc2VyLCB3ZWRkaW5nIHBsYW5uZXIsIHBlcnNvbmFsIENSTSwgYW5kIDE1IG1vcmUpLCBkdWFsLWF4aXMgYnJvd3NpbmcgYnkgZm9ybWF0ICsgdXNlLWNhc2UgdHJhY2sgKFdvcmssIE1vbmV5LCBDYXJlZXIsIENyZWF0ZSwgSG9tZSAmIExpZmUsIEhlYWx0aCAmIEZhbWlseSksIHJhdGluZ3MgJiByZXZpZXdzLCAzIGN1cmF0ZWQgY29sbGVjdGlvbnMgd2l0aCBvbmUtY2xpY2sgaW5zdGFsbCBwYWNrcywgdGVtcGxhdGUgc3VibWlzc2lvbiArIG1vZGVyYXRpb24gZmxvdywgdmVyc2lvbmluZy9jaGFuZ2Vsb2csIHRyZW5kaW5nLCBhbmQgZnVsbCBTRU8uIChQTFgtMjk24oCTUExYLTMwNCkiLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTMiLAogICAgdGl0bGU6ICJNdXNlIFRlbXBsYXRlcyBsYXVuY2hlZCIsCiAgICBkZXRhaWw6CiAgICAgICJTaGlwcGVkIGEgcHVibGljIHRlbXBsYXRlIGdhbGxlcnkgZm9yIE11c2Ug4oCUIDEyIHJlYWR5LW1hZGUgc3lzdGVtIHByb21wdHMsIHNraWxscywgY3JvbnMgJiB3b3JrZmxvd3MgKFNlY29uZC1pbi1Db21tYW5kLCBNb3JuaW5nIEJyaWVmaW5nLCBJbmJveCBUcmlhZ2UsIERlZXAgUmVzZWFyY2gsIGFuZCA4IG1vcmUpIHdpdGggY29weS10by1jbGlwYm9hcmQgaW5zdGFsbC4gTGl2ZSBhdCBtdXNlLXRlbXBsYXRlcy1zdGV2ZXBlZWxlcy1wcm9qZWN0cy52ZXJjZWwuYXBwLiAoUExYLTI5NSkiLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTMiLAogICAgdGl0bGU6ICJQcm92ZW4tcmVzdWx0cyBjYXJkcyByZW9yZGVyZWQgKyBhY3F1aXJlZCBiYWRnZXMiLAogICAgZGV0YWlsOgogICAgICAiQ2FyZCBvcmRlciBpcyBub3cgTGF1bmNoIGJ5IE5UVCBEQVRBLCBEb3Rsb29wIC8gWmlsbG93LCBBc3Ryb25vbWVyLCBBbWlmeSAoVGl4eHkgbW92ZWQgb3V0IG9mIHRoZSBoaWdobGlnaHQgc2V0KS4gTGF1bmNoIGFuZCBEb3Rsb29wIC8gWmlsbG93IGNhcnJ5IGFuIFwiQWNxdWlyZWRcIiBiYWRnZSBvbiB0aGUgaG9tZXBhZ2UgYW5kIC93b3JrLiAoUExYLTI5MikiLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTMiLAogICAgdGl0bGU6ICJGdWxsIHByb2Zlc3Npb25hbCBleHBlcmllbmNlIHJlc3RvcmVkICsgdGVzdGltb25pYWxzIHJld3JpdHRlbiIsCiAgICBkZXRhaWw6CiAgICAgICJSZXN0b3JlZCBhbGwgMTAgcm9sZXMgdG8gdGhlIHNpdGUgKEFtaWZ5LCBUaXh4eSwgQnV5c2lkZSwgRUJUSCwgQVBJIE5hdGlvbiwgQXN0cm9ub21lciwgSW5tYW4gTmV3cywgQWR2aXNvcnkgYWxvbmdzaWRlIExhdW5jaCBhbmQgRG90bG9vcCkgd2l0aCBtZXRyaWNzIGZyb20gdGhlIGNhbm9uaWNhbCByZXN1bWUsIGFkZGVkIDYgbmV3IHBvcnRmb2xpbyBwcm9qZWN0IGVudHJpZXMsIGFuZCByZXdyb3RlIGFsbCAxNSB0ZXN0aW1vbmlhbHMgZm9yIHNoYXJwZXIgcHJvZmVzc2lvbmFsLWNhcGFiaWxpdHkgZm9jdXMuIChQTFgtMjg3KSIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMyIsCiAgICB0aXRsZTogIkhvbWUgcmVmcmVzaDogcmVzdWx0cyBjYXJkcyArIGxvZ28gc3RyaXAiLAogICAgZGV0YWlsOgogICAgICAiUHJvdmVuLXJlc3VsdHMgY2FyZHMgc2ltcGxpZmllZCBhbmQgZG91YmxlZCB0byBmb3VyIChUaXh4eSwgQW1pZnkgam9pbiBMYXVuY2ggYW5kIERvdGxvb3ApLCBwbHVzIGEgc3VidGxlIG1hcnF1ZWUgb2YgZXZlcnl3aGVyZSB0aGUgd29yayBnb3QgZG9uZS4gKFBMWC0yOTEpIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTEyIiwKICAgIHRpdGxlOiAiU2NhZmZvbGRpbmcgcGFnZSBpcyBub3cgZnVsbHkgbG9naW4tZnJlZSIsCiAgICBkZXRhaWw6CiAgICAgICJEcm9wcGVkIHRoZSBNaXNzaW9uIENvbnRyb2wgaWZyYW1lIGZyb20gL3NjYWZmb2xkaW5nL2FyY2hpdGVjdHVyZSDigJQgdGhlIHBhZ2Ugbm93IHNob3dzIG9ubHkgZGF0YSB0aGF0IG5lZWRzIG5vIHNpZ24taW4uIFNlY3Rpb24gMDQgaXMgYSBsaXZlLWFwcHMgZGlyZWN0b3J5IChldmVyeSBhcHAsIG9uZSB0YXAgYXdheSk7IE1pc3Npb24gQ29udHJvbCBzdGF5cyBvbmUgdGFwIGF3YXkgYXMgYSBkZWVwIGxpbmsuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTEyIiwKICAgIHRpdGxlOiAiSGlkZGVuIC9zY2FmZm9sZGluZyBhcmNoaXRlY3R1cmUgcGFnZSIsCiAgICBkZXRhaWw6CiAgICAgICJVbmxpc3RlZCwgbm9pbmRleCByZWZlcmVuY2UgcGFnZTogcG9ydGZvbGlvIGFyY2hpdGVjdHVyZSBkaWFncmFtcywgU3VwYWJhc2UgZGF0YSBtYXAsIHBlci1hcHAgcHJvcGVydGllcywgdGhlIGxpdmUgTWlzc2lvbiBDb250cm9sIGVtYmVkLCBtb25pdG9yaW5nIHRpbGVzLCBhbmQgdGhlIHJ1bmJvb2suIFJlZ2VuZXJhdGVzIGZyb20gdGhlIGFyY2hpdGVjdHVyZSBkYXRhIGZpbGUuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTEyIiwKICAgIHRpdGxlOiAiU2VnbWVudCBhbmFseXRpY3MgbWVyZ2VkIHNpdGV3aWRlIiwKICAgIGRldGFpbDoKICAgICAgIlBhZ2UgdHJhY2tpbmcgb24gZXZlcnkgcm91dGUsIGV2ZW50IHRyYWNraW5nIG9uIGV2ZXJ5IENUQSBhbmQgdGhlIFNpZ25hbCBzaWdudXAg4oCUIHRoZSB3aG9sZSBzaXRlIG5vdyByZXBvcnRzIGludG8gb25lIHBsYWNlLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMiIsCiAgICB0aXRsZTogIlB1Ymxpc2ggcXVldWU6IExvdmFibGUgYnVpbGQgY2FjaGUiLAogICAgZGV0YWlsOgogICAgICAiU2l0ZSBkZXBsb3lzIGFyZSBwYXVzZWQgb24gYSBzdGFsZSBMb3ZhYmxlIGJ1aWxkIGVycm9yIHJlZmVyZW5jaW5nIGZpbGVzIHRoYXQgZG9uJ3QgZXhpc3QuIFN1cHBvcnQgdGlja2V0IGZpbGVkIOKAlCBldmVyeXRoaW5nIG1lcmdlZCBpcyB3YWl0aW5nIG9uIHRoZWlyIGNsZWFyLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMiIsCiAgICB0aXRsZTogIk1vbml0b3IgTWl4IENoZWF0IGpvaW5zIHRoZSBCdWlsZGluZyBuYXYiLAogICAgZGV0YWlsOgogICAgICAidjIgKHNoYXJlIGxpbmtzLCBkYXJrIHZlbnVlIG1vZGUsIHByaW50IGxheW91dCkgbm93IGhhcyBpdHMgb3duIHBhZ2UgdW5kZXIgQnVpbGRpbmcg4oCUIGV2ZXJ5IGxpdmUgYXBwIGlzIGxpbmtlZCBmcm9tIHRoZSBzaXRlLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMiIsCiAgICB0aXRsZTogIlJlcHVycG9zZSBFbmdpbmUgdjIgbGl2ZSB3aXRoIHJlYWwgZ2VuZXJhdGlvbiIsCiAgICBkZXRhaWw6CiAgICAgICJIaXN0b3J5LCB0b25lIHByZXNldHMsIGFuZCB0aGUgTExNIGdlbmVyYXRlIHJvdXRlIHdlbnQgbGl2ZSBvbiBWZXJjZWwg4oCUIHRoZSBkZW1vLW1vZGUgYXN0ZXJpc2sgaXMgZ29uZS4iLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTIiLAogICAgdGl0bGU6ICJGaXZlIGFwcHMgc2hpcHBlZCBpbiBvbmUgZGF5IiwKICAgIGRldGFpbDoKICAgICAgIkRhcmRvLCBTdGFtcGQsIFJlcHVycG9zZSBFbmdpbmUsIEdpZ1NwbGl0LCBhbmQgUXVvdGVRdWljayBhbGwgd2VudCBsaXZlIG9uIFZlcmNlbCDigJQgY3VzdG9tIGNvZGUsIFBvc3RIb2cgd2lyZWQgaW4sIExpbmVhciBwcm9qZWN0cyArIGJhY2tsb2dzIGZvciBlYWNoLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMiIsCiAgICB0aXRsZTogIk1pc3Npb24gQ29udHJvbCBsYXVuY2hlZCAocHJpdmF0ZSkiLAogICAgZGV0YWlsOgogICAgICAiUHJpdmF0ZSBkYXNoYm9hcmQgdHJhY2tpbmcgYWxsIHRlbiBwcm9wZXJ0aWVzIOKAlCB0cmFmZmljLCByZXZlbnVlLCBMaW5lYXIgc3RhdHVzLCByZWNlbnQgYWN0aXZpdHkuIFBhc3N3b3JkIGxvZ2luLCBwZXItYXBwIGRldGFpbCBwYWdlcy4iLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTIiLAogICAgdGl0bGU6ICJBbmFseXRpY3MgbGl2ZSBhY3Jvc3MgdGhlIGJvYXJkIiwKICAgIGRldGFpbDoKICAgICAgIlBvc3RIb2cgY2FwdHVyaW5nIG9uIHRoZSBtYWluIHNpdGUgYW5kIGFsbCBmaXZlIG5ldyBhcHBzLCBmZWVkaW5nIE1pc3Npb24gQ29udHJvbCdzIHRyYWZmaWMgdmlld3MuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTEyIiwKICAgIHRpdGxlOiAiUHVibGljIGJvYXJkIHNob3dzIFB1YiBwcm9qZWN0cyBvbmx5IiwKICAgIGRldGFpbDoKICAgICAgIk5ldyBydWxlOiB0aGUgTGluZWFyIGJvYXJkIG9uIHRoZSBzaXRlIG9ubHkgcHVsbHMgcHJvamVjdHMgY2FycnlpbmcgdGhlIFB1YiBsYWJlbC4gU3ByaW50IGFuZCBNaXNzaW9uIENvbnRyb2wgc3RheSBwcml2YXRlLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMSIsCiAgICB0aXRsZTogIkJ1aWxkaW5nIG5hdiBzaW1wbGlmaWVkIiwKICAgIGRldGFpbDoKICAgICAgIlRoZSBIYWNraW5nIG5hdiBpcyBub3cgQnVpbGRpbmcsIHdpdGggdGhlIHBpY2tsaXN0IGdyb3VwZWQgaW50byBCb2FyZCBhbmQgQXBwcyBzZWN0aW9ucy4gU2FtZSBwYWdlcywgY2xlYW5lciBwYXRoLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMiIsCiAgICB0aXRsZTogIk1vbml0b3IgTWl4IENoZWF0IHYyIGxhdW5jaGVkIiwKICAgIGRldGFpbDoKICAgICAgIlNoYXJlIGxpbmtzLCBkYXJrIHZlbnVlIG1vZGUsIHByaW50IGxheW91dCwgZWRpdGFibGUgY2VsbHMuIFN1cGFiYXNlIHNjaGVtYSBtaWdyYXRpb24gcGlsb3QgY29tcGxldGUgKHNvYWsgaGVhbHRoeSkuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDI2LTEwLTExIiwKICAgIHRpdGxlOiAiTGluZWFyIGJvYXJkIGdvZXMgbmF0aXZlIG9uIHRoZSBzaXRlIiwKICAgIGRldGFpbDoKICAgICAgIlRoZSBkZXYgdHJhY2tlciBub3cgbGl2ZXMgb24gL2hhY2tpbmcvc3RhdHVzLCAvaGFja2luZy93aGF0cy1uZXh0LCBhbmQgL2hhY2tpbmcvcHJvZ3Jlc3Mg4oCUIHJlYWwgTGluZWFyIGRhdGEsIHN5bmNlZCBvbiBldmVyeSBidWlsZC4gSGFja2luZyBwYWdlcyByZW5hbWVkIHRvIEJ1aWxkaW5nLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMCIsCiAgICB0aXRsZTogIk1vbml0b3IgTWl4IENoZWF0IGxhdW5jaGVkIiwKICAgIGRldGFpbDogIklucHV0IGxpc3QgKyB2ZW51ZSDihpIgcGVyLWNoYW5uZWwgbW9uaXRvciBtaXggc3RhcnRpbmcgcG9pbnRzLiBUaGlyZCBhcHAgb2YgdGhlIGRheS4iLAogIH0sCiAgewogICAgZGF0ZTogIjIwMjYtMTAtMTAiLAogICAgdGl0bGU6ICJQcm9mb2xpbyB2MSDigJQgcmVhbCBhY2NvdW50cywgcmVhbCBiYWNrZW5kIiwKICAgIGRldGFpbDogIlN1cGFiYXNlIGF1dGgsIG1hcmtldGluZyBzaXRlLCBmcmVlL3BybyB0aWVycy4gR3JhZHVhdGVkIGZyb20gZGVtbyB0byBwcm9kdWN0LiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyNi0xMC0xMCIsCiAgICB0aXRsZTogIlN0YWdlUGxvdCBBSSBsYXVuY2hlZCIsCiAgICBkZXRhaWw6ICJGaXJzdCBhcHAgb2YgdGhlIHNwcmludC4gSW5wdXQgbGlzdCDihpIgc3RhZ2UgcGxvdCArIGNoYW5uZWwgc2hlZXQsIGxpdmUgb24gVmVyY2VsLiIsCiAgfSwKXTsKCmV4cG9ydCB0eXBlIFByb2dyZXNzSXRlbSA9IHsKICBhcHA6IHN0cmluZzsKICBzdGF0dXM6ICJsaXZlIiB8ICJidWlsZGluZyIgfCAicXVldWVkIjsKICB1cmw/OiBzdHJpbmc7CiAgdXBkYXRlZDogc3RyaW5nOwogIG5vdGU6IHN0cmluZzsKfTsKCmV4cG9ydCBjb25zdCBoYWNraW5nUHJvZ3Jlc3M6IFByb2dyZXNzSXRlbVtdID0gWwogIHsKICAgIGFwcDogIlN0YWdlUGxvdCBBSSIsCiAgICBzdGF0dXM6ICJsaXZlIiwKICAgIHVybDogImh0dHBzOi8vc3RhZ2VwbG90LWFpLXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAvIiwKICAgIHVwZGF0ZWQ6ICIyMDI2LTEwLTEwIiwKICAgIG5vdGU6ICJMYXVuY2hlZC4gTW9uaXRvcmluZyB0cmFjdGlvbi4iLAogIH0sCiAgewogICAgYXBwOiAiUHJvZm9saW8iLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL3Byb2ZvbGlvLXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAvIiwKICAgIHVwZGF0ZWQ6ICIyMDI2LTEwLTEwIiwKICAgIG5vdGU6ICJ2MSBzaGlwcGVkIHdpdGggYXV0aCArIGJhY2tlbmQuIFN0cmlwZSBjaGVja291dCBwZW5kaW5nLiIsCiAgfSwKICB7CiAgICBhcHA6ICJNb25pdG9yIE1peCBDaGVhdCIsCiAgICBzdGF0dXM6ICJsaXZlIiwKICAgIHVybDogImh0dHBzOi8vbW9uaXRvci1taXgtY2hlYXQudmVyY2VsLmFwcC8iLAogICAgdXBkYXRlZDogIjIwMjYtMTAtMTIiLAogICAgbm90ZTogInYyIGxpdmU6IHNoYXJlIGxpbmtzLCBkYXJrIHZlbnVlIG1vZGUsIHByaW50IGxheW91dC4gTGF1bmNoIHBvc3RzIGdvaW5nIG91dC4iLAogIH0sCiAgewogICAgYXBwOiAiQmluc2x5IiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9saW5rbGliLmJhc2U0NC5hcHAiLAogICAgdXBkYXRlZDogIjIwMjYtMTAtMDkiLAogICAgbm90ZTogIkxpbmsgbGlicmFyeSBleHBlcmltZW50LCBvbmdvaW5nLiBOYXRpdmUgQW5kcm9pZCBhcHAgc2NvcGVkLiIsCiAgfSwKICB7CiAgICBhcHA6ICJEYXJkbyIsCiAgICBzdGF0dXM6ICJsaXZlIiwKICAgIHVybDogImh0dHBzOi8vZGFyZG8tc21va3kudmVyY2VsLmFwcCIsCiAgICB1cGRhdGVkOiAiMjAyNi0xMC0xMSIsCiAgICBub3RlOiAidjEgbGl2ZSB3aXRoIFN1cGFiYXNlIGF1dGguIEJyaWVmIGF1dG9tYXRpb24gbmV4dC4iLAogIH0sCiAgewogICAgYXBwOiAiU3RhbXBkIiwKICAgIHN0YXR1czogImxpdmUiLAogICAgdXJsOiAiaHR0cHM6Ly9zdGFtcGQtc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcCIsCiAgICB1cGRhdGVkOiAiMjAyNi0xMC0xMiIsCiAgICBub3RlOiAidjEgbGl2ZS4gdjIgaW4gcHJvZ3Jlc3M6IGFjY291bnRzLCBleHBvcnRzLCB3b3JrIHR5cGVzLCBlbXBsb3llciBzaGFyZSBsaW5rcy4iLAogIH0sCiAgewogICAgYXBwOiAiUmVwdXJwb3NlIEVuZ2luZSIsCiAgICBzdGF0dXM6ICJsaXZlIiwKICAgIHVybDogImh0dHBzOi8vcmVwdXJwb3NlLWVuZ2luZS1iZXJ5bC52ZXJjZWwuYXBwIiwKICAgIHVwZGF0ZWQ6ICIyMDI2LTEwLTEyIiwKICAgIG5vdGU6ICJ2MiBsaXZlOiBoaXN0b3J5ICsgdG9uZSBwcmVzZXRzICsgcmVhbCBMTE0gZ2VuZXJhdGlvbi4iLAogIH0sCiAgewogICAgYXBwOiAiR2lnU3BsaXQiLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL2dpZ3NwbGl0LXN0ZXZlcGVlbGVzLXByb2plY3RzLnZlcmNlbC5hcHAiLAogICAgdXBkYXRlZDogIjIwMjYtMTAtMTEiLAogICAgbm90ZTogIkxpdmUuIE1vbml0b3JpbmcgdHJhY3Rpb24uIiwKICB9LAogIHsKICAgIGFwcDogIlF1b3RlUXVpY2siLAogICAgc3RhdHVzOiAibGl2ZSIsCiAgICB1cmw6ICJodHRwczovL3F1b3RlcXVpY2stc3RldmVwZWVsZXMtcHJvamVjdHMudmVyY2VsLmFwcCIsCiAgICB1cGRhdGVkOiAiMjAyNi0xMC0xMSIsCiAgICBub3RlOiAiTGl2ZS4gTW9uaXRvcmluZyB0cmFjdGlvbi4iLAogIH0sCiAgewogICAgYXBwOiAiU3ViamVjdExpbmUgTGFiIiwKICAgIHN0YXR1czogImJ1aWxkaW5nIiwKICAgIHVwZGF0ZWQ6ICIyMDI2LTEwLTEyIiwKICAgIG5vdGU6ICJOZXh0IGluIHRoZSBxdWV1ZS4iLAogIH0sCiAgewogICAgYXBwOiAiUHJvcG9zYWwgUGlsb3QiLAogICAgc3RhdHVzOiAicXVldWVkIiwKICAgIHVwZGF0ZWQ6ICIyMDI2LTEwLTEyIiwKICAgIG5vdGU6ICJJbiB0aGUgYnVpbGQgcXVldWUuIiwKICB9LAogIHsKICAgIGFwcDogIlVUTSBCdWlsZGVyIFBybyIsCiAgICBzdGF0dXM6ICJxdWV1ZWQiLAogICAgdXBkYXRlZDogIjIwMjYtMTAtMTIiLAogICAgbm90ZTogIkluIHRoZSBidWlsZCBxdWV1ZS4iLAogIH0sCiAgewogICAgYXBwOiAiTGFuZGluZyBQYWdlIFJvYXN0IiwKICAgIHN0YXR1czogInF1ZXVlZCIsCiAgICB1cGRhdGVkOiAiMjAyNi0xMC0xMiIsCiAgICBub3RlOiAiSW4gdGhlIGJ1aWxkIHF1ZXVlLiIsCiAgfSwKXTsK
+export type HackingApp = {
+  slug: string;
+  label: string;
+  blurb: string;
+  status: "live" | "building" | "queued" | "soon";
+  url?: string;
+  description: string;
+  why: string;
+};
+
+export const hackingApps: HackingApp[] = [
+  {
+    slug: "binsly",
+    label: "Binsly",
+    blurb: "Own your link layer",
+    status: "live",
+    url: "https://linklib.base44.app",
+    description:
+      "A link-in-bio and link library experiment — your links, your rules, no algorithmic middleman deciding who sees what.",
+    why: "The link in bio is rented land. Binsly is the experiment in owning it.",
+  },
+  {
+    slug: "profolio",
+    label: "Profolio",
+    blurb: "One baseline, many stories",
+    status: "live",
+    url: "https://profolio-stevepeeles-projects.vercel.app/",
+    description:
+      "A professional portfolio builder. One private baseline of projects, skills, and credentials — then tailored views for whoever you're talking to.",
+    why: "One resume for every audience is lazy. Maintaining five versions is a job. One baseline, many views.",
+  },
+  {
+    slug: "smart-access",
+    label: "Smart Access",
+    blurb: "Coming soon",
+    status: "soon",
+    description: "Details coming soon — this one's still taking shape on the workbench.",
+    why: "Watch this space.",
+  },
+  {
+    slug: "stageplot-ai",
+    label: "StagePlot AI",
+    blurb: "Input list → stage plot",
+    status: "live",
+    url: "https://stageplot-ai-stevepeeles-projects.vercel.app/",
+    description:
+      "Paste a band's input list, get a professional stage plot + channel sheet in seconds. Built for live sound engineers who are tired of drawing rectangles in PowerPoint at 1am.",
+    why: "90% of mic choices are automatic. The layout is standard. The channel sheet is formatting. So why do it by hand?",
+  },
+  {
+    slug: "monitor-mix-cheat",
+    label: "Monitor Mix Cheat",
+    blurb: "Input list → monitor mix",
+    status: "live",
+    url: "https://monitor-mix-cheat.vercel.app",
+    description:
+      "Paste the band's input list and venue type, get per-channel monitor mix starting points — EQ, compression, and levels before the first soundcheck note.",
+    why: "The 1am soundcheck scribble is a tradition nobody misses. If the input list is standard, the starting mix can be too.",
+  },
+  {
+    slug: "nexus",
+    label: "Nexus",
+    blurb: "Coming soon",
+    status: "soon",
+    description: "Details coming soon — this one's still taking shape on the workbench.",
+    why: "Watch this space.",
+  },
+  {
+    slug: "dardo",
+    label: "Dardo",
+    blurb: "AI sidekick for agents",
+    status: "live",
+    url: "https://dardo-smoky.vercel.app",
+    description:
+      "An AI sidekick for real estate agents. One-tap capture, passive mileage and routing, and an evening brief with drafted follow-ups. $4.99/mo.",
+    why: "The admin work between appointments eats the day. Dardo closes the day itself — and it's explicitly not another CRM.",
+  },
+  {
+    slug: "stampd",
+    label: "Stampd",
+    blurb: "Shift & pay tracker",
+    status: "live",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
+    description:
+      "A no-training shift and pay tracker for contractors and day laborers. Tap to clock in and out; the pay math handles itself. $29 one-time.",
+    why: "The people doing the hardest work have the worst time records. If you can tap a button, you can use Stampd.",
+  },
+  {
+    slug: "repurpose-engine",
+    label: "Repurpose Engine",
+    blurb: "One post, ten platforms",
+    status: "live",
+    url: "https://repurpose-engine-beryl.vercel.app",
+    description:
+      "Write one post, get ten platform-native versions back — each shaped for where it lives, not the same text pasted everywhere.",
+    why: "Rewriting the same post for every platform is a second job. The thinking stays yours; the reformatting shouldn't eat your afternoon.",
+  },
+  {
+    slug: "gigsplit",
+    label: "GigSplit",
+    blurb: "Band pay splitter",
+    status: "live",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
+    description:
+      "Enter the gig pay, add members and expenses, and see who gets what — with penny-exact math and paid tracking. $9 one-time.",
+    why: "The payout argument in the parking lot is a tradition nobody likes. One clean screen ends it.",
+  },
+  {
+    slug: "quotequick",
+    label: "QuoteQuick",
+    blurb: "Contractor quotes in minutes",
+    status: "live",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
+    description:
+      "Line items plus a job-site photo turn into a branded PDF quote, ready to send before you leave the driveway. $19 one-time.",
+    why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
+  },
+  {
+    slug: "promptvault",
+    label: "PromptVault",
+    blurb: "Prompts, skills & automations",
+    status: "live",
+    url: "https://vault.stevepeeleii.com/",
+    description:
+      "A gallery of 63 ready-made templates for Muse — system prompts, skills, crons, and workflows across Work, Money, Career, Create, Home & Life, and Health & Family tracks. Ratings, reviews, curated collections, one-click install packs, community submissions, and an About page. Renamed from Muse Templates.",
+    why: "The best Muse setups are built, not discovered. Templates make the good ones shareable.",
+  },
+];
+
+export type BuildQueueItem = {
+  name: string;
+  status: "shipped" | "next" | "queued";
+  shippedDate?: string;
+  description: string;
+  url?: string;
+};
+
+export const buildQueue: BuildQueueItem[] = [
+  {
+    name: "PromptVault",
+    status: "shipped",
+    shippedDate: "2026-10-14",
+    description: "Template gallery for Muse — 63 ready-made templates across 6 use-case tracks, with ratings, curated collections, one-click install packs, community submissions, About page, and full install guides. Renamed from Muse Templates; live at vault.stevepeeleii.com (DNS pending).",
+    url: "https://vault.stevepeeleii.com/",
+  },
+  {
+    name: "StagePlot AI",
+    status: "shipped",
+    shippedDate: "2026-10-10",
+    description: "Input list → stage plot + channel sheet for live sound engineers.",
+    url: "https://stageplot-ai-stevepeeles-projects.vercel.app/",
+  },
+  {
+    name: "Profolio",
+    status: "shipped",
+    shippedDate: "2026-10-10",
+    description: "Professional portfolio builder — one baseline, many tailored views.",
+    url: "https://profolio-stevepeeles-projects.vercel.app/",
+  },
+  {
+    name: "Monitor Mix Cheat",
+    status: "shipped",
+    shippedDate: "2026-10-10",
+    description: "Input list + venue type → monitor mix starting points (EQ, comp, levels).",
+    url: "https://monitor-mix-cheat.vercel.app/",
+  },
+  {
+    name: "Dardo",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "AI sidekick for real estate agents — one-tap capture, evening brief. $4.99/mo.",
+    url: "https://dardo-smoky.vercel.app",
+  },
+  {
+    name: "Stampd",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "No-training shift & pay tracker for contractors and day laborers. $29 one-time.",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "Repurpose Engine",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "One post → platform-native versions for everywhere it lives.",
+    url: "https://repurpose-engine-beryl.vercel.app",
+  },
+  {
+    name: "GigSplit",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "Band pay splitter — penny-exact payouts, who got paid tracking. $9 one-time.",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "QuoteQuick",
+    status: "shipped",
+    shippedDate: "2026-10-11",
+    description: "Contractor quotes in minutes — line items + job-site photo → branded PDF. $19 one-time.",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
+  },
+  {
+    name: "SubjectLine Lab",
+    status: "next",
+    description: "AI subject line generator + spam/deliverability scorer. Freemium → $12/mo.",
+  },
+  {
+    name: "Proposal Pilot",
+    status: "queued",
+    description: "Client brief → structured proposal. $49 one-time.",
+  },
+  {
+    name: "UTM Builder Pro",
+    status: "queued",
+    description: "Smart UTM links + history. Free → $8/mo.",
+  },
+  {
+    name: "Landing Page Roast",
+    status: "queued",
+    description: "URL → scored AI teardown. Free teaser → $29 report.",
+  },
+];
+
+export type StatusEntry = {
+  date: string;
+  title: string;
+  detail: string;
+};
+
+export const statusLog: StatusEntry[] = [
+  {
+    date: "2026-10-14",
+    title: "PromptVault — renamed, 63 templates, About page, subdomain",
+    detail:
+      "Muse Templates renamed to PromptVault (clearer brand, cleaner subdomain). Gallery grew from 32 to 63 templates with 30 new additions (tax prep, elder care, garden planner, retirement countdown, and 26 more). All 63 templates got upgraded install guides (prerequisites, steps, customization, troubleshooting). Category/track selector bug fixed via event delegation. About page added. Wired to vault.stevepeeleii.com — DNS CNAME record pending at GoDaddy. (PLX-306–PLX-311)",
+  },
+  {
+    date: "2026-10-14",
+    title: "Muse Templates v2 — 32 templates, full feature set",
+    detail:
+      "Shipped the complete Muse Templates build: gallery grew from 12 to 32 templates (salary negotiation, cold outreach, invoice chaser, wedding planner, personal CRM, and 15 more), dual-axis browsing by format + use-case track (Work, Money, Career, Create, Home & Life, Health & Family), ratings & reviews, 3 curated collections with one-click install packs, template submission + moderation flow, versioning/changelog, trending, and full SEO. (PLX-296–PLX-304)",
+  },
+  {
+    date: "2026-10-13",
+    title: "Muse Templates launched",
+    detail:
+      "Shipped a public template gallery for Muse — 12 ready-made system prompts, skills, crons & workflows (Second-in-Command, Morning Briefing, Inbox Triage, Deep Research, and 8 more) with copy-to-clipboard install. Live at muse-templates-stevepeeles-projects.vercel.app. (PLX-295)",
+  },
+  {
+    date: "2026-10-13",
+    title: "Proven-results cards reordered + acquired badges",
+    detail:
+      "Card order is now Launch by NTT DATA, Dotloop / Zillow, Astronomer, Amify (Tixxy moved out of the highlight set). Launch and Dotloop / Zillow carry an \"Acquired\" badge on the homepage and /work. (PLX-292)",
+  },
+  {
+    date: "2026-10-13",
+    title: "Full professional experience restored + testimonials rewritten",
+    detail:
+      "Restored all 10 roles to the site (Amify, Tixxy, Buyside, EBTH, API Nation, Astronomer, Inman News, Advisory alongside Launch and Dotloop) with metrics from the canonical resume, added 6 new portfolio project entries, and rewrote all 15 testimonials for sharper professional-capability focus. (PLX-287)",
+  },
+  {
+    date: "2026-10-13",
+    title: "Home refresh: results cards + logo strip",
+    detail:
+      "Proven-results cards simplified and doubled to four (Tixxy, Amify join Launch and Dotloop), plus a subtle marquee of everywhere the work got done. (PLX-291)",
+  },
+  {
+    date: "2026-10-12",
+    title: "Scaffolding page is now fully login-free",
+    detail:
+      "Dropped the Mission Control iframe from /scaffolding/architecture — the page now shows only data that needs no sign-in. Section 04 is a live-apps directory (every app, one tap away); Mission Control stays one tap away as a deep link.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Hidden /scaffolding architecture page",
+    detail:
+      "Unlisted, noindex reference page: portfolio architecture diagrams, Supabase data map, per-app properties, the live Mission Control embed, monitoring tiles, and the runbook. Regenerates from the architecture data file.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Segment analytics merged sitewide",
+    detail:
+      "Page tracking on every route, event tracking on every CTA and the Signal signup — the whole site now reports into one place.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Publish queue: Lovable build cache",
+    detail:
+      "Site deploys are paused on a stale Lovable build error referencing files that don't exist. Support ticket filed — everything merged is waiting on their clear.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Monitor Mix Cheat joins the Building nav",
+    detail:
+      "v2 (share links, dark venue mode, print layout) now has its own page under Building — every live app is linked from the site.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Repurpose Engine v2 live with real generation",
+    detail:
+      "History, tone presets, and the LLM generate route went live on Vercel — the demo-mode asterisk is gone.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Five apps shipped in one day",
+    detail:
+      "Dardo, Stampd, Repurpose Engine, GigSplit, and QuoteQuick all went live on Vercel — custom code, PostHog wired in, Linear projects + backlogs for each.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Mission Control launched (private)",
+    detail:
+      "Private dashboard tracking all ten properties — traffic, revenue, Linear status, recent activity. Password login, per-app detail pages.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Analytics live across the board",
+    detail:
+      "PostHog capturing on the main site and all five new apps, feeding Mission Control's traffic views.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Public board shows Pub projects only",
+    detail:
+      "New rule: the Linear board on the site only pulls projects carrying the Pub label. Sprint and Mission Control stay private.",
+  },
+  {
+    date: "2026-10-11",
+    title: "Building nav simplified",
+    detail:
+      "The Hacking nav is now Building, with the picklist grouped into Board and Apps sections. Same pages, cleaner path.",
+  },
+  {
+    date: "2026-10-12",
+    title: "Monitor Mix Cheat v2 launched",
+    detail:
+      "Share links, dark venue mode, print layout, editable cells. Supabase schema migration pilot complete (soak healthy).",
+  },
+  {
+    date: "2026-10-11",
+    title: "Linear board goes native on the site",
+    detail:
+      "The dev tracker now lives on /hacking/status, /hacking/whats-next, and /hacking/progress — real Linear data, synced on every build. Hacking pages renamed to Building.",
+  },
+  {
+    date: "2026-10-10",
+    title: "Monitor Mix Cheat launched",
+    detail: "Input list + venue → per-channel monitor mix starting points. Third app of the day.",
+  },
+  {
+    date: "2026-10-10",
+    title: "Profolio v1 — real accounts, real backend",
+    detail: "Supabase auth, marketing site, free/pro tiers. Graduated from demo to product.",
+  },
+  {
+    date: "2026-10-10",
+    title: "StagePlot AI launched",
+    detail: "First app of the sprint. Input list → stage plot + channel sheet, live on Vercel.",
+  },
+];
+
+export type ProgressItem = {
+  app: string;
+  status: "live" | "building" | "queued";
+  url?: string;
+  updated: string;
+  note: string;
+};
+
+export const hackingProgress: ProgressItem[] = [
+  {
+    app: "StagePlot AI",
+    status: "live",
+    url: "https://stageplot-ai-stevepeeles-projects.vercel.app/",
+    updated: "2026-10-10",
+    note: "Launched. Monitoring traction.",
+  },
+  {
+    app: "Profolio",
+    status: "live",
+    url: "https://profolio-stevepeeles-projects.vercel.app/",
+    updated: "2026-10-10",
+    note: "v1 shipped with auth + backend. Stripe checkout pending.",
+  },
+  {
+    app: "Monitor Mix Cheat",
+    status: "live",
+    url: "https://monitor-mix-cheat.vercel.app/",
+    updated: "2026-10-12",
+    note: "v2 live: share links, dark venue mode, print layout. Launch posts going out.",
+  },
+  {
+    app: "Binsly",
+    status: "live",
+    url: "https://linklib.base44.app",
+    updated: "2026-10-09",
+    note: "Link library experiment, ongoing. Native Android app scoped.",
+  },
+  {
+    app: "Dardo",
+    status: "live",
+    url: "https://dardo-smoky.vercel.app",
+    updated: "2026-10-11",
+    note: "v1 live with Supabase auth. Brief automation next.",
+  },
+  {
+    app: "Stampd",
+    status: "live",
+    url: "https://stampd-stevepeeles-projects.vercel.app",
+    updated: "2026-10-12",
+    note: "v1 live. v2 in progress: accounts, exports, work types, employer share links.",
+  },
+  {
+    app: "Repurpose Engine",
+    status: "live",
+    url: "https://repurpose-engine-beryl.vercel.app",
+    updated: "2026-10-12",
+    note: "v2 live: history + tone presets + real LLM generation.",
+  },
+  {
+    app: "GigSplit",
+    status: "live",
+    url: "https://gigsplit-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "Live. Monitoring traction.",
+  },
+  {
+    app: "QuoteQuick",
+    status: "live",
+    url: "https://quotequick-stevepeeles-projects.vercel.app",
+    updated: "2026-10-11",
+    note: "Live. Monitoring traction.",
+  },
+  {
+    app: "SubjectLine Lab",
+    status: "building",
+    updated: "2026-10-12",
+    note: "Next in the queue.",
+  },
+  {
+    app: "Proposal Pilot",
+    status: "queued",
+    updated: "2026-10-12",
+    note: "In the build queue.",
+  },
+  {
+    app: "UTM Builder Pro",
+    status: "queued",
+    updated: "2026-10-12",
+    note: "In the build queue.",
+  },
+  {
+    app: "Landing Page Roast",
+    status: "queued",
+    updated: "2026-10-12",
+    note: "In the build queue.",
+  },
+];
