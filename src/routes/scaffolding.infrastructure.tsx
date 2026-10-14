@@ -84,6 +84,7 @@ function InfrastructurePage() {
         />
         <div className="panel space-y-2 p-5 text-sm text-muted-foreground">
           <p><span className="font-semibold text-foreground">Free-plan deploy cap:</span> 100 deployments/day — the 402 <code>api-deployments-free-per-day</code> error blocked Mission Control on 2026-10-14. Retry next day (cron set).</p>
+          <p><span className="font-semibold text-foreground">Webhook gap (2026-10-14):</span> commits pushed via the GitHub connector API do not fire Vercel's build webhook. After every connector push, POST the "manual-deploy" hook (dashboard → stevepeeleii → Settings → Git → Deploy Hooks) and confirm the deployment appears.</p>
           <p><span className="font-semibold text-foreground">Redeploy vs push:</span> dashboard Redeploy rebuilds the same commit — it does not pull latest. Push a commit to ship new code.</p>
         </div>
       </section>

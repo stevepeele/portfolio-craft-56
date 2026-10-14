@@ -25,14 +25,18 @@ const TILES: { name: string; url: string; what: string; status: string }[] = [
 ];
 
 const CRON_ROWS = [
-  ["scaffolding-changelog-updater", "Daily 06:30 ET", "Pulls GitHub commits + Linear completions + Vercel deploys → regenerates changelog + deploy log → pushes via connector → auto-deploys"],
-  ["mission-control-deploy-retry", "Runonce Thu 2026-10-15 06:00 ET", "Ships the Mission Control GitHub-fallback commit (9302e5d) blocked by the 2026-10-14 Vercel 402 cap"],
-  ["job-sweep-2026-10-10", "5× daily", "Autonomous hiring engine — scans, scores, applies in-lane (his standing grant)"],
-  ["court-case-docket-watch", "Daily morning", "Hamilton County docket digest for his cases"],
-  ["marketplace-flip-hunt", "Every 4 hours", "Facebook Marketplace under-priced flips"],
-  ["bins.ly Instagram → X", "Every 30 min", "Autopost watch"],
-  ["UTDW Friday check-in", "Friday morning", "Practice check-in via UTDW Operations group"],
-  ["unclaimed-property-search", "Scheduled", "Ohio unclaimed funds watch"],
+  ["deploy-watch", "Every 3 min", "Vercel → Slack #deploys — every deploy posts here"],
+  ["binsly-deploy-watch", "Every 30 min", "Binsly deploys → #deploys"],
+  ["linear-issue-watch", "Every 5 min", "Linear activity watch"],
+  ["hubspot-chat-watch", "Every 15 min", "HubSpot chat inbox — replies as his assistant"],
+  ["hubspot-tracking-ensure", "Daily 09:22", "Keeps HubSpot tracking installed across Vercel projects"],
+  ["scaffolding-changelog-updater", "Daily 06:22", "Changelog + deploy log updater — keeps this hub current"],
+  ["mission-control-deploy-retry", "Once Thu 06:00", "Ships the Mission Control GitHub-feed fix (402-blocked)"],
+  ["prepwise-deploy-retry", "Once Thu 08:30", "Prepwise deploy retry"],
+  ["sozo-watch-deploy-retry", "Once today 20:30", "Sozo deploy retry (quota reset)"],
+  ["vault-desktop-track-deploy-retry", "Once today 12:22", "Vault Desktop track deploy retry"],
+  ["court-docket-watch-peele", "Daily 08:22", "Hamilton County court docket digest"],
+  ["utdw-friday-practice-checkin", "Fri 09:22", "UTDW practice check-in"],
 ];
 
 function MonitoringPage() {
@@ -94,7 +98,10 @@ function MonitoringPage() {
           rows={CRON_ROWS.map((r) => [<code className="font-mono text-xs">{r[0]}</code>, r[1], r[2]])}
         />
         <p className="text-sm text-muted-foreground">
-          Full job list: <code>cron.list</code>. The scaffolding changelog updater is what keeps{" "}
+          Full job list: <code>cron.list</code> (verified 2026-10-14). Also running: the job-hunt engine
+          (job-alert-scan, job-sweep-evening, remote-job-board-sweep, recruiter-sweep, linkedin-network-outreach),
+          comms triage (morning brief, lead digests, MyChart updates), Granola → Evernote sync, and system jobs.
+          The scaffolding changelog updater is what keeps{" "}
           <span className="font-mono text-xs">/scaffolding/changelog</span> and{" "}
           <span className="font-mono text-xs">/scaffolding/deploys</span> current — see the changelog page for its merge rules.
         </p>
