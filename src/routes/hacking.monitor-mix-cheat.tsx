@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { trackCta } from "@/lib/segment";
 
-const title = "Monitor Mix Cheat — Live Sound Monitor Cheat Sheets | Steve Peele II";
+const title = "Monitor Mix Cheat — Input List → Monitor Mix | Steve Peele II";
 const description =
-  "Monitor Mix Cheat: instant monitor mix cheat sheets for live sound engineers. Dial in wedge and IEM mixes faster, stop guessing, keep the stage happy. Why he built it and how it works.";
+  "Monitor Mix Cheat: paste the band's input list and venue type, get per-channel monitor mix starting points — EQ, compression, and levels before the first soundcheck note.";
+
+const appUrl = "https://monitor-mix-cheat.vercel.app";
 
 export const Route = createFileRoute("/hacking/monitor-mix-cheat")({
   head: () => ({
@@ -23,27 +24,13 @@ export const Route = createFileRoute("/hacking/monitor-mix-cheat")({
   component: MonitorMixCheatPage,
 });
 
-const sections = [
-  {
-    kicker: "The problem",
-    heading: "Soundcheck eats the show.",
-    body: "You're behind the console, the band's staring at you, and someone's yelling 'more me' for the third time. Every monitor mix starts from zero — which wedge, which aux, what the singer actually needs versus what they think they need. The knowledge lives in your head, and under pressure it evaporates.",
-  },
-  {
-    kicker: "What it is",
-    heading: "The cheat sheet you wish you had.",
-    body: "Monitor Mix Cheat gives you instant reference for building monitor mixes: starting points for wedges and IEMs by instrument, common problem frequencies, and the signal flow logic that actually matters when the clock is running. It's the stuff experienced engineers know by feel, written down so you don't have to learn it the hard way.",
-  },
-  {
-    kicker: "How it works",
-    heading: "Look it up. Dial it in. Move on.",
-    body: "Pick the scenario — wedge mix for a five-piece, IEM starting points for a vocalist, taming a boomy stage. Get the cheat sheet: what to push, what to cut, and why. No accounts, no onboarding, no friction. It's a reference tool, and it acts like one.",
-  },
-  {
-    kicker: "What's next",
-    heading: "Built by someone who mixes.",
-    body: "Steve runs live sound and needed this to exist, so he built it. What's next is expanding the library — more instruments, more scenarios, and the edge cases you only hit at 11pm on a Saturday. If you mix monitors, this is for you.",
-  },
+const features = [
+  "Paste the input list, pick the venue type",
+  "Per-channel starting points: EQ, compression, levels",
+  "Share links — send the mix sheet to the band",
+  "Dark venue mode for the actual gig",
+  "Print layout for the tape-and-sharpie crowd",
+  "Editable cells — adjust and keep the math",
 ];
 
 function MonitorMixCheatPage() {
@@ -58,47 +45,73 @@ function MonitorMixCheatPage() {
             </Link>
             <p className="eyebrow mt-8">Building / Monitor Mix Cheat</p>
             <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Stop guessing <span className="text-gradient">the monitor mix.</span>
+              Input list in, <span className="text-gradient">mix sheet out.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Instant cheat sheets for live sound engineers — wedge and IEM
-              starting points, problem frequencies, and the mix logic that
-              matters when the clock is running.
+              Paste the band's input list and venue type, get per-channel monitor mix starting
+              points — EQ, compression, and levels before the first soundcheck note.
             </p>
             <div className="mt-8">
               <a
-                href="https://monitormix.stevepeeleii.com"
+                href={appUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary inline-flex items-center gap-2"
-               onClick={() => trackCta("Try App", "hacking page", "https://monitormix.stevepeeleii.com")}>
-                Try it live <ArrowUpRight className="size-4" />
+              >
+                Open Monitor Mix Cheat <ArrowUpRight className="size-4" />
               </a>
             </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-4xl px-5 py-20">
-          <div className="space-y-16">
-            {sections.map((s, i) => (
-              <article key={s.kicker} className="panel p-8 sm:p-10">
-                <p className="eyebrow">
-                  0{i + 1} / {s.kicker}
-                </p>
-                <h2 className="mt-4 text-2xl font-bold sm:text-3xl">{s.heading}</h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">{s.body}</p>
-              </article>
+          <p className="eyebrow">Why I built it</p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">The 1am soundcheck scribble is a tradition nobody misses.</h2>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            Ninety percent of mic choices are automatic. The starting EQ on a 58 is the starting
+            EQ on a 58. If the input list is standard, the starting mix can be too — so the
+            soundcheck starts from somewhere sane instead of a blank page.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            This is the companion to StagePlot AI: one turns the input list into the plot, the
+            other turns it into the mix. Built by a live sound engineer who got tired of drawing
+            rectangles in PowerPoint at 1am.
+          </p>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
+            {features.map((f) => (
+              <div key={f} className="panel flex items-start gap-3 p-5">
+                <Check className="mt-0.5 size-5 shrink-0 text-emerald-400" aria-hidden="true" />
+                <p className="text-sm text-muted-foreground">{f}</p>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <p className="eyebrow">What's next</p>
+            <h3 className="mt-4 text-2xl font-bold">On the build queue</h3>
+            <ul className="mt-6 space-y-3">
+              {[
+                "Saved venue presets — your rooms, your starting points",
+                "Band profiles that remember their riders",
+                "Export to the usual console file formats",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-16 text-center">
             <a
-              href="https://monitormix.stevepeeleii.com"
+              href={appUrl}
               target="_blank"
               rel="noreferrer"
               className="btn-primary inline-flex items-center gap-2"
-             onClick={() => trackCta("Try App", "hacking page", "https://monitormix.stevepeeleii.com")}>
-              Open the app <ArrowUpRight className="size-4" />
+            >
+              Open Monitor Mix Cheat <ArrowUpRight className="size-4" />
             </a>
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
