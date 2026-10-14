@@ -12,6 +12,7 @@ export const Route = createFileRoute("/scaffolding")({
 });
 
 const CARDS: { to: string; name: string; blurb: string }[] = [
+  { to: "/scaffolding/snapshot", name: "Snapshot · Oct 2026", blurb: "Frozen memorial of the portfolio as it stood the day the hub launched." },
   { to: "/scaffolding/architecture", name: "Architecture", blurb: "Main-site stack, scripts, data flows, env vars, DNS, redirects." },
   { to: "/scaffolding/projects", name: "Projects", blurb: "Every app, site, and service — repo, hosting, stack, status, Linear project." },
   { to: "/scaffolding/infrastructure", name: "Infrastructure", blurb: "Vercel, GitHub, Supabase, Sanity, Segment, HubSpot — accounts, projects, regions." },

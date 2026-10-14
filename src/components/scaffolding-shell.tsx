@@ -21,6 +21,7 @@ export function scaffoldingHead(path: string, title: string, description: string
 
 export const SCAFFOLDING_NAV: { to: string; label: string; group: string }[] = [
   { to: "/scaffolding", label: "Overview", group: "Docs" },
+  { to: "/scaffolding/snapshot", label: "Snapshot · Oct 2026", group: "Docs" },
   { to: "/scaffolding/architecture", label: "Architecture", group: "Docs" },
   { to: "/scaffolding/architecture/analytics", label: "Analytics wiring", group: "Docs" },
   { to: "/scaffolding/architecture/data-flows", label: "Data flows", group: "Docs" },

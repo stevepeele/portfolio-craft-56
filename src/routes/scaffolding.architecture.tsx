@@ -193,6 +193,7 @@ function ArchitecturePage() {
             <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {[
                 ["/scaffolding", "Docs home"],
+                ["/scaffolding/snapshot", "Snapshot · Oct 2026"],
                 ["/scaffolding/projects", "Projects"],
                 ["/scaffolding/infrastructure", "Infrastructure"],
                 ["/scaffolding/diagrams", "Diagrams"],
