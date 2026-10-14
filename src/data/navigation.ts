@@ -3,7 +3,7 @@ export const primaryNav = [
   { to: "/work", label: "Portfolio", exact: false, match: ["/work", "/portfolio"] },
   { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
   { to: "/music", label: "Music", exact: false, match: ["/music"] },
-  { to: "/writing", label: "Writing", exact: false, match: ["/writing"] },
+  { to: "/blog", label: "Blog", exact: false, match: ["/blog"] },
 ] as const;
 
 export type HackingNavGroup = "start" | "board" | "apps";

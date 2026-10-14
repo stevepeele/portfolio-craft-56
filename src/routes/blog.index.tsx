@@ -30,7 +30,47 @@ export const Route = createFileRoute("/blog/")({
   component: BlogIndexPage,
 });
 
-function PostCard({ post }: { post: SanityPostCard }) {
+function normalizeTitle(t: string): string {
+  return t
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+/**
+ * Cross-posted callout (PLX-332): returns the external sources whose
+ * normalized title matches the given Sanity post title. Conservative:
+ * exact normalized match, or a long containment in either direction
+ * (guards against subtitle drift).
+ */
+function findCrossPostedSources(title: string, items: { title: string; source: string }[]): string[] {
+  const n = normalizeTitle(title);
+  if (n.length < 12) return [];
+  const sources = new Set<string>();
+  for (const item of items) {
+    const m = normalizeTitle(item.title);
+    if (!m) continue;
+    if (n === m || (n.length > 24 && m.includes(n)) || (m.length > 24 && n.includes(m))) {
+      sources.add(item.source);
+    }
+  }
+  return [...sources];
+}
+
+function CrossPostedBadge({ sources }: { sources: string[] }) {
+  if (sources.length === 0) return null;
+  return (
+    <span
+      title="This piece is also published on another platform"
+      className="rounded-full border border-border/70 px-3 py-1 font-semibold text-muted-foreground"
+    >
+      Also on {sources.join(" + ")}
+    </span>
+  );
+}
+
+function PostCard({ post, external }: { post: SanityPostCard; external: ExternalFeedItem[] }) {
+  const crossPosted = findCrossPostedSources(post.title, external);
   return (
     <Link
       to="/blog/$slug"
@@ -61,6 +101,7 @@ function PostCard({ post }: { post: SanityPostCard }) {
           {post.publishedAt && (
             <span className="text-muted-foreground">{formatSanityDate(post.publishedAt)}</span>
           )}
+          <CrossPostedBadge sources={crossPosted} />
         </div>
         <h2 className="mt-3 font-serif text-2xl font-medium tracking-tight text-balance transition-colors group-hover:text-primary">
           {post.title}
@@ -187,6 +228,9 @@ function BlogIndexPage() {
                     {formatSanityDate(featured.publishedAt)}
                   </span>
                 )}
+                <CrossPostedBadge
+                  sources={findCrossPostedSources(featured.title, externalItems)}
+                />
               </div>
               {featured.mainImage && (
                 <div className="mt-6 overflow-hidden rounded-lg">
@@ -220,7 +264,7 @@ function BlogIndexPage() {
               </h3>
               <div className="mt-2">
                 {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
-                  <PostCard key={post._id} post={post} />
+                  <PostCard key={post._id} post={post} external={externalItems} />
                 ))}
               </div>
             </div>

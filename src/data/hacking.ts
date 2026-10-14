@@ -230,6 +230,12 @@ export type StatusEntry = {
 export const statusLog: StatusEntry[] = [
   {
     date: "2026-10-14",
+    title: "/Writing folded into /Blog as a combined stream",
+    detail:
+      "/writing now redirects to /blog (permanent, PLX-332) and the dead /writing route is removed. /Blog carries the de-emphasized 'Elsewhere' secondary stream of recent Substack + Medium posts (PLX-336: smaller 'Also on' cards, build-time RSS snapshot refreshed on every build, graceful degradation). Added the optional cross-posted callout: Sanity cards show an 'Also on Medium/Substack' badge when a title matches across sources. Nav and breadcrumbs updated: Writing → Blog. (PLX-332)",
+  },
+  {
+    date: "2026-10-14",
     title: "Content Studio — review workflow (stage for review, never direct publish)",
     detail:
       "Sanity Studio at /studio now enforces Steve's standing rule: drafted posts are staged for review before anything is published. Added a 'Staged for review' flag on articles, a Review Queue list in the studio, and a warning-tone badge on staged drafts. Still needed: add stevepeeleii.com + www.stevepeeleii.com to the Sanity project's CORS origins and set SANITY_PREVIEW_TOKEN on Vercel for draft previews. (PLX-331)",

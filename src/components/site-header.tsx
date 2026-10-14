@@ -27,7 +27,9 @@ function crumbsFor(path: string): Crumb[] {
       { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
   if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
-  if (p === "/writing") return [{ label: "Home", to: "/" }, { label: "Writing" }];
+  if (p === "/blog") return [{ label: "Home", to: "/" }, { label: "Blog" }];
+  if (p.startsWith("/blog/"))
+    return [{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: "Article" }];
   if (p === "/hacking") return [{ label: "Home", to: "/" }, { label: "Building" }];
   if (p.startsWith("/hacking/"))
     return [
