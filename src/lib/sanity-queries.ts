@@ -1,4 +1,10 @@
-import { sanityClient } from "./sanity";
+import { sanityClient, sanityConfigured } from "./sanity";
+
+// Returns empty results until the blog content source is configured.
+async function safeFetch<T = any>(query: string, params: Record<string, unknown> = {}): Promise<T> {
+  if (!sanityConfigured) return (/^\s*\*\[[^\]]*\]\s*\[0\]/.test(query) ? null : []) as T;
+  return sanityClient.fetch<T>(query, params);
+}
 
 export type SanityPostCard = {
   _id: string;
@@ -44,20 +50,20 @@ const postFields = `
 `;
 
 export async function getLatestPosts(limit = 24): Promise<SanityPostCard[]> {
-  return sanityClient.fetch(
+  return safeFetch(
     `*[_type == "post" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
     { limit },
   );
 }
 
 export async function getFeaturedPost(): Promise<SanityPostCard | null> {
-  return sanityClient.fetch(
+  return safeFetch(
     `*[_type == "post" && featured == true && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0] { ${cardFields} }`,
   );
 }
 
 export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
-  return sanityClient.fetch(
+  return safeFetch(
     `*[_type == "post" && slug.current == $slug && defined(publishedAt) && publishedAt <= now()] [0] { ${postFields} }`,
     { slug },
   );
@@ -68,7 +74,7 @@ export async function getCategoryBySlug(slug: string): Promise<{
   description?: string;
   posts: SanityPostCard[];
 } | null> {
-  return sanityClient.fetch(
+  return safeFetch(
     `*[_type == "category" && slug.current == $slug] [0] {
       name,
       description,
@@ -79,13 +85,13 @@ export async function getCategoryBySlug(slug: string): Promise<{
 }
 
 export async function getAllCategories(): Promise<{ name: string; slug: string }[]> {
-  return sanityClient.fetch(
+  return safeFetch(
     `*[_type == "category"] | order(name asc) { name, "slug": slug.current }`,
   );
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {
-  const rows = await sanityClient.fetch<{ slug: string }[]>(
+  const rows = await safeFetch<{ slug: string }[]>(
     `*[_type == "post" && defined(publishedAt) && defined(slug.current)] { "slug": slug.current }`,
   );
   return rows.map((r) => r.slug);
