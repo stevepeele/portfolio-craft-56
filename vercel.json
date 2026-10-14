@@ -1,1 +1,1 @@
-{"buildCommand":"bun run build","framework":null,"installCommand":"bun install","outputDirectory":".vercel/output"}
+{"buildCommand":"bun run build","framework":null,"installCommand":"bun install","outputDirectory":".vercel/output","redirects":[{"destination":"/blog","permanent":true,"source":"/writing"},{"destination":"/blog/:path*","permanent":true,"source":"/writing/:path*"}]}
