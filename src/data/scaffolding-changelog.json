@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "id": "manual-20261014-organization-page",
+   "date": "2026-10-14",
+   "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",
+   "source": "manual",
+   "ref": "PLX-476",
+   "detail": "Steve asked (side chat, 2026-10-14) for a comprehensive page encapsulating everything Lauren triages, the Lauren↔Grokbot delineation with Lauren as hierarchical leader, and both skill hierarchies. New unlisted page /scaffolding/organization: visual org chart (Steve → two team leads → skill agents), the two lanes (Lauren: build/host/ship; Oscar: the hunt/sales ops), 10-area Lauren triage table, Lauren skill hierarchy (8 branches), Oscar bot roster hierarchy (18 bots, 6 groups), 4-step triage decision tree, handoff contracts table, P-PLX-33 Linear lifecycle, 8 hard rules. Wired into the hub (nav + index card) and cross-linked both ways with /scaffolding/architecture (template-level, survives build.py regen). Classified as part of the Scaffolding + Architecture program per his word."
+  },
+  {
    "id": "manual-20261014-muse-oscar-reconciliation",
    "date": "2026-10-14",
    "title": "Muse × Oscar reconciliation — lanes settled, operating model live",

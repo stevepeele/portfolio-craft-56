@@ -26,6 +26,7 @@ export const SCAFFOLDING_NAV: { to: string; label: string; group: string }[] = [
   { to: "/scaffolding/architecture", label: "Architecture", group: "Docs" },
   { to: "/scaffolding/architecture/analytics", label: "Analytics wiring", group: "Docs" },
   { to: "/scaffolding/architecture/data-flows", label: "Data flows", group: "Docs" },
+  { to: "/scaffolding/organization", label: "Organization", group: "Docs" },
   { to: "/scaffolding/command", label: "Command Center", group: "Command" },
   { to: "/scaffolding/stack", label: "The Stack", group: "Command" },
   { to: "/scaffolding/playbooks", label: "Playbooks", group: "Command" },
