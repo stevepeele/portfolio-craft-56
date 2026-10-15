@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "id": "manual-20261015-vault-ads",
+      "date": "2026-10-15",
+      "title": "Muse Vault TV ad production — 5 finished spots",
+      "source": "manual",
+      "ref": "PLX-532, PLX-533, PLX-534",
+      "detail": "Steve's 04:43 ET order: full production of 5 finished 16:9 MP4 video ads for the Muse Vault (vault.stevepeeleii.com, 'Stop prompting from scratch.'). 30s hero 'Stop Prompting From Scratch' (vault-30s.mp4), 45s 'The Vault Tour' (vault-45s.mp4), three 10s cutdowns — 'Scratch', 'Paste', 'Kits' (vault-10s-scratch/paste/kits.mp4). Pipeline: 11 AI-generated ~10s clips (media pipeline, no on-screen text), TTS voiceover (Confident Trumpet voice, URL spelled as spoken), ffmpeg edit with music bed sidechain-ducked under VO, rendered black end card ('Stop prompting from scratch.' / vault.stevepeeleii.com / '98 templates. Free.'). Verification caught a real bug: amix's default normalize=1 silently dropped the mono VO from every mix — rebuilt with normalize=0 and confirmed VO present, bed ducking ~2.4dB, peaks clean. Deliverables in ~/workspace/your_files/vault-tv-spots/ + mirrored to Dropbox /Muse Library/. Scripts: scripts.md."
+    },
+    {
       "id": "manual-20261015-faith",
       "date": "2026-10-15",
       "title": "/faith — unlisted 48-Hour Church Website Sprint landing page",
