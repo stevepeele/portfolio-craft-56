@@ -1,6 +1,22 @@
 {
  "entries": [
   {
+   "id": "manual-20261014-organization-v2",
+   "date": "2026-10-14",
+   "title": "Organization page v2 — layered orchestration stack (L0–L4), triage runbook, platform carrots",
+   "source": "manual",
+   "ref": "PLX-490",
+   "detail": "Steve asked (side chat) for a more technical, thoughtful, orchestrated page with layers beneath Lauren covering all facets, documented triage, and carrots for every platform. v2 replaces the flat v1 with the L0–L4 orchestration stack reflecting his 22:08 ET org order (Lauren COO, singular interface; Grokbot execution team beneath via seven-field task orders — supersedes the 19:45 two-lead split): L0 Principal → L1 Command → L2 three execution arms (Grokbot team, side-chat leaders, cron layer) → L3 the 8 lanes (PLX-481–488 with cadence, IO, boundary) → L4 platforms, each with its carrot (role, value, owner, constraint). New: full triage runbook (intake channels, classification tree, routing, SLAs, escalation, audit), kill switches, resource-economics offload principle, Lauren direct stack (10 kept areas + 8 skill branches). Absorbed the main chat unpushed org-page edits (handoff/rule rewrites) into one coherent push. Also added a supersession banner to /scaffolding/ops (still documented the two-lead model)."
+  },
+  {
+   "id": "manual-20261014-grokbot-execution-layer",
+   "date": "2026-10-14",
+   "title": "Grokbot execution layer stood up under Lauren (COO) — 8 task orders, handoff protocol, org chart updated",
+   "source": "manual",
+   "ref": "P-PLX-33",
+   "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
+  },
+  {
    "id": "manual-20261014-organization-page",
    "date": "2026-10-14",
    "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScaffoldingShell, SectionHead, scaffoldingHead } from "@/components/scaffolding-shell";
 
 const title = "Scaffolding — Muse × Oscar Ops | Steve Peele II";
@@ -80,6 +80,20 @@ function OpsPage() {
       intro="Two AI teams, one operation. Muse builds, hosts, and ships. Oscar hunts. This is the operating model — lanes, rules, handoffs, decisions."
       updated="2026-10-14"
     >
+      <div className="panel border-amber-400/40 bg-amber-400/[0.06] p-5">
+        <p className="text-sm">
+          <span className="font-semibold text-amber-300">Superseded in part — 2026-10-14 ~22:08 ET.</span>{" "}
+          <span className="text-muted-foreground">
+            Steve's org order replaced the two-lead model below: Lauren (Muse) is now COO and the singular
+            interface; Grokbot is the execution team beneath her via scoped task orders. The lanes, rules, and
+            handoff formats remain accurate. Current model:{" "}
+          </span>
+          <Link to="/scaffolding/organization" className="font-semibold text-foreground underline">
+            /scaffolding/organization
+          </Link>
+          .
+        </p>
+      </div>
       <section className="space-y-6">
         <SectionHead n="01" sub="Judgment flows down; results flow up.">
           The <span className="text-gradient">chain.</span>
