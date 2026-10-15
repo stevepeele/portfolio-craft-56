@@ -139,6 +139,11 @@ export function trackSprintCta(cta: string, section: string, destination: string
   track("Sprint CTA Clicked", { cta, section, destination });
 }
 
+/** Fire on /faith booking CTA clicks. */
+export function trackFaithCta(cta: string, section: string, destination: string) {
+  track("Faith CTA Clicked", { cta, section, destination });
+}
+
 /** Fire on /sprint firm preview link clicks. */
 export function trackSprintPreview(firm: string, url: string) {
   track("Sprint Preview Clicked", { firm, url });

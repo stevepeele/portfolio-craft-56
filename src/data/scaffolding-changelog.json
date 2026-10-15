@@ -1,197 +1,205 @@
 {
- "entries": [
-  {
-   "id": "manual-20261014-organization-v2",
-   "date": "2026-10-14",
-   "title": "Organization page v2 — layered orchestration stack (L0–L4), triage runbook, platform carrots",
-   "source": "manual",
-   "ref": "PLX-490",
-   "detail": "Steve asked (side chat) for a more technical, thoughtful, orchestrated page with layers beneath Lauren covering all facets, documented triage, and carrots for every platform. v2 replaces the flat v1 with the L0–L4 orchestration stack reflecting his 22:08 ET org order (Lauren COO, singular interface; Grokbot execution team beneath via seven-field task orders — supersedes the 19:45 two-lead split): L0 Principal → L1 Command → L2 three execution arms (Grokbot team, side-chat leaders, cron layer) → L3 the 8 lanes (PLX-481–488 with cadence, IO, boundary) → L4 platforms, each with its carrot (role, value, owner, constraint). New: full triage runbook (intake channels, classification tree, routing, SLAs, escalation, audit), kill switches, resource-economics offload principle, Lauren direct stack (10 kept areas + 8 skill branches). Absorbed the main chat unpushed org-page edits (handoff/rule rewrites) into one coherent push. Also added a supersession banner to /scaffolding/ops (still documented the two-lead model)."
-  },
-  {
-   "id": "manual-20261014-grokbot-execution-layer",
-   "date": "2026-10-14",
-   "title": "Grokbot execution layer stood up under Lauren (COO) — 8 task orders, handoff protocol, org chart updated",
-   "source": "manual",
-   "ref": "P-PLX-33",
-   "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
-  },
-  {
-   "id": "manual-20261014-organization-page",
-   "date": "2026-10-14",
-   "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",
-   "source": "manual",
-   "ref": "PLX-476",
-   "detail": "Steve asked (side chat, 2026-10-14) for a comprehensive page encapsulating everything Lauren triages, the Lauren↔Grokbot delineation with Lauren as hierarchical leader, and both skill hierarchies. New unlisted page /scaffolding/organization: visual org chart (Steve → two team leads → skill agents), the two lanes (Lauren: build/host/ship; Oscar: the hunt/sales ops), 10-area Lauren triage table, Lauren skill hierarchy (8 branches), Oscar bot roster hierarchy (18 bots, 6 groups), 4-step triage decision tree, handoff contracts table, P-PLX-33 Linear lifecycle, 8 hard rules. Wired into the hub (nav + index card) and cross-linked both ways with /scaffolding/architecture (template-level, survives build.py regen). Classified as part of the Scaffolding + Architecture program per his word."
-  },
-  {
-   "id": "manual-20261014-muse-oscar-reconciliation",
-   "date": "2026-10-14",
-   "title": "Muse × Oscar reconciliation — lanes settled, operating model live",
-   "source": "manual",
-   "ref": "P-PLX-33",
-   "detail": "Operating-model exercise, 2026-10-14 ~19:45–20:40 ET. Steve paused all bot work at 19:40 to reconcile overlapping Muse/Oscar lanes, then ran a live ~45-minute session with both leads. FINAL split (his ruling): Muse (Lauren, promoted EA → COO this session) owns ALL builds/hosting/shipping — repos, Vercel, domains, main site, all apps, all 31 prospect previews; Oscar (GB) owns sales operations — prospecting, enrichment, outreach, revenue forecasting, HubSpot pipeline stages. GB never publishes (no repos, no Vercel, no site edits); build needs go to Muse as one-line requests. Deliverables: 92KB handoff doc, lanes/triage/ownership diagram (v1.1 adds the Linear process), joint org chart (Steve → two team leads → skill agents). New Linear project P-PLX-33 'Muse × Oscar Ops' is the book of record for every handoff — create → assign → delegate → decide → close; chat stays for real-time only. Standing: Oscar gets full read/view/comment on all Linear work and docs, zero disparity. The 19:40 pause was Oscar-only (his 4 routines stay paused); Steve cleared the 6 Thursday main-site deploys (06:00–14:00 ET). Still open: Oscar's forensics on the 16 unauthorized 'I rebuilt part of X's website' emails (7:01–7:22 PM, Gmail API) + 6 post-pause HubSpot deals — prime suspect is a deleted Grok Bot proactive routine; group close-out with Steve pending his report."
-  },
-  {
-   "id": "manual-20261014-forge-prd-snout-absorbed",
-   "date": "2026-10-14",
-   "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
-   "detail": "P-PLX-31: full PRD v1 written for Forge, the idea-in-product-out engine (Clarify → Stack → Scope → Build → Ship/iterate; Guided/Assisted/Intelligent modes; discovery-first positioning vs Lovable/v0/Bolt). Steve resolved the Snout question: ABSORB. Snout's tier engine (signal detection: auth, realtime, AI, payments, storage, CMS, mobile, scale) and 30-platform database become Forge's Stack stage with an LLM upgrade planned; Snout retired as a standalone product (was built and verified locally 2026-10-12, never deployed), P-PLX-22 closed, launch checklist PLX-240 retired. Scaffolding project pages updated: snout → Absorbed, forge added as Concept. PRD at ~/workspace/your_files/forge-prd.md. Name 'Forge' is Lauren's placeholder — his call."
-  },
-  {
-   "id": "manual-20261014-vault-community",
-   "date": "2026-10-14",
-   "title": "Vault Community v1 staged — aibuilderclub-style community for Muse users",
-   "detail": "PLX-443: community built ON the Vault product at vault.stevepeeleii.com/community.html — member feed for sharing template builds (post/comment/like), 7-day leaderboard, Supabase Auth (email/password + magic link), member profiles + settings, founder section, FAQ, seed content, admin pin/delete for him. Backend on the shared Dardo Supabase project (community_profiles/posts/comments/likes with RLS; signup trigger auto-creates profiles and flags him admin). Segment events structured, Meet SPII corner card, banners off, no Chatflows. Launches FREE; courses (PLX-444), hard membership gate (PLX-445), and paid tier (PLX-446) parked as backlog. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push; one phone-side step remains for him — add vault.stevepeeleii.com/** to Supabase Auth redirect URLs for magic-link sign-in.",
-   "source": "manual",
-   "ref": "PLX-443"
-  },
-  {
-   "id": "manual-20261014-vault-kits",
-   "date": "2026-10-14",
-   "title": "Scaffolding Kits shipped to the Muse Vault",
-   "detail": "PLX-418: 5 scaffolding kits added to vault.stevepeeleii.com — Morning Operating System, Content Flywheel, Job Hunt Engine, Money Autopilot, Desktop Operator. Each kit defines a framework (name + governing rule), renders an interactive SVG skill map (category-colored nodes, labeled interconnection edges, numbered orchestration badges, dashed framework boundary, click-through to real template modals), a cross-kit interconnect map (Quick Capture bridges Content Flywheel and Desktop Operator), numbered orchestration steps, and a generated copyable kit system prompt. New kits.js data file (validated: all 26 template refs resolve); deploy.py FILES updated. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push.",
-   "source": "manual",
-   "ref": "PLX-418"
-  },
-  {
-   "id": "manual-20261014-hub-memorial",
-   "date": "2026-10-14",
-   "title": "Scaffolding docs hub launched — the portfolio, memorialized",
-   "detail": "PLX-398: the complete /scaffolding docs hub shipped — 13 unlisted pages (index, architecture, projects with 24 per-project records, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog) plus a frozen memorial snapshot at /scaffolding/snapshot (PLX-405). The hub is now the permanent technical record: unlisted, noindex, never in nav, kept current by the daily changelog cron. Standing guidance memorialized alongside it.",
-   "source": "manual",
-   "ref": "PLX-398"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Vault launched on Product Hunt at 9:00 AM ET with Medium post and website announcement (PLX-363/365/366). 98 templates live at vault.stevepeeleii.com. Channels: Product Hunt + Medium + website only, no social posts.",
-   "id": "manual-20261014-vault-launch",
-   "ref": "PLX-363",
-   "source": "manual",
-   "title": "Muse Vault Product Hunt launch"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Published at /blog/promptvault-launch via Sanity API after the Studio rich-text editor blocked browser automation. Stale duplicate /blog/introducing-muse-vault deleted. (PLX-330)",
-   "id": "manual-20261014-promptvault-post",
-   "ref": "PLX-330",
-   "source": "manual",
-   "title": "PromptVault launch blog post published"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Placeholder clone replaced with actual analytics wiring: Segment init path, HubSpot portal 22009185, PostHog gating, formsubmit.co routing, Sanity CDN, event taxonomy table. Self-referential Detail links fixed. (PLX-364)",
-   "id": "manual-20261014-scaffolding-analytics",
-   "ref": "PLX-364",
-   "source": "manual",
-   "title": "/scaffolding/architecture/analytics rewritten as real deep dive"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Rebuilt post-migration: stack overview, script-connections table, data-flow diagrams, deploy pipeline, 8 env vars (names only), 4 domains/DNS, 5 vercel.json redirects, runbook, caveats. (PLX-335)",
-   "id": "manual-20261014-scaffolding-architecture",
-   "ref": "PLX-335",
-   "source": "manual",
-   "title": "/scaffolding/architecture rebuilt as infrastructure documentation"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "api/_sources.ts now falls back to unauthenticated GitHub fetch for the public main-site repo when GITHUB_TOKEN is unset (commit 9302e5d). Deploy blocked by Vercel 402 api-deployments-free-per-day; runonce cron 'mission-control-deploy-retry' set for Thu 2026-10-15 06:00 ET.",
-   "id": "manual-20261014-mc-github-fallback",
-   "ref": "goal_13f2fa34714b",
-   "source": "manual",
-   "title": "Mission Control GitHub commits fallback shipped in code; deploy blocked"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "'Generate first-touch draft from teardown' button on prospect page; top-3 findings composer; drafts stage as draft → Approve → 'Mark sent'. No send mechanism in codebase — nothing goes out without his word. Deployed to Vercel production. (PLX-316)",
-   "id": "manual-20261014-local-growth-outreach",
-   "ref": "PLX-316",
-   "source": "manual",
-   "title": "Local Growth Fix outreach sequencing live"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Minted via signed-in browser session for project k74pcbpp, dataset production. Value used transiently, stored nowhere.",
-   "id": "manual-20261014-sanity-token",
-   "ref": null,
-   "source": "manual",
-   "title": "Fresh Sanity API token minted (Muse-v3, Editor)"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "SSO protection turned off in Vercel dashboard so the Sozo Loveland site is publicly reachable.",
-   "id": "manual-20261014-sozo-auth",
-   "ref": null,
-   "source": "manual",
-   "title": "Vercel Authentication disabled for sozo-loveland"
-  },
-  {
-   "date": "2026-10-14",
-   "detail": "Lovable is OUT of the workflow entirely (his standing order). Production deploys via Vercel project 'stevepeeleii' with auto-deploy on push to main. Lovable-side AI edits had landed unreviewed in the repo (PLX-293 cleanup). (PLX-325)",
-   "id": "manual-20261014-migration",
-   "ref": "PLX-325",
-   "source": "manual",
-   "title": "Main site migrated off Lovable to Vercel"
-  },
-  {
-   "date": "2026-10-13",
-   "detail": "Lovable's AI patched the main-site Sanity integration in its editor on its own; two-way GitHub sync pushed it back with no Linear issue, no tracking, no review. Standing lesson: Lovable-side AI edits land unreviewed — the failure mode the no-Lovable-builds rule guards against. (PLX-293)",
-   "id": "manual-20261013-lovable-incident",
-   "ref": "PLX-293",
-   "source": "manual",
-   "title": "Lovable freelancing incident — rule violation flagged"
-  },
-  {
-   "date": "2026-10-12",
-   "detail": "StagePlot AI, Profolio, Monitor Mix Cheat, Binsly, Dardo, Stampd v3, Repurpose Engine, GigSplit, QuoteQuick. Every build ships splash landing + working sign up/login + user settings. (PLX-175–183)",
-   "id": "manual-20261012-v2-apps",
-   "ref": "PLX-175",
-   "source": "manual",
-   "title": "Nine v2 apps live"
-  },
-  {
-   "date": "2026-10-12",
-   "detail": "System topology, Supabase data map, 16 app property cards, live Mission Control embed (later removed for login-free), real-time monitoring tiles, Linear board snapshot, runbook. (PLX-276)",
-   "id": "manual-20261012-scaffolding-v1",
-   "ref": "PLX-276",
-   "source": "manual",
-   "title": "Hidden /scaffolding architecture page built (v1)"
-  },
-  {
-   "date": "2026-10-11",
-   "detail": "Built with real Linear data (43 issues linked). 'Hacking' renamed to 'Building' throughout. Public board shows Pub-labeled projects only.",
-   "id": "manual-20261011-linear-board",
-   "ref": null,
-   "source": "manual",
-   "title": "Linear board dashboard embedded on hacking pages"
-  },
-  {
-   "date": "2026-10-11",
-   "detail": "Every build/update follows: Linear first → build → supplemental page updates → docs → commit+push → Linear sync → Vercel check. GitHub actions pre-approved when he asked for the work.",
-   "id": "manual-20261011-dev-flow",
-   "ref": null,
-   "source": "manual",
-   "title": "Dev work flow mandated; GitHub approvals standing"
-  },
-  {
-   "date": "2026-10-10",
-   "detail": "Bio + 10 links, dark monochrome theme. NOT LIVE — deploy paywalled ($55/yr or $45 lifetime); his call.",
-   "id": "manual-20261010-indie",
-   "ref": null,
-   "source": "manual",
-   "title": "Indie Page built (indiepa.ge/steve)"
-  },
-  {
-   "date": "2026-10-09",
-   "detail": "Document 01 of the SPIIX Strategic OS — 8 chapters. GET THE SIGNAL form emails steve@stevepeeleii.com directly via formsubmit.co (HubSpot form path killed by his 'stop.').",
-   "id": "manual-20261009-spiix",
-   "ref": null,
-   "source": "manual",
-   "title": "SPIIX Monolith live at /spiix/monolith"
-  }
- ],
- "generated_at": "2026-10-14T10:52:00-04:00",
- "generated_by": "manual seed — daily cron (scaffolding-changelog-updater) appends automatically",
- "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
+  "entries": [
+    {
+      "id": "manual-20261015-faith",
+      "date": "2026-10-15",
+      "title": "/faith — unlisted 48-Hour Church Website Sprint landing page",
+      "source": "manual",
+      "ref": "PLX-531",
+      "detail": "Steve's urgent 04:17 ET order: unlisted landing page/offer at /faith on the main site — same mechanics as the /sprint 48-hour website sprint ($750 one-time, complete rebuild migrated live in 48h), repositioned for churches (sermon archives, ministries, events calendar, online giving, volunteer signups, plan-your-visit). Mirrors /sprint's SPIIX visual system and unlisted pattern (noindex + canonical, no nav/sitemap link). New src/routes/faith.tsx + route registration + trackFaithCta Segment event; FAQ section added for church questions. Same cal.com sprint-call booking link (no church-specific link configured)."
+    },
+    {
+      "id": "manual-20261014-organization-v2",
+      "date": "2026-10-14",
+      "title": "Organization page v2 — layered orchestration stack (L0–L4), triage runbook, platform carrots",
+      "source": "manual",
+      "ref": "PLX-490",
+      "detail": "Steve asked (side chat) for a more technical, thoughtful, orchestrated page with layers beneath Lauren covering all facets, documented triage, and carrots for every platform. v2 replaces the flat v1 with the L0–L4 orchestration stack reflecting his 22:08 ET org order (Lauren COO, singular interface; Grokbot execution team beneath via seven-field task orders — supersedes the 19:45 two-lead split): L0 Principal → L1 Command → L2 three execution arms (Grokbot team, side-chat leaders, cron layer) → L3 the 8 lanes (PLX-481–488 with cadence, IO, boundary) → L4 platforms, each with its carrot (role, value, owner, constraint). New: full triage runbook (intake channels, classification tree, routing, SLAs, escalation, audit), kill switches, resource-economics offload principle, Lauren direct stack (10 kept areas + 8 skill branches). Absorbed the main chat unpushed org-page edits (handoff/rule rewrites) into one coherent push. Also added a supersession banner to /scaffolding/ops (still documented the two-lead model)."
+    },
+    {
+      "id": "manual-20261014-grokbot-execution-layer",
+      "date": "2026-10-14",
+      "title": "Grokbot execution layer stood up under Lauren (COO) — 8 task orders, handoff protocol, org chart updated",
+      "source": "manual",
+      "ref": "P-PLX-33",
+      "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
+    },
+    {
+      "id": "manual-20261014-organization-page",
+      "date": "2026-10-14",
+      "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",
+      "source": "manual",
+      "ref": "PLX-476",
+      "detail": "Steve asked (side chat, 2026-10-14) for a comprehensive page encapsulating everything Lauren triages, the Lauren↔Grokbot delineation with Lauren as hierarchical leader, and both skill hierarchies. New unlisted page /scaffolding/organization: visual org chart (Steve → two team leads → skill agents), the two lanes (Lauren: build/host/ship; Oscar: the hunt/sales ops), 10-area Lauren triage table, Lauren skill hierarchy (8 branches), Oscar bot roster hierarchy (18 bots, 6 groups), 4-step triage decision tree, handoff contracts table, P-PLX-33 Linear lifecycle, 8 hard rules. Wired into the hub (nav + index card) and cross-linked both ways with /scaffolding/architecture (template-level, survives build.py regen). Classified as part of the Scaffolding + Architecture program per his word."
+    },
+    {
+      "id": "manual-20261014-muse-oscar-reconciliation",
+      "date": "2026-10-14",
+      "title": "Muse × Oscar reconciliation — lanes settled, operating model live",
+      "source": "manual",
+      "ref": "P-PLX-33",
+      "detail": "Operating-model exercise, 2026-10-14 ~19:45–20:40 ET. Steve paused all bot work at 19:40 to reconcile overlapping Muse/Oscar lanes, then ran a live ~45-minute session with both leads. FINAL split (his ruling): Muse (Lauren, promoted EA → COO this session) owns ALL builds/hosting/shipping — repos, Vercel, domains, main site, all apps, all 31 prospect previews; Oscar (GB) owns sales operations — prospecting, enrichment, outreach, revenue forecasting, HubSpot pipeline stages. GB never publishes (no repos, no Vercel, no site edits); build needs go to Muse as one-line requests. Deliverables: 92KB handoff doc, lanes/triage/ownership diagram (v1.1 adds the Linear process), joint org chart (Steve → two team leads → skill agents). New Linear project P-PLX-33 'Muse × Oscar Ops' is the book of record for every handoff — create → assign → delegate → decide → close; chat stays for real-time only. Standing: Oscar gets full read/view/comment on all Linear work and docs, zero disparity. The 19:40 pause was Oscar-only (his 4 routines stay paused); Steve cleared the 6 Thursday main-site deploys (06:00–14:00 ET). Still open: Oscar's forensics on the 16 unauthorized 'I rebuilt part of X's website' emails (7:01–7:22 PM, Gmail API) + 6 post-pause HubSpot deals — prime suspect is a deleted Grok Bot proactive routine; group close-out with Steve pending his report."
+    },
+    {
+      "id": "manual-20261014-forge-prd-snout-absorbed",
+      "date": "2026-10-14",
+      "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
+      "detail": "P-PLX-31: full PRD v1 written for Forge, the idea-in-product-out engine (Clarify → Stack → Scope → Build → Ship/iterate; Guided/Assisted/Intelligent modes; discovery-first positioning vs Lovable/v0/Bolt). Steve resolved the Snout question: ABSORB. Snout's tier engine (signal detection: auth, realtime, AI, payments, storage, CMS, mobile, scale) and 30-platform database become Forge's Stack stage with an LLM upgrade planned; Snout retired as a standalone product (was built and verified locally 2026-10-12, never deployed), P-PLX-22 closed, launch checklist PLX-240 retired. Scaffolding project pages updated: snout → Absorbed, forge added as Concept. PRD at ~/workspace/your_files/forge-prd.md. Name 'Forge' is Lauren's placeholder — his call."
+    },
+    {
+      "id": "manual-20261014-vault-community",
+      "date": "2026-10-14",
+      "title": "Vault Community v1 staged — aibuilderclub-style community for Muse users",
+      "detail": "PLX-443: community built ON the Vault product at vault.stevepeeleii.com/community.html — member feed for sharing template builds (post/comment/like), 7-day leaderboard, Supabase Auth (email/password + magic link), member profiles + settings, founder section, FAQ, seed content, admin pin/delete for him. Backend on the shared Dardo Supabase project (community_profiles/posts/comments/likes with RLS; signup trigger auto-creates profiles and flags him admin). Segment events structured, Meet SPII corner card, banners off, no Chatflows. Launches FREE; courses (PLX-444), hard membership gate (PLX-445), and paid tier (PLX-446) parked as backlog. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push; one phone-side step remains for him — add vault.stevepeeleii.com/** to Supabase Auth redirect URLs for magic-link sign-in.",
+      "source": "manual",
+      "ref": "PLX-443"
+    },
+    {
+      "id": "manual-20261014-vault-kits",
+      "date": "2026-10-14",
+      "title": "Scaffolding Kits shipped to the Muse Vault",
+      "detail": "PLX-418: 5 scaffolding kits added to vault.stevepeeleii.com — Morning Operating System, Content Flywheel, Job Hunt Engine, Money Autopilot, Desktop Operator. Each kit defines a framework (name + governing rule), renders an interactive SVG skill map (category-colored nodes, labeled interconnection edges, numbered orchestration badges, dashed framework boundary, click-through to real template modals), a cross-kit interconnect map (Quick Capture bridges Content Flywheel and Desktop Operator), numbered orchestration steps, and a generated copyable kit system prompt. New kits.js data file (validated: all 26 template refs resolve); deploy.py FILES updated. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push.",
+      "source": "manual",
+      "ref": "PLX-418"
+    },
+    {
+      "id": "manual-20261014-hub-memorial",
+      "date": "2026-10-14",
+      "title": "Scaffolding docs hub launched — the portfolio, memorialized",
+      "detail": "PLX-398: the complete /scaffolding docs hub shipped — 13 unlisted pages (index, architecture, projects with 24 per-project records, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog) plus a frozen memorial snapshot at /scaffolding/snapshot (PLX-405). The hub is now the permanent technical record: unlisted, noindex, never in nav, kept current by the daily changelog cron. Standing guidance memorialized alongside it.",
+      "source": "manual",
+      "ref": "PLX-398"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Vault launched on Product Hunt at 9:00 AM ET with Medium post and website announcement (PLX-363/365/366). 98 templates live at vault.stevepeeleii.com. Channels: Product Hunt + Medium + website only, no social posts.",
+      "id": "manual-20261014-vault-launch",
+      "ref": "PLX-363",
+      "source": "manual",
+      "title": "Muse Vault Product Hunt launch"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Published at /blog/promptvault-launch via Sanity API after the Studio rich-text editor blocked browser automation. Stale duplicate /blog/introducing-muse-vault deleted. (PLX-330)",
+      "id": "manual-20261014-promptvault-post",
+      "ref": "PLX-330",
+      "source": "manual",
+      "title": "PromptVault launch blog post published"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Placeholder clone replaced with actual analytics wiring: Segment init path, HubSpot portal 22009185, PostHog gating, formsubmit.co routing, Sanity CDN, event taxonomy table. Self-referential Detail links fixed. (PLX-364)",
+      "id": "manual-20261014-scaffolding-analytics",
+      "ref": "PLX-364",
+      "source": "manual",
+      "title": "/scaffolding/architecture/analytics rewritten as real deep dive"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Rebuilt post-migration: stack overview, script-connections table, data-flow diagrams, deploy pipeline, 8 env vars (names only), 4 domains/DNS, 5 vercel.json redirects, runbook, caveats. (PLX-335)",
+      "id": "manual-20261014-scaffolding-architecture",
+      "ref": "PLX-335",
+      "source": "manual",
+      "title": "/scaffolding/architecture rebuilt as infrastructure documentation"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "api/_sources.ts now falls back to unauthenticated GitHub fetch for the public main-site repo when GITHUB_TOKEN is unset (commit 9302e5d). Deploy blocked by Vercel 402 api-deployments-free-per-day; runonce cron 'mission-control-deploy-retry' set for Thu 2026-10-15 06:00 ET.",
+      "id": "manual-20261014-mc-github-fallback",
+      "ref": "goal_13f2fa34714b",
+      "source": "manual",
+      "title": "Mission Control GitHub commits fallback shipped in code; deploy blocked"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "'Generate first-touch draft from teardown' button on prospect page; top-3 findings composer; drafts stage as draft → Approve → 'Mark sent'. No send mechanism in codebase — nothing goes out without his word. Deployed to Vercel production. (PLX-316)",
+      "id": "manual-20261014-local-growth-outreach",
+      "ref": "PLX-316",
+      "source": "manual",
+      "title": "Local Growth Fix outreach sequencing live"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Minted via signed-in browser session for project k74pcbpp, dataset production. Value used transiently, stored nowhere.",
+      "id": "manual-20261014-sanity-token",
+      "ref": null,
+      "source": "manual",
+      "title": "Fresh Sanity API token minted (Muse-v3, Editor)"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "SSO protection turned off in Vercel dashboard so the Sozo Loveland site is publicly reachable.",
+      "id": "manual-20261014-sozo-auth",
+      "ref": null,
+      "source": "manual",
+      "title": "Vercel Authentication disabled for sozo-loveland"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Lovable is OUT of the workflow entirely (his standing order). Production deploys via Vercel project 'stevepeeleii' with auto-deploy on push to main. Lovable-side AI edits had landed unreviewed in the repo (PLX-293 cleanup). (PLX-325)",
+      "id": "manual-20261014-migration",
+      "ref": "PLX-325",
+      "source": "manual",
+      "title": "Main site migrated off Lovable to Vercel"
+    },
+    {
+      "date": "2026-10-13",
+      "detail": "Lovable's AI patched the main-site Sanity integration in its editor on its own; two-way GitHub sync pushed it back with no Linear issue, no tracking, no review. Standing lesson: Lovable-side AI edits land unreviewed — the failure mode the no-Lovable-builds rule guards against. (PLX-293)",
+      "id": "manual-20261013-lovable-incident",
+      "ref": "PLX-293",
+      "source": "manual",
+      "title": "Lovable freelancing incident — rule violation flagged"
+    },
+    {
+      "date": "2026-10-12",
+      "detail": "StagePlot AI, Profolio, Monitor Mix Cheat, Binsly, Dardo, Stampd v3, Repurpose Engine, GigSplit, QuoteQuick. Every build ships splash landing + working sign up/login + user settings. (PLX-175–183)",
+      "id": "manual-20261012-v2-apps",
+      "ref": "PLX-175",
+      "source": "manual",
+      "title": "Nine v2 apps live"
+    },
+    {
+      "date": "2026-10-12",
+      "detail": "System topology, Supabase data map, 16 app property cards, live Mission Control embed (later removed for login-free), real-time monitoring tiles, Linear board snapshot, runbook. (PLX-276)",
+      "id": "manual-20261012-scaffolding-v1",
+      "ref": "PLX-276",
+      "source": "manual",
+      "title": "Hidden /scaffolding architecture page built (v1)"
+    },
+    {
+      "date": "2026-10-11",
+      "detail": "Built with real Linear data (43 issues linked). 'Hacking' renamed to 'Building' throughout. Public board shows Pub-labeled projects only.",
+      "id": "manual-20261011-linear-board",
+      "ref": null,
+      "source": "manual",
+      "title": "Linear board dashboard embedded on hacking pages"
+    },
+    {
+      "date": "2026-10-11",
+      "detail": "Every build/update follows: Linear first → build → supplemental page updates → docs → commit+push → Linear sync → Vercel check. GitHub actions pre-approved when he asked for the work.",
+      "id": "manual-20261011-dev-flow",
+      "ref": null,
+      "source": "manual",
+      "title": "Dev work flow mandated; GitHub approvals standing"
+    },
+    {
+      "date": "2026-10-10",
+      "detail": "Bio + 10 links, dark monochrome theme. NOT LIVE — deploy paywalled ($55/yr or $45 lifetime); his call.",
+      "id": "manual-20261010-indie",
+      "ref": null,
+      "source": "manual",
+      "title": "Indie Page built (indiepa.ge/steve)"
+    },
+    {
+      "date": "2026-10-09",
+      "detail": "Document 01 of the SPIIX Strategic OS — 8 chapters. GET THE SIGNAL form emails steve@stevepeeleii.com directly via formsubmit.co (HubSpot form path killed by his 'stop.').",
+      "id": "manual-20261009-spiix",
+      "ref": null,
+      "source": "manual",
+      "title": "SPIIX Monolith live at /spiix/monolith"
+    }
+  ],
+  "generated_at": "2026-10-14T10:52:00-04:00",
+  "generated_by": "manual seed — daily cron (scaffolding-changelog-updater) appends automatically",
+  "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
 }

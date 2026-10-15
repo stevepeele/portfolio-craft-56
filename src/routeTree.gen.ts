@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
 import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as FaithRouteImport } from './routes/faith'
 import { Route as FractionalGrowthAdvisoryRouteImport } from './routes/fractional-growth-advisory'
 import { Route as GrowthLaddersRouteImport } from './routes/growth-ladders'
 import { Route as MusicRouteImport } from './routes/music'
@@ -45,6 +46,7 @@ import { Route as HackingSmartAccessRouteImport } from './routes/hacking.smart-a
 import { Route as HackingStageplotAiRouteImport } from './routes/hacking.stageplot-ai'
 import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
+import { Route as HackingWaxAndAshRouteImport } from './routes/hacking.wax-and-ash'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
 import { Route as PreviewSlugRouteImport } from './routes/preview.$slug'
 import { Route as ScaffoldingArchitectureRouteImport } from './routes/scaffolding.architecture'
@@ -121,6 +123,11 @@ const DemandCurveAnalysisRoute = DemandCurveAnalysisRouteImport.update({
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
   path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaithRoute = FaithRouteImport.update({
+  id: '/faith',
+  path: '/faith',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FractionalGrowthAdvisoryRoute =
@@ -267,6 +274,11 @@ const HackingStampdRoute = HackingStampdRouteImport.update({
 const HackingStatusRoute = HackingStatusRouteImport.update({
   id: '/hacking/status',
   path: '/hacking/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackingWaxAndAshRoute = HackingWaxAndAshRouteImport.update({
+  id: '/hacking/wax-and-ash',
+  path: '/hacking/wax-and-ash',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
@@ -493,6 +505,7 @@ export interface FileRoutesByFullPath {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
@@ -520,6 +533,7 @@ export interface FileRoutesByFullPath {
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
+  '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
@@ -573,6 +587,7 @@ export interface FileRoutesByTo {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
@@ -598,6 +613,7 @@ export interface FileRoutesByTo {
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
+  '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
@@ -652,6 +668,7 @@ export interface FileRoutesById {
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
   '/experience': typeof ExperienceRoute
+  '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
   '/music': typeof MusicRoute
@@ -679,6 +696,7 @@ export interface FileRoutesById {
   '/hacking/stageplot-ai': typeof HackingStageplotAiRoute
   '/hacking/stampd': typeof HackingStampdRoute
   '/hacking/status': typeof HackingStatusRoute
+  '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
@@ -734,6 +752,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
     | '/music'
@@ -761,6 +780,7 @@ export interface FileRouteTypes {
     | '/hacking/stageplot-ai'
     | '/hacking/stampd'
     | '/hacking/status'
+    | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
     | '/preview/$slug'
     | '/scaffolding/architecture'
@@ -814,6 +834,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
     | '/music'
@@ -839,6 +860,7 @@ export interface FileRouteTypes {
     | '/hacking/stageplot-ai'
     | '/hacking/stampd'
     | '/hacking/status'
+    | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
     | '/preview/$slug'
     | '/scaffolding/architecture'
@@ -892,6 +914,7 @@ export interface FileRouteTypes {
     | '/cv'
     | '/demand-curve-analysis'
     | '/experience'
+    | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
     | '/music'
@@ -919,6 +942,7 @@ export interface FileRouteTypes {
     | '/hacking/stageplot-ai'
     | '/hacking/stampd'
     | '/hacking/status'
+    | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
     | '/preview/$slug'
     | '/scaffolding/architecture'
@@ -973,6 +997,7 @@ export interface RootRouteChildren {
   CvRoute: typeof CvRoute
   DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
   ExperienceRoute: typeof ExperienceRoute
+  FaithRoute: typeof FaithRoute
   FractionalGrowthAdvisoryRoute: typeof FractionalGrowthAdvisoryRoute
   GrowthLaddersRoute: typeof GrowthLaddersRoute
   MusicRoute: typeof MusicRoute
@@ -1000,6 +1025,7 @@ export interface RootRouteChildren {
   HackingStageplotAiRoute: typeof HackingStageplotAiRoute
   HackingStampdRoute: typeof HackingStampdRoute
   HackingStatusRoute: typeof HackingStatusRoute
+  HackingWaxAndAshRoute: typeof HackingWaxAndAshRoute
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
   PreviewSlugRoute: typeof PreviewSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1057,6 +1083,13 @@ declare module '@tanstack/react-router' {
       path: '/experience'
       fullPath: '/experience'
       preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faith': {
+      id: '/faith'
+      path: '/faith'
+      fullPath: '/faith'
+      preLoaderRoute: typeof FaithRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fractional-growth-advisory': {
@@ -1260,6 +1293,13 @@ declare module '@tanstack/react-router' {
       path: '/hacking/status'
       fullPath: '/hacking/status'
       preLoaderRoute: typeof HackingStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hacking/wax-and-ash': {
+      id: '/hacking/wax-and-ash'
+      path: '/hacking/wax-and-ash'
+      fullPath: '/hacking/wax-and-ash'
+      preLoaderRoute: typeof HackingWaxAndAshRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/whats-next': {
@@ -1703,6 +1743,7 @@ const rootRouteChildren: RootRouteChildren = {
   CvRoute: CvRoute,
   DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
   ExperienceRoute: ExperienceRoute,
+  FaithRoute: FaithRoute,
   FractionalGrowthAdvisoryRoute: FractionalGrowthAdvisoryRoute,
   GrowthLaddersRoute: GrowthLaddersRoute,
   MusicRoute: MusicRoute,
@@ -1730,6 +1771,7 @@ const rootRouteChildren: RootRouteChildren = {
   HackingStageplotAiRoute: HackingStageplotAiRoute,
   HackingStampdRoute: HackingStampdRoute,
   HackingStatusRoute: HackingStatusRoute,
+  HackingWaxAndAshRoute: HackingWaxAndAshRoute,
   HackingWhatsNextRoute: HackingWhatsNextRoute,
   PreviewSlugRoute: PreviewSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
