@@ -309,7 +309,7 @@ function ArchitecturePage() {
         <h3 className="font-display text-lg font-bold">Local Growth Engine app</h3>
         <span className="text-right text-xs text-amber-400">v1 code complete — deploy + acceptance tests pending</span>
       </div>
-      <p className="mt-1 text-sm text-muted-foreground">Private internal ops app for Local Growth Fix ($750 site-conversion service)</p>
+      <p className="mt-1 text-sm text-muted-foreground">Private internal ops app for Local Growth Fix ($2,000 site-conversion service)</p>
       <dl className="mt-4 space-y-2 text-sm"><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Stack</dt><dd className="min-w-0">Next.js + Supabase auth + RLS</dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Source</dt><dd className="min-w-0"><code>~/workspace/local-growth-engine-app</code></dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Hosting</dt><dd className="min-w-0">Vercel · not deployed yet</dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Live URL</dt><dd className="min-w-0">not deployed yet</dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Data home</dt><dd className="min-w-0">dardo (shared) · schema <code>local_growth_engine</code></dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Auth</dt><dd className="min-w-0">Supabase magic-link</dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Integrations</dt><dd className="min-w-0"><span className="text-muted-foreground">—</span></dd></div><div className="flex gap-3"><dt className="w-24 shrink-0 text-muted-foreground">Linear</dt><dd className="min-w-0">P-PLX-19 (internal, no Pub label)</dd></div></dl>
     </article>
 <article className="panel p-6">
@@ -443,7 +443,7 @@ function ArchitecturePage() {
         <p className="font-semibold">Local Growth Engine app</p>
         <span className="text-xs text-amber-400">● pending</span>
       </div>
-      <p className="mt-2 text-sm text-muted-foreground">Private internal ops app for Local Growth Fix ($750 site-conversion service)</p>
+      <p className="mt-2 text-sm text-muted-foreground">Private internal ops app for Local Growth Fix ($2,000 site-conversion service)</p>
       <span className="mt-3 text-xs text-muted-foreground">not deployed yet</span>
     </div>
 <a href="https://linklib.base44.app" target="_blank" rel="noreferrer" className="panel group flex flex-col p-5 transition-colors hover:border-primary/50">
