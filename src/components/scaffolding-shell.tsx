@@ -30,6 +30,7 @@ export const SCAFFOLDING_NAV: { to: string; label: string; group: string }[] = [
   { to: "/scaffolding/command", label: "Command Center", group: "Command" },
   { to: "/scaffolding/stack", label: "The Stack", group: "Command" },
   { to: "/scaffolding/playbooks", label: "Playbooks", group: "Command" },
+  { to: "/scaffolding/ops", label: "Muse × Oscar Ops", group: "Command" },
   { to: "/scaffolding/projects", label: "Projects", group: "Portfolio" },
   { to: "/scaffolding/infrastructure", label: "Infrastructure", group: "Portfolio" },
   { to: "/scaffolding/diagrams", label: "Diagrams", group: "Portfolio" },

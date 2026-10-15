@@ -15,7 +15,7 @@ export type SanityPostCard = {
   featured?: boolean;
   mainImage?: { asset: { url: string }; alt?: string };
   author?: { name: string };
-  categories?: { _id: string; name: string; slug: string }[];
+  categories?: { name: string; slug: string }[];
 };
 
 export type SanityPost = SanityPostCard & {
@@ -36,7 +36,7 @@ const cardFields = `
   featured,
   mainImage { asset-> { url }, alt },
   author-> { name },
-  categories[]-> { _id, name, "slug": slug.current }
+  categories[]-> { name, "slug": slug.current }
 `;
 
 const postFields = `
@@ -53,6 +53,35 @@ export async function getLatestPosts(limit = 24): Promise<SanityPostCard[]> {
   return safeFetch(
     `*[_type == "post" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
     { limit },
+  );
+}
+
+export async function getLatestPostsExcluding(excludeId: string, limit = 3): Promise<SanityPostCard[]> {
+  return safeFetch(
+    `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && _id != $excludeId] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    { excludeId, limit },
+  );
+}
+
+export async function getRelatedPosts(
+  excludeId: string,
+  categoryIds: string[] = [],
+  tags: string[] = [],
+  limit = 3,
+): Promise<SanityPostCard[]> {
+  const filters = [`_id != $excludeId`];
+  const params: Record<string, unknown> = { excludeId, limit };
+  if (categoryIds.length) {
+    filters.push(`count((categories[]->_id)[@ in $categoryIds]) > 0`);
+    params.categoryIds = categoryIds;
+  }
+  if (tags.length) {
+    filters.push(`count(tags[@ in $tags]) > 0`);
+    params.tags = tags;
+  }
+  return safeFetch(
+    `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && ${filters.join(" && ")}] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    params,
   );
 }
 
@@ -95,35 +124,4 @@ export async function getAllPostSlugs(): Promise<string[]> {
     `*[_type == "post" && defined(publishedAt) && defined(slug.current)] { "slug": slug.current }`,
   );
   return rows.map((r) => r.slug);
-}
-
-/**
- * Automatic related-post fallback: posts sharing categories or tags with the
- * current post, newest first. Used when no manual relatedPosts are set.
- */
-export async function getRelatedPosts(
-  slug: string,
-  categoryIds: string[] = [],
-  tags: string[] = [],
-  limit = 3,
-): Promise<SanityPostCard[]> {
-  return safeFetch(
-    `*[_type == "post" && slug.current != $slug && defined(publishedAt) && publishedAt <= now() && (references($categoryIds) || count((tags[@ in $tags])) > 0)] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
-    { slug, categoryIds, tags, limit },
-  );
-}
-
-/**
- * Latest-posts fallback for Related reading: newest published posts excluding
- * the current one. Used when no manual relatedPosts and no category/tag
- * matches are found.
- */
-export async function getLatestPostsExcluding(
-  excludeId: string,
-  limit = 3,
-): Promise<SanityPostCard[]> {
-  return safeFetch(
-    `*[_type == "post" && _id != $excludeId && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
-    { excludeId, limit },
-  );
 }
