@@ -45,6 +45,11 @@ const SYSTEMS: { name: string; what: string; status: string; url?: string }[] = 
     status: "Active",
   },
   {
+    name: "Oscar",
+    what: "Conversational operator (Grok bot) — handles all chatflows and responses across surfaces, directed by Muse. Direction chain: Steve → Muse → Oscar. Charter hard gates: nothing sent/published/spent/contacted without Steve's word.",
+    status: "Active",
+  },
+  {
     name: "Marketplace flips",
     what: "Four-hour hunt for underpriced items plus active gear sales. Income lane, no prestige filter.",
     status: "Active",

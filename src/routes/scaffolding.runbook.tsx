@@ -100,7 +100,7 @@ const PLAYS: { name: string; steps: string[] }[] = [
       "Build the app (custom code, git repo). Standing rule: subdomain of stevepeeleii.com, never a vercel.app URL.",
       "Vercel: add the custom domain to the project; copy the DNS records.",
       "Hand Steve the DNS records to add at the registrar (he owns DNS).",
-      "Apply build standards: Segment installed, no Chatflows, 'Meet SPII' corner card, splash + auth + settings, Slack #deploys coverage, hack nav entry.",
+      "Apply build standards: Segment installed, no vendor chat widgets (conversational surfaces = Oscar, directed by Muse), 'Meet SPII' corner card, splash + auth + settings, Slack #deploys coverage, hack nav entry.",
       "Document it: add the project to <code>/scaffolding/projects</code> data + a changelog entry.",
     ],
   },

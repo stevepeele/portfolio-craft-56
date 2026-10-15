@@ -14,7 +14,7 @@ const STANDARDS_ROWS = [
   ["Issues for everything", "Every thing done gets a hand-written Linear issue in the right project — create the project if none is clear. No scripted descriptions, dependencies, or subtasks."],
   ["Banners OFF", "No SPIIX 'Get signals' banner, no HEADROOM STEALTH20 on builds (reverses the 2026-10-10 standard). Splash landing page + working sign up/login + user settings stay."],
   ["Segment ALWAYS", "Installed on every build, no exceptions."],
-  ["No Chatflows", "Never deploy HubSpot chat flows on new apps — but analytics are always structured AND implemented."],
+  ["No vendor chat widgets", "Never deploy HubSpot chat flows or third-party chat widgets on new apps. Conversational surfaces are Oscar's domain — Oscar handles all chatflows and responses, directed by Muse (Steve → Muse → Oscar; Oscar's charter hard gates stand). Analytics are always structured AND implemented."],
   ["'Meet SPII' corner card", "Small dismissible card on every build, linking to stevepeeleii.com."],
   ["Per-project branding", "Each project is its own brand unless already defined."],
   ["Slack deploy alerts", "Every deploy posts to #deploys — verify new apps are covered by the deploy watchers."],

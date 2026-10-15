@@ -23,7 +23,7 @@ const WORKFLOW: [string, string][] = [
 const STANDARDS: [string, string][] = [
   ["Splash on every build", "Landing page, working sign up and login, user settings. No exceptions."],
   ["Analytics always", "Segment on every build — structured and implemented, never an afterthought."],
-  ["No banners, no chatflows", "No promo banners, no third-party chat widgets on builds."],
+  ["No banners, no vendor chat widgets", "No promo banners, no third-party chat widgets on builds. Conversational surfaces are Oscar's domain — Oscar handles all chatflows and responses, directed by Muse (direction chain: Steve → Muse → Oscar; Oscar's charter hard gates stand)."],
   ["Meet SPII corner card", "Small dismissible card on every build, linking home."],
   ["Per-project branding", "Each project is its own brand — never a template wearing a logo."],
   ["Subdomains, always", "New projects ship on subdomains of stevepeeleii.com — never on platform URLs."],
