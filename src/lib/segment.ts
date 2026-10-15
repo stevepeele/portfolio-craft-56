@@ -1,98 +1,76 @@
 /**
- * Segment analytics — sitewide tracking with useful events.
- * Write key: nVAni0C30OpRgeXayoLejzUCGTPxuuAG
+ * Segment analytics — now powered by @plxio/core-ajs.
+ *
+ * This module is the app-specific wrapper: it initializes core-ajs with this
+ * app's config and re-exports the shared helpers. All event helpers from the
+ * old hand-rolled implementation are preserved with identical signatures.
+ *
+ * Orchestration doc: ~/workspace/analytics/SEGMENT-ORCHESTRATION.md
+ * Library source:    ~/workspace/analytics/core-ajs/
+ * Vendored build:    ./vendor/core-ajs/ (rebuild from source when it changes)
  *
  * Usage:
  *   import { track } from "@/lib/segment";
  *   track("CTA Clicked", { cta: "Try Stampd", location: "hacking/stampd hero" });
  */
 
+import {
+  init as coreInit,
+  page as corePage,
+  track as coreTrack,
+  identify as coreIdentify,
+  alias as coreAlias,
+  group as coreGroup,
+  hashEmail,
+} from "../vendor/core-ajs/index";
+
 const WRITE_KEY = "nVAni0C30OpRgeXayoLejzUCGTPxuuAG";
+const APP_ID = "stevepeeleii";
 
-declare global {
-  interface Window {
-    analytics?: {
-      page: (name?: string, props?: Record<string, unknown>) => void;
-      track: (event: string, props?: Record<string, unknown>) => void;
-      identify: (id: string, traits?: Record<string, unknown>) => void;
-    };
-  }
-}
-
-let loaded = false;
-
-/** Inject the Segment snippet. Safe to call multiple times. */
+/** Initialize Segment. Safe to call multiple times (core-ajs no-ops after first). */
 export function initSegment() {
-  if (typeof window === "undefined" || loaded) return;
-  loaded = true;
-
-  (function () {
-    var w: any = window; var i = "analytics", analytics: any = (w[i] = w[i] || []);
-    if (!analytics.initialize)
-      if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice.");
-      else {
-        analytics.invoked = !0;
-        analytics.methods = ["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];
-        analytics.factory = function (e: any) {
-          return function () {
-            if (w[i].initialized) return w[i][e].apply(w[i], arguments);
-            var n = Array.prototype.slice.call(arguments);
-            if (["track","screen","alias","group","page","identify"].indexOf(e) > -1) {
-              var c = document.querySelector("link[rel='canonical']");
-              n.push({ __t: "bpc", c: (c && c.getAttribute("href")) || void 0, p: location.pathname, u: location.href, s: location.search, t: document.title, r: document.referrer });
-            }
-            n.unshift(e);
-            analytics.push(n);
-            return analytics;
-          };
-        };
-        for (var n = 0; n < analytics.methods.length; n++) {
-          var key = analytics.methods[n];
-          analytics[key] = analytics.factory(key);
-        }
-        analytics.load = function (key: string, n?: any) {
-          var t = document.createElement("script");
-          t.type = "text/javascript";
-          t.async = !0;
-          t.setAttribute("data-global-segment-analytics-key", i);
-          t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
-          var r = document.getElementsByTagName("script")[0];
-          if (r && r.parentNode) r.parentNode.insertBefore(t, r); else document.head.appendChild(t);
-          analytics._loadOptions = n;
-        };
-        analytics._writeKey = WRITE_KEY;
-        analytics.SNIPPET_VERSION = "5.2.0";
-        analytics.load(WRITE_KEY);
-        analytics.page();
-      }
-  })();
+  if (typeof window === "undefined") return;
+  coreInit({
+    writeKey: WRITE_KEY,
+    appId: APP_ID,
+    appVersion: "1.0.0",
+    debug: false,
+  });
 }
 
 /** Track a page view (call on route changes). */
 export function segmentPage(name?: string, props?: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  window.analytics?.page(name, {
-    path: location.pathname,
-    url: location.href,
-    title: document.title,
-    referrer: document.referrer,
-    ...props,
-  });
+  corePage(name, props);
 }
 
-/** Track a custom event. */
+/** Track a custom event (taxonomy: past tense, Title Case). */
 export function track(event: string, props?: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  window.analytics?.track(event, props);
+  coreTrack(event, props);
 }
 
-/** Identify a user (call after email capture / signup). */
-export function identify(id: string, traits?: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  window.analytics?.identify(id, traits);
+/**
+ * Identify a user. Pass the auth UUID when available; otherwise pass an
+ * email and we'll hash it. Automatically aliases the anonymous identity.
+ */
+export async function identify(idOrEmail: string, traits?: Record<string, unknown>) {
+  const userId = idOrEmail.includes("@") ? await hashEmail(idOrEmail) : idOrEmail;
+  coreAlias(userId);
+  coreIdentify(userId, traits);
 }
 
-// ---------- Useful site events ----------
+/** Alias an anonymous identity to a known userId. */
+export function alias(userId: string, previousId?: string) {
+  coreAlias(userId, previousId);
+}
+
+/** Associate the user with a group (org, team). */
+export function group(groupId: string, traits?: Record<string, unknown>) {
+  coreGroup(groupId, traits);
+}
+
+export { hashEmail };
+
+// ---------- App-specific event helpers (signatures unchanged) ----------
 
 /** Fire when a "try it" / primary CTA is clicked. */
 export function trackCta(cta: string, location: string, destination?: string) {
