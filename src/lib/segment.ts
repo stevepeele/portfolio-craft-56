@@ -122,6 +122,11 @@ export function trackFaithCta(cta: string, section: string, destination: string)
   track("Faith CTA Clicked", { cta, section, destination });
 }
 
+/** Fire once when a money page's price section scrolls into view (funnel: view → pricing → CTA). */
+export function trackPricingViewed(page: "sprint" | "faith", price: string) {
+  track("Pricing Viewed", { page, price });
+}
+
 /** Fire on /sprint firm preview link clicks. */
 export function trackSprintPreview(firm: string, url: string) {
   track("Sprint Preview Clicked", { firm, url });
