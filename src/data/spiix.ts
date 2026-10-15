@@ -11,7 +11,7 @@ export type SpiixEngagement = {
   tiers: { name: string; price: string; best: string; features: string[]; featured?: boolean }[];
 };
 
-export const spiixEngagements: SpiixEngagement[] = spiixOriginal.gm.map(item=>({slug:item.slug,code:item.code,label:item.name,title:item.hero,summary:item.sub,best:item.summary,shape:item.slug==="gtm-audit"?"Fixed scope · 5 business days":item.slug==="fractional-advisory"?"Ongoing · weekly, monthly, or on-call":"1:1 only · no cohorts",kpis:item.stats.map(stat=>({...stat})),gets:item.deliverables.map((body,index)=>({title:`Deliverable 0${index+1}`,body})),steps:item.process.map(step=>({name:step.name,body:step.detail})),tiers:item.tiers.map(tier=>({...tier,price:item.slug==="gtm-audit"&&tier.name==="Snapshot"?"$1,500":tier.price,features:[...tier.features]}))}));
+export const spiixEngagements: SpiixEngagement[] = spiixOriginal.gm.map(item=>({slug:item.slug,code:item.code,label:item.name,title:item.hero,summary:item.sub,best:item.summary,shape:item.slug==="gtm-audit"?"Fixed scope · 5 business days":item.slug==="fractional-advisory"?"Ongoing · weekly, monthly, or on-call":"1:1 only · no cohorts",kpis:item.stats.map(stat=>({...stat})),gets:item.deliverables.map((body,index)=>({title:`Deliverable 0${index+1}`,body})),steps:item.process.map(step=>({name:step.name,body:step.detail})),tiers:item.tiers.map(tier=>({...tier,price:item.slug==="gtm-audit"&&tier.name==="Snapshot"?"$2,000":tier.price,features:[...tier.features]}))}));
 
 export function getSpiixEngagement(slug: SpiixEngagement["slug"]) {
   const engagement = spiixEngagements.find((item) => item.slug === slug);
