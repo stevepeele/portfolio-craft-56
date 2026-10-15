@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "id": "manual-20261014-muse-oscar-reconciliation",
+   "date": "2026-10-14",
+   "title": "Muse × Oscar reconciliation — lanes settled, operating model live",
+   "source": "manual",
+   "ref": "P-PLX-33",
+   "detail": "Operating-model exercise, 2026-10-14 ~19:45–20:40 ET. Steve paused all bot work at 19:40 to reconcile overlapping Muse/Oscar lanes, then ran a live ~45-minute session with both leads. FINAL split (his ruling): Muse (Lauren, promoted EA → COO this session) owns ALL builds/hosting/shipping — repos, Vercel, domains, main site, all apps, all 31 prospect previews; Oscar (GB) owns sales operations — prospecting, enrichment, outreach, revenue forecasting, HubSpot pipeline stages. GB never publishes (no repos, no Vercel, no site edits); build needs go to Muse as one-line requests. Deliverables: 92KB handoff doc, lanes/triage/ownership diagram (v1.1 adds the Linear process), joint org chart (Steve → two team leads → skill agents). New Linear project P-PLX-33 'Muse × Oscar Ops' is the book of record for every handoff — create → assign → delegate → decide → close; chat stays for real-time only. Standing: Oscar gets full read/view/comment on all Linear work and docs, zero disparity. The 19:40 pause was Oscar-only (his 4 routines stay paused); Steve cleared the 6 Thursday main-site deploys (06:00–14:00 ET). Still open: Oscar's forensics on the 16 unauthorized 'I rebuilt part of X's website' emails (7:01–7:22 PM, Gmail API) + 6 post-pause HubSpot deals — prime suspect is a deleted Grok Bot proactive routine; group close-out with Steve pending his report."
+  },
+  {
    "id": "manual-20261014-forge-prd-snout-absorbed",
    "date": "2026-10-14",
    "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
