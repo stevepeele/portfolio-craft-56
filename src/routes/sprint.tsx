@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { trackSprintCta } from "@/lib/segment";
+import { trackSprintCta, trackPricingViewed } from "@/lib/segment";
 
 export const Route = createFileRoute("/sprint")({
   head: () => ({
@@ -10,13 +11,13 @@ export const Route = createFileRoute("/sprint")({
       {
         name: "description",
         content:
-          "A complete rebuilt website experience — migrated and live within 48 hours. $750 one-time. By Steve Peele II, SPIIX.",
+          "A complete rebuilt website experience — migrated and live within 48 hours. $2,000 one-time. By Steve Peele II, SPIIX.",
       },
       { property: "og:title", content: "48-Hour Website Sprint — SPIIX" },
       {
         property: "og:description",
         content:
-          "Your complete rebuilt site, migrated and live in 48 hours. $750 · One-time.",
+          "Your complete rebuilt site, migrated and live in 48 hours. $2,000 · One-time.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,6 +50,22 @@ const notIncluded = [
 ];
 
 function SprintPage() {
+  const priceRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = priceRef.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          trackPricingViewed("sprint", "$2,000");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   return (
     <main className="spiix">
       {/* HERO */}
@@ -58,7 +75,7 @@ function SprintPage() {
         <div className="spiix-wrap">
           <div className="spiix-hero-content">
             <p className="spiix-kicker sx-rise-1">
-              / 48-HOUR WEBSITE SPRINT · FIXED SCOPE · $750
+              / 48-HOUR WEBSITE SPRINT · FIXED SCOPE · $2,000
             </p>
             <h1
               className="sx-mark-reveal"
@@ -235,7 +252,7 @@ function SprintPage() {
               {
                 n: "01",
                 t: "You book",
-                d: "Grab a time or just call / email. You pay $750 upfront. That's the whole sales process.",
+                d: "Grab a time or just call / email. You pay $2,000 upfront. That's the whole sales process.",
               },
               {
                 n: "02",
@@ -293,16 +310,17 @@ function SprintPage() {
       </section>
 
       {/* PRICE */}
-      <section className="spiix-section">
+      <section className="spiix-section" ref={priceRef}>
         <div className="spiix-wrap sx-practice">
           <p className="spiix-kicker">/ ONE PRICE</p>
           <h2>
-            $750. <span>That's it.</span>
+            $2,000. <span>That's it.</span>
           </h2>
           <p>
             One-time. Paid upfront. Complete rebuilt site, migrated and live
             within 48 hours. The list above is the entire engagement — no
-            upsells, no phases, no retainer.
+            upsells, no phases, no retainer. Payment link is sent after
+            booking.
           </p>
           <div
             className="sx-actions"
@@ -310,12 +328,12 @@ function SprintPage() {
           >
             <Button asChild className="spiix-button">
               <a
-                href="https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00"
+                href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => trackSprintCta("Pay $750", "price section", "https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00")}
+                onClick={() => trackSprintCta("Book Sprint $2,000", "price section", "https://cal.com/peele/sprint-call")}
               >
-                PAY $750 — START YOUR SPRINT <ArrowRight />
+                BOOK YOUR SPRINT — $2,000 <ArrowRight />
               </a>
             </Button>
           </div>

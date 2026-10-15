@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { trackFaithCta } from "@/lib/segment";
+import { trackFaithCta, trackPricingViewed } from "@/lib/segment";
 
 export const Route = createFileRoute("/faith")({
   head: () => ({
@@ -10,13 +11,13 @@ export const Route = createFileRoute("/faith")({
       {
         name: "description",
         content:
-          "A complete rebuilt church website — sermons, ministries, giving, events — migrated and live within 48 hours. $750 one-time. By Steve Peele II, SPIIX.",
+          "A complete rebuilt church website — sermons, ministries, giving, events — migrated and live within 48 hours. $2,000 one-time. By Steve Peele II, SPIIX.",
       },
       { property: "og:title", content: "48-Hour Church Website Sprint — SPIIX" },
       {
         property: "og:description",
         content:
-          "Your church's complete rebuilt site, migrated and live in 48 hours. $750 · One-time.",
+          "Your church's complete rebuilt site, migrated and live in 48 hours. $2,000 · One-time.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -74,6 +75,22 @@ const faqs = [
 ];
 
 function FaithPage() {
+  const priceRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = priceRef.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          trackPricingViewed("faith", "$2,000");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   return (
     <main className="spiix">
       {/* HERO */}
@@ -83,7 +100,7 @@ function FaithPage() {
         <div className="spiix-wrap">
           <div className="spiix-hero-content">
             <p className="spiix-kicker sx-rise-1">
-              / 48-HOUR CHURCH WEBSITE SPRINT · FIXED SCOPE · $750
+              / 48-HOUR CHURCH WEBSITE SPRINT · FIXED SCOPE · $2,000
             </p>
             <h1
               className="sx-mark-reveal"
@@ -265,7 +282,7 @@ function FaithPage() {
               {
                 n: "01",
                 t: "You book",
-                d: "Grab a time or just call / email. You pay $750 upfront. That's the whole sales process.",
+                d: "Grab a time or just call / email. You pay $2,000 upfront. That's the whole sales process.",
               },
               {
                 n: "02",
@@ -323,16 +340,17 @@ function FaithPage() {
       </section>
 
       {/* PRICE */}
-      <section className="spiix-section">
+      <section className="spiix-section" ref={priceRef}>
         <div className="spiix-wrap sx-practice">
           <p className="spiix-kicker">/ ONE PRICE</p>
           <h2>
-            $750. <span>That's it.</span>
+            $2,000. <span>That's it.</span>
           </h2>
           <p>
             One-time. Paid upfront. Complete rebuilt church site, migrated and
             live within 48 hours. The list above is the entire engagement —
-            no upsells, no phases, no retainer.
+            no upsells, no phases, no retainer. Payment link is sent after
+            booking.
           </p>
           <div
             className="sx-actions"
@@ -340,12 +358,12 @@ function FaithPage() {
           >
             <Button asChild className="spiix-button">
               <a
-                href="https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00"
+                href="https://cal.com/peele/sprint-call"
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => trackFaithCta("Pay $750", "price section", "https://buy.stripe.com/cNibJ0fv439dfnS6CbaMU00")}
+                onClick={() => trackFaithCta("Book Sprint $2,000", "price section", "https://cal.com/peele/sprint-call")}
               >
-                PAY $750 — START YOUR SPRINT <ArrowRight />
+                BOOK YOUR SPRINT — $2,000 <ArrowRight />
               </a>
             </Button>
           </div>
@@ -509,6 +527,62 @@ function FaithPage() {
             <br />
             It's "does a first-time visitor know where to go Sunday morning?"
           </blockquote>
+
+          {/* PROOF — SOZO CASE STUDY */}
+          <div
+            style={{
+              marginTop: 40,
+              padding: 28,
+              border: "1px solid var(--sx-line)",
+              background: "var(--sx-panel, transparent)",
+              maxWidth: 680,
+            }}
+          >
+            <p
+              style={{
+                fontFamily: '"JetBrains Mono",monospace',
+                fontSize: 11,
+                color: "var(--sx-kinetic)",
+                marginBottom: 12,
+              }}
+            >
+              / PROOF OF WORK
+            </p>
+            <h3 style={{ fontSize: "clamp(20px, 4vw, 28px)", marginBottom: 16 }}>
+              Sozo Loveland — rebuilt end to end.
+            </h3>
+            <p
+              style={{
+                fontSize: 13,
+                color: "var(--sx-muted)",
+                lineHeight: 1.85,
+                marginBottom: 16,
+              }}
+            >
+              Full church rebuild: cinematic homepage, Messages archive as
+              content tracks (series as albums, messages as tracks), event
+              venue pages, plan-your-visit concierge, online giving, prayer
+              room, live Sunday mode. Every page rebuilt around the
+              first-time visitor — from "who is this church?" to "see you
+              Sunday."
+            </p>
+            <a
+              href="https://sozo.stevepeeleii.com"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackFaithCta("Sozo Case Study", "why me", "https://sozo.stevepeeleii.com")}
+              style={{
+                fontFamily: '"JetBrains Mono",monospace',
+                fontSize: 13,
+                color: "var(--sx-kinetic)",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+              }}
+            >
+              See the rebuild — sozo.stevepeeleii.com <ArrowRight size={14} style={{ display: "inline", verticalAlign: "middle" }} />
+            </a>
+          </div>
+
           <div style={{ marginTop: 36 }}>
             <Button asChild className="spiix-button">
               <a
