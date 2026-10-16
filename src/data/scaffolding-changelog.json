@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "id": "manual-20261016-obvviously-chapter-journey",
+      "date": "2026-10-16",
+      "title": "OBVVIOUSLY page redesigned as illustrated chapter journey",
+      "source": "manual",
+      "ref": "SPIIX-629",
+      "detail": "12 cohesive scratch-ink chapter illustrations (matching the 3 existing room/eye/figure plates; ch07 hand-drawn SVG) as text-safe TS modules; page restructured from chapter index into an illustrated chapter journey (visual + title + one-line descriptor per chapter). Midnight-cinematic system and Kit email capture kept."
+    },
+    {
       "id": "manual-20261016-seo-fixes",
       "date": "2026-10-16",
       "title": "SEO fixes: canonical bug, sitemap 22→70, self-referencing og:url",
