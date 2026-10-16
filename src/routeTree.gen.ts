@@ -56,6 +56,7 @@ import { Route as ScaffoldingCommandRouteImport } from './routes/scaffolding.com
 import { Route as ScaffoldingDeploysRouteImport } from './routes/scaffolding.deploys'
 import { Route as ScaffoldingDiagramsRouteImport } from './routes/scaffolding.diagrams'
 import { Route as ScaffoldingInfrastructureRouteImport } from './routes/scaffolding.infrastructure'
+import { Route as ScaffoldingLivelogRouteImport } from './routes/scaffolding.livelog'
 import { Route as ScaffoldingMonitoringRouteImport } from './routes/scaffolding.monitoring'
 import { Route as ScaffoldingOpsRouteImport } from './routes/scaffolding.ops'
 import { Route as ScaffoldingOrganizationRouteImport } from './routes/scaffolding.organization'
@@ -329,6 +330,11 @@ const ScaffoldingInfrastructureRoute =
     path: '/infrastructure',
     getParentRoute: () => ScaffoldingRoute,
   } as any)
+const ScaffoldingLivelogRoute = ScaffoldingLivelogRouteImport.update({
+  id: '/livelog',
+  path: '/livelog',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
 const ScaffoldingMonitoringRoute = ScaffoldingMonitoringRouteImport.update({
   id: '/monitoring',
   path: '/monitoring',
@@ -556,6 +562,7 @@ export interface FileRoutesByFullPath {
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
   '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
@@ -637,6 +644,7 @@ export interface FileRoutesByTo {
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
   '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
@@ -722,6 +730,7 @@ export interface FileRoutesById {
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
+  '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
   '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
@@ -808,6 +817,7 @@ export interface FileRouteTypes {
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
     | '/scaffolding/infrastructure'
+    | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
     | '/scaffolding/ops'
     | '/scaffolding/organization'
@@ -889,6 +899,7 @@ export interface FileRouteTypes {
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
     | '/scaffolding/infrastructure'
+    | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
     | '/scaffolding/ops'
     | '/scaffolding/organization'
@@ -973,6 +984,7 @@ export interface FileRouteTypes {
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
     | '/scaffolding/infrastructure'
+    | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
     | '/scaffolding/ops'
     | '/scaffolding/organization'
@@ -1389,6 +1401,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScaffoldingInfrastructureRouteImport
       parentRoute: typeof ScaffoldingRoute
     }
+    '/scaffolding/livelog': {
+      id: '/scaffolding/livelog'
+      path: '/livelog'
+      fullPath: '/scaffolding/livelog'
+      preLoaderRoute: typeof ScaffoldingLivelogRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
     '/scaffolding/monitoring': {
       id: '/scaffolding/monitoring'
       path: '/monitoring'
@@ -1675,6 +1694,7 @@ interface ScaffoldingRouteChildren {
   ScaffoldingDeploysRoute: typeof ScaffoldingDeploysRoute
   ScaffoldingDiagramsRoute: typeof ScaffoldingDiagramsRoute
   ScaffoldingInfrastructureRoute: typeof ScaffoldingInfrastructureRoute
+  ScaffoldingLivelogRoute: typeof ScaffoldingLivelogRoute
   ScaffoldingMonitoringRoute: typeof ScaffoldingMonitoringRoute
   ScaffoldingOpsRoute: typeof ScaffoldingOpsRoute
   ScaffoldingOrganizationRoute: typeof ScaffoldingOrganizationRoute
@@ -1693,6 +1713,7 @@ const ScaffoldingRouteChildren: ScaffoldingRouteChildren = {
   ScaffoldingDeploysRoute: ScaffoldingDeploysRoute,
   ScaffoldingDiagramsRoute: ScaffoldingDiagramsRoute,
   ScaffoldingInfrastructureRoute: ScaffoldingInfrastructureRoute,
+  ScaffoldingLivelogRoute: ScaffoldingLivelogRoute,
   ScaffoldingMonitoringRoute: ScaffoldingMonitoringRoute,
   ScaffoldingOpsRoute: ScaffoldingOpsRoute,
   ScaffoldingOrganizationRoute: ScaffoldingOrganizationRoute,

@@ -1,0 +1,149 @@
+{
+ "events": [
+  {
+   "id": "evt-001",
+   "kind": "decision",
+   "lane": "lauren",
+   "link": null,
+   "t": "2026-10-15T18:47:00-04:00",
+   "text": "Standing rule set: no texting on Steve's behalf. Ever. Not as him, not as Lauren."
+  },
+  {
+   "id": "evt-002",
+   "kind": "done",
+   "lane": "lauren",
+   "link": "https://reverb.com/item/102868734-line-6-helix-control-foot-controller-for-helix-rack",
+   "t": "2026-10-15T20:02:00-04:00",
+   "text": "Helix Control published live on Reverb at $320."
+  },
+  {
+   "id": "evt-003",
+   "kind": "done",
+   "lane": "lauren",
+   "link": "https://reverb.com/item/102868734-line-6-helix-control-foot-controller-for-helix-rack",
+   "t": "2026-10-15T20:13:00-04:00",
+   "text": "Helix dropped to $215 \u2014 cheapest used unit on Reverb."
+  },
+  {
+   "id": "evt-004",
+   "kind": "blocker",
+   "lane": "oscar",
+   "link": "https://linear.app/plxio/issue/PLX-592",
+   "t": "2026-10-15T20:31:00-04:00",
+   "text": "13 Reverb drafts created as shells \u2014 Reverb needs a photo before anything saves. Waiting on Steve's phone photos."
+  },
+  {
+   "id": "evt-005",
+   "kind": "done",
+   "lane": "lauren",
+   "link": null,
+   "t": "2026-10-15T20:38:00-04:00",
+   "text": "#ops-log Slack channel created \u2014 pull-model window into delegated work. Every post signed \u26a1 Lauren."
+  },
+  {
+   "id": "evt-006",
+   "kind": "decision",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-593",
+   "t": "2026-10-15T21:35:00-04:00",
+   "text": "Vault course productization ordered: 20-lesson master course, templates stay free as the lead magnet."
+  },
+  {
+   "id": "evt-007",
+   "kind": "processing",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-575",
+   "t": "2026-10-15T22:02:00-04:00",
+   "text": "Separate Linear identity in motion \u2014 lauren@stevepeeleii.com alias, invite to PLXIO workspace."
+  },
+  {
+   "id": "evt-008",
+   "kind": "dialogue",
+   "lane": "lauren",
+   "link": null,
+   "t": "2026-10-15T22:10:00-04:00",
+   "text": "Trust repair: Oscar = the ops arm, GB = the worker agents inside it. One entity, two names. Direction chain Steve \u2192 Muse \u2192 Oscar stands."
+  },
+  {
+   "id": "evt-009",
+   "kind": "processing",
+   "lane": "oscar",
+   "link": "https://linear.app/plxio/issue/PLX-601",
+   "t": "2026-10-15T22:10:00-04:00",
+   "text": "Follower growth blitz scoped (PLX-601) \u2014 aggressive organic growth, X + Instagram first."
+  },
+  {
+   "id": "evt-010",
+   "kind": "decision",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-602",
+   "t": "2026-10-15T22:17:00-04:00",
+   "text": "Amplify clone parked \u2014 SaaS is not near-term money. Wakes up when warm pilots get named."
+  },
+  {
+   "id": "evt-011",
+   "kind": "done",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-604",
+   "t": "2026-10-15T22:20:00-04:00",
+   "text": "Sozo Loveland venue kit built \u2014 rate card, inquiry brief, reply templates. Awaiting his three pricing numbers."
+  },
+  {
+   "id": "evt-012",
+   "kind": "processing",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-605",
+   "t": "2026-10-15T22:21:00-04:00",
+   "text": "Roam-for-churches niche captured (PLX-605) \u2014 virtual office for churches, parked in backlog."
+  },
+  {
+   "id": "evt-013",
+   "kind": "blocker",
+   "lane": "system",
+   "link": "https://linear.app/plxio/issue/PLX-575",
+   "t": "2026-10-15T22:49:00-04:00",
+   "text": "Linear invite link dead ('invitation not found'). Waiting on Steve to regenerate it."
+  },
+  {
+   "id": "evt-014",
+   "kind": "query",
+   "lane": "lauren",
+   "link": null,
+   "t": "2026-10-15T22:55:00-04:00",
+   "text": "Unclaimed funds surfaced: Ohio claim #12627036, $3,026.65 \u2014 $2,310.28 in old ADP wages. Needs his docs."
+  },
+  {
+   "id": "evt-015",
+   "kind": "processing",
+   "lane": "oscar",
+   "link": null,
+   "t": "2026-10-15T23:03:00-04:00",
+   "text": "Segment\u2192HubSpot diagnosed: mapping demands email, apps send anonymous events. 99.8% rejected. Fix proposed."
+  },
+  {
+   "id": "evt-016",
+   "kind": "processing",
+   "lane": "oscar",
+   "link": null,
+   "t": "2026-10-15T23:08:00-04:00",
+   "text": "Address hunt dispatched \u2014 searching notes, files, Gmail, photos for proof of the five claim addresses."
+  },
+  {
+   "id": "evt-017",
+   "kind": "query",
+   "lane": "lauren",
+   "link": "https://linear.app/plxio/issue/PLX-607",
+   "t": "2026-10-15T23:13:00-04:00",
+   "text": "This livelog ordered. Building it now."
+  },
+  {
+   "id": "evt-018-1792120536",
+   "t": "2026-10-15T23:15:36-04:00",
+   "lane": "lauren",
+   "kind": "done",
+   "text": "Livelog page built and shipped.",
+   "link": "https://linear.app/plxio/issue/PLX-607"
+  }
+ ],
+ "generatedAt": "2026-10-15T23:15:36-04:00"
+}
