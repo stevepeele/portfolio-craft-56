@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { profile } from "@/data/resume";
 import { trackCta } from "@/lib/segment";
 
-// TODO(SPIIX-633): Steve is setting up the $99 payment link himself.
-// Drop it in here when it's live — it's the only thing this page needs.
-const PAYMENT_URL = "#";
+// SPIIX-637: Square bypassed — $99 audit payments go via Cash App pay page.
+// Payer sends $99 to $peeleslaps (they type the amount on cash.app).
+const PAYMENT_URL = "https://cash.app/$peeleslaps";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
