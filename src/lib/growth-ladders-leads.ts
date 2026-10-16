@@ -18,12 +18,26 @@ export const growthLadderSignupSchema = z.object({
 });
 export type GrowthLadderSignup = z.infer<typeof growthLadderSignupSchema>;
 
+// Auto-fire autoresponse (SPIIX-632): every Growth Ladders entry fires its
+// respective email back to the submitter via FormSubmit's _autoresponse.
+export const growthLaddersAutoresponse = [
+  "Here's your copy — Growth Ladders, Operators Edition (PDF):",
+  "https://stevepeeleii.com/growth-ladders-operators-edition.pdf",
+  "",
+  "The full SPIIX body of work. If you ran the diagnostic, start with your weakest rung.",
+  "",
+  "Questions about what it means for your team? Reply here — it comes straight to me.",
+  "",
+  "— Steve Peele II",
+].join("\n");
+
 export function growthLadderPayload(input: GrowthLadderSignup) {
   const d = growthLadderSignupSchema.parse(input);
   return {
     name: d.name, email: d.email, company: d.company, role: d.role,
     weakest_rung: d.weakestRung ?? "not taken",
     _subject: "New Growth Ladders signup", _template: "table",
+    _autoresponse: growthLaddersAutoresponse,
   };
 }
 
