@@ -2,6 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, GitBranch, Pause, Play, Radio } from "lucide-react";
 import { ScaffoldingShell, scaffoldingHead } from "@/components/scaffolding-shell";
+import {
+  DataFlowDiagram,
+  MonitoringPanels,
+  SchemaVisual,
+  useLivelogHealth,
+} from "@/components/livelog-diagrams";
 
 const title = "Scaffolding — Live Ops Log | Steve Peele II";
 const description =
@@ -198,6 +204,7 @@ function LiveLogPage() {
   const [freshIds, setFreshIds] = useState<Set<string>>(new Set());
   const [lastSync, setLastSync] = useState<string | null>(null);
   const seenRef = useRef<Set<string>>(new Set());
+  const { data: health, error: healthError } = useLivelogHealth(30000);
 
   const fetchLog = useCallback(async () => {
     try {
@@ -289,8 +296,8 @@ function LiveLogPage() {
           The operation, <span className="text-gradient">as it happens.</span>
         </>
       }
-      intro="Newest first — headlines up top, full logs and AI decision trees one tap down. Polls for new entries every 3 seconds."
-      updated="2026-10-15"
+      intro="Newest first — headlines up top, full logs and AI decision trees one tap down. Polls for new entries every 3 seconds. Live pipeline health, monitoring, and the event schema sit alongside the stream below."
+      updated="2026-10-16"
     >
       <style>{`
         @keyframes livelog-flash-in {
@@ -343,7 +350,16 @@ function LiveLogPage() {
         {lastSync && <span className="ml-auto text-xs text-zinc-500">synced {fmtTime(lastSync)}</span>}
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-4">
+        <DataFlowDiagram health={health} />
+        <MonitoringPanels health={health} />
+        {healthError && !health && (
+          <p className="text-xs text-amber-300/80">Pipeline health probe unreachable — stream below is unaffected.</p>
+        )}
+        <SchemaVisual schema={health?.schema} />
+      </div>
+
+      <div className="mt-6 space-y-3">
         {visible.length === 0 && <p className="text-sm text-zinc-500">No entries match this filter.</p>}
         {visible.map((e) => (
           <EntryCard
@@ -359,7 +375,7 @@ function LiveLogPage() {
 
       <p className="mt-4 flex items-center gap-2 text-xs text-zinc-500">
         <Radio className="size-3" />
-        Entries are logged as work happens and Segment events land live via webhook. Unlisted · noindex · internal reference.
+        Entries are logged as work happens and Segment events land live via webhook. Pipeline diagram, monitoring, and schema above are driven by live probes. Unlisted · noindex · internal reference.
       </p>
     </ScaffoldingShell>
   );
