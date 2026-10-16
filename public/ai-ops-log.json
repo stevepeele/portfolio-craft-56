@@ -143,7 +143,59 @@
    "kind": "done",
    "text": "Livelog page built and shipped.",
    "link": "https://linear.app/plxio/issue/PLX-607"
+  },
+  {
+   "id": "evt-019-1792121854",
+   "t": "2026-10-16T03:37:34+00:00",
+   "lane": "lauren",
+   "kind": "decision",
+   "text": "Segment\u2192HubSpot diagnosed: mapping demands email, apps send anonymous events. Changed nothing.",
+   "detail": "Root cause, verified live: the HubSpot Cloud Mode (Actions) destination is enabled and authenticated fine \u2014 the breakage is a data/mapping mismatch. The only mapping, 'Lead Events Upsert Contact', fires on Track (All) and maps HubSpot's required Email field from properties.email. SPIIX source events carry NO email anywhere \u2014 the sample failed event ('Note Cracked' from piggybank) has empty properties, no traits, null userId. Segment rejects every such event with 'Payload Validation Failed \u2014 The root value is missing the required field email', never calls HubSpot, and does not retry. 7-day: 2,230 received / 823 failed / 4 delivered (0.2%).",
+   "link": "https://linear.app/plxio/issue/PLX-606",
+   "parent": null,
+   "options": [
+    "Fix the SPIIX source: include properties.email on track events, or send identify calls with email",
+    "Narrow the mapping: change the Email field source, or trigger only on events that carry an email",
+    "Disable the mapping for anonymous events"
+   ],
+   "chosen": null,
+   "decision": "Diagnose only \u2014 zero dashboard changes. Mapping editor opened for inspection and exited without saving. Options brought back to Steve.",
+   "outcome": "Awaiting Steve's tap. Still failing: 0.2% delivered."
+  },
+  {
+   "id": "evt-020-1792121854",
+   "t": "2026-10-16T03:37:34+00:00",
+   "lane": "lauren",
+   "kind": "decision",
+   "text": "Livelog v1 architecture call: static JSON feed + poll, no realtime infra.",
+   "detail": "Steve ordered an unlisted real-time ops log under /scaffolding \u2014 queries, dialogues, AI conversations, processing, as a running log. The question was how to make it 'real-time' on a static site.",
+   "link": "https://linear.app/plxio/issue/PLX-607",
+   "parent": null,
+   "options": [
+    "Static JSON feed (public/ai-ops-log.json) + client polling \u2014 simple, static-hosting safe",
+    "WebSocket/SSE realtime infra \u2014 true realtime, needs a server, persistence, and ops overhead"
+   ],
+   "chosen": 0,
+   "decision": "JSON feed with a python writer, 10s client poll, entries go live on push. Unlisted, noindex, terminal-style UI.",
+   "outcome": "Live at /scaffolding/livelog. Deploy READY on commit c0127d9. PLX-607 Done."
+  },
+  {
+   "id": "evt-021-1792121854",
+   "t": "2026-10-16T03:37:34+00:00",
+   "lane": "lauren",
+   "kind": "decision",
+   "text": "Livelog v2: news-first stream with expandable logs and AI decision trees.",
+   "detail": "Steve's follow-up: 'STREAM WITH MORE DETAILS. EFFECTIVELY VIEW LOGS AND AI DECISION TREES. STARTS WITH NEWS AND DESCENDS.' The page becomes a news feed \u2014 newest headline at top, expanding into full log detail, with decision-kind entries rendering the AI's reasoning chain (trigger \u2192 options weighed \u2192 decision \u2192 outcome) as an actual tree.",
+   "link": "https://linear.app/plxio/issue/PLX-611",
+   "parent": null,
+   "options": [
+    "True streaming via SSE/long-poll endpoint \u2014 needs a serverless function, cache-busting, more moving parts",
+    "Tighter polling (3s) + push convention + animated stream feel \u2014 near-realtime, static-safe"
+   ],
+   "chosen": 1,
+   "decision": "3s poll with cache-bust, newest-first stream, expandable headlines, CSS decision trees, flash-in animation on new entries, LIVE indicator. Decision-tree fields added to log-event.py first-class.",
+   "outcome": "Building now. PLX-611."
   }
  ],
- "generatedAt": "2026-10-15T23:15:36-04:00"
+ "generatedAt": "2026-10-16T03:37:34+00:00"
 }
