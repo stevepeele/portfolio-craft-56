@@ -1,6 +1,186 @@
 {
   "deploys": [
     {
+      "id": "vercel-20261016-328e797",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "SPIIX-623: OBVIOUSLY page image imports — latest production deployment.",
+      "ref": "328e797"
+    },
+    {
+      "id": "vercel-20261016-385e25f",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "FAILED",
+      "note": "SPIIX-623: OBVIOUSLY editorial illustration — production build failed (ERROR). Superseded by 328e797 READY.",
+      "ref": "385e25f"
+    },
+    {
+      "id": "vercel-20261016-911533b",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "FAILED",
+      "note": "SPIIX-623: OBVIOUSLY cover visual — production build failed (ERROR). Superseded by 328e797 READY.",
+      "ref": "911533b"
+    },
+    {
+      "id": "vercel-20261016-fb76c42",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "FAILED",
+      "note": "SPIIX-623: OBVIOUSLY book page rebuild (part 1) — production build failed (ERROR). Superseded by 328e797 READY.",
+      "ref": "fb76c42"
+    },
+    {
+      "id": "vercel-20261016-0618264",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "SPIIX-617: SEO fixes — canonical bug, sitemap 22→70, self-referencing og:url.",
+      "ref": "0618264"
+    },
+    {
+      "id": "vercel-20261016-b6ba715",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "SPIIX-618: livelog data-flow + monitoring diagrams + schema visual.",
+      "ref": "b6ba715"
+    },
+    {
+      "id": "vercel-20261016-d8fae42",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "SPIIX-616: /scaffolding/systems changelog entry.",
+      "ref": "d8fae42"
+    },
+    {
+      "id": "vercel-20261016-6735f02",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-610: Segment → livelog ingest pipeline (3 production deployments, all READY).",
+      "ref": "6735f02"
+    },
+    {
+      "id": "vercel-20261016-da834c7",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "SPIIX-616: real-time systems visualization page (/scaffolding/systems) + route tree.",
+      "ref": "da834c7"
+    },
+    {
+      "id": "vercel-20261016-ca7cadb",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-612: unlisted enlistment map page + route tree.",
+      "ref": "ca7cadb"
+    },
+    {
+      "id": "vercel-20261016-46b0002",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-611: livelog v2 — news-first stream, expandable logs, AI decision trees.",
+      "ref": "46b0002"
+    },
+    {
+      "id": "vercel-20261016-c0127d9",
+      "date": "2026-10-16",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-607: scaffolding livelog page (real-time AI ops running log) + event feed.",
+      "ref": "c0127d9"
+    },
+    {
+      "id": "vercel-20261015-3bfe47e",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-577: OBVIOUSLY changelog entry (2 production deployments, READY).",
+      "ref": "3bfe47e"
+    },
+    {
+      "id": "vercel-20261015-46a7778",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-577: OBVIOUSLY book PDF for landing page download.",
+      "ref": "46a7778"
+    },
+    {
+      "id": "vercel-20261015-92966d4",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-577: OBVIOUSLY book landing page (unlisted) + route tree.",
+      "ref": "92966d4"
+    },
+    {
+      "id": "vercel-20261015-62da2b6",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-566: scaffolding architecture updates.",
+      "ref": "62da2b6"
+    },
+    {
+      "id": "vercel-20261015-6a3e659",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-531/566: faith, sprint, spiix.compare updates.",
+      "ref": "6a3e659"
+    },
+    {
+      "id": "vercel-20261015-5bd6e84",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-531/566 (2/6): src/lib/segment.ts.",
+      "ref": "5bd6e84"
+    },
+    {
+      "id": "vercel-20261015-28aab6f",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "PLX-531/566 (1/6): src/data/spiix.ts.",
+      "ref": "28aab6f"
+    },
+    {
+      "id": "vercel-20261015-34d0180",
+      "date": "2026-10-15",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "chore(scaffolding): daily changelog + deploy log update (2 production deployments, READY).",
+      "ref": "34d0180"
+    },
+    {
       "date": "2026-10-15",
       "env": "production",
       "id": "manual-20261015-supabase-key-blocked",
@@ -109,7 +289,7 @@
       "status": "READY"
     }
   ],
-  "generated_at": "2026-10-15T06:25:03-0400",
+  "generated_at": "2026-10-16T06:26:50-0400",
   "generated_by": "daily cron (scaffolding-changelog-updater)",
   "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
   "pipeline": {
