@@ -66,6 +66,7 @@ import { Route as ScaffoldingProjectsRouteImport } from './routes/scaffolding.pr
 import { Route as ScaffoldingRunbookRouteImport } from './routes/scaffolding.runbook'
 import { Route as ScaffoldingSnapshotRouteImport } from './routes/scaffolding.snapshot'
 import { Route as ScaffoldingStackRouteImport } from './routes/scaffolding.stack'
+import { Route as ScaffoldingSystemsRouteImport } from './routes/scaffolding.systems'
 import { Route as ScaffoldingTechRouteImport } from './routes/scaffolding.tech'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audit'
@@ -382,6 +383,11 @@ const ScaffoldingStackRoute = ScaffoldingStackRouteImport.update({
   path: '/stack',
   getParentRoute: () => ScaffoldingRoute,
 } as any)
+const ScaffoldingSystemsRoute = ScaffoldingSystemsRouteImport.update({
+  id: '/systems',
+  path: '/systems',
+  getParentRoute: () => ScaffoldingRoute,
+} as any)
 const ScaffoldingTechRoute = ScaffoldingTechRouteImport.update({
   id: '/tech',
   path: '/tech',
@@ -579,6 +585,7 @@ export interface FileRoutesByFullPath {
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
   '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
   '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/systems': typeof ScaffoldingSystemsRoute
   '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -662,6 +669,7 @@ export interface FileRoutesByTo {
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
   '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
   '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/systems': typeof ScaffoldingSystemsRoute
   '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -749,6 +757,7 @@ export interface FileRoutesById {
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
   '/scaffolding/snapshot': typeof ScaffoldingSnapshotRoute
   '/scaffolding/stack': typeof ScaffoldingStackRoute
+  '/scaffolding/systems': typeof ScaffoldingSystemsRoute
   '/scaffolding/tech': typeof ScaffoldingTechRoute
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
@@ -837,6 +846,7 @@ export interface FileRouteTypes {
     | '/scaffolding/runbook'
     | '/scaffolding/snapshot'
     | '/scaffolding/stack'
+    | '/scaffolding/systems'
     | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -920,6 +930,7 @@ export interface FileRouteTypes {
     | '/scaffolding/runbook'
     | '/scaffolding/snapshot'
     | '/scaffolding/stack'
+    | '/scaffolding/systems'
     | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -1006,6 +1017,7 @@ export interface FileRouteTypes {
     | '/scaffolding/runbook'
     | '/scaffolding/snapshot'
     | '/scaffolding/stack'
+    | '/scaffolding/systems'
     | '/scaffolding/tech'
     | '/services/gtm-audit'
     | '/services/logistics'
@@ -1484,6 +1496,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScaffoldingStackRouteImport
       parentRoute: typeof ScaffoldingRoute
     }
+    '/scaffolding/systems': {
+      id: '/scaffolding/systems'
+      path: '/systems'
+      fullPath: '/scaffolding/systems'
+      preLoaderRoute: typeof ScaffoldingSystemsRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
     '/scaffolding/tech': {
       id: '/scaffolding/tech'
       path: '/tech'
@@ -1724,6 +1743,7 @@ interface ScaffoldingRouteChildren {
   ScaffoldingRunbookRoute: typeof ScaffoldingRunbookRoute
   ScaffoldingSnapshotRoute: typeof ScaffoldingSnapshotRoute
   ScaffoldingStackRoute: typeof ScaffoldingStackRoute
+  ScaffoldingSystemsRoute: typeof ScaffoldingSystemsRoute
   ScaffoldingTechRoute: typeof ScaffoldingTechRoute
 }
 
@@ -1744,6 +1764,7 @@ const ScaffoldingRouteChildren: ScaffoldingRouteChildren = {
   ScaffoldingRunbookRoute: ScaffoldingRunbookRoute,
   ScaffoldingSnapshotRoute: ScaffoldingSnapshotRoute,
   ScaffoldingStackRoute: ScaffoldingStackRoute,
+  ScaffoldingSystemsRoute: ScaffoldingSystemsRoute,
   ScaffoldingTechRoute: ScaffoldingTechRoute,
 }
 
@@ -1866,3 +1887,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
