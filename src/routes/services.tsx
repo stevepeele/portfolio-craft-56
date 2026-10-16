@@ -17,7 +17,6 @@ export const Route = createFileRoute("/services")({
       },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/services" }],
   }),
 });
 

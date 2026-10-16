@@ -19,6 +19,5 @@ export const Route = createFileRoute("/spiix")({
       },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/spiix" }],
   }),
 });

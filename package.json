@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "prebuild": "node scripts/fetch-writing-feeds.mjs",
+    "prebuild": "node scripts/fetch-writing-feeds.mjs && node scripts/generate-sitemap.mjs",
     "feeds": "node scripts/fetch-writing-feeds.mjs"
   },
   "overrides": {

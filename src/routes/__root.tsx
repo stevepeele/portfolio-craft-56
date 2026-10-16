@@ -117,7 +117,12 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  head: ({ matches }) => {
+    // Self-referencing og:url for every page (PLX-617): child routes that set
+    // their own og:url override this via meta dedup; all others inherit it.
+    const pathname = matches[matches.length - 1]?.pathname ?? "/";
+    const pageUrl = `https://stevepeeleii.com${pathname === "/" ? "" : pathname.replace(/\/$/, "")}`;
+    return {
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -142,7 +147,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "14+ years building scalable growth systems. $350M+ pipeline driven. Creator of SPIIX and Growth Ladders.",
       },
-      { property: "og:url", content: "https://stevepeeleii.com/" },
+      { property: "og:url", content: pageUrl },
       { property: "og:image", content: "https://stevepeeleii.com/og-image.jpg" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
@@ -191,9 +196,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "canonical", href: "https://stevepeeleii.com/" },
     ],
-  }),
+    };
+  },
 
   shellComponent: RootShell,
   component: RootComponent,
