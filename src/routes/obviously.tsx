@@ -5,6 +5,18 @@ import { segmentPage, track, trackEmailCapture } from "@/lib/segment";
 import { formsubmitSignalEndpoint } from "@/lib/spiix-leads";
 import { obviously_cover as coverImage } from "@/assets/obviously/obviously_cover";
 import { obviously_notice as noticeImage } from "@/assets/obviously/obviously_notice";
+import { obviously_ch01 } from "@/assets/obviously/obv_ch01";
+import { obviously_ch02 } from "@/assets/obviously/obv_ch02";
+import { obviously_ch03 } from "@/assets/obviously/obv_ch03";
+import { obviously_ch04 } from "@/assets/obviously/obv_ch04";
+import { obviously_ch05 } from "@/assets/obviously/obv_ch05";
+import { obviously_ch06 } from "@/assets/obviously/obv_ch06";
+import { obviously_ch07 } from "@/assets/obviously/obv_ch07";
+import { obviously_ch08 } from "@/assets/obviously/obv_ch08";
+import { obviously_ch09 } from "@/assets/obviously/obv_ch09";
+import { obviously_ch10 } from "@/assets/obviously/obv_ch10";
+import { obviously_ch11 } from "@/assets/obviously/obv_ch11";
+import { obviously_ch12 } from "@/assets/obviously/obv_ch12";
 
 export const Route = createFileRoute("/obviously")({
   head: () => ({
@@ -28,13 +40,40 @@ export const Route = createFileRoute("/obviously")({
   component: ObviouslyPage,
 });
 
-const chapters = [
-  { n: "01", title: "The Danger of Assuming Things Are Obvious", line: "The word that ends conversations before they start." },
-  { n: "02", title: "I Thought You Knew", line: "An expectation, unspoken, is a disappointment with a head start." },
-  { n: "03", title: "Did You See That?", line: "Noticing isn't the same as knowing." },
-  { n: "04", title: "The Person Who Needs a Reason", line: "Some people need a why before they can accept a what." },
-  { n: "05", title: "We Could Fix This", line: "Measurement is a hammer. Not everything is a nail." },
-  { n: "06", title: "One More Thing", line: "The part everyone was waiting to say." },
+const acts = [
+  {
+    numeral: "I",
+    title: "The Machinery",
+    blurb: "How the noticing works — and what it costs to run it all day.",
+    chapters: [
+      { n: "01", img: obviously_ch01, title: "The Inability to Leave Well Enough Alone", line: "Seeing the possible version ruins the current one.", drafted: true, alt: "Scratch-ink illustration of two overlapping chairs, one solid and one dissolving into loose sketch lines" },
+      { n: "02", img: obviously_ch02, title: "Nobody Asked", line: "Being right is not the same as being invited.", drafted: true, alt: "Scratch-ink illustration of a single raised hand in an empty room beside an empty speech bubble" },
+      { n: "03", img: obviously_ch03, title: "I Thought You Knew", line: "An expectation, unspoken, is a disappointment with a head start.", drafted: true, alt: "Scratch-ink illustration of two facing figures with a wide empty gap between them" },
+      { n: "04", img: obviously_ch04, title: "The Person Who Needs a Reason", line: "Weather doesn't need a thesis.", drafted: true, alt: "Scratch-ink illustration of a small figure with an umbrella under a question-mark rain cloud" },
+    ],
+  },
+  {
+    numeral: "II",
+    title: "The Flood",
+    blurb: "What happens when the system hits capacity — the second version of the same person.",
+    chapters: [
+      { n: "05", img: obviously_ch05, title: "Normal Is a Terrible Measurement", line: "The performance of fine.", drafted: true, alt: "Scratch-ink illustration of a wooden ruler bent into a curl, its marks warped and useless" },
+      { n: "06", img: obviously_ch06, title: "The Mask Is Not the Person", line: "Competence as camouflage.", drafted: true, alt: "Scratch-ink illustration of a theater mask on a hook, a real face faintly visible behind the eyeholes" },
+      { n: "07", img: obviously_ch07, title: "When the Room Gets Too Loud", line: "Thirty channels, no mute button.", drafted: false, alt: "Hand-drawn scratch-ink illustration of a small room with a loudspeaker filling it with dense sound lines" },
+      { n: "08", img: obviously_ch08, title: "The Great American Emergency", line: "Everyone else's distress becomes your siren.", drafted: false, alt: "Scratch-ink illustration of a ringing alarm bell with sketchy hands reaching toward it" },
+    ],
+  },
+  {
+    numeral: "III",
+    title: "The Return",
+    blurb: "What it looks like to stop — and what comes back when you do.",
+    chapters: [
+      { n: "09", img: obviously_ch09, title: "The Loneliness of Being Understood", line: "Seen at last, and lonelier for it.", drafted: false, alt: "Scratch-ink illustration of one large watchful eye above a single tiny walking figure" },
+      { n: "10", img: obviously_ch10, title: "The Difference Between a Boundary and a Wall", line: "One protects you. One buries you.", drafted: false, alt: "Scratch-ink illustration of a rough stone wall with a small open door" },
+      { n: "11", img: obviously_ch11, title: "When Intelligence Becomes Armor", line: "The smartest defense is still a defense.", drafted: false, alt: "Scratch-ink illustration of a knight's helmet whose visor is a bookshelf, cracked through the steel" },
+      { n: "12", img: obviously_ch12, title: "The Person Who Finally Stops", line: "He waits. That is the whole thing.", drafted: false, alt: "Scratch-ink illustration of a seated figure, perfectly still, in wide empty space" },
+    ],
+  },
 ];
 
 function SignupForm({ compact = false }: { compact?: boolean }) {
@@ -159,28 +198,41 @@ function ObviouslyPage() {
         />
       </section>
 
-      {/* ── CHAPTERS ─────────────────────────── */}
-      <section className="obv2-section obv2-reveal">
-        <p className="obv2-section-kicker">Inside the book</p>
-        <h2 className="obv2-h2">Six chapters drafted. More coming.</h2>
-        <ol className="obv2-chapters">
-          {chapters.map((c) => (
-            <li key={c.n} className="obv2-chapter">
-              <span className="obv2-chapter-n">{c.n}</span>
-              <div>
-                <p className="obv2-chapter-title">{c.title}</p>
-                <p className="obv2-chapter-line">{c.line}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <p className="obv2-prose" style={{ marginTop: "2rem" }}>
-          The book is being written across three acts —{" "}
-          <em>The Machinery</em>, <em>The Flood</em>, <em>The Return</em> —
-          twelve chapters in the end, plus a prologue and an epilogue. The six
-          above exist now. The rest is being written in public, one chapter at
-          a time.
+      {/* ── CHAPTER JOURNEY ──────────────────── */}
+      <section className="obv2-section obv2-journey obv2-reveal">
+        <p className="obv2-section-kicker">The chapter journey</p>
+        <h2 className="obv2-h2">Twelve chapters. Three acts.</h2>
+        <p className="obv2-prose" style={{ marginBottom: "3rem" }}>
+          The book is being written across three acts. Six chapters are
+          drafted; the rest is being written in public, one chapter at a time.
         </p>
+        {acts.map((act) => (
+          <div key={act.numeral} className="obv2-act">
+            <p className="obv2-act-numeral">Act {act.numeral}</p>
+            <h3 className="obv2-act-title">{act.title}</h3>
+            <p className="obv2-act-blurb">{act.blurb}</p>
+            {act.chapters.map((c) => (
+              <article key={c.n} className="obv2-journey-chapter">
+                <img
+                  src={c.img}
+                  alt={c.alt}
+                  className="obv2-journey-img"
+                  loading="lazy"
+                />
+                <div className="obv2-journey-body">
+                  <p className="obv2-journey-kicker">
+                    Chapter {c.n}
+                    <span className={c.drafted ? "obv2-badge-drafted" : "obv2-badge-forthcoming"}>
+                      {c.drafted ? "Drafted" : "Being written"}
+                    </span>
+                  </p>
+                  <h4 className="obv2-journey-title">{c.title}</h4>
+                  <p className="obv2-journey-line">{c.line}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ))}
       </section>
 
       {/* ── EXCERPT ──────────────────────────── */}
@@ -399,6 +451,82 @@ function ObviouslyPage() {
           display: block;
           margin: 3rem 0 0;
           border: 1px solid var(--obv2-line);
+        }
+        .obv2-journey { max-width: 46rem; }
+        .obv2-act { margin-bottom: 4.5rem; }
+        .obv2-act:last-child { margin-bottom: 0; }
+        .obv2-act-numeral {
+          font-size: 0.72rem;
+          letter-spacing: 0.3em;
+          text-transform: uppercase;
+          color: var(--obv2-faint);
+          margin: 0 0 0.5rem;
+        }
+        .obv2-act-title {
+          font-family: "Fraunces", Georgia, serif;
+          font-weight: 800;
+          font-size: clamp(1.5rem, 4vw, 2.1rem);
+          margin: 0 0 0.5rem;
+          letter-spacing: -0.01em;
+        }
+        .obv2-act-blurb {
+          color: var(--obv2-muted);
+          font-style: italic;
+          font-size: 1rem;
+          line-height: 1.7;
+          margin: 0 0 2.5rem;
+          max-width: 30rem;
+        }
+        .obv2-journey-chapter {
+          margin: 0 0 3.5rem;
+          border-top: 1px solid var(--obv2-line);
+          padding-top: 2.5rem;
+        }
+        .obv2-journey-chapter:last-child { margin-bottom: 0; }
+        .obv2-journey-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border: 1px solid var(--obv2-line);
+          margin-bottom: 1.5rem;
+        }
+        .obv2-journey-kicker {
+          font-size: 0.72rem;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--obv2-faint);
+          font-weight: 700;
+          margin: 0 0 0.75rem;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .obv2-badge-drafted, .obv2-badge-forthcoming {
+          font-size: 0.65rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          font-weight: 700;
+          padding: 0.28rem 0.7rem;
+          border-radius: 999px;
+          border: 1px solid var(--obv2-line);
+        }
+        .obv2-badge-drafted { background: var(--obv2-ink); color: var(--obv2-paper); border-color: var(--obv2-ink); }
+        .obv2-badge-forthcoming { color: var(--obv2-faint); }
+        .obv2-journey-title {
+          font-family: "Fraunces", Georgia, serif;
+          font-weight: 800;
+          font-size: clamp(1.25rem, 3.4vw, 1.7rem);
+          line-height: 1.25;
+          margin: 0 0 0.6rem;
+          letter-spacing: -0.01em;
+        }
+        .obv2-journey-line {
+          color: var(--obv2-muted);
+          font-style: italic;
+          font-size: 1.02rem;
+          line-height: 1.7;
+          margin: 0;
+          max-width: 30rem;
         }
         .obv2-chapters {
           list-style: none;
