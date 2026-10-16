@@ -13,7 +13,7 @@ export const Route = createFileRoute("/scaffolding/livelog")({
 });
 
 type Lane = "lauren" | "oscar" | "system";
-type Kind = "query" | "dialogue" | "conversation" | "processing" | "decision" | "done" | "blocker";
+type Kind = "query" | "dialogue" | "conversation" | "processing" | "decision" | "done" | "blocker" | "event";
 
 type LogEvent = {
   id: string;
@@ -36,6 +36,10 @@ const LANE_STYLE: Record<Lane, { label: string; cls: string }> = {
   system: { label: "SYSTEM", cls: "text-zinc-400 border-zinc-500/30 bg-zinc-500/10" },
 };
 
+// Segment -> Supabase live event feed (anon key is public-safe; RLS = read-only)
+const SUPABASE_URL = "https://sddcdfpgbgawoywupmvz.supabase.co";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZGNkZnBnYmdhd295d3VwbXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NzIxOTAsImV4cCI6MjEwNzM0ODE5MH0.-7DiWOn6p8PzOoQGh5uhFH1fiZcDMrozWoJCB-WRJdo";
+
 const KIND_STYLE: Record<Kind, string> = {
   query: "text-sky-300",
   dialogue: "text-violet-300",
@@ -44,6 +48,7 @@ const KIND_STYLE: Record<Kind, string> = {
   decision: "text-amber-200",
   done: "text-emerald-300",
   blocker: "text-red-300",
+  event: "text-cyan-300",
 };
 
 function fmtTime(iso: string) {
@@ -199,7 +204,33 @@ function LiveLogPage() {
       const res = await fetch(`/ai-ops-log.json?t=${Date.now()}`, { cache: "no-store" });
       if (!res.ok) return;
       const data = await res.json();
-      const evts = (data.events as LogEvent[]).slice().sort((a, b) => b.t.localeCompare(a.t));
+      let sbEvents: LogEvent[] = [];
+      try {
+        const sb = await fetch(
+          `${SUPABASE_URL}/rest/v1/livelog_events?select=id,t,lane,kind,text,link&order=t.desc&limit=100`,
+          { headers: { apikey: SUPABASE_ANON }, cache: "no-store" }
+        );
+        if (sb.ok) {
+          const rows = (await sb.json()) as Array<{ id: string; t: string; lane: string; text: string; link: string | null }>;
+          sbEvents = rows.map((r) => ({
+            id: `sb-${r.id}`,
+            t: r.t,
+            lane: (["lauren", "oscar", "system"] as const).includes(r.lane as Lane) ? (r.lane as Lane) : "system",
+            kind: "event" as Kind,
+            text: r.text,
+            detail: null,
+            link: r.link ?? null,
+            parent: null,
+            options: [],
+            chosen: null,
+            decision: null,
+            outcome: null,
+          }));
+        }
+      } catch {
+        /* JSON feed still works without Supabase */
+      }
+      const evts = [...sbEvents, ...(data.events as LogEvent[])].sort((a, b) => b.t.localeCompare(a.t));
       const fresh = new Set<string>();
       for (const e of evts) {
         if (!seenRef.current.has(e.id)) {
@@ -328,7 +359,7 @@ function LiveLogPage() {
 
       <p className="mt-4 flex items-center gap-2 text-xs text-zinc-500">
         <Radio className="size-3" />
-        Entries are logged as work happens and appear here on the next sync. Unlisted · noindex · internal reference.
+        Entries are logged as work happens and Segment events land live via webhook. Unlisted · noindex · internal reference.
       </p>
     </ScaffoldingShell>
   );
