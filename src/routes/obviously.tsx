@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { ArrowDown, Check } from "lucide-react";
 import { segmentPage, track, trackEmailCapture } from "@/lib/segment";
 import { formsubmitSignalEndpoint } from "@/lib/spiix-leads";
-import { obviously_cover as coverImage, obviously_notice as noticeImage } from "@/assets/obviously/obviously-images";
+import { obviously_cover as coverImage } from "@/assets/obviously/obviously_cover";
+import { obviously_notice as noticeImage } from "@/assets/obviously/obviously_notice";
 
 export const Route = createFileRoute("/obviously")({
   head: () => ({
