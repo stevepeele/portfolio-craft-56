@@ -55,6 +55,7 @@ import { Route as ScaffoldingChangelogRouteImport } from './routes/scaffolding.c
 import { Route as ScaffoldingCommandRouteImport } from './routes/scaffolding.command'
 import { Route as ScaffoldingDeploysRouteImport } from './routes/scaffolding.deploys'
 import { Route as ScaffoldingDiagramsRouteImport } from './routes/scaffolding.diagrams'
+import { Route as ScaffoldingEnlistmentMapRouteImport } from './routes/scaffolding.enlistment-map'
 import { Route as ScaffoldingInfrastructureRouteImport } from './routes/scaffolding.infrastructure'
 import { Route as ScaffoldingLivelogRouteImport } from './routes/scaffolding.livelog'
 import { Route as ScaffoldingMonitoringRouteImport } from './routes/scaffolding.monitoring'
@@ -324,6 +325,12 @@ const ScaffoldingDiagramsRoute = ScaffoldingDiagramsRouteImport.update({
   path: '/diagrams',
   getParentRoute: () => ScaffoldingRoute,
 } as any)
+const ScaffoldingEnlistmentMapRoute =
+  ScaffoldingEnlistmentMapRouteImport.update({
+    id: '/enlistment-map',
+    path: '/enlistment-map',
+    getParentRoute: () => ScaffoldingRoute,
+  } as any)
 const ScaffoldingInfrastructureRoute =
   ScaffoldingInfrastructureRouteImport.update({
     id: '/infrastructure',
@@ -561,6 +568,7 @@ export interface FileRoutesByFullPath {
   '/scaffolding/command': typeof ScaffoldingCommandRoute
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/enlistment-map': typeof ScaffoldingEnlistmentMapRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
@@ -643,6 +651,7 @@ export interface FileRoutesByTo {
   '/scaffolding/command': typeof ScaffoldingCommandRoute
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/enlistment-map': typeof ScaffoldingEnlistmentMapRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
@@ -729,6 +738,7 @@ export interface FileRoutesById {
   '/scaffolding/command': typeof ScaffoldingCommandRoute
   '/scaffolding/deploys': typeof ScaffoldingDeploysRoute
   '/scaffolding/diagrams': typeof ScaffoldingDiagramsRoute
+  '/scaffolding/enlistment-map': typeof ScaffoldingEnlistmentMapRoute
   '/scaffolding/infrastructure': typeof ScaffoldingInfrastructureRoute
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
@@ -816,6 +826,7 @@ export interface FileRouteTypes {
     | '/scaffolding/command'
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
+    | '/scaffolding/enlistment-map'
     | '/scaffolding/infrastructure'
     | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
@@ -898,6 +909,7 @@ export interface FileRouteTypes {
     | '/scaffolding/command'
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
+    | '/scaffolding/enlistment-map'
     | '/scaffolding/infrastructure'
     | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
@@ -983,6 +995,7 @@ export interface FileRouteTypes {
     | '/scaffolding/command'
     | '/scaffolding/deploys'
     | '/scaffolding/diagrams'
+    | '/scaffolding/enlistment-map'
     | '/scaffolding/infrastructure'
     | '/scaffolding/livelog'
     | '/scaffolding/monitoring'
@@ -1394,6 +1407,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScaffoldingDiagramsRouteImport
       parentRoute: typeof ScaffoldingRoute
     }
+    '/scaffolding/enlistment-map': {
+      id: '/scaffolding/enlistment-map'
+      path: '/enlistment-map'
+      fullPath: '/scaffolding/enlistment-map'
+      preLoaderRoute: typeof ScaffoldingEnlistmentMapRouteImport
+      parentRoute: typeof ScaffoldingRoute
+    }
     '/scaffolding/infrastructure': {
       id: '/scaffolding/infrastructure'
       path: '/infrastructure'
@@ -1693,6 +1713,7 @@ interface ScaffoldingRouteChildren {
   ScaffoldingCommandRoute: typeof ScaffoldingCommandRoute
   ScaffoldingDeploysRoute: typeof ScaffoldingDeploysRoute
   ScaffoldingDiagramsRoute: typeof ScaffoldingDiagramsRoute
+  ScaffoldingEnlistmentMapRoute: typeof ScaffoldingEnlistmentMapRoute
   ScaffoldingInfrastructureRoute: typeof ScaffoldingInfrastructureRoute
   ScaffoldingLivelogRoute: typeof ScaffoldingLivelogRoute
   ScaffoldingMonitoringRoute: typeof ScaffoldingMonitoringRoute
@@ -1712,6 +1733,7 @@ const ScaffoldingRouteChildren: ScaffoldingRouteChildren = {
   ScaffoldingCommandRoute: ScaffoldingCommandRoute,
   ScaffoldingDeploysRoute: ScaffoldingDeploysRoute,
   ScaffoldingDiagramsRoute: ScaffoldingDiagramsRoute,
+  ScaffoldingEnlistmentMapRoute: ScaffoldingEnlistmentMapRoute,
   ScaffoldingInfrastructureRoute: ScaffoldingInfrastructureRoute,
   ScaffoldingLivelogRoute: ScaffoldingLivelogRoute,
   ScaffoldingMonitoringRoute: ScaffoldingMonitoringRoute,
