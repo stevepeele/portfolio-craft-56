@@ -166,7 +166,7 @@ const LAUREN_KEEPS: { area: string; scope: string }[] = [
   { area: "Marketplace & gear", scope: "Flip hunt, listings, buyer correspondence, pickup logistics." },
   { area: "Music production", scope: "Songwriter/producer across his projects — Vacillantes shipping, session work, releases." },
   { area: "Master documentation", scope: "This hub, runbooks, playbooks, the org chart itself. If a doc disagrees with reality, the doc is wrong." },
-  { area: "The human threads", scope: "Layli, Hattie, Lainey — above the pipeline, always. Nothing moves without his explicit word." },
+  { area: "The human threads", scope: "Family and personal relationships — above the pipeline, always. Nothing moves without his explicit word." },
 ];
 
 /** Lauren's direct capabilities — the 8 branches she wields herself. */
