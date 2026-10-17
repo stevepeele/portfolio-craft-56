@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
+import { Route as AuditRouteImport } from './routes/audit'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
@@ -25,7 +26,6 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ScaffoldingRouteImport } from './routes/scaffolding'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SoftwareRouteImport } from './routes/software'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
@@ -49,6 +49,11 @@ import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWaxAndAshRouteImport } from './routes/hacking.wax-and-ash'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
+import { Route as MusicColdharbourRouteImport } from './routes/music.coldharbour'
+import { Route as MusicGravefriendsRouteImport } from './routes/music.gravefriends'
+import { Route as MusicUtdwRouteImport } from './routes/music.utdw'
+import { Route as MusicVacillantesRouteImport } from './routes/music.vacillantes'
+import { Route as MusicWastedAwayRouteImport } from './routes/music.wasted-away'
 import { Route as PreviewSlugRouteImport } from './routes/preview.$slug'
 import { Route as ScaffoldingArchitectureRouteImport } from './routes/scaffolding.architecture'
 import { Route as ScaffoldingChangelogRouteImport } from './routes/scaffolding.changelog'
@@ -108,6 +113,11 @@ const AboutRoute = AboutRouteImport.update({
 const AdvisoryRoute = AdvisoryRouteImport.update({
   id: '/advisory',
   path: '/advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -174,11 +184,6 @@ const ScaffoldingRoute = ScaffoldingRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SoftwareRoute = SoftwareRouteImport.update({
-  id: '/software',
-  path: '/software',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpiixRoute = SpiixRouteImport.update({
@@ -295,6 +300,31 @@ const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
   id: '/hacking/whats-next',
   path: '/hacking/whats-next',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MusicColdharbourRoute = MusicColdharbourRouteImport.update({
+  id: '/coldharbour',
+  path: '/coldharbour',
+  getParentRoute: () => MusicRoute,
+} as any)
+const MusicGravefriendsRoute = MusicGravefriendsRouteImport.update({
+  id: '/gravefriends',
+  path: '/gravefriends',
+  getParentRoute: () => MusicRoute,
+} as any)
+const MusicUtdwRoute = MusicUtdwRouteImport.update({
+  id: '/utdw',
+  path: '/utdw',
+  getParentRoute: () => MusicRoute,
+} as any)
+const MusicVacillantesRoute = MusicVacillantesRouteImport.update({
+  id: '/vacillantes',
+  path: '/vacillantes',
+  getParentRoute: () => MusicRoute,
+} as any)
+const MusicWastedAwayRoute = MusicWastedAwayRouteImport.update({
+  id: '/wasted-away',
+  path: '/wasted-away',
+  getParentRoute: () => MusicRoute,
 } as any)
 const PreviewSlugRoute = PreviewSlugRouteImport.update({
   id: '/preview/$slug',
@@ -533,6 +563,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
@@ -540,13 +571,12 @@ export interface FileRoutesByFullPath {
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
-  '/music': typeof MusicRoute
+  '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
-  '/software': typeof SoftwareRoute
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
@@ -568,6 +598,11 @@ export interface FileRoutesByFullPath {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/music/coldharbour': typeof MusicColdharbourRoute
+  '/music/gravefriends': typeof MusicGravefriendsRoute
+  '/music/utdw': typeof MusicUtdwRoute
+  '/music/vacillantes': typeof MusicVacillantesRoute
+  '/music/wasted-away': typeof MusicWastedAwayRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
   '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
@@ -620,6 +655,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
@@ -627,12 +663,11 @@ export interface FileRoutesByTo {
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
-  '/music': typeof MusicRoute
+  '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
-  '/software': typeof SoftwareRoute
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
@@ -653,6 +688,11 @@ export interface FileRoutesByTo {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/music/coldharbour': typeof MusicColdharbourRoute
+  '/music/gravefriends': typeof MusicGravefriendsRoute
+  '/music/utdw': typeof MusicUtdwRoute
+  '/music/vacillantes': typeof MusicVacillantesRoute
+  '/music/wasted-away': typeof MusicWastedAwayRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
   '/scaffolding/command': typeof ScaffoldingCommandRoute
@@ -705,6 +745,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
@@ -712,13 +753,12 @@ export interface FileRoutesById {
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
-  '/music': typeof MusicRoute
+  '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
-  '/software': typeof SoftwareRoute
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
@@ -740,6 +780,11 @@ export interface FileRoutesById {
   '/hacking/status': typeof HackingStatusRoute
   '/hacking/wax-and-ash': typeof HackingWaxAndAshRoute
   '/hacking/whats-next': typeof HackingWhatsNextRoute
+  '/music/coldharbour': typeof MusicColdharbourRoute
+  '/music/gravefriends': typeof MusicGravefriendsRoute
+  '/music/utdw': typeof MusicUtdwRoute
+  '/music/vacillantes': typeof MusicVacillantesRoute
+  '/music/wasted-away': typeof MusicWastedAwayRoute
   '/preview/$slug': typeof PreviewSlugRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureRouteWithChildren
   '/scaffolding/changelog': typeof ScaffoldingChangelogRoute
@@ -794,6 +839,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/audit'
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
@@ -807,7 +853,6 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/scaffolding'
     | '/services'
-    | '/software'
     | '/spiix'
     | '/sprint'
     | '/studio'
@@ -829,6 +874,11 @@ export interface FileRouteTypes {
     | '/hacking/status'
     | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
+    | '/music/coldharbour'
+    | '/music/gravefriends'
+    | '/music/utdw'
+    | '/music/vacillantes'
+    | '/music/wasted-away'
     | '/preview/$slug'
     | '/scaffolding/architecture'
     | '/scaffolding/changelog'
@@ -881,6 +931,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/audit'
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
@@ -893,7 +944,6 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/recommendations'
     | '/scaffolding'
-    | '/software'
     | '/sprint'
     | '/studio'
     | '/work'
@@ -914,6 +964,11 @@ export interface FileRouteTypes {
     | '/hacking/status'
     | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
+    | '/music/coldharbour'
+    | '/music/gravefriends'
+    | '/music/utdw'
+    | '/music/vacillantes'
+    | '/music/wasted-away'
     | '/preview/$slug'
     | '/scaffolding/changelog'
     | '/scaffolding/command'
@@ -965,6 +1020,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/audit'
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
@@ -978,7 +1034,6 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/scaffolding'
     | '/services'
-    | '/software'
     | '/spiix'
     | '/sprint'
     | '/studio'
@@ -1000,6 +1055,11 @@ export interface FileRouteTypes {
     | '/hacking/status'
     | '/hacking/wax-and-ash'
     | '/hacking/whats-next'
+    | '/music/coldharbour'
+    | '/music/gravefriends'
+    | '/music/utdw'
+    | '/music/vacillantes'
+    | '/music/wasted-away'
     | '/preview/$slug'
     | '/scaffolding/architecture'
     | '/scaffolding/changelog'
@@ -1053,6 +1113,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdvisoryRoute: typeof AdvisoryRoute
+  AuditRoute: typeof AuditRoute
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
   DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
@@ -1060,13 +1121,12 @@ export interface RootRouteChildren {
   FaithRoute: typeof FaithRoute
   FractionalGrowthAdvisoryRoute: typeof FractionalGrowthAdvisoryRoute
   GrowthLaddersRoute: typeof GrowthLaddersRoute
-  MusicRoute: typeof MusicRoute
+  MusicRoute: typeof MusicRouteWithChildren
   ObviouslyRoute: typeof ObviouslyRoute
   PortfolioRoute: typeof PortfolioRoute
   RecommendationsRoute: typeof RecommendationsRoute
   ScaffoldingRoute: typeof ScaffoldingRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
-  SoftwareRoute: typeof SoftwareRoute
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
@@ -1116,6 +1176,13 @@ declare module '@tanstack/react-router' {
       path: '/advisory'
       fullPath: '/advisory'
       preLoaderRoute: typeof AdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1207,13 +1274,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/software': {
-      id: '/software'
-      path: '/software'
-      fullPath: '/software'
-      preLoaderRoute: typeof SoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/spiix': {
@@ -1376,6 +1436,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/hacking/whats-next'
       preLoaderRoute: typeof HackingWhatsNextRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/music/coldharbour': {
+      id: '/music/coldharbour'
+      path: '/coldharbour'
+      fullPath: '/music/coldharbour'
+      preLoaderRoute: typeof MusicColdharbourRouteImport
+      parentRoute: typeof MusicRoute
+    }
+    '/music/gravefriends': {
+      id: '/music/gravefriends'
+      path: '/gravefriends'
+      fullPath: '/music/gravefriends'
+      preLoaderRoute: typeof MusicGravefriendsRouteImport
+      parentRoute: typeof MusicRoute
+    }
+    '/music/utdw': {
+      id: '/music/utdw'
+      path: '/utdw'
+      fullPath: '/music/utdw'
+      preLoaderRoute: typeof MusicUtdwRouteImport
+      parentRoute: typeof MusicRoute
+    }
+    '/music/vacillantes': {
+      id: '/music/vacillantes'
+      path: '/vacillantes'
+      fullPath: '/music/vacillantes'
+      preLoaderRoute: typeof MusicVacillantesRouteImport
+      parentRoute: typeof MusicRoute
+    }
+    '/music/wasted-away': {
+      id: '/music/wasted-away'
+      path: '/wasted-away'
+      fullPath: '/music/wasted-away'
+      preLoaderRoute: typeof MusicWastedAwayRouteImport
+      parentRoute: typeof MusicRoute
     }
     '/preview/$slug': {
       id: '/preview/$slug'
@@ -1695,6 +1790,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface MusicRouteChildren {
+  MusicColdharbourRoute: typeof MusicColdharbourRoute
+  MusicGravefriendsRoute: typeof MusicGravefriendsRoute
+  MusicUtdwRoute: typeof MusicUtdwRoute
+  MusicVacillantesRoute: typeof MusicVacillantesRoute
+  MusicWastedAwayRoute: typeof MusicWastedAwayRoute
+}
+
+const MusicRouteChildren: MusicRouteChildren = {
+  MusicColdharbourRoute: MusicColdharbourRoute,
+  MusicGravefriendsRoute: MusicGravefriendsRoute,
+  MusicUtdwRoute: MusicUtdwRoute,
+  MusicVacillantesRoute: MusicVacillantesRoute,
+  MusicWastedAwayRoute: MusicWastedAwayRoute,
+}
+
+const MusicRouteWithChildren = MusicRoute._addFileChildren(MusicRouteChildren)
+
 interface ScaffoldingArchitectureRouteChildren {
   ScaffoldingArchitectureAnalyticsRoute: typeof ScaffoldingArchitectureAnalyticsRoute
   ScaffoldingArchitectureDataFlowsRoute: typeof ScaffoldingArchitectureDataFlowsRoute
@@ -1843,6 +1956,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdvisoryRoute: AdvisoryRoute,
+  AuditRoute: AuditRoute,
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
   DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
@@ -1850,13 +1964,12 @@ const rootRouteChildren: RootRouteChildren = {
   FaithRoute: FaithRoute,
   FractionalGrowthAdvisoryRoute: FractionalGrowthAdvisoryRoute,
   GrowthLaddersRoute: GrowthLaddersRoute,
-  MusicRoute: MusicRoute,
+  MusicRoute: MusicRouteWithChildren,
   ObviouslyRoute: ObviouslyRoute,
   PortfolioRoute: PortfolioRoute,
   RecommendationsRoute: RecommendationsRoute,
   ScaffoldingRoute: ScaffoldingRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
-  SoftwareRoute: SoftwareRoute,
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
