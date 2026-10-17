@@ -1,6 +1,46 @@
 {
   "entries": [
     {
+      "id": "github-20261017-portfolio-craft-56",
+      "date": "2026-10-17",
+      "title": "17 commits to stevepeele/portfolio-craft-56 on main",
+      "source": "github",
+      "ref": "stevepeele/portfolio-craft-56",
+      "detail": "edf2e96 SPIIX-659: validation modal for the /hacking experience — the work-is-real beat\na247711 SPIIX-637: wire $99 audit CTAs to Cash App pay page (Square bypass)\nc8f7c64 SPIIX-634: $99 weekend audit landing page (/audit, unlisted noindex)\nb012032 SPIIX-632: auto-fire emails for main-site form entries (Signal + Growth Ladders autoresponses via FormSubmit _autoresponse)\n05d3249 SPIIX-629: changelog entry for OBVVIOUSLY illustrated chapter journey\n4771bf0 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 9/11)\n2473563 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 7/11)\nc1b6ec3 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 5/11)\nbba0fea SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 3/11)\n530ef95 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 2/11)\nc54f8d9 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 11/11)\n359d355 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 10/11)\n5d1d71e SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 4/11)\ndeb6256 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 6/11)\n8a05af4 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 8/11)\nbc1cef3 SPIIX-629: OBVIOUSLY illustrated chapter journey (batch 1/11)\ncfd8b00 chore(scaffolding): daily changelog + deploy log update"
+    },
+    {
+      "id": "linear-spiix-659",
+      "date": "2026-10-17",
+      "title": "Validation modal for the /hacking experience — the work-is-real beat",
+      "source": "linear",
+      "ref": "SPIIX-659",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T06:52:43.722Z"
+    },
+    {
+      "id": "linear-spiix-657",
+      "date": "2026-10-17",
+      "title": "set rules for Lauren to always assign tasks appropriately",
+      "source": "linear",
+      "ref": "SPIIX-657",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T04:40:06.001Z"
+    },
+    {
+      "id": "linear-spiix-656",
+      "date": "2026-10-17",
+      "title": "SPIIX-653c — 24-lesson course curriculum + framework, built to be sellable",
+      "source": "linear",
+      "ref": "SPIIX-656",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T02:26:52.911Z"
+    },
+    {
+      "id": "linear-spiix-652",
+      "date": "2026-10-17",
+      "title": "2026-10-16 ops retrospective — Lauren's oversights (his order, memorialized not dissected)",
+      "source": "linear",
+      "ref": "SPIIX-652",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T01:53:00.285Z"
+    },
+    {
       "id": "manual-20261016-obvviously-chapter-journey",
       "date": "2026-10-16",
       "title": "OBVVIOUSLY page redesigned as illustrated chapter journey",
@@ -31,6 +71,102 @@
       "source": "manual",
       "ref": "SPIIX-616",
       "detail": "New unlisted page beside the live log: live ops pulse (ai-ops-log.json, 3s poll), animated Segment data-transfer pipeline (9 app sources → core-ajs → hub → 5 destinations), 13-platform connections map, 5 real schema definitions, and the 12-entry deploy timeline. Every number traces to a real source."
+    },
+    {
+      "id": "linear-spiix-651",
+      "date": "2026-10-16",
+      "title": "Prospecting north star: quality/conversion over volume — rebuild hunt inputs + acceptance criteria",
+      "source": "linear",
+      "ref": "SPIIX-651",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T23:37:55.920Z"
+    },
+    {
+      "id": "linear-spiix-648",
+      "date": "2026-10-16",
+      "title": "Unclaimed money parallel sprint — package all claims",
+      "source": "linear",
+      "ref": "SPIIX-648",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T17:38:39.907Z"
+    },
+    {
+      "id": "linear-spiix-640",
+      "date": "2026-10-16",
+      "title": "SOURCE: 60 tri-state logistics prospects with decision-maker emails (2026-10-16)",
+      "source": "linear",
+      "ref": "SPIIX-640",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T15:27:37.403Z"
+    },
+    {
+      "id": "linear-spiix-644",
+      "date": "2026-10-16",
+      "title": "SOURCE: 50 boutique gym + dental prospects with owner emails (2026-10-16)",
+      "source": "linear",
+      "ref": "SPIIX-644",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T16:10:49.297Z"
+    },
+    {
+      "id": "linear-spiix-642",
+      "date": "2026-10-16",
+      "title": "Deep-dive: human emails for 4 churches (beyond official staff pages)",
+      "source": "linear",
+      "ref": "SPIIX-642",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T15:25:49.440Z"
+    },
+    {
+      "id": "linear-spiix-638",
+      "date": "2026-10-16",
+      "title": "Audit sprint: hunt direct human emails for 6 generalized church inboxes",
+      "source": "linear",
+      "ref": "SPIIX-638",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T14:23:23.550Z"
+    },
+    {
+      "id": "linear-spiix-633",
+      "date": "2026-10-16",
+      "title": "$99 weekend audit — set up payment link (Steve)",
+      "source": "linear",
+      "ref": "SPIIX-633",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T14:06:56.213Z"
+    },
+    {
+      "id": "linear-spiix-637",
+      "date": "2026-10-16",
+      "title": "Cash App pay page for $99 audit — Square bypass",
+      "source": "linear",
+      "ref": "SPIIX-637",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T14:06:52.436Z"
+    },
+    {
+      "id": "linear-spiix-635",
+      "date": "2026-10-16",
+      "title": "Grok Bot fleet — standing update protocol",
+      "source": "linear",
+      "ref": "SPIIX-635",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T13:23:50.036Z"
+    },
+    {
+      "id": "linear-spiix-630",
+      "date": "2026-10-16",
+      "title": "OBVVIOUSLY illustration redesign: xerox punk-zine set",
+      "source": "linear",
+      "ref": "SPIIX-630",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T11:26:11.104Z"
+    },
+    {
+      "id": "linear-spiix-639",
+      "date": "2026-10-16",
+      "title": "Follow-up sprint: $99 audit reposition + 10 reframe sends (2026-10-16)",
+      "source": "linear",
+      "ref": "SPIIX-639",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-16T15:27:37.403Z"
+    },
+    {
+      "id": "linear-spiix-356",
+      "date": "2026-10-16",
+      "title": "Visuals suck on the app dev sites",
+      "source": "linear",
+      "ref": "SPIIX-356",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T11:07:59.322Z"
     },
     {
       "id": "linear-spiix-628",
@@ -1063,7 +1199,7 @@
       "title": "SPIIX Monolith live at /spiix/monolith"
     }
   ],
-  "generated_at": "2026-10-16T06:26:50-0400",
+  "generated_at": "2026-10-17T10:04:20-0400",
   "generated_by": "daily cron (scaffolding-changelog-updater) — GitHub + Linear auto-merge",
   "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
 }

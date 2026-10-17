@@ -1,6 +1,15 @@
 {
   "deploys": [
     {
+      "id": "vercel-20261017-blocked-main-push",
+      "date": "2026-10-17",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "BLOCKED",
+      "note": "17 commits on main since 2026-10-16T10:22Z (incl. yesterday's changelog push cfd8b00) have no matching production deployment: live /scaffolding/changelog lacks the 2026-10-16 entry baked in at build. Vercel MCP list_deployments returned 403 forbidden, so state could not be verified programmatically — queued for the 07:00 release train.",
+      "ref": "edf2e96"
+    },
+    {
       "id": "vercel-20261016-328e797",
       "date": "2026-10-16",
       "project": "stevepeeleii.com",
@@ -289,7 +298,7 @@
       "status": "READY"
     }
   ],
-  "generated_at": "2026-10-16T06:26:50-0400",
+  "generated_at": "2026-10-17T10:04:20-0400",
   "generated_by": "daily cron (scaffolding-changelog-updater)",
   "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
   "pipeline": {
