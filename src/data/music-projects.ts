@@ -101,7 +101,7 @@ export const musicProjects: MusicProject[] = [
     ],
     image: untilArt,
     embeds: {
-      spotify: null, // direct artist URL not indexed — use DistroKid hub
+      spotify: "https://open.spotify.com/embed/artist/4Zr17aIvRu0LjH3Zf8QDRb",
       apple: "https://embed.music.apple.com/us/artist/until-the-dead-walk/1493029115",
       youtube: null, // no official channel found
       bandcamp: null, // none found
@@ -119,6 +119,7 @@ export const musicProjects: MusicProject[] = [
       { title: "FREE", year: 2024, type: "single", apple: "https://music.apple.com/us/album/free-single/1732752913" },
     ],
     storeLinks: [
+      { label: "Spotify", href: "https://open.spotify.com/artist/4Zr17aIvRu0LjH3Zf8QDRb" },
       { label: "Apple Music", href: "https://music.apple.com/us/artist/until-the-dead-walk/1493029115" },
       { label: "All streaming (DistroKid)", href: "https://distrokid.com/hyperfollow/untilthedeadwalk/free" },
     ],
@@ -224,7 +225,7 @@ export const musicProjects: MusicProject[] = [
     ],
     image: graveFriendsArt,
     embeds: {
-      spotify: null, // direct artist URL not indexed
+      spotify: "https://open.spotify.com/embed/artist/0NCdKxn9v9kmYd4auSbzUV",
       apple: "https://embed.music.apple.com/us/artist/grave-friends/1105546354",
       youtube: null, // no official channel found
       bandcamp: null, // none found
@@ -238,7 +239,9 @@ export const musicProjects: MusicProject[] = [
       { title: "Crushed Fingers (feat. Eternal Void)", year: 2021, type: "single", apple: "https://music.apple.com/us/album/crushed-fingers-feat-eternal-void-single/1568937385" },
     ],
     storeLinks: [
+      { label: "Spotify", href: "https://open.spotify.com/artist/0NCdKxn9v9kmYd4auSbzUV" },
       { label: "Apple Music", href: "https://music.apple.com/us/artist/grave-friends/1105546354" },
+      { label: "All streaming (DistroKid)", href: "https://distrokid.com/hyperfollow/gravefriends/compathy" },
     ],
     socials: [
       { label: "Instagram @gravefriends", href: "https://instagram.com/gravefriends" },
