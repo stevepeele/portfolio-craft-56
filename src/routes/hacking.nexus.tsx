@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, FlaskConical } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Nexus — Coming Soon | Steve Peele II";
 const description = "Nexus: something new on Steve Peele II's workbench. Details coming soon.";
@@ -49,6 +50,7 @@ function NexusPage() {
             to see where it sits.
           </p>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

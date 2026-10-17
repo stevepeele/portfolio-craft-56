@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Binsly — Save Anything. Read It Later. | Steve Peele II";
 const description =
@@ -102,6 +103,7 @@ function BinslyPage() {
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

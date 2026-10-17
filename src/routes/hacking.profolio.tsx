@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Profolio — One Baseline, Many Stories | Steve Peele II";
 const description =
@@ -116,6 +117,7 @@ function ProfolioPage() {
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

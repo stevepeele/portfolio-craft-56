@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
 const title = "Repurpose Engine — One Post, Ten Platforms | Steve Peele II";
@@ -103,6 +104,7 @@ function RepurposeEnginePage() {
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

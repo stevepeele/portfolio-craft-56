@@ -245,6 +245,12 @@ export type StatusEntry = {
 
 export const statusLog: StatusEntry[] = [
   {
+    date: "2026-10-17",
+    title: "Hacking pages: 'validate the work' modal beat",
+    detail:
+      "SPIIX-659: a validation modal across the /hacking experience — a 'Building / The receipt' beat at the foot of the index, all app pages, progress, status, and what's-next. One tap opens the receipt: live counts computed from hacking.ts (apps live, queue shipped, build-log entries, progress milestones), the quiet layers nod (content → fabric → scaffolding → built → community), and the line the whole thing earns — none of this was supposed to line up; it did. On /hacking/progress it also auto-opens once per session when you reach the end of the build board. Dark editorial, his voice, zero pitch.",
+  },
+  {
     date: "2026-10-14",
     title: "Scaffolding docs microsite: complete /scaffolding hub",
     detail:

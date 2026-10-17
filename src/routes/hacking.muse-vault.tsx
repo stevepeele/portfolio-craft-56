@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Muse Vault — Stop Prompting From Scratch | Steve Peele II";
 const description =
@@ -117,6 +118,7 @@ function MuseVaultPage() {
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

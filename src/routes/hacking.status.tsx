@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { statusLog } from "@/data/hacking";
 
@@ -75,6 +76,7 @@ function StatusPage() {
             ))}
           </ol>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

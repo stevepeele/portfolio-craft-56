@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Circle, CircleDot, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { buildQueue } from "@/data/hacking";
 
@@ -106,6 +107,7 @@ function WhatsNextPage() {
             </div>
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

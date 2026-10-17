@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FlaskConical } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat } from "@/components/validation-modal";
 import { hackingApps } from "@/data/hacking";
 import { hackingNav, hackingNavGroups } from "@/data/navigation";
 
@@ -124,6 +125,7 @@ function HackingPage() {
               ))}
           </div>
         </section>
+        <ValidationBeat />
       </main>
       <SiteFooter />
     </div>

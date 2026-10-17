@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ValidationBeat, ValidationAutoOpen } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 
 const title = "Progress — Live Build Board | Steve Peele II";
@@ -46,6 +47,8 @@ function ProgressPage() {
         <section className="mx-auto max-w-6xl px-5 py-20">
           <LinearDashboard />
         </section>
+        <ValidationBeat />
+        <ValidationAutoOpen />
       </main>
       <SiteFooter />
     </div>
