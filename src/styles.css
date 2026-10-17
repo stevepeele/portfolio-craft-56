@@ -510,4 +510,34 @@
 .music-btn { display:inline-flex;align-items:center;gap:.4rem;background:var(--mu-panel);border:1px solid var(--mu-line);color:var(--mu-text);padding:.65rem 1.25rem;border-radius:6px;font-size:.85rem;text-decoration:none; }
 .music-btn:hover { border-color:var(--mu-accent); }
 .music-card-role { font-size:.75rem;color:var(--mu-muted);margin-top:.5rem; }
+/* --- Music hub redesign 2026-10-17: featured-first, no orphans --- */
+.music-hero-type { min-height:0;background:var(--mu-bg); }
+.music-hero-type .music-hero-content { padding-block:6rem 5rem; }
+.music-feature { display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;margin:0 0 2.5rem;border:1px solid var(--mu-line);text-decoration:none;color:var(--mu-text);overflow:hidden; }
+.music-feature:hover { border-color:var(--mu-accent); }
+.music-feature-image { position:relative;min-height:320px;overflow:hidden; }
+.music-feature-image img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease; }
+.music-feature:hover .music-feature-image img { transform:scale(1.03); }
+.music-feature-copy { padding:2.5rem;display:flex;flex-direction:column;justify-content:center; }
+.music-feature-copy h2 { font-size:2.5rem;line-height:1.1;margin:.75rem 0; }
+.music-feature-tagline { color:var(--mu-accent);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem; }
+.music-feature-copy>p:not(.music-kicker,.music-feature-tagline) { color:var(--mu-muted);line-height:1.8;font-size:.95rem; }
+.music-feature-link { display:inline-flex;align-items:center;gap:.4rem;margin-top:1.5rem;color:var(--mu-text);font-weight:600;font-size:.9rem; }
+.music-feature-link svg { width:1rem;color:var(--mu-accent); }
+.music-band-grid-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+/* --- Practice: balanced 3-col --- */
+.music-practice { padding-block:4rem; }
+.music-practice h2 { font-size:2.5rem;line-height:1.2;margin:1rem 0 1.5rem;max-width:32rem; }
+.music-practice-lede { color:var(--mu-muted);font-size:1.05rem;line-height:1.8;max-width:40rem;margin-bottom:3rem; }
+.music-practice-cols { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.5rem; }
+.music-practice-cols article svg { width:1.4rem;color:var(--mu-accent);margin-bottom:1rem; }
+.music-practice-cols h3 { font-size:1.05rem;margin-bottom:.5rem; }
+.music-practice-cols article p { color:var(--mu-muted);font-size:.88rem;line-height:1.8; }
+/* --- Contact: centered --- */
+.music-contact-centered { text-align:center;padding-block:5rem;scroll-margin-top:6rem; }
+.music-contact-centered h2 { font-size:2.75rem;line-height:1.2;margin:1rem auto 2.5rem;max-width:36rem; }
+.music-contact-actions { display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.5rem; }
+.music-practice[id],.music-projects[id] { scroll-margin-top:5rem; }
+@media(max-width:1000px){.music-feature{grid-template-columns:1fr;}.music-feature-image{min-height:240px;position:relative;aspect-ratio:16/9;}.music-band-grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}.music-practice-cols{grid-template-columns:1fr;gap:2rem;}}
+@media(max-width:600px){.music-feature-copy{padding:1.5rem;}.music-feature-copy h2{font-size:1.75rem;}.music-contact-centered h2{font-size:2rem;}}
 @media(max-width:600px){.music-proj-head{flex-direction:column;gap:1.5rem;}.music-proj-head h1{font-size:2.25rem;}.music-embed{min-width:100%;}}

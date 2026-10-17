@@ -1,8 +1,8 @@
-import coldharbourArt from "@/assets/music/coldharbour.jpg";
-import vacillantesArt from "@/assets/music/vacillantes.jpg";
-import untilArt from "@/assets/music/until-the-dead-walk.jpg";
-import wastedArt from "@/assets/music/wasted-away.jpg";
-import graveFriendsArt from "@/assets/music/grave-friends.jpg";
+import coldharbourArt from "@/assets/music/coldharbour-art.webp";
+import vacillantesArt from "@/assets/music/vacillantes-art.webp";
+import untilArt from "@/assets/music/utdw-art.webp";
+import wastedArt from "@/assets/music/wasted-away-art.webp";
+import graveFriendsArt from "@/assets/music/grave-friends-art.webp";
 
 /**
  * Music showcase data — single source of truth for /music hub and
@@ -36,6 +36,8 @@ export type MusicProject = {
   lineup: { name: string; role: string }[];
   /** Editorial generated artwork; replace with official imagery when supplied. */
   image: string;
+  /** Per-project accent color (hex) — tints the project page. */
+  accent: string;
   embeds: {
     spotify?: string | null;
     apple?: string | null;
@@ -57,6 +59,7 @@ export const musicProjects: MusicProject[] = [
     bio: "Vacillantes is Steve's solo dark-synth project — a one-man operation written, produced, and released from his basement. Operating at real streaming scale with 518 monthly listeners on Spotify and a 2026 release slate that's all gas, no brakes.",
     lineup: [{ name: "Steve Peele II", role: "Everything" }],
     image: vacillantesArt,
+    accent: "#a78bfa", // deep violet
     embeds: {
       spotify: "https://open.spotify.com/embed/artist/7LaOq24ORi2D11Ho1qsJdw",
       apple: "https://embed.music.apple.com/us/artist/vacillantes/1656385539",
@@ -100,6 +103,7 @@ export const musicProjects: MusicProject[] = [
       { name: "Steve Peele II", role: "Guitar / Ops" },
     ],
     image: untilArt,
+    accent: "#f97316", // burnt orange
     embeds: {
       spotify: "https://open.spotify.com/embed/artist/4Zr17aIvRu0LjH3Zf8QDRb",
       apple: "https://embed.music.apple.com/us/artist/until-the-dead-walk/1493029115",
@@ -139,6 +143,7 @@ export const musicProjects: MusicProject[] = [
       // Other members not established — verify with Steve
     ],
     image: coldharbourArt,
+    accent: "#7dd3fc", // ice blue
     embeds: {
       spotify: "https://open.spotify.com/embed/artist/7eVTOU3R6iKKMVric5JaUo",
       apple: "https://embed.music.apple.com/us/artist/coldharbour/1008164223",
@@ -183,6 +188,7 @@ export const musicProjects: MusicProject[] = [
       // Other members not established — verify with Steve
     ],
     image: wastedArt,
+    accent: "#9db89a", // desaturated moss
     embeds: {
       spotify: "https://open.spotify.com/embed/artist/0zC595Fbi9sbw0p3EgxImb",
       apple: "https://embed.music.apple.com/us/artist/wasted-away/1498163976",
@@ -224,6 +230,7 @@ export const musicProjects: MusicProject[] = [
       // Other members not established — verify with Steve
     ],
     image: graveFriendsArt,
+    accent: "#e11d48", // deep crimson
     embeds: {
       spotify: "https://open.spotify.com/embed/artist/0NCdKxn9v9kmYd4auSbzUV",
       apple: "https://embed.music.apple.com/us/artist/grave-friends/1105546354",
