@@ -28,6 +28,7 @@ export const experience = [
     tag: "Marketing Operations",
     bullets: [
       "Steer global marketing operations across an $8M+ budget, driving 4:1 ROI across digital demand initiatives.",
+      "Own the marketing technology stack and data integrations across HubSpot, Salesforce, and Segment — clean lifecycle data from first touch to closed-won.",
       "Automated performance reporting and optimized execution workflows — accelerating velocity 25% and generating $350M+ in pipeline revenue.",
       "Engineered ABM programs with sales leadership, lifting lead-to-deal conversion 40% and closing $25M+ in new revenue.",
     ],
@@ -79,7 +80,7 @@ export const experience = [
     period: "01/2019 – 12/2019",
     tag: "Growth",
     bullets: [
-      "Scaled demand generation across HubSpot, Meta, and email — 50% increase in inbound demand.",
+      "Scaled demand generation in HubSpot across Meta and email — 50% increase in inbound demand.",
       "Improved campaign ROI 45% through multi-touch attribution and iterative testing.",
     ],
   },
