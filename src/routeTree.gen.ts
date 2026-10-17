@@ -26,6 +26,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ScaffoldingRouteImport } from './routes/scaffolding'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SoftwareRouteImport } from './routes/software'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
@@ -49,6 +50,7 @@ import { Route as HackingStampdRouteImport } from './routes/hacking.stampd'
 import { Route as HackingStatusRouteImport } from './routes/hacking.status'
 import { Route as HackingWaxAndAshRouteImport } from './routes/hacking.wax-and-ash'
 import { Route as HackingWhatsNextRouteImport } from './routes/hacking.whats-next'
+import { Route as MusicIndexRouteImport } from './routes/music.index'
 import { Route as MusicColdharbourRouteImport } from './routes/music.coldharbour'
 import { Route as MusicGravefriendsRouteImport } from './routes/music.gravefriends'
 import { Route as MusicUtdwRouteImport } from './routes/music.utdw'
@@ -186,6 +188,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SoftwareRoute = SoftwareRouteImport.update({
+  id: '/software',
+  path: '/software',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpiixRoute = SpiixRouteImport.update({
   id: '/spiix',
   path: '/spiix',
@@ -300,6 +307,11 @@ const HackingWhatsNextRoute = HackingWhatsNextRouteImport.update({
   id: '/hacking/whats-next',
   path: '/hacking/whats-next',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MusicIndexRoute = MusicIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MusicRoute,
 } as any)
 const MusicColdharbourRoute = MusicColdharbourRouteImport.update({
   id: '/coldharbour',
@@ -577,6 +589,7 @@ export interface FileRoutesByFullPath {
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/software': typeof SoftwareRoute
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
@@ -639,6 +652,7 @@ export interface FileRoutesByFullPath {
   '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
+  '/music/': typeof MusicIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
@@ -663,11 +677,11 @@ export interface FileRoutesByTo {
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
-  '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
+  '/software': typeof SoftwareRoute
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
@@ -728,6 +742,7 @@ export interface FileRoutesByTo {
   '/studio/$': typeof StudioSplatRoute
   '/blog': typeof BlogIndexRoute
   '/hacking': typeof HackingIndexRoute
+  '/music': typeof MusicIndexRoute
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
@@ -759,6 +774,7 @@ export interface FileRoutesById {
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
+  '/software': typeof SoftwareRoute
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
@@ -821,6 +837,7 @@ export interface FileRoutesById {
   '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
   '/hacking/': typeof HackingIndexRoute
+  '/music/': typeof MusicIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
@@ -853,6 +870,7 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/scaffolding'
     | '/services'
+    | '/software'
     | '/spiix'
     | '/sprint'
     | '/studio'
@@ -915,6 +933,7 @@ export interface FileRouteTypes {
     | '/studio/$'
     | '/blog/'
     | '/hacking/'
+    | '/music/'
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
@@ -939,11 +958,11 @@ export interface FileRouteTypes {
     | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
-    | '/music'
     | '/obviously'
     | '/portfolio'
     | '/recommendations'
     | '/scaffolding'
+    | '/software'
     | '/sprint'
     | '/studio'
     | '/work'
@@ -1004,6 +1023,7 @@ export interface FileRouteTypes {
     | '/studio/$'
     | '/blog'
     | '/hacking'
+    | '/music'
     | '/services'
     | '/spiix'
     | '/blog/category/$slug'
@@ -1034,6 +1054,7 @@ export interface FileRouteTypes {
     | '/recommendations'
     | '/scaffolding'
     | '/services'
+    | '/software'
     | '/spiix'
     | '/sprint'
     | '/studio'
@@ -1096,6 +1117,7 @@ export interface FileRouteTypes {
     | '/studio/$'
     | '/blog/'
     | '/hacking/'
+    | '/music/'
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
@@ -1127,6 +1149,7 @@ export interface RootRouteChildren {
   RecommendationsRoute: typeof RecommendationsRoute
   ScaffoldingRoute: typeof ScaffoldingRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
+  SoftwareRoute: typeof SoftwareRoute
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
@@ -1274,6 +1297,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/software': {
+      id: '/software'
+      path: '/software'
+      fullPath: '/software'
+      preLoaderRoute: typeof SoftwareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/spiix': {
@@ -1436,6 +1466,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/hacking/whats-next'
       preLoaderRoute: typeof HackingWhatsNextRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/music/': {
+      id: '/music/'
+      path: '/'
+      fullPath: '/music/'
+      preLoaderRoute: typeof MusicIndexRouteImport
+      parentRoute: typeof MusicRoute
     }
     '/music/coldharbour': {
       id: '/music/coldharbour'
@@ -1796,6 +1833,7 @@ interface MusicRouteChildren {
   MusicUtdwRoute: typeof MusicUtdwRoute
   MusicVacillantesRoute: typeof MusicVacillantesRoute
   MusicWastedAwayRoute: typeof MusicWastedAwayRoute
+  MusicIndexRoute: typeof MusicIndexRoute
 }
 
 const MusicRouteChildren: MusicRouteChildren = {
@@ -1804,6 +1842,7 @@ const MusicRouteChildren: MusicRouteChildren = {
   MusicUtdwRoute: MusicUtdwRoute,
   MusicVacillantesRoute: MusicVacillantesRoute,
   MusicWastedAwayRoute: MusicWastedAwayRoute,
+  MusicIndexRoute: MusicIndexRoute,
 }
 
 const MusicRouteWithChildren = MusicRoute._addFileChildren(MusicRouteChildren)
@@ -1970,6 +2009,7 @@ const rootRouteChildren: RootRouteChildren = {
   RecommendationsRoute: RecommendationsRoute,
   ScaffoldingRoute: ScaffoldingRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
+  SoftwareRoute: SoftwareRoute,
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
@@ -2000,7 +2040,6 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
 import type { getRouter } from './router.tsx'
 import type { startInstance } from './start.ts'
 declare module '@tanstack/react-start' {
