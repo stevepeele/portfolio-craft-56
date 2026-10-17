@@ -488,3 +488,26 @@
 .prose-blog > p:first-child { margin-top: 0; }
 .prose-blog strong { font-weight: 600; }
 .prose-blog em { font-style: italic; }
+
+/* Music project pages (2026-10-17 showcase rebuild) */
+.music-back { display:inline-flex;align-items:center;gap:.5rem;color:var(--mu-muted);font-size:.85rem;margin-bottom:2rem;text-decoration:none; }
+.music-back:hover { color:var(--mu-text); }
+.music-proj-hero { padding-top:3rem; }
+.music-proj-head { display:flex;gap:2.5rem;align-items:flex-start;margin-bottom:3rem; }
+.music-proj-head img { width:200px;height:200px;object-fit:cover;border-radius:8px;flex-shrink:0; }
+.music-proj-head h1 { font-size:3rem;margin:.5rem 0; }
+.music-proj-tagline { color:var(--mu-accent);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem; }
+.music-proj-head p { color:var(--mu-muted);max-width:36rem; }
+.music-embed-row { display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0 3rem; }
+.music-embed { flex:1;min-width:280px;background:var(--mu-panel);border:1px solid var(--mu-line);border-radius:8px;overflow:hidden; }
+.music-tracklist { margin:1.5rem 0 3rem; }
+.music-track { display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--mu-line); }
+.music-track span:first-child { color:var(--mu-text); }
+.music-track span:first-child a { color:var(--mu-text);text-decoration:none; }
+.music-track span:first-child a:hover { color:var(--mu-accent); }
+.music-track span:last-child { color:var(--mu-muted);font-size:.8rem;text-align:right;flex-shrink:0; }
+.music-links { display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 3rem; }
+.music-btn { display:inline-flex;align-items:center;gap:.4rem;background:var(--mu-panel);border:1px solid var(--mu-line);color:var(--mu-text);padding:.65rem 1.25rem;border-radius:6px;font-size:.85rem;text-decoration:none; }
+.music-btn:hover { border-color:var(--mu-accent); }
+.music-card-role { font-size:.75rem;color:var(--mu-muted);margin-top:.5rem; }
+@media(max-width:600px){.music-proj-head{flex-direction:column;gap:1.5rem;}.music-proj-head h1{font-size:2.25rem;}.music-embed{min-width:100%;}}
