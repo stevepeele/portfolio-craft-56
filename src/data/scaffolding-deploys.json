@@ -1,6 +1,24 @@
 {
   "deploys": [
     {
+      "id": "vercel-20261018-b703718",
+      "date": "2026-10-18",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "Daily Linear dashboard snapshot sync 2026-10-18 — active production deployment as of the run (includes the daily changelog update 22315dc). Verified via the Vercel dashboard; API list_deployments/create_deployment return 403 (project is under team 'spiix', not 'stevepeeles-projects').",
+      "ref": "b703718"
+    },
+    {
+      "id": "vercel-20261018-22315dc",
+      "date": "2026-10-18",
+      "project": "stevepeeleii.com",
+      "env": "production",
+      "status": "READY",
+      "note": "chore(scaffolding) daily changelog + deploy log update — the GitHub push webhook fired on the API push this time (superseded by b703718). No deploy-hook trigger was needed (no deploy hooks exist on the project).",
+      "ref": "22315dc"
+    },
+    {
       "id": "vercel-20261017-dc9ed24",
       "date": "2026-10-17",
       "project": "stevepeeleii.com",
@@ -298,8 +316,8 @@
       "status": "READY"
     }
   ],
-  "generated_at": "2026-10-17T10:08:13-0400",
-  "generated_by": "daily cron (scaffolding-changelog-updater)",
+  "generated_at": "2026-10-18T12:12:27-0400",
+  "generated_by": "daily cron (scaffolding-changelog-updater) — Vercel deploy feed",
   "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
   "pipeline": {
     "apps": "Per-app GitHub repo → Vercel project → auto-deploy on push (where connected); some apps deploy via dashboard",
