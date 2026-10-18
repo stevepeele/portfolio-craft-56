@@ -1,6 +1,430 @@
 {
   "entries": [
     {
+      "id": "github-20261018-portfolio-craft-56",
+      "date": "2026-10-18",
+      "title": "18 commits to stevepeele/portfolio-craft-56 on main",
+      "source": "github",
+      "ref": "stevepeele/portfolio-craft-56",
+      "detail": "2d085c3 Sync Linear dashboard snapshot 2026-10-18 (was 2026-10-13)\n9d7fd46 Batch push: hacking nav restructure, Muse Vault rename, validation beats, audit page, new routes (2026-10-17)\n11525cf livelog: Wax & Ash waiting bell shipped (SPIIX-711)\nc7bea4d SPIIX-705: rebuild the Building nav dropdown — structure overhaul + full inventory\n489b0cc Music showcase: use new webp artworks from asset host (2026-10-17)\n3f0c672 Fix music build: use existing jpg art until webp binaries can be uploaded (2026-10-17)\ndf29b74 Cleanup test binary file\n23cc16a Test binary upload - will delete\n35d99b4 Music showcase redesign: unique project art, design continuity hub to project pages (2026-10-17)\nefd9181 Fix music nested routes: layout + Outlet pattern, music.index hub (2026-10-17)\n85a2a6b Fix: regenerate routeTree.gen.ts with music sub-routes + audit route (2026-10-17)\n81bb825 Music showcase: add UTDW + Grave Friends Spotify URLs\n7c943e2 Music showcase rebuild: 5 project pages + hub, Music off nav (2026-10-17)\nab32a0e SPIIX-690: sync site resume data with rebuilt master resume (2026-10-17)\n611a303 SPIIX-674: redact Ohio unclaimed-funds claim amounts from /scaffolding/livelog feed\n95effc4 SPIIX-665: remove private names from /scaffolding/organization human-threads row\n0a6d70b chore(scaffolding): correct deploy log entry (push dc9ed244 verified live READY)\ndc9ed24 chore(scaffolding): daily changelog + deploy log update"
+    },
+    {
+      "id": "linear-spiix-766",
+      "date": "2026-10-18",
+      "title": "Prepwise custom domain down — missing GoDaddy CNAME",
+      "source": "linear",
+      "ref": "SPIIX-766",
+      "detail": "Project: Interview Prep AI · Completed 2026-10-18T07:53:48.659Z"
+    },
+    {
+      "id": "linear-spiix-543",
+      "date": "2026-10-18",
+      "title": "Rotate Supabase service keys (binsly-rebuild + stevepeeleii)",
+      "source": "linear",
+      "ref": "SPIIX-543",
+      "detail": "Project: Binsly · Completed 2026-10-18T07:30:45.035Z"
+    },
+    {
+      "id": "linear-spiix-780",
+      "date": "2026-10-18",
+      "title": "Video: Why Meta Muse Is Not a Chatbot (v2/v3 production bar)",
+      "source": "linear",
+      "ref": "SPIIX-780",
+      "detail": "Project: Faceless YouTube Engine · Completed 2026-10-18T07:21:18.398Z"
+    },
+    {
+      "id": "linear-spiix-781",
+      "date": "2026-10-18",
+      "title": "Night shift: accelerate updates/enhancements across all projects, proactive overnight work, discussed live in #grokbot-muse",
+      "source": "linear",
+      "ref": "SPIIX-781",
+      "detail": "Project: Admin · Completed 2026-10-18T06:22:24.136Z"
+    },
+    {
+      "id": "linear-spiix-779",
+      "date": "2026-10-18",
+      "title": "Programmed Grokbot-Muse discussions in #grokbot-muse (3x daily)",
+      "source": "linear",
+      "ref": "SPIIX-779",
+      "detail": "Project: Admin · Completed 2026-10-18T06:16:00.226Z"
+    },
+    {
+      "id": "linear-spiix-778",
+      "date": "2026-10-18",
+      "title": "Slack channel: invite Grokbot + Muse for open dialogue and joint work",
+      "source": "linear",
+      "ref": "SPIIX-778",
+      "detail": "Project: Admin · Completed 2026-10-18T05:52:44.588Z"
+    },
+    {
+      "id": "linear-spiix-776",
+      "date": "2026-10-18",
+      "title": "V2 proof: rebuild Sears video to the higher production bar",
+      "source": "linear",
+      "ref": "SPIIX-776",
+      "detail": "Project: Faceless YouTube Engine · Completed 2026-10-18T05:43:17.043Z"
+    },
+    {
+      "id": "linear-spiix-770",
+      "date": "2026-10-18",
+      "title": "Unified analytics visualization across all properties (Segment-connected)",
+      "source": "linear",
+      "ref": "SPIIX-770",
+      "detail": "Project: Mission Control · Completed 2026-10-18T05:09:39.103Z"
+    },
+    {
+      "id": "linear-spiix-769",
+      "date": "2026-10-18",
+      "title": "Oscar product video (AI Office Manager, Jane-style brand)",
+      "source": "linear",
+      "ref": "SPIIX-769",
+      "detail": "Project: Admin · Completed 2026-10-18T05:09:32.943Z"
+    },
+    {
+      "id": "linear-spiix-767",
+      "date": "2026-10-18",
+      "title": "EPIC: weekly research-to-video faceless YouTube pipeline",
+      "source": "linear",
+      "ref": "SPIIX-767",
+      "detail": "Project: Faceless YouTube Engine · Completed 2026-10-18T04:59:44.291Z"
+    },
+    {
+      "id": "linear-spiix-726",
+      "date": "2026-10-18",
+      "title": "[personal] Oscar: Generate a marketing video for this",
+      "source": "linear",
+      "ref": "SPIIX-726",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T04:58:57.140Z"
+    },
+    {
+      "id": "linear-spiix-768",
+      "date": "2026-10-18",
+      "title": "Oscar product page + UX/UI (AI Office Manager)",
+      "source": "linear",
+      "ref": "SPIIX-768",
+      "detail": "Project: Admin · Completed 2026-10-18T04:49:36.018Z"
+    },
+    {
+      "id": "linear-spiix-765",
+      "date": "2026-10-18",
+      "title": "AI Office Manager for home services — business foundation pack",
+      "source": "linear",
+      "ref": "SPIIX-765",
+      "detail": "Project: — · Completed 2026-10-18T04:25:19.244Z"
+    },
+    {
+      "id": "linear-spiix-744",
+      "date": "2026-10-18",
+      "title": "Oscar Stage 1: first external model adapter",
+      "source": "linear",
+      "ref": "SPIIX-744",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T04:07:49.460Z"
+    },
+    {
+      "id": "linear-spiix-743",
+      "date": "2026-10-18",
+      "title": "Blind-spot resolution: free calling + X API",
+      "source": "linear",
+      "ref": "SPIIX-743",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T04:07:47.784Z"
+    },
+    {
+      "id": "linear-spiix-742",
+      "date": "2026-10-18",
+      "title": "Pre-authorized playbooks v1",
+      "source": "linear",
+      "ref": "SPIIX-742",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T04:07:42.323Z"
+    },
+    {
+      "id": "linear-spiix-725",
+      "date": "2026-10-17",
+      "title": "Productization: Oscar command center Stage 2 plan",
+      "source": "linear",
+      "ref": "SPIIX-725",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:28:39.697Z"
+    },
+    {
+      "id": "linear-spiix-723",
+      "date": "2026-10-17",
+      "title": "Sprint follow-up: daily Oscar digest script",
+      "source": "linear",
+      "ref": "SPIIX-723",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:14:48.520Z"
+    },
+    {
+      "id": "linear-spiix-722",
+      "date": "2026-10-17",
+      "title": "Sprint follow-up: stale-task sweeper in switchboard worker",
+      "source": "linear",
+      "ref": "SPIIX-722",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:14:18.140Z"
+    },
+    {
+      "id": "linear-spiix-721",
+      "date": "2026-10-17",
+      "title": "Sprint follow-up: lane badges on mission board task cards",
+      "source": "linear",
+      "ref": "SPIIX-721",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:13:20.538Z"
+    },
+    {
+      "id": "linear-spiix-716",
+      "date": "2026-10-17",
+      "title": "Sprint: blocked tasks surface to ops signals",
+      "source": "linear",
+      "ref": "SPIIX-716",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:11:14.631Z"
+    },
+    {
+      "id": "linear-spiix-714",
+      "date": "2026-10-17",
+      "title": "Sprint: text extraction for file tasks (txt/md/pdf)",
+      "source": "linear",
+      "ref": "SPIIX-714",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:11:12.824Z"
+    },
+    {
+      "id": "linear-spiix-713",
+      "date": "2026-10-17",
+      "title": "Sprint: keyword lane router v0 in switchboard worker",
+      "source": "linear",
+      "ref": "SPIIX-713",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:11:11.366Z"
+    },
+    {
+      "id": "linear-spiix-596",
+      "date": "2026-10-17",
+      "title": "Vault: hard-gate email capture on all template access",
+      "source": "linear",
+      "ref": "SPIIX-596",
+      "detail": "Project: Muse Templates · Completed 2026-10-18T02:09:21.017Z"
+    },
+    {
+      "id": "linear-spiix-719",
+      "date": "2026-10-17",
+      "title": "Legal map v1 — single source of truth across all cases (his 2026-10-17 order)",
+      "source": "linear",
+      "ref": "SPIIX-719",
+      "detail": "Project: Admin · Completed 2026-10-18T02:09:01.666Z"
+    },
+    {
+      "id": "linear-spiix-717",
+      "date": "2026-10-17",
+      "title": "Sprint: board polish — counts, empty states, file downloads",
+      "source": "linear",
+      "ref": "SPIIX-717",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:07:20.697Z"
+    },
+    {
+      "id": "linear-spiix-712",
+      "date": "2026-10-17",
+      "title": "Sprint: in-browser voice recording on the Command tab",
+      "source": "linear",
+      "ref": "SPIIX-712",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:07:19.187Z"
+    },
+    {
+      "id": "linear-spiix-718",
+      "date": "2026-10-17",
+      "title": "Sprint: Stage 1 adapter spike — OpenAI adapter design doc",
+      "source": "linear",
+      "ref": "SPIIX-718",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:06:26.180Z"
+    },
+    {
+      "id": "linear-spiix-715",
+      "date": "2026-10-17",
+      "title": "Sprint: task completion CLI (Lauren write-back)",
+      "source": "linear",
+      "ref": "SPIIX-715",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T02:05:59.614Z"
+    },
+    {
+      "id": "linear-spiix-711",
+      "date": "2026-10-17",
+      "title": "In-tab \"Something's waiting\" bell — no-permission notification while the board is open",
+      "source": "linear",
+      "ref": "SPIIX-711",
+      "detail": "Project: Love Note — secret note-passing app · Completed 2026-10-18T01:52:53.141Z"
+    },
+    {
+      "id": "linear-spiix-709",
+      "date": "2026-10-17",
+      "title": "Stage 0 build: Mission Control command deck + mission board",
+      "source": "linear",
+      "ref": "SPIIX-709",
+      "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-18T01:45:20.443Z"
+    },
+    {
+      "id": "linear-spiix-705",
+      "date": "2026-10-17",
+      "title": "Rebuild the Building nav dropdown — structure overhaul + full inventory",
+      "source": "linear",
+      "ref": "SPIIX-705",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-18T00:58:47.125Z"
+    },
+    {
+      "id": "linear-spiix-706",
+      "date": "2026-10-17",
+      "title": "Social engagement rules: engagement earns a follow, follows ride his activity",
+      "source": "linear",
+      "ref": "SPIIX-706",
+      "detail": "Project: Local Growth Engine · Completed 2026-10-18T00:55:53.547Z"
+    },
+    {
+      "id": "linear-spiix-704",
+      "date": "2026-10-17",
+      "title": "Part 1 v0.2: deep pass — 2014 voice, Pan Labs ending, OBVIOUSLY drafts, gap years",
+      "source": "linear",
+      "ref": "SPIIX-704",
+      "detail": "Project: Personalization Engine · Completed 2026-10-18T00:35:24.634Z"
+    },
+    {
+      "id": "linear-spiix-701",
+      "date": "2026-10-17",
+      "title": "Part 1: Evernote understanding layer — timeline, lexicon, behavior patterns",
+      "source": "linear",
+      "ref": "SPIIX-701",
+      "detail": "Project: Personalization Engine · Completed 2026-10-18T00:27:55.861Z"
+    },
+    {
+      "id": "linear-spiix-699",
+      "date": "2026-10-17",
+      "title": "Critical: grok bot in linear",
+      "source": "linear",
+      "ref": "SPIIX-699",
+      "detail": "Project: Admin · Completed 2026-10-17T20:10:19.758Z"
+    },
+    {
+      "id": "linear-spiix-692",
+      "date": "2026-10-17",
+      "title": "Drive Brief side chat — audio-first briefing companion",
+      "source": "linear",
+      "ref": "SPIIX-692",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T18:40:47.576Z"
+    },
+    {
+      "id": "linear-spiix-691",
+      "date": "2026-10-17",
+      "title": "Grokbot email sourcing rules v2: hunt ladder, inference evidence, Lauren pressure-test, bounce-driven refinement",
+      "source": "linear",
+      "ref": "SPIIX-691",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T18:33:54.648Z"
+    },
+    {
+      "id": "linear-spiix-683",
+      "date": "2026-10-17",
+      "title": "DECISION: close anon read on Mission Control ops_snapshots",
+      "source": "linear",
+      "ref": "SPIIX-683",
+      "detail": "Project: Mission Control · Completed 2026-10-17T18:00:08.926Z"
+    },
+    {
+      "id": "linear-spiix-690",
+      "date": "2026-10-17",
+      "title": "Sync site resume data with rebuilt master resume (2026-10-17)",
+      "source": "linear",
+      "ref": "SPIIX-690",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T17:44:04.376Z"
+    },
+    {
+      "id": "linear-spiix-681",
+      "date": "2026-10-17",
+      "title": "Privacy audit: social channels + blog platforms, last week of publishing",
+      "source": "linear",
+      "ref": "SPIIX-681",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T17:13:00.181Z"
+    },
+    {
+      "id": "linear-spiix-680",
+      "date": "2026-10-17",
+      "title": "Strategic/Security/Safety audit: publishing flows (blog, social, cross-posts) — private-info exposure",
+      "source": "linear",
+      "ref": "SPIIX-680",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T16:48:42.045Z"
+    },
+    {
+      "id": "linear-spiix-674",
+      "date": "2026-10-17",
+      "title": "Extend privacy leak potentials across mainsite",
+      "source": "linear",
+      "ref": "SPIIX-674",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T16:47:14.899Z"
+    },
+    {
+      "id": "linear-spiix-667",
+      "date": "2026-10-17",
+      "title": "Mission Control: bug-fix pass — 10 audit bugs (B1-B10)",
+      "source": "linear",
+      "ref": "SPIIX-667",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:38:21.158Z"
+    },
+    {
+      "id": "linear-spiix-679",
+      "date": "2026-10-17",
+      "title": "MC-5: Approvals inbox + comms signals strip",
+      "source": "linear",
+      "ref": "SPIIX-679",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:37:00.726Z"
+    },
+    {
+      "id": "linear-spiix-678",
+      "date": "2026-10-17",
+      "title": "MC-4: Cron health panel",
+      "source": "linear",
+      "ref": "SPIIX-678",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:36:57.674Z"
+    },
+    {
+      "id": "linear-spiix-677",
+      "date": "2026-10-17",
+      "title": "MC-3: Kill ship-manifest.json — derive Ship Status from Vercel API + git",
+      "source": "linear",
+      "ref": "SPIIX-677",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:31:00.424Z"
+    },
+    {
+      "id": "linear-spiix-676",
+      "date": "2026-10-17",
+      "title": "MC-2: Revenue — charges-based gross instead of subscriptions MRR",
+      "source": "linear",
+      "ref": "SPIIX-676",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:28:34.733Z"
+    },
+    {
+      "id": "linear-spiix-675",
+      "date": "2026-10-17",
+      "title": "MC-1: Registry completion — single source of truth + vercelProject mapping",
+      "source": "linear",
+      "ref": "SPIIX-675",
+      "detail": "Project: AI Operations Command Center · Completed 2026-10-17T16:28:27.497Z"
+    },
+    {
+      "id": "linear-spiix-665",
+      "date": "2026-10-17",
+      "title": "Fix privacy leak: private names exposed on /scaffolding/organization",
+      "source": "linear",
+      "ref": "SPIIX-665",
+      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-17T16:15:50.642Z"
+    },
+    {
+      "id": "linear-spiix-663",
+      "date": "2026-10-17",
+      "title": "job-alert-scan 2026-10-17 — LinkedIn Easy Apply scan",
+      "source": "linear",
+      "ref": "SPIIX-663",
+      "detail": "Project: Status sync · Completed 2026-10-17T13:28:09.635Z"
+    },
+    {
+      "id": "linear-spiix-470",
+      "date": "2026-10-17",
+      "title": "[TRACKING] Forensics: 16 unauthorized 'I rebuilt part of X' sends",
+      "source": "linear",
+      "ref": "SPIIX-470",
+      "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T10:28:50.798Z"
+    },
+    {
       "id": "github-20261017-portfolio-craft-56",
       "date": "2026-10-17",
       "title": "17 commits to stevepeele/portfolio-craft-56 on main",
@@ -39,38 +463,6 @@
       "source": "linear",
       "ref": "SPIIX-652",
       "detail": "Project: Muse × Oscar Ops · Completed 2026-10-17T01:53:00.285Z"
-    },
-    {
-      "id": "manual-20261016-obvviously-chapter-journey",
-      "date": "2026-10-16",
-      "title": "OBVVIOUSLY page redesigned as illustrated chapter journey",
-      "source": "manual",
-      "ref": "SPIIX-629",
-      "detail": "12 cohesive scratch-ink chapter illustrations (matching the 3 existing room/eye/figure plates; ch07 hand-drawn SVG) as text-safe TS modules; page restructured from chapter index into an illustrated chapter journey (visual + title + one-line descriptor per chapter). Midnight-cinematic system and Kit email capture kept."
-    },
-    {
-      "id": "manual-20261016-seo-fixes",
-      "date": "2026-10-16",
-      "title": "SEO fixes: canonical bug, sitemap 22→70, self-referencing og:url",
-      "source": "manual",
-      "ref": "SPIIX-617",
-      "detail": "Steve's 01:18 ET 'fix it all': (1) deleted the global canonical in __root.tsx that forced every page to canonicalize to / (plus duplicate layout canonicals in spiix.tsx/services.tsx) — all content pages now emit exactly one self-referencing canonical; (2) root og:url is now self-referencing per page (was hardcoded to homepage); (3) sitemap regenerated 22→70 URLs via new scripts/generate-sitemap.mjs (all content pages, 15 hacking changelogs, Sanity blog posts/categories; 301s and noindex pages excluded), wired into prebuild. Audit corrections: /services/* are 301 redirects (meta lives on their /spiix targets, which are complete); /studio already noindex; Sanity Studio already lazy-loaded and absent from public-page bundles (verified live)."
-    },
-    {
-      "id": "manual-20261016-livelog-diagrams",
-      "date": "2026-10-16",
-      "title": "Livelog: live data-flow + monitoring diagrams + schema visual",
-      "source": "manual",
-      "ref": "SPIIX-618",
-      "detail": "Steve's 01:19 ET order: three live layers alongside the /scaffolding/livelog stream — (1) animated data-flow diagram (Segment SPIIX → Live Log Ingest webhook → /api/livelog-ingest → Supabase livelog_events → livelog page) with per-hop live status, (2) monitoring panels (events 1h/24h, hourly throughput chart, hop latency + delivery detail), (3) schema visual of livelog_events read live from Supabase. New /api/livelog-health probes each hop (401-auth ingest check, Supabase REST, page HEAD, Segment delivery via last meta.segment_type insert) and serves schema from the live OpenAPI definition. All diagrams driven by real probes, no mocks; unlisted + noindex preserved."
-    },
-    {
-      "id": "manual-20261016-systems-page",
-      "date": "2026-10-16",
-      "title": "Systems page — real-time mission-control visualization at /scaffolding/systems",
-      "source": "manual",
-      "ref": "SPIIX-616",
-      "detail": "New unlisted page beside the live log: live ops pulse (ai-ops-log.json, 3s poll), animated Segment data-transfer pipeline (9 app sources → core-ajs → hub → 5 destinations), 13-platform connections map, 5 real schema definitions, and the 12-entry deploy timeline. Every number traces to a real source."
     },
     {
       "id": "linear-spiix-651",
@@ -289,28 +681,36 @@
       "detail": "Project: — · Completed 2026-10-16T04:06:26.854Z"
     },
     {
-      "id": "manual-20261015-obviously-landing",
-      "date": "2026-10-15",
-      "title": "OBVIOUSLY book landing page — unlisted, full brand + PDF download",
+      "id": "manual-20261016-obvviously-chapter-journey",
+      "date": "2026-10-16",
+      "title": "OBVVIOUSLY page redesigned as illustrated chapter journey",
       "source": "manual",
-      "ref": "PLX-577",
-      "detail": "Steve's 12:58 ET order: unlisted landing page for the repackaged book OBVIOUSLY (formerly YOU'RE DOING TOO MUCH) at stevepeeleii.com/obviously — noindex, no nav. Unique book branding: highlighter-mark motif, Fraunces/DM Sans, dark literary system. Three-act chapter map (The Machinery / The Flood / The Return), prologue excerpt, email capture + free PDF download (public/obviously-steve-peele-ii.pdf, 1.42MB). Route tree regenerated; deployed via Vercel auto-deploy."
+      "ref": "SPIIX-629",
+      "detail": "12 cohesive scratch-ink chapter illustrations (matching the 3 existing room/eye/figure plates; ch07 hand-drawn SVG) as text-safe TS modules; page restructured from chapter index into an illustrated chapter journey (visual + title + one-line descriptor per chapter). Midnight-cinematic system and Kit email capture kept."
     },
     {
-      "id": "manual-20261015-vault-ads",
-      "date": "2026-10-15",
-      "title": "Muse Vault TV ad production — 5 finished spots",
+      "id": "manual-20261016-seo-fixes",
+      "date": "2026-10-16",
+      "title": "SEO fixes: canonical bug, sitemap 22→70, self-referencing og:url",
       "source": "manual",
-      "ref": "PLX-532, PLX-533, PLX-534",
-      "detail": "Steve's 04:43 ET order: full production of 5 finished 16:9 MP4 video ads for the Muse Vault (vault.stevepeeleii.com, 'Stop prompting from scratch.'). 30s hero 'Stop Prompting From Scratch' (vault-30s.mp4), 45s 'The Vault Tour' (vault-45s.mp4), three 10s cutdowns — 'Scratch', 'Paste', 'Kits' (vault-10s-scratch/paste/kits.mp4). Pipeline: 11 AI-generated ~10s clips (media pipeline, no on-screen text), TTS voiceover (Confident Trumpet voice, URL spelled as spoken), ffmpeg edit with music bed sidechain-ducked under VO, rendered black end card ('Stop prompting from scratch.' / vault.stevepeeleii.com / '98 templates. Free.'). Verification caught a real bug: amix's default normalize=1 silently dropped the mono VO from every mix — rebuilt with normalize=0 and confirmed VO present, bed ducking ~2.4dB, peaks clean. Deliverables in ~/workspace/your_files/vault-tv-spots/ + mirrored to Dropbox /Muse Library/. Scripts: scripts.md."
+      "ref": "SPIIX-617",
+      "detail": "Steve's 01:18 ET 'fix it all': (1) deleted the global canonical in __root.tsx that forced every page to canonicalize to / (plus duplicate layout canonicals in spiix.tsx/services.tsx) — all content pages now emit exactly one self-referencing canonical; (2) root og:url is now self-referencing per page (was hardcoded to homepage); (3) sitemap regenerated 22→70 URLs via new scripts/generate-sitemap.mjs (all content pages, 15 hacking changelogs, Sanity blog posts/categories; 301s and noindex pages excluded), wired into prebuild. Audit corrections: /services/* are 301 redirects (meta lives on their /spiix targets, which are complete); /studio already noindex; Sanity Studio already lazy-loaded and absent from public-page bundles (verified live)."
     },
     {
-      "id": "manual-20261015-faith",
-      "date": "2026-10-15",
-      "title": "/faith — unlisted 48-Hour Church Website Sprint landing page",
+      "id": "manual-20261016-livelog-diagrams",
+      "date": "2026-10-16",
+      "title": "Livelog: live data-flow + monitoring diagrams + schema visual",
       "source": "manual",
-      "ref": "PLX-531",
-      "detail": "Steve's urgent 04:17 ET order: unlisted landing page/offer at /faith on the main site — same mechanics as the /sprint 48-hour website sprint ($750 one-time, complete rebuild migrated live in 48h), repositioned for churches (sermon archives, ministries, events calendar, online giving, volunteer signups, plan-your-visit). Mirrors /sprint's SPIIX visual system and unlisted pattern (noindex + canonical, no nav/sitemap link). New src/routes/faith.tsx + route registration + trackFaithCta Segment event; FAQ section added for church questions. Same cal.com sprint-call booking link (no church-specific link configured)."
+      "ref": "SPIIX-618",
+      "detail": "Steve's 01:19 ET order: three live layers alongside the /scaffolding/livelog stream — (1) animated data-flow diagram (Segment SPIIX → Live Log Ingest webhook → /api/livelog-ingest → Supabase livelog_events → livelog page) with per-hop live status, (2) monitoring panels (events 1h/24h, hourly throughput chart, hop latency + delivery detail), (3) schema visual of livelog_events read live from Supabase. New /api/livelog-health probes each hop (401-auth ingest check, Supabase REST, page HEAD, Segment delivery via last meta.segment_type insert) and serves schema from the live OpenAPI definition. All diagrams driven by real probes, no mocks; unlisted + noindex preserved."
+    },
+    {
+      "id": "manual-20261016-systems-page",
+      "date": "2026-10-16",
+      "title": "Systems page — real-time mission-control visualization at /scaffolding/systems",
+      "source": "manual",
+      "ref": "SPIIX-616",
+      "detail": "New unlisted page beside the live log: live ops pulse (ai-ops-log.json, 3s poll), animated Segment data-transfer pipeline (9 app sources → core-ajs → hub → 5 destinations), 13-platform connections map, 5 real schema definitions, and the 12-entry deploy timeline. Every number traces to a real source."
     },
     {
       "id": "linear-spiix-614",
@@ -609,138 +1009,28 @@
       "detail": "bfd0345 PLX-531: unlisted /faith church sprint landing page (mirrors /sprint, $750, 48h, trackFaithCta, changelog)\n66c3c25 Scaffolding: changelog entry for Muse Vault TV ad production (PLX-532/533/534)\nefae776 PLX-544: migrate main site segment.ts to @plxio/core-ajs"
     },
     {
-      "date": "2026-10-14",
-      "detail": "Vault launched on Product Hunt at 9:00 AM ET with Medium post and website announcement (PLX-363/365/366). 98 templates live at vault.stevepeeleii.com. Channels: Product Hunt + Medium + website only, no social posts.",
-      "id": "manual-20261014-vault-launch",
-      "ref": "PLX-363",
+      "id": "manual-20261015-obviously-landing",
+      "date": "2026-10-15",
+      "title": "OBVIOUSLY book landing page — unlisted, full brand + PDF download",
       "source": "manual",
-      "title": "Muse Vault Product Hunt launch"
+      "ref": "PLX-577",
+      "detail": "Steve's 12:58 ET order: unlisted landing page for the repackaged book OBVIOUSLY (formerly YOU'RE DOING TOO MUCH) at stevepeeleii.com/obviously — noindex, no nav. Unique book branding: highlighter-mark motif, Fraunces/DM Sans, dark literary system. Three-act chapter map (The Machinery / The Flood / The Return), prologue excerpt, email capture + free PDF download (public/obviously-steve-peele-ii.pdf, 1.42MB). Route tree regenerated; deployed via Vercel auto-deploy."
     },
     {
-      "id": "manual-20261014-vault-kits",
-      "date": "2026-10-14",
-      "title": "Scaffolding Kits shipped to the Muse Vault",
-      "detail": "PLX-418: 5 scaffolding kits added to vault.stevepeeleii.com — Morning Operating System, Content Flywheel, Job Hunt Engine, Money Autopilot, Desktop Operator. Each kit defines a framework (name + governing rule), renders an interactive SVG skill map (category-colored nodes, labeled interconnection edges, numbered orchestration badges, dashed framework boundary, click-through to real template modals), a cross-kit interconnect map (Quick Capture bridges Content Flywheel and Desktop Operator), numbered orchestration steps, and a generated copyable kit system prompt. New kits.js data file (validated: all 26 template refs resolve); deploy.py FILES updated. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push.",
+      "id": "manual-20261015-vault-ads",
+      "date": "2026-10-15",
+      "title": "Muse Vault TV ad production — 5 finished spots",
       "source": "manual",
-      "ref": "PLX-418"
+      "ref": "PLX-532, PLX-533, PLX-534",
+      "detail": "Steve's 04:43 ET order: full production of 5 finished 16:9 MP4 video ads for the Muse Vault (vault.stevepeeleii.com, 'Stop prompting from scratch.'). 30s hero 'Stop Prompting From Scratch' (vault-30s.mp4), 45s 'The Vault Tour' (vault-45s.mp4), three 10s cutdowns — 'Scratch', 'Paste', 'Kits' (vault-10s-scratch/paste/kits.mp4). Pipeline: 11 AI-generated ~10s clips (media pipeline, no on-screen text), TTS voiceover (Confident Trumpet voice, URL spelled as spoken), ffmpeg edit with music bed sidechain-ducked under VO, rendered black end card ('Stop prompting from scratch.' / vault.stevepeeleii.com / '98 templates. Free.'). Verification caught a real bug: amix's default normalize=1 silently dropped the mono VO from every mix — rebuilt with normalize=0 and confirmed VO present, bed ducking ~2.4dB, peaks clean. Deliverables in ~/workspace/your_files/vault-tv-spots/ + mirrored to Dropbox /Muse Library/. Scripts: scripts.md."
     },
     {
-      "id": "manual-20261014-vault-community",
-      "date": "2026-10-14",
-      "title": "Vault Community v1 staged — aibuilderclub-style community for Muse users",
-      "detail": "PLX-443: community built ON the Vault product at vault.stevepeeleii.com/community.html — member feed for sharing template builds (post/comment/like), 7-day leaderboard, Supabase Auth (email/password + magic link), member profiles + settings, founder section, FAQ, seed content, admin pin/delete for him. Backend on the shared Dardo Supabase project (community_profiles/posts/comments/likes with RLS; signup trigger auto-creates profiles and flags him admin). Segment events structured, Meet SPII corner card, banners off, no Chatflows. Launches FREE; courses (PLX-444), hard membership gate (PLX-445), and paid tier (PLX-446) parked as backlog. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push; one phone-side step remains for him — add vault.stevepeeleii.com/** to Supabase Auth redirect URLs for magic-link sign-in.",
+      "id": "manual-20261015-faith",
+      "date": "2026-10-15",
+      "title": "/faith — unlisted 48-Hour Church Website Sprint landing page",
       "source": "manual",
-      "ref": "PLX-443"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "SSO protection turned off in Vercel dashboard so the Sozo Loveland site is publicly reachable.",
-      "id": "manual-20261014-sozo-auth",
-      "ref": null,
-      "source": "manual",
-      "title": "Vercel Authentication disabled for sozo-loveland"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "Rebuilt post-migration: stack overview, script-connections table, data-flow diagrams, deploy pipeline, 8 env vars (names only), 4 domains/DNS, 5 vercel.json redirects, runbook, caveats. (PLX-335)",
-      "id": "manual-20261014-scaffolding-architecture",
-      "ref": "PLX-335",
-      "source": "manual",
-      "title": "/scaffolding/architecture rebuilt as infrastructure documentation"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "Placeholder clone replaced with actual analytics wiring: Segment init path, HubSpot portal 22009185, PostHog gating, formsubmit.co routing, Sanity CDN, event taxonomy table. Self-referential Detail links fixed. (PLX-364)",
-      "id": "manual-20261014-scaffolding-analytics",
-      "ref": "PLX-364",
-      "source": "manual",
-      "title": "/scaffolding/architecture/analytics rewritten as real deep dive"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "Minted via signed-in browser session for project k74pcbpp, dataset production. Value used transiently, stored nowhere.",
-      "id": "manual-20261014-sanity-token",
-      "ref": null,
-      "source": "manual",
-      "title": "Fresh Sanity API token minted (Muse-v3, Editor)"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "Published at /blog/promptvault-launch via Sanity API after the Studio rich-text editor blocked browser automation. Stale duplicate /blog/introducing-muse-vault deleted. (PLX-330)",
-      "id": "manual-20261014-promptvault-post",
-      "ref": "PLX-330",
-      "source": "manual",
-      "title": "PromptVault launch blog post published"
-    },
-    {
-      "id": "manual-20261014-organization-v2",
-      "date": "2026-10-14",
-      "title": "Organization page v2 — layered orchestration stack (L0–L4), triage runbook, platform carrots",
-      "source": "manual",
-      "ref": "PLX-490",
-      "detail": "Steve asked (side chat) for a more technical, thoughtful, orchestrated page with layers beneath Lauren covering all facets, documented triage, and carrots for every platform. v2 replaces the flat v1 with the L0–L4 orchestration stack reflecting his 22:08 ET org order (Lauren COO, singular interface; Grokbot execution team beneath via seven-field task orders — supersedes the 19:45 two-lead split): L0 Principal → L1 Command → L2 three execution arms (Grokbot team, side-chat leaders, cron layer) → L3 the 8 lanes (PLX-481–488 with cadence, IO, boundary) → L4 platforms, each with its carrot (role, value, owner, constraint). New: full triage runbook (intake channels, classification tree, routing, SLAs, escalation, audit), kill switches, resource-economics offload principle, Lauren direct stack (10 kept areas + 8 skill branches). Absorbed the main chat unpushed org-page edits (handoff/rule rewrites) into one coherent push. Also added a supersession banner to /scaffolding/ops (still documented the two-lead model)."
-    },
-    {
-      "id": "manual-20261014-organization-page",
-      "date": "2026-10-14",
-      "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",
-      "source": "manual",
-      "ref": "PLX-476",
-      "detail": "Steve asked (side chat, 2026-10-14) for a comprehensive page encapsulating everything Lauren triages, the Lauren↔Grokbot delineation with Lauren as hierarchical leader, and both skill hierarchies. New unlisted page /scaffolding/organization: visual org chart (Steve → two team leads → skill agents), the two lanes (Lauren: build/host/ship; Oscar: the hunt/sales ops), 10-area Lauren triage table, Lauren skill hierarchy (8 branches), Oscar bot roster hierarchy (18 bots, 6 groups), 4-step triage decision tree, handoff contracts table, P-PLX-33 Linear lifecycle, 8 hard rules. Wired into the hub (nav + index card) and cross-linked both ways with /scaffolding/architecture (template-level, survives build.py regen). Classified as part of the Scaffolding + Architecture program per his word."
-    },
-    {
-      "id": "manual-20261014-muse-oscar-reconciliation",
-      "date": "2026-10-14",
-      "title": "Muse × Oscar reconciliation — lanes settled, operating model live",
-      "source": "manual",
-      "ref": "P-PLX-33",
-      "detail": "Operating-model exercise, 2026-10-14 ~19:45–20:40 ET. Steve paused all bot work at 19:40 to reconcile overlapping Muse/Oscar lanes, then ran a live ~45-minute session with both leads. FINAL split (his ruling): Muse (Lauren, promoted EA → COO this session) owns ALL builds/hosting/shipping — repos, Vercel, domains, main site, all apps, all 31 prospect previews; Oscar (GB) owns sales operations — prospecting, enrichment, outreach, revenue forecasting, HubSpot pipeline stages. GB never publishes (no repos, no Vercel, no site edits); build needs go to Muse as one-line requests. Deliverables: 92KB handoff doc, lanes/triage/ownership diagram (v1.1 adds the Linear process), joint org chart (Steve → two team leads → skill agents). New Linear project P-PLX-33 'Muse × Oscar Ops' is the book of record for every handoff — create → assign → delegate → decide → close; chat stays for real-time only. Standing: Oscar gets full read/view/comment on all Linear work and docs, zero disparity. The 19:40 pause was Oscar-only (his 4 routines stay paused); Steve cleared the 6 Thursday main-site deploys (06:00–14:00 ET). Still open: Oscar's forensics on the 16 unauthorized 'I rebuilt part of X's website' emails (7:01–7:22 PM, Gmail API) + 6 post-pause HubSpot deals — prime suspect is a deleted Grok Bot proactive routine; group close-out with Steve pending his report."
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "Lovable is OUT of the workflow entirely (his standing order). Production deploys via Vercel project 'stevepeeleii' with auto-deploy on push to main. Lovable-side AI edits had landed unreviewed in the repo (PLX-293 cleanup). (PLX-325)",
-      "id": "manual-20261014-migration",
-      "ref": "PLX-325",
-      "source": "manual",
-      "title": "Main site migrated off Lovable to Vercel"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "api/_sources.ts now falls back to unauthenticated GitHub fetch for the public main-site repo when GITHUB_TOKEN is unset (commit 9302e5d). Deploy blocked by Vercel 402 api-deployments-free-per-day; runonce cron 'mission-control-deploy-retry' set for Thu 2026-10-15 06:00 ET.",
-      "id": "manual-20261014-mc-github-fallback",
-      "ref": "goal_13f2fa34714b",
-      "source": "manual",
-      "title": "Mission Control GitHub commits fallback shipped in code; deploy blocked"
-    },
-    {
-      "date": "2026-10-14",
-      "detail": "'Generate first-touch draft from teardown' button on prospect page; top-3 findings composer; drafts stage as draft → Approve → 'Mark sent'. No send mechanism in codebase — nothing goes out without his word. Deployed to Vercel production. (PLX-316)",
-      "id": "manual-20261014-local-growth-outreach",
-      "ref": "PLX-316",
-      "source": "manual",
-      "title": "Local Growth Fix outreach sequencing live"
-    },
-    {
-      "id": "manual-20261014-hub-memorial",
-      "date": "2026-10-14",
-      "title": "Scaffolding docs hub launched — the portfolio, memorialized",
-      "detail": "PLX-398: the complete /scaffolding docs hub shipped — 13 unlisted pages (index, architecture, projects with 24 per-project records, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog) plus a frozen memorial snapshot at /scaffolding/snapshot (PLX-405). The hub is now the permanent technical record: unlisted, noindex, never in nav, kept current by the daily changelog cron. Standing guidance memorialized alongside it.",
-      "source": "manual",
-      "ref": "PLX-398"
-    },
-    {
-      "id": "manual-20261014-grokbot-execution-layer",
-      "date": "2026-10-14",
-      "title": "Grokbot execution layer stood up under Lauren (COO) — 8 task orders, handoff protocol, org chart updated",
-      "source": "manual",
-      "ref": "P-PLX-33",
-      "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
-    },
-    {
-      "id": "manual-20261014-forge-prd-snout-absorbed",
-      "date": "2026-10-14",
-      "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
-      "detail": "P-PLX-31: full PRD v1 written for Forge, the idea-in-product-out engine (Clarify → Stack → Scope → Build → Ship/iterate; Guided/Assisted/Intelligent modes; discovery-first positioning vs Lovable/v0/Bolt). Steve resolved the Snout question: ABSORB. Snout's tier engine (signal detection: auth, realtime, AI, payments, storage, CMS, mobile, scale) and 30-platform database become Forge's Stack stage with an LLM upgrade planned; Snout retired as a standalone product (was built and verified locally 2026-10-12, never deployed), P-PLX-22 closed, launch checklist PLX-240 retired. Scaffolding project pages updated: snout → Absorbed, forge added as Concept. PRD at ~/workspace/your_files/forge-prd.md. Name 'Forge' is Lauren's placeholder — his call."
+      "ref": "PLX-531",
+      "detail": "Steve's urgent 04:17 ET order: unlisted landing page/offer at /faith on the main site — same mechanics as the /sprint 48-hour website sprint ($750 one-time, complete rebuild migrated live in 48h), repositioned for churches (sermon archives, ministries, events calendar, online giving, volunteer signups, plan-your-visit). Mirrors /sprint's SPIIX visual system and unlisted pattern (noindex + canonical, no nav/sitemap link). New src/routes/faith.tsx + route registration + trackFaithCta Segment event; FAQ section added for church questions. Same cal.com sprint-call booking link (no church-specific link configured)."
     },
     {
       "id": "linear-plx-493",
@@ -1119,28 +1409,138 @@
       "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-14T11:21:54.129Z"
     },
     {
-      "id": "linear-plx-354",
       "date": "2026-10-14",
-      "title": "Blog: CTA buttons on Muse Vault post, author closing note + auto related posts on all posts",
-      "source": "linear",
-      "ref": "PLX-354",
-      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-14T11:24:24.995Z"
+      "detail": "Vault launched on Product Hunt at 9:00 AM ET with Medium post and website announcement (PLX-363/365/366). 98 templates live at vault.stevepeeleii.com. Channels: Product Hunt + Medium + website only, no social posts.",
+      "id": "manual-20261014-vault-launch",
+      "ref": "PLX-363",
+      "source": "manual",
+      "title": "Muse Vault Product Hunt launch"
     },
     {
-      "id": "linear-plx-336",
+      "id": "manual-20261014-vault-kits",
       "date": "2026-10-14",
-      "title": "Add Medium/Substack RSS stream to /Blog",
-      "source": "linear",
-      "ref": "PLX-336",
-      "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-14T11:15:47.227Z"
+      "title": "Scaffolding Kits shipped to the Muse Vault",
+      "detail": "PLX-418: 5 scaffolding kits added to vault.stevepeeleii.com — Morning Operating System, Content Flywheel, Job Hunt Engine, Money Autopilot, Desktop Operator. Each kit defines a framework (name + governing rule), renders an interactive SVG skill map (category-colored nodes, labeled interconnection edges, numbered orchestration badges, dashed framework boundary, click-through to real template modals), a cross-kit interconnect map (Quick Capture bridges Content Flywheel and Desktop Operator), numbered orchestration steps, and a generated copyable kit system prompt. New kits.js data file (validated: all 26 template refs resolve); deploy.py FILES updated. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push.",
+      "source": "manual",
+      "ref": "PLX-418"
     },
     {
-      "id": "github-20261014-portfolio-craft-56",
+      "id": "manual-20261014-vault-community",
       "date": "2026-10-14",
-      "title": "27 commits to stevepeele/portfolio-craft-56 on main",
-      "source": "github",
-      "ref": "stevepeele/portfolio-craft-56",
-      "detail": "e631ccd PLX-392: Hide Music in main nav (/music route stays live, unlinked)\n9dcf165 PLX-399: add missing getLatestPostsExcluding export (fixes production build)\n8824b01 Scaffolding docs microsite (PLX-398) 1/4: shared shell + data files\nf20cc04 Scaffolding docs microsite (PLX-398) 2/4: index, projects pages, architecture cross-links\n159aac2 Scaffolding docs microsite (PLX-398) 3/4: infrastructure, diagrams, tech considerations\n5077124 Scaffolding docs microsite (PLX-398) 4/4: runbook, monitoring, deploys, changelog\n33be05d Scaffolding docs microsite (PLX-398) 5/5: statusLog entry\n20c3e69 Scaffolding docs microsite (PLX-398): correct Prepwise live URL per 2026-10-14 statusLog\n31fe7cc Scaffolding memorial (PLX-405): frozen Oct 2026 snapshot page + hub memorialized\n60a3329 PLX-406: Enhance blog post cards with New/Hot badges and author name\n6512cc4 Scaffolding fixes (PLX-405): real deploy log + cron inventory, webhook gap in runbook/infra\n94b90f3 Scaffolding fix (PLX-405): parent route renders Outlet so child pages mount\n798a448 chore(scaffolding): webhook health-check comment (PLX-405)\nde0faea chore(scaffolding): webhook health-check comment (PLX-405)\n9f1f632 PLX-418: Scaffolding Kits shipped to the Muse Vault — hub records updated\nc54d42c PLX-424: Muse referral banner (staged, feature-flagged OFF pending real invite link)\n7ed76dd PLX-425: Add per-project changelog pages to hacking nav (11 apps, dynamic route)\n99a92e3 PLX-429: Command Center pages under /scaffolding (command, stack, playbooks)\nd11aa2d Add /site-preview/* rewrites for prospect preview sites\n1aa02cd chore(scaffolding): manual changelog entry — Vault Community v1 staged (PLX-443)\n429934e PLX-452: Forge PRD v1 — Snout absorbed as the Stack stage; scaffolding pages updated\n8976719 Scaffolding release: Muse x Oscar reconciliation (2026-10-14) — lanes settled, P-PLX-33 live, COO promotion\n8d6ddf4 Scaffolding: memorialize Muse-Oscar operating flow (playbooks/runbook/tech/command)\n1068b68 PLX-476: new /scaffolding/organization page + hub wiring + changelog entry\n4733e69 PLX-476: architecture page — related-panel cross-link to /scaffolding/organization (template-level, build.py regen)\ndd86c10 Scaffolding: publish Muse x Oscar ops docs as /scaffolding/ops landing page\nb393f07 PLX-490: organization page v2 — L0–L4 orchestration stack, triage runbook, platform carrots; ops supersession banner; changelog"
+      "title": "Vault Community v1 staged — aibuilderclub-style community for Muse users",
+      "detail": "PLX-443: community built ON the Vault product at vault.stevepeeleii.com/community.html — member feed for sharing template builds (post/comment/like), 7-day leaderboard, Supabase Auth (email/password + magic link), member profiles + settings, founder section, FAQ, seed content, admin pin/delete for him. Backend on the shared Dardo Supabase project (community_profiles/posts/comments/likes with RLS; signup trigger auto-creates profiles and flags him admin). Segment events structured, Meet SPII corner card, banners off, no Chatflows. Launches FREE; courses (PLX-444), hard membership gate (PLX-445), and paid tier (PLX-446) parked as backlog. Deploy rides the vault-deploy-retry cron Thu 2026-10-15 13:00 ET after the Vercel 100/day cap blocked the 10-14 push; one phone-side step remains for him — add vault.stevepeeleii.com/** to Supabase Auth redirect URLs for magic-link sign-in.",
+      "source": "manual",
+      "ref": "PLX-443"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "SSO protection turned off in Vercel dashboard so the Sozo Loveland site is publicly reachable.",
+      "id": "manual-20261014-sozo-auth",
+      "ref": null,
+      "source": "manual",
+      "title": "Vercel Authentication disabled for sozo-loveland"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Rebuilt post-migration: stack overview, script-connections table, data-flow diagrams, deploy pipeline, 8 env vars (names only), 4 domains/DNS, 5 vercel.json redirects, runbook, caveats. (PLX-335)",
+      "id": "manual-20261014-scaffolding-architecture",
+      "ref": "PLX-335",
+      "source": "manual",
+      "title": "/scaffolding/architecture rebuilt as infrastructure documentation"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Placeholder clone replaced with actual analytics wiring: Segment init path, HubSpot portal 22009185, PostHog gating, formsubmit.co routing, Sanity CDN, event taxonomy table. Self-referential Detail links fixed. (PLX-364)",
+      "id": "manual-20261014-scaffolding-analytics",
+      "ref": "PLX-364",
+      "source": "manual",
+      "title": "/scaffolding/architecture/analytics rewritten as real deep dive"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Minted via signed-in browser session for project k74pcbpp, dataset production. Value used transiently, stored nowhere.",
+      "id": "manual-20261014-sanity-token",
+      "ref": null,
+      "source": "manual",
+      "title": "Fresh Sanity API token minted (Muse-v3, Editor)"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Published at /blog/promptvault-launch via Sanity API after the Studio rich-text editor blocked browser automation. Stale duplicate /blog/introducing-muse-vault deleted. (PLX-330)",
+      "id": "manual-20261014-promptvault-post",
+      "ref": "PLX-330",
+      "source": "manual",
+      "title": "PromptVault launch blog post published"
+    },
+    {
+      "id": "manual-20261014-organization-v2",
+      "date": "2026-10-14",
+      "title": "Organization page v2 — layered orchestration stack (L0–L4), triage runbook, platform carrots",
+      "source": "manual",
+      "ref": "PLX-490",
+      "detail": "Steve asked (side chat) for a more technical, thoughtful, orchestrated page with layers beneath Lauren covering all facets, documented triage, and carrots for every platform. v2 replaces the flat v1 with the L0–L4 orchestration stack reflecting his 22:08 ET org order (Lauren COO, singular interface; Grokbot execution team beneath via seven-field task orders — supersedes the 19:45 two-lead split): L0 Principal → L1 Command → L2 three execution arms (Grokbot team, side-chat leaders, cron layer) → L3 the 8 lanes (PLX-481–488 with cadence, IO, boundary) → L4 platforms, each with its carrot (role, value, owner, constraint). New: full triage runbook (intake channels, classification tree, routing, SLAs, escalation, audit), kill switches, resource-economics offload principle, Lauren direct stack (10 kept areas + 8 skill branches). Absorbed the main chat unpushed org-page edits (handoff/rule rewrites) into one coherent push. Also added a supersession banner to /scaffolding/ops (still documented the two-lead model)."
+    },
+    {
+      "id": "manual-20261014-organization-page",
+      "date": "2026-10-14",
+      "title": "New /scaffolding/organization page — Lauren triage, Muse × Oscar hierarchy, both skill trees, handoff contracts",
+      "source": "manual",
+      "ref": "PLX-476",
+      "detail": "Steve asked (side chat, 2026-10-14) for a comprehensive page encapsulating everything Lauren triages, the Lauren↔Grokbot delineation with Lauren as hierarchical leader, and both skill hierarchies. New unlisted page /scaffolding/organization: visual org chart (Steve → two team leads → skill agents), the two lanes (Lauren: build/host/ship; Oscar: the hunt/sales ops), 10-area Lauren triage table, Lauren skill hierarchy (8 branches), Oscar bot roster hierarchy (18 bots, 6 groups), 4-step triage decision tree, handoff contracts table, P-PLX-33 Linear lifecycle, 8 hard rules. Wired into the hub (nav + index card) and cross-linked both ways with /scaffolding/architecture (template-level, survives build.py regen). Classified as part of the Scaffolding + Architecture program per his word."
+    },
+    {
+      "id": "manual-20261014-muse-oscar-reconciliation",
+      "date": "2026-10-14",
+      "title": "Muse × Oscar reconciliation — lanes settled, operating model live",
+      "source": "manual",
+      "ref": "P-PLX-33",
+      "detail": "Operating-model exercise, 2026-10-14 ~19:45–20:40 ET. Steve paused all bot work at 19:40 to reconcile overlapping Muse/Oscar lanes, then ran a live ~45-minute session with both leads. FINAL split (his ruling): Muse (Lauren, promoted EA → COO this session) owns ALL builds/hosting/shipping — repos, Vercel, domains, main site, all apps, all 31 prospect previews; Oscar (GB) owns sales operations — prospecting, enrichment, outreach, revenue forecasting, HubSpot pipeline stages. GB never publishes (no repos, no Vercel, no site edits); build needs go to Muse as one-line requests. Deliverables: 92KB handoff doc, lanes/triage/ownership diagram (v1.1 adds the Linear process), joint org chart (Steve → two team leads → skill agents). New Linear project P-PLX-33 'Muse × Oscar Ops' is the book of record for every handoff — create → assign → delegate → decide → close; chat stays for real-time only. Standing: Oscar gets full read/view/comment on all Linear work and docs, zero disparity. The 19:40 pause was Oscar-only (his 4 routines stay paused); Steve cleared the 6 Thursday main-site deploys (06:00–14:00 ET). Still open: Oscar's forensics on the 16 unauthorized 'I rebuilt part of X's website' emails (7:01–7:22 PM, Gmail API) + 6 post-pause HubSpot deals — prime suspect is a deleted Grok Bot proactive routine; group close-out with Steve pending his report."
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "Lovable is OUT of the workflow entirely (his standing order). Production deploys via Vercel project 'stevepeeleii' with auto-deploy on push to main. Lovable-side AI edits had landed unreviewed in the repo (PLX-293 cleanup). (PLX-325)",
+      "id": "manual-20261014-migration",
+      "ref": "PLX-325",
+      "source": "manual",
+      "title": "Main site migrated off Lovable to Vercel"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "api/_sources.ts now falls back to unauthenticated GitHub fetch for the public main-site repo when GITHUB_TOKEN is unset (commit 9302e5d). Deploy blocked by Vercel 402 api-deployments-free-per-day; runonce cron 'mission-control-deploy-retry' set for Thu 2026-10-15 06:00 ET.",
+      "id": "manual-20261014-mc-github-fallback",
+      "ref": "goal_13f2fa34714b",
+      "source": "manual",
+      "title": "Mission Control GitHub commits fallback shipped in code; deploy blocked"
+    },
+    {
+      "date": "2026-10-14",
+      "detail": "'Generate first-touch draft from teardown' button on prospect page; top-3 findings composer; drafts stage as draft → Approve → 'Mark sent'. No send mechanism in codebase — nothing goes out without his word. Deployed to Vercel production. (PLX-316)",
+      "id": "manual-20261014-local-growth-outreach",
+      "ref": "PLX-316",
+      "source": "manual",
+      "title": "Local Growth Fix outreach sequencing live"
+    },
+    {
+      "id": "manual-20261014-hub-memorial",
+      "date": "2026-10-14",
+      "title": "Scaffolding docs hub launched — the portfolio, memorialized",
+      "detail": "PLX-398: the complete /scaffolding docs hub shipped — 13 unlisted pages (index, architecture, projects with 24 per-project records, infrastructure, diagrams, tech considerations, runbook, monitoring, deploys, changelog) plus a frozen memorial snapshot at /scaffolding/snapshot (PLX-405). The hub is now the permanent technical record: unlisted, noindex, never in nav, kept current by the daily changelog cron. Standing guidance memorialized alongside it.",
+      "source": "manual",
+      "ref": "PLX-398"
+    },
+    {
+      "id": "manual-20261014-grokbot-execution-layer",
+      "date": "2026-10-14",
+      "title": "Grokbot execution layer stood up under Lauren (COO) — 8 task orders, handoff protocol, org chart updated",
+      "source": "manual",
+      "ref": "P-PLX-33",
+      "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
+    },
+    {
+      "id": "manual-20261014-forge-prd-snout-absorbed",
+      "date": "2026-10-14",
+      "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
+      "detail": "P-PLX-31: full PRD v1 written for Forge, the idea-in-product-out engine (Clarify → Stack → Scope → Build → Ship/iterate; Guided/Assisted/Intelligent modes; discovery-first positioning vs Lovable/v0/Bolt). Steve resolved the Snout question: ABSORB. Snout's tier engine (signal detection: auth, realtime, AI, payments, storage, CMS, mobile, scale) and 30-platform database become Forge's Stack stage with an LLM upgrade planned; Snout retired as a standalone product (was built and verified locally 2026-10-12, never deployed), P-PLX-22 closed, launch checklist PLX-240 retired. Scaffolding project pages updated: snout → Absorbed, forge added as Concept. PRD at ~/workspace/your_files/forge-prd.md. Name 'Forge' is Lauren's placeholder — his call."
     },
     {
       "date": "2026-10-13",
@@ -1199,7 +1599,7 @@
       "title": "SPIIX Monolith live at /spiix/monolith"
     }
   ],
-  "generated_at": "2026-10-17T10:04:20-0400",
+  "generated_at": "2026-10-18T06:24:10-0400",
   "generated_by": "daily cron (scaffolding-changelog-updater) — GitHub + Linear auto-merge",
   "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
 }
