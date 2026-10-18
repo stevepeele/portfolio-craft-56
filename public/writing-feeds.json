@@ -1,8 +1,32 @@
 {
-  "fetchedAt": "2026-10-14T07:08:56.978Z",
+  "fetchedAt": "2026-10-17T23:52:01.272Z",
   "items": [
     {
-      "id": "Substack-0-https://stevepeeleii.substack.com/p/the-first-10-minutes-of-soundcheck",
+      "id": "Substack-0-https://stevepeeleii.substack.com/p/the-voice-that-wasnt-mine",
+      "title": "The voice that wasn't mine",
+      "link": "https://stevepeeleii.substack.com/p/the-voice-that-wasnt-mine",
+      "pubDate": "Fri, 16 Oct 2026 20:24:12 GMT",
+      "excerpt": "Hey &#8212; Quick field report from today's sprint.",
+      "source": "Substack"
+    },
+    {
+      "id": "Substack-1-https://stevepeeleii.substack.com/p/i-gave-my-ai-an-org-chart-its-the",
+      "title": "I gave my AI an org chart. It's the best system I've ever built.",
+      "link": "https://stevepeeleii.substack.com/p/i-gave-my-ai-an-org-chart-its-the",
+      "pubDate": "Thu, 15 Oct 2026 04:55:42 GMT",
+      "excerpt": "This week I did something that sounds absurd until you see it work: I wrote an org chart for my artificial intelligence.",
+      "source": "Substack"
+    },
+    {
+      "id": "Medium-0-https://stevepeeleii.medium.com/i-run-a-5-layer-ai-org-and-the-org-chart-is-the-product-efa539cc8b00?source=rss-a71feae840f6------2",
+      "title": "I Run a 5-Layer AI Org and the Org Chart Is the Product",
+      "link": "https://stevepeeleii.medium.com/i-run-a-5-layer-ai-org-and-the-org-chart-is-the-product-efa539cc8b00?source=rss-a71feae840f6------2",
+      "pubDate": "Thu, 15 Oct 2026 04:01:10 GMT",
+      "excerpt": "See ? https://stevepeeleii.com/scaffolding/orchestration Continue reading on Medium »",
+      "source": "Medium"
+    },
+    {
+      "id": "Substack-2-https://stevepeeleii.substack.com/p/the-first-10-minutes-of-soundcheck",
       "title": "The first 10 minutes of soundcheck are the worst part of my gig",
       "link": "https://stevepeeleii.substack.com/p/the-first-10-minutes-of-soundcheck",
       "pubDate": "Mon, 12 Oct 2026 12:11:46 GMT",
@@ -10,7 +34,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-1-https://stevepeeleii.substack.com/p/profolio-v1-real-accounts-real-backend",
+      "id": "Substack-3-https://stevepeeleii.substack.com/p/profolio-v1-real-accounts-real-backend",
       "title": "Profolio v1: real accounts, real backend",
       "link": "https://stevepeeleii.substack.com/p/profolio-v1-real-accounts-real-backend",
       "pubDate": "Sat, 10 Oct 2026 12:35:46 GMT",
@@ -18,7 +42,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-2-https://stevepeeleii.substack.com/p/i-spent-a-week-automating-the-most",
+      "id": "Substack-4-https://stevepeeleii.substack.com/p/i-spent-a-week-automating-the-most",
       "title": "I spent a week automating the most boring part of my gig",
       "link": "https://stevepeeleii.substack.com/p/i-spent-a-week-automating-the-most",
       "pubDate": "Sat, 10 Oct 2026 12:10:38 GMT",
@@ -26,7 +50,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-3-https://stevepeeleii.substack.com/p/you-do-not-need-a-new-life-you-need",
+      "id": "Substack-5-https://stevepeeleii.substack.com/p/you-do-not-need-a-new-life-you-need",
       "title": "You Do Not Need a New Life. You Need a Better Next Move.",
       "link": "https://stevepeeleii.substack.com/p/you-do-not-need-a-new-life-you-need",
       "pubDate": "Wed, 16 Sep 2026 09:12:56 GMT",
@@ -34,7 +58,7 @@
       "source": "Substack"
     },
     {
-      "id": "Medium-0-https://medium.com/the-top-of-my-mind/understanding-my-neurodivergent-operating-system-fc8162d32a9e?source=rss-a71feae840f6------2",
+      "id": "Medium-1-https://medium.com/the-top-of-my-mind/understanding-my-neurodivergent-operating-system-fc8162d32a9e?source=rss-a71feae840f6------2",
       "title": "Understanding My Neurodivergent Operating System",
       "link": "https://medium.com/the-top-of-my-mind/understanding-my-neurodivergent-operating-system-fc8162d32a9e?source=rss-a71feae840f6------2",
       "pubDate": "Sun, 02 Aug 2026 05:56:56 GMT",
@@ -42,7 +66,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-1-https://stevepeeleii.medium.com/no-questions-just-observation-and-resolve-a41dd8dd3b78?source=rss-a71feae840f6------2",
+      "id": "Medium-2-https://stevepeeleii.medium.com/no-questions-just-observation-and-resolve-a41dd8dd3b78?source=rss-a71feae840f6------2",
       "title": "No questions. Just observation. and Resolve…. some words.",
       "link": "https://stevepeeleii.medium.com/no-questions-just-observation-and-resolve-a41dd8dd3b78?source=rss-a71feae840f6------2",
       "pubDate": "Sat, 22 Nov 2025 02:49:28 GMT",
@@ -50,7 +74,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-2-https://medium.com/daily-writing-random-thoughts/i-got-stuck-and-god-is-still-unsticking-me-07be27965c8f?source=rss-a71feae840f6------2",
+      "id": "Medium-3-https://medium.com/daily-writing-random-thoughts/i-got-stuck-and-god-is-still-unsticking-me-07be27965c8f?source=rss-a71feae840f6------2",
       "title": "I Got Stuck. And God Is Still Unsticking Me.",
       "link": "https://medium.com/daily-writing-random-thoughts/i-got-stuck-and-god-is-still-unsticking-me-07be27965c8f?source=rss-a71feae840f6------2",
       "pubDate": "Sun, 17 Aug 2025 09:54:58 GMT",
@@ -58,7 +82,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-3-https://medium.com/the-top-of-my-mind/something-like-understanding-962343873949?source=rss-a71feae840f6------2",
+      "id": "Medium-4-https://medium.com/the-top-of-my-mind/something-like-understanding-962343873949?source=rss-a71feae840f6------2",
       "title": "Something like understanding",
       "link": "https://medium.com/the-top-of-my-mind/something-like-understanding-962343873949?source=rss-a71feae840f6------2",
       "pubDate": "Sat, 14 Jun 2025 08:12:46 GMT",
@@ -66,7 +90,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-4-https://medium.com/the-top-of-my-mind/i-cant-solve-this-but-i-can-see-you-9f6a511af8cf?source=rss-a71feae840f6------2",
+      "id": "Medium-5-https://medium.com/the-top-of-my-mind/i-cant-solve-this-but-i-can-see-you-9f6a511af8cf?source=rss-a71feae840f6------2",
       "title": "I can’t solve this, but i can see you",
       "link": "https://medium.com/the-top-of-my-mind/i-cant-solve-this-but-i-can-see-you-9f6a511af8cf?source=rss-a71feae840f6------2",
       "pubDate": "Fri, 29 Nov 2024 09:00:03 GMT",
@@ -74,7 +98,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-5-https://medium.com/the-top-of-my-mind/these-currents-move-but-also-drown-5a4d004e3cbc?source=rss-a71feae840f6------2",
+      "id": "Medium-6-https://medium.com/the-top-of-my-mind/these-currents-move-but-also-drown-5a4d004e3cbc?source=rss-a71feae840f6------2",
       "title": "These currents move but also drown",
       "link": "https://medium.com/the-top-of-my-mind/these-currents-move-but-also-drown-5a4d004e3cbc?source=rss-a71feae840f6------2",
       "pubDate": "Fri, 29 Nov 2024 08:49:04 GMT",
@@ -82,7 +106,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-6-https://medium.com/the-top-of-my-mind/life-is-a-flood-most-are-trying-not-to-drown-in-2940ce45cb90?source=rss-a71feae840f6------2",
+      "id": "Medium-7-https://medium.com/the-top-of-my-mind/life-is-a-flood-most-are-trying-not-to-drown-in-2940ce45cb90?source=rss-a71feae840f6------2",
       "title": "Life is a flood most are trying not to drown in.",
       "link": "https://medium.com/the-top-of-my-mind/life-is-a-flood-most-are-trying-not-to-drown-in-2940ce45cb90?source=rss-a71feae840f6------2",
       "pubDate": "Sat, 09 Nov 2024 13:17:00 GMT",
@@ -90,7 +114,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-7-https://medium.com/an-idea/living-in-a-loop-a-chaotic-spiral-into-obsessing-over-everything-while-not-understanding-anything-6ab2137ac98e?source=rss-a71feae840f6------2",
+      "id": "Medium-8-https://medium.com/an-idea/living-in-a-loop-a-chaotic-spiral-into-obsessing-over-everything-while-not-understanding-anything-6ab2137ac98e?source=rss-a71feae840f6------2",
       "title": "Living in a loop: A chaotic spiral into obsessing over everything, while not understanding anything.",
       "link": "https://medium.com/an-idea/living-in-a-loop-a-chaotic-spiral-into-obsessing-over-everything-while-not-understanding-anything-6ab2137ac98e?source=rss-a71feae840f6------2",
       "pubDate": "Sat, 02 Nov 2024 16:49:57 GMT",
@@ -98,7 +122,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-8-https://medium.com/the-top-of-my-mind/sorry-for-being-sorry-22b3ae954403?source=rss-a71feae840f6------2",
+      "id": "Medium-9-https://medium.com/the-top-of-my-mind/sorry-for-being-sorry-22b3ae954403?source=rss-a71feae840f6------2",
       "title": "Sorry for stumbling or fumbling or grumbling or tumbling the wrong way or not at all or not enough.",
       "link": "https://medium.com/the-top-of-my-mind/sorry-for-being-sorry-22b3ae954403?source=rss-a71feae840f6------2",
       "pubDate": "Sat, 25 Nov 2023 02:53:06 GMT",
@@ -106,15 +130,7 @@
       "source": "Medium"
     },
     {
-      "id": "Medium-9-https://medium.com/the-top-of-my-mind/admitting-defeat-when-you-absolutely-dont-know-how-to-writing-in-a-rulebook-with-half-blank-pages-b3dcbef3215b?source=rss-a71feae840f6------2",
-      "title": "Admitting Defeat When You Absolutely Don’t Know How To: Writing in a Rulebook with Half-Blank Pages",
-      "link": "https://medium.com/the-top-of-my-mind/admitting-defeat-when-you-absolutely-dont-know-how-to-writing-in-a-rulebook-with-half-blank-pages-b3dcbef3215b?source=rss-a71feae840f6------2",
-      "pubDate": "Tue, 08 Aug 2023 18:04:27 GMT",
-      "excerpt": "How my disorder confuses, empowers and challenges who I am every day. Continue reading on the top of my mind. »",
-      "source": "Medium"
-    },
-    {
-      "id": "Substack-4-https://stevepeeleii.substack.com/p/mental-health-in-startups-a-comprehensive",
+      "id": "Substack-6-https://stevepeeleii.substack.com/p/mental-health-in-startups-a-comprehensive",
       "title": "Mental Health in Startups: A Comprehensive Guide to Navigating the Challenges and Thriving in the Startup Environment",
       "link": "https://stevepeeleii.substack.com/p/mental-health-in-startups-a-comprehensive",
       "pubDate": "Thu, 11 May 2023 08:48:14 GMT",
@@ -122,7 +138,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-5-https://stevepeeleii.substack.com/p/coming-soon",
+      "id": "Substack-7-https://stevepeeleii.substack.com/p/coming-soon",
       "title": "Coming soon",
       "link": "https://stevepeeleii.substack.com/p/coming-soon",
       "pubDate": "Thu, 11 May 2023 08:21:10 GMT",
@@ -130,7 +146,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-6-https://stevepeeleii.substack.com/p/mentally-suffering-no-help-78bb4bab6882",
+      "id": "Substack-8-https://stevepeeleii.substack.com/p/mentally-suffering-no-help-78bb4bab6882",
       "title": "Mentally Suffering: No Help",
       "link": "https://stevepeeleii.substack.com/p/mentally-suffering-no-help-78bb4bab6882",
       "pubDate": "Tue, 07 Mar 2023 07:01:35 GMT",
@@ -138,7 +154,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-7-https://stevepeeleii.substack.com/p/goodbye-nothing-left-f20fdd29252c",
+      "id": "Substack-9-https://stevepeeleii.substack.com/p/goodbye-nothing-left-f20fdd29252c",
       "title": "Goodbye, Nothing Left.",
       "link": "https://stevepeeleii.substack.com/p/goodbye-nothing-left-f20fdd29252c",
       "pubDate": "Fri, 20 Jan 2023 14:42:25 GMT",
@@ -146,7 +162,7 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-8-https://stevepeeleii.substack.com/p/im-worthy-of-peace-404f13be1d96",
+      "id": "Substack-10-https://stevepeeleii.substack.com/p/im-worthy-of-peace-404f13be1d96",
       "title": "I’m Worthy of Peace",
       "link": "https://stevepeeleii.substack.com/p/im-worthy-of-peace-404f13be1d96",
       "pubDate": "Thu, 19 Jan 2023 14:42:25 GMT",
@@ -154,27 +170,11 @@
       "source": "Substack"
     },
     {
-      "id": "Substack-9-https://stevepeeleii.substack.com/p/1-starting-to-love-myself-while-also-learning-to-not-doubt-my-vision-and-reality-966792824247",
+      "id": "Substack-11-https://stevepeeleii.substack.com/p/1-starting-to-love-myself-while-also-learning-to-not-doubt-my-vision-and-reality-966792824247",
       "title": "#1 — Starting to love myself while also learning to not doubt my vision and reality.",
       "link": "https://stevepeeleii.substack.com/p/1-starting-to-love-myself-while-also-learning-to-not-doubt-my-vision-and-reality-966792824247",
       "pubDate": "Thu, 12 Jan 2023 13:47:00 GMT",
       "excerpt": "As a person stuck in the pattern of insecurity, I&#8217;ve always had to battle with self-doubt.",
-      "source": "Substack"
-    },
-    {
-      "id": "Substack-10-https://stevepeeleii.substack.com/p/tmi-my-priorities-for-growth-this-year-6911d7673613",
-      "title": "TMI: My Priorities For Growth This Year",
-      "link": "https://stevepeeleii.substack.com/p/tmi-my-priorities-for-growth-this-year-6911d7673613",
-      "pubDate": "Tue, 08 Jan 2019 12:33:30 GMT",
-      "excerpt": "Life is crazy.",
-      "source": "Substack"
-    },
-    {
-      "id": "Substack-11-https://stevepeeleii.substack.com/p/finding-peace-an-honest-manifesto-on-my-mental-health-addiction-challenges-cf8288f660d9",
-      "title": "Finding My Peace: an honest inventory of my mental health challenges. (An external exercise)",
-      "link": "https://stevepeeleii.substack.com/p/finding-peace-an-honest-manifesto-on-my-mental-health-addiction-challenges-cf8288f660d9",
-      "pubDate": "Sun, 11 Nov 2018 11:16:26 GMT",
-      "excerpt": "NOTE: I will likely alienate or piss someone off for this.",
       "source": "Substack"
     }
   ]
