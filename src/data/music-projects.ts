@@ -1,8 +1,9 @@
-import coldharbourArt from "@/assets/music/coldharbour.jpg";
-import vacillantesArt from "@/assets/music/vacillantes.jpg";
-import untilArt from "@/assets/music/until-the-dead-walk.jpg";
-import wastedArt from "@/assets/music/wasted-away.jpg";
-import graveFriendsArt from "@/assets/music/grave-friends.jpg";
+const ASSET_BASE = "https://spii-music-assets.vercel.app";
+const coldharbourArt = `${ASSET_BASE}/coldharbour-art.webp`;
+const vacillantesArt = `${ASSET_BASE}/vacillantes-art.webp`;
+const untilArt = `${ASSET_BASE}/utdw-art.webp`;
+const wastedArt = `${ASSET_BASE}/wasted-away-art.webp`;
+const graveFriendsArt = `${ASSET_BASE}/grave-friends-art.webp`;
 
 /**
  * Music showcase data — single source of truth for /music hub and
