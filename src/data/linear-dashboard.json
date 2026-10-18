@@ -1,1444 +1,1387 @@
 {
- "generatedAt": "2026-10-13",
+ "generatedAt": "2026-10-18",
  "projects": [
   {
-   "identifier": "P-PLX-8",
-   "name": "Main Site (stevepeeleii.com)",
-   "color": "#5E6AD2",
-   "url": "https://linear.app/plxio/project/main-site-stevepeeleiicom-43680919b7a1",
-   "status": "In Progress",
-   "issues": [
-    {
-     "id": "PLX-265",
-     "title": "Refresh stats across all Building (/hacking) pages",
-     "status": "In Progress",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-265/refresh-stats-across-all-building-hacking-pages",
-     "updated": "2026-10-13"
-    },
-    {
-     "id": "PLX-119",
-     "title": "Hacking app pages for Dardo, Stampd, Repurpose Engine",
-     "status": "In Progress",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-119/hacking-app-pages-for-dardo-stampd-repurpose-engine",
-     "updated": "2026-10-13"
-    },
-    {
-     "id": "PLX-246",
-     "title": "Segment: richer events on stevepeeleii.com",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-246/segment-richer-events-on-stevepeeleiicom",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-245",
-     "title": "Connect HubSpot and Segment",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-245/connect-hubspot-and-segment",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-167",
-     "title": "Fix favicon not loading on main site",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-167/fix-favicon-not-loading-on-main-site",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-166",
-     "title": "Segment analytics on main site",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-166/segment-analytics-on-main-site",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-111",
-     "title": "Urgent: meta info, favicon, analytics sitewide fix + verification",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-111/urgent-meta-info-favicon-analytics-sitewide-fix-verification",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-118",
-     "title": "Analytics tracking on mainsite and every application",
-     "status": "In Progress",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-118/analytics-tracking-on-mainsite-and-every-application",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-147",
-     "title": "Segment script across all sites",
-     "status": "Canceled",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-147/segment-script-across-all-sites",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-169",
-     "title": "Lovable publish blocked: stale build-error cache (support ticket filed)",
-     "status": "Backlog",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-169/lovable-publish-blocked-stale-build-error-cache-support-ticket-filed",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-161",
-     "title": "Clean up build queue, status log, progress data",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-161/clean-up-build-queue-status-log-progress-data",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-159",
-     "title": "Hide Growth Ladders banner until re-enabled",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-159/hide-growth-ladders-banner-until-re-enabled",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-155",
-     "title": "Link live app deployments from /hacking pages",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-155/link-live-app-deployments-from-hacking-pages",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-154",
-     "title": "Board rule: only Pub-labeled projects on mainsite",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-154/board-rule-only-pub-labeled-projects-on-mainsite",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-149",
-     "title": "Sync Linear board data on mainsite (12 projects)",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-149/sync-linear-board-data-on-mainsite-12-projects",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-142",
-     "title": "Restyle and lay out the Writing page",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-142/restyle-and-lay-out-the-writing-page",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-123",
-     "title": "Fix /writing page: dead RSS proxy, build-time feed snapshot",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-123/fix-writing-page-dead-rss-proxy-build-time-feed-snapshot",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-122",
-     "title": "Simplify Building nav: grouped picklist, Hacking renamed to Building",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-122/simplify-building-nav-grouped-picklist-hacking-renamed-to-building",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-107",
-     "title": "Signal page copy: Monolith references → Growth Ladders",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-107/signal-page-copy-monolith-references-growth-ladders",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-106",
-     "title": "SPIIX → Growth Ladders parentage explicit on entry pages",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-106/spiix-growth-ladders-parentage-explicit-on-entry-pages",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-105",
-     "title": "Consolidate /spiix/signals into /spiix/signal",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-105/consolidate-spiixsignals-into-spiixsignal",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-104",
-     "title": "Retire /spiix/monolith → 301 to /growth-ladders",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-104/retire-spiixmonolith-301-to-growth-ladders",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-74",
-     "title": "Replace public/growth-ladders-operators-edition.pdf with new 326-page version",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-74/replace-publicgrowth-ladders-operators-editionpdf-with-new-326-page",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-78",
-     "title": "RSS/Atom feeds for build log and writing",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-78/rssatom-feeds-for-build-log-and-writing",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-77",
-     "title": "Site-wide search across portfolio, SPIIX, and writing",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-77/site-wide-search-across-portfolio-spiix-and-writing",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-76",
-     "title": "Contact and signal form spam hardening",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-76/contact-and-signal-form-spam-hardening",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-75",
-     "title": "Dynamic OG images for all routes",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-75/dynamic-og-images-for-all-routes",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-71",
-     "title": "Replace hypothetical worked examples on /spiix/os and /spiix/signals with real anonymized SPIIX engagements",
-     "status": "Canceled",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-71/replace-hypothetical-worked-examples-on-spiixos-and-spiixsignals-with",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-73",
-     "title": "Admin dashboard for SPIIX leads (name, email, company, role)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-73/admin-dashboard-for-spiix-leads-name-email-company-role",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-72",
-     "title": "Tease SPIIX throughout the main site experience",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-72/tease-spiix-throughout-the-main-site-experience",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-70",
-     "title": "Long-form SPIIX page with SEO copy for growth advisory searches",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-70/long-form-spiix-page-with-seo-copy-for-growth-advisory-searches",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-69",
-     "title": "Embed Linear dev dashboard into /hacking/status, /hacking/whats-next, /hacking/progress",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-69/embed-linear-dev-dashboard-into-hackingstatus-hackingwhats-next",
-     "updated": "2026-10-12"
-    }
-   ]
-  },
-  {
-   "identifier": "P-PLX-9",
+   "identifier": "P-SPIIX-9",
    "name": "Profolio",
    "color": "#34D399",
    "url": "https://linear.app/plxio/project/profolio-1327a17817e2",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-193",
-     "title": "Stripe monetization for Profolio",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-193/stripe-monetization-for-profolio",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-48",
-     "title": "Connect Stripe for $29 Pro tier checkout",
-     "status": "Canceled",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-48/connect-stripe-for-dollar29-pro-tier-checkout",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-197",
-     "title": "Resume upload to autopopulate baseline details (optional)",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-197/resume-upload-to-autopopulate-baseline-details-optional",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-196",
-     "title": "Signup-to-checkout flow + pricing page",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-196/signup-to-checkout-flow-pricing-page",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-195",
-     "title": "Entitlement gating + trial UX",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-195/entitlement-gating-trial-ux",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-194",
-     "title": "Stripe Checkout + webhook server routes",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-194/stripe-checkout-webhook-server-routes",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-189",
+     "id": "SPIIX-189",
      "title": "Profolio: online signups + selling (7-day trial, $29/yr)",
      "status": "In Progress",
      "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-189/profolio-online-signups-selling-7-day-trial-dollar29yr",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-189/profolio-online-signups-selling-7-day-trial-dollar29yr",
+     "updated": "2026-10-18"
     },
     {
-     "id": "PLX-192",
-     "title": "Profolio: customer portal + trial expiry handling",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-192/profolio-customer-portal-trial-expiry-handling",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-191",
-     "title": "Profolio: checkout + webhook + entitlement gating",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-191/profolio-checkout-webhook-entitlement-gating",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-190",
-     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-175",
-     "title": "Profolio v2: PDF export, auth flows, per-page analytics",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-175/profolio-v2-pdf-export-auth-flows-per-page-analytics",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-93",
+     "id": "SPIIX-93",
      "title": "Public directory of published baselines",
      "status": "Backlog",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-93/public-directory-of-published-baselines",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-93/public-directory-of-published-baselines",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-92",
+     "id": "SPIIX-92",
      "title": "Baseline version history",
      "status": "Backlog",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-92/baseline-version-history",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-92/baseline-version-history",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-91",
-     "title": "PDF export of baseline",
+     "id": "SPIIX-197",
+     "title": "Resume upload to autopopulate baseline details (optional)",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-91/pdf-export-of-baseline",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-197/resume-upload-to-autopopulate-baseline-details-optional",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-90",
-     "title": "Template gallery for baselines",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-90/template-gallery-for-baselines",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-89",
-     "title": "AI baseline draft generator",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-89/ai-baseline-draft-generator",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-52",
+     "id": "SPIIX-52",
      "title": "Per-page analytics (views, clicks)",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-52/per-page-analytics-views-clicks",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-52/per-page-analytics-views-clicks",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-51",
+     "id": "SPIIX-51",
      "title": "Custom domain support for Pro users",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-51/custom-domain-support-for-pro-users",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-51/custom-domain-support-for-pro-users",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-50",
-     "title": "Email verification and password reset flows",
+     "id": "SPIIX-91",
+     "title": "PDF export of baseline",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-91/pdf-export-of-baseline",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-90",
+     "title": "Template gallery for baselines",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-90/template-gallery-for-baselines",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-89",
+     "title": "AI baseline draft generator",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-50/email-verification-and-password-reset-flows",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-89/ai-baseline-draft-generator",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-49",
+     "id": "SPIIX-49",
      "title": "Fix empty first-run state for new signups",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-49/fix-empty-first-run-state-for-new-signups",
+     "url": "https://linear.app/plxio/issue/SPIIX-49/fix-empty-first-run-state-for-new-signups",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-50",
+     "title": "Email verification and password reset flows",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-50/email-verification-and-password-reset-flows",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-192",
+     "title": "Profolio: customer portal + trial expiry handling",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-192/profolio-customer-portal-trial-expiry-handling",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-191",
+     "title": "Profolio: checkout + webhook + entitlement gating",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-191/profolio-checkout-webhook-entitlement-gating",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-190",
+     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-360",
+     "title": "Landing-page visuals: Profolio",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-360/landing-page-visuals-profolio",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-267",
+     "title": "[Bug] Profolio: app DOWN — profolio-stevepeeles-projects.vercel.app returns 404",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-267/bug-profolio-app-down-profolio-stevepeeles-projectsvercelapp-returns",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-193",
+     "title": "Stripe monetization for Profolio",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-193/stripe-monetization-for-profolio",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-48",
+     "title": "Connect Stripe for $29 Pro tier checkout",
+     "status": "Canceled",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-48/connect-stripe-for-dollar29-pro-tier-checkout",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-196",
+     "title": "Signup-to-checkout flow + pricing page",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-196/signup-to-checkout-flow-pricing-page",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-195",
+     "title": "Entitlement gating + trial UX",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-195/entitlement-gating-trial-ux",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-194",
+     "title": "Stripe Checkout + webhook server routes",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-194/stripe-checkout-webhook-server-routes",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-175",
+     "title": "Profolio v2: PDF export, auth flows, per-page analytics",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-175/profolio-v2-pdf-export-auth-flows-per-page-analytics",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-10",
+   "identifier": "P-SPIIX-10",
    "name": "StagePlot AI",
    "color": "#4EA7FC",
    "url": "https://linear.app/plxio/project/stageplot-ai-bd5d413c4adc",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-43",
-     "title": "Add PDF/print export for stage plots",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-43/add-pdfprint-export-for-stage-plots",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-84",
+     "id": "SPIIX-84",
      "title": "Drag-and-drop stage canvas editor",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-84/drag-and-drop-stage-canvas-editor",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-84/drag-and-drop-stage-canvas-editor",
+     "updated": "2026-10-13"
     },
     {
-     "id": "PLX-46",
-     "title": "Shareable read-only plot links",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-46/shareable-read-only-plot-links",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-86",
-     "title": "Combined stage plot + input list production PDF",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-86/combined-stage-plot-input-list-production-pdf",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-176",
-     "title": "StagePlot AI v2: production PDF, share links, drag-drop canvas",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-176/stageplot-ai-v2-production-pdf-share-links-drag-drop-canvas",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-88",
-     "title": "Venue profile presets",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-88/venue-profile-presets",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-87",
-     "title": "Share editable plot with bandmates",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-87/share-editable-plot-with-bandmates",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-85",
-     "title": "Input list templates by ensemble type",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-85/input-list-templates-by-ensemble-type",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-47",
-     "title": "Autosave drafts and crash recovery",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-47/autosave-drafts-and-crash-recovery",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-45",
-     "title": "Expand instrument/gear symbol library",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-45/expand-instrumentgear-symbol-library",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-44",
+     "id": "SPIIX-44",
      "title": "Mobile layout breaks on small screens",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-44/mobile-layout-breaks-on-small-screens",
+     "url": "https://linear.app/plxio/issue/SPIIX-44/mobile-layout-breaks-on-small-screens",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-43",
+     "title": "Add PDF/print export for stage plots",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-43/add-pdfprint-export-for-stage-plots",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-46",
+     "title": "Shareable read-only plot links",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-46/shareable-read-only-plot-links",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-86",
+     "title": "Combined stage plot + input list production PDF",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-86/combined-stage-plot-input-list-production-pdf",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-176",
+     "title": "StagePlot AI v2: production PDF, share links, drag-drop canvas",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-176/stageplot-ai-v2-production-pdf-share-links-drag-drop-canvas",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-88",
+     "title": "Venue profile presets",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-88/venue-profile-presets",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-87",
+     "title": "Share editable plot with bandmates",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-87/share-editable-plot-with-bandmates",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-85",
+     "title": "Input list templates by ensemble type",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-85/input-list-templates-by-ensemble-type",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-47",
+     "title": "Autosave drafts and crash recovery",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-47/autosave-drafts-and-crash-recovery",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-45",
+     "title": "Expand instrument/gear symbol library",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-45/expand-instrumentgear-symbol-library",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-11",
+   "identifier": "P-SPIIX-11",
    "name": "Binsly",
    "color": "#F472B6",
    "url": "https://linear.app/plxio/project/binsly-865787006a1d",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-255",
-     "title": "X bookmarks import — turn X bookmarks into a Binsly library",
-     "status": "Done",
+     "id": "SPIIX-543",
+     "title": "Rotate Supabase service keys (binsly-rebuild + stevepeeleii)",
+     "status": "In Progress",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-255/x-bookmarks-import-turn-x-bookmarks-into-a-binsly-library",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-543/rotate-supabase-service-keys-binsly-rebuild-stevepeeleii",
+     "updated": "2026-10-17"
     },
     {
-     "id": "PLX-264",
-     "title": "End-to-end test with real data",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-264/end-to-end-test-with-real-data",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-263",
-     "title": "Wire duplicate detection + AI summaries",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-263/wire-duplicate-detection-ai-summaries",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-262",
-     "title": "Batch import pipeline with progress",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-262/batch-import-pipeline-with-progress",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-261",
-     "title": "Unfurl pasted X post URLs",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-261/unfurl-pasted-x-post-urls",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-260",
-     "title": "Parse X data archive bookmark.js",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-260/parse-x-data-archive-bookmarkjs",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-259",
-     "title": "Parse X data archive bookmark.js",
+     "id": "SPIIX-554",
+     "title": "Bookmark Archaeologist: Vault template + QR + launch post series",
      "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-259/parse-x-data-archive-bookmarkjs",
-     "updated": "2026-10-12"
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-554/bookmark-archaeologist-vault-template-qr-launch-post-series",
+     "updated": "2026-10-15"
     },
     {
-     "id": "PLX-258",
-     "title": "Changes to bin items affect x bookmark folder.",
+     "id": "SPIIX-489",
+     "title": "Binsly migration proposal: Base44 → self-hosted custom code",
      "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-258/changes-to-bin-items-affect-x-bookmark-folder",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-257",
-     "title": "Real time update and connection v2",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-257/real-time-update-and-connection-v2",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-256",
-     "title": "Static pull v1",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-256/static-pull-v1",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-234",
-     "title": "Build super low-key Binsly help site",
-     "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-234/build-super-low-key-binsly-help-site",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-489/binsly-migration-proposal-base44-self-hosted-custom-code",
+     "updated": "2026-10-15"
     },
     {
-     "id": "PLX-233",
-     "title": "Publish 10 blog/news posts in Binsly",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-233/publish-10-blognews-posts-in-binsly",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-232",
-     "title": "Binsly: bookmark import",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-232/binsly-bookmark-import",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-231",
-     "title": "Binsly: weekly digest email",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-231/binsly-weekly-digest-email",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-230",
-     "title": "Binsly: shareable public collections",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-230/binsly-shareable-public-collections",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-229",
-     "title": "Binsly: highlights and annotations",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-229/binsly-highlights-and-annotations",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-228",
-     "title": "Binsly: link health monitoring",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-228/binsly-link-health-monitoring",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-227",
-     "title": "Binsly: duplicate detection on save",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-227/binsly-duplicate-detection-on-save",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-226",
-     "title": "Binsly: full-text search across saved content",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-226/binsly-full-text-search-across-saved-content",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-225",
-     "title": "Binsly: AI summaries on every save",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-225/binsly-ai-summaries-on-every-save",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-63",
-     "title": "Ship public roadmap page",
-     "status": "Done",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-63/ship-public-roadmap-page",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-80",
-     "title": "Custom domains for link pages",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-80/custom-domains-for-link-pages",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-83",
-     "title": "Scheduled link publishing",
-     "status": "Done",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-83/scheduled-link-publishing",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-211",
-     "title": "Binsly: performance — instant loads",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-211/binsly-performance-instant-loads",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-208",
-     "title": "Binsly: browser extension / quick-save",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-208/binsly-browser-extension-quick-save",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-209",
-     "title": "Binsly: smart auto-tagging and organization",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-209/binsly-smart-auto-tagging-and-organization",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-82",
-     "title": "QR codes for link pages",
-     "status": "Done",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-82/qr-codes-for-link-pages",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-81",
-     "title": "Saved link collections / folders",
-     "status": "Done",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-81/saved-link-collections-folders",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-79",
-     "title": "Link click analytics dashboard",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-79/link-click-analytics-dashboard",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-177",
-     "title": "Binsly web v2: analytics, collections, QR codes",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-177/binsly-web-v2-analytics-collections-qr-codes",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-210",
-     "title": "Binsly: mobile-first responsive overhaul",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-210/binsly-mobile-first-responsive-overhaul",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-207",
-     "title": "Binsly: link page themes and customization",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-207/binsly-link-page-themes-and-customization",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-206",
-     "title": "Binsly: lightning-fast search across everything",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-206/binsly-lightning-fast-search-across-everything",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-205",
-     "title": "Binsly: onboarding flow for new users",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-205/binsly-onboarding-flow-for-new-users",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-204",
-     "title": "Binsly: world-class polish pass — visual design system",
-     "status": "Done",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-204/binsly-world-class-polish-pass-visual-design-system",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-156",
+     "id": "SPIIX-156",
      "title": "Build native Android app for Binsly",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-156/build-native-android-app-for-binsly",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-156/build-native-android-app-for-binsly",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-62",
+     "id": "SPIIX-62",
      "title": "Add 'play with sound' hint on hero video",
      "status": "Backlog",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-62/add-play-with-sound-hint-on-hero-video",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-62/add-play-with-sound-hint-on-hero-video",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-61",
-     "title": "Integration credits exhausted — evaluate plan",
+     "id": "SPIIX-258",
+     "title": "Changes to bin items affect x bookmark folder.",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-61/integration-credits-exhausted-evaluate-plan",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-258/changes-to-bin-items-affect-x-bookmark-folder",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-60",
+     "id": "SPIIX-257",
+     "title": "Real time update and connection v2",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-257/real-time-update-and-connection-v2",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-256",
+     "title": "Static pull v1",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-256/static-pull-v1",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-294",
+     "title": "Rewrite Binsly blog posts — comprehensive + images",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-294/rewrite-binsly-blog-posts-comprehensive-images",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-289",
+     "title": "Chrome extension for Binsly — quick-save from anywhere",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-289/chrome-extension-for-binsly-quick-save-from-anywhere",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-60",
      "title": "Logged-out marketing page spot-check",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-60/logged-out-marketing-page-spot-check",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-60/logged-out-marketing-page-spot-check",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-59",
+     "id": "SPIIX-259",
+     "title": "Parse X data archive bookmark.js",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-259/parse-x-data-archive-bookmarkjs",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-59",
      "title": "Fix long-post body limit (NewsPost.body)",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-59/fix-long-post-body-limit-newspostbody",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-59/fix-long-post-body-limit-newspostbody",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-58",
+     "id": "SPIIX-61",
+     "title": "Integration credits exhausted — evaluate plan",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-61/integration-credits-exhausted-evaluate-plan",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-58",
      "title": "Run security scan (status: Out of date)",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-58/run-security-scan-status-out-of-date",
+     "url": "https://linear.app/plxio/issue/SPIIX-58/run-security-scan-status-out-of-date",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-255",
+     "title": "X bookmarks import — turn X bookmarks into a Binsly library",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-255/x-bookmarks-import-turn-x-bookmarks-into-a-binsly-library",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-264",
+     "title": "End-to-end test with real data",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-264/end-to-end-test-with-real-data",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-263",
+     "title": "Wire duplicate detection + AI summaries",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-263/wire-duplicate-detection-ai-summaries",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-262",
+     "title": "Batch import pipeline with progress",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-262/batch-import-pipeline-with-progress",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-261",
+     "title": "Unfurl pasted X post URLs",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-261/unfurl-pasted-x-post-urls",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-260",
+     "title": "Parse X data archive bookmark.js",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-260/parse-x-data-archive-bookmarkjs",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-234",
+     "title": "Build super low-key Binsly help site",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-234/build-super-low-key-binsly-help-site",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-233",
+     "title": "Publish 10 blog/news posts in Binsly",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-233/publish-10-blognews-posts-in-binsly",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-232",
+     "title": "Binsly: bookmark import",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-232/binsly-bookmark-import",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-231",
+     "title": "Binsly: weekly digest email",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-231/binsly-weekly-digest-email",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-230",
+     "title": "Binsly: shareable public collections",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-230/binsly-shareable-public-collections",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-229",
+     "title": "Binsly: highlights and annotations",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-229/binsly-highlights-and-annotations",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-228",
+     "title": "Binsly: link health monitoring",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-228/binsly-link-health-monitoring",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-227",
+     "title": "Binsly: duplicate detection on save",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-227/binsly-duplicate-detection-on-save",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-226",
+     "title": "Binsly: full-text search across saved content",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-226/binsly-full-text-search-across-saved-content",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-225",
+     "title": "Binsly: AI summaries on every save",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-225/binsly-ai-summaries-on-every-save",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-63",
+     "title": "Ship public roadmap page",
+     "status": "Done",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-63/ship-public-roadmap-page",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-80",
+     "title": "Custom domains for link pages",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-80/custom-domains-for-link-pages",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-83",
+     "title": "Scheduled link publishing",
+     "status": "Done",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-83/scheduled-link-publishing",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-211",
+     "title": "Binsly: performance — instant loads",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-211/binsly-performance-instant-loads",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-208",
+     "title": "Binsly: browser extension / quick-save",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-208/binsly-browser-extension-quick-save",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-209",
+     "title": "Binsly: smart auto-tagging and organization",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-209/binsly-smart-auto-tagging-and-organization",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-82",
+     "title": "QR codes for link pages",
+     "status": "Done",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-82/qr-codes-for-link-pages",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-81",
+     "title": "Saved link collections / folders",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-81/saved-link-collections-folders",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-79",
+     "title": "Link click analytics dashboard",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-79/link-click-analytics-dashboard",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-177",
+     "title": "Binsly web v2: analytics, collections, QR codes",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-177/binsly-web-v2-analytics-collections-qr-codes",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-210",
+     "title": "Binsly: mobile-first responsive overhaul",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-210/binsly-mobile-first-responsive-overhaul",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-207",
+     "title": "Binsly: link page themes and customization",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-207/binsly-link-page-themes-and-customization",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-206",
+     "title": "Binsly: lightning-fast search across everything",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-206/binsly-lightning-fast-search-across-everything",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-205",
+     "title": "Binsly: onboarding flow for new users",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-205/binsly-onboarding-flow-for-new-users",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-204",
+     "title": "Binsly: world-class polish pass — visual design system",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-204/binsly-world-class-polish-pass-visual-design-system",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-12",
+   "identifier": "P-SPIIX-12",
    "name": "Monitor Mix Cheat",
    "color": "#F59E0B",
    "url": "https://linear.app/plxio/project/monitor-mix-cheat-733474845ebe",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-53",
-     "title": "Decide publish / launch (go or no-go)",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-53/decide-publish-launch-go-or-no-go",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-96",
+     "id": "SPIIX-96",
      "title": "Dark venue mode",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-96/dark-venue-mode",
+     "url": "https://linear.app/plxio/issue/SPIIX-96/dark-venue-mode",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-53",
+     "title": "Decide publish / launch (go or no-go)",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-53/decide-publish-launch-go-or-no-go",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-98",
+     "id": "SPIIX-98",
      "title": "Shareable cheat sheet link",
      "status": "Done",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-98/shareable-cheat-sheet-link",
+     "url": "https://linear.app/plxio/issue/SPIIX-98/shareable-cheat-sheet-link",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-56",
+     "id": "SPIIX-56",
      "title": "Print-friendly cheat sheet layout",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-56/print-friendly-cheat-sheet-layout",
+     "url": "https://linear.app/plxio/issue/SPIIX-56/print-friendly-cheat-sheet-layout",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-178",
+     "id": "SPIIX-178",
      "title": "Monitor Mix Cheat v2: print layout, share link, dark venue mode",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-178/monitor-mix-cheat-v2-print-layout-share-link-dark-venue-mode",
+     "url": "https://linear.app/plxio/issue/SPIIX-178/monitor-mix-cheat-v2-print-layout-share-link-dark-venue-mode",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-97",
+     "id": "SPIIX-97",
      "title": "Feedback frequency quick-reference",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-97/feedback-frequency-quick-reference",
+     "url": "https://linear.app/plxio/issue/SPIIX-97/feedback-frequency-quick-reference",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-95",
+     "id": "SPIIX-95",
      "title": "Band instrument profile to auto starting points",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-95/band-instrument-profile-to-auto-starting-points",
+     "url": "https://linear.app/plxio/issue/SPIIX-95/band-instrument-profile-to-auto-starting-points",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-94",
+     "id": "SPIIX-94",
      "title": "Venue monitor presets",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-94/venue-monitor-presets",
+     "url": "https://linear.app/plxio/issue/SPIIX-94/venue-monitor-presets",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-57",
+     "id": "SPIIX-57",
      "title": "Search and filter across mix entries",
      "status": "Backlog",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-57/search-and-filter-across-mix-entries",
+     "url": "https://linear.app/plxio/issue/SPIIX-57/search-and-filter-across-mix-entries",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-55",
+     "id": "SPIIX-55",
      "title": "IEM vs wedge quick-toggle presets",
      "status": "Backlog",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-55/iem-vs-wedge-quick-toggle-presets",
+     "url": "https://linear.app/plxio/issue/SPIIX-55/iem-vs-wedge-quick-toggle-presets",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-54",
+     "id": "SPIIX-54",
      "title": "Offline mode for venue use",
      "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-54/offline-mode-for-venue-use",
+     "url": "https://linear.app/plxio/issue/SPIIX-54/offline-mode-for-venue-use",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-13",
+   "identifier": "P-SPIIX-13",
    "name": "Dardo",
    "color": "#A78BFA",
    "url": "https://linear.app/plxio/project/dardo-6604296e937b",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-179",
-     "title": "Dardo v2: follow-up queue, expenses, route classification",
-     "status": "Done",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-179/dardo-v2-follow-up-queue-expenses-route-classification",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-146",
-     "title": "Smarter route classification (passive GPS trip tracking)",
-     "status": "Canceled",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-146/smarter-route-classification-passive-gps-trip-tracking",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-144",
-     "title": "Follow-up approval queue",
-     "status": "Canceled",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-144/follow-up-approval-queue",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-102",
-     "title": "Expense tracking beyond mileage",
-     "status": "Canceled",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-102/expense-tracking-beyond-mileage",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-160",
-     "title": "Auth + settings + landing upgrade (2026-10-12)",
+     "id": "SPIIX-442",
+     "title": "Dardo v3: product release video",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-160/auth-settings-landing-upgrade-2026-10-12",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-442/dardo-v3-product-release-video",
+     "updated": "2026-10-15"
     },
     {
-     "id": "PLX-143",
-     "title": "v1 build: Dardo",
+     "id": "SPIIX-433",
+     "title": "Dardo: Stripe live checkout ($4.99/mo + $49/yr)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-433/dardo-stripe-live-checkout-dollar499mo-dollar49yr",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-434",
+     "title": "Dardo: AI-generated briefs + follow-up drafts",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-434/dardo-ai-generated-briefs-follow-up-drafts",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-435",
+     "title": "Dardo: 10-agent pilot",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-435/dardo-10-agent-pilot",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-421",
+     "title": "Dardo v3: pro reskin + rebrand — a real SaaS for real estate pros",
      "status": "Done",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-143/v1-build-dardo",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-68",
-     "title": "Validate mileage tracking accuracy",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-68/validate-mileage-tracking-accuracy",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-145",
-     "title": "Team / brokerage roll-up views",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-145/team-brokerage-roll-up-views",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-103",
-     "title": "Referral partner tracker",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-103/referral-partner-tracker",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-101",
-     "title": "Showing feedback auto-texts",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-101/showing-feedback-auto-texts",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-100",
-     "title": "Open house mode",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-100/open-house-mode",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-99",
-     "title": "CRM integrations (Follow Up Boss, kvCORE)",
-     "status": "Backlog",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-99/crm-integrations-follow-up-boss-kvcore",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-421/dardo-v3-pro-reskin-rebrand-a-real-saas-for-real-estate-pros",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-67",
-     "title": "Recruit 10-agent pilot cohort",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-67/recruit-10-agent-pilot-cohort",
-     "updated": "2026-10-12"
+     "id": "SPIIX-361",
+     "title": "Landing-page visuals: Dardo",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-361/landing-page-visuals-dardo",
+     "updated": "2026-10-14"
     },
     {
-     "id": "PLX-66",
-     "title": "Legal: ToS and privacy policy for agent data",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-66/legal-tos-and-privacy-policy-for-agent-data",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-65",
-     "title": "Automate the AI evening brief (scheduled job)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-65/automate-the-ai-evening-brief-scheduled-job",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-64",
+     "id": "SPIIX-64",
      "title": "Take Stripe live for $4.99/mo billing",
      "status": "Backlog",
      "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/PLX-64/take-stripe-live-for-dollar499mo-billing",
+     "url": "https://linear.app/plxio/issue/SPIIX-64/take-stripe-live-for-dollar499mo-billing",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-281",
+     "title": "Add HubSpot tracking snippet (portal 22009185)",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-281/add-hubspot-tracking-snippet-portal-22009185",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-280",
+     "title": "noop",
+     "status": "Canceled",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-280/noop",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-279",
+     "title": "TEST ISSUE - DELETE",
+     "status": "Canceled",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-279/test-issue-delete",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-179",
+     "title": "Dardo v2: follow-up queue, expenses, route classification",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-179/dardo-v2-follow-up-queue-expenses-route-classification",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-66",
+     "title": "Legal: ToS and privacy policy for agent data",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-66/legal-tos-and-privacy-policy-for-agent-data",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-146",
+     "title": "Smarter route classification (passive GPS trip tracking)",
+     "status": "Canceled",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-146/smarter-route-classification-passive-gps-trip-tracking",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-144",
+     "title": "Follow-up approval queue",
+     "status": "Canceled",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-144/follow-up-approval-queue",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-102",
+     "title": "Expense tracking beyond mileage",
+     "status": "Canceled",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-102/expense-tracking-beyond-mileage",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-160",
+     "title": "Auth + settings + landing upgrade (2026-10-12)",
+     "status": "Done",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-160/auth-settings-landing-upgrade-2026-10-12",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-143",
+     "title": "v1 build: Dardo",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-143/v1-build-dardo",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-68",
+     "title": "Validate mileage tracking accuracy",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-68/validate-mileage-tracking-accuracy",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-145",
+     "title": "Team / brokerage roll-up views",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-145/team-brokerage-roll-up-views",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-103",
+     "title": "Referral partner tracker",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-103/referral-partner-tracker",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-101",
+     "title": "Showing feedback auto-texts",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-101/showing-feedback-auto-texts",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-100",
+     "title": "Open house mode",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-100/open-house-mode",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-99",
+     "title": "CRM integrations (Follow Up Boss, kvCORE)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-99/crm-integrations-follow-up-boss-kvcore",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-67",
+     "title": "Recruit 10-agent pilot cohort",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-67/recruit-10-agent-pilot-cohort",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-65",
+     "title": "Automate the AI evening brief (scheduled job)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-65/automate-the-ai-evening-brief-scheduled-job",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-14",
+   "identifier": "P-SPIIX-14",
    "name": "Stampd",
    "color": "#f2c94c",
    "url": "https://linear.app/plxio/project/stampd-e8f7b28cea0a",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-180",
+     "id": "SPIIX-475",
+     "title": "Stampd SaaS hardening: Stripe Pro checkout, Pro gating, analytics, subdomain",
+     "status": "In Progress",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-475/stampd-saas-hardening-stripe-pro-checkout-pro-gating-analytics",
+     "updated": "2026-10-17"
+    },
+    {
+     "id": "SPIIX-479",
+     "title": "Stampd: Segment analytics",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-479/stampd-segment-analytics",
+     "updated": "2026-10-16"
+    },
+    {
+     "id": "SPIIX-477",
+     "title": "Stampd: Stripe $29 one-time Pro checkout",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-477/stampd-stripe-dollar29-one-time-pro-checkout",
+     "updated": "2026-10-16"
+    },
+    {
+     "id": "SPIIX-480",
+     "title": "Stampd: stampd.stevepeeleii.com subdomain",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-480/stampd-stampdstevepeeleiicom-subdomain",
+     "updated": "2026-10-16"
+    },
+    {
+     "id": "SPIIX-478",
+     "title": "Stampd: define + enforce Pro gating",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-478/stampd-define-enforce-pro-gating",
+     "updated": "2026-10-16"
+    },
+    {
+     "id": "SPIIX-359",
+     "title": "Landing-page visuals: Stampd",
+     "status": "Done",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-359/landing-page-visuals-stampd",
+     "updated": "2026-10-14"
+    },
+    {
+     "id": "SPIIX-284",
+     "title": "Add HubSpot tracking snippet (portal 22009185)",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-284/add-hubspot-tracking-snippet-portal-22009185",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-180",
      "title": "Stampd v3: multi-rate + overtime, crew view, 3-tap UX",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-180/stampd-v3-multi-rate-overtime-crew-view-3-tap-ux",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-180/stampd-v3-multi-rate-overtime-crew-view-3-tap-ux",
+     "updated": "2026-10-13"
     },
     {
-     "id": "PLX-110",
+     "id": "SPIIX-110",
      "title": "Crew view for foremen",
      "status": "Canceled",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-110/crew-view-for-foremen",
+     "url": "https://linear.app/plxio/issue/SPIIX-110/crew-view-for-foremen",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-125",
+     "id": "SPIIX-125",
      "title": "Crew view for foremen",
      "status": "Canceled",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-125/crew-view-for-foremen",
+     "url": "https://linear.app/plxio/issue/SPIIX-125/crew-view-for-foremen",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-112",
+     "id": "SPIIX-112",
      "title": "Cash-out report PDF",
      "status": "Backlog",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-112/cash-out-report-pdf",
+     "url": "https://linear.app/plxio/issue/SPIIX-112/cash-out-report-pdf",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-126",
+     "id": "SPIIX-126",
      "title": "Cash-out report PDF",
      "status": "Canceled",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-126/cash-out-report-pdf",
+     "url": "https://linear.app/plxio/issue/SPIIX-126/cash-out-report-pdf",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-127",
+     "id": "SPIIX-127",
      "title": "Multiple rates + overtime",
      "status": "Canceled",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-127/multiple-rates-overtime",
+     "url": "https://linear.app/plxio/issue/SPIIX-127/multiple-rates-overtime",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-124",
+     "id": "SPIIX-124",
      "title": "v1 build: Stampd",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-124/v1-build-stampd",
+     "url": "https://linear.app/plxio/issue/SPIIX-124/v1-build-stampd",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-108",
+     "id": "SPIIX-108",
      "title": "v1 build: shift clock-in/out with automatic pay calculation",
      "status": "Canceled",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-108/v1-build-shift-clock-inout-with-automatic-pay-calculation",
+     "url": "https://linear.app/plxio/issue/SPIIX-108/v1-build-shift-clock-inout-with-automatic-pay-calculation",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-109",
+     "id": "SPIIX-109",
      "title": "No-training UX: 3-tap shift start",
      "status": "Canceled",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-109/no-training-ux-3-tap-shift-start",
+     "url": "https://linear.app/plxio/issue/SPIIX-109/no-training-ux-3-tap-shift-start",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-157",
+     "id": "SPIIX-157",
      "title": "Stampd v2: accounts, exports, work types/locations, employer share links",
      "status": "Canceled",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-157/stampd-v2-accounts-exports-work-typeslocations-employer-share-links",
+     "url": "https://linear.app/plxio/issue/SPIIX-157/stampd-v2-accounts-exports-work-typeslocations-employer-share-links",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-158",
+     "id": "SPIIX-158",
      "title": "Stampd v2: accounts, exports, work types/locations, employer share links",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-158/stampd-v2-accounts-exports-work-typeslocations-employer-share-links",
+     "url": "https://linear.app/plxio/issue/SPIIX-158/stampd-v2-accounts-exports-work-typeslocations-employer-share-links",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-162",
+     "id": "SPIIX-162",
      "title": "Settings screen + HEADROOM banner removal (2026-10-12)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-162/settings-screen-headroom-banner-removal-2026-10-12",
+     "url": "https://linear.app/plxio/issue/SPIIX-162/settings-screen-headroom-banner-removal-2026-10-12",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-129",
+     "id": "SPIIX-129",
      "title": "Crew view for foremen",
      "status": "Canceled",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-129/crew-view-for-foremen",
+     "url": "https://linear.app/plxio/issue/SPIIX-129/crew-view-for-foremen",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-128",
+     "id": "SPIIX-128",
      "title": "Cloud sync / device recovery",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-128/cloud-sync-device-recovery",
+     "url": "https://linear.app/plxio/issue/SPIIX-128/cloud-sync-device-recovery",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-15",
+   "identifier": "P-SPIIX-15",
    "name": "Repurpose Engine",
    "color": "#5e6ad2",
    "url": "https://linear.app/plxio/project/repurpose-engine-d6f1da472f3c",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-181",
+     "id": "SPIIX-337",
+     "title": "Urgently make repurpose engine not suck",
+     "status": "Backlog",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-337/urgently-make-repurpose-engine-not-suck",
+     "updated": "2026-10-17"
+    },
+    {
+     "id": "SPIIX-181",
      "title": "Repurpose Engine v2: history, tone presets (+ live LLM when key lands)",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-181/repurpose-engine-v2-history-tone-presets-live-llm-when-key-lands",
+     "url": "https://linear.app/plxio/issue/SPIIX-181/repurpose-engine-v2-history-tone-presets-live-llm-when-key-lands",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-130",
+     "id": "SPIIX-130",
      "title": "v1 build: Repurpose Engine",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-130/v1-build-repurpose-engine",
+     "url": "https://linear.app/plxio/issue/SPIIX-130/v1-build-repurpose-engine",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-113",
+     "id": "SPIIX-113",
      "title": "v1 build: post in, ten platform versions out",
      "status": "Canceled",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-113/v1-build-post-in-ten-platform-versions-out",
+     "url": "https://linear.app/plxio/issue/SPIIX-113/v1-build-post-in-ten-platform-versions-out",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-114",
+     "id": "SPIIX-114",
      "title": "Tone presets (professional, casual, bold)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-114/tone-presets-professional-casual-bold",
+     "url": "https://linear.app/plxio/issue/SPIIX-114/tone-presets-professional-casual-bold",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-115",
+     "id": "SPIIX-115",
      "title": "Platform guardrails (limits, hashtags, formatting)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-115/platform-guardrails-limits-hashtags-formatting",
+     "url": "https://linear.app/plxio/issue/SPIIX-115/platform-guardrails-limits-hashtags-formatting",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-116",
+     "id": "SPIIX-116",
      "title": "History and one-click copy",
      "status": "Done",
      "priority": "Low",
-     "url": "https://linear.app/plxio/issue/PLX-116/history-and-one-click-copy",
+     "url": "https://linear.app/plxio/issue/SPIIX-116/history-and-one-click-copy",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-136",
+     "id": "SPIIX-136",
      "title": "Platform-specific guardrails",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-136/platform-specific-guardrails",
+     "url": "https://linear.app/plxio/issue/SPIIX-136/platform-specific-guardrails",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-134",
+     "id": "SPIIX-134",
      "title": "Tone presets + saved brand voice",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-134/tone-presets-saved-brand-voice",
+     "url": "https://linear.app/plxio/issue/SPIIX-134/tone-presets-saved-brand-voice",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-137",
+     "id": "SPIIX-137",
      "title": "Generation history + favorites",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-137/generation-history-favorites",
+     "url": "https://linear.app/plxio/issue/SPIIX-137/generation-history-favorites",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-165",
+     "id": "SPIIX-165",
      "title": "Auth + settings + landing + HEADROOM removal (2026-10-12)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-165/auth-settings-landing-headroom-removal-2026-10-12",
+     "url": "https://linear.app/plxio/issue/SPIIX-165/auth-settings-landing-headroom-removal-2026-10-12",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-138",
+     "id": "SPIIX-138",
      "title": "Visual caption / carousel-outline modes",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-138/visual-caption-carousel-outline-modes",
+     "url": "https://linear.app/plxio/issue/SPIIX-138/visual-caption-carousel-outline-modes",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-16",
+   "identifier": "P-SPIIX-16",
    "name": "GigSplit",
    "color": "#f2994a",
    "url": "https://linear.app/plxio/project/gigsplit-64c89b3c6624",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-139",
-     "title": "Saved lineups with default splits",
+     "id": "SPIIX-282",
+     "title": "Add HubSpot tracking snippet (portal 22009185)",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-139/saved-lineups-with-default-splits",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-282/add-hubspot-tracking-snippet-portal-22009185",
+     "updated": "2026-10-13"
     },
     {
-     "id": "PLX-140",
-     "title": "Settlement share sheet for the band",
-     "status": "Done",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-140/settlement-share-sheet-for-the-band",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "PLX-182",
+     "id": "SPIIX-182",
      "title": "GigSplit v2: share sheet, saved lineups",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-182/gigsplit-v2-share-sheet-saved-lineups",
+     "url": "https://linear.app/plxio/issue/SPIIX-182/gigsplit-v2-share-sheet-saved-lineups",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-139",
+     "title": "Saved lineups with default splits",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-139/saved-lineups-with-default-splits",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-163",
+     "id": "SPIIX-140",
+     "title": "Settlement share sheet for the band",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-140/settlement-share-sheet-for-the-band",
+     "updated": "2026-10-12"
+    },
+    {
+     "id": "SPIIX-163",
      "title": "Auth + settings + landing + HEADROOM removal (2026-10-12)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-163/auth-settings-landing-headroom-removal-2026-10-12",
+     "url": "https://linear.app/plxio/issue/SPIIX-163/auth-settings-landing-headroom-removal-2026-10-12",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-141",
+     "id": "SPIIX-141",
      "title": "Cloud sync via Supabase when cross-device demand is proven",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-141/cloud-sync-via-supabase-when-cross-device-demand-is-proven",
+     "url": "https://linear.app/plxio/issue/SPIIX-141/cloud-sync-via-supabase-when-cross-device-demand-is-proven",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-120",
+     "id": "SPIIX-120",
      "title": "v1 build: GigSplit",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-120/v1-build-gigsplit",
+     "url": "https://linear.app/plxio/issue/SPIIX-120/v1-build-gigsplit",
      "updated": "2026-10-12"
     }
    ]
   },
   {
-   "identifier": "P-PLX-17",
+   "identifier": "P-SPIIX-17",
    "name": "QuoteQuick",
    "color": "#f2994a",
    "url": "https://linear.app/plxio/project/quotequick-00e62bef5b61",
    "status": "In Progress",
    "issues": [
     {
-     "id": "PLX-183",
+     "id": "SPIIX-283",
+     "title": "Add HubSpot tracking snippet (portal 22009185)",
+     "status": "Done",
+     "priority": "No priority",
+     "url": "https://linear.app/plxio/issue/SPIIX-283/add-hubspot-tracking-snippet-portal-22009185",
+     "updated": "2026-10-13"
+    },
+    {
+     "id": "SPIIX-183",
      "title": "QuoteQuick v2: customers, catalog, approval flow",
      "status": "Done",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/PLX-183/quotequick-v2-customers-catalog-approval-flow",
-     "updated": "2026-10-12"
+     "url": "https://linear.app/plxio/issue/SPIIX-183/quotequick-v2-customers-catalog-approval-flow",
+     "updated": "2026-10-13"
     },
     {
-     "id": "PLX-164",
+     "id": "SPIIX-164",
      "title": "Auth + settings + landing + HEADROOM removal (2026-10-12)",
      "status": "Done",
      "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/PLX-164/auth-settings-landing-headroom-removal-2026-10-12",
+     "url": "https://linear.app/plxio/issue/SPIIX-164/auth-settings-landing-headroom-removal-2026-10-12",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-121",
+     "id": "SPIIX-121",
      "title": "v1 build: QuoteQuick",
      "status": "Done",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-121/v1-build-quotequick",
+     "url": "https://linear.app/plxio/issue/SPIIX-121/v1-build-quotequick",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-132",
+     "id": "SPIIX-132",
      "title": "Reusable service/material catalog",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-132/reusable-servicematerial-catalog",
+     "url": "https://linear.app/plxio/issue/SPIIX-132/reusable-servicematerial-catalog",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-135",
+     "id": "SPIIX-135",
      "title": "Cloud backup",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-135/cloud-backup",
+     "url": "https://linear.app/plxio/issue/SPIIX-135/cloud-backup",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-133",
+     "id": "SPIIX-133",
      "title": "Estimate approval + deposit link",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-133/estimate-approval-deposit-link",
+     "url": "https://linear.app/plxio/issue/SPIIX-133/estimate-approval-deposit-link",
      "updated": "2026-10-12"
     },
     {
-     "id": "PLX-131",
+     "id": "SPIIX-131",
      "title": "Saved customers + quote history",
      "status": "Backlog",
      "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/PLX-131/saved-customers-quote-history",
+     "url": "https://linear.app/plxio/issue/SPIIX-131/saved-customers-quote-history",
      "updated": "2026-10-12"
     }
    ]
