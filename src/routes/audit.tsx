@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { profile } from "@/data/resume";
 import { trackCta } from "@/lib/segment";
 
-// SPIIX-637: Square bypassed — $99 audit payments go via Cash App pay page.
-// Payer sends $99 to $peeleslaps (they type the amount on cash.app).
-const PAYMENT_URL = "https://cash.app/$peeleslaps";
+// SPIIX-637: Square bypassed — $99 audit payments go via Stripe Payment Link.
+// plink_1US3kEAJa30vknho9gxFt94K (created 2026-10-18, live).
+const PAYMENT_URL = "https://buy.stripe.com/4gMbJ0aaK259cbGd0zaMU02";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
