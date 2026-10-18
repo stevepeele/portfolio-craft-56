@@ -5,49 +5,93 @@ export const primaryNav = [
   { to: "/blog", label: "Blog", exact: false, match: ["/blog"] },
 ] as const;
 
-export type HackingNavGroup = "start" | "board" | "apps" | "changelogs";
+export type HackingNavGroup = "start" | "track" | "apps";
+
+export type HackingAppStatus = "live" | "building" | "soon";
 
 export type HackingNavItem = {
   to: string;
   label: string;
   blurb: string;
   group: HackingNavGroup;
+  status?: HackingAppStatus;
 };
 
 export const hackingNav: HackingNavItem[] = [
   { to: "/hacking", label: "Why I build", blurb: "The building thesis", group: "start" },
-  { to: "/hacking/status", label: "Status", blurb: "Build log", group: "board" },
-  { to: "/hacking/whats-next", label: "What's next", blurb: "The build queue", group: "board" },
-  { to: "/hacking/progress", label: "Progress", blurb: "Live build board", group: "board" },
-  { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer", group: "apps" },
-  { to: "/hacking/profolio", label: "Profolio", blurb: "One baseline, many stories", group: "apps" },
-  { to: "/hacking/stageplot-ai", label: "StagePlot AI", blurb: "Input list → stage plot", group: "apps" },
-  { to: "/hacking/dardo", label: "Dardo", blurb: "AI sidekick for agents", group: "apps" },
-  { to: "/hacking/stampd", label: "Stampd", blurb: "Shift & pay tracker", group: "apps" },
-  { to: "/hacking/repurpose-engine", label: "Repurpose Engine", blurb: "One post, ten platforms", group: "apps" },
-  { to: "/hacking/gigsplit", label: "GigSplit", blurb: "Band pay splitter", group: "apps" },
-  { to: "/hacking/quotequick", label: "QuoteQuick", blurb: "Contractor quotes in minutes", group: "apps" },
-  { to: "/hacking/smart-access", label: "Smart Access", blurb: "Coming soon", group: "apps" },
-  { to: "/hacking/nexus", label: "Nexus", blurb: "Coming soon", group: "apps" },
-  { to: "/hacking/binsly/changelog", label: "Binsly changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/profolio/changelog", label: "Profolio changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/stageplot-ai/changelog", label: "StagePlot AI changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/monitor-mix-cheat/changelog", label: "Monitor Mix Cheat changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/dardo/changelog", label: "Dardo changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/stampd/changelog", label: "Stampd changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/repurpose-engine/changelog", label: "Repurpose Engine changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/gigsplit/changelog", label: "GigSplit changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/quotequick/changelog", label: "QuoteQuick changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/promptvault/changelog", label: "PromptVault changelog", blurb: "Ship history", group: "changelogs" },
-  { to: "/hacking/prepwise/changelog", label: "Prepwise changelog", blurb: "Ship history", group: "changelogs" },
+  { to: "/hacking/status", label: "Build log", blurb: "Every ship, newest first", group: "track" },
+  {
+    to: "/hacking/whats-next",
+    label: "Up next",
+    blurb: "What's in the queue",
+    group: "track",
+  },
+  { to: "/hacking/progress", label: "Live board", blurb: "The build board, live", group: "track" },
+  { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer", group: "apps", status: "live" },
+  {
+    to: "/hacking/profolio",
+    label: "Profolio",
+    blurb: "One baseline, many stories",
+    group: "apps",
+    status: "live",
+  },
+  {
+    to: "/hacking/stageplot-ai",
+    label: "StagePlot AI",
+    blurb: "Input list → stage plot",
+    group: "apps",
+    status: "live",
+  },
+  {
+    to: "/hacking/monitor-mix-cheat",
+    label: "Monitor Mix Cheat",
+    blurb: "Input list → monitor mix",
+    group: "apps",
+    status: "live",
+  },
+  { to: "/hacking/dardo", label: "Dardo", blurb: "AI sidekick for agents", group: "apps", status: "live" },
+  { to: "/hacking/stampd", label: "Stampd", blurb: "Shift & pay tracker", group: "apps", status: "live" },
+  {
+    to: "/hacking/repurpose-engine",
+    label: "Repurpose Engine",
+    blurb: "One post, ten platforms",
+    group: "apps",
+    status: "live",
+  },
+  {
+    to: "/hacking/gigsplit",
+    label: "GigSplit",
+    blurb: "Band pay splitter",
+    group: "apps",
+    status: "live",
+  },
+  {
+    to: "/hacking/quotequick",
+    label: "QuoteQuick",
+    blurb: "Contractor quotes in minutes",
+    group: "apps",
+    status: "live",
+  },
+  {
+    to: "/hacking/muse-vault",
+    label: "Muse Vault",
+    blurb: "98 templates for Muse",
+    group: "apps",
+    status: "live",
+  },
 ];
 
 export const hackingNavGroups: { key: HackingNavGroup; label: string }[] = [
   { key: "start", label: "" },
-  { key: "board", label: "Board" },
+  { key: "track", label: "Track" },
   { key: "apps", label: "Apps" },
-  { key: "changelogs", label: "Changelogs" },
 ];
+
+export const hackingStatusDotClass: Record<HackingAppStatus, string> = {
+  live: "bg-emerald-400",
+  building: "bg-amber-400",
+  soon: "bg-sky-400",
+};
 
 export const hackingMatch = ["/hacking"];
 

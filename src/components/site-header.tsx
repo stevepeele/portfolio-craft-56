@@ -1,7 +1,14 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronRight, Compass, Menu, X } from "lucide-react";
-import { hackingMatch, hackingNav, hackingNavGroups, openGuide, primaryNav } from "@/data/navigation";
+import {
+  hackingMatch,
+  hackingNav,
+  hackingNavGroups,
+  hackingStatusDotClass,
+  openGuide,
+  primaryNav,
+} from "@/data/navigation";
 import { EbookBanner } from "@/components/ebook-banner";
 import { MuseReferralBanner } from "@/components/muse-referral-banner";
 
@@ -126,7 +133,15 @@ export function SiteHeader() {
                               className="flex items-start justify-between gap-3 px-4 py-2.5 transition-colors hover:bg-surface"
                             >
                               <span>
-                                <span className="block text-sm font-medium text-foreground">{h.label}</span>
+                                <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+                                  {h.status && (
+                                    <span
+                                      className={`size-1.5 shrink-0 rounded-full ${hackingStatusDotClass[h.status]}`}
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                  {h.label}
+                                </span>
                                 <span className="block text-xs text-muted-foreground">{h.blurb}</span>
                               </span>
                               <ChevronRight className="mt-1 size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
@@ -206,8 +221,14 @@ export function SiteHeader() {
                             key={h.to}
                             to={h.to}
                             onClick={() => setOpen(false)}
-                            className="rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
+                            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
                           >
+                            {h.status && (
+                              <span
+                                className={`size-1.5 shrink-0 rounded-full ${hackingStatusDotClass[h.status]}`}
+                                aria-hidden="true"
+                              />
+                            )}
                             {h.label}
                           </Link>
                         ))}

@@ -27,6 +27,14 @@ export const Route = createFileRoute("/hacking/")({
 
 const subPages = hackingNav.filter((n) => n.to !== "/hacking");
 
+// Slugs with a real /hacking/<slug> page. Apps without one (e.g. still being
+// built) render as non-link cards so the grid never points at a 404.
+const pageSlugs = new Set(
+  hackingNav
+    .filter((n) => n.group === "apps")
+    .map((n) => n.to.split("/").pop() ?? ""),
+);
+
 const appStatusMeta = {
   live: { label: "Live", cls: "bg-emerald-500/15 text-emerald-400" },
   building: { label: "Building", cls: "bg-amber-500/15 text-amber-400" },
@@ -68,28 +76,46 @@ function HackingPage() {
           <p className="eyebrow">Building / The apps</p>
           <h2 className="mt-4 text-3xl font-bold sm:text-4xl">On the bench right now.</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {hackingApps.map((app) => (
-              <Link
-                key={app.slug}
-                to={`/hacking/${app.slug}` as "/hacking/binsly"}
-                className="panel interactive-lift group flex flex-col p-7"
-              >
-                <div className="flex items-center justify-between">
-                  <FlaskConical className="size-5 text-muted-foreground" aria-hidden="true" />
-                  <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-medium ${appStatusMeta[app.status].cls}`}
-                  >
-                    {appStatusMeta[app.status].label}
+            {hackingApps.map((app) => {
+              const card = (
+                <>
+                  <div className="flex items-center justify-between">
+                    <FlaskConical className="size-5 text-muted-foreground" aria-hidden="true" />
+                    <span
+                      className={`rounded-full px-2.5 py-1 text-xs font-medium ${appStatusMeta[app.status].cls}`}
+                    >
+                      {appStatusMeta[app.status].label}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl font-bold">{app.label}</h3>
+                  <p className="mt-1 text-sm font-medium text-muted-foreground">{app.blurb}</p>
+                  <p className="mt-3 flex-1 text-sm text-muted-foreground">{app.description}</p>
+                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+                    {pageSlugs.has(app.slug) ? (
+                      <>
+                        Open the page{" "}
+                        <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </>
+                    ) : (
+                      "Page coming soon"
+                    )}
                   </span>
+                </>
+              );
+              return pageSlugs.has(app.slug) ? (
+                <Link
+                  key={app.slug}
+                  to={`/hacking/${app.slug}` as "/hacking/binsly"}
+                  className="panel interactive-lift group flex flex-col p-7"
+                >
+                  {card}
+                </Link>
+              ) : (
+                <div key={app.slug} className="panel flex flex-col p-7">
+                  {card}
                 </div>
-                <h3 className="mt-4 font-display text-2xl font-bold">{app.label}</h3>
-                <p className="mt-1 text-sm font-medium text-muted-foreground">{app.blurb}</p>
-                <p className="mt-3 flex-1 text-sm text-muted-foreground">{app.description}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-foreground">
-                  Open the page <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </section>
 

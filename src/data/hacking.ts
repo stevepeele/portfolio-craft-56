@@ -116,13 +116,13 @@ export const hackingApps: HackingApp[] = [
     why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
   },
   {
-    slug: "promptvault",
-    label: "PromptVault",
-    blurb: "Prompts, skills & automations",
+    slug: "muse-vault",
+    label: "Muse Vault",
+    blurb: "98 templates for Muse",
     status: "live",
     url: "https://vault.stevepeeleii.com/",
     description:
-      "A gallery of 63 ready-made templates for Muse — system prompts, skills, crons, and workflows across Work, Money, Career, Create, Home & Life, and Health & Family tracks. Ratings, reviews, curated collections, one-click install packs, community submissions, and an About page. Renamed from Muse Templates.",
+      "A gallery of 98 ready-made templates for Muse — system prompts, skills, crons, and workflows across Work, Money, Career, Create, Home & Life, and Health & Family tracks. Ratings, reviews, curated collections, one-click install packs, community submissions, and 5 Scaffolding Kits. Launched on Product Hunt 2026-10-14.",
     why: "The best Muse setups are built, not discovered. Templates make the good ones shareable.",
   },
   {
@@ -147,10 +147,10 @@ export type BuildQueueItem = {
 
 export const buildQueue: BuildQueueItem[] = [
   {
-    name: "PromptVault",
+    name: "Muse Vault",
     status: "shipped",
     shippedDate: "2026-10-14",
-    description: "Template gallery for Muse — 63 ready-made templates across 6 use-case tracks, with ratings, curated collections, one-click install packs, community submissions, About page, and full install guides. Renamed from Muse Templates; live at vault.stevepeeleii.com (DNS pending).",
+    description: "Template gallery for Muse — 98 ready-made templates across 6 use-case tracks, with ratings, curated collections, one-click install packs, community submissions, 5 Scaffolding Kits, and full install guides. Renamed from Muse Templates → PromptVault → Muse Vault; launched on Product Hunt 2026-10-14. Live at vault.stevepeeleii.com.",
     url: "https://vault.stevepeeleii.com/",
   },
   {
@@ -244,6 +244,12 @@ export type StatusEntry = {
 };
 
 export const statusLog: StatusEntry[] = [
+  {
+    date: "2026-10-17",
+    title: "Building nav dropdown rebuilt — structure overhaul",
+    detail:
+      "SPIIX-705: the 'Building' dropdown had grown into 25 entries nobody could scan — including 11 changelog links and two 'coming soon' stubs. Rebuilt from a full inventory: the Changelogs group is gone from the nav (each app page now links its own ship history instead), Track holds Build log / Up next / Live board in plain words, and Apps lists the 10 real apps with status dots — adding the missing Monitor Mix Cheat and Muse Vault (renamed from PromptVault in the data to match the live /hacking/muse-vault page and the Product Hunt launch). Prepwise stays in the queue until its page ships; Smart Access and Nexus stay on the workbench page as coming-soon. Two /hacking index cards that 404'd (promptvault, prepwise) are fixed.",
+  },
   {
     date: "2026-10-17",
     title: "Hacking pages: 'validate the work' modal beat",

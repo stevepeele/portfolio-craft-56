@@ -117,6 +117,15 @@ function ProfolioPage() {
             <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
           </div>
         </section>
+        <div className="mx-auto max-w-4xl px-5 pb-2 text-center">
+          <Link
+            to="/hacking/$appSlug/changelog"
+            params={{ appSlug: "profolio" }}
+            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+          >
+            Ship history →
+          </Link>
+        </div>
         <ValidationBeat />
       </main>
       <SiteFooter />

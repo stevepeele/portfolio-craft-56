@@ -408,7 +408,7 @@ export const changelogs: Record<string, ChangelogEntry[]> = {
       issueId: "PLX-121",
     },
   ],
-  promptvault: [
+  "muse-vault": [
     {
       date: "2026-10-14",
       type: "ship",

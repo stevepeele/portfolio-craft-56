@@ -1,1 +1,34 @@
-{"buildCommand":"bun run build","framework":null,"installCommand":"bun install","outputDirectory":".vercel/output","redirects":[{"destination":"/blog","permanent":true,"source":"/writing"},{"destination":"/blog/:path*","permanent":true,"source":"/writing/:path*"}],"rewrites":[{"destination":"https://:slug.vercel.app/:path*","source":"/site-preview/:slug/:path*"}]}
+{
+  "buildCommand": "bun run build",
+  "framework": null,
+  "installCommand": "bun install",
+  "outputDirectory": ".vercel/output",
+  "redirects": [
+    {
+      "destination": "/blog",
+      "permanent": true,
+      "source": "/writing"
+    },
+    {
+      "destination": "/blog/:path*",
+      "permanent": true,
+      "source": "/writing/:path*"
+    },
+    {
+      "source": "/hacking/promptvault",
+      "destination": "/hacking/muse-vault",
+      "permanent": true
+    },
+    {
+      "source": "/hacking/promptvault/changelog",
+      "destination": "/hacking/muse-vault/changelog",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "destination": "https://:slug.vercel.app/:path*",
+      "source": "/site-preview/:slug/:path*"
+    }
+  ]
+}
