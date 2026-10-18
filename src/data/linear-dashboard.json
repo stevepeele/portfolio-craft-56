@@ -293,10 +293,10 @@
     {
      "id": "SPIIX-543",
      "title": "Rotate Supabase service keys (binsly-rebuild + stevepeeleii)",
-     "status": "In Progress",
+     "status": "Done",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-543/rotate-supabase-service-keys-binsly-rebuild-stevepeeleii",
-     "updated": "2026-10-17"
+     "updated": "2026-10-18"
     },
     {
      "id": "SPIIX-554",
