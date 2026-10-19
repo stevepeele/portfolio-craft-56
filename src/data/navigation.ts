@@ -27,6 +27,13 @@ export const hackingNav: HackingNavItem[] = [
     group: "track",
   },
   { to: "/hacking/progress", label: "Live board", blurb: "The build board, live", group: "track" },
+  {
+    to: "/hacking/muse-vault",
+    label: "Muse Vault",
+    blurb: "130 templates for Muse",
+    group: "apps",
+    status: "live",
+  },
   { to: "/hacking/binsly", label: "Binsly", blurb: "Own your link layer", group: "apps", status: "live" },
   {
     to: "/hacking/profolio",
@@ -69,13 +76,6 @@ export const hackingNav: HackingNavItem[] = [
     to: "/hacking/quotequick",
     label: "QuoteQuick",
     blurb: "Contractor quotes in minutes",
-    group: "apps",
-    status: "live",
-  },
-  {
-    to: "/hacking/muse-vault",
-    label: "Muse Vault",
-    blurb: "98 templates for Muse",
     group: "apps",
     status: "live",
   },

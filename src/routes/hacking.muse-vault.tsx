@@ -26,7 +26,7 @@ export const Route = createFileRoute("/hacking/muse-vault")({
 });
 
 const features = [
-  "98 templates — system prompts, skills, crons, and workflows",
+  "130 templates — system prompts, skills, crons, and workflows",
   "Browse by format or by life track: Work, Money, Career, Create, Home & Life, Health & Family",
   "Ratings, reviews, and trending — the best stuff floats up on merit",
   "Curated collections with one-click install packs",

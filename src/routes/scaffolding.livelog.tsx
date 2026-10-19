@@ -20,6 +20,7 @@ export const Route = createFileRoute("/scaffolding/livelog")({
 
 type Lane = "lauren" | "oscar" | "system";
 type Kind = "query" | "dialogue" | "conversation" | "processing" | "decision" | "done" | "blocker" | "event";
+const KINDS = ["query", "dialogue", "conversation", "processing", "decision", "done", "blocker", "event"] as const;
 
 type LogEvent = {
   id: string;
@@ -218,12 +219,12 @@ function LiveLogPage() {
           { headers: { apikey: SUPABASE_ANON }, cache: "no-store" }
         );
         if (sb.ok) {
-          const rows = (await sb.json()) as Array<{ id: string; t: string; lane: string; text: string; link: string | null }>;
+          const rows = (await sb.json()) as Array<{ id: string; t: string; lane: string; kind: string; text: string; link: string | null }>;
           sbEvents = rows.map((r) => ({
             id: `sb-${r.id}`,
             t: r.t,
             lane: (["lauren", "oscar", "system"] as const).includes(r.lane as Lane) ? (r.lane as Lane) : "system",
-            kind: "event" as Kind,
+            kind: (KINDS as readonly string[]).includes(r.kind) ? (r.kind as Kind) : "event",
             text: r.text,
             detail: null,
             link: r.link ?? null,

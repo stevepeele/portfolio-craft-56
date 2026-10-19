@@ -10,13 +10,23 @@ export type HackingApp = {
 
 export const hackingApps: HackingApp[] = [
   {
+    slug: "muse-vault",
+    label: "Muse Vault",
+    blurb: "130 templates for Muse",
+    status: "live",
+    url: "https://vault.stevepeeleii.com/",
+    description:
+      "A gallery of 130 ready-made templates for Muse — system prompts, skills, crons, and workflows across Work, Money, Career, Create, Home & Life, and Health & Family tracks. Ratings, reviews, curated collections, one-click install packs, community submissions, 5 Scaffolding Kits, and a member community at /community.html. Launched on Product Hunt 2026-10-14.",
+    why: "The best Muse setups are built, not discovered. Templates make the good ones shareable.",
+  },
+  {
     slug: "binsly",
     label: "Binsly",
     blurb: "Own your link layer",
     status: "live",
     url: "https://linklib.base44.app",
     description:
-      "A link-in-bio and link library experiment — your links, your rules, no algorithmic middleman deciding who sees what.",
+      "A link-in-bio and link library — your links, your rules, no algorithmic middleman deciding who sees what. The rebuild is 85% staged on Vercel and the old Base44 app still serves live in the meantime; DNS cutover and Stripe activation are the last two taps.",
     why: "The link in bio is rented land. Binsly is the experiment in owning it.",
   },
   {
@@ -30,50 +40,23 @@ export const hackingApps: HackingApp[] = [
     why: "One resume for every audience is lazy. Maintaining five versions is a job. One baseline, many views.",
   },
   {
-    slug: "smart-access",
-    label: "Smart Access",
-    blurb: "Coming soon",
-    status: "soon",
-    description: "Details coming soon — this one's still taking shape on the workbench.",
-    why: "Watch this space.",
-  },
-  {
-    slug: "stageplot-ai",
-    label: "StagePlot AI",
-    blurb: "Input list → stage plot",
-    status: "live",
-    url: "https://stageplot.stevepeeleii.com",
+    slug: "forge",
+    label: "Forge",
+    blurb: "Start engine for builders",
+    status: "building",
     description:
-      "Paste a band's input list, get a professional stage plot + channel sheet in seconds. Built for live sound engineers who are tired of drawing rectangles in PowerPoint at 1am.",
-    why: "90% of mic choices are automatic. The layout is standard. The channel sheet is formatting. So why do it by hand?",
+      "A start engine for builders: default frameworks and logic, tuned to the individual builder. Generate → Connect → Prioritize (MVP steps, from the setup perspective) → Maintain. Greenlit 2026-10-19; v1 is the engine (Clarify → Stack → Scope → Build → Ship/iterate) plus the builder home with 'the smith' operator. Forge Clip — a one-click Chrome extension that parses any website into a Forge project seed — is in build alongside.",
+    why: "Everyone else generates your app. Forge engineers it first.",
   },
   {
-    slug: "monitor-mix-cheat",
-    label: "Monitor Mix Cheat",
-    blurb: "Input list → monitor mix",
-    status: "live",
-    url: "https://monitormix.stevepeeleii.com",
+    slug: "prepwise",
+    label: "Prepwise",
+    blurb: "Resume + job req → interview prep",
+    status: "building",
+    url: "https://prepwise.stevepeeleii.com",
     description:
-      "Paste the band's input list and venue type, get per-channel monitor mix starting points — EQ, compression, and levels before the first soundcheck note.",
-    why: "The 1am soundcheck scribble is a tradition nobody misses. If the input list is standard, the starting mix can be too.",
-  },
-  {
-    slug: "nexus",
-    label: "Nexus",
-    blurb: "Coming soon",
-    status: "soon",
-    description: "Details coming soon — this one's still taking shape on the workbench.",
-    why: "Watch this space.",
-  },
-  {
-    slug: "dardo",
-    label: "Dardo",
-    blurb: "AI sidekick for agents",
-    status: "live",
-    url: "https://dardo.stevepeeleii.com",
-    description:
-      "An AI sidekick for real estate agents. One-tap capture, passive mileage and routing, and an evening brief with drafted follow-ups. $4.99/mo.",
-    why: "The admin work between appointments eats the day. Dardo closes the day itself — and it's explicitly not another CRM.",
+      "Upload a resume (or paste LinkedIn), paste the job req, get a full interview prep guide: likely questions with answers tied to your experience, STAR story bank, questions to ask, salary talking points, company intel. Printable, past preps saved. Splash carries custom editorial illustrations (hero + step cards, 2026-10-14).",
+    why: "He's interviewing. Generic prep advice is useless — the guide has to be built on his actual experience.",
   },
   {
     slug: "stampd",
@@ -96,6 +79,26 @@ export const hackingApps: HackingApp[] = [
     why: "Rewriting the same post for every platform is a second job. The thinking stays yours; the reformatting shouldn't eat your afternoon.",
   },
   {
+    slug: "monitor-mix-cheat",
+    label: "Monitor Mix Cheat",
+    blurb: "Input list → monitor mix",
+    status: "live",
+    url: "https://monitormix.stevepeeleii.com",
+    description:
+      "Paste the band's input list and venue type, get per-channel monitor mix starting points — EQ, compression, and levels before the first soundcheck note.",
+    why: "The 1am soundcheck scribble is a tradition nobody misses. If the input list is standard, the starting mix can be too.",
+  },
+  {
+    slug: "dardo",
+    label: "Dardo",
+    blurb: "AI sidekick for agents",
+    status: "live",
+    url: "https://dardo.stevepeeleii.com",
+    description:
+      "An AI sidekick for real estate agents. One-tap capture, passive mileage and routing, and an evening brief with drafted follow-ups. $4.99/mo.",
+    why: "The admin work between appointments eats the day. Dardo closes the day itself — and it's explicitly not another CRM.",
+  },
+  {
     slug: "gigsplit",
     label: "GigSplit",
     blurb: "Band pay splitter",
@@ -116,24 +119,30 @@ export const hackingApps: HackingApp[] = [
     why: "Slow quotes lose jobs. The contractor who answers in an hour with a clean number wins.",
   },
   {
-    slug: "muse-vault",
-    label: "Muse Vault",
-    blurb: "98 templates for Muse",
+    slug: "stageplot-ai",
+    label: "StagePlot AI",
+    blurb: "Input list → stage plot",
     status: "live",
-    url: "https://vault.stevepeeleii.com/",
+    url: "https://stageplot.stevepeeleii.com",
     description:
-      "A gallery of 98 ready-made templates for Muse — system prompts, skills, crons, and workflows across Work, Money, Career, Create, Home & Life, and Health & Family tracks. Ratings, reviews, curated collections, one-click install packs, community submissions, and 5 Scaffolding Kits. Launched on Product Hunt 2026-10-14.",
-    why: "The best Muse setups are built, not discovered. Templates make the good ones shareable.",
+      "Paste a band's input list, get a professional stage plot + channel sheet in seconds. Built for live sound engineers who are tired of drawing rectangles in PowerPoint at 1am.",
+    why: "90% of mic choices are automatic. The layout is standard. The channel sheet is formatting. So why do it by hand?",
   },
   {
-    slug: "prepwise",
-    label: "Prepwise",
-    blurb: "Resume + job req → interview prep",
-    status: "building",
-    url: "https://prepwise.stevepeeleii.com",
-    description:
-      "Upload a resume (or paste LinkedIn), paste the job req, get a full interview prep guide: likely questions with answers tied to your experience, STAR story bank, questions to ask, salary talking points, company intel. Printable, past preps saved. Splash carries custom editorial illustrations (hero + step cards, 2026-10-14).",
-    why: "He's interviewing. Generic prep advice is useless — the guide has to be built on his actual experience.",
+    slug: "smart-access",
+    label: "Smart Access",
+    blurb: "Coming soon",
+    status: "soon",
+    description: "Details coming soon — this one's still taking shape on the workbench.",
+    why: "Watch this space.",
+  },
+  {
+    slug: "nexus",
+    label: "Nexus",
+    blurb: "Coming soon",
+    status: "soon",
+    description: "Details coming soon — this one's still taking shape on the workbench.",
+    why: "Watch this space.",
   },
 ];
 
@@ -147,10 +156,21 @@ export type BuildQueueItem = {
 
 export const buildQueue: BuildQueueItem[] = [
   {
+    name: "Forge v1",
+    status: "next",
+    description: "Start engine for builders: Generate → Connect → Prioritize (MVP steps, setup perspective) → Maintain. Greenlit 2026-10-19 (SPIIX-818); v1 = the engine (Clarify → Stack → Scope → Build → Ship/iterate) + the builder home with 'the smith' operator + the ongoing user tracker. Forge Clip — a one-click Chrome extension that parses any website into a Forge project seed — in build (SPIIX-854).",
+  },
+  {
+    name: "Binsly rebuild",
+    status: "next",
+    description: "85% staged on Vercel (binsly-rebuild): 291 Base44 records migrated to Supabase staging, Stripe checkout + webhook code ready. Last taps: DNS cutover + Stripe activation.",
+    url: "https://linklib.base44.app",
+  },
+  {
     name: "Muse Vault",
     status: "shipped",
     shippedDate: "2026-10-14",
-    description: "Template gallery for Muse — 98 ready-made templates across 6 use-case tracks, with ratings, curated collections, one-click install packs, community submissions, 5 Scaffolding Kits, and full install guides. Renamed from Muse Templates → PromptVault → Muse Vault; launched on Product Hunt 2026-10-14. Live at vault.stevepeeleii.com.",
+    description: "Template gallery for Muse — 130 ready-made templates across 6 use-case tracks, with ratings, curated collections, one-click install packs, community submissions, 5 Scaffolding Kits, full install guides, and a member community at /community.html (SPIIX-443). Launched on Product Hunt 2026-10-14. Live at vault.stevepeeleii.com.",
     url: "https://vault.stevepeeleii.com/",
   },
   {
@@ -245,6 +265,12 @@ export type StatusEntry = {
 
 export const statusLog: StatusEntry[] = [
   {
+    date: "2026-10-19",
+    title: "Building nav refresh: recency reorder, current links/purpose, Forge entry",
+    detail:
+      "SPIIX-855: the Building nav now leads with what's actually moving — Muse Vault first (130 templates, /community.html live, SPIIX-443 in progress), Binsly second (rebuild 85% staged on Vercel; old Base44 app still serving until DNS cutover), Profolio third (visuals shipped 10/14), Forge fourth as the featured building entry, then the rest by most recent update. All 12 live app URLs re-verified with curl — every one returns 200. Build board (hackingProgress) and build queue reordered by recency with fresh notes; Forge v1 (greenlit 2026-10-19, SPIIX-818) and the Forge Clip extension (SPIIX-854) added as next-up. Forge has no /hacking page yet, so its card renders as a non-link 'Page coming soon' tile by design.",
+  },
+  {
     date: "2026-10-17",
     title: "Building nav dropdown rebuilt — structure overhaul",
     detail:
@@ -281,7 +307,7 @@ export const statusLog: StatusEntry[] = [
       "Stampd's splash landing page got its visuals pass: three custom stamp-motif illustrations (hero rubber-stamp STAMPED on a time card, gloved-finger START button with ON THE CLOCK stamp, pay-record stamped PAID RIGHT) — WebP, responsive srcset, no layout shift. SPIIX slim banners removed (banners OFF), HubSpot chat script removed, Segment installed (init + page view + landing CTA/identify tracking), and the dismissible Meet SPII corner card added. Deploy staged pending the 8pm EDT Vercel quota reset. (PLX-359)",
   },
   {
-    date: "2026-10-14",
+    date: "2026-10-12",
     title: "Profolio — custom landing-page visuals, hero + feature illustrations",
     detail:
       "Profolio's text-only landing page now carries a custom dark-editorial hero visual (professional-baseline motif) plus two supporting illustrations — capture-the-work and package-for-every-audience — all generated to the brand's parchment-on-near-black tokens, zero stock. Also: Segment snippet + CTA tracking installed (was missing; the page only had PostHog/Datadog), the SPIIX 'Get signals' banner removed (Banners OFF), and the dismissible 'Meet SPII' corner card added. Verified locally serving; deploy staged — Vercel daily quota exhausted until 8pm EDT 10/14, and it must go via API file upload: the profolio Vercel project is git-linked to the main-site repo, so a git deploy would steal the alias. (PLX-360)",
@@ -311,10 +337,10 @@ export const statusLog: StatusEntry[] = [
       "Built and deployed the Interview Prep AI: resume upload (PDF/DOCX) + LinkedIn paste, job req fetch + parse, AI prep guide (likely Q&A tied to your experience, STAR story bank, questions to ask, salary talking points, company intel), printable guide, past preps saved per user, Segment tracking. Live splash at prepwise.stevepeeleii.com. Two loose ends: authed routes need a redeploy once Vercel's daily deploy limit resets (402 free-tier cap), and the GitHub repo creation needs his sign-in in the agent browser. (PLX-339)",
   },
   {
-    date: "2026-10-14",
+    date: "2026-10-12",
     title: "/Writing folded into /Blog as a combined stream",
     detail:
-      "/writing now redirects to /blog (permanent, PLX-332) and the dead /writing route is removed. /Blog carries the de-emphasized 'Elsewhere' secondary stream of recent Substack + Medium posts (PLX-336: smaller 'Also on' cards, build-time RSS snapshot refreshed on every build, graceful degradation). Added the optional cross-posted callout: Sanity cards show an 'Also on Medium/Substack' badge when a title matches across sources. Nav and breadcrumbs updated: Writing → Blog. (PLX-332)",
+      "/writing now redirects to /blog (permanent, PLX-332) and the dead /writing route is removed. /Blog carries the de-emphasized 'Elsewhere' secondary stream of recent Substack + Medium posts (PLX-336: smaller 'Also on' cards, build-time RSS snapshot refreshed on every build, graceful degradation). Added the optional cross-posted callout: Sanity cards show an 'Also on Medium/Substack' badge when a title matches across sources. (PLX-332)",
   },
   {
     date: "2026-10-14",
@@ -336,21 +362,9 @@ export const statusLog: StatusEntry[] = [
   },
   {
     date: "2026-10-13",
-    title: "Muse Templates launched",
-    detail:
-      "Shipped a public template gallery for Muse — 12 ready-made system prompts, skills, crons & workflows (Second-in-Command, Morning Briefing, Inbox Triage, Deep Research, and 8 more) with copy-to-clipboard install. Live at muse-templates-stevepeeles-projects.vercel.app. (PLX-295)",
-  },
-  {
-    date: "2026-10-13",
     title: "Proven-results cards reordered + acquired badges",
     detail:
       "Card order is now Launch by NTT DATA, Dotloop / Zillow, Astronomer, Amify (Tixxy moved out of the highlight set). Launch and Dotloop / Zillow carry an \"Acquired\" badge on the homepage and /work. (PLX-292)",
-  },
-  {
-    date: "2026-10-13",
-    title: "Full professional experience restored + testimonials rewritten",
-    detail:
-      "Restored all 10 roles to the site (Amify, Tixxy, Buyside, EBTH, API Nation, Astronomer, Inman News, Advisory alongside Launch and Dotloop) with metrics from the canonical resume, added 6 new portfolio project entries, and rewrote all 15 testimonials for sharper professional-capability focus. (PLX-287)",
   },
   {
     date: "2026-10-13",
@@ -463,11 +477,24 @@ export type ProgressItem = {
 
 export const hackingProgress: ProgressItem[] = [
   {
-    app: "StagePlot AI",
+    app: "Muse Vault",
     status: "live",
-    url: "https://stageplot.stevepeeleii.com",
-    updated: "2026-10-10",
-    note: "Launched. Monitoring traction.",
+    url: "https://vault.stevepeeleii.com/",
+    updated: "2026-10-19",
+    note: "130 templates, /community.html live (SPIIX-443 in progress), trend-skill published. Launched on Product Hunt 2026-10-14.",
+  },
+  {
+    app: "Binsly",
+    status: "live",
+    url: "https://linklib.base44.app",
+    updated: "2026-10-19",
+    note: "Rebuild 85% staged on Vercel (binsly-rebuild); DNS cutover + Stripe activation are the last taps. Old Base44 app still serving.",
+  },
+  {
+    app: "Forge",
+    status: "building",
+    updated: "2026-10-19",
+    note: "v1 greenlit (SPIIX-818): start engine for builders — Generate → Connect → Prioritize → Maintain. Forge Clip Chrome extension in build (SPIIX-854).",
   },
   {
     app: "Profolio",
@@ -477,25 +504,11 @@ export const hackingProgress: ProgressItem[] = [
     note: "Landing-page visuals shipped: custom hero + 2 feature illustrations in the parchment-on-dark brand, Segment tracking + Meet SPII corner card added, SPIIX banner removed. Deploy staged — Vercel daily quota resets 8pm EDT 10/14; API-upload only (the profolio project is git-linked to the main-site repo, so a git deploy would steal the alias).",
   },
   {
-    app: "Monitor Mix Cheat",
-    status: "live",
-    url: "https://monitormix.stevepeeleii.com",
-    updated: "2026-10-12",
-    note: "v2 live: share links, dark venue mode, print layout. Launch posts going out.",
-  },
-  {
-    app: "Binsly",
-    status: "live",
-    url: "https://linklib.base44.app",
-    updated: "2026-10-09",
-    note: "Link library experiment, ongoing. Native Android app scoped.",
-  },
-  {
-    app: "Dardo",
-    status: "live",
-    url: "https://dardo.stevepeeleii.com",
-    updated: "2026-10-11",
-    note: "v1 live with Supabase auth. Brief automation next.",
+    app: "PrepEdge",
+    status: "building",
+    url: "https://prepwise.stevepeeleii.com",
+    updated: "2026-10-14",
+    note: "v1 deployed — splash live and verified 2026-10-19. Authed flow ships on the next redeploy.",
   },
   {
     app: "Stampd",
@@ -512,6 +525,20 @@ export const hackingProgress: ProgressItem[] = [
     note: "v2 live: history + tone presets + real LLM generation.",
   },
   {
+    app: "Monitor Mix Cheat",
+    status: "live",
+    url: "https://monitormix.stevepeeleii.com",
+    updated: "2026-10-12",
+    note: "v2 live: share links, dark venue mode, print layout. Launch posts going out.",
+  },
+  {
+    app: "Dardo",
+    status: "live",
+    url: "https://dardo.stevepeeleii.com",
+    updated: "2026-10-11",
+    note: "v1 live with Supabase auth. Brief automation next.",
+  },
+  {
     app: "GigSplit",
     status: "live",
     url: "https://gigsplit.stevepeeleii.com",
@@ -526,11 +553,11 @@ export const hackingProgress: ProgressItem[] = [
     note: "Live. Monitoring traction.",
   },
   {
-    app: "PrepEdge",
-    status: "building",
-    url: "https://prepwise.stevepeeleii.com",
-    updated: "2026-10-14",
-    note: "v1 deployed (splash live). Authed flow pending redeploy after Vercel daily deploy limit resets.",
+    app: "StagePlot AI",
+    status: "live",
+    url: "https://stageplot.stevepeeleii.com",
+    updated: "2026-10-10",
+    note: "Launched. Monitoring traction.",
   },
   {
     app: "SubjectLine Lab",
