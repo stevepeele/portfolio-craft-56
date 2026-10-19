@@ -1,326 +1,389 @@
 {
-  "deploys": [
-    {
-      "id": "vercel-20261018-b703718",
-      "date": "2026-10-18",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "Daily Linear dashboard snapshot sync 2026-10-18 — active production deployment as of the run (includes the daily changelog update 22315dc). Verified via the Vercel dashboard; API list_deployments/create_deployment return 403 (project is under team 'spiix', not 'stevepeeles-projects').",
-      "ref": "b703718"
-    },
-    {
-      "id": "vercel-20261018-22315dc",
-      "date": "2026-10-18",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "chore(scaffolding) daily changelog + deploy log update — the GitHub push webhook fired on the API push this time (superseded by b703718). No deploy-hook trigger was needed (no deploy hooks exist on the project).",
-      "ref": "22315dc"
-    },
-    {
-      "id": "vercel-20261017-dc9ed24",
-      "date": "2026-10-17",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "chore(scaffolding) daily changelog+deploys update verified LIVE: /scaffolding/changelog bundle carries generated_at 2026-10-17T10:04:20-0400 at 10:07 ET (webhook fired on the API push this time). Vercel MCP list_deployments returned 403, so verified via the live bundle instead of the API.",
-      "ref": "dc9ed244"
-    },
-    {
-      "id": "vercel-20261016-328e797",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "SPIIX-623: OBVIOUSLY page image imports — latest production deployment.",
-      "ref": "328e797"
-    },
-    {
-      "id": "vercel-20261016-385e25f",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "FAILED",
-      "note": "SPIIX-623: OBVIOUSLY editorial illustration — production build failed (ERROR). Superseded by 328e797 READY.",
-      "ref": "385e25f"
-    },
-    {
-      "id": "vercel-20261016-911533b",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "FAILED",
-      "note": "SPIIX-623: OBVIOUSLY cover visual — production build failed (ERROR). Superseded by 328e797 READY.",
-      "ref": "911533b"
-    },
-    {
-      "id": "vercel-20261016-fb76c42",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "FAILED",
-      "note": "SPIIX-623: OBVIOUSLY book page rebuild (part 1) — production build failed (ERROR). Superseded by 328e797 READY.",
-      "ref": "fb76c42"
-    },
-    {
-      "id": "vercel-20261016-0618264",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "SPIIX-617: SEO fixes — canonical bug, sitemap 22→70, self-referencing og:url.",
-      "ref": "0618264"
-    },
-    {
-      "id": "vercel-20261016-b6ba715",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "SPIIX-618: livelog data-flow + monitoring diagrams + schema visual.",
-      "ref": "b6ba715"
-    },
-    {
-      "id": "vercel-20261016-d8fae42",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "SPIIX-616: /scaffolding/systems changelog entry.",
-      "ref": "d8fae42"
-    },
-    {
-      "id": "vercel-20261016-6735f02",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-610: Segment → livelog ingest pipeline (3 production deployments, all READY).",
-      "ref": "6735f02"
-    },
-    {
-      "id": "vercel-20261016-da834c7",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "SPIIX-616: real-time systems visualization page (/scaffolding/systems) + route tree.",
-      "ref": "da834c7"
-    },
-    {
-      "id": "vercel-20261016-ca7cadb",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-612: unlisted enlistment map page + route tree.",
-      "ref": "ca7cadb"
-    },
-    {
-      "id": "vercel-20261016-46b0002",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-611: livelog v2 — news-first stream, expandable logs, AI decision trees.",
-      "ref": "46b0002"
-    },
-    {
-      "id": "vercel-20261016-c0127d9",
-      "date": "2026-10-16",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-607: scaffolding livelog page (real-time AI ops running log) + event feed.",
-      "ref": "c0127d9"
-    },
-    {
-      "id": "vercel-20261015-3bfe47e",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-577: OBVIOUSLY changelog entry (2 production deployments, READY).",
-      "ref": "3bfe47e"
-    },
-    {
-      "id": "vercel-20261015-46a7778",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-577: OBVIOUSLY book PDF for landing page download.",
-      "ref": "46a7778"
-    },
-    {
-      "id": "vercel-20261015-92966d4",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-577: OBVIOUSLY book landing page (unlisted) + route tree.",
-      "ref": "92966d4"
-    },
-    {
-      "id": "vercel-20261015-62da2b6",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-566: scaffolding architecture updates.",
-      "ref": "62da2b6"
-    },
-    {
-      "id": "vercel-20261015-6a3e659",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-531/566: faith, sprint, spiix.compare updates.",
-      "ref": "6a3e659"
-    },
-    {
-      "id": "vercel-20261015-5bd6e84",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-531/566 (2/6): src/lib/segment.ts.",
-      "ref": "5bd6e84"
-    },
-    {
-      "id": "vercel-20261015-28aab6f",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-531/566 (1/6): src/data/spiix.ts.",
-      "ref": "28aab6f"
-    },
-    {
-      "id": "vercel-20261015-34d0180",
-      "date": "2026-10-15",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "chore(scaffolding): daily changelog + deploy log update (2 production deployments, READY).",
-      "ref": "34d0180"
-    },
-    {
-      "date": "2026-10-15",
-      "env": "production",
-      "id": "manual-20261015-supabase-key-blocked",
-      "note": "Manual redeploy for SUPABASE_SERVICE_ROLE_KEY repair (PLX-543): cap still exhausted after the 05:59 ET Wax & Ash success.",
-      "project": "stevepeeleii.com",
-      "ref": "PLX-543",
-      "status": "BLOCKED"
-    },
-    {
-      "date": "2026-10-15",
-      "env": "production",
-      "id": "manual-20261015-faith-blocked",
-      "note": "PLX-531 /faith push (bfd03459): webhook did not fire on connector push; direct create_deployment hit the 100/day cap (402); queued for dispatcher retry.",
-      "project": "stevepeeleii.com",
-      "ref": "bfd03459",
-      "status": "BLOCKED"
-    },
-    {
-      "id": "vercel-20261014-plx364",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-364 redeploy: scaffolding analytics/data-flows fix. Build 51s.",
-      "ref": "PLX-364"
-    },
-    {
-      "id": "vercel-20261014-e631ccd",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "FAILED",
-      "note": "PLX-392: Hide Music in main nav — build failed (bun run build exited 1, vite/TS).",
-      "ref": "e631ccd"
-    },
-    {
-      "id": "vercel-20261014-b12838b",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-362: /hacking/local-growth-fix → /sprint (301). Build 37s.",
-      "ref": "b12838b"
-    },
-    {
-      "id": "vercel-20261014-9dcf165",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "PLX-399: missing getLatestPostsExcluding export (fixed production build). Build 32s.",
-      "ref": "9dcf165"
-    },
-    {
-      "id": "vercel-20261014-20c3e69",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "READY",
-      "note": "Scaffolding docs microsite (PLX-398): Prepwise URL correction. Build 33s.",
-      "ref": "20c3e69"
-    },
-    {
-      "id": "vercel-20261014-124b03b",
-      "date": "2026-10-14",
-      "project": "stevepeeleii.com",
-      "env": "production",
-      "status": "FAILED",
-      "note": "videoBlock Sanity schema + blog renderer — build failed.",
-      "ref": "124b03b"
-    },
-    {
-      "date": "2026-10-14",
-      "env": "production",
-      "id": "manual-20261014-mc-blocked",
-      "note": "GitHub commits fallback (commit 9302e5d) ready but deploy hit Vercel 402 api-deployments-free-per-day (100/day cap). Retry cron Thu 2026-10-15 06:00 ET.",
-      "project": "Mission Control",
-      "ref": "goal_13f2fa34714b",
-      "status": "BLOCKED"
-    },
-    {
-      "date": "2026-10-14",
-      "env": "production",
-      "id": "manual-20261014-main-site",
-      "note": "Scaffolding analytics rewrite (PLX-364) + architecture rebuild (PLX-335). Auto-deployed on push to main.",
-      "project": "stevepeeleii.com",
-      "ref": "PLX-364",
-      "status": "READY"
-    },
-    {
-      "date": "2026-10-14",
-      "env": "production",
-      "id": "manual-20261014-local-growth",
-      "note": "Outreach sequencing (PLX-316): first-touch draft composer, approve → mark sent. Commit 9d590e2.",
-      "project": "Local Growth Fix",
-      "ref": "PLX-316",
-      "status": "READY"
-    },
-    {
-      "date": "2026-10-12",
-      "env": "production",
-      "id": "manual-20261012-v2-apps",
-      "note": "StagePlot AI, Profolio, Monitor Mix Cheat, Binsly, Dardo, Stampd v3, Repurpose Engine, GigSplit, QuoteQuick. (PLX-175–183)",
-      "project": "9 v2 apps",
-      "ref": "PLX-175",
-      "status": "READY"
-    }
-  ],
-  "generated_at": "2026-10-18T12:12:27-0400",
-  "generated_by": "daily cron (scaffolding-changelog-updater) — Vercel deploy feed",
-  "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
-  "pipeline": {
-    "apps": "Per-app GitHub repo → Vercel project → auto-deploy on push (where connected); some apps deploy via dashboard",
-    "main_site": "GitHub stevepeele/portfolio-craft-56 (main) → Vercel 'stevepeeleii' → auto-deploy on push"
+ "deploys": [
+  {
+   "id": "vercel-20261019-593f2e7",
+   "date": "2026-10-19",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-855/847: building nav refresh (recency reorder, Vault 130, Forge entry) + livelog v3 Supabase kinds.",
+   "ref": "593f2e7"
+  },
+  {
+   "id": "vercel-20261018-737cebb",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-806: declarative HubSpot embed in document head (portal 22009185); client-side injector now acts as fallback.",
+   "ref": "737cebb"
+  },
+  {
+   "id": "vercel-20261018-dab8fab",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "Remove Sozo case study from /faith (privacy: Sozo work is 100% private per his 2026-10-18 order).",
+   "ref": "dab8fab"
+  },
+  {
+   "id": "vercel-20261018-2e434af",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-793: funnel money-event notifications -> Slack (/api/funnel-notify + audit modal ping).",
+   "ref": "2e434af"
+  },
+  {
+   "id": "vercel-20261018-be36b10",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-787: audit page single-CTA modal flow (form -> Stripe -> Cal.com booking).",
+   "ref": "be36b10"
+  },
+  {
+   "id": "vercel-20261018-fb01309",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "audit page: $99 audit payments via Stripe Payment Link (replaces Cash App).",
+   "ref": "fb01309"
+  },
+  {
+   "id": "vercel-20261018-4488b26",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding): deploy log — 2026-10-18 production deploys.",
+   "ref": "4488b26"
+  },
+  {
+   "id": "vercel-20261018-b703718",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "Daily Linear dashboard snapshot sync 2026-10-18 — active production deployment as of the run (includes the daily changelog update 22315dc). Verified via the Vercel dashboard; API list_deployments/create_deployment return 403 (project is under team 'spiix', not 'stevepeeles-projects').",
+   "ref": "b703718"
+  },
+  {
+   "id": "vercel-20261018-22315dc",
+   "date": "2026-10-18",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding) daily changelog + deploy log update — the GitHub push webhook fired on the API push this time (superseded by b703718). No deploy-hook trigger was needed (no deploy hooks exist on the project).",
+   "ref": "22315dc"
+  },
+  {
+   "id": "vercel-20261017-dc9ed24",
+   "date": "2026-10-17",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding) daily changelog+deploys update verified LIVE: /scaffolding/changelog bundle carries generated_at 2026-10-17T10:04:20-0400 at 10:07 ET (webhook fired on the API push this time). Vercel MCP list_deployments returned 403, so verified via the live bundle instead of the API.",
+   "ref": "dc9ed244"
+  },
+  {
+   "id": "vercel-20261016-328e797",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-623: OBVIOUSLY page image imports — latest production deployment.",
+   "ref": "328e797"
+  },
+  {
+   "id": "vercel-20261016-385e25f",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "FAILED",
+   "note": "SPIIX-623: OBVIOUSLY editorial illustration — production build failed (ERROR). Superseded by 328e797 READY.",
+   "ref": "385e25f"
+  },
+  {
+   "id": "vercel-20261016-911533b",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "FAILED",
+   "note": "SPIIX-623: OBVIOUSLY cover visual — production build failed (ERROR). Superseded by 328e797 READY.",
+   "ref": "911533b"
+  },
+  {
+   "id": "vercel-20261016-fb76c42",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "FAILED",
+   "note": "SPIIX-623: OBVIOUSLY book page rebuild (part 1) — production build failed (ERROR). Superseded by 328e797 READY.",
+   "ref": "fb76c42"
+  },
+  {
+   "id": "vercel-20261016-0618264",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-617: SEO fixes — canonical bug, sitemap 22→70, self-referencing og:url.",
+   "ref": "0618264"
+  },
+  {
+   "id": "vercel-20261016-b6ba715",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-618: livelog data-flow + monitoring diagrams + schema visual.",
+   "ref": "b6ba715"
+  },
+  {
+   "id": "vercel-20261016-d8fae42",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-616: /scaffolding/systems changelog entry.",
+   "ref": "d8fae42"
+  },
+  {
+   "id": "vercel-20261016-6735f02",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-610: Segment → livelog ingest pipeline (3 production deployments, all READY).",
+   "ref": "6735f02"
+  },
+  {
+   "id": "vercel-20261016-da834c7",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-616: real-time systems visualization page (/scaffolding/systems) + route tree.",
+   "ref": "da834c7"
+  },
+  {
+   "id": "vercel-20261016-ca7cadb",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-612: unlisted enlistment map page + route tree.",
+   "ref": "ca7cadb"
+  },
+  {
+   "id": "vercel-20261016-46b0002",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-611: livelog v2 — news-first stream, expandable logs, AI decision trees.",
+   "ref": "46b0002"
+  },
+  {
+   "id": "vercel-20261016-c0127d9",
+   "date": "2026-10-16",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-607: scaffolding livelog page (real-time AI ops running log) + event feed.",
+   "ref": "c0127d9"
+  },
+  {
+   "id": "vercel-20261015-3bfe47e",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-577: OBVIOUSLY changelog entry (2 production deployments, READY).",
+   "ref": "3bfe47e"
+  },
+  {
+   "id": "vercel-20261015-46a7778",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-577: OBVIOUSLY book PDF for landing page download.",
+   "ref": "46a7778"
+  },
+  {
+   "id": "vercel-20261015-92966d4",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-577: OBVIOUSLY book landing page (unlisted) + route tree.",
+   "ref": "92966d4"
+  },
+  {
+   "id": "vercel-20261015-62da2b6",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-566: scaffolding architecture updates.",
+   "ref": "62da2b6"
+  },
+  {
+   "id": "vercel-20261015-6a3e659",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-531/566: faith, sprint, spiix.compare updates.",
+   "ref": "6a3e659"
+  },
+  {
+   "id": "vercel-20261015-5bd6e84",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-531/566 (2/6): src/lib/segment.ts.",
+   "ref": "5bd6e84"
+  },
+  {
+   "id": "vercel-20261015-28aab6f",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-531/566 (1/6): src/data/spiix.ts.",
+   "ref": "28aab6f"
+  },
+  {
+   "id": "vercel-20261015-34d0180",
+   "date": "2026-10-15",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding): daily changelog + deploy log update (2 production deployments, READY).",
+   "ref": "34d0180"
+  },
+  {
+   "date": "2026-10-15",
+   "env": "production",
+   "id": "manual-20261015-supabase-key-blocked",
+   "note": "Manual redeploy for SUPABASE_SERVICE_ROLE_KEY repair (PLX-543): cap still exhausted after the 05:59 ET Wax & Ash success.",
+   "project": "stevepeeleii.com",
+   "ref": "PLX-543",
+   "status": "BLOCKED"
+  },
+  {
+   "date": "2026-10-15",
+   "env": "production",
+   "id": "manual-20261015-faith-blocked",
+   "note": "PLX-531 /faith push (bfd03459): webhook did not fire on connector push; direct create_deployment hit the 100/day cap (402); queued for dispatcher retry.",
+   "project": "stevepeeleii.com",
+   "ref": "bfd03459",
+   "status": "BLOCKED"
+  },
+  {
+   "id": "vercel-20261014-plx364",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-364 redeploy: scaffolding analytics/data-flows fix. Build 51s.",
+   "ref": "PLX-364"
+  },
+  {
+   "id": "vercel-20261014-e631ccd",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "FAILED",
+   "note": "PLX-392: Hide Music in main nav — build failed (bun run build exited 1, vite/TS).",
+   "ref": "e631ccd"
+  },
+  {
+   "id": "vercel-20261014-b12838b",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-362: /hacking/local-growth-fix → /sprint (301). Build 37s.",
+   "ref": "b12838b"
+  },
+  {
+   "id": "vercel-20261014-9dcf165",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "PLX-399: missing getLatestPostsExcluding export (fixed production build). Build 32s.",
+   "ref": "9dcf165"
+  },
+  {
+   "id": "vercel-20261014-20c3e69",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "Scaffolding docs microsite (PLX-398): Prepwise URL correction. Build 33s.",
+   "ref": "20c3e69"
+  },
+  {
+   "id": "vercel-20261014-124b03b",
+   "date": "2026-10-14",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "FAILED",
+   "note": "videoBlock Sanity schema + blog renderer — build failed.",
+   "ref": "124b03b"
+  },
+  {
+   "date": "2026-10-14",
+   "env": "production",
+   "id": "manual-20261014-mc-blocked",
+   "note": "GitHub commits fallback (commit 9302e5d) ready but deploy hit Vercel 402 api-deployments-free-per-day (100/day cap). Retry cron Thu 2026-10-15 06:00 ET.",
+   "project": "Mission Control",
+   "ref": "goal_13f2fa34714b",
+   "status": "BLOCKED"
+  },
+  {
+   "date": "2026-10-14",
+   "env": "production",
+   "id": "manual-20261014-main-site",
+   "note": "Scaffolding analytics rewrite (PLX-364) + architecture rebuild (PLX-335). Auto-deployed on push to main.",
+   "project": "stevepeeleii.com",
+   "ref": "PLX-364",
+   "status": "READY"
+  },
+  {
+   "date": "2026-10-14",
+   "env": "production",
+   "id": "manual-20261014-local-growth",
+   "note": "Outreach sequencing (PLX-316): first-touch draft composer, approve → mark sent. Commit 9d590e2.",
+   "project": "Local Growth Fix",
+   "ref": "PLX-316",
+   "status": "READY"
+  },
+  {
+   "date": "2026-10-12",
+   "env": "production",
+   "id": "manual-20261012-v2-apps",
+   "note": "StagePlot AI, Profolio, Monitor Mix Cheat, Binsly, Dardo, Stampd v3, Repurpose Engine, GigSplit, QuoteQuick. (PLX-175–183)",
+   "project": "9 v2 apps",
+   "ref": "PLX-175",
+   "status": "READY"
   }
+ ],
+ "generated_at": "2026-10-19T06:25:53-0400",
+ "generated_by": "daily cron (scaffolding-changelog-updater) — Vercel deploy feed",
+ "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
+ "pipeline": {
+  "apps": "Per-app GitHub repo → Vercel project → auto-deploy on push (where connected); some apps deploy via dashboard",
+  "main_site": "GitHub stevepeele/portfolio-craft-56 (main) → Vercel 'stevepeeleii' → auto-deploy on push"
+ }
 }
