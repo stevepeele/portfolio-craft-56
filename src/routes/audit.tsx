@@ -142,6 +142,17 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
       });
       if (!res.ok) throw new Error(`lead capture failed (${res.status})`);
       trackCta("Audit details submitted", "audit modal", STRIPE_URL);
+      // Fire-and-forget Slack notification for the funnel (SPIIX-793).
+      fetch("/api/funnel-notify?source=client", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "audit_form",
+          name: form.name.trim(),
+          email: form.email.trim(),
+          website: form.website.trim(),
+        }),
+      }).catch(() => {});
       setStep(2);
     } catch (err) {
       setError("Couldn't save your details — check your connection and try again.");
