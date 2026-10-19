@@ -1,14 +1,17 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Check, CalendarClock, Search, FileText, PhoneCall } from "lucide-react";
+import { ArrowRight, Check, Search, FileText, PhoneCall, X, Loader2 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
-import { profile } from "@/data/resume";
 import { trackCta } from "@/lib/segment";
 
-// SPIIX-637: Square bypassed — $99 audit payments go via Stripe Payment Link.
-// plink_1US3kEAJa30vknho9gxFt94K (created 2026-10-18, live).
-const PAYMENT_URL = "https://buy.stripe.com/4gMbJ0aaK259cbGd0zaMU02";
+// SPIIX-787: single-CTA modal flow — form -> Stripe -> Cal.com audit booking.
+// $99 Stripe Payment Link (live): plink_1US3kEAJa30vknho9gxFt94K
+const STRIPE_URL = "https://buy.stripe.com/4gMbJ0aaK259cbGd0zaMU02";
+// Dedicated Cal.com audit readout event (60 min). Created 2026-10-18.
+const CAL_URL = "https://cal.com/peele/audit-readout";
+const LEAD_ENDPOINT = "https://formsubmit.co/ajax/steve@stevepeeleii.com";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
@@ -62,23 +65,23 @@ const deliverables = [
 const steps = [
   {
     n: "01",
-    title: "Pay the $99, book your hour",
-    body: "Two minutes. That locks your slot for this weekend's batch.",
+    title: "Claim your audit",
+    body: "Your name, email, and website. Thirty seconds.",
   },
   {
     n: "02",
-    title: "I audit over the weekend",
-    body: "Your site, your competitors, the whole picture. I do the deep work while you're off.",
+    title: "Pay the $99",
+    body: "Card, two minutes. That locks your slot for this weekend's batch.",
   },
   {
     n: "03",
-    title: "We talk Monday or Tuesday",
-    body: "One hour. I walk you through the teardown, the fix list, and the concept. You ask anything.",
+    title: "Book your hour",
+    body: "Right after payment you'll pick your readout time — Monday or Tuesday.",
   },
   {
     n: "04",
-    title: "You decide",
-    body: "Fix it yourself, hire me to build it, or do nothing. No pitch on the call — that's the deal.",
+    title: "We talk",
+    body: "One hour. I walk you through the teardown, the fix list, and the concept. You decide what happens next.",
   },
 ];
 
@@ -101,7 +104,190 @@ const faqs = [
   },
 ];
 
+type FormState = { name: string; email: string; website: string; notes: string };
+
+function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [step, setStep] = useState<1 | 2>(1);
+  const [form, setForm] = useState<FormState>({ name: "", email: "", website: "", notes: "" });
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  if (!open) return null;
+
+  const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const valid =
+    form.name.trim().length > 1 &&
+    /.+@.+\..+/.test(form.email.trim()) &&
+    form.website.trim().length > 3;
+
+  async function submitForm(e: React.FormEvent) {
+    e.preventDefault();
+    if (!valid || sending) return;
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch(LEAD_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          website: form.website.trim(),
+          notes: form.notes.trim(),
+          _subject: `New $99 audit signup — ${form.name.trim()}`,
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error(`lead capture failed (${res.status})`);
+      trackCta("Audit details submitted", "audit modal", STRIPE_URL);
+      setStep(2);
+    } catch (err) {
+      setError("Couldn't save your details — check your connection and try again.");
+    } finally {
+      setSending(false);
+    }
+  }
+
+  const payUrl = `${STRIPE_URL}?prefilled_email=${encodeURIComponent(form.email.trim())}`;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Claim your audit"
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border border-border/60 bg-card p-6 sm:p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between">
+          <div>
+            <p className="eyebrow">Weekend website audit — $99</p>
+            <h2 className="mt-2 text-2xl font-bold">
+              {step === 1 ? "Your details" : "Pay $99"}
+            </h2>
+          </div>
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="rounded-lg p-1 text-muted-foreground hover:text-foreground"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {step === 1 ? (
+          <form onSubmit={submitForm} className="mt-6 space-y-4">
+            <div>
+              <label htmlFor="audit-name" className="text-sm font-medium">Name</label>
+              <input
+                id="audit-name"
+                type="text"
+                autoComplete="name"
+                value={form.name}
+                onChange={set("name")}
+                placeholder="Jane Smith"
+                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="audit-email" className="text-sm font-medium">Email</label>
+              <input
+                id="audit-email"
+                type="email"
+                autoComplete="email"
+                value={form.email}
+                onChange={set("email")}
+                placeholder="jane@company.com"
+                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="audit-website" className="text-sm font-medium">Website</label>
+              <input
+                id="audit-website"
+                type="text"
+                autoComplete="url"
+                value={form.website}
+                onChange={set("website")}
+                placeholder="company.com"
+                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="audit-notes" className="text-sm font-medium">
+                Anything bugging you about it? <span className="text-muted-foreground">(optional)</span>
+              </label>
+              <textarea
+                id="audit-notes"
+                rows={3}
+                value={form.notes}
+                onChange={set("notes")}
+                placeholder="e.g. nobody fills out the contact form"
+                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
+            {error && <p className="text-sm text-red-400">{error}</p>}
+            <Button type="submit" size="lg" disabled={!valid || sending} className="w-full">
+              {sending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Saving…
+                </>
+              ) : (
+                <>
+                  Continue to payment <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+            <p className="text-center text-xs text-muted-foreground">
+              No spam, ever. Your details are only used for the audit.
+            </p>
+          </form>
+        ) : (
+          <div className="mt-6 space-y-4">
+            <p className="text-muted-foreground">
+              Thanks, {form.name.trim().split(" ")[0]} — your details are saved. One last
+              step: the $99 payment locks your slot for this weekend's batch.
+            </p>
+            <Button
+              size="lg"
+              asChild
+              className="w-full"
+              onClick={() => trackCta("Pay $99 — audit", "audit modal", payUrl)}
+            >
+              <a href={payUrl} target="_blank" rel="noreferrer">
+                Pay $99 — secure checkout <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <p className="text-center text-sm text-muted-foreground">
+              Right after payment you'll land on the booking page to pick your readout
+              hour — Monday or Tuesday.
+            </p>
+            <p className="text-center text-xs text-muted-foreground">
+              Already paid and lost the booking page?{" "}
+              <a href={CAL_URL} target="_blank" rel="noreferrer" className="underline">
+                Book your hour here
+              </a>
+              .
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function AuditPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    trackCta("Claim your audit — $99", "audit page", "modal");
+    setModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
@@ -118,29 +304,13 @@ function AuditPage() {
               and Monday or Tuesday we spend an hour on exactly what I'd fix and why.
               Then you decide what happens next.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button
-                size="lg"
-                asChild
-                onClick={() => trackCta("Pay $99 — audit", "audit hero", PAYMENT_URL)}
-              >
-                <a href={PAYMENT_URL}>
-                  Pay $99 — start the audit <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                onClick={() => trackCta("Book readout call — audit", "audit hero", profile.booking)}
-              >
-                <a href={profile.booking} target="_blank" rel="noreferrer">
-                  <CalendarClock className="mr-2 h-4 w-4" /> Book your readout hour
-                </a>
+            <div className="mt-8">
+              <Button size="lg" onClick={openModal}>
+                Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              Book the time, pay the $99. That's the whole process.
+              Details, payment, then pick your readout hour. That's the whole process.
             </p>
           </div>
         </section>
@@ -191,14 +361,8 @@ function AuditPage() {
             reorg work and audits stop. This batch is it.
           </p>
           <div className="mt-8">
-            <Button
-              size="lg"
-              asChild
-              onClick={() => trackCta("Pay $99 — audit", "audit scarcity", PAYMENT_URL)}
-            >
-              <a href={PAYMENT_URL}>
-                Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+            <Button size="lg" onClick={openModal}>
+              Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </section>
@@ -238,20 +402,15 @@ function AuditPage() {
               ))}
             </div>
             <div className="mt-12 text-center">
-              <Button
-                size="lg"
-                asChild
-                onClick={() => trackCta("Pay $99 — audit", "audit faq", PAYMENT_URL)}
-              >
-                <a href={PAYMENT_URL}>
-                  Pay $99 — start the audit <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+              <Button size="lg" onClick={openModal}>
+                Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
         </section>
       </main>
       <SiteFooter />
+      <AuditModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }
