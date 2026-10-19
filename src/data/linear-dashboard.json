@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18",
+ "generatedAt": "2026-10-19",
  "projects": [
   {
    "identifier": "P-SPIIX-9",
@@ -9,12 +9,36 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-190",
+     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-191",
+     "title": "Profolio: checkout + webhook + entitlement gating",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-191/profolio-checkout-webhook-entitlement-gating",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-192",
+     "title": "Profolio: customer portal + trial expiry handling",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-192/profolio-customer-portal-trial-expiry-handling",
+     "updated": "2026-10-19"
+    },
+    {
      "id": "SPIIX-189",
      "title": "Profolio: online signups + selling (7-day trial, $29/yr)",
      "status": "In Progress",
      "priority": "Urgent",
      "url": "https://linear.app/plxio/issue/SPIIX-189/profolio-online-signups-selling-7-day-trial-dollar29yr",
-     "updated": "2026-10-18"
+     "updated": "2026-10-19"
     },
     {
      "id": "SPIIX-93",
@@ -97,30 +121,6 @@
      "updated": "2026-10-14"
     },
     {
-     "id": "SPIIX-192",
-     "title": "Profolio: customer portal + trial expiry handling",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/SPIIX-192/profolio-customer-portal-trial-expiry-handling",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-191",
-     "title": "Profolio: checkout + webhook + entitlement gating",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/SPIIX-191/profolio-checkout-webhook-entitlement-gating",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-190",
-     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/SPIIX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
-     "updated": "2026-10-14"
-    },
-    {
      "id": "SPIIX-360",
      "title": "Landing-page visuals: Profolio",
      "status": "Done",
@@ -193,6 +193,14 @@
    "url": "https://linear.app/plxio/project/stageplot-ai-bd5d413c4adc",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-801",
+     "title": "Shared channel database: instrument/channel types + model lookup + default channel ordering (StagePlot AI)",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-801/shared-channel-database-instrumentchannel-types-model-lookup-default",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-84",
      "title": "Drag-and-drop stage canvas editor",
@@ -296,7 +304,7 @@
      "status": "Done",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-543/rotate-supabase-service-keys-binsly-rebuild-stevepeeleii",
-     "updated": "2026-10-18"
+     "updated": "2026-10-19"
     },
     {
      "id": "SPIIX-554",
@@ -668,6 +676,14 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-802",
+     "title": "Wire shared channel database + model lookup + default channel ordering (Monitor Mix Cheat)",
+     "status": "Done",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-802/wire-shared-channel-database-model-lookup-default-channel-ordering",
+     "updated": "2026-10-19"
+    },
+    {
      "id": "SPIIX-96",
      "title": "Dark venue mode",
      "status": "Done",
@@ -974,28 +990,12 @@
    "status": "In Progress",
    "issues": [
     {
-     "id": "SPIIX-475",
-     "title": "Stampd SaaS hardening: Stripe Pro checkout, Pro gating, analytics, subdomain",
-     "status": "In Progress",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-475/stampd-saas-hardening-stripe-pro-checkout-pro-gating-analytics",
-     "updated": "2026-10-17"
-    },
-    {
-     "id": "SPIIX-479",
-     "title": "Stampd: Segment analytics",
+     "id": "SPIIX-478",
+     "title": "Stampd: define + enforce Pro gating",
      "status": "Todo",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-479/stampd-segment-analytics",
-     "updated": "2026-10-16"
-    },
-    {
-     "id": "SPIIX-477",
-     "title": "Stampd: Stripe $29 one-time Pro checkout",
-     "status": "Todo",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-477/stampd-stripe-dollar29-one-time-pro-checkout",
-     "updated": "2026-10-16"
+     "url": "https://linear.app/plxio/issue/SPIIX-478/stampd-define-enforce-pro-gating",
+     "updated": "2026-10-19"
     },
     {
      "id": "SPIIX-480",
@@ -1003,15 +1003,31 @@
      "status": "Todo",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-480/stampd-stampdstevepeeleiicom-subdomain",
-     "updated": "2026-10-16"
+     "updated": "2026-10-19"
     },
     {
-     "id": "SPIIX-478",
-     "title": "Stampd: define + enforce Pro gating",
+     "id": "SPIIX-477",
+     "title": "Stampd: Stripe $29 one-time Pro checkout",
      "status": "Todo",
      "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-478/stampd-define-enforce-pro-gating",
-     "updated": "2026-10-16"
+     "url": "https://linear.app/plxio/issue/SPIIX-477/stampd-stripe-dollar29-one-time-pro-checkout",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-479",
+     "title": "Stampd: Segment analytics",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-479/stampd-segment-analytics",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-475",
+     "title": "Stampd SaaS hardening: Stripe Pro checkout, Pro gating, analytics, subdomain",
+     "status": "In Progress",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-475/stampd-saas-hardening-stripe-pro-checkout-pro-gating-analytics",
+     "updated": "2026-10-19"
     },
     {
      "id": "SPIIX-359",
