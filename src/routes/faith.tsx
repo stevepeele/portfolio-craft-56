@@ -528,61 +528,6 @@ function FaithPage() {
             It's "does a first-time visitor know where to go Sunday morning?"
           </blockquote>
 
-          {/* PROOF — SOZO CASE STUDY */}
-          <div
-            style={{
-              marginTop: 40,
-              padding: 28,
-              border: "1px solid var(--sx-line)",
-              background: "var(--sx-panel, transparent)",
-              maxWidth: 680,
-            }}
-          >
-            <p
-              style={{
-                fontFamily: '"JetBrains Mono",monospace',
-                fontSize: 11,
-                color: "var(--sx-kinetic)",
-                marginBottom: 12,
-              }}
-            >
-              / PROOF OF WORK
-            </p>
-            <h3 style={{ fontSize: "clamp(20px, 4vw, 28px)", marginBottom: 16 }}>
-              Sozo Loveland — rebuilt end to end.
-            </h3>
-            <p
-              style={{
-                fontSize: 13,
-                color: "var(--sx-muted)",
-                lineHeight: 1.85,
-                marginBottom: 16,
-              }}
-            >
-              Full church rebuild: cinematic homepage, Messages archive as
-              content tracks (series as albums, messages as tracks), event
-              venue pages, plan-your-visit concierge, online giving, prayer
-              room, live Sunday mode. Every page rebuilt around the
-              first-time visitor — from "who is this church?" to "see you
-              Sunday."
-            </p>
-            <a
-              href="https://sozo.stevepeeleii.com"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackFaithCta("Sozo Case Study", "why me", "https://sozo.stevepeeleii.com")}
-              style={{
-                fontFamily: '"JetBrains Mono",monospace',
-                fontSize: 13,
-                color: "var(--sx-kinetic)",
-                textDecoration: "underline",
-                textUnderlineOffset: 4,
-              }}
-            >
-              See the rebuild — sozo.stevepeeleii.com <ArrowRight size={14} style={{ display: "inline", verticalAlign: "middle" }} />
-            </a>
-          </div>
-
           <div style={{ marginTop: 36 }}>
             <Button asChild className="spiix-button">
               <a
