@@ -237,6 +237,27 @@ function OrganizationPage() {
       intro="Five layers, one chain of command. Steve sets direction; Lauren (COO) is the singular interface and owns every layer beneath her; Grokbot executes the mechanical work via scoped task orders; platforms are the substrate, each earning its place. Ruling final per Steve's 2026-10-14 org order — supersedes the 19:45 two-lead reconciliation."
       updated="2026-10-14"
     >
+      {/* 00 — Who's who */}
+      <section className="space-y-6">
+        <SectionHead n="00" sub="The personalities and roles, defined. One page each — the name is the contract.">
+          Who's <span className="text-gradient">who.</span>
+        </SectionHead>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { to: "/scaffolding/organization/lauren", name: "⚡ Lauren", role: "COO · L1 Command", blurb: "The singular interface. Head of ingestion — everything funnels through her." },
+            { to: "/scaffolding/organization/oscar", name: "Oscar", role: "The ops arm", blurb: "One entity, two faces: the work engine and the chatbot Steve talks to." },
+            { to: "/scaffolding/organization/grokbot", name: "Grokbot (GB)", role: "Worker agents", blurb: "Lauren's internal name for workers inside the Oscar arm. Not a separate entity." },
+            { to: "/scaffolding/organization/c3peeleo", name: "@c3peeleo", role: "Shelved X account", blurb: "The broken-robot character. Dead until Steve resurrects it." },
+          ].map((p) => (
+            <Link key={p.to} to={p.to} className="panel group p-5 transition-colors hover:border-foreground/40">
+              <p className="font-semibold text-foreground group-hover:underline">{p.name}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{p.role}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{p.blurb}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* 01 — The stack */}
       <section className="space-y-6">
         <SectionHead n="01" sub="Read top-down: authority flows down, results flow up. Nothing skips a layer.">

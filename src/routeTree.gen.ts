@@ -97,6 +97,10 @@ import { Route as HackingAppSlugChangelogRouteImport } from './routes/hacking.$a
 import { Route as ScaffoldingArchitectureIndexRouteImport } from './routes/scaffolding.architecture.index'
 import { Route as ScaffoldingArchitectureAnalyticsRouteImport } from './routes/scaffolding.architecture.analytics'
 import { Route as ScaffoldingArchitectureDataFlowsRouteImport } from './routes/scaffolding.architecture.data-flows'
+import { Route as ScaffoldingOrganizationC3peeleoRouteImport } from './routes/scaffolding.organization.c3peeleo'
+import { Route as ScaffoldingOrganizationGrokbotRouteImport } from './routes/scaffolding.organization.grokbot'
+import { Route as ScaffoldingOrganizationLaurenRouteImport } from './routes/scaffolding.organization.lauren'
+import { Route as ScaffoldingOrganizationOscarRouteImport } from './routes/scaffolding.organization.oscar'
 import { Route as ScaffoldingProjectsSlugRouteImport } from './routes/scaffolding.projects.$slug'
 import { Route as SpiixEngageEliteMentorshipRouteImport } from './routes/spiix.engage.elite-mentorship'
 import { Route as SpiixEngageFractionalAdvisoryRouteImport } from './routes/spiix.engage.fractional-advisory'
@@ -548,6 +552,30 @@ const ScaffoldingArchitectureDataFlowsRoute =
     path: '/data-flows',
     getParentRoute: () => ScaffoldingArchitectureRoute,
   } as any)
+const ScaffoldingOrganizationC3peeleoRoute =
+  ScaffoldingOrganizationC3peeleoRouteImport.update({
+    id: '/c3peeleo',
+    path: '/c3peeleo',
+    getParentRoute: () => ScaffoldingOrganizationRoute,
+  } as any)
+const ScaffoldingOrganizationGrokbotRoute =
+  ScaffoldingOrganizationGrokbotRouteImport.update({
+    id: '/grokbot',
+    path: '/grokbot',
+    getParentRoute: () => ScaffoldingOrganizationRoute,
+  } as any)
+const ScaffoldingOrganizationLaurenRoute =
+  ScaffoldingOrganizationLaurenRouteImport.update({
+    id: '/lauren',
+    path: '/lauren',
+    getParentRoute: () => ScaffoldingOrganizationRoute,
+  } as any)
+const ScaffoldingOrganizationOscarRoute =
+  ScaffoldingOrganizationOscarRouteImport.update({
+    id: '/oscar',
+    path: '/oscar',
+    getParentRoute: () => ScaffoldingOrganizationRoute,
+  } as any)
 const ScaffoldingProjectsSlugRoute = ScaffoldingProjectsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -627,7 +655,7 @@ export interface FileRoutesByFullPath {
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
-  '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
+  '/scaffolding/organization': typeof ScaffoldingOrganizationRouteWithChildren
   '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
   '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
@@ -659,6 +687,10 @@ export interface FileRoutesByFullPath {
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/organization/c3peeleo': typeof ScaffoldingOrganizationC3peeleoRoute
+  '/scaffolding/organization/grokbot': typeof ScaffoldingOrganizationGrokbotRoute
+  '/scaffolding/organization/lauren': typeof ScaffoldingOrganizationLaurenRoute
+  '/scaffolding/organization/oscar': typeof ScaffoldingOrganizationOscarRoute
   '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
@@ -717,7 +749,7 @@ export interface FileRoutesByTo {
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
-  '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
+  '/scaffolding/organization': typeof ScaffoldingOrganizationRouteWithChildren
   '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
   '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
@@ -749,6 +781,10 @@ export interface FileRoutesByTo {
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/organization/c3peeleo': typeof ScaffoldingOrganizationC3peeleoRoute
+  '/scaffolding/organization/grokbot': typeof ScaffoldingOrganizationGrokbotRoute
+  '/scaffolding/organization/lauren': typeof ScaffoldingOrganizationLaurenRoute
+  '/scaffolding/organization/oscar': typeof ScaffoldingOrganizationOscarRoute
   '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
@@ -812,7 +848,7 @@ export interface FileRoutesById {
   '/scaffolding/livelog': typeof ScaffoldingLivelogRoute
   '/scaffolding/monitoring': typeof ScaffoldingMonitoringRoute
   '/scaffolding/ops': typeof ScaffoldingOpsRoute
-  '/scaffolding/organization': typeof ScaffoldingOrganizationRoute
+  '/scaffolding/organization': typeof ScaffoldingOrganizationRouteWithChildren
   '/scaffolding/playbooks': typeof ScaffoldingPlaybooksRoute
   '/scaffolding/projects': typeof ScaffoldingProjectsRouteWithChildren
   '/scaffolding/runbook': typeof ScaffoldingRunbookRoute
@@ -844,6 +880,10 @@ export interface FileRoutesById {
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
+  '/scaffolding/organization/c3peeleo': typeof ScaffoldingOrganizationC3peeleoRoute
+  '/scaffolding/organization/grokbot': typeof ScaffoldingOrganizationGrokbotRoute
+  '/scaffolding/organization/lauren': typeof ScaffoldingOrganizationLaurenRoute
+  '/scaffolding/organization/oscar': typeof ScaffoldingOrganizationOscarRoute
   '/scaffolding/projects/$slug': typeof ScaffoldingProjectsSlugRoute
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
@@ -940,6 +980,10 @@ export interface FileRouteTypes {
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/organization/c3peeleo'
+    | '/scaffolding/organization/grokbot'
+    | '/scaffolding/organization/lauren'
+    | '/scaffolding/organization/oscar'
     | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
@@ -1030,6 +1074,10 @@ export interface FileRouteTypes {
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/organization/c3peeleo'
+    | '/scaffolding/organization/grokbot'
+    | '/scaffolding/organization/lauren'
+    | '/scaffolding/organization/oscar'
     | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
@@ -1124,6 +1172,10 @@ export interface FileRouteTypes {
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
+    | '/scaffolding/organization/c3peeleo'
+    | '/scaffolding/organization/grokbot'
+    | '/scaffolding/organization/lauren'
+    | '/scaffolding/organization/oscar'
     | '/scaffolding/projects/$slug'
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
@@ -1796,6 +1848,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScaffoldingArchitectureDataFlowsRouteImport
       parentRoute: typeof ScaffoldingArchitectureRoute
     }
+    '/scaffolding/organization/c3peeleo': {
+      id: '/scaffolding/organization/c3peeleo'
+      path: '/c3peeleo'
+      fullPath: '/scaffolding/organization/c3peeleo'
+      preLoaderRoute: typeof ScaffoldingOrganizationC3peeleoRouteImport
+      parentRoute: typeof ScaffoldingOrganizationRoute
+    }
+    '/scaffolding/organization/grokbot': {
+      id: '/scaffolding/organization/grokbot'
+      path: '/grokbot'
+      fullPath: '/scaffolding/organization/grokbot'
+      preLoaderRoute: typeof ScaffoldingOrganizationGrokbotRouteImport
+      parentRoute: typeof ScaffoldingOrganizationRoute
+    }
+    '/scaffolding/organization/lauren': {
+      id: '/scaffolding/organization/lauren'
+      path: '/lauren'
+      fullPath: '/scaffolding/organization/lauren'
+      preLoaderRoute: typeof ScaffoldingOrganizationLaurenRouteImport
+      parentRoute: typeof ScaffoldingOrganizationRoute
+    }
+    '/scaffolding/organization/oscar': {
+      id: '/scaffolding/organization/oscar'
+      path: '/oscar'
+      fullPath: '/scaffolding/organization/oscar'
+      preLoaderRoute: typeof ScaffoldingOrganizationOscarRouteImport
+      parentRoute: typeof ScaffoldingOrganizationRoute
+    }
     '/scaffolding/projects/$slug': {
       id: '/scaffolding/projects/$slug'
       path: '/$slug'
@@ -1867,6 +1947,26 @@ const ScaffoldingArchitectureRouteWithChildren =
     ScaffoldingArchitectureRouteChildren,
   )
 
+interface ScaffoldingOrganizationRouteChildren {
+  ScaffoldingOrganizationC3peeleoRoute: typeof ScaffoldingOrganizationC3peeleoRoute
+  ScaffoldingOrganizationGrokbotRoute: typeof ScaffoldingOrganizationGrokbotRoute
+  ScaffoldingOrganizationLaurenRoute: typeof ScaffoldingOrganizationLaurenRoute
+  ScaffoldingOrganizationOscarRoute: typeof ScaffoldingOrganizationOscarRoute
+}
+
+const ScaffoldingOrganizationRouteChildren: ScaffoldingOrganizationRouteChildren =
+  {
+    ScaffoldingOrganizationC3peeleoRoute: ScaffoldingOrganizationC3peeleoRoute,
+    ScaffoldingOrganizationGrokbotRoute: ScaffoldingOrganizationGrokbotRoute,
+    ScaffoldingOrganizationLaurenRoute: ScaffoldingOrganizationLaurenRoute,
+    ScaffoldingOrganizationOscarRoute: ScaffoldingOrganizationOscarRoute,
+  }
+
+const ScaffoldingOrganizationRouteWithChildren =
+  ScaffoldingOrganizationRoute._addFileChildren(
+    ScaffoldingOrganizationRouteChildren,
+  )
+
 interface ScaffoldingProjectsRouteChildren {
   ScaffoldingProjectsSlugRoute: typeof ScaffoldingProjectsSlugRoute
 }
@@ -1889,7 +1989,7 @@ interface ScaffoldingRouteChildren {
   ScaffoldingLivelogRoute: typeof ScaffoldingLivelogRoute
   ScaffoldingMonitoringRoute: typeof ScaffoldingMonitoringRoute
   ScaffoldingOpsRoute: typeof ScaffoldingOpsRoute
-  ScaffoldingOrganizationRoute: typeof ScaffoldingOrganizationRoute
+  ScaffoldingOrganizationRoute: typeof ScaffoldingOrganizationRouteWithChildren
   ScaffoldingPlaybooksRoute: typeof ScaffoldingPlaybooksRoute
   ScaffoldingProjectsRoute: typeof ScaffoldingProjectsRouteWithChildren
   ScaffoldingRunbookRoute: typeof ScaffoldingRunbookRoute
@@ -1910,7 +2010,7 @@ const ScaffoldingRouteChildren: ScaffoldingRouteChildren = {
   ScaffoldingLivelogRoute: ScaffoldingLivelogRoute,
   ScaffoldingMonitoringRoute: ScaffoldingMonitoringRoute,
   ScaffoldingOpsRoute: ScaffoldingOpsRoute,
-  ScaffoldingOrganizationRoute: ScaffoldingOrganizationRoute,
+  ScaffoldingOrganizationRoute: ScaffoldingOrganizationRouteWithChildren,
   ScaffoldingPlaybooksRoute: ScaffoldingPlaybooksRoute,
   ScaffoldingProjectsRoute: ScaffoldingProjectsRouteWithChildren,
   ScaffoldingRunbookRoute: ScaffoldingRunbookRoute,

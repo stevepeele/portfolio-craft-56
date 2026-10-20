@@ -21,10 +21,10 @@ export function MuseReferralBanner() {
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-2 text-xs sm:text-sm">
         <span className="muse-banner-tag">Muse</span>
         <p className="min-w-0 flex-1 truncate">
-          <strong>Let me give you one billion tokens.</strong>
+          <strong>Let me hook you up with Muse.</strong>
           <span className="hidden sm:inline">
             {" "}
-            The AI toolkit I actually use every day — start with a serious head start.
+            The AI toolkit I actually use every day — join with my code and we both get free tokens.
           </span>
         </p>
         <a
