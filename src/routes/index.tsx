@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Quote } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { TeamAndOrg } from "@/components/team-and-org";
 import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations, workedWith } from "@/data/resume";
 
 export const Route = createFileRoute("/")({
@@ -227,6 +228,8 @@ function Home() {
           </ul>
         </div>
       </section>
+
+      <TeamAndOrg />
 
       <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
         <p className="eyebrow">Ways to work with me</p>
