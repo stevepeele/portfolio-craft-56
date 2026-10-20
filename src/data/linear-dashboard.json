@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19",
+ "generatedAt": "2026-10-20",
  "projects": [
   {
    "identifier": "P-SPIIX-9",
@@ -9,20 +9,12 @@
    "status": "In Progress",
    "issues": [
     {
-     "id": "SPIIX-190",
-     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
-     "status": "Todo",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/SPIIX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
-     "updated": "2026-10-19"
-    },
-    {
      "id": "SPIIX-191",
      "title": "Profolio: checkout + webhook + entitlement gating",
      "status": "Todo",
      "priority": "Urgent",
      "url": "https://linear.app/plxio/issue/SPIIX-191/profolio-checkout-webhook-entitlement-gating",
-     "updated": "2026-10-19"
+     "updated": "2026-10-20"
     },
     {
      "id": "SPIIX-192",
@@ -30,14 +22,54 @@
      "status": "Todo",
      "priority": "Urgent",
      "url": "https://linear.app/plxio/issue/SPIIX-192/profolio-customer-portal-trial-expiry-handling",
-     "updated": "2026-10-19"
+     "updated": "2026-10-20"
+    },
+    {
+     "id": "SPIIX-190",
+     "title": "Profolio: Stripe product + 9/yr price with 7-day trial",
+     "status": "Todo",
+     "priority": "Urgent",
+     "url": "https://linear.app/plxio/issue/SPIIX-190/profolio-stripe-product-9yr-price-with-7-day-trial",
+     "updated": "2026-10-20"
     },
     {
      "id": "SPIIX-189",
      "title": "Profolio: online signups + selling (7-day trial, $29/yr)",
-     "status": "In Progress",
+     "status": "Todo",
      "priority": "Urgent",
      "url": "https://linear.app/plxio/issue/SPIIX-189/profolio-online-signups-selling-7-day-trial-dollar29yr",
+     "updated": "2026-10-20"
+    },
+    {
+     "id": "SPIIX-50",
+     "title": "Email verification and password reset flows",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-50/email-verification-and-password-reset-flows",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-51",
+     "title": "Custom domain support for Pro users",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-51/custom-domain-support-for-pro-users",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-52",
+     "title": "Per-page analytics (views, clicks)",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-52/per-page-analytics-views-clicks",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-49",
+     "title": "Fix empty first-run state for new signups",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-49/fix-empty-first-run-state-for-new-signups",
      "updated": "2026-10-19"
     },
     {
@@ -65,22 +97,6 @@
      "updated": "2026-10-14"
     },
     {
-     "id": "SPIIX-52",
-     "title": "Per-page analytics (views, clicks)",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-52/per-page-analytics-views-clicks",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-51",
-     "title": "Custom domain support for Pro users",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-51/custom-domain-support-for-pro-users",
-     "updated": "2026-10-14"
-    },
-    {
      "id": "SPIIX-91",
      "title": "PDF export of baseline",
      "status": "Backlog",
@@ -102,22 +118,6 @@
      "status": "Backlog",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-89/ai-baseline-draft-generator",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-49",
-     "title": "Fix empty first-run state for new signups",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-49/fix-empty-first-run-state-for-new-signups",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-50",
-     "title": "Email verification and password reset flows",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-50/email-verification-and-password-reset-flows",
      "updated": "2026-10-14"
     },
     {
@@ -194,6 +194,54 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-45",
+     "title": "Expand instrument/gear symbol library",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-45/expand-instrumentgear-symbol-library",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-47",
+     "title": "Autosave drafts and crash recovery",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-47/autosave-drafts-and-crash-recovery",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-85",
+     "title": "Input list templates by ensemble type",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-85/input-list-templates-by-ensemble-type",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-87",
+     "title": "Share editable plot with bandmates",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-87/share-editable-plot-with-bandmates",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-88",
+     "title": "Venue profile presets",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-88/venue-profile-presets",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-44",
+     "title": "Mobile layout breaks on small screens",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-44/mobile-layout-breaks-on-small-screens",
+     "updated": "2026-10-19"
+    },
+    {
      "id": "SPIIX-801",
      "title": "Shared channel database: instrument/channel types + model lookup + default channel ordering (StagePlot AI)",
      "status": "Done",
@@ -207,14 +255,6 @@
      "status": "Done",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-84/drag-and-drop-stage-canvas-editor",
-     "updated": "2026-10-13"
-    },
-    {
-     "id": "SPIIX-44",
-     "title": "Mobile layout breaks on small screens",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-44/mobile-layout-breaks-on-small-screens",
      "updated": "2026-10-13"
     },
     {
@@ -248,46 +288,6 @@
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-176/stageplot-ai-v2-production-pdf-share-links-drag-drop-canvas",
      "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-88",
-     "title": "Venue profile presets",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/SPIIX-88/venue-profile-presets",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-87",
-     "title": "Share editable plot with bandmates",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-87/share-editable-plot-with-bandmates",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-85",
-     "title": "Input list templates by ensemble type",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-85/input-list-templates-by-ensemble-type",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-47",
-     "title": "Autosave drafts and crash recovery",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-47/autosave-drafts-and-crash-recovery",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-45",
-     "title": "Expand instrument/gear symbol library",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-45/expand-instrumentgear-symbol-library",
-     "updated": "2026-10-12"
     }
    ]
   },
@@ -298,6 +298,94 @@
    "url": "https://linear.app/plxio/project/binsly-865787006a1d",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-58",
+     "title": "Run security scan (status: Out of date)",
+     "status": "Backlog",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-58/run-security-scan-status-out-of-date",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-61",
+     "title": "Integration credits exhausted — evaluate plan",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-61/integration-credits-exhausted-evaluate-plan",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-59",
+     "title": "Fix long-post body limit (NewsPost.body)",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-59/fix-long-post-body-limit-newspostbody",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-259",
+     "title": "Parse X data archive bookmark.js",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-259/parse-x-data-archive-bookmarkjs",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-60",
+     "title": "Logged-out marketing page spot-check",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-60/logged-out-marketing-page-spot-check",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-289",
+     "title": "Chrome extension for Binsly — quick-save from anywhere",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-289/chrome-extension-for-binsly-quick-save-from-anywhere",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-294",
+     "title": "Rewrite Binsly blog posts — comprehensive + images",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-294/rewrite-binsly-blog-posts-comprehensive-images",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-256",
+     "title": "Static pull v1",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-256/static-pull-v1",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-257",
+     "title": "Real time update and connection v2",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-257/real-time-update-and-connection-v2",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-258",
+     "title": "Changes to bin items affect x bookmark folder.",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-258/changes-to-bin-items-affect-x-bookmark-folder",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-62",
+     "title": "Add 'play with sound' hint on hero video",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-62/add-play-with-sound-hint-on-hero-video",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-543",
      "title": "Rotate Supabase service keys (binsly-rebuild + stevepeeleii)",
@@ -328,94 +416,6 @@
      "status": "Backlog",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-156/build-native-android-app-for-binsly",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-62",
-     "title": "Add 'play with sound' hint on hero video",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/SPIIX-62/add-play-with-sound-hint-on-hero-video",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-258",
-     "title": "Changes to bin items affect x bookmark folder.",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-258/changes-to-bin-items-affect-x-bookmark-folder",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-257",
-     "title": "Real time update and connection v2",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-257/real-time-update-and-connection-v2",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-256",
-     "title": "Static pull v1",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-256/static-pull-v1",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-294",
-     "title": "Rewrite Binsly blog posts — comprehensive + images",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-294/rewrite-binsly-blog-posts-comprehensive-images",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-289",
-     "title": "Chrome extension for Binsly — quick-save from anywhere",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-289/chrome-extension-for-binsly-quick-save-from-anywhere",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-60",
-     "title": "Logged-out marketing page spot-check",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-60/logged-out-marketing-page-spot-check",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-259",
-     "title": "Parse X data archive bookmark.js",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-259/parse-x-data-archive-bookmarkjs",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-59",
-     "title": "Fix long-post body limit (NewsPost.body)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-59/fix-long-post-body-limit-newspostbody",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-61",
-     "title": "Integration credits exhausted — evaluate plan",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-61/integration-credits-exhausted-evaluate-plan",
-     "updated": "2026-10-14"
-    },
-    {
-     "id": "SPIIX-58",
-     "title": "Run security scan (status: Out of date)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-58/run-security-scan-status-out-of-date",
      "updated": "2026-10-14"
     },
     {
@@ -676,6 +676,54 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-54",
+     "title": "Offline mode for venue use",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-54/offline-mode-for-venue-use",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-55",
+     "title": "IEM vs wedge quick-toggle presets",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-55/iem-vs-wedge-quick-toggle-presets",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-57",
+     "title": "Search and filter across mix entries",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-57/search-and-filter-across-mix-entries",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-94",
+     "title": "Venue monitor presets",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-94/venue-monitor-presets",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-95",
+     "title": "Band instrument profile to auto starting points",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-95/band-instrument-profile-to-auto-starting-points",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-97",
+     "title": "Feedback frequency quick-reference",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-97/feedback-frequency-quick-reference",
+     "updated": "2026-10-19"
+    },
+    {
      "id": "SPIIX-802",
      "title": "Wire shared channel database + model lookup + default channel ordering (Monitor Mix Cheat)",
      "status": "Done",
@@ -722,54 +770,6 @@
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-178/monitor-mix-cheat-v2-print-layout-share-link-dark-venue-mode",
      "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-97",
-     "title": "Feedback frequency quick-reference",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-97/feedback-frequency-quick-reference",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-95",
-     "title": "Band instrument profile to auto starting points",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-95/band-instrument-profile-to-auto-starting-points",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-94",
-     "title": "Venue monitor presets",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-94/venue-monitor-presets",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-57",
-     "title": "Search and filter across mix entries",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/SPIIX-57/search-and-filter-across-mix-entries",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-55",
-     "title": "IEM vs wedge quick-toggle presets",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-55/iem-vs-wedge-quick-toggle-presets",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-54",
-     "title": "Offline mode for venue use",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-54/offline-mode-for-venue-use",
-     "updated": "2026-10-12"
     }
    ]
   },
@@ -780,6 +780,86 @@
    "url": "https://linear.app/plxio/project/dardo-6604296e937b",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-65",
+     "title": "Automate the AI evening brief (scheduled job)",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-65/automate-the-ai-evening-brief-scheduled-job",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-67",
+     "title": "Recruit 10-agent pilot cohort",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-67/recruit-10-agent-pilot-cohort",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-99",
+     "title": "CRM integrations (Follow Up Boss, kvCORE)",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-99/crm-integrations-follow-up-boss-kvcore",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-100",
+     "title": "Open house mode",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-100/open-house-mode",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-101",
+     "title": "Showing feedback auto-texts",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-101/showing-feedback-auto-texts",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-103",
+     "title": "Referral partner tracker",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-103/referral-partner-tracker",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-68",
+     "title": "Validate mileage tracking accuracy",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-68/validate-mileage-tracking-accuracy",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-66",
+     "title": "Legal: ToS and privacy policy for agent data",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-66/legal-tos-and-privacy-policy-for-agent-data",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-64",
+     "title": "Take Stripe live for $4.99/mo billing",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-64/take-stripe-live-for-dollar499mo-billing",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-145",
+     "title": "Team / brokerage roll-up views",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-145/team-brokerage-roll-up-views",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-442",
      "title": "Dardo v3: product release video",
@@ -829,14 +909,6 @@
      "updated": "2026-10-14"
     },
     {
-     "id": "SPIIX-64",
-     "title": "Take Stripe live for $4.99/mo billing",
-     "status": "Backlog",
-     "priority": "Urgent",
-     "url": "https://linear.app/plxio/issue/SPIIX-64/take-stripe-live-for-dollar499mo-billing",
-     "updated": "2026-10-14"
-    },
-    {
      "id": "SPIIX-281",
      "title": "Add HubSpot tracking snippet (portal 22009185)",
      "status": "Done",
@@ -866,14 +938,6 @@
      "status": "Done",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-179/dardo-v2-follow-up-queue-expenses-route-classification",
-     "updated": "2026-10-13"
-    },
-    {
-     "id": "SPIIX-66",
-     "title": "Legal: ToS and privacy policy for agent data",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-66/legal-tos-and-privacy-policy-for-agent-data",
      "updated": "2026-10-13"
     },
     {
@@ -915,70 +979,6 @@
      "priority": "No priority",
      "url": "https://linear.app/plxio/issue/SPIIX-143/v1-build-dardo",
      "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-68",
-     "title": "Validate mileage tracking accuracy",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-68/validate-mileage-tracking-accuracy",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-145",
-     "title": "Team / brokerage roll-up views",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-145/team-brokerage-roll-up-views",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-103",
-     "title": "Referral partner tracker",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/SPIIX-103/referral-partner-tracker",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-101",
-     "title": "Showing feedback auto-texts",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-101/showing-feedback-auto-texts",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-100",
-     "title": "Open house mode",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-100/open-house-mode",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-99",
-     "title": "CRM integrations (Follow Up Boss, kvCORE)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-99/crm-integrations-follow-up-boss-kvcore",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-67",
-     "title": "Recruit 10-agent pilot cohort",
-     "status": "Backlog",
-     "priority": "Medium",
-     "url": "https://linear.app/plxio/issue/SPIIX-67/recruit-10-agent-pilot-cohort",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-65",
-     "title": "Automate the AI evening brief (scheduled job)",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-65/automate-the-ai-evening-brief-scheduled-job",
-     "updated": "2026-10-12"
     }
    ]
   },
@@ -989,6 +989,30 @@
    "url": "https://linear.app/plxio/project/stampd-e8f7b28cea0a",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-475",
+     "title": "Stampd SaaS hardening: Stripe Pro checkout, Pro gating, analytics, subdomain",
+     "status": "Todo",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-475/stampd-saas-hardening-stripe-pro-checkout-pro-gating-analytics",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-112",
+     "title": "Cash-out report PDF",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-112/cash-out-report-pdf",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-128",
+     "title": "Cloud sync / device recovery",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-128/cloud-sync-device-recovery",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-478",
      "title": "Stampd: define + enforce Pro gating",
@@ -1019,14 +1043,6 @@
      "status": "Todo",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-479/stampd-segment-analytics",
-     "updated": "2026-10-19"
-    },
-    {
-     "id": "SPIIX-475",
-     "title": "Stampd SaaS hardening: Stripe Pro checkout, Pro gating, analytics, subdomain",
-     "status": "In Progress",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-475/stampd-saas-hardening-stripe-pro-checkout-pro-gating-analytics",
      "updated": "2026-10-19"
     },
     {
@@ -1067,14 +1083,6 @@
      "status": "Canceled",
      "priority": "No priority",
      "url": "https://linear.app/plxio/issue/SPIIX-125/crew-view-for-foremen",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-112",
-     "title": "Cash-out report PDF",
-     "status": "Backlog",
-     "priority": "Low",
-     "url": "https://linear.app/plxio/issue/SPIIX-112/cash-out-report-pdf",
      "updated": "2026-10-12"
     },
     {
@@ -1148,14 +1156,6 @@
      "priority": "No priority",
      "url": "https://linear.app/plxio/issue/SPIIX-129/crew-view-for-foremen",
      "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-128",
-     "title": "Cloud sync / device recovery",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-128/cloud-sync-device-recovery",
-     "updated": "2026-10-12"
     }
    ]
   },
@@ -1167,12 +1167,20 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-138",
+     "title": "Visual caption / carousel-outline modes",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-138/visual-caption-carousel-outline-modes",
+     "updated": "2026-10-19"
+    },
+    {
      "id": "SPIIX-337",
      "title": "Urgently make repurpose engine not suck",
      "status": "Backlog",
-     "priority": "No priority",
+     "priority": "Urgent",
      "url": "https://linear.app/plxio/issue/SPIIX-337/urgently-make-repurpose-engine-not-suck",
-     "updated": "2026-10-17"
+     "updated": "2026-10-19"
     },
     {
      "id": "SPIIX-181",
@@ -1253,14 +1261,6 @@
      "priority": "Medium",
      "url": "https://linear.app/plxio/issue/SPIIX-165/auth-settings-landing-headroom-removal-2026-10-12",
      "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-138",
-     "title": "Visual caption / carousel-outline modes",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-138/visual-caption-carousel-outline-modes",
-     "updated": "2026-10-12"
     }
    ]
   },
@@ -1271,6 +1271,14 @@
    "url": "https://linear.app/plxio/project/gigsplit-64c89b3c6624",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-141",
+     "title": "Cloud sync via Supabase when cross-device demand is proven",
+     "status": "Backlog",
+     "priority": "Low",
+     "url": "https://linear.app/plxio/issue/SPIIX-141/cloud-sync-via-supabase-when-cross-device-demand-is-proven",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-282",
      "title": "Add HubSpot tracking snippet (portal 22009185)",
@@ -1312,14 +1320,6 @@
      "updated": "2026-10-12"
     },
     {
-     "id": "SPIIX-141",
-     "title": "Cloud sync via Supabase when cross-device demand is proven",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-141/cloud-sync-via-supabase-when-cross-device-demand-is-proven",
-     "updated": "2026-10-12"
-    },
-    {
      "id": "SPIIX-120",
      "title": "v1 build: GigSplit",
      "status": "Done",
@@ -1336,6 +1336,38 @@
    "url": "https://linear.app/plxio/project/quotequick-00e62bef5b61",
    "status": "In Progress",
    "issues": [
+    {
+     "id": "SPIIX-131",
+     "title": "Saved customers + quote history",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-131/saved-customers-quote-history",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-133",
+     "title": "Estimate approval + deposit link",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-133/estimate-approval-deposit-link",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-135",
+     "title": "Cloud backup",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-135/cloud-backup",
+     "updated": "2026-10-19"
+    },
+    {
+     "id": "SPIIX-132",
+     "title": "Reusable service/material catalog",
+     "status": "Backlog",
+     "priority": "Medium",
+     "url": "https://linear.app/plxio/issue/SPIIX-132/reusable-servicematerial-catalog",
+     "updated": "2026-10-19"
+    },
     {
      "id": "SPIIX-283",
      "title": "Add HubSpot tracking snippet (portal 22009185)",
@@ -1366,38 +1398,6 @@
      "status": "Done",
      "priority": "No priority",
      "url": "https://linear.app/plxio/issue/SPIIX-121/v1-build-quotequick",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-132",
-     "title": "Reusable service/material catalog",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-132/reusable-servicematerial-catalog",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-135",
-     "title": "Cloud backup",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-135/cloud-backup",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-133",
-     "title": "Estimate approval + deposit link",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-133/estimate-approval-deposit-link",
-     "updated": "2026-10-12"
-    },
-    {
-     "id": "SPIIX-131",
-     "title": "Saved customers + quote history",
-     "status": "Backlog",
-     "priority": "No priority",
-     "url": "https://linear.app/plxio/issue/SPIIX-131/saved-customers-quote-history",
      "updated": "2026-10-12"
     }
    ]
