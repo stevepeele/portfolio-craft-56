@@ -1,6 +1,60 @@
 {
  "deploys": [
   {
+   "id": "vercel-20261020-d499ff6",
+   "date": "2026-10-20",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-909: The Lab — Vault copy fix (drop stale template count, kits/frameworks framing) — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "d499ff6"
+  },
+  {
+   "id": "vercel-20261020-9979918",
+   "date": "2026-10-20",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-909: The Lab v1 (public/lab/index.html) + lab.stevepeeleii.com host rewrite — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "9979918"
+  },
+  {
+   "id": "vercel-20261020-f2aaed0",
+   "date": "2026-10-20",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-907: About page — team section (Steve/Lauren/Oscar, persona links) + personified org chart — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "f2aaed0"
+  },
+  {
+   "id": "vercel-20261020-405a46a",
+   "date": "2026-10-19",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-903: standalone identity pages /meet/oscar + /meet/lauren (unlinked, noindex) — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "405a46a"
+  },
+  {
+   "id": "vercel-20261020-5995726",
+   "date": "2026-10-19",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "Daily Linear dashboard snapshot sync 2026-10-19 — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "5995726"
+  },
+  {
+   "id": "vercel-20261020-2f95bf5",
+   "date": "2026-10-19",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding): daily changelog + deploy log update — auto-deployed on push to main (latest production deployment READY at HEAD, dpl_482eWVbn3HyNZPGMLP1uiRDGDtEH).",
+   "ref": "2f95bf5"
+  },
+  {
    "id": "vercel-20261019-593f2e7",
    "date": "2026-10-19",
    "project": "stevepeeleii.com",
@@ -379,7 +433,7 @@
    "status": "READY"
   }
  ],
- "generated_at": "2026-10-19T06:25:53-0400",
+ "generated_at": "2026-10-20T06:25:34-0400",
  "generated_by": "daily cron (scaffolding-changelog-updater) — Vercel deploy feed",
  "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
  "pipeline": {

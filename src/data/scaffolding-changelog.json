@@ -1,6 +1,238 @@
 {
  "entries": [
   {
+   "id": "github-20261020-portfolio-craft-56",
+   "date": "2026-10-20",
+   "title": "6 commits to stevepeele/portfolio-craft-56 on main",
+   "source": "github",
+   "ref": "stevepeele/portfolio-craft-56",
+   "detail": "d499ff6 SPIIX-909: The Lab — Vault copy fix (drop stale template count, kits/frameworks framing)\n9979918 SPIIX-909: The Lab v1 (public/lab/index.html) + lab.stevepeeleii.com host rewrite\nf2aaed0 SPIIX-907: About page — team section (Steve/Lauren/Oscar, persona links) + personified org chart\n405a46a SPIIX-903: standalone identity pages /meet/oscar + /meet/lauren (unlinked, noindex)\n5995726 Daily Linear dashboard snapshot sync 2026-10-19\n2f95bf5 chore(scaffolding): daily changelog + deploy log update"
+  },
+  {
+   "id": "linear-spiix-882",
+   "date": "2026-10-20",
+   "title": "Correction emails to 6 wrong-hook prospects: send or drop",
+   "source": "linear",
+   "ref": "SPIIX-882",
+   "detail": "Project: Local Growth Engine · Completed 2026-10-20T06:13:37.998Z"
+  },
+  {
+   "id": "linear-spiix-909",
+   "date": "2026-10-20",
+   "title": "The Lab — lab.stevepeeleii.com: book of record (course + Vault + builders)",
+   "source": "linear",
+   "ref": "SPIIX-909",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-20T05:48:58.331Z"
+  },
+  {
+   "id": "linear-spiix-904",
+   "date": "2026-10-19",
+   "title": "Tighten grokbot-muse watcher: 15m → 5m for real-time feel",
+   "source": "linear",
+   "ref": "SPIIX-904",
+   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-20T02:53:46.661Z"
+  },
+  {
+   "id": "linear-spiix-903",
+   "date": "2026-10-19",
+   "title": "Identity pages: /meet/lauren + /meet/oscar — standalone persona pages (sprint)",
+   "source": "linear",
+   "ref": "SPIIX-903",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-20T02:39:29.906Z"
+  },
+  {
+   "id": "linear-spiix-899",
+   "date": "2026-10-19",
+   "title": "NRRO mailing notice PDF — dead-serious resident notice about local Rockstar sightings",
+   "source": "linear",
+   "ref": "SPIIX-899",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-19T22:40:42.709Z"
+  },
+  {
+   "id": "linear-spiix-898",
+   "date": "2026-10-19",
+   "title": "Build NRRO satirical site — Bigfoot-parody 'hunt' for Rockstar Energy, 5 pages + merch",
+   "source": "linear",
+   "ref": "SPIIX-898",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-19T22:25:56.076Z"
+  },
+  {
+   "id": "linear-spiix-895",
+   "date": "2026-10-19",
+   "title": "WIP triage: make every In Progress status real (60 currently)",
+   "source": "linear",
+   "ref": "SPIIX-895",
+   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-19T17:03:12.519Z"
+  },
+  {
+   "id": "linear-spiix-530",
+   "date": "2026-10-19",
+   "title": "Hearth rebuild v1 — clone Base44 app as custom code",
+   "source": "linear",
+   "ref": "SPIIX-530",
+   "detail": "Project: Hearth — household manager (Base44 replatform) · Completed 2026-10-19T17:02:34.094Z"
+  },
+  {
+   "id": "linear-spiix-634",
+   "date": "2026-10-19",
+   "title": "$99 weekend audit sprint pivot — landing page + outreach rewrites",
+   "source": "linear",
+   "ref": "SPIIX-634",
+   "detail": "Project: Local Growth Engine · Completed 2026-10-19T17:02:30.789Z"
+  },
+  {
+   "id": "linear-spiix-402",
+   "date": "2026-10-19",
+   "title": "Sozo publish: sozo.stevepeeleii.com subdomain + DNS + go-live",
+   "source": "linear",
+   "ref": "SPIIX-402",
+   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-19T17:02:26.943Z"
+  },
+  {
+   "id": "linear-spiix-339",
+   "date": "2026-10-19",
+   "title": "Build Interview Prep AI v1",
+   "source": "linear",
+   "ref": "SPIIX-339",
+   "detail": "Project: Interview Prep AI · Completed 2026-10-19T17:02:25.110Z"
+  },
+  {
+   "id": "linear-spiix-727",
+   "date": "2026-10-19",
+   "title": "[build] Oscar: Ummmmm visitor and site analytics not populating on mission control",
+   "source": "linear",
+   "ref": "SPIIX-727",
+   "detail": "Project: Switchboard — unified AI entry point (working title) · Completed 2026-10-19T17:02:22.292Z"
+  },
+  {
+   "id": "linear-spiix-702",
+   "date": "2026-10-19",
+   "title": "Expand Mission Control registry: include ALL projects (user: more than 9)",
+   "source": "linear",
+   "ref": "SPIIX-702",
+   "detail": "Project: AI Operations Command Center · Completed 2026-10-19T17:02:20.453Z"
+  },
+  {
+   "id": "linear-spiix-422",
+   "date": "2026-10-19",
+   "title": "Architecture research: platform integration + voice infra",
+   "source": "linear",
+   "ref": "SPIIX-422",
+   "detail": "Project: Voice Standup · Completed 2026-10-19T17:02:17.909Z"
+  },
+  {
+   "id": "linear-spiix-647",
+   "date": "2026-10-19",
+   "title": "SOURCE: 100 new prospects, email-or-drop rule (2026-10-16)",
+   "source": "linear",
+   "ref": "SPIIX-647",
+   "detail": "Project: Local Growth Engine · Completed 2026-10-19T17:02:15.489Z"
+  },
+  {
+   "id": "linear-spiix-866",
+   "date": "2026-10-19",
+   "title": "Vault: community content flow — package Reddit-sweep finds as Community collection",
+   "source": "linear",
+   "ref": "SPIIX-866",
+   "detail": "Project: Muse Templates · Completed 2026-10-19T17:02:13.002Z"
+  },
+  {
+   "id": "linear-spiix-879",
+   "date": "2026-10-19",
+   "title": "Confirm Behringer mixer $50 close with Elvin",
+   "source": "linear",
+   "ref": "SPIIX-879",
+   "detail": "Project: Admin · Completed 2026-10-19T16:51:33.233Z"
+  },
+  {
+   "id": "linear-spiix-891",
+   "date": "2026-10-19",
+   "title": "Ask7: Weekly time blocks readout (voice-note ask #7)",
+   "source": "linear",
+   "ref": "SPIIX-891",
+   "detail": "Project: Admin · Completed 2026-10-19T16:50:53.600Z"
+  },
+  {
+   "id": "linear-spiix-890",
+   "date": "2026-10-19",
+   "title": "Ask6: Job hunt + court updates status (voice-note ask #6)",
+   "source": "linear",
+   "ref": "SPIIX-890",
+   "detail": "Project: Admin · Completed 2026-10-19T16:50:49.995Z"
+  },
+  {
+   "id": "linear-spiix-889",
+   "date": "2026-10-19",
+   "title": "Ask5: Dev projects status (voice-note ask #5)",
+   "source": "linear",
+   "ref": "SPIIX-889",
+   "detail": "Project: Admin · Completed 2026-10-19T16:50:48.098Z"
+  },
+  {
+   "id": "linear-spiix-888",
+   "date": "2026-10-19",
+   "title": "Daily summary + weekly setup readout (voice-note ask #3)",
+   "source": "linear",
+   "ref": "SPIIX-888",
+   "detail": "Project: Admin · Completed 2026-10-19T16:50:45.219Z"
+  },
+  {
+   "id": "linear-spiix-874",
+   "date": "2026-10-19",
+   "title": "Intake sweep: every open item filed in SPIIX (due EOD Tue 2026-10-20)",
+   "source": "linear",
+   "ref": "SPIIX-874",
+   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-19T16:19:44.439Z"
+  },
+  {
+   "id": "linear-spiix-873",
+   "date": "2026-10-19",
+   "title": "Top 3 revenue moves — draft as Linear issues (due EOD 2026-10-19)",
+   "source": "linear",
+   "ref": "SPIIX-873",
+   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-19T16:15:01.746Z"
+  },
+  {
+   "id": "linear-spiix-872",
+   "date": "2026-10-19",
+   "title": "Channel asks 11:28–11:36 ET (2026-10-19) — alias, invites, admin",
+   "source": "linear",
+   "ref": "SPIIX-872",
+   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-19T15:55:16Z"
+  },
+  {
+   "id": "linear-spiix-406",
+   "date": "2026-10-19",
+   "title": "Enhance blog post cards: tags/topics, new/hot badges, description, author name",
+   "source": "linear",
+   "ref": "SPIIX-406",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-19T10:49:43.191Z"
+  },
+  {
+   "id": "linear-spiix-439",
+   "date": "2026-10-19",
+   "title": "New template: Blanket Trust — standing permission statement for Muse",
+   "source": "linear",
+   "ref": "SPIIX-439",
+   "detail": "Project: Muse Templates · Completed 2026-10-19T10:49:37.512Z"
+  },
+  {
+   "id": "linear-spiix-324",
+   "date": "2026-10-19",
+   "title": "Migrate main site from Lovable to Vercel",
+   "source": "linear",
+   "ref": "SPIIX-324",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-19T10:37:30.934Z"
+  },
+  {
+   "id": "linear-spiix-646",
+   "date": "2026-10-19",
+   "title": "HUNT: direct emails for 70 logistics fallback prospects (2026-10-16)",
+   "source": "linear",
+   "ref": "SPIIX-646",
+   "detail": "Project: Local Growth Engine · Completed 2026-10-19T10:33:15.463Z"
+  },
+  {
    "id": "github-20261019-portfolio-craft-56",
    "date": "2026-10-19",
    "title": "9 commits to stevepeele/portfolio-craft-56 on main",
@@ -1153,238 +1385,6 @@
    "detail": "New unlisted page beside the live log: live ops pulse (ai-ops-log.json, 3s poll), animated Segment data-transfer pipeline (9 app sources → core-ajs → hub → 5 destinations), 13-platform connections map, 5 real schema definitions, and the 12-entry deploy timeline. Every number traces to a real source."
   },
   {
-   "id": "linear-spiix-614",
-   "date": "2026-10-15",
-   "title": "Run SEO audit pack on stevepeeleii.com (personal sites)",
-   "source": "linear",
-   "ref": "SPIIX-614",
-   "detail": "Project: — · Completed 2026-10-16T03:51:58.360Z"
-  },
-  {
-   "id": "linear-spiix-611",
-   "date": "2026-10-15",
-   "title": "Livelog v2: news-first stream, expandable logs, AI decision trees",
-   "source": "linear",
-   "ref": "SPIIX-611",
-   "detail": "Project: — · Completed 2026-10-16T03:49:01.915Z"
-  },
-  {
-   "id": "linear-spiix-613",
-   "date": "2026-10-15",
-   "title": "Church local-SEO audit pack (from Grok SEO prompts article)",
-   "source": "linear",
-   "ref": "SPIIX-613",
-   "detail": "Project: — · Completed 2026-10-16T03:48:11.294Z"
-  },
-  {
-   "id": "linear-spiix-612",
-   "date": "2026-10-15",
-   "title": "Enlistment process map: unlisted page + doc (epilepsy-first)",
-   "source": "linear",
-   "ref": "SPIIX-612",
-   "detail": "Project: — · Completed 2026-10-16T03:48:03.643Z"
-  },
-  {
-   "id": "linear-spiix-609",
-   "date": "2026-10-15",
-   "title": "SENT: Supabase backend — project, schema, auth wiring, sanity checks",
-   "source": "linear",
-   "ref": "SPIIX-609",
-   "detail": "Project: — · Completed 2026-10-16T03:43:05.565Z"
-  },
-  {
-   "id": "linear-spiix-607",
-   "date": "2026-10-15",
-   "title": "Scaffolding livelog: unlisted real-time AI ops running-log page",
-   "source": "linear",
-   "ref": "SPIIX-607",
-   "detail": "Project: — · Completed 2026-10-16T03:26:54.375Z"
-  },
-  {
-   "id": "linear-spiix-507",
-   "date": "2026-10-15",
-   "title": "HubSpot private app: add CRM scopes (unblock deals/contacts/activity writes)",
-   "source": "linear",
-   "ref": "SPIIX-507",
-   "detail": "Project: Lightweight Apps Sprint · Completed 2026-10-16T02:48:42.329Z"
-  },
-  {
-   "id": "linear-spiix-600",
-   "date": "2026-10-15",
-   "title": "Piggybank spin-out — separate Wax & Ash brand on a piggybank Vercel subdomain",
-   "source": "linear",
-   "ref": "SPIIX-600",
-   "detail": "Project: Love Note — secret note-passing app · Completed 2026-10-16T02:05:01.067Z"
-  },
-  {
-   "id": "linear-spiix-599",
-   "date": "2026-10-15",
-   "title": "Ops visibility: Slack work-log channel mirroring Linear + worker dialogue",
-   "source": "linear",
-   "ref": "SPIIX-599",
-   "detail": "Project: — · Completed 2026-10-16T01:40:40.312Z"
-  },
-  {
-   "id": "linear-spiix-590",
-   "date": "2026-10-15",
-   "title": "SENT course: lengthen + deepen all 15 lessons with engagement stops and gut checks",
-   "source": "linear",
-   "ref": "SPIIX-590",
-   "detail": "Project: Admin · Completed 2026-10-16T00:35:11.913Z"
-  },
-  {
-   "id": "linear-spiix-589",
-   "date": "2026-10-15",
-   "title": "SENT: set author byline to Stephen Peele Sr.",
-   "source": "linear",
-   "ref": "SPIIX-589",
-   "detail": "Project: — · Completed 2026-10-15T23:50:53.517Z"
-  },
-  {
-   "id": "linear-spiix-588",
-   "date": "2026-10-15",
-   "title": "SENT course expansion — deeper curriculum + About the Author",
-   "source": "linear",
-   "ref": "SPIIX-588",
-   "detail": "Project: — · Completed 2026-10-15T23:23:04.749Z"
-  },
-  {
-   "id": "linear-spiix-582",
-   "date": "2026-10-15",
-   "title": "Mission Control — animated agent-network dashboard (own stack)",
-   "source": "linear",
-   "ref": "SPIIX-582",
-   "detail": "Project: — · Completed 2026-10-15T19:36:17.455Z"
-  },
-  {
-   "id": "linear-spiix-581",
-   "date": "2026-10-15",
-   "title": "Practical Evangelism teaching site — brand + mentored course framework + book funnel",
-   "source": "linear",
-   "ref": "SPIIX-581",
-   "detail": "Project: — · Completed 2026-10-15T19:30:38.881Z"
-  },
-  {
-   "id": "linear-spiix-580",
-   "date": "2026-10-15",
-   "title": "Design the third-person group chat: web app room vs real group text",
-   "source": "linear",
-   "ref": "SPIIX-580",
-   "detail": "Project: Muse Third-Person Group Chat · Completed 2026-10-15T18:34:10.736Z"
-  },
-  {
-   "id": "linear-spiix-573",
-   "date": "2026-10-15",
-   "title": "Job alert scan — 2026-10-15 (LinkedIn Easy Apply daily run)",
-   "source": "linear",
-   "ref": "SPIIX-573",
-   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-15T13:54:14.091Z"
-  },
-  {
-   "id": "linear-spiix-562",
-   "date": "2026-10-15",
-   "title": "Vault Score star ratings on all templates",
-   "source": "linear",
-   "ref": "SPIIX-562",
-   "detail": "Project: Muse Templates · Completed 2026-10-15T11:41:08.061Z"
-  },
-  {
-   "id": "linear-spiix-558",
-   "date": "2026-10-15",
-   "title": "deploy-queue dispatcher crashes on deploy-cmd timeout — entry stuck in_progress",
-   "source": "linear",
-   "ref": "SPIIX-558",
-   "detail": "Project: AI Operations Command Center · Completed 2026-10-15T11:34:39.949Z"
-  },
-  {
-   "id": "linear-spiix-557",
-   "date": "2026-10-15",
-   "title": "GB expansion: layers, skills, silent course-correction",
-   "source": "linear",
-   "ref": "SPIIX-557",
-   "detail": "Project: Agent Coordination — Lauren & GB · Completed 2026-10-15T11:25:36.592Z"
-  },
-  {
-   "id": "linear-spiix-560",
-   "date": "2026-10-15",
-   "title": "GB silent course-correction: the EA function that catches misses",
-   "source": "linear",
-   "ref": "SPIIX-560",
-   "detail": "Project: Agent Coordination — Lauren & GB · Completed 2026-10-15T11:24:59.307Z"
-  },
-  {
-   "id": "linear-spiix-561",
-   "date": "2026-10-15",
-   "title": "GB domain skills: defined skill set per operating domain",
-   "source": "linear",
-   "ref": "SPIIX-561",
-   "detail": "Project: Agent Coordination — Lauren & GB · Completed 2026-10-15T11:23:25.721Z"
-  },
-  {
-   "id": "linear-spiix-559",
-   "date": "2026-10-15",
-   "title": "GB capability layers: review, verification, process enforcement",
-   "source": "linear",
-   "ref": "SPIIX-559",
-   "detail": "Project: Agent Coordination — Lauren & GB · Completed 2026-10-15T11:22:03.388Z"
-  },
-  {
-   "id": "linear-spiix-556",
-   "date": "2026-10-15",
-   "title": "Linear/Deploy governance: required, monitored, stage-gated fields + criteria",
-   "source": "linear",
-   "ref": "SPIIX-556",
-   "detail": "Project: Admin · Completed 2026-10-15T10:43:17.156Z"
-  },
-  {
-   "id": "linear-plx-544",
-   "date": "2026-10-15",
-   "title": "Segment orchestration document model + core AJS implementation",
-   "source": "linear",
-   "ref": "PLX-544",
-   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-15T10:09:11.401Z"
-  },
-  {
-   "id": "linear-plx-541",
-   "date": "2026-10-15",
-   "title": "Prayer naming: standardize on Prayer Room",
-   "source": "linear",
-   "ref": "PLX-541",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-15T09:23:59.757Z"
-  },
-  {
-   "id": "linear-plx-540",
-   "date": "2026-10-15",
-   "title": "Rename give.html → contribute.html site-wide",
-   "source": "linear",
-   "ref": "PLX-540",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-15T09:23:57.155Z"
-  },
-  {
-   "id": "linear-plx-539",
-   "date": "2026-10-15",
-   "title": "Nav CTA becomes Meet the Pastor → reverend-peele.html",
-   "source": "linear",
-   "ref": "PLX-539",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-15T09:23:55.281Z"
-  },
-  {
-   "id": "linear-plx-538",
-   "date": "2026-10-15",
-   "title": "CSS foundation rebuild — best practice, modern tech",
-   "source": "linear",
-   "ref": "PLX-538",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-15T09:23:52.828Z"
-  },
-  {
-   "id": "linear-plx-537",
-   "date": "2026-10-15",
-   "title": "Messages page design overhaul — make it rule",
-   "source": "linear",
-   "ref": "PLX-537",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-15T09:23:50.907Z"
-  },
-  {
    "id": "manual-20261015-obviously-landing",
    "date": "2026-10-15",
    "title": "OBVIOUSLY book landing page — unlisted, full brand + PDF download",
@@ -1599,7 +1599,7 @@
    "title": "SPIIX Monolith live at /spiix/monolith"
   }
  ],
- "generated_at": "2026-10-19T06:25:53-0400",
+ "generated_at": "2026-10-20T06:25:34-0400",
  "generated_by": "daily cron (scaffolding-changelog-updater)",
  "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
 }
