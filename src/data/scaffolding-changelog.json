@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "id": "manual-20261020-spiix-915-ai-page",
+   "date": "2026-10-20",
+   "title": "New /ai landing page + AI item in main nav",
+   "source": "manual",
+   "ref": "SPIIX-915",
+   "detail": "Steve's order: a shareable landing page articulating how AI bolsters his core professional expertise (not an AI promo page). Hero: 'Some people build with AI. I grow next to it.' Thesis: AI operationalizes 14 years of growth judgment — what-only-I-can-do vs what-AI-accelerates split, Think→Build→Ship→Measure→Learn operating loop, five core lanes (growth strategy, marketing ops/martech, segmentation & ABM, lifecycle/CRM, pipeline & analytics), proof strip from resume data only ($350M+ pipeline, 40% lead-to-deal lift, $25M+ ABM-closed, $1M+ ARR at Tixxy), principles, CTA to /contact + /work. Self-contained scoped stylesheet (src/styles/ai.css under .ai-root, Growth Ladders precedent), standard SiteHeader/SiteFooter shell, 'AI' added to primaryNav between SPIIX and Blog, breadcrumb Home → AI, /ai added to sitemap generator. Side hacking apps deliberately excluded per his order."
+  },
+  {
    "id": "github-20261020-portfolio-craft-56",
    "date": "2026-10-20",
    "title": "6 commits to stevepeele/portfolio-craft-56 on main",

@@ -1,0 +1,674 @@
+/* AI — scoped page system. Everything lives under .ai-root.
+   Dark-editorial, distinct from the core portfolio pages while keeping the
+   shared SiteHeader/SiteFooter shell. Human = warm amber, machine = cool cyan.
+   Motion: native CSS view-timeline reveals, guarded by @supports +
+   prefers-reduced-motion, so content is visible by default everywhere else. */
+
+.ai-root {
+  --ai-void: oklch(0.105 0.018 262);
+  --ai-ground: oklch(0.14 0.02 262);
+  --ai-panel: oklch(0.165 0.022 262);
+  --ai-panel-2: oklch(0.2 0.026 262);
+  --ai-ink: oklch(0.96 0.006 92);
+  --ai-dim: oklch(0.74 0.018 258);
+  --ai-faint: oklch(0.58 0.02 258);
+  --ai-line: oklch(1 0 0 / 0.09);
+  --ai-human: oklch(0.82 0.15 72);
+  --ai-human-deep: oklch(0.68 0.16 55);
+  --ai-machine: oklch(0.8 0.12 196);
+  --ai-machine-deep: oklch(0.6 0.13 220);
+  background: var(--ai-void);
+  color: var(--ai-ink);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+}
+.ai-root ::selection {
+  background: var(--ai-human);
+  color: var(--ai-void);
+}
+
+.ai-wrap {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .ai-wrap {
+    padding-inline: 2rem;
+  }
+}
+
+.ai-kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ai-machine);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ai-kicker::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+}
+.ai-kicker.center {
+  justify-content: center;
+}
+.ai-kicker.center::after {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.ai-section {
+  padding-block: clamp(4.5rem, 10vw, 7.5rem);
+  border-top: 1px solid var(--ai-line);
+  position: relative;
+}
+.ai-h2 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-top: 1.1rem;
+  max-width: 22ch;
+}
+.ai-lede {
+  margin-top: 1.1rem;
+  color: var(--ai-dim);
+  font-size: 1.06rem;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+/* Reveal — visible by default; animation only where view timelines exist. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ai-reveal {
+      animation: ai-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 32%;
+    }
+  }
+}
+@keyframes ai-rise {
+  from {
+    opacity: 0;
+    transform: translateY(2.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Hero ---------- */
+.ai-hero {
+  position: relative;
+  padding: clamp(4rem, 9vw, 7rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+  background:
+    radial-gradient(ellipse 55% 45% at 12% 0%, oklch(0.68 0.16 55 / 0.14), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 88% 8%, oklch(0.6 0.13 220 / 0.16), transparent 65%),
+    var(--ai-void);
+  overflow: clip;
+}
+.ai-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, oklch(1 0 0 / 0.025) 0 1px, transparent 1px 72px);
+  mask: linear-gradient(to bottom, black, transparent 78%);
+}
+.ai-hero-title {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+  font-size: clamp(2.7rem, 8.2vw, 6.4rem);
+  margin-top: 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+.ai-hero-title .line {
+  display: block;
+}
+.ai-hero-title .grow {
+  background: linear-gradient(92deg, var(--ai-human) 5%, var(--ai-ink) 48%, var(--ai-machine) 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ai-hero-sub {
+  margin-top: 1.75rem;
+  max-width: 56ch;
+  color: var(--ai-dim);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+.ai-hero-sub strong {
+  color: var(--ai-ink);
+  font-weight: 600;
+}
+.ai-thesis {
+  margin-top: 2.5rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  border: 1px solid var(--ai-line);
+  background: color-mix(in oklab, var(--ai-panel) 82%, transparent);
+  padding: 1rem 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+.ai-thesis .mark {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--ai-human);
+  font-size: 1rem;
+}
+.ai-thesis p {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.1rem, 2.4vw, 1.55rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.ai-thesis p em {
+  font-style: normal;
+  color: var(--ai-human);
+}
+
+/* Split motif: judgment / speed */
+.ai-split {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: grid;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .ai-split {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+  }
+}
+.ai-split-card {
+  border: 1px solid var(--ai-line);
+  padding: 1.6rem;
+  background: var(--ai-panel);
+}
+.ai-split-card.human {
+  border-top: 3px solid var(--ai-human);
+  background: linear-gradient(180deg, oklch(0.82 0.15 72 / 0.07), var(--ai-panel) 55%);
+}
+.ai-split-card.machine {
+  border-top: 3px solid var(--ai-machine);
+  background: linear-gradient(180deg, oklch(0.8 0.12 196 / 0.07), var(--ai-panel) 55%);
+}
+.ai-split-tag {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.human .ai-split-tag {
+  color: var(--ai-human);
+}
+.machine .ai-split-tag {
+  color: var(--ai-machine);
+}
+.ai-split-card h3 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-top: 0.55rem;
+}
+.ai-split-card p {
+  color: var(--ai-dim);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+}
+.ai-split-join {
+  display: grid;
+  place-items: center;
+  padding: 0.25rem;
+}
+.ai-split-join svg {
+  width: 3rem;
+  height: 3rem;
+}
+@media (max-width: 899px) {
+  .ai-split-join svg {
+    transform: rotate(90deg);
+  }
+}
+.ai-split-out {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  border: 1px dashed oklch(1 0 0 / 0.22);
+  padding: 1rem 1.4rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.ai-split-out b {
+  color: var(--ai-ink);
+  font-weight: 700;
+}
+.ai-split-out span {
+  color: var(--ai-faint);
+}
+
+/* ---------- Two columns: mine / accelerated ---------- */
+.ai-cols {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+@media (min-width: 900px) {
+  .ai-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.ai-col {
+  border: 1px solid var(--ai-line);
+  background: var(--ai-ground);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+.ai-col.human {
+  border-top: 3px solid var(--ai-human);
+}
+.ai-col.machine {
+  border-top: 3px solid var(--ai-machine);
+}
+.ai-col-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ai-line);
+}
+.ai-col-head h3 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.ai-col-head span {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.human .ai-col-head span {
+  color: var(--ai-human);
+}
+.machine .ai-col-head span {
+  color: var(--ai-machine);
+}
+.ai-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ai-col li {
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--ai-line);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+.ai-col li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.25rem;
+}
+.ai-col .tick {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+.human .tick {
+  color: var(--ai-human);
+}
+.machine .tick {
+  color: var(--ai-machine);
+}
+.ai-col li b {
+  display: block;
+  font-weight: 650;
+  font-size: 1.02rem;
+}
+.ai-col li p {
+  color: var(--ai-dim);
+  line-height: 1.55;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+.ai-gate {
+  margin-top: 1.25rem;
+  border: 1px solid color-mix(in oklab, var(--ai-human) 45%, transparent);
+  background: oklch(0.82 0.15 72 / 0.06);
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.ai-gate .lock {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--ai-human);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.ai-gate p {
+  line-height: 1.6;
+  color: var(--ai-dim);
+}
+.ai-gate p b {
+  color: var(--ai-ink);
+}
+
+/* ---------- Operating loop ---------- */
+.ai-loop {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 760px) {
+  .ai-loop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .ai-loop {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.ai-step {
+  border: 1px solid var(--ai-line);
+  background: var(--ai-panel);
+  padding: 1.4rem 1.25rem 1.5rem;
+  position: relative;
+}
+.ai-step .n {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  color: var(--ai-machine);
+}
+.ai-step h3 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ai-step h3 .arr {
+  color: var(--ai-faint);
+  font-size: 1.05rem;
+}
+@media (max-width: 1099px) {
+  .ai-step h3 .arr {
+    display: none;
+  }
+}
+.ai-step p {
+  color: var(--ai-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.ai-step .compress {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed oklch(1 0 0 / 0.16);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--ai-machine);
+  text-transform: uppercase;
+}
+
+/* ---------- Lanes ---------- */
+.ai-lanes {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 760px) {
+  .ai-lanes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .ai-lanes .ai-lane:nth-child(1) {
+    grid-column: span 2;
+  }
+}
+.ai-lane {
+  border: 1px solid var(--ai-line);
+  background: linear-gradient(180deg, var(--ai-panel-2), var(--ai-ground));
+  padding: clamp(1.5rem, 3vw, 2.1rem);
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+.ai-lane .idx {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  color: var(--ai-faint);
+}
+.ai-lane h3 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.ai-lane .expertise {
+  color: var(--ai-dim);
+  line-height: 1.62;
+  font-size: 0.98rem;
+}
+.ai-lane .multiply {
+  border-left: 3px solid var(--ai-machine);
+  padding: 0.15rem 0 0.15rem 1rem;
+}
+.ai-lane .multiply span {
+  display: block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ai-machine);
+  margin-bottom: 0.4rem;
+}
+.ai-lane .multiply p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: oklch(0.88 0.01 220);
+}
+
+/* ---------- Proof strip ---------- */
+.ai-proof {
+  margin-top: 3rem;
+  border-block: 1px solid var(--ai-line);
+  display: grid;
+}
+@media (min-width: 760px) {
+  .ai-proof {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .ai-proof {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.ai-proof figure {
+  padding: 1.75rem 1.5rem;
+  border-top: 1px solid var(--ai-line);
+}
+.ai-proof figure:first-child {
+  border-top: 0;
+}
+@media (min-width: 760px) {
+  .ai-proof figure {
+    border-top: 0;
+    border-left: 1px solid var(--ai-line);
+  }
+  .ai-proof figure:first-child {
+    border-left: 0;
+  }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+  .ai-proof figure:nth-child(odd) {
+    border-left: 0;
+  }
+  .ai-proof figure:nth-child(n + 3) {
+    border-top: 1px solid var(--ai-line);
+  }
+}
+.ai-proof .v {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ai-ink);
+}
+.ai-proof figcaption {
+  margin-top: 0.65rem;
+  color: var(--ai-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.ai-proof figcaption b {
+  color: var(--ai-human);
+  font-weight: 600;
+}
+.ai-proof-note {
+  margin-top: 1.5rem;
+  color: var(--ai-faint);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+.ai-proof-note b {
+  color: var(--ai-dim);
+}
+
+/* ---------- Principles ---------- */
+.ai-principles {
+  margin-top: 3rem;
+  border-top: 1px solid var(--ai-line);
+}
+.ai-principle {
+  display: grid;
+  gap: 0.35rem 2.5rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--ai-line);
+}
+@media (min-width: 760px) {
+  .ai-principle {
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+  }
+}
+.ai-principle h3 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.ai-principle h3 .no {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--ai-machine);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+.ai-principle p {
+  color: var(--ai-dim);
+  line-height: 1.65;
+}
+
+/* ---------- CTA ---------- */
+.ai-cta {
+  border: 1px solid var(--ai-line);
+  background:
+    radial-gradient(ellipse 60% 90% at 85% 0%, oklch(0.6 0.13 220 / 0.15), transparent 60%),
+    radial-gradient(ellipse 50% 90% at 8% 100%, oklch(0.68 0.16 55 / 0.12), transparent 60%),
+    var(--ai-panel);
+  padding: clamp(2.25rem, 5vw, 3.75rem);
+  text-align: center;
+}
+.ai-cta h2 {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.ai-cta p {
+  margin: 1.1rem auto 0;
+  color: var(--ai-dim);
+  max-width: 52ch;
+  line-height: 1.65;
+}
+.ai-cta-row {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+.ai-btn {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.95rem 1.9rem;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+.ai-btn.primary {
+  background: var(--ai-ink);
+  color: var(--ai-void);
+}
+.ai-btn.primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ai-human);
+}
+.ai-btn.ghost {
+  border: 1px solid oklch(1 0 0 / 0.28);
+  color: var(--ai-ink);
+}
+.ai-btn.ghost:hover {
+  border-color: var(--ai-machine);
+  color: var(--ai-machine);
+}

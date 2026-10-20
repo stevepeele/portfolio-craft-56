@@ -25,6 +25,7 @@ function crumbsFor(path: string): Crumb[] {
   if (p === "/") return [];
   if (p === "/work") return [{ label: "Home", to: "/" }, { label: "Work" }];
   if (p === "/spiix") return [{ label: "Home", to: "/" }, { label: "SPIIX" }];
+  if (p === "/ai") return [{ label: "Home", to: "/" }, { label: "AI" }];
   if (p === "/services")
     return [{ label: "Home", to: "/" }, { label: "SPIIX", to: "/spiix" }, { label: "Offers" }];
   if (p.startsWith("/services/"))

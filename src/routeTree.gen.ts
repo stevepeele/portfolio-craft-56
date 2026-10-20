@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
+import { Route as AiRouteImport } from './routes/ai'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
@@ -119,6 +120,11 @@ const AboutRoute = AboutRouteImport.update({
 const AdvisoryRoute = AdvisoryRouteImport.update({
   id: '/advisory',
   path: '/advisory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuditRoute = AuditRouteImport.update({
@@ -603,6 +609,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/ai': typeof AiRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
@@ -701,6 +708,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/ai': typeof AiRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
@@ -796,6 +804,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
+  '/ai': typeof AiRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
@@ -896,6 +905,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/ai'
     | '/audit'
     | '/contact'
     | '/cv'
@@ -994,6 +1004,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/ai'
     | '/audit'
     | '/contact'
     | '/cv'
@@ -1088,6 +1099,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/advisory'
+    | '/ai'
     | '/audit'
     | '/contact'
     | '/cv'
@@ -1187,6 +1199,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdvisoryRoute: typeof AdvisoryRoute
+  AiRoute: typeof AiRoute
   AuditRoute: typeof AuditRoute
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
@@ -1251,6 +1264,13 @@ declare module '@tanstack/react-router' {
       path: '/advisory'
       fullPath: '/advisory'
       preLoaderRoute: typeof AdvisoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/audit': {
@@ -2095,6 +2115,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdvisoryRoute: AdvisoryRoute,
+  AiRoute: AiRoute,
   AuditRoute: AuditRoute,
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,

@@ -2,6 +2,7 @@ export const primaryNav = [
   { to: "/", label: "Home", exact: true, match: ["/"] },
   { to: "/work", label: "Portfolio", exact: false, match: ["/work", "/portfolio"] },
   { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
+  { to: "/ai", label: "AI", exact: false, match: ["/ai"] },
   { to: "/blog", label: "Blog", exact: false, match: ["/blog"] },
 ] as const;
 

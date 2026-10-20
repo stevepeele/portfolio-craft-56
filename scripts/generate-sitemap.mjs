@@ -14,6 +14,7 @@ const STATIC_URLS = [
   ["/", 1.0],
   ["/work", 0.9],
   ["/spiix", 0.9],
+  ["/ai", 0.8],
   ["/contact", 0.8],
   ["/music", 0.8],
   ["/fractional-growth-advisory", 0.8],
