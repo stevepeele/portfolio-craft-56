@@ -29,6 +29,16 @@
     {
       "destination": "https://:slug.vercel.app/:path*",
       "source": "/site-preview/:slug/:path*"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "lab.stevepeeleii.com"
+        }
+      ],
+      "destination": "/lab/"
     }
   ]
 }

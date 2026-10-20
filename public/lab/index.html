@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lab — A Book of Record</title>
+<meta name="description" content="A laboratory ledger: who people are, what they're building, and whether they're still showing up. No community. No network. The record, not the room.">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --panel:#101012;
+    --line:#26262a;
+    --line-soft:#1b1b1e;
+    --ink:#eceae3;
+    --ink-dim:#9a978e;
+    --ink-faint:#6b6963;
+    --amber:#e5a013;
+    --green:#57b87e;
+    --mono:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    padding:0 20px;
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+  a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(229,160,19,.35);}
+  a:hover{border-bottom-color:var(--amber);}
+
+  /* header */
+  header{padding:56px 0 40px;border-bottom:2px solid var(--ink);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:var(--mono);
+    font-size:clamp(44px, 9vw, 76px);
+    font-weight:700;
+    letter-spacing:-.01em;
+    line-height:1;
+    text-transform:uppercase;
+  }
+  .lede{
+    margin-top:24px;
+    font-size:18px;
+    line-height:1.65;
+    color:var(--ink);
+    max-width:640px;
+  }
+  .lede em{color:var(--ink-dim);font-style:normal;}
+
+  /* sections */
+  section{padding:44px 0;border-bottom:1px solid var(--line);}
+  .sec-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:22px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .sec-label::after{content:"";flex:1;border-top:1px solid var(--line-soft);}
+  h2{
+    font-family:var(--mono);
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  p{color:var(--ink-dim);max-width:660px;}
+  p + p{margin-top:12px;}
+  p strong{color:var(--ink);font-weight:600;}
+
+  /* rules ledger */
+  .rules{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);}
+  .rules-col{padding:22px 24px;}
+  .rules-col + .rules-col{border-left:1px solid var(--line);}
+  .rules-col h3{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .rules-col.is h3{color:var(--amber);}
+  .rules-col.not h3{color:var(--ink-faint);}
+  .rules-col ul{list-style:none;}
+  .rules-col li{
+    font-family:var(--mono);
+    font-size:14px;
+    line-height:1.5;
+    padding:9px 0;
+    border-top:1px solid var(--line-soft);
+    color:var(--ink);
+  }
+  .rules-col li:first-child{border-top:none;padding-top:0;}
+  .rules-col.not li{color:var(--ink-dim);}
+  .rules-col li span.tag{color:var(--ink-faint);}
+
+  /* stamps */
+  .stamp{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:3px 9px 2px;
+    border:1.5px solid currentColor;
+    border-radius:2px;
+    white-space:nowrap;
+    transform:rotate(-1.2deg);
+  }
+  .stamp.active{color:var(--amber);}
+  .stamp.live{color:var(--green);}
+  .stamp.dev{color:var(--ink-faint);}
+  .stamp.open{color:var(--ink-faint);border-style:dashed;}
+
+  /* builder entries */
+  .entry{border:1px solid var(--line);background:var(--panel);margin-bottom:20px;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:14px 22px;
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .entry-body{padding:24px 22px 26px;}
+  .entry-name{
+    font-family:var(--mono);
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.01em;
+    color:var(--ink);
+  }
+  .entry-role{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-top:4px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .builds{margin-top:20px;border-top:1px solid var(--line-soft);}
+  .build-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:13px 2px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .build-row:last-child{border-bottom:none;}
+  .build-name{font-size:15px;color:var(--ink);font-weight:600;}
+  .build-url{
+    display:block;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    font-weight:400;
+    margin-top:1px;
+  }
+  a.build-link{border-bottom:none;color:inherit;}
+  a.build-link:hover .build-name{color:var(--amber);}
+  .entry.placeholder{background:transparent;border-style:dashed;}
+  .entry.placeholder .entry-body p{font-family:var(--mono);font-size:14px;color:var(--ink-faint);}
+
+  /* footer */
+  footer{padding:36px 0 56px;}
+  .foot-line{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .foot-line .dot{color:var(--amber);}
+  footer p{margin-top:12px;font-size:14px;}
+
+  @media (max-width:640px){
+    header{padding:40px 0 30px;}
+    section{padding:34px 0;}
+    .rules{grid-template-columns:1fr;}
+    .rules-col + .rules-col{border-left:none;border-top:1px solid var(--line);}
+    .entry-head{padding:12px 16px;}
+    .entry-body{padding:20px 16px 22px;}
+    .build-row{padding:12px 0;}
+    .lede{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">A Book of Record — No Community, No Network</div>
+    <h1>The Lab</h1>
+    <p class="lede">The internet's builder scene is an echo chamber — engagement farmers, pseudo-friendships, everybody linking to everybody else's thing. <em>This is the ledger underneath it.</em> Who people are. What they're building. Whether they're still showing up. Nothing else.</p>
+  </header>
+
+  <section>
+    <div class="sec-label">§ 01 — Protocol</div>
+    <h2>The Rules</h2>
+    <div class="rules">
+      <div class="rules-col is">
+        <h3>What this is</h3>
+        <ul>
+          <li>A record. <span class="tag">Kept, not performed.</span></li>
+          <li>Continuity over time — progress you can trace, entry by entry.</li>
+          <li>A reference surface. Link to it from anywhere; it points back to nothing.</li>
+          <li>Building in public without the performance.</li>
+        </ul>
+      </div>
+      <div class="rules-col not">
+        <h3>What this is not</h3>
+        <ul>
+          <li>No DMs. No comments. No replies.</li>
+          <li>No feed. No algorithm. No engagement metrics.</li>
+          <li>No followers, no counts, no leaderboards.</li>
+          <li>No networking. No cross-promo machinery.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">§ 02 — Curriculum</div>
+    <h2>The Course</h2>
+    <p><strong>The Muse Method</strong> — a 20-lesson master course on running real work with an AI operator: the systems, the discipline, the record-keeping. Currently in development. When it's done, it goes on the record here first.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">§ 03 — Instruments</div>
+    <h2>The Vault</h2>
+    <p>The <strong>Muse Vault</strong> — 130+ free prompt templates, frameworks, and operating structures, free to take and use. No signup theater, no drip campaign. It's at <a href="https://vault.stevepeeleii.com">vault.stevepeeleii.com</a>.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">§ 04 — The Roll</div>
+    <h2>The Builders</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span>Entry 001</span>
+        <span class="stamp active">Active</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-name">Steve Peele II</div>
+        <div class="entry-role">Operator / Builder — Cincinnati, OH</div>
+        <div class="builds">
+          <div class="build-row">
+            <a class="build-link" href="https://stevepeeleii.com">
+              <span class="build-name">stevepeeleii.com</span>
+              <span class="build-url">the main site</span>
+            </a>
+            <span class="stamp live">Live</span>
+          </div>
+          <div class="build-row">
+            <a class="build-link" href="https://vault.stevepeeleii.com">
+              <span class="build-name">Muse Vault</span>
+              <span class="build-url">vault.stevepeeleii.com</span>
+            </a>
+            <span class="stamp live">Live</span>
+          </div>
+          <div class="build-row">
+            <div>
+              <span class="build-name">The Muse Method</span>
+              <span class="build-url">20-lesson master course</span>
+            </div>
+            <span class="stamp dev">In Development</span>
+          </div>
+          <div class="build-row">
+            <a class="build-link" href="https://stageplot.stevepeeleii.com">
+              <span class="build-name">StagePlot AI</span>
+              <span class="build-url">stageplot.stevepeeleii.com</span>
+            </a>
+            <span class="stamp live">Live</span>
+          </div>
+          <div class="build-row">
+            <a class="build-link" href="https://monitor-mix-cheat.vercel.app">
+              <span class="build-name">Monitor Mix Cheat</span>
+              <span class="build-url">monitor-mix-cheat.vercel.app</span>
+            </a>
+            <span class="stamp live">Live</span>
+          </div>
+          <div class="build-row">
+            <div>
+              <span class="build-name">Binsly</span>
+              <span class="build-url">in the workshop</span>
+            </div>
+            <span class="stamp active">Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry placeholder">
+      <div class="entry-head">
+        <span>Entry 002</span>
+        <span class="stamp open">Vacant</span>
+      </div>
+      <div class="entry-body">
+        <p>The roll opens soon. Entries are added when the record supports them — not before.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">§ 05 — Admission</div>
+    <h2>On the Record</h2>
+    <p>Listing is <strong>curated, not a signup form</strong>. There is no application queue and no fee. The criteria are three: a real name, a real project, and visible continuity — evidence, over time, that you kept building after the announcement.</p>
+    <p>Submissions open soon. Until then, the roll stands at one.</p>
+  </section>
+
+  <footer>
+    <div class="foot-line">lab.stevepeeleii.com <span class="dot">—</span> the record, not the room.</div>
+    <p>Back to <a href="https://stevepeeleii.com">stevepeeleii.com</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
