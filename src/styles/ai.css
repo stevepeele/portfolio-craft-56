@@ -820,3 +820,75 @@
   .ai-progress { transform: scaleX(1); opacity: .5; }
   .ai-marquee-track, .ai-aurora span { animation: none !important; }
 }
+
+/* ================= v3 — SPIIX-941: material-first diagrams =================
+   Motion grammar: pulse = work moving · bounce-back = failed the gate ·
+   orbit = monitored · glow = the human decision point. */
+
+/* Quieten v2 decoration — diagrams are the loudest thing now */
+.ai-aurora span { opacity: .3; }
+.ai-sparks span { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .ai-sparks span { animation-name: ai-spark-soft; }
+}
+@keyframes ai-spark-soft { 0%, 100% { transform: translateY(0); opacity: 0; } 20% { opacity: .35; } 55% { transform: translateY(7rem); opacity: .15; } 80% { opacity: 0; } }
+
+/* Operating map */
+.ai-diagram-scroll { overflow-x: auto; position: relative; scrollbar-width: thin; }
+.ai-map { min-width: 760px; }
+.ai-map .zone-box { fill: oklch(1 0 0 / .02); stroke: oklch(1 0 0 / .14); stroke-width: 1; }
+.ai-map .zone-box.amber { stroke: oklch(0.82 0.15 72 / .55); fill: oklch(0.82 0.15 72 / .04); }
+.ai-map .zone-box.cyan { stroke: oklch(0.8 0.12 196 / .45); fill: oklch(0.8 0.12 196 / .03); }
+.ai-map .zone-box.gate { stroke: oklch(1 0 0 / .35); }
+.ai-map .zone-title { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: .26em; fill: var(--ai-dim); }
+.ai-map .zone-title.amber { fill: var(--ai-human); }
+.ai-map .zone-title.cyan { fill: var(--ai-machine); }
+.ai-map .zone-title.gate-t { fill: var(--ai-ink); }
+.ai-map .chip { fill: oklch(0.14 0.02 262 / .9); stroke: oklch(1 0 0 / .13); }
+.ai-map .chip-text { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; fill: oklch(0.9 0.01 220); }
+.ai-map .chip-text.sm { font-size: 11px; }
+.ai-map .zone-foot { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .08em; fill: var(--ai-faint); }
+.ai-map .arc-label { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: .22em; }
+.ai-map .arc-label.amber { fill: var(--ai-human); }
+.ai-map .arc-label.cyan { fill: var(--ai-machine); }
+.ai-map .flow { stroke-dasharray: 7 9; }
+@media (prefers-reduced-motion: no-preference) {
+  .ai-map .zone-box.amber { animation: ai-decision-glow 4.5s ease-in-out infinite; }
+  .ai-map .orbit.o3 { transform-box: fill-box; transform-origin: center; animation: ai-orbit 14s linear infinite; }
+}
+@keyframes ai-decision-glow { 0%, 100% { filter: drop-shadow(0 0 0 oklch(0.82 0.15 72 / 0)); } 50% { filter: drop-shadow(0 0 14px oklch(0.82 0.15 72 / .35)); } }
+
+/* Legend */
+.ai-legend span { display: inline-flex; align-items: center; gap: .55rem; }
+.ai-legend i { display: inline-block; width: .65rem; height: .65rem; border-radius: 50%; background: var(--ai-ink); }
+.ai-legend .lg-back { background: transparent; border: 2px solid var(--ai-human); border-radius: 0; width: .55rem; height: .55rem; transform: rotate(45deg); }
+.ai-legend .lg-orbit { background: transparent; border: 1.5px dashed var(--ai-machine); }
+.ai-legend .lg-glow { background: var(--ai-human); box-shadow: 0 0 10px 2px oklch(0.82 0.15 72 / .55); }
+
+/* Circular loop diagram */
+.ai-loopdiagram { max-width: 34rem; margin: 2.5rem auto 0; }
+.ai-loopdiagram svg { width: 100%; height: auto; display: block; }
+.ai-loopdiagram .loop-node { fill: var(--ai-panel-2); stroke: oklch(0.82 0.15 72 / .5); stroke-width: 1.5; }
+.ai-loopdiagram .loop-n { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .2em; fill: var(--ai-machine); }
+.ai-loopdiagram .loop-name { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 14.5px; fill: var(--ai-ink); }
+.ai-loopdiagram .loop-c1 { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 25px; letter-spacing: .04em; fill: var(--ai-ink); }
+.ai-loopdiagram .loop-c2 { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: .3em; fill: var(--ai-human); }
+.ai-loopdiagram .arc-label { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; fill: var(--ai-machine); }
+@media (prefers-reduced-motion: no-preference) {
+  .ai-loopdiagram .loop-orbit { transform-box: fill-box; transform-origin: center; animation: ai-orbit 46s linear infinite; }
+}
+
+/* Lane mini-diagrams */
+.ai-lane-diagram { border: 1px solid var(--ai-line); background: oklch(0.1 0.018 262 / .55); padding: .6rem .5rem .2rem; }
+.ai-lane-diagram svg { width: 100%; height: auto; display: block; }
+.ai-lane-diagram .ld-box { fill: oklch(1 0 0 / .03); stroke: oklch(1 0 0 / .22); stroke-width: 1; }
+.ai-lane-diagram .ld-box.leak { stroke: oklch(0.82 0.15 72 / .6); }
+.ai-lane-diagram .ld-text { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: .14em; fill: var(--ai-faint); }
+.ai-lane-diagram .ld-text.sm { font-size: 10px; fill: oklch(0.88 0.01 220); letter-spacing: .02em; }
+.ai-lane-diagram .flow { stroke-dasharray: 6 8; }
+@media (prefers-reduced-motion: no-preference) {
+  .ai-lane-diagram .flow { animation: ai-flow 1.6s linear infinite; }
+}
+
+/* Step cards no longer carry icons — tighten the top */
+.ai-step .n { margin-top: 0; }

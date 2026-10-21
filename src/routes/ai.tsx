@@ -205,100 +205,200 @@ const PRINCIPLES = [
   },
 ];
 
-/* ---------- Illustrations (inline SVG, decorative) ---------- */
+/* ---------- Illustrations v3 (SPIIX-941) — material-first diagrams ----------
+   Motion grammar: travelling pulse = work moving between stages;
+   bounce-back pulse = a draft that failed the gate (rework);
+   slow orbit = continuously monitored; glow = the human decision point.
+   Every label is drawn from the page's own copy. */
+
+const INPUTS = ["Market signal", "Competitor signal", "CRM data", "ICP definitions", "Pipeline numbers"];
+const HUMAN = ["Judgment", "ICP instinct", "Positioning", "Offer design", "Market reading", "Accountability"];
+const MACHINE = ["Research synthesis", "Data pulls & hygiene", "Segment builds", "Variant generation", "QA & verification", "Reporting & iteration loops"];
+const CHECKS = ["Claims checked", "Numbers reconciled", "Links tested"];
+const OUTPUTS = ["Segment", "Sequence", "Page", "Report"];
+
+function Zone({ x, w, title, items, tone, foot }: { x: number; w: number; title: string; items: string[]; tone: string; foot?: string }) {
+  return (
+    <g>
+      <rect className={`zone-box ${tone}`} x={x} y={70} width={w} height={368} />
+      <text className={`zone-title ${tone}`} x={x + w / 2} y={102} textAnchor="middle">{title}</text>
+      {items.map((it, i) => (
+        <g key={it}>
+          <rect className="chip" x={x + 14} y={122 + i * 48} width={w - 28} height={38} />
+          <text className="chip-text" x={x + w / 2} y={146 + i * 48} textAnchor="middle">{it}</text>
+        </g>
+      ))}
+      {foot && <text className="zone-foot" x={x + w / 2} y={424} textAnchor="middle">{foot}</text>}
+    </g>
+  );
+}
 
 function HeroDiagram() {
   return (
     <div className="ai-diagram ai-reveal" aria-hidden="true">
       <div className="ai-sparks">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <span
-            key={i}
-            style={{ "--x": `${(i * 67) % 100}%`, "--d": `${(i % 7) * 1.3}s`, "--s": `${3 + (i % 4)}px` } as React.CSSProperties}
-          />
+        {Array.from({ length: 6 }).map((_, i) => (
+          <span key={i} style={{ "--x": `${(i * 83) % 100}%`, "--d": `${(i % 5) * 1.7}s`, "--s": `${3 + (i % 3)}px` } as React.CSSProperties} />
         ))}
       </div>
-      <svg viewBox="0 0 920 380" fill="none" className="ai-diagram-svg">
-        <defs>
-          <linearGradient id="aiFlow" x1="0" y1="0" x2="920" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="oklch(0.82 0.15 72)" />
-            <stop offset="52%" stopColor="oklch(0.96 0.006 92)" />
-            <stop offset="100%" stopColor="oklch(0.8 0.12 196)" />
-          </linearGradient>
-          <radialGradient id="aiCore" cx="50%" cy="42%" r="65%">
-            <stop offset="0%" stopColor="oklch(0.82 0.15 72 / 0.5)" />
-            <stop offset="100%" stopColor="oklch(0.82 0.15 72 / 0)" />
-          </radialGradient>
-          <radialGradient id="aiCoreC" cx="50%" cy="42%" r="65%">
-            <stop offset="0%" stopColor="oklch(0.8 0.12 196 / 0.5)" />
-            <stop offset="100%" stopColor="oklch(0.8 0.12 196 / 0)" />
-          </radialGradient>
-        </defs>
-        {/* flowing paths */}
-        <path className="flow f1" d="M170 190 C 280 110, 340 110, 415 165" stroke="url(#aiFlow)" strokeWidth="2" />
-        <path className="flow f2" d="M170 190 C 280 190, 340 190, 415 190" stroke="url(#aiFlow)" strokeWidth="2" />
-        <path className="flow f3" d="M170 190 C 280 270, 340 270, 415 215" stroke="url(#aiFlow)" strokeWidth="2" />
-        <path className="flow f4" d="M505 165 C 580 110, 640 110, 750 190" stroke="url(#aiFlow)" strokeWidth="2" />
-        <path className="flow f5" d="M505 215 C 580 270, 640 270, 750 190" stroke="url(#aiFlow)" strokeWidth="2" />
-        {/* human core */}
-        <circle cx="130" cy="190" r="104" fill="url(#aiCore)" />
-        <g className="orbit o1">
-          <circle cx="130" cy="190" r="82" stroke="oklch(0.82 0.15 72 / 0.35)" strokeDasharray="4 9" />
-          <circle cx="212" cy="190" r="4.5" fill="oklch(0.82 0.15 72)" />
-        </g>
-        <circle className="pulse" cx="130" cy="190" r="52" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
-        <circle cx="130" cy="190" r="34" fill="oklch(0.16 0.03 60)" stroke="oklch(0.82 0.15 72)" strokeWidth="2" />
-        <path d="M114 196 L126 182 L136 206 L146 190" stroke="oklch(0.82 0.15 72)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="130" y="330" textAnchor="middle" className="svg-tag amber">JUDGMENT</text>
-        {/* gate */}
-        <g className="gate-spin">
-          <path d="M460 112 L505 138 V190 V242 L460 268 L415 242 V190 V138 Z" stroke="oklch(1 0 0 / 0.4)" strokeDasharray="6 7" fill="none" />
-        </g>
-        <path d="M460 140 L488 156 V224 L460 240 L432 224 V156 Z" fill="oklch(0.14 0.02 262)" stroke="oklch(0.96 0.006 92)" strokeWidth="2" />
-        <path d="M446 190 L457 201 L476 178" stroke="oklch(0.96 0.006 92)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="460" y="330" textAnchor="middle" className="svg-tag">THE GATE</text>
-        {/* machine core */}
-        <circle cx="790" cy="190" r="104" fill="url(#aiCoreC)" />
-        <g className="orbit o2">
-          <circle cx="790" cy="190" r="82" stroke="oklch(0.8 0.12 196 / 0.35)" strokeDasharray="4 9" />
-          <circle cx="708" cy="190" r="4.5" fill="oklch(0.8 0.12 196)" />
-          <circle cx="790" cy="108" r="3.5" fill="oklch(0.8 0.12 196)" />
-        </g>
-        <circle className="pulse c" cx="790" cy="190" r="52" stroke="oklch(0.8 0.12 196)" strokeWidth="1.5" />
-        <circle cx="790" cy="190" r="34" fill="oklch(0.13 0.03 230)" stroke="oklch(0.8 0.12 196)" strokeWidth="2" />
-        <path d="M772 208 L790 172 L802 196 L814 182" stroke="oklch(0.8 0.12 196)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="790" y="330" textAnchor="middle" className="svg-tag cyan">SPEED</text>
-        {/* travelling pulses */}
-        <circle className="dot d1" r="5" fill="oklch(0.96 0.006 92)"><animateMotion dur="3.2s" repeatCount="indefinite" path="M170 190 C 280 190, 340 190, 415 190 L505 190 C 580 190, 640 190, 750 190" /></circle>
-        <circle className="dot" r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="4.4s" begin="1.1s" repeatCount="indefinite" path="M170 190 C 280 110, 340 110, 415 165 C 560 90, 640 110, 750 190" /></circle>
-        <circle className="dot" r="3.5" fill="oklch(0.8 0.12 196)"><animateMotion dur="4.8s" begin="2s" repeatCount="indefinite" path="M170 190 C 280 270, 340 270, 415 215 C 560 290, 640 270, 750 190" /></circle>
-      </svg>
-      <div className="ai-diagram-cap"><span>Human — decides</span><span>Verified work, shipped</span><span>Machine — executes</span></div>
+      <div className="ai-diagram-scroll">
+        <svg viewBox="0 0 1240 560" fill="none" className="ai-diagram-svg ai-map">
+          <defs>
+            <linearGradient id="aiFlow3" x1="0" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="oklch(0.74 0.05 258)" />
+              <stop offset="30%" stopColor="oklch(0.82 0.15 72)" />
+              <stop offset="62%" stopColor="oklch(0.8 0.12 196)" />
+              <stop offset="100%" stopColor="oklch(0.96 0.006 92)" />
+            </linearGradient>
+          </defs>
+          {/* rework + feedback arcs (behind zones) */}
+          <path className="flow" d="M895 70 C 895 16, 645 16, 645 70" stroke="oklch(0.82 0.15 72 / 0.65)" strokeWidth="2" />
+          <text className="arc-label amber" x="770" y="14" textAnchor="middle">↩ REWORK — FAILED THE GATE</text>
+          <path className="flow" d="M1125 438 C 1125 516, 355 516, 355 438" stroke="oklch(0.8 0.12 196 / 0.55)" strokeWidth="2" />
+          <text className="arc-label cyan" x="740" y="540" textAnchor="middle">MEASURE → LEARN — FEEDS THE NEXT CYCLE</text>
+          {/* spine */}
+          <path className="flow" d="M190 254 H1020" stroke="url(#aiFlow3)" strokeWidth="2" />
+          <Zone x={10} w={180} title="INPUTS" items={INPUTS} tone="dim" foot="HubSpot · Salesforce · Marketo" />
+          <Zone x={230} w={250} title="JUDGMENT — DECIDES" items={HUMAN} tone="amber" />
+          <Zone x={520} w={250} title="MACHINE — EXECUTES" items={MACHINE} tone="cyan" />
+          {/* gate zone */}
+          <g>
+            <rect className="zone-box gate" x={810} y={70} width={170} height={368} />
+            <text className="zone-title gate-t" x={895} y={102} textAnchor="middle">THE GATE</text>
+            <g className="gate-spin">
+              <circle cx="895" cy="168" r="46" stroke="oklch(1 0 0 / 0.35)" strokeDasharray="5 7" fill="none" />
+            </g>
+            <path d="M895 132 L926 150 V186 L895 204 L864 186 V150 Z" fill="oklch(0.14 0.02 262)" stroke="oklch(0.96 0.006 92)" strokeWidth="2" />
+            <path d="M881 168 L891 178 L910 155" stroke="oklch(0.96 0.006 92)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+            {CHECKS.map((c, i) => (
+              <g key={c}>
+                <rect className="chip" x={824} y={238 + i * 48} width={142} height={38} />
+                <text className="chip-text sm" x={895} y={262 + i * 48} textAnchor="middle">{c}</text>
+              </g>
+            ))}
+          </g>
+          <Zone x={1020} w={210} title="OUTPUT" items={OUTPUTS} tone="dim" foot="Verified work, shipped" />
+          {/* monitored: orbit around the pipeline input */}
+          <g className="orbit o3">
+            <circle cx="100" cy="317" r="30" stroke="oklch(0.8 0.12 196 / 0.4)" strokeDasharray="3 6" fill="none" />
+            <circle cx="130" cy="317" r="3" fill="oklch(0.8 0.12 196)" />
+          </g>
+          {/* travelling pulses */}
+          <circle r="5" fill="oklch(0.96 0.006 92)"><animateMotion dur="5s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
+          <circle r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="5s" begin="2.4s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
+          <circle r="4" fill="oklch(0.82 0.15 72)"><animateMotion dur="3.4s" repeatCount="indefinite" path="M895 70 C 895 16, 645 16, 645 70" /></circle>
+          <circle r="4" fill="oklch(0.8 0.12 196)"><animateMotion dur="6.5s" repeatCount="indefinite" path="M1125 438 C 1125 516, 355 516, 355 438" /></circle>
+        </svg>
+      </div>
+      <div className="ai-diagram-cap ai-legend">
+        <span><i className="lg-dot" /> Pulse — work moving</span>
+        <span><i className="lg-back" /> Bounce-back — failed the gate</span>
+        <span><i className="lg-orbit" /> Orbit — monitored</span>
+        <span><i className="lg-glow" /> Glow — my call</span>
+      </div>
     </div>
   );
 }
 
-function StepIcon({ i }: { i: number }) {
-  const paths: Record<number, React.ReactNode> = {
-    0: (<><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15 15 L21 21" /></>),
-    1: (<><path d="M4 20v-6h6v6M14 20V4h6v16M4 20h16" /></>),
-    2: (<><path d="M4 12h15M13 5l7 7-7 7" /></>),
-    3: (<><path d="M4 20V6M4 16c3-2.5 5 2.5 8 0s5 2.5 8 0V6c-3 2.5-5-2.5-8 0s-5-2.5-8 0" /></>),
-    4: (<><path d="M20 12a8 8 0 1 1-2.34-5.66M20 3v4h-4" /></>),
-  };
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[i]}</svg>);
+function LoopDiagram() {
+  const nodes = [
+    { name: "Think", n: "01", x: 280, y: 90 },
+    { name: "Build", n: "02", x: 461, y: 221 },
+    { name: "Ship", n: "03", x: 392, y: 434 },
+    { name: "Measure", n: "04", x: 168, y: 434 },
+    { name: "Learn", n: "05", x: 99, y: 221 },
+  ];
+  return (
+    <div className="ai-loopdiagram ai-reveal" aria-hidden="true">
+      <svg viewBox="0 0 560 560" fill="none">
+        <defs>
+          <marker id="aiArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="oklch(0.8 0.12 196 / 0.8)" />
+          </marker>
+        </defs>
+        <circle cx="280" cy="280" r="190" stroke="oklch(1 0 0 / 0.1)" strokeWidth="1.5" />
+        <g className="orbit loop-orbit">
+          <circle cx="280" cy="280" r="190" stroke="oklch(0.8 0.12 196 / 0.3)" strokeWidth="1.5" strokeDasharray="4 10" fill="none" />
+        </g>
+        <path id="aiLoopPath" d="M280 90 a190 190 0 1 1 -0.01 0" stroke="none" fill="none" />
+        <circle r="5.5" fill="oklch(0.96 0.006 92)"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
+        <circle r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="9s" begin="4.5s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
+        <text className="loop-c1" x="280" y="266" textAnchor="middle">ONE LOOP</text>
+        <text className="loop-c2" x="280" y="296" textAnchor="middle">AT MACHINE SPEED</text>
+        <text className="arc-label cyan" x="414" y="88" textAnchor="middle">Days → an afternoon</text>
+        <text className="arc-label cyan" x="506" y="345" textAnchor="middle">Weeks → hours</text>
+        <text className="arc-label cyan" x="280" y="524" textAnchor="middle">Verified before it moves</text>
+        <text className="arc-label cyan" x="54" y="345" textAnchor="middle">A live read</text>
+        <text className="arc-label cyan" x="146" y="88" textAnchor="middle">Next bet, informed</text>
+        {nodes.map((nd) => (
+          <g key={nd.name}>
+            <circle className="loop-node" cx={nd.x} cy={nd.y} r="37" />
+            <text className="loop-n" x={nd.x} y={nd.y - 4} textAnchor="middle">{nd.n}</text>
+            <text className="loop-name" x={nd.x} y={nd.y + 15} textAnchor="middle">{nd.name}</text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
 }
 
-function LaneIcon({ i }: { i: number }) {
-  const paths: Record<number, React.ReactNode> = {
-    0: (<><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /><circle cx="12" cy="12" r="0.5" /></>), // compass: strategy
-    1: (<><circle cx="5" cy="12" r="2.2" /><circle cx="19" cy="6" r="2.2" /><circle cx="19" cy="18" r="2.2" /><path d="M7 11l9.8-4M7 13l9.8 4" /></>), // nodes: martech
-    2: (<><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.2" /></>), // target: ABM
-    3: (<><path d="M3 17c3-1 4-8 7-8s3 6 6 6 4-3 5-6" /><circle cx="3" cy="17" r="1.4" /><circle cx="21" cy="9" r="1.4" /></>), // journey: lifecycle
-    4: (<><path d="M4 4v16h16" /><path d="M8 16v-5M12 16V8M16 16v-8M20 16V6" /></>), // bars: pipeline
-  };
-  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[i]}</svg>);
+function LaneDiagram({ i }: { i: number }) {
+  const common = { fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  if (i === 0) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
+    <circle cx="34" cy="65" r="10" stroke="oklch(0.82 0.15 72)" strokeWidth="2" fill="oklch(0.82 0.15 72 / 0.12)" />
+    <path d="M44 65 C 90 65, 100 24, 148 24 M44 65 H148 M44 65 C 90 65, 100 106, 148 106" stroke="oklch(1 0 0 / 0.3)" strokeWidth="1.5" />
+    <path d="M44 65 H148" stroke="oklch(0.82 0.15 72)" strokeWidth="2" />
+    {[24, 65, 106].map((y, k) => (<g key={y}>
+      <rect x="148" y={y - 13} width="86" height="26" className="ld-box" />
+      <path d={`M234 ${y} H286`} stroke={k === 1 ? "oklch(0.82 0.15 72)" : "oklch(1 0 0 / 0.25)"} strokeWidth="1.5" />
+      <circle cx="302" cy={y} r="7" stroke={k === 1 ? "oklch(0.82 0.15 72)" : "oklch(1 0 0 / 0.3)"} strokeWidth="1.8" fill={k === 1 ? "oklch(0.82 0.15 72 / 0.18)" : "none"} />
+    </g>))}
+    <text className="ld-text" x="34" y="102" textAnchor="middle">THE BET</text>
+    <text className="ld-text" x="191" y="130" textAnchor="middle">SCENARIOS</text>
+  </svg>);
+  if (i === 1) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
+    {["HubSpot", "Salesforce", "Marketo", "Segment"].map((s, k) => (<g key={s}>
+      <rect x={4 + k * 85} y="46" width="76" height="36" className="ld-box" />
+      <text className="ld-text sm" x={42 + k * 85} y="68" textAnchor="middle">{s}</text>
+      {k < 3 && <path d={`M${80 + k * 85} 64 H${89 + k * 85}`} stroke="oklch(0.8 0.12 196)" strokeWidth="2" />}
+    </g>))}
+    <path className="flow" d="M10 100 H330" stroke="oklch(0.8 0.12 196 / 0.5)" strokeWidth="1.5" />
+    <circle r="3.5" fill="oklch(0.8 0.12 196)"><animateMotion dur="3.6s" repeatCount="indefinite" path="M10 100 H330" /></circle>
+    <text className="ld-text" x="170" y="28" textAnchor="middle">FIRST TOUCH → CLOSED-WON</text>
+  </svg>);
+  if (i === 2) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
+    <circle cx="105" cy="65" r="52" stroke="oklch(1 0 0 / 0.18)" strokeWidth="1.5" />
+    <circle cx="105" cy="65" r="35" stroke="oklch(1 0 0 / 0.3)" strokeWidth="1.5" />
+    <circle cx="105" cy="65" r="18" stroke="oklch(0.82 0.15 72)" strokeWidth="2" fill="oklch(0.82 0.15 72 / 0.1)" />
+    {[[62, 30], [150, 38], [55, 100], [148, 96]].map(([x, y]) => (<g key={`${x}-${y}`} stroke="oklch(1 0 0 / 0.35)" strokeWidth="1.5"><circle cx={x} cy={y} r="3.5" fill="none" /><path d={`M${x - 5} ${y - 5} L${x + 5} ${y + 5} M${x + 5} ${y - 5} L${x - 5} ${y + 5}`} /></g>))}
+    {[[96, 58], [114, 70], [105, 76]].map(([x, y]) => (<circle key={`${x}-${y}`} cx={x} cy={y} r="4" fill="oklch(0.82 0.15 72)" />))}
+    <path d="M185 30 H300 M185 65 H272 M185 100 H244" stroke="oklch(1 0 0 / 0.25)" strokeWidth="6" strokeLinecap="round" />
+    <text className="ld-text" x="240" y="126" textAnchor="middle">CUT TO THE ONES THAT MATTER</text>
+  </svg>);
+  if (i === 3) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
+    <path d="M16 74 H324" stroke="oklch(1 0 0 / 0.3)" strokeWidth="2" />
+    {[16, 92, 168, 244, 320].map((x, k) => (<circle key={x} cx={x} cy={74} r="6" fill="oklch(0.14 0.02 262)" stroke={k === 4 ? "oklch(0.82 0.15 72)" : "oklch(0.8 0.12 196)"} strokeWidth="2" />))}
+    <text className="ld-text sm" x="16" y="50" textAnchor="middle">FIRST TOUCH</text>
+    <text className="ld-text sm" x="168" y="50" textAnchor="middle">CUSTOMER</text>
+    <text className="ld-text sm" x="316" y="50" textAnchor="middle">ADVOCATE</text>
+    {[110, 226].map((x) => (<g key={x}>
+      <path d={`M${x} 74 L${x + 5} 92 L${x} 108 L${x - 5} 92 Z`} fill="oklch(0.82 0.15 72 / 0.25)" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
+      <path d={`M${x} 82 v14`} stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" strokeDasharray="2 3" />
+    </g>))}
+    <text className="ld-text" x="170" y="126" textAnchor="middle">LEAKS FLAGGED WHILE THERE'S TIME</text>
+  </svg>);
+  return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
+    <path d="M24 108 H324" stroke="oklch(1 0 0 / 0.3)" strokeWidth="2" />
+    {[36, 56, 76, 62].map((h, k) => (<g key={k}>
+      <rect x={52 + k * 66} y={108 - h} width="40" height={h} className={k === 2 ? "ld-box leak" : "ld-box"} />
+    </g>))}
+    <path d="M196 62 v10 M188 80 v8 M204 84 v8" stroke="oklch(0.82 0.15 72)" strokeWidth="2" strokeDasharray="3 4" />
+    <circle cx="196" cy="98" r="3" fill="oklch(0.82 0.15 72)" />
+    <text className="ld-text" x="196" y="30" textAnchor="middle">THE LEAK</text>
+    <path d="M196 36 v-2 M190 40 l6 -4 6 4" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
+  </svg>);
 }
+
 
 function SplitJoin() {
   return (
@@ -440,10 +540,10 @@ function AiPage() {
               Think, build, ship, measure, learn — that's not an AI workflow, it's an operator's workflow. AI
               doesn't change the loop. It changes how long each turn takes.
             </p>
+            <LoopDiagram />
             <div className="ai-loop">
               {LOOP.map((s, i) => (
                 <article className="ai-step ai-reveal" key={s.name}>
-                  <span className="ai-step-icon"><StepIcon i={i} /></span>
                   <p className="n">STEP {s.n}</p>
                   <h3>
                     {s.name}
@@ -469,7 +569,7 @@ function AiPage() {
             <div className="ai-lanes">
               {LANES.map((l, li) => (
                 <article className="ai-lane ai-reveal" key={l.title}>
-                  <span className="ai-lane-icon"><LaneIcon i={li} /></span>
+                  <div className="ai-lane-diagram"><LaneDiagram i={li} /></div>
                   <p className="idx">{l.idx}</p>
                   <h3>{l.title}</h3>
                   <p className="expertise">{l.expertise}</p>
