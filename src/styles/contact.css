@@ -1,0 +1,151 @@
+/* Contact v2 (SPIIX-939) — the /ai visual language on the contact page.
+   Scoped under .ct-root: dark-editorial, IBM Plex Mono + Space Grotesk,
+   warm amber = the person, cool cyan = the machine that keeps it moving.
+   All motion is CSS/SVG only and reduced-motion guarded. */
+
+.ct-root {
+  --ct-void: oklch(0.105 0.018 262);
+  --ct-ground: oklch(0.14 0.02 262);
+  --ct-panel: oklch(0.165 0.022 262);
+  --ct-panel-2: oklch(0.2 0.026 262);
+  --ct-ink: oklch(0.96 0.006 92);
+  --ct-dim: oklch(0.74 0.018 258);
+  --ct-faint: oklch(0.58 0.02 258);
+  --ct-line: oklch(1 0 0 / 0.09);
+  --ct-human: oklch(0.82 0.15 72);
+  --ct-machine: oklch(0.8 0.12 196);
+  background: var(--ct-void);
+  color: var(--ct-ink);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+}
+.ct-root ::selection { background: var(--ct-human); color: var(--ct-void); }
+
+.ct-wrap { max-width: 74rem; margin: 0 auto; padding-inline: 1.25rem; }
+@media (min-width: 768px) { .ct-wrap { padding-inline: 2rem; } }
+
+.ct-kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--ct-machine); display: flex; align-items: center; gap: 0.75rem;
+}
+.ct-kicker::before { content: ""; width: 2.25rem; height: 1px; background: currentColor; }
+.ct-kicker.center { justify-content: center; }
+.ct-kicker.center::after { content: ""; width: 2.25rem; height: 1px; background: currentColor; }
+
+/* ---------- Hero ---------- */
+.ct-hero { position: relative; padding-block: clamp(4rem, 9vw, 7rem) 3.5rem; overflow: clip; }
+.ct-aurora { position: absolute; inset: 0; pointer-events: none; }
+.ct-aurora span { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: 0.16; }
+.ct-aurora .a1 { width: 34rem; height: 34rem; left: -10rem; top: -12rem; background: oklch(0.82 0.15 72 / 0.5); }
+.ct-aurora .a2 { width: 28rem; height: 28rem; right: -8rem; top: -6rem; background: oklch(0.8 0.12 196 / 0.4); }
+@media (prefers-reduced-motion: no-preference) {
+  .ct-aurora .a1 { animation: ct-drift 22s ease-in-out infinite alternate; }
+  .ct-aurora .a2 { animation: ct-drift 28s ease-in-out infinite alternate-reverse; }
+}
+@keyframes ct-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(3rem, 2rem, 0); } }
+
+.ct-hero-title {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.0; letter-spacing: -0.02em;
+  font-weight: 700; margin-top: 1.4rem; max-width: 16ch;
+}
+.ct-hero-title .grow { color: var(--ct-human); }
+.ct-hero-sub { margin-top: 1.4rem; max-width: 46ch; font-size: 1.1rem; color: var(--ct-dim); line-height: 1.65; }
+
+/* ---------- The reach-out flow diagram ---------- */
+.ct-flow { margin-top: 3.5rem; border: 1px solid var(--ct-line); background: oklch(0.13 0.02 262 / 0.6); padding: 1.25rem 1rem 0.75rem; }
+.ct-flow-scroll { overflow-x: auto; }
+.ct-flow svg { min-width: 680px; width: 100%; height: auto; display: block; }
+.ct-node { fill: var(--ct-panel-2); stroke: oklch(1 0 0 / 0.18); stroke-width: 1.5; }
+.ct-node.human { stroke: oklch(0.82 0.15 72 / 0.6); }
+.ct-node-t { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.18em; fill: var(--ct-ink); font-weight: 700; }
+.ct-node-s { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.06em; fill: var(--ct-faint); }
+.ct-flow .flow { stroke-dasharray: 7 9; }
+.ct-flow-cap {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1rem 0.5rem 0.5rem;
+  font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ct-faint);
+}
+.ct-flow-cap i { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--ct-ink); margin-right: 0.5rem; vertical-align: -1px; }
+.ct-flow-cap .lg-glow { background: var(--ct-human); box-shadow: 0 0 10px 2px oklch(0.82 0.15 72 / 0.5); }
+@media (prefers-reduced-motion: no-preference) {
+  .ct-flow .flow { animation: ct-flow 2.2s linear infinite; }
+  .ct-node.human { animation: ct-decision-glow 4.5s ease-in-out infinite; }
+}
+@keyframes ct-flow { to { stroke-dashoffset: -32; } }
+@keyframes ct-decision-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 oklch(0.82 0.15 72 / 0)); }
+  50% { filter: drop-shadow(0 0 14px oklch(0.82 0.15 72 / 0.35)); }
+}
+
+/* ---------- Channel cards ---------- */
+.ct-section { padding-block: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--ct-line); }
+.ct-h2 {
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -0.02em; margin-top: 1.1rem;
+}
+.ct-lede { margin-top: 1rem; max-width: 58ch; color: var(--ct-dim); line-height: 1.65; font-size: 1.05rem; }
+
+.ct-channels { display: grid; gap: 1rem; margin-top: 2.5rem; }
+@media (min-width: 640px) { .ct-channels { grid-template-columns: 1fr 1fr; } }
+.ct-channel {
+  display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem;
+  background: var(--ct-panel); border: 1px solid var(--ct-line); border-radius: 4px;
+  transition: border-color 0.2s ease, transform 0.2s ease; color: inherit; text-decoration: none;
+}
+a.ct-channel:hover { border-color: oklch(0.82 0.15 72 / 0.55); transform: translateY(-2px); }
+.ct-channel .icon {
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex: none;
+  border: 1px solid var(--ct-line); border-radius: 4px; background: var(--ct-panel-2); color: var(--ct-machine);
+}
+.ct-channel .label { font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ct-faint); }
+.ct-channel .value { margin-top: 0.3rem; font-weight: 600; font-size: 1.05rem; }
+.ct-channel .hint { margin-top: 0.35rem; font-size: 0.88rem; color: var(--ct-faint); line-height: 1.5; }
+
+.ct-location {
+  margin-top: 1rem; display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem;
+  border: 1px solid var(--ct-line); background: oklch(0.13 0.02 262 / 0.6);
+  font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; color: var(--ct-dim); letter-spacing: 0.04em;
+}
+.ct-location svg { color: var(--ct-machine); flex: none; }
+
+/* ---------- CTA ---------- */
+.ct-cta {
+  margin-top: 3rem; text-align: center; padding: 3.5rem 1.5rem;
+  border: 1px solid var(--ct-line); background: linear-gradient(180deg, oklch(0.82 0.15 72 / 0.06), transparent);
+}
+.ct-cta h2 { font-family: "Space Grotesk", sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.02em; }
+.ct-cta p { margin: 1rem auto 0; max-width: 44ch; color: var(--ct-dim); line-height: 1.65; }
+.ct-btn-row { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+.ct-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.8rem;
+  font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1rem;
+  border-radius: 4px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ct-btn.primary { background: var(--ct-human); color: oklch(0.1 0.02 262); }
+.ct-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px oklch(0.82 0.15 72 / 0.35); }
+.ct-btn.ghost { border: 1px solid var(--ct-line); color: var(--ct-ink); background: transparent; }
+.ct-btn.ghost:hover { border-color: var(--ct-machine); transform: translateY(-2px); }
+
+/* ---------- Before you write ---------- */
+.ct-links { display: grid; gap: 1rem; margin-top: 2.5rem; }
+@media (min-width: 640px) { .ct-links { grid-template-columns: 1fr 1fr; } }
+.ct-link {
+  display: block; padding: 1.5rem; border: 1px solid var(--ct-line); background: var(--ct-panel);
+  border-radius: 4px; color: inherit; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.ct-link:hover { border-color: oklch(0.8 0.12 196 / 0.5); transform: translateY(-2px); }
+.ct-link b { font-family: "Space Grotesk", sans-serif; font-size: 1.15rem; }
+.ct-link p { margin-top: 0.5rem; font-size: 0.92rem; color: var(--ct-dim); line-height: 1.55; }
+
+/* ---------- Reveals ---------- */
+.ct-reveal { opacity: 1; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ct-reveal { opacity: 0; animation: ct-in 0.7s ease forwards; animation-timeline: view(); animation-range: entry 0% cover 22%; }
+  }
+}
+@keyframes ct-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ct-flow .flow, .ct-node.human, .ct-aurora span { animation: none !important; }
+}
