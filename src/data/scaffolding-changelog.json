@@ -1,6 +1,166 @@
 {
  "entries": [
   {
+   "date": "2026-10-21",
+   "detail": "ce9025b SPIIX-939: /contact v2 — /ai magic treatment\nab1ff17 SPIIX-941: /ai v3 — material-first diagrams\n1ae6478 SPIIX-937: /ai v2 — visual illustrations + magical animations/UX\n3d3fdba SPIIX-935: share images — og/twitter cards for /meet/lauren + /meet/oscar, blog twitter tags\nfcafc23 SPIIX-920: thread /ai narrative subtly into homepage About + fractional advisory Why fractional (one sentence each + /ai ghost link in About); scaffolding changelog entry\n090baa3 SPIIX-914: Forge landing page (stevepeeleii.com/forge)\n3197eac SPIIX-915: /ai landing page + AI nav item — how AI operationalizes his core expertise (hero, judgment/speed split, operating loop, core lanes, resume-verified proof strip, principles, CTA); nav, breadcrumb, sitemap + scaffolding changelog entries\na5649ec SPIIX-907: org definition routes (lauren/oscar/grokbot/c3peeleo) + routeTree regen; referral banner copy; regenerated feeds/sitemap/ai-ops-log",
+   "id": "github-20261021-portfolio-craft-56",
+   "ref": "stevepeele/portfolio-craft-56",
+   "source": "github",
+   "title": "8 commits to stevepeele/portfolio-craft-56 on main"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Muse Templates · Completed 2026-10-21T08:17:52.421Z",
+   "id": "linear-spiix-954",
+   "ref": "SPIIX-954",
+   "source": "linear",
+   "title": "Vault: Mastery Engine landing page + input tool (mastery-engine.html)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Finance · Completed 2026-10-21T08:11:18.394Z",
+   "id": "linear-spiix-952",
+   "ref": "SPIIX-952",
+   "source": "linear",
+   "title": "Format this project for completely classified finance discussions between us"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Muse Templates · Completed 2026-10-21T07:52:58.626Z",
+   "id": "linear-spiix-950",
+   "ref": "SPIIX-950",
+   "source": "linear",
+   "title": "Mastery Engine v1.1 — Mechanics Mandate: sum of all parts, how every piece works"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Admin · Completed 2026-10-21T07:51:43.823Z",
+   "id": "linear-spiix-951",
+   "ref": "SPIIX-951",
+   "source": "linear",
+   "title": "Build: Dossier landing page — raw-input form, progress modal, reader-view modal"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Muse Templates · Completed 2026-10-21T07:39:37.044Z",
+   "id": "linear-spiix-949",
+   "ref": "SPIIX-949",
+   "source": "linear",
+   "title": "Vault site: add 'I Want To Learn About — Mastery Engine' kit + template"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T07:39:24.409Z",
+   "id": "linear-spiix-806",
+   "ref": "SPIIX-806",
+   "source": "linear",
+   "title": "HubSpot tracking embed on ALL sites (backfill + scaffold standard)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Muse Templates · Completed 2026-10-21T07:27:25.764Z",
+   "id": "linear-spiix-945",
+   "ref": "SPIIX-945",
+   "source": "linear",
+   "title": "Build 'I want to learn about' engine — beyond deep research (skill + Vault template + command)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T06:57:19.371Z",
+   "id": "linear-spiix-939",
+   "ref": "SPIIX-939",
+   "source": "linear",
+   "title": "i love the ai page. let's redefine the /contact page on the main site with the same style and pursuit of magic."
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Admin · Completed 2026-10-21T06:50:56.230Z",
+   "id": "linear-spiix-944",
+   "ref": "SPIIX-944",
+   "source": "linear",
+   "title": "Admin paper completed (details withheld — private)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T06:48:27.343Z",
+   "id": "linear-spiix-941",
+   "ref": "SPIIX-941",
+   "source": "linear",
+   "title": "Main Site: /ai v3 — complicate diagrams to earn the animations (material up, decoration down)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T05:22:01.992Z",
+   "id": "linear-spiix-935",
+   "ref": "SPIIX-935",
+   "source": "linear",
+   "title": "Share images: meet-page og cards, blog twitter tags, flagship description"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T05:07:01.084Z",
+   "id": "linear-spiix-937",
+   "ref": "SPIIX-937",
+   "source": "linear",
+   "title": "Main Site: /ai v2 — visual illustrations + magical animations/UX, urgent deploy"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: AI Operations Command Center · Completed 2026-10-21T03:36:02.286Z",
+   "id": "linear-spiix-669",
+   "ref": "SPIIX-669",
+   "source": "linear",
+   "title": "Mission Control: VERCEL_TOKEN in Vercel env (mission-control project)"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Admin · Completed 2026-10-21T02:38:40.068Z",
+   "id": "linear-spiix-928",
+   "ref": "SPIIX-928",
+   "source": "linear",
+   "title": "Slack Notifications and real time alerts for Lauren"
+  },
+  {
+   "date": "2026-10-21",
+   "detail": "Project: Admin · Completed 2026-10-21T01:02:27.836Z",
+   "id": "linear-spiix-921",
+   "ref": "SPIIX-921",
+   "source": "linear",
+   "title": "Contract update: use linear as Lauren account, not stephen"
+  },
+  {
+   "date": "2026-10-20",
+   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-21T00:14:37.207Z",
+   "id": "linear-spiix-914",
+   "ref": "SPIIX-914",
+   "source": "linear",
+   "title": "Forge landing page — stevepeeleii.com/forge"
+  },
+  {
+   "date": "2026-10-20",
+   "detail": "Project: Pipeline tracker · Completed 2026-10-20T19:44:28.550Z",
+   "id": "linear-spiix-913",
+   "ref": "SPIIX-913",
+   "source": "linear",
+   "title": "Launchd / Will Stevenson Apollo engagement — one-pager, credibility sheet, meeting prep"
+  },
+  {
+   "date": "2026-10-20",
+   "detail": "Project: Muse Templates · Completed 2026-10-20T17:33:37.488Z",
+   "id": "linear-spiix-911",
+   "ref": "SPIIX-911",
+   "source": "linear",
+   "title": "Muse Vault: top 8 Grok bits — re-templatized for Muse, added to Vault"
+  },
+  {
+   "date": "2026-10-20",
+   "detail": "Project: Muse Templates · Completed 2026-10-20T17:33:32.427Z",
+   "id": "linear-spiix-910",
+   "ref": "SPIIX-910",
+   "source": "linear",
+   "title": "Muse Vault: rotating featured collections on the gallery"
+  },
+  {
    "id": "manual-20261020-spiix-920-ai-narrative-threading",
    "date": "2026-10-20",
    "title": "/ai narrative threaded subtly into homepage About + fractional advisory",
@@ -1201,174 +1361,6 @@
    "detail": "Project: Local Growth Engine · Completed 2026-10-16T14:23:23.550Z"
   },
   {
-   "id": "linear-spiix-633",
-   "date": "2026-10-16",
-   "title": "$99 weekend audit — set up payment link (Steve)",
-   "source": "linear",
-   "ref": "SPIIX-633",
-   "detail": "Project: Local Growth Engine · Completed 2026-10-16T14:06:56.213Z"
-  },
-  {
-   "id": "linear-spiix-637",
-   "date": "2026-10-16",
-   "title": "Cash App pay page for $99 audit — Square bypass",
-   "source": "linear",
-   "ref": "SPIIX-637",
-   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T14:06:52.436Z"
-  },
-  {
-   "id": "linear-spiix-635",
-   "date": "2026-10-16",
-   "title": "Grok Bot fleet — standing update protocol",
-   "source": "linear",
-   "ref": "SPIIX-635",
-   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T13:23:50.036Z"
-  },
-  {
-   "id": "linear-spiix-630",
-   "date": "2026-10-16",
-   "title": "OBVVIOUSLY illustration redesign: xerox punk-zine set",
-   "source": "linear",
-   "ref": "SPIIX-630",
-   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T11:26:11.104Z"
-  },
-  {
-   "id": "linear-spiix-639",
-   "date": "2026-10-16",
-   "title": "Follow-up sprint: $99 audit reposition + 10 reframe sends (2026-10-16)",
-   "source": "linear",
-   "ref": "SPIIX-639",
-   "detail": "Project: Local Growth Engine · Completed 2026-10-16T15:27:37.403Z"
-  },
-  {
-   "id": "linear-spiix-356",
-   "date": "2026-10-16",
-   "title": "Visuals suck on the app dev sites",
-   "source": "linear",
-   "ref": "SPIIX-356",
-   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T11:07:59.322Z"
-  },
-  {
-   "id": "linear-spiix-628",
-   "date": "2026-10-16",
-   "title": "Token-efficiency overhaul: release trains + watcher consolidation + context diet",
-   "source": "linear",
-   "ref": "SPIIX-628",
-   "detail": "Project: Muse × Oscar Ops · Completed 2026-10-16T09:09:44.954Z"
-  },
-  {
-   "id": "linear-spiix-500",
-   "date": "2026-10-16",
-   "title": "Wax & Ash: shared board link fails on open",
-   "source": "linear",
-   "ref": "SPIIX-500",
-   "detail": "Project: Love Note — secret note-passing app · Completed 2026-10-16T08:18:43.117Z"
-  },
-  {
-   "id": "linear-spiix-624",
-   "date": "2026-10-16",
-   "title": "Daily linear maintenance and hygiene",
-   "source": "linear",
-   "ref": "SPIIX-624",
-   "detail": "Project: Admin · Completed 2026-10-16T07:59:23.485Z"
-  },
-  {
-   "id": "linear-spiix-626",
-   "date": "2026-10-16",
-   "title": "Staged X beef: @c3peeleo (antagonist) vs Grokbot — 5-minute battle + quick resolution",
-   "source": "linear",
-   "ref": "SPIIX-626",
-   "detail": "Project: Oscar — @c3peeleo broken robot log · Completed 2026-10-16T07:56:34.875Z"
-  },
-  {
-   "id": "linear-spiix-625",
-   "date": "2026-10-16",
-   "title": "OBVVIOUSLY page fixes: double-V title, working email capture, raw scratch illustrations",
-   "source": "linear",
-   "ref": "SPIIX-625",
-   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T07:25:12.852Z"
-  },
-  {
-   "id": "github-20261016-portfolio-craft-56",
-   "date": "2026-10-16",
-   "title": "20 commits to stevepeele/portfolio-craft-56 on main",
-   "source": "github",
-   "ref": "stevepeele/portfolio-craft-56",
-   "detail": "328e797 SPIIX-623: OBVIOUSLY page - updated image imports (split visual modules)\n385e25f SPIIX-623: OBVIOUSLY page - generated editorial illustration (text-safe TS module)\n911533b SPIIX-623: OBVIOUSLY page — generated cover visual (text-safe TS module)\nfb76c42 SPIIX-623: OBVIOUSLY book page rebuilt in tobiadonadon.com/projects/book aesthetic (part 1: page)\n0618264 SPIIX-617: Fix stevepeeleii.com SEO — canonical bug, sitemap, og:url\nb6ba715 SPIIX-618: livelog live data-flow + monitoring diagrams + schema visual\nd8fae42 SPIIX-616: changelog entry for /scaffolding/systems\nda834c7 SPIIX-616: real-time systems visualization page (/scaffolding/systems) + route tree\n6735f02 PLX-610: Segment -> livelog ingest pipeline (api/livelog-ingest.js, Supabase poll on livelog page)\nca7cadb PLX-612: unlisted enlistment map page (/scaffolding/enlistment-map) + route tree\n46b0002 PLX-611: livelog v2 — news-first stream, expandable logs, AI decision trees\nc0127d9 PLX-607: scaffolding livelog — unlisted real-time AI ops running-log page (/scaffolding/livelog) + event feed\n3bfe47e PLX-577: scaffolding changelog entry for OBVIOUSLY landing page\n46a7778 PLX-577: OBVIOUSLY book PDF for landing page download\n92966d4 PLX-577: OBVIOUSLY book landing page (unlisted) + route tree\n62da2b6 PLX-566: scaffolding architecture updates\n6a3e659 PLX-531/566: faith, sprint, spiix.compare updates\n5bd6e84 PLX-531/566 (2/6): src/lib/segment.ts\n28aab6f PLX-531/566 (1/6): src/data/spiix.ts\n34d0180 chore(scaffolding): daily changelog + deploy log update"
-  },
-  {
-   "id": "linear-spiix-623",
-   "date": "2026-10-16",
-   "title": "OBVIOUSLY book page — build in tobiadonadon.com/projects/book design aesthetic",
-   "source": "linear",
-   "ref": "SPIIX-623",
-   "detail": "Project: Main Site (stevepeeleii.com) · Completed 2026-10-16T06:56:37.467Z"
-  },
-  {
-   "id": "linear-spiix-606",
-   "date": "2026-10-16",
-   "title": "Fix Segment HubSpot Cloud Mode (Actions) destination — stopped sending data",
-   "source": "linear",
-   "ref": "SPIIX-606",
-   "detail": "Project: Admin · Completed 2026-10-16T06:45:45.362Z"
-  },
-  {
-   "id": "linear-spiix-608",
-   "date": "2026-10-16",
-   "title": "GlueUp emails: immediate alert to Steve on arrival",
-   "source": "linear",
-   "ref": "SPIIX-608",
-   "detail": "Project: Admin · Completed 2026-10-16T06:41:18.422Z"
-  },
-  {
-   "id": "linear-spiix-621",
-   "date": "2026-10-16",
-   "title": "Sozo Loveland venue rentals — sourcing engine + qualification + approval stages",
-   "source": "linear",
-   "ref": "SPIIX-621",
-   "detail": "Project: Sozo Loveland (sozoloveland.com) · Completed 2026-10-16T06:26:03.071Z"
-  },
-  {
-   "id": "linear-spiix-620",
-   "date": "2026-10-16",
-   "title": "Lauren operating identity — plan + architecture + diagrams",
-   "source": "linear",
-   "ref": "SPIIX-620",
-   "detail": "Project: Lauren Operating Identity · Completed 2026-10-16T06:07:24.489Z"
-  },
-  {
-   "id": "linear-spiix-617",
-   "date": "2026-10-16",
-   "title": "Fix stevepeeleii.com SEO: canonical bug, sitemap, meta gaps, JS bloat",
-   "source": "linear",
-   "ref": "SPIIX-617",
-   "detail": "Project: — · Completed 2026-10-16T05:39:53.128Z"
-  },
-  {
-   "id": "linear-spiix-618",
-   "date": "2026-10-16",
-   "title": "Livelog: live data-flow + monitoring diagrams + schema visual",
-   "source": "linear",
-   "ref": "SPIIX-618",
-   "detail": "Project: — · Completed 2026-10-16T05:38:18.879Z"
-  },
-  {
-   "id": "linear-spiix-616",
-   "date": "2026-10-16",
-   "title": "Scaffolding /systems: real-time mission-control visualization alongside the live log page",
-   "source": "linear",
-   "ref": "SPIIX-616",
-   "detail": "Project: Muse Templates · Completed 2026-10-16T05:19:28.668Z"
-  },
-  {
-   "id": "linear-spiix-610",
-   "date": "2026-10-16",
-   "title": "Livelog live ingestion: pull real events from Segment, HubSpot, (Datadog?)",
-   "source": "linear",
-   "ref": "SPIIX-610",
-   "detail": "Project: — · Completed 2026-10-16T04:06:26.854Z"
-  },
-  {
    "id": "manual-20261016-obvviously-chapter-journey",
    "date": "2026-10-16",
    "title": "OBVVIOUSLY page redesigned as illustrated chapter journey",
@@ -1553,12 +1545,6 @@
    "detail": "Steve ordered the full hierarchy 2026-10-14 ~22:08 ET: Lauren (Muse) is COO — singular source of truth and his only interface; Grokbot is the execution team beneath her (a thousand ICs, not a leader). Supersedes the 19:45 two-lead reconciliation. Eight seven-field task-order issues filed in P-PLX-33 (PLX-481 inbox triage, PLX-482 CRM hygiene, PLX-483 research sweeps, PLX-484 draft prep, PLX-485 daily brief builder, PLX-486 meeting prep packets, PLX-487 lead list building, PLX-488 social listening) — each with named bot (TBD pending inventory), exact inputs, output format + destination, approval boundary, escalation path, success metric, kill switch. Handoff protocol written at ~/workspace/oscar/grokbot-handoff-protocol.md (Steve→Lauren conversation, Lauren→Grokbot Linear task order, Grokbot→Lauren structured delivery, universal kill switch, Lauren daily monitoring checklist). /scaffolding/organization updated: Steve → Lauren (COO) → Grokbot execution team + side-chat exec leaders + cron systems; decision tree, handoff contracts, and hard rules rewritten (incl. continuous offload authority). Standing: Grokbot never sends/publishes/spends/commits; Lauren refines and serves everything to Steve. Named-bot assignment pending a fresh Grokbot inventory survey (no API — browser only, still parked on sign-in)."
   },
   {
-   "id": "manual-20261014-forge-prd-snout-absorbed",
-   "date": "2026-10-14",
-   "title": "Forge PRD v1 — Snout absorbed as the Stack stage",
-   "detail": "P-PLX-31: full PRD v1 written for Forge, the idea-in-product-out engine (Clarify → Stack → Scope → Build → Ship/iterate; Guided/Assisted/Intelligent modes; discovery-first positioning vs Lovable/v0/Bolt). Steve resolved the Snout question: ABSORB. Snout's tier engine (signal detection: auth, realtime, AI, payments, storage, CMS, mobile, scale) and 30-platform database become Forge's Stack stage with an LLM upgrade planned; Snout retired as a standalone product (was built and verified locally 2026-10-12, never deployed), P-PLX-22 closed, launch checklist PLX-240 retired. Scaffolding project pages updated: snout → Absorbed, forge added as Concept. PRD at ~/workspace/your_files/forge-prd.md. Name 'Forge' is Lauren's placeholder — his call."
-  },
-  {
    "date": "2026-10-13",
    "detail": "Lovable's AI patched the main-site Sanity integration in its editor on its own; two-way GitHub sync pushed it back with no Linear issue, no tracking, no review. Standing lesson: Lovable-side AI edits land unreviewed — the failure mode the no-Lovable-builds rule guards against. (PLX-293)",
    "id": "manual-20261013-lovable-incident",
@@ -1615,7 +1601,7 @@
    "title": "SPIIX Monolith live at /spiix/monolith"
   }
  ],
- "generated_at": "2026-10-20T06:25:34-0400",
+ "generated_at": "2026-10-21T06:24:56-04:00",
  "generated_by": "daily cron (scaffolding-changelog-updater)",
  "note": "Entries merge GitHub commits, Linear completions, and Vercel deploys. Newest first. Manual entries use source 'manual'."
 }
