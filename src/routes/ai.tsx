@@ -205,6 +205,101 @@ const PRINCIPLES = [
   },
 ];
 
+/* ---------- Illustrations (inline SVG, decorative) ---------- */
+
+function HeroDiagram() {
+  return (
+    <div className="ai-diagram ai-reveal" aria-hidden="true">
+      <div className="ai-sparks">
+        {Array.from({ length: 14 }).map((_, i) => (
+          <span
+            key={i}
+            style={{ "--x": `${(i * 67) % 100}%`, "--d": `${(i % 7) * 1.3}s`, "--s": `${3 + (i % 4)}px` } as React.CSSProperties}
+          />
+        ))}
+      </div>
+      <svg viewBox="0 0 920 380" fill="none" className="ai-diagram-svg">
+        <defs>
+          <linearGradient id="aiFlow" x1="0" y1="0" x2="920" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="oklch(0.82 0.15 72)" />
+            <stop offset="52%" stopColor="oklch(0.96 0.006 92)" />
+            <stop offset="100%" stopColor="oklch(0.8 0.12 196)" />
+          </linearGradient>
+          <radialGradient id="aiCore" cx="50%" cy="42%" r="65%">
+            <stop offset="0%" stopColor="oklch(0.82 0.15 72 / 0.5)" />
+            <stop offset="100%" stopColor="oklch(0.82 0.15 72 / 0)" />
+          </radialGradient>
+          <radialGradient id="aiCoreC" cx="50%" cy="42%" r="65%">
+            <stop offset="0%" stopColor="oklch(0.8 0.12 196 / 0.5)" />
+            <stop offset="100%" stopColor="oklch(0.8 0.12 196 / 0)" />
+          </radialGradient>
+        </defs>
+        {/* flowing paths */}
+        <path className="flow f1" d="M170 190 C 280 110, 340 110, 415 165" stroke="url(#aiFlow)" strokeWidth="2" />
+        <path className="flow f2" d="M170 190 C 280 190, 340 190, 415 190" stroke="url(#aiFlow)" strokeWidth="2" />
+        <path className="flow f3" d="M170 190 C 280 270, 340 270, 415 215" stroke="url(#aiFlow)" strokeWidth="2" />
+        <path className="flow f4" d="M505 165 C 580 110, 640 110, 750 190" stroke="url(#aiFlow)" strokeWidth="2" />
+        <path className="flow f5" d="M505 215 C 580 270, 640 270, 750 190" stroke="url(#aiFlow)" strokeWidth="2" />
+        {/* human core */}
+        <circle cx="130" cy="190" r="104" fill="url(#aiCore)" />
+        <g className="orbit o1">
+          <circle cx="130" cy="190" r="82" stroke="oklch(0.82 0.15 72 / 0.35)" strokeDasharray="4 9" />
+          <circle cx="212" cy="190" r="4.5" fill="oklch(0.82 0.15 72)" />
+        </g>
+        <circle className="pulse" cx="130" cy="190" r="52" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
+        <circle cx="130" cy="190" r="34" fill="oklch(0.16 0.03 60)" stroke="oklch(0.82 0.15 72)" strokeWidth="2" />
+        <path d="M114 196 L126 182 L136 206 L146 190" stroke="oklch(0.82 0.15 72)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="130" y="330" textAnchor="middle" className="svg-tag amber">JUDGMENT</text>
+        {/* gate */}
+        <g className="gate-spin">
+          <path d="M460 112 L505 138 V190 V242 L460 268 L415 242 V190 V138 Z" stroke="oklch(1 0 0 / 0.4)" strokeDasharray="6 7" fill="none" />
+        </g>
+        <path d="M460 140 L488 156 V224 L460 240 L432 224 V156 Z" fill="oklch(0.14 0.02 262)" stroke="oklch(0.96 0.006 92)" strokeWidth="2" />
+        <path d="M446 190 L457 201 L476 178" stroke="oklch(0.96 0.006 92)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="460" y="330" textAnchor="middle" className="svg-tag">THE GATE</text>
+        {/* machine core */}
+        <circle cx="790" cy="190" r="104" fill="url(#aiCoreC)" />
+        <g className="orbit o2">
+          <circle cx="790" cy="190" r="82" stroke="oklch(0.8 0.12 196 / 0.35)" strokeDasharray="4 9" />
+          <circle cx="708" cy="190" r="4.5" fill="oklch(0.8 0.12 196)" />
+          <circle cx="790" cy="108" r="3.5" fill="oklch(0.8 0.12 196)" />
+        </g>
+        <circle className="pulse c" cx="790" cy="190" r="52" stroke="oklch(0.8 0.12 196)" strokeWidth="1.5" />
+        <circle cx="790" cy="190" r="34" fill="oklch(0.13 0.03 230)" stroke="oklch(0.8 0.12 196)" strokeWidth="2" />
+        <path d="M772 208 L790 172 L802 196 L814 182" stroke="oklch(0.8 0.12 196)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="790" y="330" textAnchor="middle" className="svg-tag cyan">SPEED</text>
+        {/* travelling pulses */}
+        <circle className="dot d1" r="5" fill="oklch(0.96 0.006 92)"><animateMotion dur="3.2s" repeatCount="indefinite" path="M170 190 C 280 190, 340 190, 415 190 L505 190 C 580 190, 640 190, 750 190" /></circle>
+        <circle className="dot" r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="4.4s" begin="1.1s" repeatCount="indefinite" path="M170 190 C 280 110, 340 110, 415 165 C 560 90, 640 110, 750 190" /></circle>
+        <circle className="dot" r="3.5" fill="oklch(0.8 0.12 196)"><animateMotion dur="4.8s" begin="2s" repeatCount="indefinite" path="M170 190 C 280 270, 340 270, 415 215 C 560 290, 640 270, 750 190" /></circle>
+      </svg>
+      <div className="ai-diagram-cap"><span>Human — decides</span><span>Verified work, shipped</span><span>Machine — executes</span></div>
+    </div>
+  );
+}
+
+function StepIcon({ i }: { i: number }) {
+  const paths: Record<number, React.ReactNode> = {
+    0: (<><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15 15 L21 21" /></>),
+    1: (<><path d="M4 20v-6h6v6M14 20V4h6v16M4 20h16" /></>),
+    2: (<><path d="M4 12h15M13 5l7 7-7 7" /></>),
+    3: (<><path d="M4 20V6M4 16c3-2.5 5 2.5 8 0s5 2.5 8 0V6c-3 2.5-5-2.5-8 0s-5-2.5-8 0" /></>),
+    4: (<><path d="M20 12a8 8 0 1 1-2.34-5.66M20 3v4h-4" /></>),
+  };
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[i]}</svg>);
+}
+
+function LaneIcon({ i }: { i: number }) {
+  const paths: Record<number, React.ReactNode> = {
+    0: (<><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /><circle cx="12" cy="12" r="0.5" /></>), // compass: strategy
+    1: (<><circle cx="5" cy="12" r="2.2" /><circle cx="19" cy="6" r="2.2" /><circle cx="19" cy="18" r="2.2" /><path d="M7 11l9.8-4M7 13l9.8 4" /></>), // nodes: martech
+    2: (<><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.2" /></>), // target: ABM
+    3: (<><path d="M3 17c3-1 4-8 7-8s3 6 6 6 4-3 5-6" /><circle cx="3" cy="17" r="1.4" /><circle cx="21" cy="9" r="1.4" /></>), // journey: lifecycle
+    4: (<><path d="M4 4v16h16" /><path d="M8 16v-5M12 16V8M16 16v-8M20 16V6" /></>), // bars: pipeline
+  };
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[i]}</svg>);
+}
+
 function SplitJoin() {
   return (
     <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
@@ -218,10 +313,12 @@ function SplitJoin() {
 function AiPage() {
   return (
     <div className="ai-root">
+      <div className="ai-progress" aria-hidden="true" />
       <SiteHeader />
       <main>
         {/* ---------- Hero ---------- */}
         <section className="ai-hero">
+          <div className="ai-aurora" aria-hidden="true"><span className="a1" /><span className="a2" /><span className="a3" /></div>
           <div className="ai-wrap">
             <p className="ai-kicker">AI — the operating layer</p>
             <h1 className="ai-hero-title">
@@ -238,6 +335,16 @@ function AiPage() {
               <p>
                 AI makes me faster at doing <em>what only I can do.</em>
               </p>
+            </div>
+
+            <HeroDiagram />
+
+            <div className="ai-marquee" aria-hidden="true">
+              <div className="ai-marquee-track">
+                {[0, 1].map((n) => (
+                  <span key={n}>Think <i>→</i> Build <i>→</i> Ship <i>→</i> Measure <i>→</i> Learn <i>↺</i>&nbsp;&nbsp;Think <i>→</i> Build <i>→</i> Ship <i>→</i> Measure <i>→</i> Learn <i>↺</i>&nbsp;&nbsp;</span>
+                ))}
+              </div>
             </div>
 
             <div className="ai-split" aria-label="Human judgment plus machine speed">
@@ -336,6 +443,7 @@ function AiPage() {
             <div className="ai-loop">
               {LOOP.map((s, i) => (
                 <article className="ai-step ai-reveal" key={s.name}>
+                  <span className="ai-step-icon"><StepIcon i={i} /></span>
                   <p className="n">STEP {s.n}</p>
                   <h3>
                     {s.name}
@@ -359,8 +467,9 @@ function AiPage() {
               long before AI — each one now multiplied.
             </p>
             <div className="ai-lanes">
-              {LANES.map((l) => (
+              {LANES.map((l, li) => (
                 <article className="ai-lane ai-reveal" key={l.title}>
+                  <span className="ai-lane-icon"><LaneIcon i={li} /></span>
                   <p className="idx">{l.idx}</p>
                   <h3>{l.title}</h3>
                   <p className="expertise">{l.expertise}</p>

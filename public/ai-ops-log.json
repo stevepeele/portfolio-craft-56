@@ -797,7 +797,21 @@
    "chosen": null,
    "decision": null,
    "outcome": null
+  },
+  {
+   "id": "evt-065-1792558490",
+   "t": "2026-10-21T00:54:50-04:00",
+   "lane": "lauren",
+   "kind": "processing",
+   "text": "Starting /ai v2 \u2014 visual illustrations + magical animations, urgent deploy (SPIIX-937)",
+   "detail": null,
+   "link": "https://linear.app/plxio/issue/SPIIX-937",
+   "parent": null,
+   "options": [],
+   "chosen": null,
+   "decision": null,
+   "outcome": null
   }
  ],
- "generatedAt": "2026-10-20T01:55:49-04:00"
+ "generatedAt": "2026-10-21T00:54:50-04:00"
 }
