@@ -55,6 +55,9 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:url", content: canonical },
         ...(ogImage ? [{ property: "og:image", content: ogImage }] : []),
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: pageTitle },
+        { name: "twitter:description", content: metaDesc },
+        ...(ogImage ? [{ name: "twitter:image", content: ogImage }] : []),
         ...(post.publishedAt
           ? [{ property: "article:published_time", content: post.publishedAt }]
           : []),
@@ -80,7 +83,7 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   component: BlogPostPage,
   notFoundComponent: () => (
-    <div className="min-h-screen">
+    <div className="blog-serif min-h-screen">
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-5 py-24 text-center">
         <h1 className="font-serif text-4xl font-medium">Article not found.</h1>
@@ -249,7 +252,7 @@ function BlogPostPage() {
   const { post, related } = Route.useLoaderData();
 
   return (
-    <div className="min-h-screen overflow-x-clip">
+    <div className="blog-serif min-h-screen overflow-x-clip">
       <SiteHeader />
       <main>
         <article className="mx-auto max-w-3xl px-5 py-14 sm:py-20">
