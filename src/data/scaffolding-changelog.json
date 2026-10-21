@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "id": "manual-20261020-spiix-920-ai-narrative-threading",
+   "date": "2026-10-20",
+   "title": "/ai narrative threaded subtly into homepage About + fractional advisory",
+   "source": "manual",
+   "ref": "SPIIX-920",
+   "detail": "Steve's follow-up to SPIIX-915: consider augmenting main-site copy with the /ai narrative where actually useful, as a subtle hint; Lauren to determine — execute immediately or table entirely. Decision: execute, narrow. Audit found zero AI mentions on core routes outside /ai. Two placements only: (1) homepage #about copy gains one sentence — the work now runs on an AI operating layer (research, builds, reporting at machine speed) while the calls that matter stay his — plus a 'How I work with AI' ghost link beside See the work / Explore music; (2) fractional-growth-advisory 'Why fractional' gains one sentence — an AI operating layer compresses research/building/reporting underneath, so one fractional seat covers more ground than it used to. Deliberately untouched: /audit (the $99 product is the personal hand-done read), /work results (the /ai page states AI did not produce those numbers), contact, blog, SPIIX, music, faith; footer already carries AI in primaryNav on every page."
+  },
+  {
    "id": "manual-20261020-spiix-915-ai-page",
    "date": "2026-10-20",
    "title": "New /ai landing page + AI item in main nav",

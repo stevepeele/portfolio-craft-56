@@ -203,7 +203,9 @@ function Home() {
             <p className="mt-6 leading-relaxed text-muted-foreground">
               I've spent 14+ years helping SaaS, tech, and growth-stage companies build the systems
               behind acquisition, retention, and revenue. I move between strategy, tools, data,
-              campaigns, and people — and I'm comfortable doing the actual work.
+              campaigns, and people — and I'm comfortable doing the actual work. These days the work
+              runs on an AI operating layer — research, builds, and reporting at machine speed —
+              while the calls that matter stay mine.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               I'm also a lifelong musician. Bands taught me most of what I know about teams,
@@ -212,6 +214,7 @@ function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/work" className="btn-ghost">See the work <ArrowRight className="size-4" /></Link>
               <Link to="/music" className="btn-ghost">Explore music</Link>
+              <Link to="/ai" className="btn-ghost">How I work with AI <ArrowRight className="size-4" /></Link>
             </div>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
