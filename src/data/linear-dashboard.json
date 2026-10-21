@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20",
+ "generatedAt": "2026-10-21",
  "projects": [
   {
    "identifier": "P-SPIIX-9",
@@ -299,6 +299,14 @@
    "status": "In Progress",
    "issues": [
     {
+     "id": "SPIIX-489",
+     "title": "Binsly migration proposal: Base44 → self-hosted custom code",
+     "status": "In Progress",
+     "priority": "High",
+     "url": "https://linear.app/plxio/issue/SPIIX-489/binsly-migration-proposal-base44-self-hosted-custom-code",
+     "updated": "2026-10-21"
+    },
+    {
      "id": "SPIIX-58",
      "title": "Run security scan (status: Out of date)",
      "status": "Backlog",
@@ -400,14 +408,6 @@
      "status": "Backlog",
      "priority": "High",
      "url": "https://linear.app/plxio/issue/SPIIX-554/bookmark-archaeologist-vault-template-qr-launch-post-series",
-     "updated": "2026-10-15"
-    },
-    {
-     "id": "SPIIX-489",
-     "title": "Binsly migration proposal: Base44 → self-hosted custom code",
-     "status": "Backlog",
-     "priority": "High",
-     "url": "https://linear.app/plxio/issue/SPIIX-489/binsly-migration-proposal-base44-self-hosted-custom-code",
      "updated": "2026-10-15"
     },
     {
