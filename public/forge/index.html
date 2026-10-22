@@ -1,401 +1,532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow">
-<title>Forge — Everyone Else Generates Your App. Forge Engineers It First.</title>
-<meta name="description" content="Forge is the engineered way to turn an idea into a real product: interrogated, specified, engineered — then built. Guided / Assisted / Intelligent. Join the build list.">
-<link rel="canonical" href="https://stevepeeleii.com/forge/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Forge — Idea in, product out | Steve Peele II</title>
+<meta name="description" content="Forge is a free, guided product starter. Put in an idea, answer a few sharp questions, and leave with a product brief, MVP scope, build plan, and copy-ready build prompts.">
+<meta property="og:title" content="Forge — Idea in, product out">
+<meta property="og:description" content="A free, guided product starter: brief, MVP scope, build plan, and build prompts from your idea. Runs in your browser.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Forge — Everyone Else Generates Your App. Forge Engineers It First.">
-<meta property="og:description" content="Idea in. Product out. Forge does the disciplined engineering first — clarify, stack, scope — then builds. Join the build list.">
-<meta property="og:url" content="https://stevepeeleii.com/forge/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Forge — Everyone Else Generates Your App. Forge Engineers It First.">
-<meta name="twitter:description" content="Idea in. Product out. Forge does the disciplined engineering first — clarify, stack, scope — then builds. Join the build list.">
+<meta property="og:url" content="https://stevepeeleii.com/forge">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0b0905">
+<link rel="canonical" href="https://stevepeeleii.com/forge">
+<link rel="icon" href="/favicon.ico">
 <style>
-  :root{
-    --iron:#0b0805;
-    --iron-2:#120d08;
-    --panel:#16100a;
-    --line:#2c2113;
-    --line-soft:#231b10;
-    --ink:#ece3d2;
-    --steel:#b3a48a;
-    --dim:#8a7a5f;
-    --ember:#ff6a1a;
-    --ember-deep:#c74e0e;
-    --ember-soft:rgba(255,106,26,.14);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{background:var(--iron);scroll-behavior:smooth}
-  body{
-    background:
-      radial-gradient(ellipse 70% 26% at 50% 0%, rgba(255,106,26,.07), transparent 70%),
-      var(--iron);
-    color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:760px;margin:0 auto;padding:0 28px}
-
-  /* ---- Hero ---- */
-  header{padding:120px 0 100px;text-align:left;position:relative}
-  .eyebrow{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--dim);margin-bottom:28px;
-  }
-  .wordmark{
-    font-size:clamp(64px,13vw,124px);line-height:1;font-weight:800;
-    letter-spacing:.02em;margin-bottom:26px;
-  }
-  .wordmark .hot{
-    color:var(--ember);
-    text-shadow:0 0 34px rgba(255,106,26,.55), 0 0 90px rgba(255,106,26,.22);
-  }
-  .locked{
-    font-size:clamp(24px,4.6vw,36px);line-height:1.3;font-weight:700;
-    letter-spacing:-.01em;max-width:22ch;margin-bottom:26px;
-  }
-  .locked em{font-style:normal;color:var(--ember)}
-  .lede{font-size:19px;color:var(--steel);max-width:52ch;margin-bottom:44px}
-  .motif{display:flex;align-items:center;gap:14px;margin-bottom:56px;color:var(--dim);font-size:13px;letter-spacing:.18em;text-transform:uppercase}
-  .motif .dot{width:7px;height:7px;border-radius:50%;background:var(--dim)}
-  .motif .dot.spark{background:var(--ember);box-shadow:0 0 10px var(--ember)}
-  .motif .bar{width:44px;height:1px;background:var(--line)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:14px}
-  .btn{
-    display:inline-block;padding:16px 30px;border-radius:6px;
-    font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;
-    border:1px solid transparent;
-  }
-  .btn-primary{
-    background:linear-gradient(180deg,var(--ember),var(--ember-deep));
-    color:#120a04;box-shadow:0 0 26px rgba(255,106,26,.35), inset 0 1px 0 rgba(255,255,255,.25);
-  }
-  .btn-primary:hover{box-shadow:0 0 40px rgba(255,106,26,.55), inset 0 1px 0 rgba(255,255,255,.25)}
-  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
-  .btn-ghost:hover{border-color:var(--steel)}
-
-  /* ---- Sections ---- */
-  section{padding:72px 0;border-top:1px solid var(--line-soft)}
-  .sec-label{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--ember);margin-bottom:20px;
-  }
-  h2{font-size:clamp(28px,4.6vw,40px);font-weight:800;letter-spacing:-.015em;line-height:1.18;margin-bottom:22px}
-  p{margin-bottom:18px;font-size:18px}
-  p.dim{color:var(--steel);font-size:17px}
-  strong.k{color:var(--ink)}
-
-  .graveyard{
-    list-style:none;margin-top:28px;border-top:1px solid var(--line);
-  }
-  .graveyard li{
-    padding:22px 0;border-bottom:1px solid var(--line);
-    display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;
-  }
-  .graveyard .n{
-    font-weight:800;font-size:15px;color:var(--dim);padding-top:4px;
-    font-variant-numeric:tabular-nums;
-  }
-  .graveyard .t{font-size:19px;font-weight:700;margin-bottom:6px}
-  .graveyard .d{color:var(--steel);font-size:16.5px}
-
-  /* ---- The Forge way ---- */
-  .moves{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:36px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .move{padding:26px 20px;background:var(--panel);border-left:1px solid var(--line)}
-  .move:first-child{border-left:none}
-  .move .mn{font-size:12px;letter-spacing:.24em;color:var(--dim);text-transform:uppercase;margin-bottom:10px}
-  .move .mt{font-size:20px;font-weight:800;margin-bottom:8px}
-  .move .md{font-size:15px;color:var(--steel);line-height:1.55}
-  .move.active{
-    background:radial-gradient(ellipse 90% 90% at 50% 110%, var(--ember-soft), transparent 75%), var(--panel);
-    box-shadow:inset 0 -2px 0 var(--ember);
-  }
-  .move.active .mt{color:var(--ember)}
-
-  .engine{display:flex;align-items:stretch;gap:0;margin:36px 0;flex-wrap:wrap}
-  .stage{
-    flex:1 1 0;min-width:110px;padding:18px 12px;text-align:center;
-    border:1px solid var(--line);border-left:none;background:var(--iron-2);
-    font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  }
-  .stage:first-child{border-left:1px solid var(--line);border-radius:8px 0 0 8px}
-  .stage:last-child{border-radius:0 8px 8px 0}
-  .stage .ss{display:block;font-size:11px;font-weight:400;color:var(--dim);letter-spacing:.02em;text-transform:none;margin-top:6px;line-height:1.45}
-  .stage.lit{
-    color:var(--ember);
-    background:radial-gradient(ellipse 80% 100% at 50% 100%, var(--ember-soft), transparent 80%), var(--iron-2);
-    box-shadow:inset 0 -2px 0 var(--ember), 0 0 24px rgba(255,106,26,.18);
-  }
-  .modes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-  .mode{border:1px solid var(--line);border-radius:10px;padding:24px 22px;background:var(--panel)}
-  .mode h3{font-size:18px;font-weight:800;margin-bottom:8px}
-  .mode p{font-size:15px;color:var(--steel);margin-bottom:0}
-  .principles{list-style:none;margin-top:30px}
-  .principles li{padding:18px 0;border-bottom:1px solid var(--line);font-size:17px}
-  .principles li:first-child{border-top:1px solid var(--line)}
-  .principles strong{color:var(--ember)}
-
-  /* ---- What you get ---- */
-  .kit{list-style:none;margin-top:28px}
-  .kit li{
-    border:1px solid var(--line);border-radius:10px;background:var(--panel);
-    padding:28px;margin-bottom:16px;
-  }
-  .kit h3{font-size:20px;font-weight:800;margin-bottom:10px}
-  .kit h3 .tag{
-    display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ember);border:1px solid var(--ember-deep);border-radius:4px;
-    padding:4px 10px;margin-right:12px;vertical-align:middle;font-weight:700;
-  }
-  .kit p{font-size:16.5px;color:var(--steel);margin-bottom:0}
-
-  /* ---- Status / CTA ---- */
-  .status-card{
-    border:1px solid var(--line);border-radius:12px;background:var(--panel);
-    padding:36px;margin:8px 0 48px;position:relative;overflow:hidden;
-  }
-  .status-card::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,transparent,var(--ember),transparent);
-    box-shadow:0 0 18px var(--ember);
-  }
-  .status-card .s-eyebrow{
-    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--ember);margin-bottom:14px;
-  }
-  .status-card h2{margin-bottom:14px}
-  .honest{border-left:3px solid var(--ember);padding:14px 18px;margin:26px 0;background:rgba(255,106,26,.06);font-size:16px;color:var(--steel)}
-  .honest strong{color:var(--ink)}
-  form.capture{margin-top:30px}
-  .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-  .fields input{
-    width:100%;padding:15px 18px;border-radius:6px;border:1px solid var(--line);
-    background:var(--iron);color:var(--ink);font-size:16px;font-family:inherit;
-  }
-  .fields input:focus{outline:none;border-color:var(--ember-deep);box-shadow:0 0 0 3px rgba(255,106,26,.15)}
-  .fields input::placeholder{color:var(--dim)}
-  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-  .form-note{font-size:13.5px;color:var(--dim);margin-top:14px}
-  .form-ok,.form-err{display:none;padding:16px 18px;border-radius:6px;font-size:16px;margin-top:16px}
-  .form-ok{background:rgba(255,106,26,.1);border:1px solid var(--ember-deep);color:var(--ink)}
-  .form-err{background:rgba(200,40,20,.08);border:1px solid #5c2a1c;color:var(--steel)}
-
-  footer{border-top:1px solid var(--line-soft);padding:44px 0 64px;color:var(--dim);font-size:14px}
-  footer a{color:var(--steel);text-decoration:none}
-  footer a:hover{color:var(--ember)}
-
-  @media(max-width:640px){
-    header{padding:84px 0 72px}
-    .moves{grid-template-columns:1fr 1fr}
-    .move{border-left:none;border-top:1px solid var(--line)}
-    .move:nth-child(odd){border-right:1px solid var(--line)}
-    .modes{grid-template-columns:1fr}
-    .fields{grid-template-columns:1fr}
-    .stage{min-width:45%;border-left:1px solid var(--line);border-radius:0;margin-bottom:-1px}
-    .stage:first-child{border-radius:0}
-    .stage:last-child{border-radius:0}
-  }
+:root{--bg:#0b0905;--bg2:#110e08;--panel:#16120b;--panel2:#1c170e;--line:#2e2615;--line2:#3d3219;--gold:#d4a843;--gold2:#f0cf7a;--gold-dim:#8f7330;--ink:#f3ecdc;--ink2:#d8ceb8;--mut:#a89b80;--dim:#7d715a;--bad:#e0806b;--ok:#9cc98a;--r:14px;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;background-image:radial-gradient(ellipse 900px 420px at 50% -120px,#d4a84314,transparent)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+a{color:var(--gold2)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+.hidden{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.top{position:sticky;top:0;z-index:30;background:#0b0905e6;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:860px;margin:0 auto;padding:0 18px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:.02em;min-height:44px}
+.mark{width:28px;height:28px;border-radius:7px;background:linear-gradient(145deg,var(--gold2),var(--gold-dim));display:grid;place-items:center;color:#1a1306;font-weight:900;font-size:15px}
+.brand small{font-weight:500;color:var(--mut);letter-spacing:0;font-size:13px}
+.toplinks{display:flex;gap:4px}
+.toplinks a,.toplinks button{color:var(--ink2);text-decoration:none;font-size:14px;padding:10px 12px;border-radius:10px;background:none;border:0;cursor:pointer;font-family:inherit;min-height:44px}
+.toplinks a:hover,.toplinks button:hover{background:var(--panel)}
+main{max-width:860px;margin:0 auto;padding:28px 18px 80px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+h1{font-size:clamp(34px,7vw,54px);line-height:1.05;letter-spacing:-.025em;margin:0 0 14px;font-weight:850}
+h1 em{font-style:normal;color:var(--gold2)}
+h2{font-size:clamp(22px,4.4vw,30px);line-height:1.15;letter-spacing:-.015em;margin:0 0 8px}
+.lede{color:var(--ink2);font-size:18px;max-width:640px;margin:0 0 22px}
+.muted{color:var(--mut)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.hero{padding:22px 0 8px}
+.gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:22px 0}
+.gets div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px}
+.gets b{display:block;color:var(--gold2);font-size:14px;margin-bottom:2px}
+.gets span{font-size:14px;color:var(--mut)}
+label.q{display:block;font-weight:700;font-size:17px;margin:0 0 4px}
+.hint{font-size:14px;color:var(--mut);margin:0 0 10px}
+.field{margin:0 0 22px}
+input[type=text],input[type=email],textarea,select{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--ink);border-radius:12px;padding:13px 14px;font:16px/1.5 var(--sans);transition:border-color .15s}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px #d4a84326}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:9px 14px;border:1px solid var(--line2);border-radius:999px;font-size:15px;color:var(--ink2);background:var(--bg2);transition:all .15s}
+.chip input:checked+span{border-color:var(--gold);color:#1a1306;background:var(--gold);font-weight:700}
+.chip input:focus-visible+span{outline:2px solid var(--gold2);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:12px;border:1px solid var(--line2);background:var(--panel2);color:var(--ink);font:700 16px var(--sans);cursor:pointer;text-decoration:none;transition:transform .1s,background .15s}
+.btn:hover{background:#241d11}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1306;border-color:var(--gold)}
+.btn.gold:hover{filter:brightness(1.05)}
+.btn.sm{min-height:44px;padding:8px 14px;font-size:14px;font-weight:650}
+.btn.link{background:none;border-color:transparent;color:var(--mut);font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap-reverse}
+.nav .btn.gold{flex:1 1 200px}
+.progress{display:flex;gap:6px;margin:0 0 18px}
+.progress i{flex:1;height:4px;border-radius:4px;background:var(--line2)}
+.progress i.on{background:var(--gold)}
+.stepmeta{font-size:13px;color:var(--mut);margin:0 0 6px;letter-spacing:.04em}
+.push{display:none;margin:-12px 0 20px;padding:12px 14px;border-radius:12px;border:1px solid #8f733066;background:#d4a8430f;color:var(--ink2);font-size:14.5px}
+.push.show{display:block}
+.push b{color:var(--gold2)}
+.err{color:var(--bad);font-size:14px;margin:6px 0 0;min-height:1em}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin:0 0 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;min-height:44px;padding:9px 16px;border-radius:999px;border:1px solid var(--line2);background:var(--bg2);color:var(--ink2);font:650 15px var(--sans);cursor:pointer}
+.tab[aria-selected=true]{background:var(--gold);color:#1a1306;border-color:var(--gold)}
+.doc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:20px;overflow-wrap:anywhere}
+.doc h3{font-size:20px;margin:0 0 10px;color:var(--gold2)}
+.doc h4{font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin:22px 0 8px}
+.doc p{margin:0 0 10px;color:var(--ink2)}
+.doc ul,.doc ol{margin:0 0 12px;padding-left:22px;color:var(--ink2)}
+.doc li{margin:4px 0}
+.doc strong{color:var(--ink)}
+.doc pre{white-space:pre-wrap;background:#080604;border:1px solid var(--line);border-radius:10px;padding:14px;font:13.5px/1.55 var(--mono);color:var(--ink2);margin:0 0 12px}
+.doc code{font-family:var(--mono);font-size:.92em;background:#080604;padding:1px 5px;border-radius:5px}
+.prompt{border:1px solid var(--line);border-radius:12px;margin:0 0 14px;overflow:hidden}
+.prompt header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px 10px 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+.prompt header b{font-size:15px}
+.prompt pre{margin:0;border:0;border-radius:0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--gold);color:#1a1306;font-weight:700;padding:12px 18px;border-radius:12px;transition:all .2s;z-index:50;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.saved-list{display:grid;gap:10px}
+.saved{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;flex-wrap:wrap}
+.saved b{display:block}
+.saved span{font-size:13px;color:var(--mut)}
+.fine{font-size:13px;color:var(--dim);margin:14px 0 0}
+.summary{display:grid;gap:8px;margin:0 0 18px}
+.summary div{font-size:14.5px;color:var(--ink2)}
+.summary b{color:var(--gold2)}
+footer{max-width:860px;margin:0 auto;padding:24px 18px 40px;color:var(--dim);font-size:13.5px;border-top:1px solid var(--line)}
+footer a{color:var(--mut)}
+.fade{animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:520px){.brand small{display:none}.toplinks .full{display:none}}@media (min-width:521px){.toplinks .short{display:none}}
+@media (min-width:700px){main{padding-top:44px}.card{padding:30px}}
+@media print{.top,.toolbar,.tabs,footer,.nav{display:none!important}body{background:#fff;color:#000}.doc{border:0;background:#fff}.doc *{color:#000!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header class="top"><div class="in">
+  <a class="brand" href="/forge" id="homeLink"><span class="mark" aria-hidden="true">F</span><span>Forge <small>by Steve Peele II</small></span></a>
+  <nav class="toplinks" aria-label="Forge"><button type="button" id="savedBtn">Saved</button><a href="/"><span class="full">stevepeeleii.com</span><span class="short">Home</span></a></nav>
+</div></header>
 
-  <header>
-    <div class="eyebrow">Forge &middot; The engineered app studio</div>
-    <div class="wordmark">F<span class="hot">O</span>RGE</div>
-    <p class="locked">Everyone else <em>generates</em> your app. Forge <em>engineers</em> it first.</p>
-    <p class="lede">Forge is the disciplined way to turn an idea into a real product — interrogated, specified, engineered, then built. Not a prompt box. A forge.</p>
-    <div class="motif">
-      <span class="dot spark"></span><span>Spark</span><span class="bar"></span>
-      <span class="dot"></span><span>Shape</span><span class="bar"></span>
-      <span class="dot"></span><span>Edge</span>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/forge/app">Start the Clarify interview</a>
-      <a class="btn btn-ghost" href="#forge-way">See how it works</a>
-    </div>
-  </header>
+<main id="app" tabindex="-1">
 
-  <section id="problem">
-    <div class="sec-label">The problem</div>
-    <h2>The problem with generated apps.</h2>
-    <p>Prompt-to-code tools skip the engineering. No discovery. No spec. No stack design. No scoping. You describe an idea, the machine emits a v1 — and that&rsquo;s where the story ends.</p>
-    <p class="dim">What you actually get is a graveyard:</p>
-    <ol class="graveyard">
-      <li><div class="n">01</div><div><div class="t">Half-baked v1s</div><div class="d">Demo-ware that looked alive for a day and was never really a product — no architecture underneath the screenshot.</div></div></li>
-      <li><div class="n">02</div><div><div class="t">Unowned stacks</div><div class="d">Frameworks, databases, and deploy pipelines you didn&rsquo;t choose, don&rsquo;t understand, and can&rsquo;t safely change.</div></div></li>
-      <li><div class="n">03</div><div><div class="t">No ops story</div><div class="d">Nobody planned for auth, data, cost, or the day the thing breaks at 2am. Because nobody was asked to think about it.</div></div></li>
-    </ol>
-    <p class="dim">Generating code was never the hard part. The hard part is everything before the code — the thinking the generators skip. Forge does the disciplined part first.</p>
-  </section>
+<!-- START -->
+<section id="v-start" class="view fade">
+  <div class="hero">
+    <p class="eyebrow">Forge · free · runs in your browser</p>
+    <h1>Idea in, <em>product out.</em></h1>
+    <p class="lede">Most ideas die because nobody does the boring thinking before the building. Forge walks you through it: describe the idea, answer six sharp questions, and leave with a plan you can actually build from.</p>
+  </div>
+  <div class="gets" aria-label="What you get">
+    <div><b>Product brief</b><span>Who it's for, the problem, the promise, the risk.</span></div>
+    <div><b>MVP scope</b><span>What's in, what's out, and the one thing that must work.</span></div>
+    <div><b>Build plan</b><span>A free-tier stack and a phased plan sized to your time.</span></div>
+    <div><b>Build prompts</b><span>Copy-ready prompts for whatever coding tool you use.</span></div>
+  </div>
+  <form class="card" id="emailForm" novalidate>
+    <label class="q" for="email">Where should Forge updates go?</label>
+    <p class="hint">Enter your email to start. I'll only use it to tell you when Forge gets better. Unsubscribe anytime.</p>
+    <input type="email" id="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+    <p class="err" id="emailErr" role="alert"></p>
+    <div class="nav"><button class="btn gold" type="submit">Start forging →</button></div>
+    <p class="fine">Your answers and outputs stay in this browser. Nothing you type about your idea is sent anywhere.</p>
+  </form>
+</section>
 
-  <section id="forge-way">
-    <div class="sec-label">The Forge way</div>
-    <h2>Four moves. One discipline.</h2>
-    <div class="moves">
-      <div class="move active">
-        <div class="mn">Move 01</div>
-        <div class="mt">Specify</div>
-        <div class="md">The interrogation — now AI-processed. Adaptive follow-ups until the idea survives scrutiny. Output: a real Product Thesis.</div>
-      </div>
-      <div class="move">
-        <div class="mn">Move 02</div>
-        <div class="mt">Engineer</div>
-        <div class="md">Stack design, scoping, trade-offs — opinionated defaults with the reasoning shown, not hidden. You confirm the stack before anything is built.</div>
-      </div>
-      <div class="move">
-        <div class="mn">Move 03</div>
-        <div class="mt">Build</div>
-        <div class="md">In v2, Build is a generated, working project — not just a scaffold export — connected by an AI walk to your own GitHub, Vercel, and Supabase accounts.</div>
-      </div>
-      <div class="move">
-        <div class="mn">Move 04</div>
-        <div class="mt">Ship</div>
-        <div class="md">Launch checklist, iterate cycle, version history. The loop stays open — shipped is a stage, not an ending.</div>
-      </div>
+<!-- WIZARD -->
+<section id="v-wiz" class="view hidden fade">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <p class="stepmeta" id="stepmeta"></p>
+  <form class="card" id="wizForm" novalidate>
+    <div id="stepBody"></div>
+    <div class="nav">
+      <button class="btn link" type="button" id="backBtn">← Back</button>
+      <button class="btn gold" type="submit" id="nextBtn">Next →</button>
     </div>
-    <p class="dim">Underneath it runs the engine — five stages, all on the surface:</p>
-    <div class="engine">
-      <div class="stage lit">Clarify<span class="ss">The AI-processed interview. Adaptive follow-ups.</span></div>
-      <div class="stage">Stack<span class="ss">Wired infra, not docs. You confirm it first.</span></div>
-      <div class="stage">Scope<span class="ss">What&rsquo;s in, what&rsquo;s out, why.</span></div>
-      <div class="stage">Build<span class="ss">A generated, working project.</span></div>
-      <div class="stage">Ship<span class="ss">Launch checklist. Iterate cycle.</span></div>
-    </div>
-    <div class="modes">
-      <div class="mode"><h3>Guided</h3><p>Hand-on-the-wheel. Forge leads, you decide — best for first-time builders.</p></div>
-      <div class="mode"><h3>Assisted</h3><p>Co-pilot mode. You build, Forge checks the work and carries the boring parts.</p></div>
-      <div class="mode"><h3>Intelligent</h3><p>Full throttle. Forge drives the pipeline; you approve the strikes.</p></div>
-    </div>
-    <ul class="principles">
-      <li><strong>Interrogate, don&rsquo;t transcribe.</strong> Forge challenges the idea until it&rsquo;s worth building — it doesn&rsquo;t just write down what you said.</li>
-      <li><strong>Opinionated defaults, transparent reasoning.</strong> You get a strong recommendation and the thinking behind it. Override anything.</li>
-      <li><strong>Artifacts over chat.</strong> Every stage produces something durable — a thesis, a spec, a stack plan. Shareable, revisable, yours.</li>
-    </ul>
-  </section>
+  </form>
+</section>
 
-  <section id="what-you-get">
-    <div class="sec-label">What you get</div>
-    <h2>Not a wizard. A home base.</h2>
-    <p class="dim">Forge isn&rsquo;t a one-shot prompt session. It&rsquo;s the place your product lives — provisioned for you, with a named operator standing next to the anvil.</p>
-    <ul class="kit">
-      <li>
-        <h3><span class="tag">Clarify</span>AI-processed Clarify</h3>
-        <p>The interview thinks. Adaptive follow-ups chase the weak answers, and your Thesis, Stack, and Scope are generated by AI from your real answers — not templates filled with your name. Honest label: AI generation runs when the Forge AI service is up, and falls back to local generation when it isn&rsquo;t — clearly badged on the artifact, never faked.</p>
-      </li>
-      <li>
-        <h3><span class="tag">The smith</span>Operator v2</h3>
-        <p>An operator configured from your interview — its name, its voice, its guardrails, set by what you actually said in Clarify. It stays as your co-pilot after the build, with an expanded prompt library and a branding kit that&rsquo;s actually yours. Never a chatbot widget.</p>
-      </li>
-      <li>
-        <h3><span class="tag">Setup</span>AI-walked connections</h3>
-        <p>The operator walks every connection <em>with</em> you, one at a time — to your <em>own</em> GitHub, Vercel, and Supabase accounts, on infrastructure you own. It pauses at the approval gates: stack confirm before the build, deploy confirm before anything goes live. Never a docs page. Never &ldquo;figure it out yourself.&rdquo;</p>
-      </li>
-      <li>
-        <h3><span class="tag">Home</span>Accounts + cloud sync</h3>
-        <p>Sign in and your forge is saved server-side — it follows you across devices instead of living in one browser. The dashboard keeps the credits meter, a progress bar, and a task list that track where you are in creation — planning, processing, progress, all in one place.</p>
-      </li>
-      <li>
-        <h3><span class="tag">Loop</span>The ship loop</h3>
-        <p>Shipping isn&rsquo;t the end of the wizard. A launch checklist takes the project live, the iterate cycle turns feedback into the next strike, and version history keeps every version accounted for — so you can see what changed, when, and roll the story back.</p>
-      </li>
-      <li>
-        <h3><span class="tag">Proof</span>The products network</h3>
-        <p>Everything you ship lands on the products page, listed and linked — public proof of shipped work. In v2 it&rsquo;s a network: public builder profiles and shareable artifacts, so the work — and the builder — can be found. Every page points back. The work markets itself. <a href="/forge/products" style="color:var(--ember)">See it →</a></p>
-      </li>
-    </ul>
-  </section>
+<!-- RESULTS -->
+<section id="v-out" class="view hidden fade">
+  <p class="eyebrow">Your forge</p>
+  <h2 id="outTitle"></h2>
+  <p class="muted" id="outSub" style="margin:0 0 18px"></p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="panel" role="tabpanel" tabindex="0"></div>
+  <div class="toolbar">
+    <button class="btn sm" type="button" id="copyBtn">Copy this section</button>
+    <button class="btn sm" type="button" id="dlBtn">Download .md</button>
+    <button class="btn sm gold" type="button" id="dlAllBtn">Download everything</button>
+    <button class="btn sm" type="button" id="printBtn">Print / PDF</button>
+  </div>
+  <div class="toolbar">
+    <button class="btn sm link" type="button" id="editBtn">← Edit answers</button>
+    <button class="btn sm link" type="button" id="newBtn">Start a new idea</button>
+  </div>
+  <p class="fine">Saved in this browser automatically. Clear your browser data and it's gone, so download anything you want to keep.</p>
+</section>
 
-  <section id="pricing">
-    <div class="sec-label">Pricing</div>
-    <h2>Free to think. Metered to strike.</h2>
-    <p class="dim">The thinking is the lead magnet — we give it away. Execution runs on credits. Pricing here is display-only: there is no checkout and nothing is charged in v2 — runs are metered and displayed, never billed, while we prove it.</p>
-    <div class="modes">
-      <div class="mode"><h3>Clarify + Stack</h3><p><strong class="k">Free.</strong> The interview, the Product Thesis, the stack report with tiers. Yours to keep, share, or take to any other tool — the spec survives Forge.</p></div>
-      <div class="mode"><h3>Scope + Build</h3><p><strong class="k">Credits, per run.</strong> The build plan with cut lines, milestones and data model, then the generated, working project — built on your own accounts, behind the stack-confirm and deploy-confirm gates.</p></div>
-      <div class="mode"><h3>Ship loop</h3><p><strong class="k">Credits, per cycle.</strong> Each iterate cycle is a metered run, shown before it starts. Version history and the launch checklist ride along — no surprise strikes.</p></div>
-    </div>
-    <div class="honest">
-      <strong>The credits meter:</strong> every strike — interview processing, a build, an iterate cycle — shows its credit cost <em>before</em> it runs, and the meter on your dashboard shows your usage as it accrues. Metered and displayed, never charged in v2. If that ever changes, the page will say so plainly, first.
-    </div>
-    <p class="dim" style="margin-top:22px;font-size:15px">Start where it&rsquo;s free: <a href="/forge/app" style="color:var(--ember)">run the Clarify interview &rarr;</a></p>
-  </section>
+<!-- SAVED -->
+<section id="v-saved" class="view hidden fade">
+  <p class="eyebrow">Saved in this browser</p>
+  <h2>Your forges</h2>
+  <p class="muted">Stored locally on this device only.</p>
+  <div class="saved-list" id="savedList"></div>
+  <div class="toolbar"><button class="btn gold" type="button" id="savedNew">Start a new idea</button></div>
+</section>
 
-  <section id="build-list">
-    <div class="status-card">
-      <div class="s-eyebrow">Status &middot; v2 live</div>
-      <h2>The forge is open.</h2>
-      <p class="dim">v2 is live: run the AI-processed Clarify interview, meet your Operator v2, and take home a generated, working project — then live in the dashboard while you ship, with your forge synced to your account across devices. The build list stays open for updates on what lands next.</p>
-      <div class="honest">
-        <strong>Honestly:</strong> v2 Build is a generated, working project, connected by an AI walk to your <em>own</em> GitHub, Vercel, and Supabase accounts — real code on real infra you own, not a locked-in black box. The walk pauses at approval gates: stack confirm, then deploy confirm. Full autonomy arrives in stages, not all at once, and we&rsquo;ll say so plainly as each stage ships.
-      </div>
-      <form class="capture" id="capture-form" novalidate>
-        <div class="fields">
-          <input type="text" name="name" id="f-name" placeholder="Your name" autocomplete="name" required>
-          <input type="email" name="email" id="f-email" placeholder="you@example.com" autocomplete="email" required>
-          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
-        </div>
-        <button class="btn btn-primary" type="submit" id="f-submit" style="border:none;width:100%">Join the build list</button>
-        <div class="form-ok" id="f-ok">You&rsquo;re on the list. Watch your inbox — we&rsquo;ll strike while the iron&rsquo;s hot.</div>
-        <div class="form-err" id="f-err">Something misfired. Try again, or reach us at steve@stevepeeleii.com.</div>
-        <p class="form-note">Build-list updates only. No spam, no drip sequence, no sharing your address.</p>
-      </form>
-      <p class="form-note" style="margin-top:22px">Already forged something? <a href="/forge/products" style="color:var(--ember)">See the products page →</a></p>
-    </div>
-  </section>
+</main>
+<footer>Forge is a free tool by <a href="/">Steve Peele II</a>. It writes plans from your answers using fixed rules, not a chatbot, so it works offline and costs nothing. Good output needs honest input.</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <footer>
-    <div class="wrap" style="padding:0">
-      <p><a href="/">stevepeeleii.com</a> &middot; Forge is a product in development. Idea in. Product out.</p>
-    </div>
-  </footer>
-
-</div>
 <script>
 (function(){
-  var form = document.getElementById('capture-form');
-  var startedAt = Date.now();
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = document.getElementById('f-name').value.trim();
-    var email = document.getElementById('f-email').value.trim();
-    var ok = document.getElementById('f-ok');
-    var err = document.getElementById('f-err');
-    var btn = document.getElementById('f-submit');
-    ok.style.display = 'none'; err.style.display = 'none';
-    if(!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.style.display='block'; return; }
-    btn.disabled = true; btn.textContent = 'Stoking the forge…';
-    var payload = {
-      name: name, email: email,
-      _subject: 'New Forge build-list signup',
-      _template: 'table',
-      _honeypot: form.company.value || '',
-      _autoresponse: 'You are on the Forge build list.\n\nForge v2 is live: the AI-processed Clarify interview, your Operator v2, a generated working project on your own accounts, the dashboard, and the products network — engineered, not generated.\n\nWe will email you with build-list updates only.\n\n— Steve Peele II'
-    };
-    var body = JSON.stringify(payload);
-    var sent = false;
-    for(var attempt = 0; attempt < 2; attempt++){
-      try {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://formsubmit.co/ajax/3d3ff26bdc6ac727ee48ee558c9efc12', false);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Accept', 'application/json');
-        xhr.send(body);
-        if(xhr.status >= 200 && xhr.status < 300){
-          try { var r = JSON.parse(xhr.responseText); if(r && r.success === false) continue; } catch(e){}
-          sent = true; break;
-        }
-      } catch(err2){ /* retry */ }
-    }
-    if(sent){ form.reset(); ok.style.display='block'; }
-    else { err.style.display='block'; }
-    btn.disabled = false; btn.textContent = 'Join the build list';
-  });
+"use strict";
+var SB_URL="https://sddcdfpgbgawoywupmvz.supabase.co";
+var SB_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZGNkZnBnYmdhd295d3VwbXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NzIxOTAsImV4cCI6MjEwNzM0ODE5MH0.-7DiWOn6p8PzOoQGh5uhFH1fiZcDMrozWoJCB-WRJdo";
+var LS_RUNS="forge_runs_v4",LS_DRAFT="forge_draft_v4",LS_EMAIL="forge_email";
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k)||"null");localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+var tt;function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("show")},1800)}
+
+/* ---------------- questions ---------------- */
+var PLATFORMS=[["web","Web app"],["mobile","Phone app"],["ext","Browser extension"],["site","Content / landing site"],["tool","Single-purpose tool"],["unsure","Not sure yet"]];
+var FEATURES=[["accounts","People sign in"],["payments","Takes money"],["data","Saves user data"],["uploads","File or photo uploads"],["realtime","Live updates / collaboration"],["email","Sends emails"],["external","Pulls from another service"],["admin","You manage content"],["search","Search or filtering"],["offline","Works offline"]];
+var SKILL=[["none","I don't code"],["some","I can edit code"],["dev","I'm a developer"]];
+var TIME=[["2","~2 hrs / week"],["5","~5 hrs / week"],["10","~10 hrs / week"],["20","20+ hrs / week"]];
+var STEPS=[
+ {key:"idea",title:"The idea",fields:[
+  {id:"name",type:"text",label:"What's it called?",hint:"A working name is fine. You can change it later.",ph:"e.g. Setlist Swap",opt:true},
+  {id:"idea",type:"area",label:"Describe it in one or two sentences.",hint:"What does it do, for whom? Plain words, like you'd tell a friend.",ph:"e.g. A simple app where bands share and borrow setlists so openers stop clashing with headliners."}]},
+ {key:"who",title:"Who it's for",fields:[
+  {id:"who",type:"area",label:"Who exactly has this problem?",hint:"Name a specific person or role. \"Everyone\" and \"small businesses\" don't count.",ph:"e.g. Local band leaders who book 2–4 shows a month at small venues."},
+  {id:"pain",type:"area",label:"What do they do about it today?",hint:"The current workaround is your real competitor: a spreadsheet, a group text, nothing at all.",ph:"e.g. Text the other bands the night before and hope someone answers."}]},
+ {key:"value",title:"Why it matters",fields:[
+  {id:"cost",type:"area",label:"What does the problem cost them?",hint:"Time, money, embarrassment, missed chances. Be concrete.",ph:"e.g. Two bands play the same cover, the second one looks bad, and the venue notices."},
+  {id:"core",type:"area",label:"What's the one action someone must be able to do in their first five minutes?",hint:"If this one thing doesn't work, nothing else matters. This becomes your MVP's spine.",ph:"e.g. Paste a setlist and instantly see conflicts with the other bands on the bill."}]},
+ {key:"shape",title:"The shape of it",fields:[
+  {id:"platform",type:"radio",label:"What form should it take?",hint:"Pick the smallest form that delivers the core action.",opts:PLATFORMS},
+  {id:"features",type:"check",label:"What does it need? Pick only what the first version can't live without.",hint:"Every box you tick adds build time. Fewer is better.",opts:FEATURES,opt:true}]},
+ {key:"proof",title:"Proof and money",fields:[
+  {id:"signal",type:"area",label:"In 30 days, what would prove it's working?",hint:"Something you can count. \"People like it\" isn't a signal.",ph:"e.g. 10 bands upload a setlist, and 3 come back for a second show."},
+  {id:"money",type:"radio",label:"How will it make money, if at all?",hint:"It's fine to say not yet. Just decide on purpose.",opts:[["free","Free for now"],["one","One-time payment"],["sub","Subscription"],["ads","Sponsors / ads"],["service","It sells a service"]]}]},
+ {key:"you",title:"Your situation",fields:[
+  {id:"skill",type:"radio",label:"How do you build?",hint:"This changes the stack and how the prompts are written.",opts:SKILL},
+  {id:"time",type:"radio",label:"How much time can you give it?",hint:"Be honest. The plan is sized to this.",opts:TIME},
+  {id:"risk",type:"area",label:"What's most likely to kill this?",hint:"The thing you're quietly worried about. Naming it early is how you test it first.",ph:"e.g. Bands won't bother uploading setlists unless the venue asks them to.",opt:true}]}
+];
+var state={answers:{},step:0,id:null,tab:"brief",email:null};
+
+/* ---------------- push-back rules ---------------- */
+function words(s){return (s||"").trim().split(/\s+/).filter(Boolean).length}
+function pushback(id,v){
+ v=(v||"").trim();var l=v.toLowerCase();if(!v)return "";
+ if(id==="idea"&&words(v)<8)return "That's a headline, not a description. Add who it's for and what they get.";
+ if(id==="who"){if(/\b(everyone|everybody|anyone|all people|people in general|the world)\b/.test(l))return "\"Everyone\" means nobody in particular. Who would you message first to try it?";
+  if(/^(small )?business(es)?\.?$|^users\.?$|^people\.?$|^consumers\.?$|^millennials\.?$/.test(l))return "Too broad. Which business, which role, in what situation?";
+  if(words(v)<5)return "Get more specific: role, situation, how often they hit this.";}
+ if(id==="pain"&&/\b(nothing|no solution|there is no|doesn'?t exist|nobody)\b/.test(l))return "If they truly do nothing, the problem may not hurt enough. What do they do when it gets bad?";
+ if(id==="cost"&&words(v)<6)return "Make the cost concrete: hours, dollars, or a specific bad moment.";
+ if(id==="core"&&/\band\b.*\band\b/.test(l))return "That sounds like several actions. Which single one matters most?";
+ if(id==="signal"&&!/\d/.test(v))return "Add a number. A signal you can't count is a feeling.";
+ return "";
+}
+
+/* ---------------- rendering the wizard ---------------- */
+function fieldHTML(f){
+ var a=state.answers[f.id],h='<div class="field">';
+ var lid="f_"+f.id;
+ if(f.type==="text"||f.type==="area"){
+  h+='<label class="q" for="'+lid+'">'+esc(f.label)+(f.opt?' <span class="muted" style="font-weight:500;font-size:14px">(optional)</span>':'')+'</label><p class="hint">'+esc(f.hint)+'</p>';
+  h+=f.type==="text"?'<input type="text" id="'+lid+'" data-k="'+f.id+'" maxlength="80" placeholder="'+esc(f.ph)+'" value="'+esc(a||"")+'">':'<textarea id="'+lid+'" data-k="'+f.id+'" maxlength="600" placeholder="'+esc(f.ph)+'">'+esc(a||"")+'</textarea>';
+  h+='<div class="push" id="pb_'+f.id+'" aria-live="polite"></div>';
+ }else{
+  h+='<fieldset style="border:0;padding:0;margin:0"><legend class="q" style="padding:0">'+esc(f.label)+'</legend><p class="hint">'+esc(f.hint)+'</p><div class="chips">';
+  f.opts.forEach(function(o){var on=f.type==="check"?(a||[]).indexOf(o[0])>-1:a===o[0];
+   h+='<label class="chip"><input type="'+(f.type==="check"?"checkbox":"radio")+'" name="'+f.id+'" value="'+o[0]+'"'+(on?" checked":"")+'><span>'+esc(o[1])+'</span></label>'});
+  h+='</div></fieldset>';
+ }
+ h+='<p class="err" id="er_'+f.id+'" role="alert"></p></div>';return h;
+}
+var pushed={};
+function renderStep(){
+ var s=STEPS[state.step];
+ $("progress").innerHTML=STEPS.map(function(_,i){return '<i class="'+(i<=state.step?"on":"")+'"></i>'}).join("");
+ $("stepmeta").textContent="Step "+(state.step+1)+" of "+STEPS.length+" · "+s.title;
+ $("stepBody").innerHTML=s.fields.map(fieldHTML).join("");
+ $("backBtn").textContent=state.step===0?"← Start over":"← Back";
+ $("nextBtn").textContent=state.step===STEPS.length-1?"Build my plan →":"Next →";
+ pushed={};
+ var first=$("stepBody").querySelector("input,textarea");if(first&&window.innerWidth>700)first.focus({preventScroll:true});
+}
+function collect(){
+ var s=STEPS[state.step];
+ s.fields.forEach(function(f){
+  if(f.type==="text"||f.type==="area"){state.answers[f.id]=($("f_"+f.id).value||"").trim()}
+  else if(f.type==="radio"){var c=document.querySelector('input[name="'+f.id+'"]:checked');state.answers[f.id]=c?c.value:""}
+  else{state.answers[f.id]=[].slice.call(document.querySelectorAll('input[name="'+f.id+'"]:checked')).map(function(x){return x.value})}
+ });
+ ls(LS_DRAFT,{answers:state.answers,step:state.step,id:state.id});
+}
+function validate(){
+ var s=STEPS[state.step],ok=true,soft=false;
+ s.fields.forEach(function(f){
+  var v=state.answers[f.id],er=$("er_"+f.id);er.textContent="";
+  var empty=Array.isArray(v)?false:!v;
+  if(!f.opt&&empty){er.textContent=f.type==="radio"?"Pick one to continue.":"This one matters. Give it a sentence.";ok=false;return}
+  if(f.type==="area"||f.type==="text"){var p=pushback(f.id,v),box=$("pb_"+f.id);
+   if(p&&!pushed[f.id]){box.innerHTML="<b>Push back:</b> "+esc(p)+' <span class="muted">Tighten it, or press Next again to keep it as is.</span>';box.classList.add("show");pushed[f.id]=1;soft=true}
+   else if(!p){box.classList.remove("show")}}
+ });
+ if(!ok){var e=document.querySelector(".err:not(:empty)");if(e)e.scrollIntoView({block:"center",behavior:"smooth"})}
+ else if(soft){var b=document.querySelector(".push.show");if(b)b.scrollIntoView({block:"center",behavior:"smooth"})}
+ return ok&&!soft;
+}
+
+/* ---------------- the engine ---------------- */
+function has(a,k){return (a.features||[]).indexOf(k)>-1}
+function label(list,k){for(var i=0;i<list.length;i++)if(list[i][0]===k)return list[i][1];return k}
+function clean(s){s=(s||"").trim().replace(/\s+/g," ");return s.replace(/[.\s]+$/,"")}
+function lc(s){s=clean(s);return s?s.charAt(0).toLowerCase()+s.slice(1):s}
+function nameOf(a){return clean(a.name)||"Your product"}
+
+function stack(a){
+ var p=a.platform==="unsure"?(has(a,"accounts")||has(a,"data")?"web":"tool"):a.platform;
+ var needsBackend=has(a,"accounts")||has(a,"data")||has(a,"uploads")||has(a,"realtime");
+ var s=[],why=[];
+ var nocode=a.skill==="none";
+ if(p==="mobile"){
+  s.push(["App","Expo (React Native)","One codebase for iPhone and Android; test on your own phone with Expo Go for free."]);
+  why.push("Start as a web app if you can. App store review and fees slow a first version down. Expo keeps the door open.");
+ }else if(p==="ext"){
+  s.push(["Extension","Chrome Manifest V3, plain JavaScript","No framework needed for a first version; storage via chrome.storage."]);
+ }else if(p==="site"){
+  s.push(["Site",nocode?"Carrd or Framer (free plan)":"Astro","Content sites don't need an app framework. Fast, cheap, easy to edit."]);
+ }else if(p==="tool"&&!needsBackend){
+  s.push(["App",nocode?"A single HTML file":"Vite + React (or a single HTML file)","A single-purpose tool can run entirely in the browser with no server and no database."]);
+ }else{
+  s.push(["App","Next.js (React) or Vite + React","Well-documented, huge community, every coding tool knows it well."]);
+ }
+ if(needsBackend&&p!=="ext")s.push(["Database & auth","Supabase (free tier)","Postgres database, sign-in, file storage and live updates in one free service."]);
+ else if(has(a,"data")&&p==="ext")s.push(["Storage","chrome.storage.sync","Saves user data to their browser profile, no server."]);
+ else s.push(["Data","Browser localStorage","No accounts needed. Data stays on the user's device, which also means no privacy liability."]);
+ if(has(a,"payments"))s.push(["Payments","Stripe Payment Links or Checkout","No monthly fee; you pay per transaction. Payment Links need no backend code."]);
+ if(has(a,"email"))s.push(["Email","Resend (free tier)","Simple API for sign-up and notification emails."]);
+ if(has(a,"admin"))s.push(["Content","Sanity or a Supabase table","Edit content without redeploying."]);
+ if(has(a,"external"))s.push(["Integrations","The other service's official API","Check its free limits and terms before you build on it."]);
+ s.push(["Hosting",p==="mobile"?"Expo + Vercel for any web pieces":p==="ext"?"Chrome Web Store (one-time developer fee)":"Vercel or Netlify (free tier)","Push to GitHub, it deploys. Free for personal projects."]);
+ s.push(["Analytics","Plausible-style events or Vercel Analytics","Track the core action and your 30-day signal, nothing more."]);
+ if(p==="ext")why.push("The Chrome Web Store charges a one-time developer registration fee. Everything else here is free.");
+ if(has(a,"payments")&&a.money==="free")why.push("You ticked \"takes money\" but chose \"free for now\". Drop payments from v1 unless the core action is the purchase.");
+ return {platform:p,items:s,notes:why,backend:needsBackend};
+}
+
+function scope(a){
+ var must=[],should=[],later=[],out=[];
+ must.push("The core action: "+lc(a.core)+".");
+ must.push("A first screen that explains in one sentence what this does and gets someone to the core action in one click.");
+ var f=a.features||[];
+ var heavy={realtime:1,uploads:1,external:1,admin:1,offline:1,search:1};
+ if(has(a,"accounts")){if(state.answers.money==="sub"||has(a,"data"))must.push("Sign in (email magic link or Google) so people can come back to their stuff.");else should.push("Sign in. Try letting people use it without an account first; add sign-in once they want to save.")}
+ if(has(a,"data"))must.push("Save and reopen the user's work.");
+ if(has(a,"payments"))(a.money==="free"?later:must).push("Payment for the "+(a.money==="sub"?"subscription":"product")+" through a hosted checkout page.");
+ f.forEach(function(k){if(!heavy[k])return;var t=label(FEATURES,k);
+  if(k==="external")should.push(t+". Fake it with a hand-made sample first; connect the real service once people use it.");
+  else if(k==="realtime")later.push(t+". Refresh-to-update is fine until people actually collaborate at the same time.");
+  else if(k==="uploads")should.push(t+". Limit file size and type from day one.");
+  else if(k==="admin")should.push(t+". Until then, edit content directly in the database or a file.");
+  else if(k==="search")later.push(t+". Not needed until there's enough content to get lost in.");
+  else if(k==="offline")later.push(t+".");
+ });
+ if(has(a,"email"))should.push("Emails: start with one, the welcome or the receipt. Everything else waits.");
+ must.push("Tracking for the core action and your 30-day signal: "+lc(a.signal)+".");
+ should.push("A simple way to give feedback: a link to email you is enough.");
+ later.push("Settings, themes, dark mode toggles, profile pages.");
+ later.push("Team features, roles and permissions.");
+ if(!has(a,"accounts"))out.push("Accounts and sign-in. You didn't say it needs them, so don't build them.");
+ if(!has(a,"payments"))out.push("Payments. Prove the core action first.");
+ out.push("A native app on top of the web version.");
+ out.push("Anything you'd describe as \"it would be cool if…\".");
+ var n=f.filter(function(k){return heavy[k]}).length;
+ var weeksBase=1+f.length*0.6+n*0.8+(a.platform==="mobile"?2:0);
+ var skillMul=a.skill==="dev"?0.6:a.skill==="some"?1:1.6;
+ var hrs=Math.round(weeksBase*10*skillMul);
+ var wk=Math.max(1,Math.round(hrs/Number(a.time||5)));
+ return {must:must,should:should,later:later,out:out,hours:hrs,weeks:wk,heavyCount:n};
+}
+
+function brief(a,sc){
+ var n=nameOf(a);
+ var md="### "+n+" — product brief\n\n";
+ md+="#### One-liner\n"+clean(a.idea)+".\n\n";
+ md+="#### Who it's for\n"+clean(a.who)+".\n\n";
+ md+="#### The problem\nToday they "+lc(a.pain).replace(/^they /,"")+". That costs them: "+lc(a.cost)+".\n\n";
+ md+="#### The promise\nIn their first five minutes, someone can "+lc(a.core).replace(/^(to|they can|users can|you can) /,"")+". If that works, the product works.\n\n";
+ md+="#### What you're competing with\nNot other apps. The workaround: "+lc(a.pain)+". "+n+" has to be clearly less effort than that, or people will keep doing what they do now.\n\n";
+ md+="#### How you'll know it's working (30 days)\n"+clean(a.signal)+".\n\n";
+ md+="#### Money\n"+({free:"Free for now. Decide what you'd charge for before you hit your 30-day signal, so you're not guessing later.",one:"One-time payment. Make the first purchase possible on day one, even if it's a payment link, because willingness to pay is the best signal there is.",sub:"Subscription. A subscription has to deliver value every week or month. Write down what brings people back before you build billing.",ads:"Sponsors or ads. This only works with real traffic, so treat it as a later problem and focus on usage first.",service:"It sells a service. The product is a lead engine, so the core action should end in a way to contact you."}[a.money]||"Undecided.")+"\n\n";
+ md+="#### Biggest risk\n"+(clean(a.risk)?clean(a.risk)+". Test this first, before building anything else.":"You didn't name one. The usual one: people say they have the problem but won't change their habit to fix it. Test it by showing five people from your target group a mockup and asking them to commit to something small, like an email or a time slot.")+"\n\n";
+ md+="#### Questions to answer this week\n";
+ md+="1. Can you name five real people who fit \""+clean(a.who)+"\"? Message them before you write code.\n";
+ md+="2. Would they switch from \""+clean(a.pain)+"\"? Ask them what would make them switch.\n";
+ md+="3. Is the core action something they'd do more than once? If not, what brings them back?\n";
+ return md;
+}
+
+function scopeMD(a,sc){
+ var md="### MVP scope — "+nameOf(a)+"\n\n";
+ md+="The spine of the first version: **"+clean(a.core)+".** Everything below either supports that or waits.\n\n";
+ md+="#### Must have (v1)\n"+sc.must.map(function(x){return "- "+x}).join("\n")+"\n\n";
+ if(sc.should.length)md+="#### Should have (if time allows)\n"+sc.should.map(function(x){return "- "+x}).join("\n")+"\n\n";
+ md+="#### Later (after the 30-day signal)\n"+sc.later.map(function(x){return "- "+x}).join("\n")+"\n\n";
+ md+="#### Not building\n"+sc.out.map(function(x){return "- "+x}).join("\n")+"\n\n";
+ md+="#### Size check\nRough estimate: **about "+sc.hours+" hours**, or **about "+sc.weeks+" week"+(sc.weeks>1?"s":"")+"** at "+label(TIME,a.time).replace("~","")+". This is a planning guess from your answers, not a promise.";
+ if(sc.weeks>6)md+=" That's long for a first version. Cut a \"should have\" or two, or narrow who it's for, until it fits in about a month.";
+ md+="\n";
+ return md;
+}
+
+function planMD(a,st,sc){
+ var md="### Build plan — "+nameOf(a)+"\n\n#### Stack (all free to start)\n";
+ st.items.forEach(function(i){md+="- **"+i[0]+":** "+i[1]+". "+i[2]+"\n"});
+ if(st.notes.length)md+="\n"+st.notes.map(function(x){return "> "+x}).join("\n")+"\n";
+ var phases=[
+  ["Phase 0 · Prove the problem (before code)",["Message five people who fit your target user. Describe the problem, not your solution, and listen.","Sketch the core-action screen on paper or in a free design tool. Show it to the same people.","Write down the one sentence that makes someone want to try it. Use it as your page headline."]],
+  ["Phase 1 · Skeleton",["Create the GitHub repo and connect it to "+(st.platform==="ext"?"a local Chrome install (load unpacked)":st.platform==="mobile"?"Expo":"Vercel or Netlify")+" so every push goes live.",st.backend?"Create a free Supabase project. Add the tables you need and turn on row-level security.":"Decide your data shape and save it in localStorage.","Put up the landing screen with your one sentence and a button to the core action."]],
+  ["Phase 2 · The core action",["Build "+lc(a.core)+", end to end, with real data.","Handle the empty state, the loading state and the error state.","Use it yourself three times. Fix whatever annoyed you."]],
+  ["Phase 3 · Must-haves",sc.must.slice(2).map(function(x){return x.replace(/\.$/,"")+"."})],
+  ["Phase 4 · Ship and watch",["Check it on a phone. Most first visitors will be on one.","Send it to the five people from phase 0. Watch one of them use it if you can.","Check your signal weekly: "+lc(a.signal)+". Decide what's next based on that, not on your feature wish list."]]
+ ];
+ phases.forEach(function(p){if(!p[1].length)return;md+="\n#### "+p[0]+"\n"+p[1].map(function(x,i){return (i+1)+". "+x}).join("\n")+"\n"});
+ md+="\n#### Weekly rhythm at "+label(TIME,a.time).replace("~","")+"\n";
+ md+=Number(a.time)<=2?"Pick one task per week and finish it. Small and shipped beats big and half done.\n":Number(a.time)<=5?"Two sessions a week: one to build, one to test and fix. Ship something visible every week.\n":"Build most days, ship every few days, and talk to a user every week.\n";
+ return md;
+}
+
+function prompts(a,st,sc){
+ var n=nameOf(a),stackLine=st.items.map(function(i){return i[0]+": "+i[1]}).join("; ");
+ var tone=a.skill==="none"?"I don't write code, so explain each step plainly, tell me exactly which files to create and what to click, and give me complete files rather than snippets.":a.skill==="some"?"I can read and edit code. Give complete files for anything new and explain anything non-obvious in a line or two.":"I'm a developer. Be concise, use idiomatic patterns, and skip the basics.";
+ var ctx="Project: "+n+"\nWhat it is: "+clean(a.idea)+".\nWho it's for: "+clean(a.who)+".\nThe core action (must work first): "+clean(a.core)+".\nStack: "+stackLine+".\n"+tone;
+ var P=[];
+ P.push(["1 · Project setup",ctx+"\n\nSet up the project from scratch. Give me the folder structure, the commands to create it, and the minimum config to run it locally and deploy it. Don't add features yet. End with a checklist I can follow to confirm it runs."]);
+ if(st.backend)P.push(["2 · Data model",ctx+"\n\nDesign the database tables for the first version. The must-haves are:\n"+sc.must.map(function(x){return "- "+x}).join("\n")+"\n\nGive me the SQL to create the tables, row-level security policies so users can only see their own data, and a short explanation of each table. Keep it to the fewest tables that work."]);
+ P.push([(st.backend?"3":"2")+" · The core action",ctx+"\n\nBuild the core action end to end: "+clean(a.core)+".\nInclude the empty state, a loading state and clear error messages. It must work well on a phone screen. Don't build anything else yet. Tell me how to test it by hand."]);
+ P.push(["Next · Must-haves",ctx+"\n\nThe core action works. Now add the remaining must-haves, one at a time, asking me to confirm each works before moving on:\n"+sc.must.slice(1).map(function(x){return "- "+x}).join("\n")+"\n\nDo not add anything from this list: "+sc.out.join(" ")]);
+ P.push(["Next · Landing screen and copy",ctx+"\n\nWrite and build the first screen. Headline: one plain sentence about what someone gets. Subhead: who it's for. One button that goes straight to the core action. No buzzwords, no made-up stats or testimonials. Give me three headline options first."]);
+ P.push(["Ship · Pre-launch check",ctx+"\n\nReview the project before I share it. Check: it works on a 390px-wide phone screen, there are no console errors, forms handle bad input, secrets aren't exposed in client code, and the page has a title, description and share image. Give me a list of problems ordered by how much a first user would notice them."]);
+ P.push(["Ship · Measure the signal",ctx+"\n\nMy 30-day signal is: "+clean(a.signal)+".\nAdd the smallest possible tracking to measure exactly that, using "+(st.items.filter(function(i){return i[0]==="Analytics"})[0]||["",""])[1]+". List the events, where each fires, and how I read the numbers each week."]);
+ return P;
+}
+
+function generate(a){
+ var st=stack(a),sc=scope(a);
+ return {brief:brief(a,sc),scope:scopeMD(a,sc),plan:planMD(a,st,sc),prompts:prompts(a,st,sc),sc:sc};
+}
+
+/* ---------------- tiny markdown ---------------- */
+function inline(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/`([^`]+)`/g,"<code>$1</code>")}
+function md2html(md){
+ var out=[],lines=md.split("\n"),list=null;
+ function close(){if(list){out.push("</"+list+">");list=null}}
+ lines.forEach(function(l){
+  var m;
+  if(/^### /.test(l)){close();out.push("<h3>"+inline(l.slice(4))+"</h3>")}
+  else if(/^#### /.test(l)){close();out.push("<h4>"+inline(l.slice(5))+"</h4>")}
+  else if(m=l.match(/^- (.*)/)){if(list!=="ul"){close();out.push("<ul>");list="ul"}out.push("<li>"+inline(m[1])+"</li>")}
+  else if(m=l.match(/^\d+\. (.*)/)){if(list!=="ol"){close();out.push("<ol>");list="ol"}out.push("<li>"+inline(m[1])+"</li>")}
+  else if(m=l.match(/^> (.*)/)){close();out.push('<p class="muted">'+inline(m[1])+"</p>")}
+  else if(!l.trim()){close()}
+  else{close();out.push("<p>"+inline(l)+"</p>")}
+ });close();return out.join("");
+}
+function promptsMD(P,a){return "### Build prompts — "+nameOf(a)+"\n\nPaste these, in order, into whatever coding tool or assistant you use. Each one carries the full context, so they work on their own.\n\n"+P.map(function(p){return "#### "+p[0]+"\n\n```\n"+p[1]+"\n```\n"}).join("\n")}
+
+/* ---------------- results ---------------- */
+var TABS=[["brief","Brief"],["scope","MVP scope"],["plan","Build plan"],["prompts","Build prompts"]];
+var out=null;
+function sectionMD(k){return k==="prompts"?promptsMD(out.prompts,state.answers):out[k]}
+function renderOut(){
+ var a=state.answers;out=generate(a);
+ $("outTitle").textContent=nameOf(a);
+ $("outSub").textContent="About "+out.sc.hours+" hours to a first version · "+label(PLATFORMS,a.platform)+" · "+label(SKILL,a.skill);
+ $("tabs").innerHTML=TABS.map(function(t){return '<button class="tab" role="tab" type="button" id="tab_'+t[0]+'" data-t="'+t[0]+'" aria-selected="'+(state.tab===t[0])+'">'+t[1]+"</button>"}).join("");
+ var p=$("panel");
+ if(state.tab==="prompts"){
+  p.innerHTML='<div class="doc"><h3>Build prompts</h3><p>Paste these in order into whatever coding tool or assistant you use. Each one carries the full context, so they also work on their own.</p>'+out.prompts.map(function(x,i){return '<div class="prompt"><header><b>'+esc(x[0])+'</b><button class="btn sm" type="button" data-cp="'+i+'">Copy</button></header><pre>'+esc(x[1])+"</pre></div>"}).join("")+"</div>";
+ }else p.innerHTML='<div class="doc">'+md2html(out[state.tab])+"</div>";
+ $("copyBtn").textContent=state.tab==="prompts"?"Copy all prompts":"Copy this section";
+}
+function saveRun(){
+ var runs=ls(LS_RUNS)||[];
+ if(!state.id)state.id="f"+Date.now().toString(36);
+ var rec={id:state.id,name:nameOf(state.answers),idea:state.answers.idea,answers:state.answers,updated:new Date().toISOString()};
+ runs=runs.filter(function(r){return r.id!==state.id});runs.unshift(rec);ls(LS_RUNS,runs.slice(0,30));
+ localStorage.removeItem(LS_DRAFT);
+}
+function copy(text){
+ function fb(){var t=document.createElement("textarea");t.value=text;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");toast("Copied")}catch(e){toast("Couldn't copy. Select and copy by hand.")}t.remove()}
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(text).then(function(){toast("Copied")},fb);else fb();
+}
+function slug(s){return (s||"forge").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"forge"}
+function download(name,text){var b=new Blob([text],{type:"text/markdown;charset=utf-8"}),u=URL.createObjectURL(b),l=document.createElement("a");l.href=u;l.download=name;document.body.appendChild(l);l.click();l.remove();setTimeout(function(){URL.revokeObjectURL(u)},500);toast("Downloaded "+name)}
+function allMD(){return "# "+nameOf(state.answers)+" — Forge plan\n\n_Made with Forge, stevepeeleii.com/forge, "+new Date().toLocaleDateString()+"_\n\n"+TABS.map(function(t){return sectionMD(t[0])}).join("\n\n---\n\n")}
+
+/* ---------------- views ---------------- */
+function show(v){["start","wiz","out","saved"].forEach(function(x){$("v-"+x).classList.toggle("hidden",x!==v)});window.scrollTo(0,0)}
+function goWiz(step){state.step=step||0;show("wiz");renderStep()}
+function goOut(){show("out");renderOut()}
+function renderSaved(){
+ var runs=ls(LS_RUNS)||[];
+ $("savedList").innerHTML=runs.length?runs.map(function(r){return '<div class="saved"><div><b>'+esc(r.name)+'</b><span>'+esc(new Date(r.updated).toLocaleString())+'</span></div><div class="row"><button class="btn sm" type="button" data-open="'+r.id+'">Open</button><button class="btn sm link" type="button" data-del="'+r.id+'">Delete</button></div></div>'}).join(""):'<p class="muted">Nothing saved yet. Finish a forge and it shows up here.</p>';
+}
+function fresh(){state.answers={};state.id=null;state.tab="brief";localStorage.removeItem(LS_DRAFT)}
+
+/* ---------------- events ---------------- */
+$("emailForm").addEventListener("submit",function(e){
+ e.preventDefault();var v=$("email").value.trim();
+ if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)){$("emailErr").textContent="That doesn't look like an email address.";$("email").focus();return}
+ $("emailErr").textContent="";ls(LS_EMAIL,v);state.email=v;
+ var q=new URLSearchParams(location.search);
+ try{fetch(SB_URL+"/rest/v1/vault_email_captures",{method:"POST",headers:{apikey:SB_ANON,Authorization:"Bearer "+SB_ANON,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({email:v,email_norm:v.toLowerCase(),source:"forge",tags:["forge"],page_url:location.href.split("?")[0],referrer:document.referrer||null,utm_source:q.get("utm_source"),utm_medium:q.get("utm_medium"),utm_campaign:q.get("utm_campaign")})}).catch(function(){})}catch(x){}
+ fresh();goWiz(0);
+});
+$("wizForm").addEventListener("submit",function(e){
+ e.preventDefault();collect();if(!validate())return;
+ if(state.step<STEPS.length-1){state.step++;renderStep();window.scrollTo(0,0)}
+ else{saveRun();state.tab="brief";goOut();toast("Saved in this browser")}
+});
+$("stepBody").addEventListener("input",function(e){var k=e.target.getAttribute("data-k");if(k){var er=$("er_"+k);if(er)er.textContent=""}if(e.target.type==="radio"){var er2=$("er_"+e.target.name);if(er2)er2.textContent=""}});
+$("backBtn").addEventListener("click",function(){collect();if(state.step===0){if(confirm("Start over? Your answers on this idea will be cleared.")){fresh();goWiz(0)}}else{state.step--;renderStep();window.scrollTo(0,0)}});
+$("tabs").addEventListener("click",function(e){var t=e.target.closest("[data-t]");if(!t)return;state.tab=t.getAttribute("data-t");renderOut();$("tab_"+state.tab).focus()});
+$("tabs").addEventListener("keydown",function(e){if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;var i=TABS.findIndex(function(t){return t[0]===state.tab});i=(i+(e.key==="ArrowRight"?1:TABS.length-1))%TABS.length;state.tab=TABS[i][0];renderOut();$("tab_"+state.tab).focus()});
+$("panel").addEventListener("click",function(e){var b=e.target.closest("[data-cp]");if(b)copy(out.prompts[+b.getAttribute("data-cp")][1])});
+$("copyBtn").addEventListener("click",function(){copy(state.tab==="prompts"?out.prompts.map(function(p){return "## "+p[0]+"\n\n"+p[1]}).join("\n\n---\n\n"):sectionMD(state.tab))});
+$("dlBtn").addEventListener("click",function(){download(slug(nameOf(state.answers))+"-"+state.tab+".md",sectionMD(state.tab))});
+$("dlAllBtn").addEventListener("click",function(){download(slug(nameOf(state.answers))+"-forge-plan.md",allMD())});
+$("printBtn").addEventListener("click",function(){window.print()});
+$("editBtn").addEventListener("click",function(){goWiz(0)});
+function newIdea(){fresh();if(ls(LS_EMAIL))goWiz(0);else show("start")}
+$("newBtn").addEventListener("click",newIdea);$("savedNew").addEventListener("click",newIdea);
+$("savedBtn").addEventListener("click",function(){renderSaved();show("saved")});
+$("savedList").addEventListener("click",function(e){var o=e.target.closest("[data-open]"),d=e.target.closest("[data-del]");var runs=ls(LS_RUNS)||[];
+ if(o){var r=runs.filter(function(x){return x.id===o.getAttribute("data-open")})[0];if(r){state.answers=r.answers;state.id=r.id;state.tab="brief";goOut()}}
+ if(d&&confirm("Delete this forge from this browser?")){ls(LS_RUNS,runs.filter(function(x){return x.id!==d.getAttribute("data-del")}));renderSaved();toast("Deleted")}});
+$("homeLink").addEventListener("click",function(e){e.preventDefault();if(ls(LS_EMAIL)&&!$("v-wiz").classList.contains("hidden"))return;show("start")});
+
+/* boot */
+var em=ls(LS_EMAIL);if(em){state.email=em;$("email").value=em}
+var d=ls(LS_DRAFT);
+if(em&&d&&d.answers&&Object.keys(d.answers).length){state.answers=d.answers;state.id=d.id||null;goWiz(d.step||0);toast("Picked up where you left off")}
 })();
 </script>
 </body>
