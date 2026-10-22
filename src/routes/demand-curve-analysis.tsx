@@ -28,7 +28,7 @@ export const Route = createFileRoute("/demand-curve-analysis")({
           "Steve Peele II's independent growth and conversion analysis of Demand Curve's landing-page offer, proof architecture, acquisition paths, and measurement model.",
       },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Demand Curve — Growth & Conversion Analysis" },
+      { property: "og:title", content: "Demand Curve — Growth & Conversion Analysis" }, { property: "og:image", content: "https://stevepeeleii.com/og-demand-curve.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-demand-curve.jpg" },
       {
         property: "og:description",
         content:

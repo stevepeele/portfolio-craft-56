@@ -13,7 +13,7 @@ export const Route = createFileRoute("/sprint")({
         content:
           "A complete rebuilt website experience — migrated and live within 48 hours. $2,000 one-time. By Steve Peele II, SPIIX.",
       },
-      { property: "og:title", content: "48-Hour Website Sprint — SPIIX" },
+      { property: "og:title", content: "48-Hour Website Sprint — SPIIX" }, { property: "og:image", content: "https://stevepeeleii.com/og-sprint.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-sprint.jpg" },
       {
         property: "og:description",
         content:

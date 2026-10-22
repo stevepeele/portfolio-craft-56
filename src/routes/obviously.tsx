@@ -28,7 +28,7 @@ export const Route = createFileRoute("/obviously")({
           "OBVIOUSLY: a book about the things everyone knows and nobody says. Still being written — one email the day it lands.",
       },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "OBVIOUSLY — Steve Peele II" },
+      { property: "og:title", content: "OBVIOUSLY — Steve Peele II" }, { property: "og:image", content: "https://stevepeeleii.com/og-obviously.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-obviously.jpg" },
       {
         property: "og:description",
         content: "A book about the things everyone knows and nobody says.",

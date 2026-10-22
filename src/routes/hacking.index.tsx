@@ -15,7 +15,7 @@ export const Route = createFileRoute("/hacking/")({
     meta: [
       { title },
       { name: "description", content: description },
-      { property: "og:title", content: title },
+      { property: "og:title", content: title }, { property: "og:image", content: "https://stevepeeleii.com/og-building.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-building.jpg" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

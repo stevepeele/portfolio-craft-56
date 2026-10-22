@@ -14,7 +14,7 @@ export const Route = createFileRoute("/fractional-growth-advisory")({
         content:
           "Fractional growth advisory for SaaS and technology teams. Steve Peele II connects growth strategy, marketing operations, demand generation, lifecycle, and execution.",
       },
-      { property: "og:title", content: "Fractional Growth Advisor & Marketing Leader | Steve Peele II" },
+      { property: "og:title", content: "Fractional Growth Advisor & Marketing Leader | Steve Peele II" }, { property: "og:image", content: "https://stevepeeleii.com/og-fractional-growth-advisory.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-fractional-growth-advisory.jpg" },
       {
         property: "og:description",
         content:

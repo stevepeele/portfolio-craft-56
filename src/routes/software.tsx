@@ -13,7 +13,7 @@ export const Route = createFileRoute("/software")({
         content:
           "The software arm of SPII. AI-supported software for operational workflows — focused tools built from inside real operations. Dardo, Stampd, FlipList, QuoteQuick. Engagements from $2,000.",
       },
-      { property: "og:title", content: "Software — The Software Arm of SPII" },
+      { property: "og:title", content: "Software — The Software Arm of SPII" }, { property: "og:image", content: "https://stevepeeleii.com/og-software.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-software.jpg" },
       {
         property: "og:description",
         content:

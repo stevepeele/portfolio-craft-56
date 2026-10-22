@@ -17,7 +17,7 @@ export const Route = createFileRoute("/growth-ladders")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
+      { property: "og:title", content: TITLE }, { property: "og:image", content: "https://stevepeeleii.com/og-growth-ladders.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-growth-ladders.jpg" },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "book" },
       { property: "og:url", content: URL_ },

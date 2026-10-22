@@ -10,7 +10,7 @@ export const Route = createFileRoute("/music/")({
   head: () => ({ meta: [
     { title: "Music — Steve Peele II" },
     { name: "description", content: "Steve Peele II's music projects: Vacillantes (solo dark-synth), Until the Dead Walk, ColdHarbour, Wasted Away, and Grave Friends. Guitar, songwriting, production." },
-    { property: "og:title", content: "Music — Steve Peele II" },
+    { property: "og:title", content: "Music — Steve Peele II" }, { property: "og:image", content: "https://stevepeeleii.com/og-music.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-music.jpg" },
     { property: "og:description", content: "Five projects, one thread. Guitar, songwriting, production." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ], links: [{ rel: "canonical", href: "https://stevepeeleii.com/music" }] }), component: MusicPage,

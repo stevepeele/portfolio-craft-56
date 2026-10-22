@@ -22,7 +22,7 @@ export const Route = createFileRoute("/audit")({
         content:
           "A $99 weekend website audit. I tear your site down over the weekend, then we spend an hour Monday or Tuesday on the fix list. You decide what happens next.",
       },
-      { property: "og:title", content: "The $99 Weekend Website Audit" },
+      { property: "og:title", content: "The $99 Weekend Website Audit" }, { property: "og:image", content: "https://stevepeeleii.com/og-audit.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-audit.jpg" },
       {
         property: "og:description",
         content:
