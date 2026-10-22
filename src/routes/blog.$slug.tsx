@@ -15,6 +15,11 @@ function sanityFileUrl(ref: string): string {
 
 const siteUrl = "https://stevepeeleii.com";
 
+/** Per-post share images that live in /public (used when Sanity has no socialImage). */
+const POST_SHARE_IMAGES: Record<string, string> = {
+  "why-i-built-mastery-engine": "/og-blog-why-i-built-mastery-engine.jpg",
+};
+
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     const post = await getPostBySlug(params.slug);
@@ -44,7 +49,9 @@ export const Route = createFileRoute("/blog/$slug")({
       ? urlFor(post.socialImage).width(1200).height(630).url()
       : post.mainImage
         ? urlFor(post.mainImage).width(1200).height(630).url()
-        : undefined;
+        : POST_SHARE_IMAGES[post.slug]
+          ? `${siteUrl}${POST_SHARE_IMAGES[post.slug]}`
+          : `${siteUrl}/og-blog.jpg`;
     return {
       meta: [
         { title: pageTitle },
