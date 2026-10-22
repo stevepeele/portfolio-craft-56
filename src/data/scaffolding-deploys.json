@@ -1,6 +1,78 @@
 {
  "deploys": [
   {
+   "id": "vercel-20261021-cccf745",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "Daily Linear dashboard snapshot sync 2026-10-21 — auto-deployed on push to main (production deployment READY, dpl_2oEHwzVQCgiLEKhgBojDBWu47pEW).",
+   "ref": "cccf745"
+  },
+  {
+   "id": "vercel-20261021-31e6dca",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "chore(scaffolding): daily changelog + deploy log update — auto-deployed on push to main (production deployment READY, dpl_H1kKkcqShCfXtir4qaQ2ySoXgXso).",
+   "ref": "31e6dca"
+  },
+  {
+   "id": "vercel-20261021-ce9025b",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-939: /contact v2 — /ai magic treatment — auto-deployed on push to main (production deployment READY, dpl_4MMajy5bkJBKmtX7hXwEbkURD6qi).",
+   "ref": "ce9025b"
+  },
+  {
+   "id": "vercel-20261021-ab1ff17",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-941: /ai v3 — material-first diagrams — auto-deployed on push to main (production deployment READY, dpl_FpJwHW1ZzB8pR6svsycJrdDqwH2Q).",
+   "ref": "ab1ff17"
+  },
+  {
+   "id": "vercel-20261021-1ae6478",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-937: /ai v2 — visual illustrations + magical animations/UX — auto-deployed on push to main (production deployment READY, dpl_B33Ejo6mo92rGDVgWeeaKCXWrMiS).",
+   "ref": "1ae6478"
+  },
+  {
+   "id": "vercel-20261021-3d3fdba",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-935: share images — og/twitter cards for /meet/lauren + /meet/oscar, blog twitter tags — auto-deployed on push to main (production deployment READY, dpl_8iLt5eiV1n5HqQHTL3KRs4VFdYtQ).",
+   "ref": "3d3fdba"
+  },
+  {
+   "id": "vercel-20261021-fcafc23",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-920: thread /ai narrative subtly into homepage About + fractional advisory Why fractional (one sentence each + /ai ghost link in About); scaffolding changelog entry — auto-deployed on push to main (production deployment READY, dpl_EsaJ2h3M4Cusu795oLGA1obKi62f).",
+   "ref": "fcafc23"
+  },
+  {
+   "id": "vercel-20261021-090baa3",
+   "date": "2026-10-21",
+   "project": "stevepeeleii.com",
+   "env": "production",
+   "status": "READY",
+   "note": "SPIIX-914: Forge landing page (stevepeeleii.com/forge) — auto-deployed on push to main (production deployment READY, dpl_9cJ6dUDacjFSsLsWy8NhhKEbPwpd).",
+   "ref": "090baa3"
+  },
+  {
    "id": "vercel-20261020-d499ff6",
    "date": "2026-10-20",
    "project": "stevepeeleii.com",
@@ -433,7 +505,7 @@
    "status": "READY"
   }
  ],
- "generated_at": "2026-10-20T06:25:34-0400",
+ "generated_at": "2026-10-21T18:16:11-04:00",
  "generated_by": "daily cron (scaffolding-changelog-updater) — Vercel deploy feed",
  "note": "Recent production deploys across the portfolio. Vercel auto-deploys on push to main for connected repos.",
  "pipeline": {
