@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Forge v3 — Console</title>
+<style>
+:root{--iron:#0b0805;--iron-2:#120d08;--panel:#16100a;--line:#2c2113;--line-soft:#231b10;--ink:#ece3d2;--steel:#b3a48a;--dim:#8a7a5f;--ember:#ff6a1a;--ember-deep:#c74e0e;--ember-soft:rgba(255,106,26,.14);--red:#ff5a4e;--green:#7fb069}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--iron)}
+body{background:radial-gradient(ellipse 70% 26% at 50% 0%,rgba(255,106,26,.07),transparent 70%),var(--iron);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 64px}
+a{color:var(--steel)}a:hover{color:var(--ember)}
+[hidden]{display:none!important}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0 18px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+.wordmark{font-size:30px;font-weight:800;letter-spacing:.03em;line-height:1;text-decoration:none;color:var(--ink)}
+.wordmark .hot{color:var(--ember);text-shadow:0 0 22px rgba(255,106,26,.55),0 0 60px rgba(255,106,26,.22)}
+.topbar nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.topbar nav a{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.tag{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ember);border:1px solid var(--ember-deep);border-radius:999px;padding:5px 12px;background:var(--ember-soft)}
+.acting{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.acting label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ember);font-weight:800}
+select,input[type=text]{padding:10px 12px;border-radius:6px;border:1px solid var(--line);background:var(--iron);color:var(--ink);font-size:15px;font-family:inherit}
+select:focus,input[type=text]:focus{outline:none;border-color:var(--ember-deep);box-shadow:0 0 0 3px rgba(255,106,26,.15)}
+select:disabled,input:disabled{opacity:.45}
+.rolepill{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--iron-2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 26px}
+.tab{padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--iron-2);color:var(--steel);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.tab:hover{border-color:var(--steel);color:var(--ink)}
+.tab.on{color:var(--ember);border-color:var(--ember);background:var(--ember-soft);box-shadow:0 0 18px rgba(255,106,26,.2)}
+.sec-label{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);margin-bottom:14px;font-weight:800}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-bottom:10px}
+h2{font-size:clamp(24px,4vw,32px);font-weight:800;line-height:1.2;margin-bottom:12px}
+h3{font-size:18px;font-weight:800;margin-bottom:8px}
+p{font-size:16px;margin-bottom:12px}
+.dim{color:var(--steel)}.small{font-size:14px}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;font-family:inherit;text-decoration:none;color:var(--ink);background:transparent}
+.btn-primary{background:linear-gradient(180deg,var(--ember),var(--ember-deep));color:#120a04;box-shadow:0 0 20px rgba(255,106,26,.28),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-primary:hover{box-shadow:0 0 32px rgba(255,106,26,.45)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}.btn-ghost:hover{border-color:var(--steel)}
+.btn-danger{border-color:var(--red);color:var(--red)}
+.btn-small{padding:7px 13px;font-size:13px}
+.btn:disabled{opacity:.42;cursor:not-allowed}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:24px;margin-bottom:18px}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.card-head h3{margin-bottom:0}
+.honest{border-left:3px solid var(--ember);padding:11px 15px;margin:16px 0;background:rgba(255,106,26,.06);font-size:14.5px;color:var(--steel)}
+.honest strong{color:var(--ink)}
+.warn{border-left:3px solid var(--red);padding:11px 15px;margin:12px 0;background:rgba(255,90,78,.08);font-size:14.5px;color:#f0b8b3}
+.warn strong{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;border:1px solid var(--line);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);background:var(--iron-2)}
+.chip.live{color:var(--green);border-color:var(--green)}
+.chip.gate{color:var(--ember);border-color:var(--ember-deep);background:var(--ember-soft)}
+.chip.mine{color:var(--ember);border-color:var(--ember)}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-right:7px}
+.wsbtn{padding:12px 16px;border-radius:8px;border:1px solid var(--line);background:var(--iron-2);color:var(--ink);font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;text-align:left}
+.wsbtn.on{border-color:var(--ember);box-shadow:0 0 16px rgba(255,106,26,.22)}
+.switcher{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);font-weight:800}
+td{padding:9px 8px;border-bottom:1px solid var(--line-soft);color:var(--steel);vertical-align:top}
+td strong{color:var(--ink)}
+label.flabel{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:700;margin:14px 0 7px}
+label.flabel:first-child{margin-top:0}
+input[type=text]{width:100%}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:15px}
+.check:last-child{border-bottom:none}
+.check input{width:20px;height:20px;margin-top:3px;accent-color:var(--ember)}
+ul.clean{list-style:none}ul.clean li{padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:15.5px;color:var(--steel)}
+ul.clean li:last-child{border-bottom:none}ul.clean li strong{color:var(--ink)}
+.step{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-soft)}
+.step:last-child{border-bottom:none}
+.step .st{flex:1}.step .st .sl{font-weight:700;font-size:15.5px}
+.step .meta{font-size:13px;color:var(--dim)}
+.st-pending{opacity:.55}.st-active .sl{color:var(--ember)}.st-done .sl{color:var(--steel)}
+.gatepanel{border:1px solid var(--ember-deep);border-radius:10px;background:rgba(255,106,26,.06);padding:16px;margin:12px 0}
+.logbox{background:var(--iron);border:1px solid var(--line-soft);border-radius:8px;padding:12px 15px;font-size:13.5px;color:var(--steel);margin-top:12px;white-space:pre-wrap;word-break:break-word}
+.big{font-size:34px;font-weight:800;line-height:1.1;color:var(--ink)}
+.statlbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);font-weight:800;margin-bottom:8px}
+@keyframes pulse{0%{box-shadow:0 0 0 rgba(255,106,26,0)}50%{box-shadow:0 0 34px rgba(255,106,26,.55)}100%{box-shadow:0 0 0 rgba(255,106,26,0)}}
+.shipped{animation:pulse 1.6s ease 2;border-color:var(--ember)!important}
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--panel);border:1px solid var(--ember-deep);color:var(--ink);padding:12px 20px;border-radius:8px;font-size:14.5px;font-weight:700;opacity:0;pointer-events:none;transition:all .25s ease;z-index:50;box-shadow:0 8px 32px rgba(0,0,0,.55)}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{border-top:1px solid var(--line-soft);padding:32px 0 10px;margin-top:40px;color:var(--dim);font-size:14px}
+.spark{display:block;margin-top:8px}
+details summary{cursor:pointer;font-weight:700;color:var(--ember);font-size:14px}
+@media(max-width:760px){.grid,.grid2,.grid4,.frow{grid-template-columns:1fr}table{font-size:13px}th,td{padding:7px 5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="wordmark" href="/forge/app">F<span class="hot">O</span>RGE</a>
+    <nav>
+      <a href="/forge/products">Products</a>
+      <a href="/forge/">Landing</a>
+      <span class="tag">v3 Console</span>
+    </nav>
+  </div>
+
+  <div class="acting">
+    <label for="acting-select">Acting as</label>
+    <select id="acting-select"></select>
+    <span class="rolepill" id="acting-role"></span>
+    <span class="dim small" id="acting-note"></span>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" type="button" data-tab="mod-workspaces">Workspaces</button>
+    <button class="tab" type="button" data-tab="mod-team">Team</button>
+    <button class="tab" type="button" data-tab="mod-operator">Operator</button>
+    <button class="tab" type="button" data-tab="mod-marketplace">Marketplace</button>
+    <button class="tab" type="button" data-tab="mod-metering">Metering</button>
+  </div>
+
+  <main id="mod-workspaces"></main>
+  <main id="mod-team" hidden></main>
+  <main id="mod-operator" hidden></main>
+  <main id="mod-marketplace" hidden></main>
+  <main id="mod-metering" hidden></main>
+
+  <footer>
+    <p style="margin-bottom:12px">Forge v3 Console — demo build. Workspace, team, marketplace and run state persists in this browser only (localStorage). Seeded data is labeled demo where it appears; nothing here charges money, sends email, or creates real accounts.</p>
+    <button class="btn btn-ghost btn-small" id="reset-btn" type="button">Reset v3 demo state (clears this browser)</button>
+  </footer>
+</div>
+<div id="toast" role="status"></div>
+<script src="/forge/v3/data.js"></script>
+<script src="/forge/v3/stacks.js"></script>
+<script>
+(function(){
+"use strict";
+var V3 = window.FORGE_V3 || {ROLES:{},TIERS:{},GATE_KINDS:{},PIPELINE:[],WORKSPACES:[],MEMBERS:[],ANALYTICS:{},STATE_KEY:"forge.v3.state"};
+var STACKS_SEED = window.FORGE_STACKS || [];
+var ROLES=V3.ROLES, TIERS=V3.TIERS, GATE_KINDS=V3.GATE_KINDS, PIPELINE=V3.PIPELINE, ANALYTICS=V3.ANALYTICS||{};
+var STATE_KEY=V3.STATE_KEY||"forge.v3.state";
+var CAPS=["view","edit","run","invite","gates","publish","billing"];
+var GATE_WARN="Guardrail flagged OFF. The gate still stops and still needs an owner's approval — gates are never bypassed in any tier. This setting only records that you accept the risk of a quieter forge.";
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
+function deep(o){return JSON.parse(JSON.stringify(o));}
+function slug(s){var o=String(s||"untitled").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return o||"untitled";}
+function uniq(base,list){var id=base,n=2;function has(x){for(var i=0;i<list.length;i++)if(list[i].id===x)return true;return false;}while(has(id)){id=base+"-"+(n++);}return id;}
+function toast(msg){var t=$("toast");t.textContent=msg;t.className="on";clearTimeout(t._h);t._h=setTimeout(function(){t.className="";},2600);}
+
+/* ---------- State ---------- */
+function defaults(){
+  return {activeWorkspace:(V3.WORKSPACES[0]||{}).id||"",actingMemberId:"m-steve",
+    workspaces:deep(V3.WORKSPACES||[]),members:deep(V3.MEMBERS||[]),invites:[],
+    stacks:deep(STACKS_SEED),myStacks:[],runs:[],telemetry:[],extraProducts:{}};
+}
+function load(){
+  try{var raw=localStorage.getItem(STATE_KEY);if(!raw)return defaults();
+    var p=JSON.parse(raw),d=defaults(),s={};
+    for(var k in d)s[k]=(p&&Object.prototype.hasOwnProperty.call(p,k))?p[k]:d[k];
+    if(!Array.isArray(s.workspaces)||!s.workspaces.length)s.workspaces=d.workspaces;
+    if(!Array.isArray(s.members))s.members=d.members;
+    if(!Array.isArray(s.stacks))s.stacks=d.stacks;
+    if(!Array.isArray(s.runs))s.runs=[];if(!Array.isArray(s.telemetry))s.telemetry=[];
+    if(!Array.isArray(s.invites))s.invites=[];if(!Array.isArray(s.myStacks))s.myStacks=[];
+    return s;
+  }catch(e){return defaults();}
+}
+var state=load();
+function save(){try{localStorage.setItem(STATE_KEY,JSON.stringify(state));}catch(e){}}
+function ws(){for(var i=0;i<state.workspaces.length;i++)if(state.workspaces[i].id===state.activeWorkspace)return state.workspaces[i];return state.workspaces[0]||null;}
+function memberById(id){for(var i=0;i<state.members.length;i++)if(state.members[i].id===id)return state.members[i];return null;}
+function acting(){return memberById(state.actingMemberId)||state.members[0]||null;}
+function roleOf(m,wsId){if(!m||!m.seats)return null;var r=m.seats[wsId];return (r&&ROLES[r])?r:null;}
+function myRole(){var w=ws();return w?roleOf(acting(),w.id):null;}
+function can(cap){var r=myRole();return !!(r&&ROLES[r]&&ROLES[r].can[cap]);}
+function lockNote(cap){return '<div class="honest"><strong>Locked:</strong> your current role ('+esc(myRole()?ROLES[myRole()].label:"no seat")+') does not include the &ldquo;'+esc(cap)+'&rdquo; permission in this workspace. Switch &ldquo;Acting as&rdquo; above to a member with that seat to continue.</div>';}
+var activeTab="mod-workspaces", expandedStack=null, filtSource="All", filtType="All", runTimers={};
+
+/* ---------- Header / tabs ---------- */
+function renderActing(){
+  var sel=$("acting-select"),m=acting(),w=ws();
+  sel.innerHTML=state.members.map(function(x){return '<option value="'+esc(x.id)+'"'+(m&&x.id===m.id?" selected":"")+'>'+esc(x.name)+' (@'+esc(x.handle)+')</option>';}).join("");
+  var r=myRole();
+  $("acting-role").textContent=w?((r?ROLES[r].label+" in "+w.name:"No seat in "+w.name)):"No workspace";
+  $("acting-note").textContent=r?"Permissions below are enforced live for this role.":"This member has no access here — switch member or workspace to recover.";
+}
+$("acting-select").addEventListener("change",function(){state.actingMemberId=this.value;save();render();toast("Acting as "+(acting()?acting().name:""));});
+document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){activeTab=b.getAttribute("data-tab");render();});});
+$("reset-btn").addEventListener("click",function(){try{localStorage.removeItem(STATE_KEY);}catch(e){}location.reload();});
+
+/* ---------- 1) Workspaces ---------- */
+function renderWorkspaces(){
+  var w=ws(),host=$("mod-workspaces");if(!w){host.innerHTML="<p>No workspaces.</p>";return;}
+  var editable=can("edit"),op=w.operator||{name:"",tier:"assisted",guardrails:{money:true,commitment:true,deploy:true}};
+  var gr=op.guardrails||{};
+  var html='<div class="sec-label">Module 01 · Workspaces — agency mode</div><h1>Workspaces</h1>';
+  html+='<p class="dim">One agency forge, many client rooms. Seeded workspaces are demo data; edits persist in this browser.</p>';
+  html+='<div class="switcher">'+state.workspaces.map(function(x){return '<button type="button" class="wsbtn'+(x.id===w.id?" on":"")+'" data-ws="'+esc(x.id)+'"><span class="dot" style="background:'+esc(x.accent||"#ff6a1a")+'"></span>'+esc(x.name)+' <span class="chip">'+esc(x.kind)+'</span></button>';}).join("")+'</div>';
+  html+='<article class="card"><div class="card-head"><h3><span class="dot" style="background:'+esc(w.accent||"#ff6a1a")+'"></span>'+esc(w.name)+'</h3><span class="chip'+(w.kind==="agency"?" mine":"")+'">'+esc(w.kind==="client"?"Client":"Agency")+'</span></div>';
+  html+='<p class="dim">'+esc(w.tagline||"")+'</p>';
+  if(w.kind==="client")html+='<p><strong>Client:</strong> '+esc(w.client||"—")+' &nbsp;·&nbsp; <strong>Contact:</strong> '+esc(w.contact||"—")+'</p>';
+  html+='<p class="small dim">Accent: '+esc(w.accent||"—")+'</p>';
+  html+='<p style="margin-top:10px"><a href="'+(w.kind==="client"?("/forge/v3/client/?c="+encodeURIComponent(w.id)):"/forge/products")+'">'+(w.kind==="client"?"Client products page":"Products page")+' &rarr;</a></p></article>';
+
+  html+='<article class="card"><div class="sec-label">Operator config</div><h3>'+esc(op.name||"Operator")+' — operator for this workspace</h3>';
+  if(!editable)html+=lockNote("edit");
+  html+='<label class="flabel" for="op-name">Operator name</label><input type="text" id="op-name" value="'+esc(op.name||"")+'"'+(editable?"":" disabled")+'>';
+  html+='<label class="flabel" for="op-tier">Autonomy tier</label><select id="op-tier"'+(editable?"":" disabled")+'>'+Object.keys(TIERS).map(function(k){return '<option value="'+esc(k)+'"'+(op.tier===k?" selected":"")+'>'+esc(TIERS[k].label)+'</option>';}).join("")+'</select>';
+  html+='<p class="dim small" id="tier-blurb" style="margin-top:8px">'+esc((TIERS[op.tier]||{}).blurb||"")+'</p>';
+  html+='<div class="sec-label" style="margin-top:20px">Gate guardrails</div>';
+  ["money","commitment","deploy"].forEach(function(g){
+    var on=gr[g]!==false;
+    html+='<div class="check"><input type="checkbox" id="gr-'+g+'" data-gate="'+g+'"'+(on?" checked":"")+(editable?"":" disabled")+'><div><strong>'+esc((GATE_KINDS[g]||{}).label||g)+'</strong><div class="dim small">'+esc((GATE_KINDS[g]||{}).detail||"")+'</div>'+(on?"":'<div class="warn"><strong>Warning:</strong> '+esc(GATE_WARN)+'</div>')+'</div></div>';
+  });
+  html+='</article>';
+
+  html+='<article class="card"><div class="sec-label">Products</div><h3>Products in this workspace</h3>';
+  var prods=(w.products||[]).concat(state.extraProducts[w.id]||[]);
+  if(!prods.length)html+='<p class="dim">No products yet.</p>';
+  else html+='<ul class="clean">'+prods.map(function(p){return '<li><strong>'+esc(p.name)+'</strong> — '+esc(p.line||"")+' &nbsp;<span class="chip'+(p.status==="live"?" live":"")+'">'+esc(p.status||"")+'</span> <span class="dim small">forged '+esc(p.forged||"—")+'</span>'+(p.url?' &nbsp;<a href="'+esc(p.url)+'">open</a>':"")+'</li>';}).join("")+'</ul>';
+  html+='</article>';
+
+  html+='<article class="card"><div class="sec-label">New workspace</div><h3>New client workspace</h3>';
+  if(!editable)html+=lockNote("edit");
+  html+='<div class="frow"><div><label class="flabel" for="nw-name">Workspace name</label><input type="text" id="nw-name" placeholder="e.g. Acme Dental"'+(editable?"":" disabled")+'></div><div><label class="flabel" for="nw-client">Client org</label><input type="text" id="nw-client" placeholder="Acme Dental LLC"'+(editable?"":" disabled")+'></div></div>';
+  html+='<div class="frow"><div><label class="flabel" for="nw-contact">Contact</label><input type="text" id="nw-contact" placeholder="Pat Rivera"'+(editable?"":" disabled")+'></div><div><label class="flabel" for="nw-op">Operator name</label><input type="text" id="nw-op" placeholder="Bram"'+(editable?"":" disabled")+'></div></div>';
+  html+='<p style="margin-top:16px"><button class="btn btn-primary" id="nw-create" type="button"'+(editable?"":" disabled")+'>Create client workspace</button></p></article>';
+  host.innerHTML=html;
+
+  host.querySelectorAll("[data-ws]").forEach(function(b){b.addEventListener("click",function(){state.activeWorkspace=b.getAttribute("data-ws");save();render();});});
+  if(editable){
+    $("op-name").addEventListener("change",function(){w.operator.name=this.value;save();render();toast("Operator renamed");});
+    $("op-tier").addEventListener("change",function(){w.operator.tier=this.value;save();render();toast("Tier set to "+TIERS[this.value].label);});
+    host.querySelectorAll("[data-gate]").forEach(function(cb){cb.addEventListener("change",function(){w.operator.guardrails[this.getAttribute("data-gate")]=this.checked;save();render();toast(this.checked?"Guardrail on":"Guardrail OFF — saved, with warning");});});
+    $("nw-create").addEventListener("click",function(){
+      var name=$("nw-name").value.trim();if(!name){toast("Name the workspace first");return;}
+      var id=uniq(slug(name),state.workspaces);
+      state.workspaces.push({id:id,kind:"client",name:name,tagline:"Client workspace created in the v3 console (demo).",client:$("nw-client").value.trim()||name,contact:$("nw-contact").value.trim()||"",accent:"#ff6a1a",operator:{name:$("nw-op").value.trim()||"Bram",tier:"assisted",guardrails:{money:true,commitment:true,deploy:true}},products:[]});
+      var m=acting();if(m){m.seats=m.seats||{};m.seats[id]="owner";}
+      state.activeWorkspace=id;save();render();toast("Workspace created — you are its owner");
+    });
+  }
+}
+
+/* ---------- 2) Team ---------- */
+function renderTeam(){
+  var w=ws(),host=$("mod-team");if(!w){host.innerHTML="";return;}
+  var canInvite=can("invite");
+  var seated=state.members.filter(function(m){return roleOf(m,w.id);});
+  var html='<div class="sec-label">Module 02 · Team</div><h1>Team — '+esc(w.name)+'</h1>';
+  html+='<p class="dim">'+seated.length+' seats in this workspace · roles enforced live — switch &ldquo;Acting as&rdquo; to feel it.</p>';
+  if(!canInvite)html+=lockNote("invite");
+  html+='<article class="card"><div class="sec-label">Seats</div>';
+  if(!seated.length)html+='<p class="dim">No seats in this workspace yet.</p>';
+  else{html+='<table><tr><th>Member</th><th>Handle</th><th>Role</th><th></th></tr>'+seated.map(function(m){
+    var r=roleOf(m,w.id);
+    return '<tr><td><strong>'+esc(m.name)+'</strong></td><td>@'+esc(m.handle)+'</td><td><select data-seat="'+esc(m.id)+'"'+(canInvite?"":" disabled")+'>'+Object.keys(ROLES).map(function(k){return '<option value="'+k+'"'+(r===k?" selected":"")+'>'+esc(ROLES[k].label)+'</option>';}).join("")+'</select></td><td><button class="btn btn-ghost btn-small" type="button" data-remove="'+esc(m.id)+'"'+(canInvite?"":" disabled")+'>Remove seat</button></td></tr>';
+  }).join("")+'</table>';}
+  html+='</article>';
+  html+='<article class="card"><div class="sec-label">Invite</div><h3>Invite a member</h3><div class="honest"><strong>Honest note:</strong> invites are recorded only — nothing is emailed. This demo keeps an invite log; it does not send mail.</div>';
+  html+='<div class="frow"><div><label class="flabel" for="inv-name">Name</label><input type="text" id="inv-name" placeholder="New member name"'+(canInvite?"":" disabled")+'></div><div><label class="flabel" for="inv-role">Role in '+esc(w.name)+'</label><select id="inv-role"'+(canInvite?"":" disabled")+'>'+Object.keys(ROLES).map(function(k){return '<option value="'+k+'">'+esc(ROLES[k].label)+'</option>';}).join("")+'</select></div></div>';
+  html+='<p style="margin-top:16px"><button class="btn btn-primary" id="inv-add" type="button"'+(canInvite?"":" disabled")+'>Record invite + add seat</button></p>';
+  if(state.invites.length)html+='<ul class="clean">'+state.invites.map(function(v){return '<li><strong>'+esc(v.name)+'</strong> — '+esc(v.role)+' in '+esc(v.workspace)+' · <span class="dim">'+esc(v.status)+'</span></li>';}).join("")+'</ul>';
+  html+='</article>';
+  html+='<article class="card"><div class="sec-label">Permissions matrix</div><h3>Roles × capabilities</h3><table><tr><th>Role</th>'+CAPS.map(function(c){return '<th>'+esc(c)+'</th>';}).join("")+'</tr>'+Object.keys(ROLES).map(function(k){return '<tr><td><strong>'+esc(ROLES[k].label)+'</strong></td>'+CAPS.map(function(c){return '<td>'+(ROLES[k].can[c]?"✓":"—")+'</td>';}).join("")+'</tr>';}).join("")+'</table></article>';
+  host.innerHTML=html;
+  if(canInvite){
+    host.querySelectorAll("[data-seat]").forEach(function(s){s.addEventListener("change",function(){var m=memberById(this.getAttribute("data-seat"));if(m){m.seats[w.id]=this.value;save();render();toast("Role updated");}});});
+    host.querySelectorAll("[data-remove]").forEach(function(b){b.addEventListener("click",function(){var m=memberById(this.getAttribute("data-remove"));if(m){m.seats[w.id]=null;save();render();toast("Seat removed");}});});
+    $("inv-add").addEventListener("click",function(){
+      var name=$("inv-name").value.trim();if(!name){toast("Name the invitee first");return;}
+      var role=$("inv-role").value,id=uniq("m-"+slug(name),state.members);
+      var seats={};seats[w.id]=role;
+      state.members.push({id:id,name:name,handle:slug(name),seats:seats});
+      state.invites.push({name:name,role:role,workspace:w.name,status:"recorded — NOT sent (demo)"});
+      save();render();toast("Invite recorded (not sent)");
+    });
+  }
+}
+
+/* ---------- 3) Operator ---------- */
+function activeRun(){for(var i=0;i<state.runs.length;i++){var r=state.runs[i];if(r.status==="running"||r.status==="awaiting approval")return r;}return null;}
+function runById(id){for(var i=0;i<state.runs.length;i++)if(state.runs[i].id===id)return state.runs[i];return null;}
+function tierOf(run){return TIERS[run.tier]||TIERS.assisted;}
+function schedule(run,fn,ms){clearTimeout(runTimers[run.id]);runTimers[run.id]=setTimeout(fn,ms);}
+function completeWorkStep(run,step){
+  step.status="done";run.credits+=step.credits||0;run.tokens+=step.tokens||0;
+  state.telemetry.push({ts:new Date().toISOString(),workspace:run.workspaceId,runId:run.id,step:step.label,credits:step.credits||0,tokens:step.tokens||0});
+  run.log.push("✓ "+step.label+" — "+(step.credits||0)+" credits · "+(step.tokens||0)+" tokens");
+  run.stepIdx++;save();advance(run);render();
+}
+function advance(run){
+  if(run.status==="halted"||run.status==="complete")return;
+  if(run.stepIdx>=run.steps.length){
+    run.status="complete";run.shipped=run.steps.some(function(s){return s.gate==="deploy"&&s.status==="done";});
+    run.log.push(run.shipped?"Shipped. Deploy gate was approved by a human; the line held.":"Run complete.");
+    save();render();return;
+  }
+  var step=run.steps[run.stepIdx],w=null;
+  for(var i=0;i<state.workspaces.length;i++)if(state.workspaces[i].id===run.workspaceId)w=state.workspaces[i];
+  var tier=tierOf(run);
+  step.status="active";run.status="running";
+  if(step.kind==="gate"){
+    var grOn=!w||!w.operator||!w.operator.guardrails||w.operator.guardrails[step.gate]!==false;
+    if(!grOn&&!step.grWarned){
+      step.grWarned=true;
+      run.log.push("⚠ Guardrail for the "+((GATE_KINDS[step.gate]||{}).label||step.gate)+" is OFF in workspace settings — flagged, not bypassed. Approval is still required; no tier crosses a gate alone.");
+      save();
+    }
+    run.status="awaiting approval";save();render();return;
+  }
+  if(tier.autoWork){save();render();schedule(run,function(){if(run.status!=="halted")completeWorkStep(run,step);},700);}
+  else{save();render();}
+}
+function startRun(){
+  if(activeRun()){toast("A run is already active — finish or stop it first");return;}
+  var w=ws();if(!w)return;
+  var run={id:"run-"+Date.now(),workspaceId:w.id,workspaceName:w.name,operator:(w.operator||{}).name||"Operator",tier:(w.operator||{}).tier||"assisted",
+    status:"running",stepIdx:0,credits:0,tokens:0,shipped:false,created:new Date().toISOString(),
+    steps:PIPELINE.map(function(s){return {id:s.id,label:s.label,kind:s.kind,gate:s.gate||null,credits:s.credits||0,tokens:s.tokens||0,status:"pending"};}),
+    log:["Run started in "+w.name+" · tier "+((TIERS[(w.operator||{}).tier]||{}).label||"")+" · operator "+((w.operator||{}).name||"")+". Gates always pause."]};
+  state.runs.unshift(run);save();render();advance(run);toast("Run started");
+}
+function renderOperator(){
+  var w=ws(),host=$("mod-operator");if(!w){host.innerHTML="";return;}
+  var op=w.operator||{name:"Operator",tier:"assisted",guardrails:{}},tier=TIERS[op.tier]||TIERS.assisted;
+  var canRun=can("run"),canGates=can("gates"),ar=activeRun();
+  var html='<div class="sec-label">Module 03 · Operator</div><h1>'+esc(op.name)+' — operator, '+esc(w.name)+'</h1>';
+  html+='<p class="dim"><strong style="color:var(--ink)">'+esc(tier.label)+' tier.</strong> '+esc(tier.blurb)+'</p>';
+  html+='<div class="honest"><strong>Run simulation —</strong> the pipeline executes against the v3 contract in this browser; production Build/Ship wiring lands with v2&rsquo;s autonomous Build.</div>';
+  if(!canRun)html+=lockNote("run");
+  html+='<p><button class="btn btn-primary" id="run-start" type="button"'+(canRun?"":" disabled")+'>Start a run</button>'+(ar?' <span class="dim small">A run is active — starting another is paused until it finishes or is stopped.</span>':"")+'</p>';
+  html+='<div class="grid">'+Object.keys(TIERS).map(function(k){return '<article class="card" style="margin:0"><div class="sec-label">'+esc(TIERS[k].label)+'</div><p class="small dim">'+esc(TIERS[k].blurb)+'</p><p class="small" style="margin:0"><strong>Gates: always on</strong> — money, commitment and deploy hard-stop in every tier.</p></article>';}).join("")+'</div>';
+
+  state.runs.forEach(function(run){
+    var cur=run.steps[run.stepIdx];
+    html+='<article class="card'+(run.status==="complete"&&run.shipped?" shipped":"")+'" style="margin-top:18px"><div class="card-head"><h3>Run · '+esc(run.workspaceName)+' · '+esc(tierOf(run).label)+'</h3><span class="chip'+(run.status==="complete"?" live":run.status==="awaiting approval"?" gate":"")+'">'+esc(run.status)+(run.shipped?" · Shipped":"")+'</span></div>';
+    html+='<p class="small dim">Operator '+esc(run.operator)+' · started '+esc(String(run.created).slice(0,16).replace("T"," "))+' · metered so far: <strong style="color:var(--ink)">'+run.credits+' credits</strong> · '+run.tokens+' tokens</p>';
+    run.steps.forEach(function(s,idx){
+      html+='<div class="step st-'+esc(s.status)+'"><div class="st"><div class="sl">'+(s.status==="done"?"✓ ":s.status==="active"?"▸ ":"")+esc(s.label)+(s.crossedOff?' <span style="color:var(--red)">(guardrail OFF)</span>':"")+'</div><div class="meta">'+(s.credits||0)+' credits · '+(s.tokens||0)+' tokens</div></div><span class="chip'+(s.kind==="gate"?" gate":"")+'">'+(s.kind==="gate"?esc((GATE_KINDS[s.gate]||{}).label||"Gate"):"Work")+'</span><span class="chip">'+esc(s.status)+'</span></div>';
+      if(s.status==="active"&&run===ar){
+        if(s.kind==="gate"&&run.status==="awaiting approval"){
+          var g=GATE_KINDS[s.gate]||{};
+          html+='<div class="gatepanel"><div class="sec-label">'+esc(g.label||"Gate")+'</div><p>'+esc(g.detail||"")+'</p><p class="small dim">Approval required — gates are never bypassed in any tier, whatever the workspace settings say. Approving requires the gates permission (Owner).</p>'+(canGates?"":'<p class="small" style="color:var(--red)">You are acting without the gates permission — switch &ldquo;Acting as&rdquo; to an owner to approve.</p>')+'<button class="btn btn-primary btn-small" type="button" data-approve="'+esc(run.id)+'"'+(canGates?"":" disabled")+'>Approve gate</button> <button class="btn btn-danger btn-small" type="button" data-reject="'+esc(run.id)+'"'+(canGates?"":" disabled")+'>Reject — halt run</button></div>';
+        }else if(s.kind==="work"&&!tierOf(run).autoWork){
+          html+='<p style="margin:8px 0 4px"><button class="btn btn-primary btn-small" type="button" data-strike="'+esc(run.id)+'"'+(canRun?"":" disabled")+'>Strike this step</button> <span class="dim small">Guided tier: work steps wait for your strike.</span></p>';
+        }
+      }
+    });
+    if(run.status==="halted")html+='<div class="warn"><strong>Halted.</strong> '+esc(run.haltNote||"Run halted.")+'</div>';
+    if(run.log&&run.log.length)html+='<div class="logbox">'+esc(run.log.join("\n"))+'</div>';
+    if(ar&&run===ar)html+='<p style="margin-top:14px"><button class="btn btn-ghost btn-small" type="button" data-stop="'+esc(run.id)+'">Stop run</button></p>';
+    html+='</article>';
+  });
+  host.innerHTML=html;
+  var sb=$("run-start");if(sb)sb.addEventListener("click",startRun);
+  host.querySelectorAll("[data-strike]").forEach(function(b){b.addEventListener("click",function(){var r=runById(b.getAttribute("data-strike"));if(r&&r.steps[r.stepIdx])completeWorkStep(r,r.steps[r.stepIdx]);});});
+  host.querySelectorAll("[data-approve]").forEach(function(b){b.addEventListener("click",function(){var r=runById(b.getAttribute("data-approve"));if(!r)return;var s=r.steps[r.stepIdx];s.status="done";r.log.push("✓ "+((GATE_KINDS[s.gate]||{}).label||"Gate")+" approved by "+(acting()?acting().name:"")+" (gates permission).");r.stepIdx++;r.status="running";save();advance(r);render();toast("Gate approved");});});
+  host.querySelectorAll("[data-reject]").forEach(function(b){b.addEventListener("click",function(){var r=runById(b.getAttribute("data-reject"));if(!r)return;var s=r.steps[r.stepIdx];var gl=(GATE_KINDS[s.gate]||{}).label||s.gate;r.status="halted";r.haltNote="Halted at "+gl+" gate — by design. Nothing crossed the line.";if(s)s.status="halted";r.log.push("✕ "+r.haltNote);clearTimeout(runTimers[r.id]);save();render();toast("Run halted at gate");});});
+  host.querySelectorAll("[data-stop]").forEach(function(b){b.addEventListener("click",function(){var r=runById(b.getAttribute("data-stop"));if(!r)return;r.status="halted";r.haltNote="Stopped by "+(acting()?acting().name:"user")+".";r.log.push("■ "+r.haltNote);clearTimeout(runTimers[r.id]);save();render();});});
+}
+
+/* ---------- 4) Marketplace ---------- */
+function stackSourceChip(s){if(s.owner==="mine")return '<span class="chip mine">Mine</span>';return '<span class="chip">'+esc(s.source==="curated"?"Curated":"Community")+'</span>';}
+function renderMarketplace(){
+  var host=$("mod-marketplace"),canPub=can("publish");
+  var types=[];state.stacks.forEach(function(s){if(types.indexOf(s.type)<0)types.push(s.type);});
+  var list=state.stacks.filter(function(s){
+    if(filtSource==="Mine"&&s.owner!=="mine")return false;
+    if(filtSource==="Curated"&&!(s.source==="curated"&&s.owner!=="mine"))return false;
+    if(filtSource==="Community"&&!(s.source==="community"&&s.owner!=="mine"))return false;
+    if(filtType!=="All"&&s.type!==filtType)return false;return true;});
+  var html='<div class="sec-label">Module 04 · Stack Marketplace</div><h1>Marketplace</h1>';
+  html+='<p class="dim">Seeded from the Snout platform DB — demo catalogue; forks + publishes persist in this browser.</p>';
+  html+='<p><select id="mf-source">'+["All","Curated","Community","Mine"].map(function(x){return '<option'+(filtSource===x?" selected":"")+'>'+x+'</option>';}).join("")+'</select> <select id="mf-type"><option>All</option>'+types.map(function(x){return '<option'+(filtType===x?" selected":"")+'>'+esc(x)+'</option>';}).join("")+'</select> <span class="dim small">'+list.length+' stacks</span></p>';
+  if(!list.length)html+='<p class="dim">No stacks match these filters.</p>';
+  html+='<div class="grid2">'+list.map(function(s){
+    var open=expandedStack===s.id;
+    var h='<article class="card" style="margin:0"><div class="card-head"><h3>'+esc(s.name)+'</h3>'+stackSourceChip(s)+'</div><p class="small dim">by '+esc(s.author)+' · '+esc(s.type)+(s.forkedFrom?' · forked from '+esc(s.forkedFrom):"")+'</p><p class="small">'+esc(s.blurb)+'</p><p class="small dim">'+(s.rows||[]).length+' rows · '+esc(s.forks||0)+' forks · '+esc(s.uses||0)+' uses</p>';
+    h+='<p><button class="btn btn-ghost btn-small" type="button" data-view="'+esc(s.id)+'">'+(open?"Hide":"View")+'</button> <button class="btn btn-primary btn-small" type="button" data-fork="'+esc(s.id)+'"'+(canPub?"":" disabled")+'>Fork</button></p>';
+    if(open){
+      h+='<table><tr><th>Area</th><th>Choice</th><th>Why</th></tr>'+(s.rows||[]).map(function(r){return '<tr><td><strong>'+esc(r.area)+'</strong></td><td>'+esc(r.choice)+'</td><td>'+esc(r.why)+'</td></tr>';}).join("")+'</table>';
+      if(s.tierNote)h+='<p class="small" style="margin-top:12px"><strong>MVP:</strong> '+esc(s.tierNote.MVP||"")+'<br><strong>Functional:</strong> '+esc(s.tierNote.Functional||"")+'<br><strong>Scalable:</strong> '+esc(s.tierNote.Scalable||"")+'</p>';
+    }
+    return h+'</article>';
+  }).join("")+'</div>';
+  html+='<article class="card" style="margin-top:18px"><div class="sec-label">Publish</div><h3>Publish a stack</h3>';
+  if(!canPub)html+=lockNote("publish");
+  html+='<div class="frow"><div><label class="flabel" for="pub-name">Stack name</label><input type="text" id="pub-name"'+(canPub?"":" disabled")+'></div><div><label class="flabel" for="pub-type">Type</label><select id="pub-type"'+(canPub?"":" disabled")+'>'+["Web app","Marketplace","Booking & scheduling","Content & media","AI tool","Community","Data & dashboards","Commerce","Other"].map(function(x){return '<option>'+x+'</option>';}).join("")+'</select></div></div>';
+  html+='<label class="flabel" for="pub-blurb">Blurb</label><input type="text" id="pub-blurb"'+(canPub?"":" disabled")+'>';
+  for(var i=1;i<=3;i++){html+='<div class="frow" style="margin-top:6px"><div><label class="flabel" for="pub-a'+i+'">Row '+i+' — area</label><input type="text" id="pub-a'+i+'"'+(canPub?"":" disabled")+'></div><div><label class="flabel" for="pub-c'+i+'">Choice</label><input type="text" id="pub-c'+i+'"'+(canPub?"":" disabled")+'></div></div><label class="flabel" for="pub-w'+i+'">Why</label><input type="text" id="pub-w'+i+'"'+(canPub?"":" disabled")+'>';}
+  html+='<p style="margin-top:16px"><button class="btn btn-primary" id="pub-add" type="button"'+(canPub?"":" disabled")+'>Publish stack</button></p></article>';
+  host.innerHTML=html;
+  $("mf-source").addEventListener("change",function(){filtSource=this.value;render();});
+  $("mf-type").addEventListener("change",function(){filtType=this.value;render();});
+  host.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){var id=b.getAttribute("data-view");expandedStack=(expandedStack===id?null:id);render();});});
+  if(canPub){
+    host.querySelectorAll("[data-fork]").forEach(function(b){b.addEventListener("click",function(){
+      var src=null;state.stacks.forEach(function(s){if(s.id===b.getAttribute("data-fork"))src=s;});if(!src)return;
+      src.forks=(src.forks||0)+1;
+      var copy=deep(src);copy.id=uniq(slug(src.name)+"-fork-"+(state.stacks.filter(function(s){return s.forkedFrom===src.name;}).length+1),state.stacks);
+      copy.author=acting()?acting().handle:"me";copy.owner="mine";copy.forkedFrom=src.name;copy.forks=0;copy.uses=0;
+      state.stacks.push(copy);state.myStacks.push(copy.id);save();render();toast("Forked into your stacks");
+    });});
+    $("pub-add").addEventListener("click",function(){
+      var name=$("pub-name").value.trim();if(!name){toast("Name the stack first");return;}
+      var rows=[];for(var j=1;j<=3;j++){var a=$("pub-a"+j).value.trim(),c=$("pub-c"+j).value.trim(),wy=$("pub-w"+j).value.trim();if(a||c||wy)rows.push({area:a||"—",choice:c||"—",why:wy||""});}
+      var s={id:uniq(slug(name),state.stacks),name:name,author:acting()?acting().handle:"me",source:"community",owner:"mine",type:$("pub-type").value,blurb:$("pub-blurb").value.trim(),rows:rows,tierNote:{MVP:"Start with the rows above, nothing more.",Functional:"Add the operational pieces your first users force on you.",Scalable:"Harden once usage, not hope, pays for it."},forks:0,uses:0};
+      state.stacks.push(s);state.myStacks.push(s.id);filtSource="Mine";save();render();toast("Stack published");
+    });
+  }
+}
+
+/* ---------- 5) Metering ---------- */
+function spark(series){
+  var max=Math.max.apply(null,series.concat([1])),min=Math.min.apply(null,series.concat([0]));
+  var pts=series.map(function(v,i){return (i*(100/Math.max(series.length-1,1))).toFixed(1)+","+(34-((v-min)/(max-min||1))*30).toFixed(1);}).join(" ");
+  return '<svg class="spark" width="160" height="38" viewBox="0 0 100 38" preserveAspectRatio="none"><polyline points="'+pts+'" fill="none" stroke="#ff6a1a" stroke-width="2"/></svg>';
+}
+function renderMetering(){
+  var host=$("mod-metering");
+  var credits=state.telemetry.reduce(function(a,t){return a+(t.credits||0);},0);
+  var tokens=state.telemetry.reduce(function(a,t){return a+(t.tokens||0);},0);
+  var html='<div class="sec-label">Module 05 · Metering</div><h1>Metering</h1>';
+  html+='<div class="warn"><strong>Hard line:</strong> Credits are metered and displayed only. Forge v3 has no checkout and charges nothing.</div>';
+  html+='<div class="grid4"><article class="card" style="margin:0"><div class="statlbl">Runs</div><div class="big">'+state.runs.length+'</div></article><article class="card" style="margin:0"><div class="statlbl">Steps executed</div><div class="big">'+state.telemetry.length+'</div></article><article class="card" style="margin:0"><div class="statlbl">Credits metered</div><div class="big">'+credits+'</div></article><article class="card" style="margin:0"><div class="statlbl">Tokens processed</div><div class="big">'+tokens+'</div></article></div>';
+  html+='<p class="dim" style="margin-top:14px">Est. value: <strong style="color:var(--ink)">'+credits+' credits metered — never charged.</strong></p>';
+  html+='<article class="card"><div class="sec-label">Per-run</div><h3>Runs</h3>';
+  if(!state.runs.length)html+='<p class="dim">No runs yet — start one in the Operator module.</p>';
+  else html+='<table><tr><th>Run</th><th>Workspace</th><th>Tier</th><th>Steps done</th><th>Credits</th><th>Tokens</th><th>Status</th></tr>'+state.runs.map(function(r){return '<tr><td><strong>'+esc(String(r.created).slice(0,10))+'</strong></td><td>'+esc(r.workspaceName)+'</td><td>'+esc(tierOf(r).label)+'</td><td>'+r.steps.filter(function(s){return s.status==="done";}).length+' / '+r.steps.length+'</td><td>'+r.credits+'</td><td>'+r.tokens+'</td><td>'+esc(r.status)+(r.shipped?" · Shipped":"")+'</td></tr>';}).join("")+'</table>';
+  html+='</article>';
+  html+='<article class="card"><div class="sec-label">Per-workspace rollup</div><table><tr><th>Workspace</th><th>Runs</th><th>Credits</th><th>Products live</th></tr>'+state.workspaces.map(function(w){var rs=state.runs.filter(function(r){return r.workspaceId===w.id;});var prods=(w.products||[]).concat(state.extraProducts[w.id]||[]);return '<tr><td><strong>'+esc(w.name)+'</strong></td><td>'+rs.length+'</td><td>'+rs.reduce(function(a,r){return a+(r.credits||0);},0)+'</td><td>'+prods.filter(function(p){return p.status==="live";}).length+' / '+prods.length+'</td></tr>';}).join("")+'</table></article>';
+  html+='<article class="card"><div class="sec-label">Product analytics — SEEDED DEMO DATA</div><h3>Product analytics <span class="chip gate">Seeded demo data</span></h3><div class="grid">';
+  Object.keys(ANALYTICS).forEach(function(name){var a=ANALYTICS[name];html+='<div><h3 style="font-size:16px">'+esc(name)+'</h3><p class="small dim" style="margin:0">Visitors '+a.visitors+' · Signups '+a.signups+' · Conversion '+a.conversion+'%</p>'+spark(a.series||[])+'</div>';});
+  html+='</div></article>';
+  host.innerHTML=html;
+}
+
+/* ---------- Render ---------- */
+function render(){
+  renderActing();renderWorkspaces();renderTeam();renderOperator();renderMarketplace();renderMetering();
+  ["mod-workspaces","mod-team","mod-operator","mod-marketplace","mod-metering"].forEach(function(id){$(id).hidden=(id!==activeTab);});
+  document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-tab")===activeTab);});
+}
+save();render();
+})();
+</script>
+</body>
+</html>
