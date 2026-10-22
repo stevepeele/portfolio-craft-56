@@ -158,6 +158,12 @@
     var card = document.createElement('article');
     card.className = 'product-card';
 
+    if (product && product.color) {
+      var bar = document.createElement('div');
+      bar.style.cssText = 'position:absolute;top:0;left:0;right:0;height:4px;background:' + String(product.color);
+      card.appendChild(bar);
+    }
+
     var chip = document.createElement('div');
     chip.className = 'tag-chip';
     chip.textContent = 'FORGED #' + padded;
@@ -180,6 +186,14 @@
       date.className = 'date';
       date.textContent = String(product.date);
       card.appendChild(date);
+    }
+
+    if (product && product.slug) {
+      var builderLink = document.createElement('a');
+      builderLink.className = 'visit';
+      builderLink.href = '/forge/builder/?b=' + encodeURIComponent(String(product.slug));
+      builderLink.textContent = 'Builder profile \u2192';
+      card.appendChild(builderLink);
     }
 
     list.appendChild(card);

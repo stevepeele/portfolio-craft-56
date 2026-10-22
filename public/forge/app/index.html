@@ -85,11 +85,14 @@
   .stackrow .area{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);padding-top:4px;font-weight:700}
   .stackrow .choice{font-weight:800;font-size:16px}
   .stackrow .why{color:var(--steel);font-size:15px}
-  input[type="text"],input[type="email"]{
+  input[type="text"],input[type="email"],input[type="password"],textarea,select{
     width:100%;padding:14px 16px;border-radius:6px;border:1px solid var(--line);
     background:var(--iron);color:var(--ink);font-size:16px;font-family:inherit;
   }
-  input[type="text"]:focus{outline:none;border-color:var(--ember-deep);box-shadow:0 0 0 3px rgba(255,106,26,.15)}
+  input[type="text"]:focus,input[type="password"]:focus,textarea:focus,select:focus{outline:none;border-color:var(--ember-deep);box-shadow:0 0 0 3px rgba(255,106,26,.15)}
+  textarea{resize:vertical;min-height:84px}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--ember-deep);color:var(--ink);padding:12px 20px;border-radius:8px;font-size:14.5px;font-weight:700;z-index:60;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+  .deployseq{white-space:pre-wrap;word-break:break-all;background:var(--iron);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13.5px;color:var(--steel);font-family:ui-monospace,Menlo,Consolas,monospace}
   input::placeholder{color:var(--dim)}
   label.flabel{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:8px}
 
@@ -184,6 +187,7 @@
     <div class="sec-label">Stage 01 &middot; Clarify</div>
     <div class="q-progress" id="q-progress">Question 1 of 8</div>
     <div class="bar-track"><div class="bar-fill" id="q-bar" style="width:12.5%"></div></div>
+    <div id="ai-status" class="dim" style="font-size:14px;margin:-18px 0 22px"></div>
     <h1 id="q-title">What are you building?</h1>
     <p class="dim" id="q-hint"></p>
     <div class="chips" id="q-chips"></div>
@@ -202,6 +206,8 @@
     <div class="sec-label">Stages 02 + 03 &middot; Stack + Scope</div>
     <h1>Your forge is struck.</h1>
     <p class="dim" style="max-width:58ch">Three artifacts, generated from your answers. Copy them, download them, argue with them &mdash; they are yours. Then your operator walks the setup with you.</p>
+    <div id="ai-badge" style="font-size:14px;font-weight:700;color:var(--ember);margin-bottom:8px"></div>
+    <div id="account-line-out" style="font-size:14px;color:var(--steel);margin-bottom:22px"></div>
 
     <article class="card">
       <div class="card-head">
@@ -209,6 +215,7 @@
         <div class="card-actions">
           <button class="btn btn-ghost btn-small" type="button" data-copy="thesis">Copy</button>
           <button class="btn btn-ghost btn-small" type="button" data-download="thesis">Download .md</button>
+          <button class="btn btn-ghost btn-small" type="button" data-share="thesis">Share</button>
         </div>
       </div>
       <div id="art-thesis"></div>
@@ -220,6 +227,7 @@
         <div class="card-actions">
           <button class="btn btn-ghost btn-small" type="button" data-copy="stack">Copy</button>
           <button class="btn btn-ghost btn-small" type="button" data-download="stack">Download .md</button>
+          <button class="btn btn-ghost btn-small" type="button" data-share="stack">Share</button>
         </div>
       </div>
       <div id="art-stack"></div>
@@ -231,6 +239,7 @@
         <div class="card-actions">
           <button class="btn btn-ghost btn-small" type="button" data-copy="scope">Copy</button>
           <button class="btn btn-ghost btn-small" type="button" data-download="scope">Download .md</button>
+          <button class="btn btn-ghost btn-small" type="button" data-share="scope">Share</button>
         </div>
       </div>
       <div id="art-scope"></div>
@@ -255,6 +264,12 @@
     </div>
 
     <article class="card">
+      <div class="sec-label">Account &middot; Sync</div>
+      <h3>Your account</h3>
+      <div id="account-bar"></div>
+    </article>
+
+    <article class="card">
       <div class="op-card">
         <div class="op-avatar" id="op-initial"></div>
         <div style="flex:1;min-width:220px">
@@ -267,6 +282,29 @@
           <span>Overall progress</span><span id="prog-label">0%</span>
         </div>
         <div class="bar-track" style="margin:10px 0 0"><div class="bar-fill" id="prog-bar" style="width:0%"></div></div>
+      </div>
+      <div style="margin-top:22px;border-top:1px solid var(--line-soft);padding-top:18px">
+        <div class="sec-label">Operator config</div>
+        <div class="brand-grid">
+          <div>
+            <label class="flabel" for="op-name-input">Operator name</label>
+            <input type="text" id="op-name-input" autocomplete="off">
+          </div>
+          <div>
+            <label class="flabel" for="op-voice-select">Voice</label>
+            <select id="op-voice-select">
+              <option value="Patient guide">Patient guide</option>
+              <option value="Direct">Direct</option>
+              <option value="Terse engineer">Terse engineer</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-size:15px">
+          <label style="display:block;margin-bottom:8px"><input type="checkbox" id="gr-ask-deploy" style="accent-color:var(--ember);width:18px;height:18px;vertical-align:-3px"> Ask before deploy</label>
+          <label style="display:block;margin-bottom:8px"><input type="checkbox" id="gr-ask-spend" style="accent-color:var(--ember);width:18px;height:18px;vertical-align:-3px"> Ask before spend</label>
+          <label style="display:block"><input type="checkbox" id="gr-share-artifacts" style="accent-color:var(--ember);width:18px;height:18px;vertical-align:-3px"> Share artifacts</label>
+        </div>
+        <p class="dim" id="credits-line" style="font-size:14px;margin-top:14px;margin-bottom:0"></p>
       </div>
     </article>
 
@@ -310,17 +348,42 @@
         <div class="ptag" id="preview-tagline"></div>
       </div>
       <p class="dim" style="font-size:14px;margin-top:14px;margin-bottom:0">Saved automatically in this browser. Name changes propagate to your prompts and, once shipped, to your products entry.</p>
+      <div style="margin-top:16px"><button class="btn btn-ghost btn-small" id="brand-kit-btn" type="button">Download branding kit (.md)</button></div>
     </article>
 
     <article class="card">
-      <div class="sec-label">Build</div>
+      <div class="sec-label">Build &mdash; Phase 2</div>
       <h3>Build &amp; ship</h3>
-      <div class="honest" style="margin-top:6px"><strong>Honestly:</strong> v1 Build = scaffold-export + deploy wiring. Full autonomous building is Phase 2 &mdash; we&rsquo;ll say so when it ships.</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div id="build-panel"></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
         <button class="btn btn-primary" id="export-btn" type="button">Export scaffold (.zip)</button>
         <button class="btn btn-ghost" id="ship-btn" type="button">Mark as shipped</button>
       </div>
       <p id="shipped-note" hidden style="margin-top:16px;margin-bottom:0"><strong style="color:var(--ember)">Shipped.</strong> <a href="/forge/products">See it on the products page &rarr;</a></p>
+    </article>
+
+    <article class="card">
+      <div class="sec-label">Ship loop</div>
+      <h3>Ship, learn, iterate</h3>
+      <div style="margin-bottom:14px">
+        <label class="flabel" for="launch-url">Your live URL</label>
+        <input type="text" id="launch-url" placeholder="https://your-product.vercel.app" autocomplete="off">
+      </div>
+      <div id="launch-list"></div>
+      <p id="launch-progress" style="font-weight:700;margin-top:12px"></p>
+      <div style="border-top:1px solid var(--line-soft);margin-top:20px;padding-top:20px">
+        <label class="flabel" for="feedback-input">Feedback &mdash; what are users telling you?</label>
+        <textarea id="feedback-input" placeholder="Paste feedback, reviews, or your own notes&hellip;"></textarea>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px">
+          <button class="btn btn-primary" id="propose-btn" type="button">Propose changes</button>
+          <span class="dim" id="propose-note" style="font-size:14px"></span>
+        </div>
+        <div id="proposals-list" style="margin-top:16px"></div>
+      </div>
+      <div style="border-top:1px solid var(--line-soft);margin-top:20px;padding-top:20px">
+        <div class="sec-label">Version history</div>
+        <div id="versions-list"></div>
+      </div>
     </article>
   </main>
 
@@ -372,8 +435,40 @@ function defaultState(){
     answers:{}, thesis:"", operatorName:"", mode:"",
     setup:{}, tasks:[],
     brand:{name:"", tagline:"", color:"#ff6a1a"},
-    shipped:false
+    shipped:false,
+    account:{signedIn:false, email:"", displayName:""},
+    ai:{available:null, source:""},
+    credits:{used:0},
+    operator:{voice:"Direct", voiceSource:"", guardrails:{askBeforeDeploy:true, askBeforeSpend:true, shareArtifacts:true}},
+    build:{status:"not-started", gates:{stack:false, deploy:false}, startedAt:"", finishedAt:"", log:[]},
+    connections:{github:{status:"not-connected"}, vercel:{status:"not-connected"}, supabase:{status:"not-connected"}},
+    launch:{}, versions:[], proposals:[], published:null,
+    profile:{slug:"", public:false, bio:""},
+    aiArtifacts:null,
+    sync:{p:"", c:""}
   };
+}
+function migrateState(s){
+  var d = defaultState();
+  if(!s.account || typeof s.account !== "object") s.account = d.account;
+  if(!s.ai || typeof s.ai !== "object") s.ai = d.ai;
+  if(!s.credits || typeof s.credits !== "object" || typeof s.credits.used !== "number") s.credits = d.credits;
+  if(!s.operator || typeof s.operator !== "object") s.operator = d.operator;
+  if(!s.operator.guardrails || typeof s.operator.guardrails !== "object") s.operator.guardrails = d.operator.guardrails;
+  if(!s.operator.voice) s.operator.voice = "Direct";
+  if(!s.build || typeof s.build !== "object") s.build = d.build;
+  if(!s.build.gates || typeof s.build.gates !== "object") s.build.gates = d.build.gates;
+  if(!Array.isArray(s.build.log)) s.build.log = [];
+  if(!s.connections || typeof s.connections !== "object") s.connections = d.connections;
+  ["github","vercel","supabase"].forEach(function(k){ if(!s.connections[k] || typeof s.connections[k] !== "object") s.connections[k] = {status:"not-connected"}; });
+  if(!s.launch || typeof s.launch !== "object") s.launch = {};
+  if(!Array.isArray(s.versions)) s.versions = [];
+  if(!Array.isArray(s.proposals)) s.proposals = [];
+  if(!("published" in s)) s.published = null;
+  if(!s.profile || typeof s.profile !== "object") s.profile = d.profile;
+  if(!("aiArtifacts" in s)) s.aiArtifacts = null;
+  if(!s.sync || typeof s.sync !== "object") s.sync = {p:"", c:""};
+  return s;
 }
 function loadState(){
   try{
@@ -387,12 +482,187 @@ function loadState(){
     if(!Array.isArray(s.tasks)) s.tasks = [];
     if(!s.setup || typeof s.setup !== "object") s.setup = {};
     if(!s.answers || typeof s.answers !== "object") s.answers = {};
-    return s;
+    return migrateState(s);
   }catch(e){ return defaultState(); }
 }
 var state = loadState();
+var _syncReady = false;
+var _publishTimer = null;
+var syncStatus = "Offline \u2014 saved on this device";
 function save(){
   try{ localStorage.setItem(STATE_KEY, JSON.stringify(state)); }catch(e){}
+  try{ window.dispatchEvent(new CustomEvent("forge:state")); }catch(e){}
+  if(_syncReady && state.account && state.account.signedIn){
+    if(_publishTimer) clearTimeout(_publishTimer);
+    _publishTimer = setTimeout(function(){ publish(); }, 1500);
+  }
+}
+/* ---------- Content hash (FNV-1a) + canonical state ---------- */
+function ForgeHash(str){
+  var h = 0x811c9dc5;
+  str = String(str == null ? "" : str);
+  for(var i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return ("0000000" + h.toString(16)).slice(-8);
+}
+function pick(obj, keys){
+  var out = {};
+  if(!obj) return out;
+  keys.forEach(function(k){ if(Object.prototype.hasOwnProperty.call(obj, k)) out[k] = obj[k]; });
+  return out;
+}
+var CANON_KEYS = ["answers","thesis","operatorName","mode","setup","tasks","brand","shipped","versions","proposals","build","connections","launch"];
+function canonicalState(st){ return JSON.stringify(pick(st || state, CANON_KEYS)); }
+function stateForPush(){
+  var copy = JSON.parse(JSON.stringify(state));
+  delete copy.sync;
+  return copy;
+}
+/* ---------- Supabase (C2): auth + sync ---------- */
+var SB_URL = "https://sddcdfpgbgawoywupmvz.supabase.co";
+var SB_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkZGNkZnBnYmdhd295d3VwbXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NzIxOTAsImV4cCI6MjEwNzM0ODE5MH0.-7DiWOn6p8PzOoQGh5uhFH1fiZcDMrozWoJCB-WRJdo";
+var SESSION_KEY = "forge.v2.session";
+function getSession(){
+  try{ var raw = localStorage.getItem(SESSION_KEY); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
+}
+function setSession(sess){
+  try{
+    if(sess) localStorage.setItem(SESSION_KEY, JSON.stringify(sess));
+    else localStorage.removeItem(SESSION_KEY);
+  }catch(e){}
+}
+function markSignedOut(){
+  setSession(null);
+  state.account = {signedIn:false, email:"", displayName:""};
+  syncStatus = "Offline \u2014 saved on this device";
+  save();
+}
+function sbAuthHeaders(){
+  return {apikey: SB_ANON, "Content-Type": "application/json"};
+}
+function sbDataHeaders(token, prefer){
+  var h = {apikey: SB_ANON, Authorization: "Bearer " + token, "Content-Type": "application/json"};
+  if(prefer) h.Prefer = prefer;
+  return h;
+}
+function sbErrMsg(data, status){
+  var m = (data && (data.msg || data.message || data.error_description || data.error)) || ("Request failed (" + status + ")");
+  return String(m).slice(0, 120);
+}
+function refreshSession(){
+  var sess = getSession();
+  if(!sess || !sess.refresh_token) return Promise.resolve(null);
+  return fetch(SB_URL + "/auth/v1/token?grant_type=refresh_token", {
+    method: "POST", headers: sbAuthHeaders(),
+    body: JSON.stringify({refresh_token: sess.refresh_token})
+  }).then(function(r){ return r.json().then(function(d){ return {status: r.status, data: d}; }); })
+    .then(function(res){
+      if(res.status >= 200 && res.status < 300 && res.data && res.data.access_token){
+        var ns = {access_token: res.data.access_token, refresh_token: res.data.refresh_token || sess.refresh_token, user: res.data.user || sess.user};
+        setSession(ns);
+        return ns;
+      }
+      return null;
+    }).catch(function(){ return null; });
+}
+function sbData(method, path, body, retried){
+  var sess = getSession();
+  if(!sess || !sess.access_token) return Promise.reject(new Error("Not signed in"));
+  var opts = {method: method, headers: sbDataHeaders(sess.access_token, "return=representation")};
+  if(body != null) opts.body = JSON.stringify(body);
+  return fetch(SB_URL + path, opts).then(function(r){
+    if(r.status === 401 && !retried){
+      return refreshSession().then(function(ns){
+        if(ns) return sbData(method, path, body, true);
+        markSignedOut();
+        throw new Error("Session expired");
+      });
+    }
+    return r.text().then(function(t){
+      var d = null;
+      try{ d = t ? JSON.parse(t) : null; }catch(e){}
+      if(r.status < 200 || r.status >= 300) throw new Error(sbErrMsg(d, r.status));
+      return d;
+    });
+  });
+}
+function publish(){
+  var sess = getSession();
+  if(!sess || !sess.user || !state.account.signedIn) return Promise.resolve(false);
+  var c = ForgeHash(canonicalState(state));
+  if(c === state.sync.c && state.sync.p) return Promise.resolve(false);
+  syncStatus = "Syncing\u2026";
+  renderSyncStatus();
+  var now = new Date().toISOString();
+  var row = {user_id: sess.user.id, email: state.account.email || sess.user.email || "", display_name: state.account.displayName || "", state: stateForPush(), products: loadProducts(), updated_at: now};
+  return fetch(SB_URL + "/rest/v1/forge_profiles?on_conflict=user_id", {
+    method: "POST",
+    headers: (function(h){ h.Prefer = "resolution=merge-duplicates,return=representation"; return h; })(sbDataHeaders(sess.access_token)),
+    body: JSON.stringify(row)
+  }).then(function(r){
+    if(r.status === 401){
+      return refreshSession().then(function(ns){
+        if(ns){ return publish(); }
+        markSignedOut();
+        return false;
+      });
+    }
+    if(r.status < 200 || r.status >= 300) throw new Error("Sync failed (" + r.status + ")");
+    state.sync = {p: now, c: c};
+    syncStatus = "Synced";
+    save();
+    renderSyncStatus();
+    return true;
+  }).catch(function(){
+    syncStatus = "Offline \u2014 saved on this device";
+    renderSyncStatus();
+    return false;
+  });
+}
+function pull(){
+  var sess = getSession();
+  if(!sess || !sess.user) return Promise.resolve(false);
+  return sbData("GET", "/rest/v1/forge_profiles?user_id=eq." + encodeURIComponent(sess.user.id) + "&select=*")
+    .then(function(rows){
+      var row = Array.isArray(rows) ? rows[0] : rows;
+      if(!row || !row.state) return false;
+      if(String(row.updated_at || "") > String(state.sync.p || "") && ForgeHash(canonicalState(row.state)) !== state.sync.c){
+        var savedSync = {p: String(row.updated_at || ""), c: ForgeHash(canonicalState(row.state))};
+        var fresh = migrateState(JSON.parse(JSON.stringify(row.state)));
+        fresh.sync = savedSync;
+        state = fresh;
+        saveProducts(row.products || []);
+        save();
+        refreshAllViews();
+        toast("Synced from your account");
+        return true;
+      }
+      return false;
+    }).catch(function(){ return false; });
+}
+function pushProducts(){ if(state.account && state.account.signedIn) publish(); }
+function toast(msg){
+  try{
+    var old = document.getElementById("forge-toast");
+    if(old && old.parentNode) old.parentNode.removeChild(old);
+    var t = document.createElement("div");
+    t.id = "forge-toast"; t.className = "toast"; t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 3200);
+  }catch(e){}
+}
+function renderSyncStatus(){
+  var el = document.getElementById("sync-status");
+  if(el) el.textContent = syncStatus;
+  var el2 = document.getElementById("sync-status-out");
+  if(el2) el2.textContent = syncStatus;
+}
+function refreshAllViews(){
+  renderRail();
+  if(state.thesis){ renderOutputs(); renderDashboard(); showView("dashboard"); }
+  else { renderQuestion(); showView("interview"); }
 }
 function loadProducts(){
   try{
@@ -415,8 +685,14 @@ function upsertProduct(previousName){
     for(i=0;i<arr.length;i++){ if(arr[i].name === name){ found = i; break; } }
   }
   var entry = {name:name, tagline:(state.brand && state.brand.tagline) || "", date:new Date().toISOString().slice(0,10)};
+  entry.color = (state.brand && state.brand.color) || "#ff6a1a";
+  if(state.profile && state.profile.slug){
+    entry.slug = state.profile.slug;
+    entry.builder = state.account.displayName || state.brand.name || name;
+  }
   if(found >= 0) arr[found] = entry; else arr.push(entry);
   saveProducts(arr);
+  pushProducts();
 }
 
 /* ---------- Interview definition ---------- */
@@ -616,11 +892,37 @@ function setupDoneCount(){
 }
 function allSetupDone(){ return setupDoneCount() >= setupSteps().length; }
 
+/* ---------- Effective artifacts (AI when present, else v1 local) ---------- */
+function effectiveStackRows(){
+  if(state.aiArtifacts && Array.isArray(state.aiArtifacts.stackRows) && state.aiArtifacts.stackRows.length) return state.aiArtifacts.stackRows;
+  return stackRows();
+}
+function effectiveTiers(){
+  if(state.aiArtifacts && Array.isArray(state.aiArtifacts.tiers) && state.aiArtifacts.tiers.length){
+    return state.aiArtifacts.tiers.map(function(t){ return {name:t.name || "", blurb:t.blurb || "", recommended:!!t.recommended, why:t.why || ""}; });
+  }
+  return stackTiers();
+}
+function effectiveScope(){
+  var local = scopeLists(), ex = scopeExtras();
+  if(state.aiArtifacts && (Array.isArray(state.aiArtifacts.scopeIn) || Array.isArray(state.aiArtifacts.scopeOut))){
+    return {
+      inList: (Array.isArray(state.aiArtifacts.scopeIn) && state.aiArtifacts.scopeIn.length) ? state.aiArtifacts.scopeIn : local.inList,
+      outList: (Array.isArray(state.aiArtifacts.scopeOut) && state.aiArtifacts.scopeOut.length) ? state.aiArtifacts.scopeOut : local.outList,
+      milestones: (Array.isArray(state.aiArtifacts.milestones) && state.aiArtifacts.milestones.length) ? state.aiArtifacts.milestones : ex.milestones,
+      dataModel: (Array.isArray(state.aiArtifacts.dataModel) && state.aiArtifacts.dataModel.length) ? state.aiArtifacts.dataModel : ex.dataModel
+    };
+  }
+  return {inList: local.inList, outList: local.outList, milestones: ex.milestones, dataModel: ex.dataModel};
+}
+
 /* ---------- Markdown artifacts ---------- */
 function thesisMd(){
   var a = state.answers, mi = modeInfo();
   var lines = [];
   lines.push("# Product Thesis \u2014 " + ((state.brand && state.brand.name) || extractName(a.idea)));
+  lines.push("");
+  lines.push((state.ai && state.ai.sourceAtGen === "ai") ? "> Generated by Forge AI" : "> Generated locally (demo mode)");
   lines.push("");
   lines.push(state.thesis);
   lines.push("");
@@ -635,28 +937,27 @@ function thesisMd(){
 }
 function stackMd(){
   var lines = ["# Stack Recommendation",""];
-  stackRows().forEach(function(r){
+  effectiveStackRows().forEach(function(r){
     lines.push("## " + r.area + " \u2014 " + r.choice);
     lines.push(r.why);
     lines.push("");
   });
   lines.push("## Tiers");
   lines.push("");
-  stackTiers().forEach(function(t){
+  effectiveTiers().forEach(function(t){
     lines.push("- **" + t.name + "**" + (t.recommended ? " *(recommended)*" : "") + " \u2014 " + t.blurb);
   });
   return lines.join("\n").replace(/\n+$/,"") + "\n";
 }
 function scopeMd(){
-  var sc = scopeLists(), lines = ["# Scope","", "## In v1"];
+  var sc = effectiveScope(), lines = ["# Scope","", "## In v1"];
   sc.inList.forEach(function(x){ lines.push("- " + x); });
   lines.push("", "## Out of v1");
   sc.outList.forEach(function(x){ lines.push("- " + x); });
-  var ex = scopeExtras();
   lines.push("", "## Milestones");
-  ex.milestones.forEach(function(x){ lines.push("- " + x); });
+  sc.milestones.forEach(function(x){ lines.push("- " + x); });
   lines.push("", "## Data model sketch");
-  ex.dataModel.forEach(function(x){ lines.push("- " + x); });
+  sc.dataModel.forEach(function(x){ lines.push("- " + x); });
   lines.push("", "Scope is a strike list, not a wish list.");
   return lines.join("\n");
 }
@@ -712,7 +1013,12 @@ var PROMPTS = [
   {title:"Plan the launch post", body:"Write a launch post for {Name} ({Tagline}) aimed at {Audience}. Structure: the painful before, the moment it clicks, what {Name} does in one line, one honest limitation, and a single call to action. Voice: plain, confident, zero hype words. Give me a short version (under 280 characters) and a long version (three short paragraphs)."},
   {title:"Debug with discipline", body:"Act as a disciplined debugger for {Name}. I will paste an error and the relevant code. Rules: first restate the symptom in one sentence, then list the three most likely causes ranked by probability, then give me the single cheapest test that separates cause one from cause two. Do not rewrite code until we know which cause is real."},
   {title:"Write the README", body:"Write the README for {Name} \u2014 {Tagline}. Sections: what it is (two sentences, no marketing fog), who it is for, the stack and why each piece was chosen, how to run it locally in under five steps, the environment variables it needs (names only, never values), and the roadmap in three bullets. Audience: a developer seeing this repo for the first time."},
-  {title:"Scope check \u2014 what is out?", body:"You are my scope referee for {Name}. I will describe a feature I want to add. Rule on it against the v1 scope: IN, OUT, or LATER-WITH-A-PRICE. For each ruling give the reason in one sentence and, if it is OUT, the smallest version that would be IN. Protect the ship date like it is your own money."}
+  {title:"Scope check \u2014 what is out?", body:"You are my scope referee for {Name}. I will describe a feature I want to add. Rule on it against the v1 scope: IN, OUT, or LATER-WITH-A-PRICE. For each ruling give the reason in one sentence and, if it is OUT, the smallest version that would be IN. Protect the ship date like it is your own money."},
+  {title:"Write the onboarding flow", body:"Design the onboarding flow for {Name} ({Tagline}) for {Audience}. Map the first five minutes screen by screen: what the user sees, the one action each screen asks for, and what {Name} remembers afterwards. The core job ({CoreJob}) must happen inside onboarding, not after it. End with the exact empty-state copy for a brand-new user."},
+  {title:"Price the v1 (display only)", body:"Work out display-only pricing for {Name} aimed at {Audience}: three tiers with names, prices, and the one-line difference between them. This is for the pricing page copy only \u2014 do not propose wiring payments, checkout, or billing into v1; the scope referee has ruled payments OUT of v1. Show the math behind each price in one sentence."},
+  {title:"Design the data model", body:"Design the data model for {Name}. Core job: {CoreJob}. List every table with its columns and types, the relationships between tables, and which rows a user may read or write under row-level security. Keep it to the tables v1 truly needs and name the first table you would add later, with the trigger that earns it."},
+  {title:"Write the launch checklist", body:"Write the launch checklist for {Name} ({Tagline}) aimed at {Audience}. Order it as a strike list: accounts and repo, environment variables by name only, deploy, live-URL check, success-metric page, launch post, and the first iterate cycle. Each item gets one line on how I verify it is really done, not just attempted."},
+  {title:"Plan the iterate cycle", body:"Plan the first iterate cycle for {Name}. Starting from the 90-day success goal, define: what feedback I collect in week one and from whom, the three signals that separate signal from noise, how a proposal gets ruled IN or OUT against v1 scope, and the version-bump rule I use when a proposal is applied."}
 ];
 function interpolate(tpl){
   var name = (state.brand && state.brand.name) || extractName(state.answers.idea);
@@ -845,6 +1151,14 @@ function validateCurrent(){
 }
 $("q-next").addEventListener("click", function(){
   if(!validateCurrent()) return;
+  var q = QUESTIONS[qIndex];
+  if(q && q.id === "core" && state.ai && state.ai.available && !aiFollowupTried){
+    aiFollowupTried = true;
+    tryAiFollowup().then(function(){
+      if(qIndex < QUESTIONS.length - 1){ qIndex++; renderQuestion(); }
+    });
+    return;
+  }
   if(qIndex < QUESTIONS.length - 1){ qIndex++; renderQuestion(); }
 });
 $("q-back").addEventListener("click", function(){
@@ -857,13 +1171,112 @@ $("q-text").addEventListener("keydown", function(e){
   if(e.key === "Enter"){ e.preventDefault(); $("q-next").hidden ? $("q-strike").click() : $("q-next").click(); }
 });
 $("q-strike").addEventListener("click", function(){
-  if(!validateCurrent()) return;
-  generateOutputs();
+  strikeFlow();
 });
+
+/* ---------- AI processing (C6) ---------- */
+var aiFollowupTried = false;
+function fetchJsonTimeout(url, opts, ms){
+  var ctrl = null, timer = null;
+  var fetchOpts = {};
+  for(var k in opts) fetchOpts[k] = opts[k];
+  try{
+    if(typeof AbortController !== "undefined"){
+      ctrl = new AbortController();
+      fetchOpts.signal = ctrl.signal;
+      timer = setTimeout(function(){ try{ ctrl.abort(); }catch(e){} }, ms);
+    }
+  }catch(e){}
+  return fetch(url, fetchOpts).then(function(r){
+    if(timer) clearTimeout(timer);
+    return r.json().catch(function(){ return null; }).then(function(d){ return {status: r.status, data: d}; });
+  }).catch(function(err){
+    if(timer) clearTimeout(timer);
+    return {status: 0, data: null};
+  });
+}
+function updateAiStatus(){
+  var el = $("ai-status");
+  if(!el) return;
+  if(state.ai && state.ai.available){
+    el.textContent = "Forge AI is live \u2014 this interview adapts, and your artifacts will be AI-generated from your answers.";
+  }else{
+    el.textContent = "Forge AI is offline \u2014 local generation mode. Your artifacts will be generated on this device and labeled as such.";
+  }
+}
+function aiProbe(){
+  if(typeof fetch !== "function"){ state.ai.available = false; state.ai.source = ""; updateAiStatus(); return Promise.resolve(false); }
+  return fetchJsonTimeout("/api/forge-ai", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({action:"probe"})}, 5000)
+    .then(function(res){
+      var d = res.data || {};
+      state.ai.available = !!(d.ok && d.source === "ai");
+      state.ai.source = d.source || "";
+      save();
+      updateAiStatus();
+      return state.ai.available;
+    });
+}
+function tryAiFollowup(){
+  var exists = QUESTIONS.some(function(q){ return q.id === "ai_followup"; });
+  if(exists || typeof fetch !== "function") return Promise.resolve(false);
+  return fetchJsonTimeout("/api/forge-ai", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({action:"followup", answers: state.answers})}, 8000)
+    .then(function(res){
+      var d = res.data || {};
+      if(d.ok && d.followup && d.followup.title){
+        QUESTIONS.splice(QUESTIONS.length - 1, 0, {
+          id:"ai_followup", type:"text",
+          title: String(d.followup.title),
+          hint: d.followup.hint ? String(d.followup.hint) : "",
+          placeholder:"Your answer sharpens the thesis"
+        });
+        return true;
+      }
+      return false;
+    });
+}
+function aiArtifactsCall(){
+  if(typeof fetch !== "function") return Promise.resolve(null);
+  return fetchJsonTimeout("/api/forge-ai", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({action:"artifacts", answers: state.answers})}, 20000)
+    .then(function(res){
+      var d = res.data || {};
+      if(d.ok && (d.thesis || d.stackRows || d.scopeIn)) return d;
+      return null;
+    });
+}
+function strikeFlow(){
+  if(!validateCurrent()) return;
+  if(state.ai && state.ai.available){
+    var btn = $("q-strike");
+    var oldText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Forging\u2026";
+    aiArtifactsCall().then(function(payload){
+      btn.disabled = false;
+      btn.textContent = oldText;
+      if(payload){
+        state.aiArtifacts = payload;
+        state.credits.used = (state.credits.used || 0) + 3;
+        state.ai.sourceAtGen = "ai";
+      }else{
+        state.aiArtifacts = null;
+        state.ai.sourceAtGen = "local";
+      }
+      generateOutputs();
+    });
+    return;
+  }
+  state.aiArtifacts = null;
+  if(state.ai) state.ai.sourceAtGen = "local";
+  generateOutputs();
+}
 
 /* ---------- Generation + outputs ---------- */
 function generateOutputs(){
-  state.thesis = buildThesis();
+  state.thesis = (state.aiArtifacts && state.aiArtifacts.thesis) ? String(state.aiArtifacts.thesis) : buildThesis();
+  if(!state.aiArtifacts && state.ai) state.ai.sourceAtGen = "local";
+  var voiceMap = {"Non-technical":"Patient guide", "I can edit code":"Direct", "I'm a developer":"Terse engineer"};
+  if(state.operator && state.operator.voiceSource !== "manual" && voiceMap[state.answers.technical]) state.operator.voice = voiceMap[state.answers.technical];
+  if(state.operator && state.operator.guardrails) state.operator.guardrails.shareArtifacts = !!(state.profile && state.profile.public);
   var mi = modeInfo();
   state.mode = mi.mode;
   if(!state.brand.name) state.brand.name = extractName(state.answers.idea);
@@ -876,6 +1289,13 @@ function generateOutputs(){
 }
 function renderOutputs(){
   var a = state.answers, mi = modeInfo();
+  var badge = $("ai-badge");
+  if(badge){
+    badge.textContent = (state.ai && state.ai.sourceAtGen === "ai")
+      ? "Generated by Forge AI from your answers \u00b7 " + new Date().toISOString().slice(0,10)
+      : "Generated locally on this device (demo mode \u2014 Forge AI offline)";
+  }
+  renderAccountLine();
   var rows = [
     ["Audience", a.audience], ["Core jobs", coreList().join(", ")],
     ["Platform", a.platform], ["Accounts & data", a.accounts],
@@ -887,28 +1307,27 @@ function renderOutputs(){
   $("art-thesis").innerHTML = html;
 
   html = "";
-  stackRows().forEach(function(r){
+  effectiveStackRows().forEach(function(r){
     html += '<div class="stackrow"><div class="area">' + esc(r.area) + '</div><div><div class="choice">' +
       esc(r.choice) + '</div><div class="why">' + esc(r.why) + "</div></div></div>";
   });
   html += '<div class="sec-label" style="margin-top:22px">Tiers</div>';
-  stackTiers().forEach(function(t){
+  effectiveTiers().forEach(function(t){
     html += '<div class="stackrow"><div class="area">Tier</div><div><div class="choice">' + esc(t.name) +
       (t.recommended ? ' <span style="color:var(--ember);font-size:12px;letter-spacing:.18em">\u2605 RECOMMENDED</span>' : "") +
       '</div><div class="why">' + esc(t.blurb) + "</div></div></div>";
   });
   $("art-stack").innerHTML = html;
 
-  var sc = scopeLists();
+  var sc = effectiveScope();
   html = '<div class="sec-label" style="color:var(--ember)">In v1</div><ul class="clean">';
   sc.inList.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
   html += '</ul><div class="sec-label" style="margin-top:22px">Out of v1</div><ul class="clean">';
   sc.outList.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
-  var ex2 = scopeExtras();
   html += '</ul><div class="sec-label" style="margin-top:22px">Milestones</div><ul class="clean">';
-  ex2.milestones.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
+  sc.milestones.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
   html += '</ul><div class="sec-label" style="margin-top:22px">Data model sketch</div><ul class="clean">';
-  ex2.dataModel.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
+  sc.dataModel.forEach(function(x){ html += "<li>" + esc(x) + "</li>"; });
   html += '</ul><p class="dim" style="margin-top:14px;font-size:15px">Scope is a strike list, not a wish list.</p>';
   $("art-scope").innerHTML = html;
 
@@ -942,6 +1361,9 @@ function renderSetup(){
 }
 document.querySelectorAll("[data-copy]").forEach(function(btn){
   btn.addEventListener("click", function(){ copyText(artifactMd(btn.getAttribute("data-copy")), btn); });
+});
+document.querySelectorAll("[data-share]").forEach(function(btn){
+  btn.addEventListener("click", function(){ shareArtifact(btn.getAttribute("data-share"), btn); });
 });
 document.querySelectorAll("[data-download]").forEach(function(btn){
   btn.addEventListener("click", function(){
@@ -983,9 +1405,23 @@ function renderDashboard(){
   renderPreview();
   renderTracker();
   renderPrompts();
+  renderAccount();
+  renderBuild();
+  renderShip();
+  var oni = $("op-name-input");
+  if(oni) oni.value = state.operatorName || "";
+  var ovs = $("op-voice-select");
+  if(ovs) ovs.value = state.operator.voice || "Direct";
+  var grd = (state.operator && state.operator.guardrails) || {};
+  if($("gr-ask-deploy")) $("gr-ask-deploy").checked = !!grd.askBeforeDeploy;
+  if($("gr-ask-spend")) $("gr-ask-spend").checked = !!grd.askBeforeSpend;
+  if($("gr-share-artifacts")) $("gr-share-artifacts").checked = !!grd.shareArtifacts;
+  if($("credits-line")) $("credits-line").textContent = "Credits used: " + (state.credits.used || 0) + " (metered \u2014 never charged in v2)";
 }
 function renderPreview(){
   $("preview-bar").style.background = state.brand.color || "#ff6a1a";
+  var av = $("op-initial");
+  if(av) av.style.background = state.brand.color || "";
   $("preview-name").textContent = state.brand.name || "Your product";
   $("preview-name").style.color = state.brand.color || "";
   $("preview-tagline").textContent = state.brand.tagline || "";
@@ -1092,6 +1528,46 @@ function renderPrompts(){
   });
 });
 
+/* ---------- Operator config + ship-loop wiring (C3/C4) ---------- */
+$("op-name-input").addEventListener("input", function(){
+  state.operatorName = $("op-name-input").value;
+  save();
+  $("op-name-dash").textContent = state.operatorName || "Your operator";
+  $("op-initial").textContent = (state.operatorName || "F").charAt(0);
+});
+$("op-voice-select").addEventListener("change", function(){
+  state.operator.voice = $("op-voice-select").value;
+  state.operator.voiceSource = "manual";
+  save();
+});
+[["gr-ask-deploy","askBeforeDeploy"],["gr-ask-spend","askBeforeSpend"],["gr-share-artifacts","shareArtifacts"]].forEach(function(pair){
+  $(pair[0]).addEventListener("change", function(){
+    state.operator.guardrails[pair[1]] = $(pair[0]).checked;
+    save();
+    renderBuild();
+  });
+});
+$("brand-kit-btn").addEventListener("click", function(){
+  var base = slugify(state.brand.name || extractName(state.answers.idea));
+  downloadText(base + "-branding-kit.md", brandMd(), "text/markdown");
+});
+$("launch-url").addEventListener("change", function(){
+  state.launch.liveUrl = $("launch-url").value.trim();
+  save();
+  renderShip();
+});
+$("propose-btn").addEventListener("click", function(){
+  var fb = $("feedback-input").value.trim();
+  if(!fb){ $("propose-note").textContent = "Paste feedback first."; return; }
+  var props = proposalsFromFeedback(fb);
+  state.proposals = (state.proposals || []).concat(props);
+  if(state.ai && state.ai.available) state.credits.used = (state.credits.used || 0) + 1;
+  save();
+  renderShip();
+  if($("credits-line")) $("credits-line").textContent = "Credits used: " + (state.credits.used || 0) + " (metered \u2014 never charged in v2)";
+  $("propose-note").textContent = "Proposals generated locally";
+});
+
 /* ---------- Scaffold ZIP (stored, no compression) ---------- */
 var CRC_TABLE = null;
 function crc32(bytes){
@@ -1193,19 +1669,661 @@ $("ship-btn").addEventListener("click", function(){
   state.shipped = true;
   save();
   upsertProduct();
+  addVersion("1.0.0", "Shipped v1");
+  if(state.profile && state.profile.public) publishPublicProfile();
   $("shipped-note").hidden = false;
   refreshProgress();
+  renderShip();
 });
 $("reset-btn").addEventListener("click", function(){
   if(!window.confirm("Reset your forge? This clears the interview, dashboard, and products stored in this browser.")) return;
   try{
     localStorage.removeItem(STATE_KEY);
     localStorage.removeItem(PRODUCTS_KEY);
+    localStorage.removeItem(SESSION_KEY);
   }catch(e){}
   window.location.reload();
 });
 
+
+/* ---------- Accounts UI (C2) ---------- */
+function renderAccountLine(){
+  var el = $("account-line-out");
+  if(!el) return;
+  if(state.account && state.account.signedIn){
+    el.innerHTML = "Signed in as " + esc(state.account.email) + " &middot; Sync: <span id=\"sync-status-out\"></span>";
+  }else{
+    el.textContent = "Not signed in \u2014 your forge lives in this browser until you create an account from your dashboard.";
+  }
+  renderSyncStatus();
+}
+function renderAccount(){
+  var host = $("account-bar");
+  if(!host) return;
+  if(!(state.account && state.account.signedIn)){
+    host.innerHTML =
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" class="brand-grid">' +
+      '<div><label class="flabel" for="acct-email">Email</label><input type="email" id="acct-email" autocomplete="email" value="' + esc(state.account.email || "") + '"></div>' +
+      '<div><label class="flabel" for="acct-pass">Password</label><input type="password" id="acct-pass" autocomplete="current-password"></div></div>' +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">' +
+      '<button class="btn btn-primary btn-small" type="button" id="acct-signup">Create account</button>' +
+      '<button class="btn btn-ghost btn-small" type="button" id="acct-signin">Sign in</button></div>' +
+      '<div id="acct-err" style="color:var(--ember);font-size:14px;font-weight:700;margin-top:10px"></div>' +
+      '<p class="dim" style="font-size:14px;margin-top:12px;margin-bottom:0">Accounts are real (Supabase Auth). Your forge syncs across devices when signed in.</p>';
+    var su = $("acct-signup"), si = $("acct-signin");
+    if(su) su.addEventListener("click", function(){ authSubmit(false); });
+    if(si) si.addEventListener("click", function(){ authSubmit(true); });
+    return;
+  }
+  var pub = state.published && state.published.slug ? state.published.slug : (state.profile.slug || "");
+  var url = pub ? "https://stevepeeleii.com/forge/builder/?b=" + pub : "";
+  host.innerHTML =
+    '<p style="margin-bottom:10px">Signed in as <strong>' + esc(state.account.email) + '</strong> &middot; Sync: <span id="sync-status">' + esc(syncStatus) + '</span></p>' +
+    '<label style="display:block;font-size:15px;margin-bottom:10px"><input type="checkbox" id="acct-profile-public" style="accent-color:var(--ember);width:18px;height:18px;vertical-align:-3px"' + (state.profile.public ? " checked" : "") + '> Publish my builder profile</label>' +
+    (url ? '<p style="font-size:14.5px;margin-bottom:10px"><a href="' + esc(url) + '">' + esc(url) + '</a> <button class="btn btn-ghost btn-small" type="button" id="acct-copy-link">Copy link</button></p>' : "") +
+    '<button class="btn btn-ghost btn-small" type="button" id="acct-signout">Sign out</button>';
+  var tg = $("acct-profile-public");
+  if(tg) tg.addEventListener("change", function(){
+    state.profile.public = tg.checked;
+    if(state.operator && state.operator.guardrails) state.operator.guardrails.shareArtifacts = tg.checked;
+    save();
+    if(tg.checked) publishPublicProfile().then(function(){ renderAccount(); });
+    renderAccount();
+  });
+  var cp = $("acct-copy-link");
+  if(cp) cp.addEventListener("click", function(){ copyText(url, cp); });
+  var so = $("acct-signout");
+  if(so) so.addEventListener("click", function(){
+    markSignedOut();
+    renderAccount();
+    renderAccountLine();
+  });
+  renderSyncStatus();
+}
+function authSubmit(isSignIn){
+  var emailEl = $("acct-email"), passEl = $("acct-pass"), errEl = $("acct-err");
+  var email = emailEl ? emailEl.value.trim() : "";
+  var password = passEl ? passEl.value : "";
+  function fail(msg){ if(errEl) errEl.textContent = String(msg || "Something went wrong").slice(0, 120); }
+  if(!email || !password){ fail("Email and password are both required."); return; }
+  var path = isSignIn ? "/auth/v1/token?grant_type=password" : "/auth/v1/signup";
+  fetch(SB_URL + path, {method:"POST", headers: sbAuthHeaders(), body: JSON.stringify({email: email, password: password})})
+    .then(function(r){ return r.json().catch(function(){ return null; }).then(function(d){ return {status: r.status, data: d}; }); })
+    .then(function(res){
+      if(res.status < 200 || res.status >= 300) throw new Error(sbErrMsg(res.data, res.status));
+      var d = res.data || {};
+      if(!d.access_token){
+        fail("Account created \u2014 check your email to confirm, then sign in.");
+        return;
+      }
+      var user = d.user || {id:"", email: email};
+      setSession({access_token: d.access_token, refresh_token: d.refresh_token || "", user: {id: user.id, email: user.email || email}});
+      state.account = {signedIn: true, email: user.email || email, displayName: state.account.displayName || (user.email || email).split("@")[0]};
+      syncStatus = "Syncing\u2026";
+      save();
+      renderAccount();
+      renderAccountLine();
+      pull().then(function(){ return publish(); }).then(function(){ renderAccount(); renderAccountLine(); });
+    })
+    .catch(function(err){ fail(err && err.message ? err.message : "Auth failed"); });
+}
+
+/* ---------- Public builder profile (C5) ---------- */
+function buildPublicPayload(){
+  return {
+    displayName: state.account.displayName || state.brand.name || extractName(state.answers.idea),
+    name: state.brand.name || extractName(state.answers.idea),
+    tagline: state.brand.tagline || state.thesis || "",
+    thesis: state.thesis || "",
+    color: state.brand.color || "#ff6a1a",
+    products: loadProducts(),
+    versions: state.versions || [],
+    updatedAt: new Date().toISOString()
+  };
+}
+function ensureProfileSlug(){
+  if(!state.profile.slug){
+    var dn = state.account.displayName || state.brand.name || extractName(state.answers.idea);
+    state.profile.slug = slugify(dn) + "-" + ForgeHash(state.account.email || dn).slice(0, 6);
+  }
+  return state.profile.slug;
+}
+function sbUpsert(path, row){
+  var sess = getSession();
+  if(!sess || !sess.access_token) return Promise.resolve(false);
+  function go(token){
+    var h = sbDataHeaders(token);
+    h.Prefer = "resolution=merge-duplicates,return=representation";
+    return fetch(SB_URL + path, {method:"POST", headers: h, body: JSON.stringify(row)});
+  }
+  return go(sess.access_token).then(function(r){
+    if(r.status === 401){
+      return refreshSession().then(function(ns){
+        if(ns) return go(ns.access_token).then(function(r2){ return r2.status >= 200 && r2.status < 300; });
+        markSignedOut();
+        return false;
+      });
+    }
+    return r.status >= 200 && r.status < 300;
+  }).catch(function(){ return false; });
+}
+function publishPublicProfile(){
+  if(!(state.account && state.account.signedIn) || !state.profile.public) return Promise.resolve(false);
+  var sess = getSession();
+  if(!sess || !sess.user) return Promise.resolve(false);
+  var slug = ensureProfileSlug();
+  var now = new Date().toISOString();
+  var row = {slug: slug, owner_id: sess.user.id, payload: buildPublicPayload(), updated_at: now};
+  return sbUpsert("/rest/v1/forge_public_profiles?on_conflict=slug", row).then(function(ok){
+    if(ok){
+      state.published = {slug: slug, at: now};
+      save();
+      if(state.shipped) upsertProduct();
+    }
+    return ok;
+  });
+}
+function shareArtifact(kind, btn){
+  var payload = {
+    kind: kind,
+    name: state.brand.name || extractName(state.answers.idea),
+    tagline: state.brand.tagline || state.thesis || "",
+    body: artifactMd(kind),
+    builder: state.account.displayName || state.brand.name || "",
+    slug: state.profile.slug || ""
+  };
+  var enc = "";
+  try{
+    enc = btoa(unescape(encodeURIComponent(JSON.stringify(payload))))
+      .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }catch(e){ return; }
+  var link = "https://stevepeeleii.com/forge/share/?a=" + enc;
+  function feedback(){
+    if(!btn) return;
+    var old = "Share";
+    btn.textContent = "Link copied";
+    setTimeout(function(){ btn.textContent = old; }, 1600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(link).then(feedback, feedback);
+  }else{
+    copyText(link, null);
+    feedback();
+  }
+}
+
+/* ---------- Branding kit (C4) ---------- */
+function brandMd(){
+  var lines = [];
+  lines.push("# Branding kit \u2014 " + (state.brand.name || extractName(state.answers.idea)));
+  lines.push("");
+  lines.push("- **Name:** " + (state.brand.name || ""));
+  lines.push("- **Tagline:** " + (state.brand.tagline || ""));
+  lines.push("- **Accent color:** " + (state.brand.color || "#ff6a1a"));
+  lines.push("- **Voice:** " + (state.operator.voice || "Direct") + " (operator: " + (state.operatorName || "") + ")");
+  lines.push("- **Thesis:** " + (state.thesis || ""));
+  lines.push("");
+  lines.push("Generated by Forge");
+  return lines.join("\n") + "\n";
+}
+
+/* ---------- Project files (C1) ---------- */
+function cleanInline(t){ return String(t == null ? "" : t).replace(/["<>\r\n]+/g, " ").trim(); }
+function schemaFromDataModel(){
+  var out = ["-- Generated by Forge from your data model sketch", "", "create extension if not exists pgcrypto;", ""];
+  scopeExtras().dataModel.forEach(function(line){
+    String(line).split("\u00b7").forEach(function(seg){
+      var parts = seg.split(" \u2014 ");
+      if(parts.length < 2) return;
+      var table = parts[0].trim().toLowerCase();
+      if(!/^[a-z_][a-z0-9_]*$/.test(table)) return;
+      var cols = [];
+      parts.slice(1).join(" \u2014 ").split(",").forEach(function(c){
+        var col = c.trim().split(/\s+/)[0];
+        if(!/^[a-z_][a-z0-9_]*$/.test(col)) return;
+        var type = "text";
+        if(col === "id") type = "uuid primary key default gen_random_uuid()";
+        else if(/_at$/.test(col)) type = "timestamptz not null default now()";
+        else if(/_id$/.test(col)) type = "uuid";
+        else if(col === "price" || col === "total") type = "numeric";
+        else if(col === "published" || col === "active") type = "boolean not null default false";
+        cols.push("  " + col + " " + type);
+      });
+      if(cols.length) out.push("create table if not exists public." + table + " (\n" + cols.join(",\n") + "\n);\n");
+    });
+  });
+  return out.join("\n");
+}
+function launchItems(){
+  var checks = (state.launch && state.launch.checks) || {};
+  return [
+    {label:"Repo pushed", done: !!(state.connections.github && state.connections.github.status !== "not-connected"), auto:true},
+    {label:"Deployed URL noted", done: !!((state.launch && state.launch.liveUrl) || ""), auto:true},
+    {label:"Env vars set", done: !!(state.connections.supabase && state.connections.supabase.status !== "not-connected"), auto:true},
+    {label:"Thesis page public (shipped)", done: !!state.shipped, auto:true},
+    {label:"First launch post written", done: !!checks.post, auto:false, key:"post"},
+    {label:"Success metric defined", done: !!String(state.answers.success || "").trim(), auto:true}
+  ];
+}
+function launchChecklistText(){
+  var lines = ["# Launch checklist \u2014 " + (state.brand.name || extractName(state.answers.idea)), ""];
+  launchItems().forEach(function(it){ lines.push("- [" + (it.done ? "x" : " ") + "] " + it.label); });
+  lines.push("");
+  lines.push("Live URL: " + ((state.launch && state.launch.liveUrl) || "(not noted yet)"));
+  lines.push("");
+  lines.push("Generated by Forge");
+  return lines.join("\n") + "\n";
+}
+function operatorMd(){
+  var g = (state.operator && state.operator.guardrails) || {};
+  function yn(v){ return v ? "yes" : "no"; }
+  return "# Operator \u2014 " + (state.operatorName || "Your operator") + "\n\n" +
+    "- **Mode:** " + (state.mode || modeInfo().mode) + "\n" +
+    "- **Voice:** " + (state.operator.voice || "Direct") + "\n" +
+    "- **Ask before deploy:** " + yn(g.askBeforeDeploy) + "\n" +
+    "- **Ask before spend:** " + yn(g.askBeforeSpend) + "\n" +
+    "- **Share artifacts:** " + yn(g.shareArtifacts) + "\n\n" +
+    "Your operator walks; you click. Accounts and keys stay in your name, on your logins.\n";
+}
+function projectFiles(){
+  var files = scaffoldFiles();
+  var name = state.brand.name || extractName(state.answers.idea);
+  var color = state.brand.color || "#ff6a1a";
+  var core = coreList().length ? corePhrase(coreList()[0]) : "the core job";
+  var page =
+    "import React from \"react\";\n\n" +
+    "export default function Page() {\n" +
+    "  return (\n" +
+    "    <main style={{ fontFamily: \"system-ui, sans-serif\", padding: \"48px 24px\", maxWidth: 760, margin: \"0 auto\" }}>\n" +
+    "      <p style={{ color: \"" + color + "\", letterSpacing: \"0.3em\", fontSize: 12, textTransform: \"uppercase\" }}>" + cleanInline(name) + "</p>\n" +
+    "      <h1 style={{ fontSize: 40, lineHeight: 1.15 }}>" + cleanInline(state.brand.tagline || state.thesis) + "</h1>\n" +
+    "      <p>" + cleanInline(state.thesis) + "</p>\n" +
+    "      <section>\n" +
+    "        <h2>Core job</h2>\n" +
+    "        <p>TODO: build " + cleanInline(core) + " end-to-end. This placeholder section is where the core job lands first.</p>\n" +
+    "      </section>\n" +
+    "    </main>\n" +
+    "  );\n" +
+    "}\n";
+  var layout =
+    "import React from \"react\";\n\n" +
+    "export const metadata = { title: \"" + cleanInline(name) + "\", description: \"" + cleanInline(state.brand.tagline || state.thesis) + "\" };\n\n" +
+    "export default function RootLayout({ children }: { children: React.ReactNode }) {\n" +
+    "  return (\n" +
+    "    <html lang=\"en\">\n" +
+    "      <body>{children}</body>\n" +
+    "    </html>\n" +
+    "  );\n" +
+    "}\n";
+  var sbClient =
+    "import { createClient } from \"@supabase/supabase-js\";\n\n" +
+    "// Env values come from your Supabase project (Settings \u2192 API).\n" +
+    "// Set the same names in Vercel \u2014 dashboard to dashboard, never through chat.\n" +
+    "export const supabase = createClient(\n" +
+    "  process.env.NEXT_PUBLIC_SUPABASE_URL as string,\n" +
+    "  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string\n" +
+    ");\n";
+  files.push({name:"app/page.tsx", content: page});
+  files.push({name:"app/layout.tsx", content: layout});
+  files.push({name:"lib/supabaseClient.ts", content: sbClient});
+  files.push({name:"supabase/schema.sql", content: schemaFromDataModel()});
+  files.push({name:"vercel.json", content: "{}\n"});
+  files.push({name:"docs/launch.md", content: launchChecklistText()});
+  files.push({name:"OPERATOR.md", content: operatorMd()});
+  return files;
+}
+
+/* ---------- Autonomous build panel (C1) ---------- */
+var expandedConn = {};
+var buildGenStep = -1;
+var SIM_LABEL = "Simulated generation \u2014 Forge prepares your complete project package and walks the connections. Live repo creation arrives when Forge holds a GitHub App grant; tonight the generation, gates, and wiring are real, the remote calls are walked, not executed.";
+function genSteps(){
+  var name = state.brand.name || extractName(state.answers.idea);
+  var core = coreList().length ? corePhrase(coreList()[0]) : "the core job";
+  return [
+    "Scaffolding file tree (" + slugify(name) + ")",
+    "Writing core-job module: " + core,
+    "Wiring Supabase client + env template",
+    "Writing deploy config (vercel.json)",
+    "Composing README + docs (thesis/stack/scope)",
+    "Running pre-flight checks (routes, env names, data model)"
+  ];
+}
+function connSteps(key){
+  var steps = {
+    github: [
+      "In GitHub, create a new private repository with your product name \u2014 no template, no README.",
+      "Push the downloaded project package to it (git init, add, commit, push) \u2014 the deploy sequence below lists the exact commands.",
+      "Confirm the file tree on github.com matches the generated tree in this panel.",
+      "Come back here and mark GitHub connected. Forge never asks for your GitHub credentials."
+    ],
+    vercel: [
+      "In Vercel, choose \u201CImport Git Repository\u201D and select the repo you just pushed.",
+      "Accept the Next.js defaults Forge scaffolded, but do not deploy yet \u2014 env vars go in first.",
+      "Add the three env var names from .env.example in Vercel\u2019s project settings, values copied from your Supabase dashboard.",
+      "Come back here and mark Vercel connected. Keys move dashboard-to-dashboard, never through Forge."
+    ],
+    supabase: [
+      "In Supabase, create a free project named for your product and pick the region closest to your users.",
+      "Run supabase/schema.sql from the project package in the SQL editor to create your tables.",
+      "Copy the project URL and anon key from Settings \u2192 API into Vercel\u2019s env vars \u2014 names must match .env.example exactly.",
+      "Come back here and mark Supabase connected. Forge never sees your database password."
+    ]
+  };
+  return steps[key] || [];
+}
+function allConnected(){
+  return ["github","vercel","supabase"].every(function(k){
+    return state.connections[k] && state.connections[k].status !== "not-connected";
+  });
+}
+function maybeAutoDeploy(){
+  if(!state.build.gates.stack || !allConnected() || state.build.gates.deploy) return;
+  if(state.operator && state.operator.guardrails && state.operator.guardrails.askBeforeDeploy) return;
+  state.build.gates.deploy = true;
+  state.build.status = "ready-to-deploy";
+  state.build.log = state.build.log || [];
+  state.build.log.push("Auto-approved by your guardrail settings");
+  save();
+}
+var DEPLOY_SEQ = "git push origin main\nvercel link\nvercel env add NEXT_PUBLIC_SUPABASE_URL\nvercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY\nvercel env add SUPABASE_SERVICE_ROLE_KEY\nvercel --prod";
+function renderBuild(){
+  var host = $("build-panel");
+  if(!host) return;
+  maybeAutoDeploy();
+  var b = state.build;
+  var html = "";
+  if(b.status === "not-started"){
+    html += '<div class="honest" style="margin-top:6px"><strong>Simulated generation \u2014</strong> ' + esc(SIM_LABEL.replace(/^Simulated generation \u2014 /, "")) + '</div>';
+    html += '<button class="btn btn-primary" type="button" id="gen-btn">Generate my project</button>';
+  }else if(b.status === "generating"){
+    html += '<div class="honest" style="margin-top:6px"><strong>Simulated generation \u2014</strong> ' + esc(SIM_LABEL.replace(/^Simulated generation \u2014 /, "")) + '</div>';
+    html += '<ul class="clean">';
+    genSteps().forEach(function(st, i){
+      var mark = i < buildGenStep ? "\u2713 " : (i === buildGenStep ? "\u2026 " : "\u25cb ");
+      html += "<li>" + esc(mark + st) + "</li>";
+    });
+    html += "</ul>";
+  }else{
+    html += '<p><strong style="color:var(--ember)">Project generated.</strong> <span class="dim">The complete package, gates, and wiring are real; remote calls are walked, not executed.</span></p>';
+    html += '<div class="sec-label" style="margin-top:16px">Generated files</div><ul class="clean">';
+    projectFiles().forEach(function(f){ html += "<li>" + esc(f.name) + "</li>"; });
+    html += "</ul>";
+    html += '<div style="margin:14px 0"><button class="btn btn-ghost btn-small" type="button" id="dl-project-btn">Download project (.zip)</button></div>';
+    if(b.gates.stack){
+      html += '<p><strong>\u2713 Gate 1 \u2014 stack approved.</strong></p>';
+    }else{
+      html += '<div class="sec-label" style="margin-top:18px">Gate 1 \u2014 confirm the stack</div>';
+      effectiveStackRows().forEach(function(r){ html += '<div class="stackrow"><div class="area">' + esc(r.area) + '</div><div><div class="choice">' + esc(r.choice) + "</div></div></div>"; });
+      html += '<div style="margin-top:12px"><button class="btn btn-primary btn-small" type="button" id="approve-stack-btn">Approve stack</button></div>';
+    }
+    html += '<div class="sec-label" style="margin-top:22px">Connections</div>';
+    [["github","GitHub"],["vercel","Vercel"],["supabase","Supabase"]].forEach(function(pair){
+      var key = pair[0], conn = state.connections[key] || {status:"not-connected"};
+      html += '<div style="border:1px solid var(--line-soft);border-radius:10px;padding:14px 16px;margin-bottom:10px">';
+      html += '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><strong>' + esc(pair[1]) + '</strong><span class="dim" style="font-size:14px">' + esc(conn.status) + '</span></div>';
+      html += '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn btn-ghost btn-small" type="button" data-walk="' + key + '">Walk me through it</button>';
+      if(conn.status === "not-connected") html += '<button class="btn btn-ghost btn-small" type="button" data-markconn="' + key + '">Mark connected</button>';
+      html += "</div>";
+      if(expandedConn[key]){
+        html += '<ol style="margin:12px 0 2px 20px;color:var(--steel);font-size:14.5px">';
+        connSteps(key).forEach(function(st){ html += "<li style=\"margin-bottom:6px\">" + esc(st) + "</li>"; });
+        html += "</ol>";
+      }
+      html += "</div>";
+    });
+    if(b.gates.stack){
+      html += '<div class="sec-label" style="margin-top:22px">Gate 2 \u2014 confirm deploy</div>';
+      if(b.gates.deploy){
+        html += '<p><strong>\u2713 Gate 2 \u2014 deploy approved.</strong> Status: ready-to-deploy. No deploy has been run by Forge.</p>';
+        html += '<div class="sec-label" style="margin-top:14px">Deploy sequence</div>';
+        html += '<div class="deployseq">' + esc(DEPLOY_SEQ) + '</div>';
+        html += '<div style="margin-top:10px"><button class="btn btn-ghost btn-small" type="button" id="copy-deploy-btn">Copy deploy sequence</button></div>';
+      }else{
+        html += '<button class="btn btn-primary btn-small" type="button" id="approve-deploy-btn"' + (allConnected() ? "" : " disabled") + '>Approve deploy</button>';
+        if(!allConnected()) html += '<p class="dim" style="font-size:14px;margin-top:8px">Approve deploy unlocks when GitHub, Vercel, and Supabase are all marked connected.</p>';
+      }
+    }
+    if(b.log && b.log.length){
+      html += '<div class="sec-label" style="margin-top:20px">Build log</div><ul class="clean">';
+      b.log.slice(-3).forEach(function(l){ html += "<li>" + esc(l) + "</li>"; });
+      html += "</ul>";
+    }
+  }
+  host.innerHTML = html;
+  var gen = $("gen-btn");
+  if(gen) gen.addEventListener("click", startGeneration);
+  var dl = $("dl-project-btn");
+  if(dl) dl.addEventListener("click", function(){
+    var slug = slugify(state.brand.name || extractName(state.answers.idea));
+    triggerDownload(buildZip(projectFiles()), slug + "-forge-project.zip");
+  });
+  var as = $("approve-stack-btn");
+  if(as) as.addEventListener("click", function(){
+    state.build.gates.stack = true;
+    save();
+    renderBuild();
+  });
+  var ad = $("approve-deploy-btn");
+  if(ad) ad.addEventListener("click", function(){
+    if(!state.build.gates.stack || !allConnected()) return;
+    state.build.gates.deploy = true;
+    state.build.status = "ready-to-deploy";
+    save();
+    renderBuild();
+  });
+  var cd = $("copy-deploy-btn");
+  if(cd) cd.addEventListener("click", function(){ copyText(DEPLOY_SEQ, cd); });
+  host.querySelectorAll("[data-walk]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var k = btn.getAttribute("data-walk");
+      expandedConn[k] = !expandedConn[k];
+      renderBuild();
+    });
+  });
+  host.querySelectorAll("[data-markconn]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var k = btn.getAttribute("data-markconn");
+      state.connections[k].status = "connected (self-attested)";
+      save();
+      renderBuild();
+      renderShip();
+    });
+  });
+}
+function startGeneration(){
+  state.build.status = "generating";
+  state.build.startedAt = new Date().toISOString();
+  buildGenStep = 0;
+  save();
+  renderBuild();
+  var steps = genSteps();
+  var iv = setInterval(function(){
+    buildGenStep++;
+    if(buildGenStep >= steps.length){
+      clearInterval(iv);
+      state.build.status = "generated";
+      state.build.finishedAt = new Date().toISOString();
+      addVersion("1.0.0", "Initial build generated");
+      save();
+      renderBuild();
+      renderShip();
+    }else{
+      renderBuild();
+    }
+  }, 600);
+}
+
+/* ---------- Ship loop (C3) ---------- */
+function addVersion(v, note){
+  state.versions = state.versions || [];
+  for(var i=0;i<state.versions.length;i++){ if(state.versions[i].v === v) return false; }
+  state.versions.push({v: v, note: note || "", date: new Date().toISOString().slice(0, 10)});
+  save();
+  if(state.account && state.account.signedIn) publish();
+  return true;
+}
+function nextPatch(){
+  if(!state.versions || !state.versions.length) return "1.0.1";
+  var last = String(state.versions[state.versions.length - 1].v || "1.0.0");
+  var parts = last.split(".");
+  var patch = parseInt(parts[2], 10);
+  if(isNaN(patch)) patch = 0;
+  return (parts[0] || "1") + "." + (parts[1] || "0") + "." + (patch + 1);
+}
+function proposalsFromFeedback(text){
+  var t = String(text || "").toLowerCase();
+  var out = [];
+  function add(title, detail){
+    if(out.length >= 3) return;
+    out.push({id: "p" + Date.now() + "-" + out.length, title: title, detail: detail, status: "proposed"});
+  }
+  if(/pay|charge|checkout|billing|subscri/.test(t)) add("Add payments", "Feedback asks for payments. Scope referee ruling: OUT of v1 scope \u2014 payments were ruled out by design. Capture this as a priced Phase 2 proposal; do not wire the till yet.");
+  if(/mobile|\bapp\b|ios|android|phone/.test(t)) add("Mobile pass", "Feedback asks for mobile. Proposal: ship the mobile-first web pass \u2014 responsive shell and home-screen install \u2014 before any native app-store build.");
+  if(/email|newsletter|digest|inbox/.test(t)) add("Email loop", "Feedback asks for email. Proposal: one welcome/transactional email flow wired to the existing accounts \u2014 no campaign platform in v1.");
+  if(/slow|performance|speed|loading|lag/.test(t)) add("Performance pass", "Feedback says it feels slow. Proposal: measure first (heaviest page weight, slowest query), then one targeted performance strike with before/after numbers.");
+  if(!out.length){
+    add("Core job polish", "No keyword signal in this feedback \u2014 polish the one core job end-to-end: remove a step, sharpen the empty state, tighten the success-metric page.");
+    add("First-user feedback loop", "Turn this feedback into a loop: reply to every reporter, log the themes on the tracker, and re-run proposals next cycle.");
+  }
+  return out;
+}
+function renderShip(){
+  var list = $("launch-list");
+  if(list){
+    var items = launchItems();
+    var done = 0;
+    items.forEach(function(it){ if(it.done) done++; });
+    var html = '<ul class="clean">';
+    items.forEach(function(it){
+      if(it.auto) html += "<li>" + (it.done ? "\u2713 " : "\u25cb ") + esc(it.label) + ' <span class="dim" style="font-size:13px">(auto)</span></li>';
+    });
+    html += "</ul>";
+    list.innerHTML = html;
+    items.forEach(function(it){
+      if(it.auto) return;
+      var row = document.createElement("div");
+      row.className = "setup-step";
+      var cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !!it.done;
+      cb.setAttribute("aria-label", it.label);
+      cb.addEventListener("change", function(){
+        state.launch.checks = state.launch.checks || {};
+        state.launch.checks[it.key] = cb.checked;
+        save();
+        renderShip();
+      });
+      var body = document.createElement("div");
+      var tt = document.createElement("div");
+      tt.className = "st";
+      tt.textContent = it.label;
+      var sd = document.createElement("div");
+      sd.className = "sd";
+      sd.textContent = "Manual check \u2014 tick it when the post is really out.";
+      body.appendChild(tt);
+      body.appendChild(sd);
+      row.appendChild(cb);
+      row.appendChild(body);
+      list.appendChild(row);
+    });
+    var prog = $("launch-progress");
+    if(prog) prog.textContent = "Launch: " + done + "/" + items.length;
+  }
+  var urlInput = $("launch-url");
+  if(urlInput && document.activeElement !== urlInput) urlInput.value = (state.launch && state.launch.liveUrl) || "";
+  var pl = $("proposals-list");
+  if(pl){
+    var active = (state.proposals || []);
+    if(!active.length){
+      pl.innerHTML = '<p class="dim" style="font-size:14.5px;margin-bottom:0">No proposals yet. Paste feedback above and propose changes.</p>';
+    }else{
+      pl.innerHTML = "";
+      active.forEach(function(pr){
+        var row = document.createElement("div");
+        row.className = "prompt-card";
+        row.style.marginBottom = "10px";
+        var h = document.createElement("h4");
+        h.textContent = pr.title;
+        if(pr.status === "dismissed") h.style.textDecoration = "line-through";
+        var d = document.createElement("p");
+        d.textContent = pr.detail;
+        if(pr.status === "dismissed") d.style.textDecoration = "line-through";
+        row.appendChild(h);
+        row.appendChild(d);
+        var st = document.createElement("p");
+        st.className = "dim";
+        st.style.fontSize = "13px";
+        st.textContent = "Status: " + pr.status;
+        row.appendChild(st);
+        if(pr.status === "proposed"){
+          var actions = document.createElement("div");
+          actions.style.display = "flex";
+          actions.style.gap = "8px";
+          var ab = document.createElement("button");
+          ab.type = "button"; ab.className = "btn btn-ghost btn-small"; ab.textContent = "Apply";
+          ab.addEventListener("click", function(){ applyProposal(pr.id); });
+          var db = document.createElement("button");
+          db.type = "button"; db.className = "btn btn-ghost btn-small"; db.textContent = "Dismiss";
+          db.addEventListener("click", function(){ dismissProposal(pr.id); });
+          actions.appendChild(ab);
+          actions.appendChild(db);
+          row.appendChild(actions);
+        }
+        pl.appendChild(row);
+      });
+    }
+  }
+  var vl = $("versions-list");
+  if(vl){
+    if(!state.versions || !state.versions.length){
+      vl.innerHTML = '<p class="dim" style="font-size:14.5px;margin-bottom:0">No versions yet \u2014 generating your project stamps v1.0.0.</p>';
+    }else{
+      var vh = '<ul class="clean">';
+      state.versions.forEach(function(v){
+        vh += "<li><strong>v" + esc(v.v) + "</strong> \u2014 " + esc(v.note) + " \u2014 " + esc(v.date) + "</li>";
+      });
+      vh += "</ul>";
+      vl.innerHTML = vh;
+    }
+  }
+}
+function applyProposal(id){
+  for(var i=0;i<state.proposals.length;i++){
+    if(state.proposals[i].id === id){
+      state.proposals[i].status = "applied";
+      var title = state.proposals[i].title;
+      addVersion(nextPatch(), title);
+      state.tasks.push({id: "t" + Date.now(), text: "Iterate: " + title, col: "processing"});
+      save();
+      if(state.shipped) upsertProduct();
+      renderTracker();
+      refreshProgress();
+      renderShip();
+      return;
+    }
+  }
+}
+function dismissProposal(id){
+  for(var i=0;i<state.proposals.length;i++){
+    if(state.proposals[i].id === id){ state.proposals[i].status = "dismissed"; break; }
+  }
+  save();
+  renderShip();
+}
+
 /* ---------- Init ---------- */
+(function restoreSession(){
+  var sess = getSession();
+  if(sess && sess.user){
+    state.account.signedIn = true;
+    state.account.email = sess.user.email || "";
+    if(!state.account.displayName) state.account.displayName = (sess.user.email || "").split("@")[0];
+    syncStatus = "Synced";
+  }
+})();
+window.FORGE_V2 = {getState:function(){ return state; }, save:save, version:function(){ return state.versions && state.versions.length ? state.versions[state.versions.length-1].v : "0.1.0"; }};
+_syncReady = true;
 renderRail();
 if(state.thesis){
   renderDashboard();
@@ -1214,7 +2332,9 @@ if(state.thesis){
   qIndex = 0;
   renderQuestion();
   showView("interview");
+  aiProbe();
 }
+if(state.account.signedIn){ pull().then(function(){ publish(); }); }
 })();
 </script>
 </body>

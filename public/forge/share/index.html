@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Shared artifact — Forge</title>
+<meta name="description" content="A shared artifact forged with Forge — thesis, stack, or scope from the Clarify interview.">
+<style>
+  :root{
+    --iron:#0b0805;
+    --iron-2:#120d08;
+    --panel:#16100a;
+    --line:#2c2113;
+    --line-soft:#231b10;
+    --ink:#ece3d2;
+    --steel:#b3a48a;
+    --dim:#8a7a5f;
+    --ember:#ff6a1a;
+    --ember-deep:#c74e0e;
+    --ember-soft:rgba(255,106,26,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{background:var(--iron);scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(ellipse 70% 26% at 50% 0%, rgba(255,106,26,.07), transparent 70%),
+      var(--iron);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px}
+  header{padding:120px 0 56px;text-align:left;position:relative}
+  .eyebrow{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--dim);margin-bottom:28px;
+  }
+  h1{
+    font-size:clamp(44px,8vw,72px);line-height:1.05;font-weight:800;
+    letter-spacing:-.015em;margin-bottom:26px;
+  }
+  .lede{font-size:19px;color:var(--steel);max-width:52ch;margin-bottom:44px}
+  h2{font-size:clamp(28px,4.6vw,40px);font-weight:800;letter-spacing:-.015em;line-height:1.18;margin-bottom:14px}
+  h3{font-size:clamp(22px,3.6vw,28px);font-weight:800;letter-spacing:-.01em;line-height:1.25;margin-bottom:12px}
+  section{padding:40px 0 72px}
+  .btn{
+    display:inline-block;padding:16px 30px;border-radius:6px;
+    font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,var(--ember),var(--ember-deep));
+    color:#120a04;box-shadow:0 0 26px rgba(255,106,26,.35), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .btn-primary:hover{box-shadow:0 0 40px rgba(255,106,26,.55), inset 0 1px 0 rgba(255,255,255,.25)}
+  .product-card{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:32px;margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .product-card .tag-chip{
+    display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ember);border:1px solid var(--ember-deep);border-radius:4px;
+    padding:4px 10px;margin-bottom:16px;font-weight:700;background:var(--ember-soft);
+  }
+  .product-card .name{font-size:32px;font-weight:800;letter-spacing:-.015em;line-height:1.15;margin-bottom:10px}
+  .product-card .tagline{font-size:18px;color:var(--ink);margin-bottom:10px}
+  .product-card .meta{font-size:15px;color:var(--steel);margin-bottom:18px}
+  .product-card .date{font-size:13.5px;color:var(--dim);margin-bottom:18px}
+  .product-card a.visit{color:var(--ember);text-decoration:none;font-weight:700;font-size:16px}
+  .product-card a.visit:hover{text-decoration:underline}
+  .empty-state{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:32px;margin-bottom:16px;color:var(--steel);font-size:17px;
+  }
+  .empty-state a{color:var(--ember);text-decoration:none;font-weight:700}
+  .empty-state a:hover{text-decoration:underline}
+  .cta-card{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:36px;margin:8px 0 48px;position:relative;overflow:hidden;
+  }
+  .cta-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--ember),transparent);
+    box-shadow:0 0 18px var(--ember);
+  }
+  .cta-card p{color:var(--steel);font-size:17px;margin-bottom:24px}
+  .kind-chip{
+    display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ember);border:1px solid var(--ember-deep);border-radius:4px;
+    padding:4px 10px;margin-bottom:20px;font-weight:700;background:var(--ember-soft);
+  }
+  .artifact-body{font-size:17px;color:var(--steel)}
+  .artifact-body h2{color:var(--ink);margin-top:36px}
+  .artifact-body h2:first-child{margin-top:0}
+  .artifact-body h3{color:var(--ink);margin-top:28px}
+  .artifact-body p{margin-bottom:16px;color:var(--steel)}
+  .artifact-body ul{margin:0 0 16px 22px;color:var(--steel)}
+  .artifact-body li{margin-bottom:8px}
+  .artifact-body strong{color:var(--ink)}
+  .builder-link{margin-top:32px}
+  .builder-link a{color:var(--ember);text-decoration:none;font-weight:700;font-size:16px}
+  .builder-link a:hover{text-decoration:underline}
+  footer{border-top:1px solid var(--line-soft);padding:44px 0 64px;color:var(--dim);font-size:14px}
+  footer a{color:var(--steel);text-decoration:none}
+  footer a:hover{color:var(--ember)}
+  footer .sep{margin:0 10px;color:var(--dim)}
+  @media(max-width:640px){
+    header{padding:84px 0 40px}
+    .product-card,.cta-card{padding:26px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header id="artifact-header">
+    <div class="eyebrow">Forge &middot; Shared Artifact</div>
+    <div id="kind-wrap"></div>
+    <h1 id="artifact-title">Shared artifact</h1>
+    <p class="lede" id="artifact-tagline" hidden></p>
+    <p class="lede" id="artifact-builder" hidden></p>
+  </header>
+
+  <section id="artifact-section" style="padding-top:0">
+    <div id="artifact-body" class="artifact-body"></div>
+    <div id="builder-link" class="builder-link" hidden></div>
+  </section>
+
+  <section id="empty-section" hidden style="padding-top:0">
+    <div class="empty-state">
+      <p style="margin-bottom:16px">This artifact link is incomplete</p>
+      <p>The link may be missing its payload or was copied in part. Ask the builder to share it again, or start your own.</p>
+    </div>
+  </section>
+
+  <section id="cta" style="padding-top:0">
+    <div class="cta-card">
+      <h2>Forged with Forge</h2>
+      <p>Forged with Forge — run your own Clarify interview and engineer your product before you build it.</p>
+      <a class="btn btn-primary" href="/forge/app">Forged with Forge — run your own Clarify interview</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="/forge/">&larr; Forge</a><span class="sep">&middot;</span><a href="/forge/products">Forged products</a><span class="sep">&middot;</span><a href="/">stevepeeleii.com</a></p>
+  </footer>
+
+</div>
+<script>
+(function(){
+  function getParam(name){
+    try { return new URLSearchParams(window.location.search).get(name); } catch(e){ return null; }
+  }
+  function base64UrlDecode(str){
+    var s = String(str).replace(/-/g, '+').replace(/_/g, '/');
+    while (s.length % 4) s += '=';
+    var binary = atob(s);
+    var bytes = new Uint8Array(binary.length);
+    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    if (window.TextDecoder) {
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+    var out = '';
+    for (var j = 0; j < bytes.length; j++) out += String.fromCharCode(bytes[j]);
+    return decodeURIComponent(escape(out));
+  }
+  function appendWithStrong(parent, text){
+    var parts = String(text).split('**');
+    for (var i = 0; i < parts.length; i++) {
+      if (i % 2 === 1) {
+        var strong = document.createElement('strong');
+        strong.textContent = parts[i];
+        parent.appendChild(strong);
+      } else {
+        if (parts[i]) parent.appendChild(document.createTextNode(parts[i]));
+      }
+    }
+  }
+  function renderBody(container, body){
+    var lines = String(body || '').split(/\r?\n/);
+    var currentList = null;
+    function closeList(){ currentList = null; }
+    lines.forEach(function(rawLine){
+      var line = rawLine;
+      var trimmed = line.trim();
+      if (trimmed === '') { closeList(); return; }
+      if (trimmed.indexOf('## ') === 0) {
+        closeList();
+        var h3 = document.createElement('h3');
+        appendWithStrong(h3, trimmed.slice(3));
+        container.appendChild(h3);
+        return;
+      }
+      if (trimmed.indexOf('# ') === 0) {
+        closeList();
+        var h2 = document.createElement('h2');
+        appendWithStrong(h2, trimmed.slice(2));
+        container.appendChild(h2);
+        return;
+      }
+      if (trimmed.indexOf('- ') === 0) {
+        if (!currentList) {
+          currentList = document.createElement('ul');
+          container.appendChild(currentList);
+        }
+        var li = document.createElement('li');
+        appendWithStrong(li, trimmed.slice(2));
+        currentList.appendChild(li);
+        return;
+      }
+      closeList();
+      var p = document.createElement('p');
+      appendWithStrong(p, trimmed);
+      container.appendChild(p);
+    });
+  }
+
+  var header = document.getElementById('artifact-header');
+  var section = document.getElementById('artifact-section');
+  var emptySection = document.getElementById('empty-section');
+  var kindWrap = document.getElementById('kind-wrap');
+  var titleEl = document.getElementById('artifact-title');
+  var taglineEl = document.getElementById('artifact-tagline');
+  var builderEl = document.getElementById('artifact-builder');
+  var bodyEl = document.getElementById('artifact-body');
+  var builderLinkWrap = document.getElementById('builder-link');
+
+  function showEmpty(){
+    header.hidden = true;
+    section.hidden = true;
+    emptySection.hidden = false;
+  }
+
+  var raw = getParam('a');
+  if (!raw) { showEmpty(); return; }
+
+  var payload;
+  try {
+    var decoded = base64UrlDecode(raw);
+    payload = JSON.parse(decoded);
+  } catch (e) {
+    showEmpty();
+    return;
+  }
+
+  if (!payload || typeof payload !== 'object' || !payload.name || !payload.body) {
+    showEmpty();
+    return;
+  }
+
+  var kindLabels = { thesis: 'Thesis', stack: 'Stack', scope: 'Scope' };
+  var kind = (payload.kind && kindLabels[String(payload.kind)]) ? String(payload.kind) : null;
+  if (kind) {
+    var chip = document.createElement('div');
+    chip.className = 'kind-chip';
+    chip.textContent = kindLabels[kind];
+    kindWrap.appendChild(chip);
+  }
+
+  titleEl.textContent = String(payload.name);
+
+  if (payload.tagline) {
+    taglineEl.textContent = String(payload.tagline);
+    taglineEl.hidden = false;
+  }
+  if (payload.builder) {
+    builderEl.textContent = 'By ' + String(payload.builder);
+    builderEl.hidden = false;
+  }
+
+  renderBody(bodyEl, String(payload.body));
+
+  if (payload.slug) {
+    var slug = String(payload.slug);
+    var link = document.createElement('a');
+    link.href = '/forge/builder/?b=' + encodeURIComponent(slug);
+    link.textContent = 'More from this builder →';
+    builderLinkWrap.appendChild(link);
+    builderLinkWrap.hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
