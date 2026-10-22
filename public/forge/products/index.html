@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Forged Products — Forge</title>
+<meta name="description" content="Everything shipped through Forge lands here — listed, linked, and pointed back at the forge. The work markets itself.">
+<link rel="canonical" href="https://stevepeeleii.com/forge/products">
+<style>
+  :root{
+    --iron:#0b0805;
+    --iron-2:#120d08;
+    --panel:#16100a;
+    --line:#2c2113;
+    --line-soft:#231b10;
+    --ink:#ece3d2;
+    --steel:#b3a48a;
+    --dim:#8a7a5f;
+    --ember:#ff6a1a;
+    --ember-deep:#c74e0e;
+    --ember-soft:rgba(255,106,26,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{background:var(--iron);scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(ellipse 70% 26% at 50% 0%, rgba(255,106,26,.07), transparent 70%),
+      var(--iron);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px}
+  header{padding:120px 0 56px;text-align:left;position:relative}
+  .eyebrow{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--dim);margin-bottom:28px;
+  }
+  h1{
+    font-size:clamp(44px,8vw,72px);line-height:1.05;font-weight:800;
+    letter-spacing:-.015em;margin-bottom:26px;
+  }
+  .lede{font-size:19px;color:var(--steel);max-width:52ch;margin-bottom:44px}
+  h2{font-size:clamp(28px,4.6vw,40px);font-weight:800;letter-spacing:-.015em;line-height:1.18;margin-bottom:14px}
+  section{padding:40px 0 72px}
+  .btn{
+    display:inline-block;padding:16px 30px;border-radius:6px;
+    font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,var(--ember),var(--ember-deep));
+    color:#120a04;box-shadow:0 0 26px rgba(255,106,26,.35), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .btn-primary:hover{box-shadow:0 0 40px rgba(255,106,26,.55), inset 0 1px 0 rgba(255,255,255,.25)}
+  .product-card{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:32px;margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .product-card .tag-chip{
+    display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ember);border:1px solid var(--ember-deep);border-radius:4px;
+    padding:4px 10px;margin-bottom:16px;font-weight:700;background:var(--ember-soft);
+  }
+  .product-card .name{font-size:32px;font-weight:800;letter-spacing:-.015em;line-height:1.15;margin-bottom:10px}
+  .product-card .tagline{font-size:18px;color:var(--ink);margin-bottom:10px}
+  .product-card .meta{font-size:15px;color:var(--steel);margin-bottom:18px}
+  .product-card .date{font-size:13.5px;color:var(--dim);margin-bottom:18px}
+  .product-card a.visit{color:var(--ember);text-decoration:none;font-weight:700;font-size:16px}
+  .product-card a.visit:hover{text-decoration:underline}
+  .empty-state{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:32px;margin-bottom:16px;color:var(--steel);font-size:17px;
+  }
+  .empty-state a{color:var(--ember);text-decoration:none;font-weight:700}
+  .empty-state a:hover{text-decoration:underline}
+  .cta-card{
+    border:1px solid var(--line);border-radius:12px;background:var(--panel);
+    padding:36px;margin:8px 0 48px;position:relative;overflow:hidden;
+  }
+  .cta-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--ember),transparent);
+    box-shadow:0 0 18px var(--ember);
+  }
+  .cta-card p{color:var(--steel);font-size:17px;margin-bottom:24px}
+  footer{border-top:1px solid var(--line-soft);padding:44px 0 64px;color:var(--dim);font-size:14px}
+  footer a{color:var(--steel);text-decoration:none}
+  footer a:hover{color:var(--ember)}
+  footer .sep{margin:0 10px;color:var(--dim)}
+  @media(max-width:640px){
+    header{padding:84px 0 40px}
+    .product-card,.cta-card{padding:26px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Forge &middot; Proof</div>
+    <h1>Forged products.</h1>
+    <p class="lede">Everything shipped through Forge lands here — listed, linked, and pointed back at the forge. The work markets itself.</p>
+  </header>
+
+  <section id="products">
+    <div id="product-list">
+      <article class="product-card">
+        <div class="tag-chip">FORGED #001</div>
+        <div class="name">Forge</div>
+        <p class="tagline">Everyone else generates your app. Forge engineers it first.</p>
+        <p class="meta">The engineered app studio &middot; Shipped from the forge itself</p>
+        <a class="visit" href="/forge/">Visit &rarr;</a>
+      </article>
+    </div>
+    <div id="empty-state" class="empty-state" hidden>
+      The anvil is warm. Products forged in this browser will appear here. <a href="/forge/app">Start yours &rarr;</a>
+    </div>
+  </section>
+
+  <section id="cta" style="padding-top:0">
+    <div class="cta-card">
+      <h2>Yours could be next.</h2>
+      <p>Run the Clarify interview, get engineered first, then build something worth listing here.</p>
+      <a class="btn btn-primary" href="/forge/app">Start the Clarify interview</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="/forge/">&larr; Forge</a><span class="sep">&middot;</span><a href="/">stevepeeleii.com</a></p>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var list = document.getElementById('product-list');
+  var empty = document.getElementById('empty-state');
+  var products = [];
+  try {
+    var raw = localStorage.getItem('forge.v1.products');
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) products = parsed;
+    }
+  } catch (e) {
+    products = [];
+  }
+  if (!products.length) {
+    empty.hidden = false;
+    return;
+  }
+  products.forEach(function(product, idx){
+    var number = idx + 2; // built-in Forge is #001
+    var padded = ('000' + number).slice(-3);
+
+    var card = document.createElement('article');
+    card.className = 'product-card';
+
+    var chip = document.createElement('div');
+    chip.className = 'tag-chip';
+    chip.textContent = 'FORGED #' + padded;
+    card.appendChild(chip);
+
+    var name = document.createElement('div');
+    name.className = 'name';
+    name.textContent = (product && product.name) ? String(product.name) : '';
+    card.appendChild(name);
+
+    if (product && product.tagline) {
+      var tagline = document.createElement('p');
+      tagline.className = 'tagline';
+      tagline.textContent = String(product.tagline);
+      card.appendChild(tagline);
+    }
+
+    if (product && product.date) {
+      var date = document.createElement('p');
+      date.className = 'date';
+      date.textContent = String(product.date);
+      card.appendChild(date);
+    }
+
+    list.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>
