@@ -57,7 +57,7 @@ export function track(event: string, props?: Record<string, unknown>) {
 export async function identify(idOrEmail: string, traits?: Record<string, unknown>) {
   const userId = idOrEmail.includes("@") ? await hashEmail(idOrEmail) : idOrEmail;
   const safe = { ...traits };
-  delete (safe as Record<string, unknown>).email;
+  delete (safe as Record<string, unknown>)["email"];
   coreAlias(userId);
   coreIdentify(userId, safe);
   phIdentify(userId, safe);

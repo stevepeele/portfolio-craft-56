@@ -18,7 +18,7 @@ export function siteFor(host: string): string {
   if (h.endsWith("panlabs.io")) return "panlabs";
   if (h === "stevepeeleii.com" || h.startsWith("stevepeeleii-")) return "stevepeeleii";
   const sub = h.match(/^([a-z0-9-]+)\.stevepeeleii\.com$/);
-  return sub ? sub[1] : h;
+  return sub?.[1] ?? h;
 }
 
 function pageType(path: string): string {
