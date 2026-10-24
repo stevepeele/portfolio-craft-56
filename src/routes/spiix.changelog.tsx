@@ -97,7 +97,7 @@ function Pill({ status }: { status: Status }) {
 
 function Entry({ r, i }: { r: Release; i: number }) {
   return (
-    <article className="sx-chart-panel sx-cl-entry" style={{ animationDelay: `${0.08 * i}s`, display: "grid", gridTemplateColumns: "minmax(9rem, 12rem) 1fr", gap: "1.5rem", alignItems: "start" }}>
+    <div role="article" className="sx-chart-panel sx-cl-entry" style={{ animationDelay: `${0.08 * i}s`, display: "grid", gridTemplateColumns: "minmax(9rem, 12rem) 1fr", gap: "1.5rem", alignItems: "start" }}>
       <div style={{ display: "grid", gap: ".6rem" }}>
         <strong style={{ fontSize: "1.6rem", color: "#F2F2F2", fontVariantNumeric: "tabular-nums" }}>{r.version}</strong>
         <span className="spiix-kicker" style={{ opacity: .6 }}>{r.date}</span>
@@ -109,14 +109,14 @@ function Entry({ r, i }: { r: Release; i: number }) {
           {r.notes.map(n => <li key={n} style={{ display: "flex", gap: ".6rem" }}><span style={{ color: "#FF4D00" }}>▸</span><span>{n}</span></li>)}
         </ul>
       </div>
-    </article>
+    </div>
   );
 }
 
 function ChangelogPage() {
   return (
     <main>
-      <style>{`.sx-cl-entry{opacity:0;transform:translateY(12px);animation:sx-cl-in .6s cubic-bezier(.2,.7,.2,1) forwards}@keyframes sx-cl-in{to{opacity:1;transform:none}}@media (prefers-reduced-motion: reduce){.sx-cl-entry{animation:none;opacity:1;transform:none}}@media (max-width:640px){.sx-cl-entry{grid-template-columns:1fr!important}}`}</style>
+      <style>{`@media (prefers-reduced-motion: no-preference){.spiix main section .sx-cl-entry{animation:sx-cl-in .6s cubic-bezier(.2,.7,.2,1) both}}@keyframes sx-cl-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.sx-cl-entry{border:1px solid var(--sx-line)}@media (prefers-reduced-motion: reduce){.sx-cl-entry{animation:none;opacity:1;transform:none}}@media (max-width:640px){.sx-cl-entry{grid-template-columns:1fr!important}}`}</style>
       <SpiixPageHead code="SPIIX MCP / CHANGELOG / PRE-RELEASE" title="What's shipped. What's next." copy="A running log of the SPIIX MCP server. It's early, and most of it is still plumbing. The judgment is mine. The tools make it faster." />
       <section className="spiix-section">
         <div className="spiix-wrap">
