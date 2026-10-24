@@ -111,7 +111,7 @@ function SoftwarePage() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
-          track("Pricing Viewed", { page: "software", price: "$2,000 minimum" });
+          track("Pricing Viewed", { offer: "software", price_label: "$2,000 minimum", price_usd: 2000 });
           observer.disconnect();
         }
       },

@@ -4,7 +4,7 @@ import { ArrowRight, Check, Search, FileText, PhoneCall, X, Loader2 } from "luci
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
-import { trackCta } from "@/lib/segment";
+import { trackCta, trackLead } from "@/lib/segment";
 
 // SPIIX-787: single-CTA modal flow — form -> Stripe -> Cal.com audit booking.
 // $99 Stripe Payment Link (live): plink_1US3kEAJa30vknho9gxFt94K
@@ -141,7 +141,7 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         }),
       });
       if (!res.ok) throw new Error(`lead capture failed (${res.status})`);
-      trackCta("Audit details submitted", "audit modal", STRIPE_URL);
+      void trackLead("intake-audit", "audit modal", "audit", form.email.trim(), { name: form.name.trim(), website: form.website.trim() });
       // Fire-and-forget Slack notification for the funnel (SPIIX-793).
       fetch("/api/funnel-notify?source=client", {
         method: "POST",

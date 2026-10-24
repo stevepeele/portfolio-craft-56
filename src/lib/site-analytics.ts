@@ -30,7 +30,7 @@ function checkEngagedVisitor(pages: number, seconds: number, path: string) {
     if (sessionStorage.getItem("seg_engaged_visitor")) return;
     if (pages > ENGAGED_VISITOR_PAGES || seconds > ENGAGED_VISITOR_SECONDS) {
       sessionStorage.setItem("seg_engaged_visitor", "1");
-      track("Engaged Visitor", {
+      track("Visitor Qualified", {
         pages,
         seconds,
         path,
@@ -76,7 +76,7 @@ export function useSiteAnalytics(path: string) {
           const key = `scroll-${d}`;
           if (pct >= d && !seen.has(key)) {
             seen.add(key);
-            track("Scroll Depth Reached", { depth: d, path });
+            track("Content Engaged", { engagement_type: "scroll", value: d, path });
           }
         }
       });
@@ -112,7 +112,7 @@ export function useSiteAnalytics(path: string) {
         const key = `engaged-${s}`;
         if (active >= s && !seen.has(key)) {
           seen.add(key);
-          track("Page Engaged", { seconds: s, path });
+          track("Content Engaged", { engagement_type: "time", value: s, path });
         }
       }
       // Engaged Visitor: 45+ active seconds triggers the Slack alert.

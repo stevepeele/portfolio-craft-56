@@ -13,48 +13,13 @@ import { useEffect, type ReactNode } from "react";
 import { SpiiGuide } from "@/components/spii-guide";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import posthog from "posthog-js";
 import { initSegment, segmentPage } from "@/lib/segment";
 import { useSiteAnalytics } from "@/lib/site-analytics";
 import { useLocation } from "@tanstack/react-router";
 
-/* ------------------------------------------------------------------ */
-/* PostHog analytics (decision made 2026-10-11).                       */
-/* Activates only when VITE_POSTHOG_KEY is set; until then every       */
-/* capture is skipped. Client-side only — never runs during SSR.       */
-/* ------------------------------------------------------------------ */
-const POSTHOG_KEY = import.meta.env['VITE_POSTHOG_KEY'] as string | undefined;
-const POSTHOG_HOST =
-  (import.meta.env['VITE_POSTHOG_HOST'] as string | undefined) ?? "https://us.i.posthog.com";
-
-let posthogReady = false;
-
-function ensurePostHog(): boolean {
-  if (posthogReady) return true;
-  if (typeof window === "undefined" || !POSTHOG_KEY) return false;
-  try {
-    posthog.init(POSTHOG_KEY, {
-      api_host: POSTHOG_HOST,
-      capture_pageview: false,
-      autocapture: false,
-      persistence: "localStorage",
-    });
-    posthogReady = true;
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-/** Fire-and-forget pageview. Never throws; analytics must never break the site. */
-function trackPageview(): void {
-  if (!ensurePostHog()) return;
-  try {
-    posthog.capture("$pageview");
-  } catch {
-    /* analytics must never break the site */
-  }
-}
+/* PostHog page views now flow through segmentPage() (lib/segment.ts),
+   which sends to Segment and PostHog with tracking-plan v2 standard props. */
+function trackPageview(): void { /* folded into segmentPage() */ }
 
 function NotFoundComponent() {
   return (

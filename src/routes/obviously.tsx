@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowDown, Check } from "lucide-react";
-import { segmentPage, track, trackEmailCapture } from "@/lib/segment";
+import { segmentPage, track, trackLead } from "@/lib/segment";
 import { formsubmitSignalEndpoint } from "@/lib/spiix-leads";
 import { obviously_cover as coverImage } from "@/assets/obviously/obviously_cover";
 import { obviously_notice as noticeImage } from "@/assets/obviously/obviously_notice";
@@ -85,7 +85,7 @@ function SignupForm({ compact = false }: { compact?: boolean }) {
     e?.preventDefault();
     if (sending) return;
     setSending(true);
-    track("Book Signup Clicked", { book: "obviously", location: compact ? "hero" : "cta" });
+    track("CTA Clicked", { cta_label: "Book Signup", cta_location: compact ? "hero" : "cta", offer: "obviously-book" });
     if (email.trim()) {
       try {
         await fetch(formsubmitSignalEndpoint, {
@@ -99,7 +99,7 @@ function SignupForm({ compact = false }: { compact?: boolean }) {
             source: "obviously-book-page",
           }),
         });
-        trackEmailCapture("obviously-book", compact ? "hero" : "cta");
+        void trackLead("obviously-book", compact ? "hero" : "cta", "book", email.trim());
       } catch {
         /* never block the reader */
       }
