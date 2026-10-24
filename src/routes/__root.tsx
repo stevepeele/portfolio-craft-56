@@ -14,6 +14,7 @@ import { SpiiGuide } from "@/components/spii-guide";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initSegment, segmentPage } from "@/lib/segment";
+import { scheduleIntercom, intercomPage } from "@/lib/intercom";
 import { useSiteAnalytics } from "@/lib/site-analytics";
 import { useLocation } from "@tanstack/react-router";
 
@@ -178,6 +179,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* HubSpot tracking kept for Collected Forms -> CRM; its chat widget is
+            suppressed (Intercom replaces it). */}
+        <script
+          dangerouslySetInnerHTML={{ __html: "window.hsConversationsSettings={loadImmediately:false};" }}
+        />
         <script
           type="text/javascript"
           id="hs-script-loader"
@@ -225,8 +231,10 @@ function RootComponent() {
   useEffect(() => {
     initSegment();
     segmentPage();
+    scheduleIntercom();
     const unsub = router.history.subscribe(() => {
       segmentPage();
+      intercomPage();
     });
     return unsub;
   }, [router]);

@@ -86,7 +86,12 @@ export async function trackLead(form: string, location: string, leadType: string
   track("Form Submitted", { form_id: form, form_location: location });
   track("Lead Captured", { form_id: form, form_location: location, lead_type: leadType });
   if (email && email.includes("@")) {
-    try { await identify(email, { ...traits, lead_type: leadType, first_form: form }); } catch { /* never break */ }
+    try {
+      await identify(email, { ...traits, lead_type: leadType, first_form: form });
+      const id = await hashEmail(email);
+      const { intercomIdentify } = await import("./intercom");
+      intercomIdentify(id, email.trim().toLowerCase(), { lead_type: leadType, first_form: form });
+    } catch { /* never break */ }
   }
 }
 /** @deprecated use trackLead — kept for callers; now emits Lead Captured. */
@@ -122,6 +127,7 @@ export function trackSprintPreview(firm: string, url: string) {
 export function trackCheckoutStarted(product: string, priceUsd: number | undefined, destination: string) {
   track("Checkout Started", { product, price_usd: priceUsd, destination_url: destination });
 }
+/** Booking Started (CTA to Cal.com/meet). "Meeting Booked" needs a Cal.com webhook (server-side, pending). */
 export function trackBookingStarted(calendar: string, location: string) {
   track("Booking Started", { calendar, cta_location: location });
 }
