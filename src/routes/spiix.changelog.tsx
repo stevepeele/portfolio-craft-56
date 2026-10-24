@@ -80,6 +80,17 @@ const planned: Release[] = [
       "Any change to how it judges goes through a reviewed pull request.",
     ],
   },
+  {
+    version: "Next",
+    date: "No date set",
+    status: "Planned",
+    title: "Decision brief handoff to your task system",
+    notes: [
+      "The decisions, owners and next steps from a brief go straight into the tool your team already uses, like Linear, Asana, Jira or Todoist.",
+      "The brief has a fixed structure, so it works with whatever tool you use.",
+      "In the pilot, this step is done by hand.",
+    ],
+  },
 ];
 
 function Pill({ status }: { status: Status }) {
