@@ -81,6 +81,7 @@ import { Route as ServicesGtmAuditRouteImport } from './routes/services.gtm-audi
 import { Route as ServicesLogisticsRouteImport } from './routes/services.logistics'
 import { Route as ServicesWebsiteBuildRouteImport } from './routes/services.website-build'
 import { Route as SpiixIndexRouteImport } from './routes/spiix.index'
+import { Route as SpiixChangelogRouteImport } from './routes/spiix.changelog'
 import { Route as SpiixCompareRouteImport } from './routes/spiix.compare'
 import { Route as SpiixConnectRouteImport } from './routes/spiix.connect'
 import { Route as SpiixDiagnosticsRouteImport } from './routes/spiix.diagnostics'
@@ -470,6 +471,11 @@ const SpiixIndexRoute = SpiixIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SpiixRoute,
 } as any)
+const SpiixChangelogRoute = SpiixChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => SpiixRoute,
+} as any)
 const SpiixCompareRoute = SpiixCompareRouteImport.update({
   id: '/compare',
   path: '/compare',
@@ -673,6 +679,7 @@ export interface FileRoutesByFullPath {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/changelog': typeof SpiixChangelogRoute
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
@@ -768,6 +775,7 @@ export interface FileRoutesByTo {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/changelog': typeof SpiixChangelogRoute
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
@@ -868,6 +876,7 @@ export interface FileRoutesById {
   '/services/gtm-audit': typeof ServicesGtmAuditRoute
   '/services/logistics': typeof ServicesLogisticsRoute
   '/services/website-build': typeof ServicesWebsiteBuildRoute
+  '/spiix/changelog': typeof SpiixChangelogRoute
   '/spiix/compare': typeof SpiixCompareRoute
   '/spiix/connect': typeof SpiixConnectRoute
   '/spiix/diagnostics': typeof SpiixDiagnosticsRoute
@@ -969,6 +978,7 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/changelog'
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
@@ -1064,6 +1074,7 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/changelog'
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
@@ -1163,6 +1174,7 @@ export interface FileRouteTypes {
     | '/services/gtm-audit'
     | '/services/logistics'
     | '/services/website-build'
+    | '/spiix/changelog'
     | '/spiix/compare'
     | '/spiix/connect'
     | '/spiix/diagnostics'
@@ -1749,6 +1761,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpiixIndexRouteImport
       parentRoute: typeof SpiixRoute
     }
+    '/spiix/changelog': {
+      id: '/spiix/changelog'
+      path: '/changelog'
+      fullPath: '/spiix/changelog'
+      preLoaderRoute: typeof SpiixChangelogRouteImport
+      parentRoute: typeof SpiixRoute
+    }
     '/spiix/compare': {
       id: '/spiix/compare'
       path: '/compare'
@@ -2063,6 +2082,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 )
 
 interface SpiixRouteChildren {
+  SpiixChangelogRoute: typeof SpiixChangelogRoute
   SpiixCompareRoute: typeof SpiixCompareRoute
   SpiixConnectRoute: typeof SpiixConnectRoute
   SpiixDiagnosticsRoute: typeof SpiixDiagnosticsRoute
@@ -2081,6 +2101,7 @@ interface SpiixRouteChildren {
 }
 
 const SpiixRouteChildren: SpiixRouteChildren = {
+  SpiixChangelogRoute: SpiixChangelogRoute,
   SpiixCompareRoute: SpiixCompareRoute,
   SpiixConnectRoute: SpiixConnectRoute,
   SpiixDiagnosticsRoute: SpiixDiagnosticsRoute,
