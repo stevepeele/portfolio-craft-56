@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, CircleX, Gauge, Network, Search, Workflow } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { spiixOriginal } from "@/data/spiix-reference";
 import { featuredRecommendations, profile } from "@/data/resume";
 
@@ -141,241 +141,323 @@ const engageLinks = {
   "elite-mentorship": "/spiix/engage/elite-mentorship",
 } as const;
 
+const stats = [
+  ["14+ years", "Across SaaS, technology, startups, and growth-stage companies"],
+  ["$350M+", "Annual pipeline exposure across global marketing operations"],
+  ["Operator first", "Strategy, systems, people, tools, data, and the actual work"],
+] as const;
+
+const recordStats = [
+  ["14+", "Years scaling SaaS & tech"],
+  ["$350M+", "Annual pipeline exposure"],
+  ["4", "Startup exits contributed to"],
+  ["~400%", "User growth at dotloop"],
+] as const;
+
+const language = [
+  ["Signal", "A defined measure: its unit, cohort, window, context, and the decision it informs."],
+  ["Get the Signal", "The framework for reading measures, locating the constraint, and choosing what to do."],
+  ["The OS", "The mechanization: owners, workflows, systems, decision rights, and review cadence."],
+  ["Monolith", "The entirety: the framework, OS, Growth Ladders, playbooks, instruments, and operating principles."],
+] as const;
+
 function SpiixServicePage() {
+  const [openQ, setOpenQ] = useState(-1);
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Fractional Growth Advisory" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-5xl px-5 py-20 text-center sm:py-28">
-            <p className="eyebrow">SPIIX · Fractional growth advisor · Cincinnati / Remote</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-6xl">
-              Senior growth leadership.<br/><span className="text-gradient">Without the theater.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              Steve Peele II helps SaaS, technology, and growth-stage teams connect growth strategy,
-              demand generation, marketing operations, lifecycle, data, and execution. SPIIX is the
-              advisory practice behind that work.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link to="/spiix/signal" className="btn-primary">
-                GET THE SIGNAL <ArrowRight className="inline size-4" />
-              </Link>
-              <Link to="/spiix/os" className="btn-ghost">
-                READ THE OS <ArrowRight className="inline size-4" />
-              </Link>
-            </div>
+        <CtHero
+          file="SPIIX · Fractional growth advisor · Cincinnati / Remote"
+          title={
+            <>
+              Senior growth leadership.<br /><span>Without the theater.</span>
+            </>
+          }
+          lede="Steve Peele II helps SaaS, technology, and growth-stage teams connect growth strategy, demand generation, marketing operations, lifecycle, data, and execution. SPIIX is the advisory practice behind that work."
+        >
+          <div className="btnrow">
+            <Link to="/spiix/signal" className="btn">
+              GET THE SIGNAL <ArrowRight size={14} />
+            </Link>
+            <Link to="/spiix/os" className="btn o">
+              READ THE OS <ArrowRight size={14} />
+            </Link>
           </div>
-        </section>
+        </CtHero>
 
-        <section className="border-b border-border/60 bg-surface/40">
-          <div className="mx-auto grid max-w-6xl gap-px px-5 py-10 sm:grid-cols-3">
-            {[["14+ years","Across SaaS, technology, startups, and growth-stage companies"],["$350M+","Annual pipeline exposure across global marketing operations"],["Operator first","Strategy, systems, people, tools, data, and the actual work"]].map(([value,label])=><div key={value} className="px-5 py-4 text-center"><strong className="font-display text-2xl">{value}</strong><p className="mt-2 text-sm text-muted-foreground">{label}</p></div>)}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow">Who it's for</p>
-          <div className="mt-6 grid gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-bold">
-                Built for operators who <span className="text-gradient">wear multiple hats.</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Resource-constrained SaaS and technology teams where strategy has to become execution
-                immediately. The role sits between a fractional marketing leader, a growth marketing
-                consultant, and a marketing operations operator because the problem rarely respects
-                department lines.
-              </p>
-            </div>
-            <ul className="grid gap-3">
-              {problems.map((p) => (
-                <li key={p} className="panel flex items-start gap-3 p-4 text-sm">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent" />
-                  <span>{p}</span>
-                </li>
+        <section className="blk first">
+          <div className="wrap">
+            <div className="cards c3 rev stag">
+              {stats.map(([value, label]) => (
+                <article key={value} className="card">
+                  <span className="big" style={{ fontSize: 26 }}>{value}</span>
+                  <p>{label}</p>
+                </article>
               ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-6xl px-5 py-20">
-            <p className="eyebrow">What the work covers</p>
-            <h2 className="mt-5 max-w-3xl text-3xl font-bold sm:text-4xl">The system behind demand, not another layer of marketing activity.</h2>
-            <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">Growth problems arrive wearing different clothes. A weak campaign may really be a positioning problem. A reporting problem may be an ownership problem. A lead-volume problem may be a lifecycle problem. The work follows the constraint instead of forcing every company into the same playbook.</p>
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {serviceAreas.map(({icon:Icon,title,body})=><article key={title} className="panel p-7"><Icon className="size-5 text-accent" aria-hidden="true"/><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p></article>)}
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow">Why fractional</p>
-          <div className="mt-6 grid gap-10 md:grid-cols-[1fr_1.15fr]">
-            <h2 className="text-3xl font-bold sm:text-4xl">Enough leadership to change the system. Close enough to change the work.</h2>
-            <div className="space-y-5 leading-relaxed text-muted-foreground"><p>A full-time executive hire is not always the first answer. Sometimes the company needs a senior operator to establish the baseline, make the tradeoffs visible, repair the operating rhythm, and help the existing team move.</p><p>That is the useful version of fractional leadership: not borrowed authority and not a slide deck delivered from a distance. It is context, judgment, clear decisions, and practical execution for the period the business needs it. An AI operating layer compresses the research, building, and reporting underneath it, so one fractional seat covers more ground than it used to.</p><p>Steve has worked in early-stage environments, growth periods, acquisition-related outcomes, and global marketing operations. That range matters because the right system depends on the company’s stage, economics, team, and actual constraint.</p></div>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="01">Who it&apos;s for</CtLabel>
+            <h2 className="shead">
+              Built for operators who <span>wear multiple hats.</span>
+            </h2>
+            <p className="lede dim">
+              Resource-constrained SaaS and technology teams where strategy has to become execution
+              immediately. The role sits between a fractional marketing leader, a growth marketing
+              consultant, and a marketing operations operator because the problem rarely respects
+              department lines.
+            </p>
+            <div className="cards c2 rev stag" style={{ marginTop: 36 }}>
+              {problems.map((p) => (
+                <article key={p} className="card">
+                  <p style={{ display: "flex", alignItems: "flex-start", gap: 10, color: "var(--text)", fontSize: 13.5, marginTop: 0 }}>
+                    <CheckCircle2 size={15} color="#FF4D00" style={{ flexShrink: 0, marginTop: 2 }} />
+                    <span>{p}</span>
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 py-20">
-            <p className="eyebrow">Three ways in</p>
-            <h2 className="mt-6 text-3xl font-bold">One filter for qualified work.</h2>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">What the work covers</CtLabel>
+            <h2 className="shead">The system behind demand, not another layer of marketing activity.</h2>
+            <p className="lede dim">Growth problems arrive wearing different clothes. A weak campaign may really be a positioning problem. A reporting problem may be an ownership problem. A lead-volume problem may be a lifecycle problem. The work follows the constraint instead of forcing every company into the same playbook.</p>
+            <div className="cards c2 rev stag" style={{ marginTop: 36 }}>
+              {serviceAreas.map(({ icon: Icon, title, body }) => (
+                <article key={title} className="card">
+                  <p className="ck" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <Icon size={16} color="#FF4D00" aria-hidden="true" />
+                  </p>
+                  <h3 style={{ fontSize: 24 }}>{title}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="03">Why fractional</CtLabel>
+            <h2 className="shead">Enough leadership to change the system. Close enough to change the work.</h2>
+            <div style={{ display: "grid", gap: 18, maxWidth: 820 }}>
+              <p className="body dim">A full-time executive hire is not always the first answer. Sometimes the company needs a senior operator to establish the baseline, make the tradeoffs visible, repair the operating rhythm, and help the existing team move.</p>
+              <p className="body dim">That is the useful version of fractional leadership: not borrowed authority and not a slide deck delivered from a distance. It is context, judgment, clear decisions, and practical execution for the period the business needs it. An AI operating layer compresses the research, building, and reporting underneath it, so one fractional seat covers more ground than it used to.</p>
+              <p className="body dim">Steve has worked in early-stage environments, growth periods, acquisition-related outcomes, and global marketing operations. That range matters because the right system depends on the company’s stage, economics, team, and actual constraint.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="04">Three ways in</CtLabel>
+            <h2 className="shead">One filter for qualified work.</h2>
+            <div className="egrid rev stag">
               {spiixOriginal.gm.map((item, i) => (
                 <Link
                   to={engageLinks[item.slug]}
                   key={item.slug}
-                  className="panel flex flex-col p-6 transition-colors hover:border-primary"
+                  className="ecard"
+                  style={{ display: "block", textDecoration: "none" }}
                 >
-                  <span className="text-xs font-semibold tracking-widest text-muted-foreground">
-                    {item.code} · {item.label}
+                  <p className="kicker">
+                    <b>{item.code} · {item.label}</b>
+                  </p>
+                  <h3>{item.name}</h3>
+                  <p>{item.summary}</p>
+                  <span className="go" style={{ font: "500 9.5px 'JetBrains Mono',monospace", color: "var(--kin)", textTransform: "uppercase", display: "inline-flex", alignItems: "center", gap: 6, marginTop: 16 }}>
+                    View details <ArrowRight size={13} />
                   </span>
-                  <span className="mt-2 font-display text-lg font-bold">{item.name}</span>
-                  <span className="mt-3 flex-1 text-sm text-muted-foreground">{item.summary}</span>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                    View details <ArrowRight className="size-4" />
-                  </span>
-                  <span className="sr-only">Engagement {i + 1}</span>
+                  <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Engagement {i + 1}</span>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow">How the work reads</p>
-          <h2 className="mt-6 text-3xl font-bold">Start with the framework. Go as deep as you need.</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            The SPIIX operating system is published, not hidden behind a sales call. Read how the
-            work thinks before you ever talk to me.
-          </p>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                to: "/growth-ladders",
-                title: "Growth Ladders",
-                desc: "The entire body of work: the SPIIX book, with the diagnostic and free download.",
-              },
-              {
-                to: "/spiix/os",
-                title: "The OS",
-                desc: "The mechanism that puts the framework to work: owners, workflows, and decision rights.",
-              },
-              {
-                to: "/spiix/signals",
-                title: "Signal",
-                desc: "The defined measure: its unit, cohort, window, and decision.",
-              },
-              {
-                to: "/spiix/signal",
-                title: "Get the Signal",
-                desc: "The framework for reading constraints and choosing the next move. Includes instant guide access.",
-              },
-            ].map((card) => (
-              <Link
-                to={card.to}
-                key={card.to}
-                className="panel flex flex-col p-6 transition-colors hover:border-primary"
-              >
-                <span className="font-display text-lg font-bold">{card.title}</span>
-                <span className="mt-3 flex-1 text-sm text-muted-foreground">{card.desc}</span>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                  Open <ArrowRight className="size-4" />
-                </span>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="05">How the work reads</CtLabel>
+            <h2 className="shead">Start with the framework. Go as deep as you need.</h2>
+            <p className="lede dim">
+              The SPIIX operating system is published, not hidden behind a sales call. Read how the
+              work thinks before you ever talk to me.
+            </p>
+            <div className="cards c4 rev stag" style={{ marginTop: 36 }}>
+              {[
+                {
+                  to: "/growth-ladders",
+                  title: "Growth Ladders",
+                  desc: "The entire body of work: the SPIIX book, with the diagnostic and free download.",
+                },
+                {
+                  to: "/spiix/os",
+                  title: "The OS",
+                  desc: "The mechanism that puts the framework to work: owners, workflows, and decision rights.",
+                },
+                {
+                  to: "/spiix/signals",
+                  title: "Signal",
+                  desc: "The defined measure: its unit, cohort, window, and decision.",
+                },
+                {
+                  to: "/spiix/signal",
+                  title: "Get the Signal",
+                  desc: "The framework for reading constraints and choosing the next move. Includes instant guide access.",
+                },
+              ].map((card) => (
+                <Link to={card.to} key={card.to} className="card">
+                  <h3 style={{ fontSize: 24 }}>{card.title}</h3>
+                  <p>{card.desc}</p>
+                  <span className="go">
+                    Open <ArrowRight size={12} style={{ verticalAlign: "-2px" }} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="06">Fit matters</CtLabel>
+            <div className="split rev">
+              <div>
+                <h3>This is probably useful when…</h3>
+                <ul style={{ listStyle: "none", display: "grid", gap: 14, marginTop: 16 }}>
+                  {fit.map(item => (
+                    <li key={item} style={{ display: "flex", gap: 10, fontSize: 13, lineHeight: 1.75, color: "var(--muted)" }}>
+                      <CheckCircle2 size={15} color="#FF4D00" style={{ flexShrink: 0, marginTop: 3 }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>It is probably not the right fit when…</h3>
+                <ul style={{ listStyle: "none", display: "grid", gap: 14, marginTop: 16 }}>
+                  {notFit.map(item => (
+                    <li key={item} style={{ display: "flex", gap: 10, fontSize: 13, lineHeight: 1.75, color: "var(--muted)" }}>
+                      <CircleX size={15} style={{ flexShrink: 0, marginTop: 3 }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="07">The record behind the work</CtLabel>
+            <div className="statgrid rev">
+              {recordStats.map(([value, label]) => (
+                <div key={label}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="qgrid rev" style={{ marginTop: 40, gridTemplateColumns: "1fr" }}>
+              <article>
+                <div className="qm">“</div>
+                <blockquote>&ldquo;{featuredRecommendations[0]?.quote}&rdquo;</blockquote>
+                <h4>{featuredRecommendations[0]?.name}</h4>
+                <p>{featuredRecommendations[0]?.title}</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="08">A clear language for the work</CtLabel>
+            <h2 className="shead">Measure. Decide. Mechanize. See the whole.</h2>
+            <div className="rows rev">
+              {language.map(([name, meaning]) => (
+                <article key={name} className="row">
+                  <h3>{name}</h3>
+                  <p>{meaning}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="09">Direct line</CtLabel>
+            <h2 className="shead">
+              Bring the hard problem. <span>Get the Signal.</span>
+            </h2>
+            <p className="lede dim">
+              Start with the framework, book a direct conversation, or email Steve. No elaborate funnel required.
+            </p>
+            <div className="btnrow">
+              <Link to="/spiix/signal" className="btn">
+                GET THE SIGNAL <ArrowRight size={14} />
               </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 py-20">
-            <p className="eyebrow">Fit matters</p>
-            <div className="mt-8 grid gap-8 md:grid-cols-2">
-              <div><h2 className="text-2xl font-bold">This is probably useful when…</h2><ul className="mt-6 space-y-4">{fit.map(item=><li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent"/>{item}</li>)}</ul></div>
-              <div><h2 className="text-2xl font-bold">It is probably not the right fit when…</h2><ul className="mt-6 space-y-4">{notFit.map(item=><li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><CircleX className="mt-0.5 size-4 shrink-0"/>{item}</li>)}</ul></div>
+              <a href={`mailto:${profile.email}`} className="btn o">
+                {profile.email}
+              </a>
+              <a href={profile.booking} target="_blank" rel="noreferrer" className="btn o">Book a call</a>
             </div>
+            <p className="mono" style={{ marginTop: 22, color: "var(--muted)" }}>
+              {profile.phone} · Cincinnati, OH
+            </p>
           </div>
         </section>
 
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 py-20">
-            <p className="eyebrow">The record behind the work</p>
-            <div className="mt-8 grid gap-10 md:grid-cols-2">
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  ["14+", "Years scaling SaaS & tech"],
-                  ["$350M+", "Annual pipeline exposure"],
-                  ["4", "Startup exits contributed to"],
-                  ["~400%", "User growth at dotloop"],
-                ].map(([value, label]) => (
-                  <div key={label} className="panel p-6">
-                    <strong className="block font-display text-3xl font-bold text-accent">
-                      {value}
-                    </strong>
-                    <span className="mt-1 block text-sm text-muted-foreground">{label}</span>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="10">Common questions</CtLabel>
+            <h2 className="shead">Before we talk.</h2>
+            <div className="rev">
+              {questions.map(([question, answer], i) => (
+                <div key={question} className={`phase${openQ === i ? " open" : ""}`}>
+                  <button
+                    type="button"
+                    className="ptog"
+                    aria-expanded={openQ === i}
+                    onClick={() => setOpenQ(openQ === i ? -1 : i)}
+                  >
+                    <span className="n">0{i + 1}</span>
+                    <span>
+                      <strong style={{ fontSize: 20 }}>{question}</strong>
+                    </span>
+                    <span className="st">{openQ === i ? "Close" : "Open"}</span>
+                  </button>
+                  <div className="pexp">
+                    <div>
+                      <p style={{ paddingBottom: 20 }}>{answer}</p>
+                    </div>
                   </div>
-                ))}
-              </div>
-              <div className="panel flex flex-col p-6">
-                <span className="text-5xl text-accent">"</span>
-                <blockquote className="mt-2 flex-1 text-muted-foreground">
-                  {featuredRecommendations[0]?.quote}
-                </blockquote>
-                <p className="mt-4 font-semibold">{featuredRecommendations[0]?.name}</p>
-                <p className="text-sm text-muted-foreground">{featuredRecommendations[0]?.title}</p>
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow">A clear language for the work</p>
-          <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Measure. Decide. Mechanize. See the whole.</h2>
-          <div className="mt-8 divide-y divide-border border-y border-border">
-            {[["Signal","A defined measure: its unit, cohort, window, context, and the decision it informs."],["Get the Signal","The framework for reading measures, locating the constraint, and choosing what to do."],["The OS","The mechanization: owners, workflows, systems, decision rights, and review cadence."],["Monolith","The entirety: the framework, OS, Growth Ladders, playbooks, instruments, and operating principles."]].map(([name,meaning])=><div key={name} className="grid gap-2 py-6 sm:grid-cols-[12rem_1fr]"><h3 className="text-xl font-bold">{name}</h3><p className="text-sm leading-relaxed text-muted-foreground">{meaning}</p></div>)}
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="11">Do the diligence</CtLabel>
+            <h2 className="shead">Read the record before you start a conversation.</h2>
+            <p className="lede dim">The portfolio shows the work, the experience page shows where it happened, and the recommendations show what it was like to work together.</p>
+            <div className="btnrow">
+              <Link to="/work" hash="results" className="btn o">View portfolio <ArrowRight size={14} /></Link>
+              <Link to="/work" hash="experience" className="btn o">View experience</Link>
+              <Link to="/work" hash="recommendations" className="btn o">Read recommendations</Link>
+            </div>
           </div>
-        </section>
-
-        <section className="mx-auto max-w-3xl px-5 py-20 text-center">
-          <p className="eyebrow">Direct line</p>
-          <h2 className="mt-5 text-3xl font-bold">
-             Bring the hard problem. <span className="text-gradient">Get the Signal.</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-             Start with the framework, book a direct conversation, or email Steve. No elaborate funnel required.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link to="/spiix/signal" className="btn-primary">
-              GET THE SIGNAL <ArrowRight className="inline size-4" />
-            </Link>
-            <a href={`mailto:${profile.email}`} className="btn-ghost">
-              {profile.email}
-            </a>
-             <a href={profile.booking} target="_blank" rel="noreferrer" className="btn-ghost">Book a call</a>
-          </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            {profile.phone} · Cincinnati, OH
-          </p>
-        </section>
-
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-5xl px-5 py-20">
-            <p className="eyebrow">Common questions</p>
-            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Before we talk.</h2>
-            <div className="mt-10 divide-y divide-border border-y border-border">{questions.map(([question,answer])=><details key={question} className="group py-5"><summary className="cursor-pointer list-none font-display text-lg font-bold">{question}</summary><p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow">Do the diligence</p>
-          <h2 className="mt-5 text-3xl font-bold">Read the record before you start a conversation.</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">The portfolio shows the work, the experience page shows where it happened, and the recommendations show what it was like to work together.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><Link to="/work" hash="results" className="btn-ghost">View portfolio <ArrowRight className="size-4"/></Link><Link to="/work" hash="experience" className="btn-ghost">View experience</Link><Link to="/work" hash="recommendations" className="btn-ghost">Read recommendations</Link></div>
         </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
