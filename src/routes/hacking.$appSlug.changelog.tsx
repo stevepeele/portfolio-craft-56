@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ArrowUpRight } from "lucide-react";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { hackingApps } from "@/data/hacking";
 import { changelogs, type ChangelogEntry } from "@/data/changelogs";
 
@@ -37,89 +36,66 @@ export const Route = createFileRoute("/hacking/$appSlug/changelog")({
   component: ChangelogPage,
 });
 
-const typeMeta: Record<ChangelogEntry["type"], { label: string; cls: string }> = {
-  launch: { label: "Launch", cls: "bg-emerald-500/15 text-emerald-400" },
-  ship: { label: "Shipped", cls: "bg-sky-500/15 text-sky-400" },
-  update: { label: "Update", cls: "bg-amber-500/15 text-amber-400" },
-  fix: { label: "Fix", cls: "bg-rose-500/15 text-rose-400" },
+const typeMeta: Record<ChangelogEntry["type"], { label: string; color: string }> = {
+  launch: { label: "Launch", color: "#34d399" },
+  ship: { label: "Shipped", color: "#38bdf8" },
+  update: { label: "Update", color: "#fbbf24" },
+  fix: { label: "Fix", color: "#fb7185" },
 };
 
 function ChangelogPage() {
   const { app, entries } = Route.useLoaderData();
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell
+      crumbs={[
+        { label: "Home", to: "/" },
+        { label: "Building", to: "/hacking" },
+        { label: app.label, to: `/hacking/${app.slug}` as "/hacking/binsly" },
+        { label: "Changelog" },
+      ]}
+    >
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link
-              to="/hacking/$appSlug"
-              params={{ appSlug: app.slug }}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="size-4" /> {app.label}
-            </Link>
-            <p className="eyebrow mt-8">Building / {app.label} / Changelog</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              {app.label} <span className="text-gradient">changelog.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Everything shipped, in order. No roadmap theater — just the record.
-            </p>
+        <CtHero
+          file={`05 / Building — ${app.label} / Changelog`}
+          title={
+            <>
+              {app.label} <span>changelog.</span>
+            </>
+          }
+          lede="Everything shipped, in order. No roadmap theater — just the record."
+        />
+
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">Ship history</CtLabel>
+            {entries.length === 0 ? (
+              <div className="ecard rev">
+                <p>No changelog entries yet — check back after the next ship.</p>
+                <div className="btnrow">
+                  <Link to="/hacking/$appSlug" params={{ appSlug: app.slug }} className="btn o">
+                    Back to {app.label} <ArrowUpRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <div className="tl rev">
+                {entries.map((entry) => (
+                  <article key={`${entry.date}-${entry.title}`}>
+                    <span className="when">
+                      {entry.date}
+                      {"  ·  "}
+                      <span style={{ color: typeMeta[entry.type].color }}>{typeMeta[entry.type].label}</span>
+                      {entry.issueId ? `  ·  ${entry.issueId}` : ""}
+                    </span>
+                    <h3>{entry.title}</h3>
+                    <p>{entry.detail}</p>
+                  </article>
+                ))}
+              </div>
+            )}
           </div>
         </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          {entries.length === 0 ? (
-            <div className="panel p-10 text-center">
-              <p className="text-muted-foreground">
-                No changelog entries yet — check back after the next ship.
-              </p>
-              <Link
-                to="/hacking/$appSlug"
-                params={{ appSlug: app.slug }}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline"
-              >
-                Back to {app.label} <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
-          ) : (
-            <ol className="relative space-y-8 border-l border-border/60 pl-8">
-              {entries.map((entry) => (
-                <li
-                  key={`${entry.date}-${entry.title}`}
-                  className="relative"
-                >
-                  <span
-                    className="absolute top-1.5 -left-8 size-3 -translate-x-1/2 rounded-full bg-primary"
-                    aria-hidden="true"
-                  />
-                  <div className="flex flex-wrap items-center gap-3">
-                    <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-                      {entry.date}
-                    </p>
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${typeMeta[entry.type].cls}`}
-                    >
-                      {typeMeta[entry.type].label}
-                    </span>
-                    {entry.issueId && (
-                      <span className="text-xs text-muted-foreground">
-                        {entry.issueId}
-                      </span>
-                    )}
-                  </div>
-                  <h2 className="mt-2 font-display text-xl font-bold">
-                    {entry.title}
-                  </h2>
-                  <p className="mt-2 text-muted-foreground">{entry.detail}</p>
-                </li>
-              ))}
-            </ol>
-          )}
-        </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

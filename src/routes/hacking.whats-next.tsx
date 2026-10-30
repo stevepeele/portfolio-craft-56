@@ -1,7 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Circle, CircleDot, CheckCircle2 } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { createFileRoute } from "@tanstack/react-router";
+import { ArrowUpRight, Circle, CircleDot, CheckCircle2 } from "lucide-react";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { buildQueue } from "@/data/hacking";
@@ -26,90 +25,84 @@ export const Route = createFileRoute("/hacking/whats-next")({
 });
 
 const statusMeta = {
-  shipped: { icon: CheckCircle2, cls: "text-emerald-400", label: "Shipped" },
-  next: { icon: CircleDot, cls: "text-amber-400", label: "Up next" },
-  queued: { icon: Circle, cls: "text-muted-foreground", label: "Queued" },
+  shipped: { icon: CheckCircle2, color: "#34d399", label: "Shipped" },
+  next: { icon: CircleDot, color: "#fbbf24", label: "Up next" },
+  queued: { icon: Circle, color: "#808080", label: "Queued" },
 } as const;
 
 function WhatsNextPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Up next" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / What's next</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              The <span className="text-gradient">build queue.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              A living list, in order. Shipped things stay on the record; the rest is the plan
-              until the plan changes.
-            </p>
-          </div>
-        </section>
+        <CtHero
+          file="05 / Building — What's next"
+          title={
+            <>
+              The <span>build queue.</span>
+            </>
+          }
+          lede="A living list, in order. Shipped things stay on the record; the rest is the plan until the plan changes."
+        />
 
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          <div className="space-y-4">
-            {buildQueue.map((item, i) => {
-              const meta = statusMeta[item.status];
-              const Icon = meta.icon;
-              return (
-                <article key={item.name} className="panel flex items-start gap-5 p-6 sm:p-7">
-                  <span className="mt-1 font-display text-lg font-bold text-muted-foreground">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h2 className="font-display text-xl font-bold">{item.name}</h2>
-                      <span className={`inline-flex items-center gap-1.5 text-xs font-medium ${meta.cls}`}>
-                        <Icon className="size-3.5" aria-hidden="true" />
-                        {meta.label}
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">The queue</CtLabel>
+            <div className="rows rev">
+              {buildQueue.map((item, i) => {
+                const meta = statusMeta[item.status];
+                const Icon = meta.icon;
+                return (
+                  <div key={item.name} className="row">
+                    <span className="rk" style={{ display: "inline-flex", alignItems: "center", gap: 7, color: meta.color }}>
+                      <Icon size={13} aria-hidden="true" />
+                      <span style={{ color: "var(--muted)" }}>
+                        {String(i + 1).padStart(2, "0")} · {meta.label}
                         {item.shippedDate ? ` · ${item.shippedDate}` : ""}
                       </span>
-                    </div>
-                    <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+                    </span>
+                    <span>
+                      <h3>{item.name}</h3>
+                      <p>{item.description}</p>
+                    </span>
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${item.name}`}
+                        className="rgo"
+                      >
+                        <ArrowUpRight size={15} aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <span className="rgo"></span>
+                    )}
                   </div>
-                  {item.url && (
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${item.name}`}
-                      className="mt-1 shrink-0 rounded-lg border border-border/60 p-2 text-muted-foreground hover:text-foreground"
-                    >
-                      <ArrowUpRight className="size-4" aria-hidden="true" />
-                    </a>
-                  )}
-                </article>
-              );
-            })}
+                );
+              })}
+            </div>
+            <p className="mono" style={{ marginTop: 36, textAlign: "center", color: "var(--muted)" }}>
+              Build tiny, ship fast, quit faster. — the operating principle
+            </p>
           </div>
-          <p className="mt-10 text-center text-sm text-muted-foreground">
-            Build tiny, ship fast, quit faster. — the operating principle
-          </p>
         </section>
 
-        <section className="border-t border-border/60">
-          <div className="mx-auto max-w-6xl px-5 py-20">
-            <p className="eyebrow">Building / Live board</p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              The <span className="text-gradient">Linear board.</span>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">Live board</CtLabel>
+            <h2 className="shead">
+              The <span>Linear board.</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-muted-foreground">
+            <p className="lede dim">
               The full tracker behind the queue — every project, every open issue.
             </p>
-            <div className="mt-10">
+            <div className="legacy" style={{ marginTop: 36 }}>
               <LinearDashboard />
             </div>
           </div>
         </section>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
