@@ -976,7 +976,7 @@ function Home() {
       <footer>
         <div className="wrap">
           <span className="mono">Steve Peele II — Growth marketing leader, operator &amp; musician</span>
-          <span className="mono">Mockup v3 · Control Tower · Staging only</span>
+          <span className="mono">© 2026 Steve Peele II</span>
         </div>
       </footer>
     </div>
