@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ArrowUpRight, Check } from "lucide-react";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Profolio — One Baseline, Many Stories | Steve Peele II";
@@ -30,105 +29,75 @@ const features = [
   "Free to start (5 projects, 1 view) · Pro $29 one-time, unlimited",
 ];
 
+const nextItems = [
+  "Public directory of published baselines",
+  "Baseline version history",
+  "PDF export of a baseline",
+  "Template gallery for baselines",
+  "AI baseline draft generator",
+];
+
 function ProfolioPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Profolio" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / Profolio</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              One baseline, <span className="text-gradient">many stories.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              A professional portfolio builder. Log your projects with real metrics once — then
-              package tailored views for whoever you're talking to.
-            </p>
-            <div className="mt-8">
-              <a
-                href="https://profolioapp.stevepeeleii.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                Try Profolio <ArrowUpRight className="size-4" />
-              </a>
+        <CtHero file="05 / Building — Profolio" title={<>One baseline, <span>many stories.</span></>}
+          lede={<>A professional portfolio builder. Log your projects with real metrics once — then package tailored views for whoever you're talking to.</>}>
+          <div className="btnrow">
+            <a href="https://profolioapp.stevepeeleii.com/" target="_blank" rel="noreferrer" className="btn">
+              Try Profolio <ArrowUpRight size={14} />
+            </a>
+          </div>
+        </CtHero>
+
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">Why I built it</CtLabel>
+            <h2 className="shead">One resume for every audience is lazy.</h2>
+            <p className="lede dim" style={{ marginTop: 16 }}>I had a folder called "career stuff" — resumes from 2019, 2021, 2023, a nine-page master resume, cover letter templates with [COMPANY NAME] still in them. Every time I needed to send something, I'd stare at the folder and send the same generic PDF. Tailoring felt like a second job.</p>
+            <p className="lede dim" style={{ marginTop: 16 }}>The answer was never "more resumes." It's one source of truth, packaged per audience. A view is a named slice of your baseline: these three projects, these skills, this credential. Share it as a link — that's the whole story they get. Nothing is public until you share.</p>
+
+            <div className="ledger c2 rev" style={{ marginTop: 40 }}>
+              {features.map((f) => (
+                <div key={f} className="cell" style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <Check size={15} color="#FF4D00" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden="true" />
+                  <p className="body dim">{f}</p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 56 }}>
+              <CtLabel n="02">What&apos;s next</CtLabel>
+              <h2 className="shead">On the build queue</h2>
+              <div className="ledger rev">
+                {nextItems.map((item) => (
+                  <div key={item} className="cell">
+                    <p className="body">
+                      <span style={{ color: "var(--kin)", marginRight: 9 }}>—</span>
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ marginTop: 44 }}>
+              <div className="btnrow" style={{ marginTop: 0 }}>
+                <a href="https://profolioapp.stevepeeleii.com/" target="_blank" rel="noreferrer" className="btn">
+                  Open Profolio <ArrowUpRight size={14} />
+                </a>
+              </div>
+              <p className="mono" style={{ marginTop: 18, color: "var(--muted)" }}>Built by SPIIX.</p>
+              <p style={{ marginTop: 16 }}>
+                <Link to="/hacking/$appSlug/changelog" params={{ appSlug: "profolio" }} className="go" style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace", fontSize: 10, textTransform: "uppercase", letterSpacing: ".08em", textDecoration: "none" }}>
+                  Ship history →
+                </Link>
+              </p>
             </div>
           </div>
         </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          <p className="eyebrow">Why I built it</p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">One resume for every audience is lazy.</h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            I had a folder called "career stuff" — resumes from 2019, 2021, 2023, a nine-page master
-            resume, cover letter templates with [COMPANY NAME] still in them. Every time I needed to
-            send something, I'd stare at the folder and send the same generic PDF. Tailoring felt
-            like a second job.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            The answer was never "more resumes." It's one source of truth, packaged per audience. A
-            view is a named slice of your baseline: these three projects, these skills, this
-            credential. Share it as a link — that's the whole story they get. Nothing is public
-            until you share.
-          </p>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            {features.map((f) => (
-              <div key={f} className="panel flex items-start gap-3 p-5">
-                <Check className="mt-0.5 size-5 shrink-0 text-emerald-400" aria-hidden="true" />
-                <p className="text-sm text-muted-foreground">{f}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16">
-            <p className="eyebrow">What's next</p>
-            <h3 className="mt-4 text-2xl font-bold">On the build queue</h3>
-            <ul className="mt-6 space-y-3">
-              {[
-                "Public directory of published baselines",
-                "Baseline version history",
-                "PDF export of a baseline",
-                "Template gallery for baselines",
-                "AI baseline draft generator",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-16 text-center">
-            <a
-              href="https://profolioapp.stevepeeleii.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Open Profolio <ArrowUpRight className="size-4" />
-            </a>
-            <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
-          </div>
-        </section>
-        <div className="mx-auto max-w-4xl px-5 pb-2 text-center">
-          <Link
-            to="/hacking/$appSlug/changelog"
-            params={{ appSlug: "profolio" }}
-            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-          >
-            Ship history →
-          </Link>
-        </div>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

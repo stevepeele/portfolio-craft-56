@@ -1,9 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Music2 } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { Button } from "@/components/ui/button";
-import { MusicProjectCard } from "@/components/music-project-card";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { getMusicProject, musicProjects } from "@/data/music-projects";
 
 export const Route = createFileRoute("/music/")({
@@ -25,68 +22,138 @@ const PRACTICE_ITEMS = [
 function MusicPage() {
   const featured = getMusicProject("vacillantes")!;
   const rest = musicProjects.filter(p => p.slug !== "vacillantes");
-  return <div className="music-page"><SiteHeader /><main>
-    <section className="music-hero music-hero-type" data-reveal>
-      <div className="music-wrap music-hero-content">
-        <p className="music-kicker">STEVE PEELE II / GUITAR · SONGWRITING · PRODUCTION</p>
-        <h1>Music.</h1>
-        <p className="music-hero-line">Five projects.<br />One thread.</p>
-        <p className="music-hero-copy">Guitarist, songwriter, producer. The work speaks — pick a project and listen.</p>
-        <div className="music-hero-actions">
-          <Button asChild variant="ghost" className="music-action"><a href="#projects">The projects <ArrowRight /></a></Button>
-        </div>
-      </div>
-    </section>
+  return (
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Music" }]}>
+      <main>
+        <CtHero
+          file="06 / Music"
+          title={
+            <>
+              Music<span>.</span>
+            </>
+          }
+          lede={
+            <>
+              Five projects.
+              <br />
+              One thread.
+              <br />
+              <br />
+              Guitarist, songwriter, producer. The work speaks — pick a project and listen.
+            </>
+          }
+        >
+          <p className="mono" style={{ marginTop: 18, color: "var(--muted)" }}>
+            STEVE PEELE II / GUITAR · SONGWRITING · PRODUCTION
+          </p>
+          <div className="btnrow">
+            <a href="#projects" className="btn">
+              The projects <ArrowRight size={14} />
+            </a>
+          </div>
+        </CtHero>
 
-    <section id="projects" className="music-wrap music-projects" data-reveal>
-      <div className="music-section-label">
-        <span className="music-kicker">THE PROJECTS</span>
-        <span className="music-kicker">01—05</span>
-      </div>
+        <section id="projects" className="blk first" style={{ scrollMarginTop: 70 }}>
+          <div className="wrap">
+            <CtLabel n="01">The Projects</CtLabel>
+            <h2 className="shead">
+              Five projects. <span>01—05</span>
+            </h2>
 
-      <Link to={`/music/${featured.slug}`} className="music-feature" data-reveal>
-        <div className="music-feature-image">
-          <img src={featured.image} alt={`${featured.name} editorial artwork`} width={1200} height={800} loading="lazy" />
-          <span className="music-card-number">01</span>
-        </div>
-        <div className="music-feature-copy">
-          <p className="music-kicker">FEATURED / {featured.role.toUpperCase()}</p>
-          <h2>{featured.name}</h2>
-          <p className="music-feature-tagline">{featured.tagline}</p>
-          <p>{featured.bio}</p>
-          <span className="music-feature-link">Explore the project <ArrowUpRight /></span>
-        </div>
-      </Link>
+            <div className="ecard feat rev">
+              <img
+                src={featured.image}
+                alt={`${featured.name} editorial artwork`}
+                width={1200}
+                height={800}
+                loading="lazy"
+                style={{ width: "100%", height: "auto", display: "block", border: "1px solid var(--line)" }}
+              />
+              <p className="kicker" style={{ marginTop: 24 }}>
+                <b>01 · Featured / {featured.role}</b>
+              </p>
+              <h3>{featured.name}</h3>
+              <p style={{ color: "var(--text)", fontSize: 14 }}>{featured.tagline}</p>
+              <p>{featured.bio}</p>
+              <div className="btnrow">
+                <Link to={`/music/${featured.slug}`} className="btn">
+                  Explore the project <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
 
-      <div className="music-band-grid music-band-grid-4">
-        {rest.map((project, index) => (
-          <MusicProjectCard key={project.slug} project={project} index={index + 1} />
-        ))}
-      </div>
-      <p className="music-art-note">Project images are generated editorial artwork, not band photographs or official release covers.</p>
-    </section>
+            <div className="cards c4 rev stag" style={{ marginTop: 40 }}>
+              {rest.map((project, index) => (
+                <Link key={project.slug} to={`/music/${project.slug}`} className="card">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} editorial artwork`}
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    style={{ width: "100%", height: "auto", display: "block", border: "1px solid var(--line)" }}
+                  />
+                  <p className="ck" style={{ marginTop: 16 }}>
+                    0{index + 2} · {project.status === "Current" ? "ACTIVE" : "CREATIVE HISTORY"}
+                  </p>
+                  <h3 style={{ fontSize: 24 }}>{project.name}</h3>
+                  <p>{project.tagline}</p>
+                  <p>{project.role}</p>
+                  <span className="go">
+                    Open <ArrowUpRight size={12} style={{ verticalAlign: "-2px" }} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <p className="mono" style={{ marginTop: 22, color: "var(--muted)" }}>
+              Project images are generated editorial artwork, not band photographs or official release covers.
+            </p>
+          </div>
+        </section>
 
-    <section className="music-practice" data-reveal>
-      <div className="music-wrap">
-        <p className="music-kicker">A PARALLEL PRACTICE</p>
-        <h2>Not the other life. Part of the same one.</h2>
-        <p className="music-practice-lede">Music is not an aside to the professional story. It's another place where listening, judgment, experimentation, and collaboration have to become something real.</p>
-        <div className="music-practice-cols">
-          {PRACTICE_ITEMS.map(item => (
-            <article key={item.title}><Music2 /><h3>{item.title}</h3><p>{item.body}</p></article>
-          ))}
-        </div>
-      </div>
-    </section>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">A Parallel Practice</CtLabel>
+            <h2 className="shead">
+              Not the other life. <span>Part of the same one.</span>
+            </h2>
+            <p className="lede dim">
+              Music is not an aside to the professional story. It&apos;s another place where listening, judgment, experimentation, and collaboration have to become something real.
+            </p>
+            <div className="cards c3 rev stag" style={{ marginTop: 36 }}>
+              {PRACTICE_ITEMS.map(item => (
+                <article key={item.title} className="card">
+                  <p className="ck" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <Music2 size={14} color="#FF4D00" />
+                  </p>
+                  <h3 style={{ fontSize: 24 }}>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-    <section className="music-wrap music-contact music-contact-centered" data-reveal>
-      <p className="music-kicker">KEEP THE CONVERSATION GOING</p>
-      <h2>Music, work, or whatever connects them.</h2>
-      <div className="music-contact-actions">
-        <Button asChild variant="ghost" className="music-action"><Link to="/contact">Contact Steve <ArrowRight /></Link></Button>
-        <Link to="/work" className="music-text-link">Explore the portfolio <ArrowUpRight /></Link>
-        <Link to="/spiix" className="music-text-link">SPIIX <ArrowUpRight /></Link>
-      </div>
-    </section>
-  </main><SiteFooter /></div>;
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="03">Keep the Conversation Going</CtLabel>
+            <div className="ecard feat rev">
+              <h3>Music, work, or whatever connects them.</h3>
+              <div className="btnrow">
+                <Link to="/contact" className="btn">
+                  Contact Steve <ArrowRight size={14} />
+                </Link>
+                <Link to="/work" className="btn o">
+                  Explore the portfolio <ArrowUpRight size={14} />
+                </Link>
+                <Link to="/spiix" className="btn o">
+                  SPIIX <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </CtShell>
+  );
 }

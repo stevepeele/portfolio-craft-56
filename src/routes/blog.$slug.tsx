@@ -1,8 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { getPostBySlug, getRelatedPosts, getLatestPostsExcluding } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, sanityConfig, formatSanityDate } from "@/lib/sanity";
@@ -90,22 +89,23 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   component: BlogPostPage,
   notFoundComponent: () => (
-    <div className="blog-serif min-h-screen">
-      <SiteHeader />
-      <main className="mx-auto max-w-4xl px-5 py-24 text-center">
-        <h1 className="font-serif text-4xl font-medium">Article not found.</h1>
-        <p className="mt-4 text-muted-foreground">
-          This piece may have been unpublished or moved.
-        </p>
-        <Link
-          to="/blog"
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground"
-        >
-          <ArrowLeft className="size-4" /> Back to the blog
-        </Link>
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: "Not found" }]}>
+      <main>
+        <section className="blk first">
+          <div className="wrap" style={{ textAlign: "center", padding: "40px 0" }}>
+            <h1 className="shead">Article not found.</h1>
+            <p className="lede dim" style={{ margin: "0 auto" }}>
+              This piece may have been unpublished or moved.
+            </p>
+            <div className="btnrow" style={{ justifyContent: "center" }}>
+              <Link to="/blog" className="btn o">
+                <ArrowLeft size={14} /> Back to the blog
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   ),
 });
 
@@ -123,14 +123,11 @@ const portableComponents = {
           href={value?.url}
           target={external ? "_blank" : undefined}
           rel={external ? "noreferrer" : undefined}
-          className={
-            primary
-              ? "mr-3 mb-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              : "mr-3 mb-6 inline-flex items-center gap-2 rounded-full border border-input bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
-          }
+          className={primary ? "btn" : "btn o"}
+          style={{ marginRight: 12, marginBottom: 24 }}
         >
           {value?.text}
-          <ArrowUpRight className="size-4" />
+          <ArrowUpRight size={14} />
         </a>
       );
     },
@@ -142,7 +139,7 @@ const portableComponents = {
       const ref = value?.video?.asset?._ref;
       if (!ref) return null;
       return (
-        <figure className="my-10">
+        <figure>
           <video
             src={sanityFileUrl(ref)}
             controls={!value?.autoplay}
@@ -151,56 +148,28 @@ const portableComponents = {
             loop={value?.autoplay}
             playsInline
             preload="metadata"
-            className="w-full rounded-lg"
           />
-          {value?.caption && (
-            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-              {value.caption}
-            </figcaption>
-          )}
+          {value?.caption && <figcaption>{value.caption}</figcaption>}
         </figure>
       );
     },
     image: ({ value }: { value: { asset: { _ref: string }; alt?: string; caption?: string } }) => (
-      <figure className="my-10">
+      <figure>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={urlFor(value).width(1200).url()}
-          alt={value.alt || ""}
-          loading="lazy"
-          className="w-full rounded-lg"
-        />
-        {value.caption && (
-          <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-            {value.caption}
-          </figcaption>
-        )}
+        <img src={urlFor(value).width(1200).url()} alt={value.alt || ""} loading="lazy" />
+        {value.caption && <figcaption>{value.caption}</figcaption>}
       </figure>
     ),
   },
   block: {
-    h2: ({ children }: { children?: React.ReactNode }) => (
-      <h2 className="mt-12 font-serif text-3xl font-medium tracking-tight">{children}</h2>
-    ),
-    h3: ({ children }: { children?: React.ReactNode }) => (
-      <h3 className="mt-10 font-serif text-2xl font-medium tracking-tight">{children}</h3>
-    ),
-    h4: ({ children }: { children?: React.ReactNode }) => (
-      <h4 className="mt-8 text-xl font-semibold">{children}</h4>
-    ),
-    blockquote: ({ children }: { children?: React.ReactNode }) => (
-      <blockquote className="my-8 border-l-2 border-primary/40 pl-6 font-serif text-xl italic text-muted-foreground">
-        {children}
-      </blockquote>
-    ),
+    h2: ({ children }: { children?: React.ReactNode }) => <h2>{children}</h2>,
+    h3: ({ children }: { children?: React.ReactNode }) => <h3>{children}</h3>,
+    h4: ({ children }: { children?: React.ReactNode }) => <h4>{children}</h4>,
+    blockquote: ({ children }: { children?: React.ReactNode }) => <blockquote>{children}</blockquote>,
   },
   list: {
-    bullet: ({ children }: { children?: React.ReactNode }) => (
-      <ul className="my-6 list-disc space-y-2 pl-6">{children}</ul>
-    ),
-    number: ({ children }: { children?: React.ReactNode }) => (
-      <ol className="my-6 list-decimal space-y-2 pl-6">{children}</ol>
-    ),
+    bullet: ({ children }: { children?: React.ReactNode }) => <ul>{children}</ul>,
+    number: ({ children }: { children?: React.ReactNode }) => <ol>{children}</ol>,
   },
   marks: {
     link: ({
@@ -214,7 +183,6 @@ const portableComponents = {
         href={value?.href}
         target={value?.href?.startsWith("http") ? "_blank" : undefined}
         rel={value?.href?.startsWith("http") ? "noreferrer" : undefined}
-        className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
       >
         {children}
       </a>
@@ -225,32 +193,18 @@ const portableComponents = {
 function AuthorNote({ authorName }: { authorName?: string | undefined }) {
   const name = authorName || "Steve Peele II";
   return (
-    <div className="mt-12 rounded-lg border border-border bg-muted/40 p-6 sm:p-8">
-      <p className="font-display text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-        A note from the author
-      </p>
-      <p className="mt-4 font-serif text-lg leading-relaxed">
+    <div className="authornote">
+      <p className="flabel">A note from the author</p>
+      <p className="lead">
         Thanks for reading. If this sparked something — a question, a
         disagreement, a project idea — I want to hear it.
       </p>
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+      <p>
         The fastest way to reach me is{" "}
-        <a
-          href="mailto:steve@stevepeeleii.com"
-          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
-        >
-          steve@stevepeeleii.com
-        </a>
-        , or say hello through the{" "}
-        <Link
-          to="/contact"
-          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
-        >
-          contact page
-        </Link>
-        .
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        , or say hello through the <Link to="/contact">contact page</Link>.
       </p>
-      <p className="mt-4 font-serif text-lg italic">— {name}</p>
+      <p>— {name}</p>
     </div>
   );
 }
@@ -259,113 +213,79 @@ function BlogPostPage() {
   const { post, related } = Route.useLoaderData();
 
   return (
-    <div className="blog-serif min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: post.title }]}>
       <main>
-        <article className="mx-auto max-w-3xl px-5 py-14 sm:py-20">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" /> All articles
-          </Link>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3 text-xs">
-            {post.categories?.map((c: { slug: string; name: string }) => (
-              <Link
-                key={c.slug}
-                to="/blog/category/$slug"
-                params={{ slug: c.slug }}
-                className="rounded-full bg-primary/15 px-3 py-1 font-semibold text-foreground hover:bg-primary/25"
-              >
-                {c.name}
-              </Link>
-            ))}
-            {post.publishedAt && (
-              <span className="text-muted-foreground">
-                {formatSanityDate(post.publishedAt)}
-              </span>
-            )}
-            {post.author && (
-              <span className="text-muted-foreground">by {post.author.name}</span>
+        <CtHero file="04 / Blog" title={post.title} lede={post.excerpt || undefined}>
+          <div style={{ marginTop: 28 }}>
+            <Link to="/blog" className="backlink">
+              <ArrowLeft size={14} /> All articles
+            </Link>
+            <div className="tags" style={{ marginTop: 8 }}>
+              {post.categories?.map((c: { slug: string; name: string }) => (
+                <Link key={c.slug} to="/blog/category/$slug" params={{ slug: c.slug }} className="tag">
+                  {c.name}
+                </Link>
+              ))}
+              {post.publishedAt && <span className="tag">{formatSanityDate(post.publishedAt)}</span>}
+              {post.author && <span className="tag">by {post.author.name}</span>}
+            </div>
+            {post.mainImage && (
+              <figure style={{ marginTop: 36, border: "1px solid var(--line)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={urlFor(post.mainImage).width(1600).url()}
+                  alt={post.mainImage.alt || post.title}
+                  style={{ width: "100%", display: "block" }}
+                />
+              </figure>
             )}
           </div>
+        </CtHero>
 
-          <h1 className="mt-6 font-serif text-4xl font-medium leading-tight tracking-tight text-balance sm:text-5xl">
-            {post.title}
-          </h1>
+        <section className="blk first">
+          <div className="wrap">
+            <article>
+              {post.body && (
+                <div className="prose">
+                  <PortableText value={post.body as never} components={portableComponents} />
+                </div>
+              )}
 
-          {post.excerpt && (
-            <p className="mt-6 font-serif text-xl leading-relaxed text-muted-foreground italic">
-              {post.excerpt}
-            </p>
-          )}
-
-          {post.mainImage && (
-            <figure className="my-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={urlFor(post.mainImage).width(1600).url()}
-                alt={post.mainImage.alt || post.title}
-                className="w-full rounded-lg"
-              />
-            </figure>
-          )}
-
-          {post.body && (
-            <div className="prose-blog mt-8">
-              <PortableText value={post.body as never} components={portableComponents} />
-            </div>
-          )}
-
-          {post.tags && post.tags.length > 0 && (
-            <div className="mt-12 flex flex-wrap gap-2 border-t border-border pt-8">
-              {post.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-input px-3 py-1 text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <AuthorNote authorName={post.author?.name} />
-
-          {related && related.length > 0 && (
-            <div className="mt-12 border-t border-border pt-10">
-              <h3 className="font-display text-sm font-semibold tracking-widest text-muted-foreground uppercase">
-                Related reading
-              </h3>
-              <div className="mt-4 space-y-6">
-                {related.map((rel: SanityPostCard) => (
-                  <Link
-                    key={rel._id}
-                    to="/blog/$slug"
-                    params={{ slug: rel.slug }}
-                    className="group block"
-                  >
-                    <h4 className="font-serif text-xl font-medium transition-colors group-hover:text-primary">
-                      {rel.title}
-                    </h4>
-                    {rel.excerpt && (
-                      <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                        {rel.excerpt}
-                      </p>
-                    )}
-                    <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-foreground">
-                      Read{" "}
-                      <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              {post.tags && post.tags.length > 0 && (
+                <div className="tags" style={{ marginTop: 48, maxWidth: 720 }}>
+                  {post.tags.map((tag: string) => (
+                    <span key={tag} className="tag">
+                      {tag}
                     </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-        </article>
+                  ))}
+                </div>
+              )}
+
+              <AuthorNote authorName={post.author?.name} />
+
+              {related && related.length > 0 && (
+                <div style={{ marginTop: 64 }}>
+                  <CtLabel n="01">Related reading</CtLabel>
+                  <h2 className="shead">
+                    Related <span>reading</span>
+                  </h2>
+                  <div className="cards c3 rev stag">
+                    {related.map((rel: SanityPostCard) => (
+                      <Link key={rel._id} to="/blog/$slug" params={{ slug: rel.slug }} className="card">
+                        <h3 style={{ fontSize: 22 }}>{rel.title}</h3>
+                        {rel.excerpt && <p>{rel.excerpt}</p>}
+                        <span className="go">
+                          Read <ArrowUpRight size={12} style={{ verticalAlign: "-1px" }} />
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </article>
+          </div>
+        </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
