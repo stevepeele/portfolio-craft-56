@@ -1,9 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Quote } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { TeamAndOrg } from "@/components/team-and-org";
-import { capabilities, caseHighlights, experience, heroStats, profile, featuredRecommendations, workedWith } from "@/data/resume";
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import "@/styles/home-tower.css";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,301 +60,925 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+/* ------------------------------------------------------------------ */
+/* Control Tower homepage — precision port of the v3 mockup            */
+/* (~/workspace/main-site-redesign-sprint/mockup/index.html).           */
+/* Copy is frozen from the mockup; all behaviour lives in one effect.  */
+/* ------------------------------------------------------------------ */
+
+const CT_STATS: Array<[string, number, string, string, string]> = [
+  ["14+", 14, "", "+", "Years scaling SaaS & tech"],
+  ["$350M+", 350, "$", "M+", "Annual pipeline supported"],
+  ["$8M+", 8, "$", "M+", "Global budgets managed"],
+  ["55%", 55, "", "%", "Pipeline velocity increase"],
+  ["4", 4, "", "", "Exit-related outcomes"],
+];
+
+const CT_MINI: Array<[string, string]> = [
+  ["+30%", "Conversion rate lift"],
+  ["−20%", "Spend cut · EBTH"],
+  ["−25%", "Churn, cut before exit · Tixxy"],
+  ["+45%", "Campaign ROI · API Nation"],
+];
+
+const CT_CARDS: Array<[string, string, string, string]> = [
+  [
+    "Global Services · Acquired",
+    "Launch by NTT DATA",
+    "$350M+",
+    "Annual pipeline supported · 5+ regions integrated · 25% faster campaign execution. The operating system behind global campaigns.",
+  ],
+  [
+    "Real Estate Tech · Acquired by Zillow",
+    "Dotloop",
+    "~400%",
+    "User growth · 35% CAC reduction. Founding team — built marketing operations through hypergrowth to acquisition.",
+  ],
+  [
+    "Data Infrastructure",
+    "Astronomer",
+    "+60%",
+    "More qualified leads · 30% higher funnel conversion. Rapid experimentation across pricing, segmentation, and funnel stages.",
+  ],
+  [
+    "E-commerce · Fractional VP",
+    "Amify",
+    "$6M",
+    "Incremental revenue · 35% brand recognition lift · 15% lower acquisition cost. Company-wide repositioning paired with paid-media rigor.",
+  ],
+];
+
+const CT_NAMES = ["Twilio", "Intercom", "HubSpot", "Minute Suites", "Hoist Hydration"];
+
+const CT_PHASES: Array<[string, string, string, string[]]> = [
+  [
+    "C.01",
+    "Growth & GTM Strategy",
+    "Positioning, segmentation, and go-to-market plans that connect product value to the customers who feel the problem most.",
+    ["GTM Strategy", "Product Marketing", "Growth Strategy", "Customer-Centered Innovation"],
+  ],
+  [
+    "C.02",
+    "Demand Generation",
+    "Full-funnel demand programs across paid, search, content, and lifecycle that compound instead of spiking.",
+    ["Demand Generation", "ABM & Pipeline Acceleration", "Digital Advertising (Google, Meta)", "SEO / SEM"],
+  ],
+  [
+    "C.03",
+    "Marketing Operations",
+    "The systems, data, and automation layer that makes reporting trustworthy and execution fast.",
+    ["Scalable Marketing Operations", "CRM & Automation (HubSpot, Salesforce, Marketo)", "Data Analytics", "Full-Funnel Optimization"],
+  ],
+  [
+    "C.04",
+    "Leadership",
+    "Building high-performing teams and aligning marketing, product, and sales around one revenue number.",
+    ["Leadership & Team Building", "Cross-Functional Alignment", "Customer Lifecycle Programs", "Revenue Growth Management"],
+  ],
+];
+
+const CT_ROLES: Array<[string, string, string, string, string]> = [
+  [
+    "06/2020 – Present",
+    "Launch by NTT DATA",
+    "formerly Nexient",
+    "Head of Marketing Operations & Global Integration Lead",
+    "$350M+ pipeline, $8M+ budget at 4:1 ROI, execution velocity +25% across 5+ regions.",
+  ],
+  [
+    "01/2021 – 03/2022",
+    "Amify",
+    "",
+    "Fractional VP of Marketing & Organizational Repositioning Lead",
+    "Company-wide repositioning — $6M incremental revenue, 35% brand recognition lift, acquisition cost −15%.",
+  ],
+  [
+    "12/2020 – 12/2023",
+    "Tixxy",
+    "Acquired",
+    "Founder & Head of Growth",
+    "$1M+ ARR in Year 1, 300% user growth, positioned for $7M acquisition. Churn cut 25%.",
+  ],
+  [
+    "04/2017 – 12/2019",
+    "Astronomer",
+    "",
+    "Director of Growth Experimentation",
+    "Rapid pricing, segmentation and funnel experiments — 60% more qualified leads, 30% higher conversion.",
+  ],
+  [
+    "08/2009 – 02/2016",
+    "Dotloop",
+    "Acquired by Zillow Group",
+    "Marketing Operations Manager",
+    "Built marketing infrastructure from early startup through acquisition — 400%+ user growth, CAC −35%.",
+  ],
+];
+
+const CT_LOOP: Array<[string, string, string]> = [
+  ["L.01", "Think", "The thesis, the audience, the bet. That's mine."],
+  ["L.02", "Build", "Segments, sequences, and systems inside the tools I already run."],
+  ["L.03", "Ship", "QA built in. Every claim checked before it goes."],
+  ["L.04", "Measure", "Pipeline read as it moves."],
+  ["L.05", "Learn", "Every result sets up the next test."],
+];
+
+const CT_ENGAGE: Array<[string, string, string, string, string, boolean, string]> = [
+  [
+    "ENG.01 / The GTM Audit",
+    "The Lens",
+    "A fixed-scope, five-day diagnostic. Find the constraint, rank the fixes, and leave with an actionable plan.",
+    "Starts within 5 business days",
+    "Highest-leverage fix, ranked by impact vs. effort",
+    false,
+    "https://stevepeeleii.com/spiix",
+  ],
+  [
+    "ENG.02 / Fractional Advisory",
+    "The Engine",
+    "Ongoing operating judgment for founders and marketing leaders. Review decisions, align execution, and keep the commercial system accountable.",
+    "Limited engagements — request availability",
+    "A growth engine that holds up under pressure",
+    true,
+    "https://stevepeeleii.com/spiix",
+  ],
+  [
+    "ENG.03 / Mentorship",
+    "The Catalyst",
+    "Direct 1:1 mentorship for founders and marketing leaders. Work through real decisions and build the judgment to make the next one.",
+    "Limited 1:1 availability",
+    "The operator's edge, built in real time",
+    false,
+    "https://stevepeeleii.com/spiix",
+  ],
+];
+
+const NAV_LINKS: Array<[string, string]> = [
+  ["#record", "01 Record"],
+  ["#levers", "02 Levers"],
+  ["#timeline", "03 Timeline"],
+  ["#operation", "04 Operation"],
+  ["#ways", "05 Ways in"],
+];
+
+const MOBILE_LINK_STYLE = {
+  padding: "11px 0",
+  borderTop: "1px solid var(--line)",
+  font: "500 11px 'JetBrains Mono',monospace",
+  textTransform: "uppercase",
+  color: "var(--muted)",
+  textDecoration: "none",
+} as const;
+
 function Home() {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const $ = <T extends Element>(s: string) => root.querySelector<T>(s);
+    const $$ = <T extends Element>(s: string) => [...root.querySelectorAll<T>(s)];
+
+    /* (a) reveal-hiding stays gated behind the js class, exactly like the mockup */
+    root.classList.add("js");
+
+    /* the mockup's html{scroll-behavior:smooth}, applied to the document
+       for the life of this route and restored on unmount */
+    const docEl = document.documentElement;
+    const prevScrollBehavior = docEl.style.scrollBehavior;
+    if (!REDUCED) docEl.style.scrollBehavior = "smooth";
+
+    /* (b) live counter — starts at 331.000, ticks upward slowly */
+    let counterTimer: number | undefined;
+    if (!REDUCED) {
+      let v = 331;
+      counterTimer = window.setInterval(() => {
+        v += 0.037;
+        const el = $("#counter");
+        if (el) el.textContent = v.toFixed(3);
+      }, 1100);
+    }
+
+    /* (c) count-up stats when visible */
+    const rafIds = new Set<number>();
+    const countUp = (el: HTMLElement) => {
+      const n = Number(el.dataset["n"]);
+      const pre = el.dataset["pre"] || "";
+      const suf = el.dataset["suf"] || "";
+      if (REDUCED || !n) return;
+      const t0 = performance.now();
+      const tick = (t: number) => {
+        const p = Math.min((t - t0) / 1100, 1);
+        const val = Math.round(n * (1 - Math.pow(1 - p, 3)));
+        el.textContent = pre + val + suf;
+        if (p < 1) {
+          const id = requestAnimationFrame(tick);
+          rafIds.add(id);
+        }
+      };
+      const first = requestAnimationFrame(tick);
+      rafIds.add(first);
+    };
+
+    /* (d) IntersectionObserver reveals (FIG.01 line-draw / bars fire off .vis in CSS) */
+    const io = new IntersectionObserver(
+      (es) =>
+        es.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("vis");
+            e.target.querySelectorAll<HTMLElement>("[data-n]").forEach(countUp);
+            io.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.15 },
+    );
+    $$(".rev").forEach((el) => io.observe(el));
+    const io2 = new IntersectionObserver(
+      (es) =>
+        es.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.querySelectorAll<HTMLElement>("[data-n]").forEach(countUp);
+            io2.unobserve(e.target);
+          }
+        }),
+      { threshold: 0.4 },
+    );
+    const statsEl = $("#stats");
+    if (statsEl) io2.observe(statsEl);
+
+    /* (f) C.01–C.04 pipeline accordion — one open at a time, inert on collapsed */
+    const phaseHandlers: Array<[HTMLButtonElement, () => void]> = [];
+    $$<HTMLElement>(".phase").forEach((ph) => {
+      const btn = ph.querySelector<HTMLButtonElement>(".ptog");
+      if (!btn) return;
+      const onClick = () => {
+        $$<HTMLElement>(".phase").forEach((x) => {
+          x.classList.remove("open");
+          const st = x.querySelector(".st");
+          if (st) st.textContent = "Standby";
+          x.querySelector(".ptog")?.setAttribute("aria-expanded", "false");
+          const panel = x.querySelector<HTMLElement>(".pexp > div");
+          if (panel) panel.inert = true;
+        });
+        ph.classList.add("open");
+        const st = ph.querySelector(".st");
+        if (st) st.textContent = "Active";
+        btn.setAttribute("aria-expanded", "true");
+        const panel = ph.querySelector<HTMLElement>(".pexp > div");
+        if (panel) panel.inert = false;
+      };
+      btn.addEventListener("click", onClick);
+      phaseHandlers.push([btn, onClick]);
+    });
+
+    /* (h) mobile MENU toggle */
+    const mb = $<HTMLButtonElement>("#mnavbtn");
+    const mn = $<HTMLElement>("#mnav");
+    const onMenuClick = () => {
+      if (!mb || !mn) return;
+      const open = mn.hidden;
+      mn.hidden = !open;
+      mb.setAttribute("aria-expanded", String(open));
+    };
+    const onMenuNavClick = (e: Event) => {
+      if (!mb || !mn) return;
+      if ((e.target as HTMLElement).closest("a")) {
+        mn.hidden = true;
+        mb.setAttribute("aria-expanded", "false");
+      }
+    };
+    if (mb) mb.addEventListener("click", onMenuClick);
+    if (mn) mn.addEventListener("click", onMenuNavClick);
+
+    /* (g) L.01–L.05 loop steps lighting in sequence */
+    let loopTimer: number | undefined;
+    if (!REDUCED) {
+      const steps = $$("#loop > div");
+      let i = 0;
+      loopTimer = window.setInterval(() => {
+        steps.forEach((s, j) => s.classList.toggle("on", j === i));
+        i = (i + 1) % steps.length;
+      }, 1400);
+    }
+
+    /* (i) scroll progress bar + timeline pulse */
+    const tl = $<HTMLElement>("#tl");
+    const pulse = $<HTMLElement>("#tlpulse");
+    const prog = $<HTMLElement>("#prog");
+    const onScroll = () => {
+      const h = document.documentElement;
+      if (prog) prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      if (tl && pulse) {
+        const r = tl.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const p = Math.min(Math.max((vh * 0.55 - r.top) / r.height, 0), 1);
+        pulse.style.top = p * (r.height - 14) + "px";
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      root.classList.remove("js");
+      docEl.style.scrollBehavior = prevScrollBehavior;
+      if (counterTimer !== undefined) window.clearInterval(counterTimer);
+      if (loopTimer !== undefined) window.clearInterval(loopTimer);
+      rafIds.forEach((id) => cancelAnimationFrame(id));
+      io.disconnect();
+      io2.disconnect();
+      phaseHandlers.forEach(([btn, fn]) => btn.removeEventListener("click", fn));
+      if (mb) mb.removeEventListener("click", onMenuClick);
+      if (mn) mn.removeEventListener("click", onMenuNavClick);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
-      <main>
-
-      <section className="hero-surface relative overflow-hidden">
-        <div className="mx-auto max-w-4xl px-5 py-24 text-center sm:py-32">
-          <p className="eyebrow">{profile.location} · Available for fractional & full-time leadership</p>
-          <h1 className="mt-6 text-5xl leading-[1.02] font-bold sm:text-6xl md:text-7xl">
-            Growth marketing that
-            <br />
-            <span className="text-gradient">builds real pipeline.</span>
-          </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-lg text-muted-foreground">
-            I'm Steve Peele II — a growth marketing leader and operator with 14+ years connecting
-            strategy, people, technology, data, creative, and execution for SaaS and tech companies.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="btn-primary">
-              Let's Talk <ArrowRight className="size-4" />
-            </Link>
-            <Link to="/work" className="btn-ghost">
-              See the work
-            </Link>
-            <Link to="/fractional-growth-advisory" className="btn-ghost">
-              Explore growth advisory
-            </Link>
+    <div className="ct-home" ref={rootRef}>
+      <div id="prog"></div>
+      <header>
+        <div className="wrap hbar">
+          <div className="logo">
+            STEVE PEELE <span>II</span>
           </div>
-        </div>
-      </section>
-
-      <section className="border-y border-border/60 bg-surface/40">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 py-12 md:grid-cols-4">
-          {heroStats.map((s) => (
-            <div key={s.label} className="px-3 text-center">
-              <p className="font-display text-3xl font-bold sm:text-4xl">{s.value}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+          <nav>
+            {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <div className="pill">
+              <i></i>Signal · Listening
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section aria-label="Companies Steve has worked with" className="border-b border-border/60">
-        <div className="mx-auto max-w-6xl px-5 pt-10">
-          <p className="text-center text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-            Where I've done the work
-          </p>
-        </div>
-        <div className="logo-marquee overflow-hidden py-8 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-          <div className="logo-marquee-track flex w-max items-center gap-14 pr-14">
-            {workedWith.map((name) => (
-              <span
-                key={name}
-                className="font-display text-lg font-semibold whitespace-nowrap text-muted-foreground/70 transition-colors hover:text-foreground"
-              >
-                {name}
-              </span>
-            ))}
-            {workedWith.map((name) => (
-              <span
-                key={`dup-${name}`}
-                aria-hidden="true"
-                className="font-display text-lg font-semibold whitespace-nowrap text-muted-foreground/70 transition-colors hover:text-foreground"
-              >
-                {name}
-              </span>
-            ))}
+            <button
+              id="mnavbtn"
+              aria-expanded="false"
+              aria-controls="mnav"
+              style={{
+                background: "none",
+                border: "1px solid var(--line)",
+                color: "var(--text)",
+                font: "600 10px 'JetBrains Mono',monospace",
+                padding: "8px 11px",
+                cursor: "pointer",
+              }}
+            >
+              MENU
+            </button>
           </div>
         </div>
-      </section>
+        <div id="mnav" hidden style={{ borderTop: "1px solid var(--line)", padding: "10px 20px 16px" }}>
+          <nav style={{ display: "grid", gap: 2 }} aria-label="Mobile">
+            {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href} style={MOBILE_LINK_STYLE}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <p className="eyebrow">Proven results</p>
-        <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
-          Real pipeline. Real revenue. Real exits.
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {caseHighlights.map((c) => (
-            <article key={c.company} className="panel flex flex-col p-7">
-              <div className="flex flex-wrap items-center gap-3">
-                <h3 className="font-display text-2xl font-bold">{c.company}</h3>
-                {c.acquired && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-raised px-2.5 py-1 text-xs font-semibold text-muted-foreground">
-                    <BadgeCheck className="size-3.5" />
-                    Acquired
-                  </span>
-                )}
+      <main>
+        {/* S.01 HERO */}
+        <div className="hero">
+          <div className="scan"></div>
+          <svg className="rings" viewBox="0 0 240 240" aria-hidden="true">
+            <circle className="r1" cx="120" cy="120" r="12" />
+            <circle className="r2" cx="120" cy="120" r="12" />
+            <circle className="r3" cx="120" cy="120" r="12" />
+            <circle cx="120" cy="120" r="5" fill="#FF4D00" stroke="none" />
+          </svg>
+          <div className="wrap hero-in">
+            <p className="kicker rise r1">
+              / Growth marketing leader · Operator ·{" "}
+              <b>Available for fractional &amp; full-time leadership</b>
+            </p>
+            <h1 className="mark">
+              STEVE
+              <br />
+              <span className="l2">PEELE II</span>
+            </h1>
+            <div className="hero-grid">
+              <div>
+                <h2 className="rise r1">
+                  Growth marketing that builds <span>real pipeline.</span>
+                </h2>
+                <p className="lede rise r2">
+                  I&apos;m Steve Peele II — a growth marketing leader and operator with 14+ years
+                  connecting strategy, people, technology, data, creative, and execution for SaaS
+                  and tech companies.
+                </p>
+                <div className="ctas rise r3">
+                  <a className="btn" href="https://meet.stevepeeleii.com">
+                    Book a call →
+                  </a>
+                  <a className="btn o" href="#record">
+                    Read the record →
+                  </a>
+                </div>
               </div>
-              <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                {c.metrics.map((m) => (
-                  <div key={m.label}>
-                    <p className="font-display text-xl font-bold text-gradient sm:text-2xl">{m.value}</p>
-                    <p className="mt-1 text-xs leading-snug text-muted-foreground sm:text-sm">{m.label}</p>
+              <div className="live rise r4">
+                <span className="dot"></span>
+                <p className="kicker">
+                  <b>/ Live — Signal pulse</b>
+                </p>
+                <strong id="counter">331.000</strong>
+                <p>Illustrative activity counter · not a result. The record below is the result.</p>
+              </div>
+            </div>
+            <div className="stats rise r4" id="stats">
+              {CT_STATS.map(([label, n, pre, suf, caption]) => (
+                <div key={caption}>
+                  <strong data-n={n} data-pre={pre} data-suf={suf}>
+                    {label}
+                  </strong>
+                  <span>{caption}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <svg className="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,32 L80,32 L104,14 L128,50 L152,32 L320,32 L344,20 L368,44 L392,32 L640,32 L664,10 L688,54 L712,32 L960,32 L984,22 L1008,42 L1032,32 L1440,32" />
+          </svg>
+        </div>
+
+        {/* S.02 RECORD */}
+        <section id="record">
+          <div className="wrap">
+            <div className="slabel">
+              <span>01</span>
+              <i></i>The record / Velocity ledger
+            </div>
+            <h2 className="shead">
+              Velocity, measured.
+              <br />
+              Not claimed.
+            </h2>
+            <div className="ledger rev">
+              <div className="cell">
+                <p className="flabel">Fig.01 / Pipeline trajectory · 2009—2025 · Schematic</p>
+                <svg
+                  viewBox="0 0 520 220"
+                  style={{ width: "100%", marginTop: 16 }}
+                  role="img"
+                  aria-label="Schematic pipeline trajectory ending at $350M+ annual pipeline"
+                >
+                  <defs>
+                    <linearGradient id="afill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stopColor="#FF4D00" stopOpacity=".22" />
+                      <stop offset="1" stopColor="#FF4D00" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <g stroke="#232326" strokeDasharray="3 5">
+                    <line x1="30" y1="40" x2="500" y2="40" />
+                    <line x1="30" y1="100" x2="500" y2="100" />
+                    <line x1="30" y1="160" x2="500" y2="160" />
+                  </g>
+                  <path d="M30,185 L120,174 L210,152 L300,120 L390,80 L500,34 L500,196 L30,196 Z" fill="url(#afill)" />
+                  <g fill="#808080" fontSize="8.5" fontFamily="monospace">
+                    <text x="2" y="43">
+                      $350M
+                    </text>
+                    <text x="2" y="103">
+                      $175M
+                    </text>
+                    <text x="8" y="163">
+                      $0
+                    </text>
+                  </g>
+                  <path
+                    className="cline"
+                    pathLength={1}
+                    d="M30,185 L120,174 L210,152 L300,120 L390,80 L500,34"
+                    fill="none"
+                    stroke="#FF4D00"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="500" cy="34" r="4" fill="#FF4D00">
+                    <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;.5;1" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <g fill="#9a9aa3" fontSize="9" fontFamily="monospace">
+                    <text x="30" y="208">
+                      2009
+                    </text>
+                    <text x="255" y="208">
+                      2017
+                    </text>
+                    <text x="468" y="208">
+                      2025
+                    </text>
+                    <text x="440" y="24">
+                      $350M+ / YR
+                    </text>
+                  </g>
+                </svg>
+                <p className="fnote">
+                  Trajectory is schematic — the endpoint is the sourced figure: $350M+ annual
+                  pipeline supported at Launch by NTT DATA.
+                </p>
+              </div>
+              <div className="cell">
+                <p className="flabel">Fig.02 / Velocity by engagement</p>
+                <div className="bars">
+                  <div className="bar">
+                    <div>
+                      <span>Inman — organic traffic</span>
+                      <span>+70%</span>
+                    </div>
+                    <div className="track">
+                      <i style={{ width: "70%" }}></i>
+                    </div>
+                  </div>
+                  <div className="bar">
+                    <div>
+                      <span>Astronomer — qualified leads</span>
+                      <span>+60%</span>
+                    </div>
+                    <div className="track">
+                      <i style={{ width: "60%" }}></i>
+                    </div>
+                  </div>
+                  <div className="bar">
+                    <div>
+                      <span>API Nation — inbound demand</span>
+                      <span>+50%</span>
+                    </div>
+                    <div className="track">
+                      <i style={{ width: "50%" }}></i>
+                    </div>
+                  </div>
+                  <div className="bar">
+                    <div>
+                      <span>EBTH — new-user growth</span>
+                      <span>+50%</span>
+                    </div>
+                    <div className="track">
+                      <i style={{ width: "50%" }}></i>
+                    </div>
+                  </div>
+                </div>
+                <div className="callout">
+                  <span className="mono">Dotloop / User growth</span>
+                  <strong>400%+</strong>
+                </div>
+              </div>
+            </div>
+            <div className="mini rev stag" id="mini">
+              {CT_MINI.map(([value, caption]) => (
+                <div key={caption}>
+                  <strong>{value}</strong>
+                  <span>{caption}</span>
+                </div>
+              ))}
+            </div>
+            <div className="cgrid rev stag" id="cards">
+              {CT_CARDS.map(([sector, company, metric, body]) => (
+                <article className="ccard" key={company}>
+                  <p>{sector}</p>
+                  <h3>{company}</h3>
+                  <strong>{metric}</strong>
+                  <span>{body}</span>
+                </article>
+              ))}
+            </div>
+            <div className="marq" aria-hidden="true">
+              <div className="trk" id="marq">
+                {[0, 1].map((copy) => (
+                  <div
+                    key={copy}
+                    style={{ display: "flex", gap: 12, paddingRight: 12 }}
+                    aria-hidden={copy === 1 ? true : undefined}
+                  >
+                    {CT_NAMES.map((n) => (
+                      <span key={n}>{n}</span>
+                    ))}
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-border/60 bg-surface/40">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <p className="eyebrow">What I do</p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
-            Four levers I pull to move revenue.
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {capabilities.map((c) => (
-              <div key={c.title} className="panel p-7">
-                <h3 className="font-display text-xl font-bold">{c.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {c.items.map((i) => (
-                    <li
-                      key={i}
-                      className="rounded-full bg-surface-raised px-3 py-1 text-xs text-muted-foreground"
-                    >
-                      {i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="about" className="scroll-mt-24 border-y border-border/60 bg-surface/40">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:py-28 lg:grid-cols-[1fr_1.1fr]">
-          <div>
-            <p className="eyebrow">Home / About Steve</p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              Growth is a system, <span className="text-gradient">not a campaign.</span>
+        {/* S.03 LEVERS */}
+        <section id="levers">
+          <div className="wrap">
+            <div className="slabel">
+              <span>02</span>
+              <i></i>What I do / The blueprint
+            </div>
+            <h2 className="shead">
+              Four levers.
+              <br />
+              Same order every time.
             </h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">
-              I've spent 14+ years helping SaaS, tech, and growth-stage companies build the systems
-              behind acquisition, retention, and revenue. I move between strategy, tools, data,
-              campaigns, and people — and I'm comfortable doing the actual work. These days the work
-              runs on an AI operating layer — research, builds, and reporting at machine speed —
-              while the calls that matter stay mine.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">
-              I'm also a lifelong musician. Bands taught me most of what I know about teams,
-              launches, and reading a room.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/work" className="btn-ghost">See the work <ArrowRight className="size-4" /></Link>
-              <Link to="/music" className="btn-ghost">Explore music</Link>
-              <Link to="/ai" className="btn-ghost">How I work with AI <ArrowRight className="size-4" /></Link>
-            </div>
-          </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Strategy without execution is just a document.",
-              "Execution without strategy is just activity.",
-              "Good systems make good work easier.",
-              "Technology should reduce friction, not create it.",
-              "Data matters when it improves decisions.",
-              "The goal is not to do more marketing. The goal is to make marketing matter.",
-            ].map((q) => (
-              <li key={q} className="panel p-5 font-display text-base leading-snug font-semibold">{q}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <TeamAndOrg />
-
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <p className="eyebrow">Ways to work with me</p>
-        <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
-          Three ways in, depending on what you need.
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <article className="panel flex flex-col p-7">
-            <h3 className="font-display text-2xl font-bold">SPIIX strategic operating system</h3>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              Strategic advisory, operating diagnostics, and mentorship for founders and leaders
-              building a growth engine that has to hold up under pressure.
-            </p>
-             <Link to="/fractional-growth-advisory" className="btn-ghost mt-6 w-fit">
-               Explore fractional advisory <ArrowRight className="size-4" />
-            </Link>
-          </article>
-          <article className="panel flex flex-col p-7">
-            <h3 className="font-display text-2xl font-bold">Find the constraint</h3>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              Compare a GTM audit, embedded fractional advisory, and private mentorship through one
-              operating framework.
-            </p>
-            <Link to="/spiix/compare" className="btn-ghost mt-6 w-fit">
-              Compare engagements <ArrowRight className="size-4" />
-            </Link>
-          </article>
-          <article className="panel flex flex-col p-7">
-            <h3 className="font-display text-2xl font-bold">Music</h3>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              Guitar for ColdHarbour and a long run with Vacillantes. Same discipline, louder —
-              and open to collaborations, shows, and shop talk.
-            </p>
-            <Link to="/music" className="btn-ghost mt-6 w-fit">
-              Explore the music <ArrowRight className="size-4" />
-            </Link>
-          </article>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Career track</p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Where I've done the work.</h2>
-          </div>
-          <Link to="/work" hash="experience" className="btn-ghost">
-            Full experience <ArrowRight className="size-4" />
-          </Link>
-        </div>
-        <div className="mt-12 divide-y divide-border border-y border-border">
-          {experience.slice(0, 5).map((e) => (
-            <div
-              key={e.company}
-              className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between"
+            <svg
+              className="pipe rev"
+              viewBox="0 0 560 54"
+              role="img"
+              aria-label="Pipeline diagram: strategy feeds demand, demand feeds operations, operations feed leadership"
             >
+              <path className="flow" d="M118,27 L162,27 M258,27 L302,27 M398,27 L442,27" />
+              <g>
+                <rect className="node" x="2" y="6" width="116" height="42" />
+                <text x="16" y="31">
+                  C.01 Strategy
+                </text>
+              </g>
+              <g>
+                <rect className="node" x="162" y="6" width="96" height="42" />
+                <text x="176" y="31">
+                  C.02 Demand
+                </text>
+              </g>
+              <g>
+                <rect className="node" x="302" y="6" width="96" height="42" />
+                <text x="316" y="31">
+                  C.03 Ops
+                </text>
+              </g>
+              <g>
+                <rect className="node" x="442" y="6" width="116" height="42" />
+                <text x="456" y="31">
+                  C.04 Leadership
+                </text>
+              </g>
+            </svg>
+            <div id="phases">
+              {CT_PHASES.map(([code, name, body, items], i) => (
+                <div className={i === 0 ? "phase open" : "phase"} key={code}>
+                  <button
+                    className="ptog"
+                    aria-expanded={i === 0}
+                    aria-controls={`px-${i}`}
+                  >
+                    <span className="n">{code}</span>
+                    <span>
+                      <strong>{name}</strong>
+                      <small>Lever 0{i + 1} / 04</small>
+                    </span>
+                    <span className="st">{i === 0 ? "Active" : "Standby"}</span>
+                  </button>
+                  <div className="pexp" id={`px-${i}`}>
+                    <div inert={i !== 0}>
+                      <p>{body}</p>
+                      <ul>
+                        {items.map((x) => (
+                          <li key={x}>
+                            <span>▸</span>
+                            {x}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* S.04 TIMELINE */}
+        <section id="timeline">
+          <div className="wrap">
+            <div className="slabel">
+              <span>03</span>
+              <i></i>The timeline / Career file
+            </div>
+            <h2 className="shead">Where I&apos;ve done the work.</h2>
+            <div className="tl" id="tl">
+              <span className="pulse" id="tlpulse"></span>
+              {CT_ROLES.map(([when, company, note, role, body]) => (
+                <article key={company}>
+                  <span className="when">{when}</span>
+                  <h3>
+                    {company}
+                    {note ? <em>{note}</em> : null}
+                  </h3>
+                  <div className="role">{role}</div>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+            <p style={{ marginTop: 6 }}>
+              <a className="btn o" href="https://stevepeeleii.com/work">
+                Full record →
+              </a>
+            </p>
+          </div>
+        </section>
+
+        {/* S.05 OPERATION */}
+        <section id="operation">
+          <div className="wrap">
+            <div className="slabel">
+              <span>04</span>
+              <i></i>How I work / The operation
+            </div>
+            <h2 className="shead">
+              The judgment is mine.
+              <br />
+              The tools make it faster.
+            </h2>
+            <div className="split rev">
               <div>
-                <p className="font-display text-lg font-bold">
-                  {e.company}
-                  {e.note ? (
-                    <span className="ml-2 text-xs font-normal text-muted-foreground">({e.note})</span>
-                  ) : null}
-                </p>
-                <p className="text-sm text-muted-foreground">{e.role}</p>
+                <h3>Stays with me</h3>
+                <dl>
+                  <div>
+                    <dt>Judgment</dt>
+                    <dd>Knowing which lever moves the number, and which ones are theater.</dd>
+                  </div>
+                  <div>
+                    <dt>ICP instinct</dt>
+                    <dd>Fourteen years of pattern recognition on who buys, who churns, and why.</dd>
+                  </div>
+                  <div>
+                    <dt>Positioning</dt>
+                    <dd>The angle that makes a market stop and care.</dd>
+                  </div>
+                  <div>
+                    <dt>Accountability</dt>
+                    <dd>My name is on the work, and the work answers to me.</dd>
+                  </div>
+                </dl>
               </div>
-              <p className="text-sm whitespace-nowrap text-muted-foreground">{e.period}</p>
+              <div>
+                <h3>Gets faster</h3>
+                <dl>
+                  <div>
+                    <dt>Research</dt>
+                    <dd>Market and customer reading compressed into briefs I can check in an afternoon.</dd>
+                  </div>
+                  <div>
+                    <dt>Data hygiene</dt>
+                    <dd>CRM pulls, dedupe, enrichment, cleanup across HubSpot, Salesforce, Marketo.</dd>
+                  </div>
+                  <div>
+                    <dt>Drafts &amp; QA</dt>
+                    <dd>Several angles drafted so the best one wins. Claims checked before anything ships.</dd>
+                  </div>
+                  <div>
+                    <dt>Reporting</dt>
+                    <dd>Dashboards read as they move, not at month end.</dd>
+                  </div>
+                </dl>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-border/60 bg-surface/40">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="eyebrow">LinkedIn recommendations</p>
-              <h2 className="mt-4 max-w-2xl text-3xl font-bold sm:text-4xl">
-                What leaders and teammates say.
-              </h2>
+            <div className="loop" id="loop">
+              {CT_LOOP.map(([code, name, body]) => (
+                <div key={code}>
+                  <b>{code}</b>
+                  <h4>{name}</h4>
+                  <p>{body}</p>
+                </div>
+              ))}
             </div>
-            <Link to="/work" hash="recommendations" className="btn-ghost">
-              See all recommendations <ArrowRight className="size-4" />
-            </Link>
+            <div className="stack rev stag">
+              <div>
+                <span>
+                  <span className="who">Steve</span>
+                  <span className="fn">Director</span>
+                </span>
+                <span></span>
+                <p>
+                  Sets the direction, makes the calls, holds the North Star. Everything here runs
+                  on his judgment.
+                </p>
+              </div>
+              <div>
+                <span>
+                  <span className="who">Lauren</span>
+                  <span className="fn">COO ⚡</span>
+                </span>
+                <span></span>
+                <p>
+                  The one who carries. Strategy, triage, shipping — every outcome lands with her
+                  before it leaves.
+                </p>
+              </div>
+              <div>
+                <span>
+                  <span className="who">Oscar</span>
+                  <span className="fn">The operation</span>
+                </span>
+                <span></span>
+                <p>
+                  The execution engine — builds, outreach, engagement — with workers beneath.
+                  Parses what comes in, routes it down, hands back finished work.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuredRecommendations.map((r) => (
-              <figure key={r.name} className="panel flex flex-col p-7">
-                <Quote className="size-6 text-primary" aria-hidden="true" />
-                <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  "{r.quote}"
+        </section>
+
+        {/* S.06 WAYS IN */}
+        <section id="ways">
+          <div className="wrap">
+            <div className="slabel">
+              <span>05</span>
+              <i></i>Engage / Ways in
+            </div>
+            <h2 className="shead">
+              Three ways in.
+              <br />
+              One filter for qualified work.
+            </h2>
+            <div className="egrid rev stag" id="engage">
+              {CT_ENGAGE.map(([code, name, body, availability, kpi, feat, href]) => (
+                <article className={feat ? "ecard feat" : "ecard"} key={code}>
+                  <p className="kicker">{feat ? <b>{code}</b> : code}</p>
+                  <h3 className="disp">{name}</h3>
+                  <p>{body}</p>
+                  <dl>
+                    <div>
+                      <dt>Availability</dt>
+                      <dd>{availability}</dd>
+                    </div>
+                    <div>
+                      <dt>Primary KPI</dt>
+                      <dd>{kpi}</dd>
+                    </div>
+                  </dl>
+                  <a className={feat ? "btn" : "btn o"} href={href}>
+                    Get the signal →
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* S.07 SIGNALS */}
+        <section>
+          <div className="wrap">
+            <div className="slabel">
+              <span>06</span>
+              <i></i>Signals / What leaders say
+            </div>
+            <div className="qgrid rev stag">
+              <article>
+                <div className="qm">“</div>
+                <blockquote>
+                  Steve is a seasoned growth and operations leader. He designs and executes
+                  strategies that drive measurable growth while optimizing the full marketing
+                  engine — email, paid media, social, and web — with rare discipline.
                 </blockquote>
-                <figcaption className="mt-6 border-t border-border pt-5">
-                  <p className="font-display text-base font-bold">{r.name}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{r.title}</p>
-                  <p className="mt-1 text-xs text-muted-foreground/70">{r.relationship}</p>
-                </figcaption>
-              </figure>
-            ))}
+                <h4>Jacob Bonta</h4>
+                <p>Revenue Operations &amp; Strategy Consultant · worked with Steve on the same team</p>
+              </article>
+              <article>
+                <div className="qm">“</div>
+                <blockquote>
+                  Steve pairs deep marketing operations expertise with genuine leadership. He
+                  collaborates across teams, removes friction, and consistently turns plans into
+                  shipped results.
+                </blockquote>
+                <h4>Morgan McLintic</h4>
+                <p>Firebrand — PR and Marketing Agency for Tech Brands · Steve was Morgan&apos;s client</p>
+              </article>
+              <article>
+                <div className="qm">“</div>
+                <blockquote>
+                  Steve is the rare marketing leader built for what&apos;s next — a strategic thinker
+                  whose command of modern marketing is heads and shoulders above the rest.
+                </blockquote>
+                <h4>Dan Pesta</h4>
+                <p>Narrative-Focused Communications Leader · worked with Steve on different teams</p>
+              </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="hero-surface border-t border-border/60">
-        <div className="mx-auto max-w-3xl px-5 py-24 text-center">
-          <h2 className="text-4xl font-bold sm:text-5xl">Need a growth engine that lasts?</h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-            Whether it's a fractional engagement or a full-time leadership seat, let's talk about the
-            number you need to hit.
-          </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="btn-primary">
-              Let's Talk <ArrowRight className="size-4" />
-            </Link>
-            <Link to="/spiix/connect" className="btn-ghost">
-              Send SPIIX a signal
-            </Link>
-            <a href={`mailto:${profile.email}`} className="btn-ghost">
-              {profile.email}
+        {/* S.08 DIRECT LINE */}
+        <section id="direct" className="direct">
+          <div className="wrap">
+            <div className="slabel">
+              <span>07</span>
+              <i></i>Direct line
+            </div>
+            <h2 className="rev">
+              Bring the hard problem.<span className="u-line"></span>
+            </h2>
+            <div className="crow">
+              <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+              <a href="tel:5135050624">513.505.0624</a>
+              <span>Cincinnati · OH</span>
+            </div>
+            <a className="btn" href="https://meet.stevepeeleii.com">
+              Book a call →
             </a>
           </div>
-        </div>
-      </section>
-
+        </section>
       </main>
-      <SiteFooter />
+      <footer>
+        <div className="wrap">
+          <span className="mono">Steve Peele II — Growth marketing leader, operator &amp; musician</span>
+          <span className="mono">Mockup v3 · Control Tower · Staging only</span>
+        </div>
+      </footer>
     </div>
   );
 }
