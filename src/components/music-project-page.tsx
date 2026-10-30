@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { CtShell } from "@/components/ct-shell";
 import { Button } from "@/components/ui/button";
 import { MusicEmbedRow } from "@/components/music-embed-row";
 import { MusicTracklist } from "@/components/music-tracklist";
@@ -11,7 +10,8 @@ import { musicProjects, type MusicProject } from "@/data/music-projects";
 export function MusicProjectPage({ project }: { project: MusicProject }) {
   const others = musicProjects.filter(p => p.slug !== project.slug);
   return (
-    <div className="music-page" style={{ "--mu-accent": project.accent } as CSSProperties}><SiteHeader /><main>
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Music", to: "/music" }, { label: project.name }]}>
+    <div className="music-page" style={{ "--mu-accent": project.accent } as CSSProperties}><main>
       <section className="music-wrap music-proj-hero" data-reveal>
         <Link to="/music" className="music-back"><ArrowLeft /> All projects</Link>
         <div className="music-proj-head">
@@ -83,6 +83,7 @@ export function MusicProjectPage({ project }: { project: MusicProject }) {
           <Button asChild variant="ghost" className="music-action"><Link to="/contact">Contact Steve <ArrowRight /></Link></Button>
         </div>
       </section>
-    </main><SiteFooter /></div>
+    </main></div>
+    </CtShell>
   );
 }

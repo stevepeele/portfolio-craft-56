@@ -1,7 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { createFileRoute } from "@tanstack/react-router";
+import { CtShell, CtHero } from "@/components/ct-shell";
 import { ValidationBeat, ValidationAutoOpen } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 
@@ -26,31 +24,28 @@ export const Route = createFileRoute("/hacking/progress")({
 
 function ProgressPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Live board" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / Progress</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              The <span className="text-gradient">build board.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Every project, one glance. Synced straight from Linear.
-            </p>
-          </div>
-        </section>
+        <CtHero
+          file="05 / Building — Live board"
+          title={
+            <>
+              The <span>build board.</span>
+            </>
+          }
+          lede="Every project, one glance. Synced straight from Linear."
+        />
 
-        <section className="mx-auto max-w-6xl px-5 py-20">
-          <LinearDashboard />
+        <section className="blk first">
+          <div className="wrap">
+            <div className="legacy">
+              <LinearDashboard />
+            </div>
+          </div>
         </section>
         <ValidationBeat />
         <ValidationAutoOpen />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

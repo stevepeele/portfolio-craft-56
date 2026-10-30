@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { getFeaturedPost, getLatestPosts } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
@@ -60,10 +59,7 @@ function findCrossPostedSources(title: string, items: { title: string; source: s
 function CrossPostedBadge({ sources }: { sources: string[] }) {
   if (sources.length === 0) return null;
   return (
-    <span
-      title="This piece is also published on another platform"
-      className="rounded-full border border-border/70 px-3 py-1 font-semibold text-muted-foreground"
-    >
+    <span title="This piece is also published on another platform" className="badge">
       Also on {sources.join(" + ")}
     </span>
   );
@@ -81,64 +77,49 @@ function PostCard({ post, external }: { post: SanityPostCard; external: External
   const crossPosted = findCrossPostedSources(post.title, external);
   const isNew = isNewPost(post.publishedAt);
   const isHot = post.featured === true;
+  const metaParts: string[] = [];
+  if (post.publishedAt) metaParts.push(formatSanityDate(post.publishedAt));
+  if (post.categories?.length) metaParts.push(post.categories.map((c) => c.name).join(" · "));
+  if (post.author?.name) metaParts.push(`by ${post.author.name}`);
   return (
-    <Link
-      to="/blog/$slug"
-      params={{ slug: post.slug }}
-      className="group flex gap-5 border-t border-border py-8"
-    >
-      {post.mainImage && (
-        <div className="hidden w-40 shrink-0 sm:block">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+    <Link to="/blog/$slug" params={{ slug: post.slug }} className="row">
+      <span className="rk">
+        {metaParts.join("  ·  ")}
+        {isNew && (
+          <>
+            {"  "}
+            <b>New</b>
+          </>
+        )}
+        {isHot && (
+          <>
+            {"  "}
+            <b>Hot</b>
+          </>
+        )}
+        {crossPosted.length > 0 && (
+          <>
+            {"  "}
+            <CrossPostedBadge sources={crossPosted} />
+          </>
+        )}
+      </span>
+      <span>
+        {post.mainImage && (
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
             alt={post.mainImage.alt || post.title}
             loading="lazy"
-            className="aspect-[4/3] w-full rounded-lg object-cover"
+            style={{ width: 160, aspectRatio: "4 / 3", objectFit: "cover", display: "block", border: "1px solid var(--line)", marginBottom: 12 }}
           />
-        </div>
-      )}
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          {isNew && (
-            <span className="rounded-full bg-green-500/15 px-3 py-1 font-bold text-green-700 dark:text-green-400 uppercase tracking-wide">
-              New
-            </span>
-          )}
-          {isHot && (
-            <span className="rounded-full bg-orange-500/15 px-3 py-1 font-bold text-orange-700 dark:text-orange-400 uppercase tracking-wide">
-              Hot
-            </span>
-          )}
-          {post.categories?.map((c) => (
-            <span
-              key={c.slug}
-              className="rounded-full bg-primary/15 px-3 py-1 font-semibold text-foreground"
-            >
-              {c.name}
-            </span>
-          ))}
-          {post.publishedAt && (
-            <span className="text-muted-foreground">{formatSanityDate(post.publishedAt)}</span>
-          )}
-          {post.author?.name && (
-            <span className="text-muted-foreground">by {post.author.name}</span>
-          )}
-          <CrossPostedBadge sources={crossPosted} />
-        </div>
-        <h2 className="mt-3 font-serif text-2xl font-medium tracking-tight text-balance transition-colors group-hover:text-primary">
-          {post.title}
-        </h2>
-        {post.excerpt && (
-          <p className="mt-2 text-muted-foreground leading-relaxed line-clamp-2">
-            {post.excerpt}
-          </p>
         )}
-        <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-          Read{" "}
-          <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </span>
-      </div>
+        <h3>{post.title}</h3>
+        {post.excerpt && <p>{post.excerpt}</p>}
+      </span>
+      <span className="rgo">
+        Read <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+      </span>
     </Link>
   );
 }
@@ -161,23 +142,14 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
       })
     : "";
   return (
-    <a
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block rounded-lg border border-border/50 bg-muted/30 px-4 py-3 transition-colors hover:border-border hover:bg-muted/50"
-    >
-      <div className="flex items-center gap-2 text-[11px] font-medium tracking-wide text-muted-foreground uppercase">
-        <span>Also on {item.source}</span>
-        {date && <span>·</span>}
-        {date && <span>{date}</span>}
-      </div>
-      <h4 className="mt-1.5 text-sm font-medium leading-snug text-foreground/90 transition-colors group-hover:text-primary line-clamp-2">
-        {item.title}
-      </h4>
-      <span className="mt-1.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
-        Read on {item.source}{" "}
-        <ExternalLink className="size-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    <a href={item.link} target="_blank" rel="noopener noreferrer" className="card">
+      <p className="ck">
+        Also on {item.source}
+        {date && <> · {date}</>}
+      </p>
+      <h3 style={{ fontSize: 20 }}>{item.title}</h3>
+      <span className="go">
+        Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
       </span>
     </a>
   );
@@ -211,108 +183,87 @@ function BlogIndexPage() {
     : (posts as SanityPostCard[]);
 
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
-            <p className="eyebrow">Blog</p>
-            <h1 className="mt-5 font-serif text-5xl font-medium tracking-tight text-balance sm:text-6xl">
-              Notes on growth, systems,{" "}
-              <em className="text-gradient not-italic sm:italic">and building.</em>
-            </h1>
-            <p className="mt-6 max-w-2xl font-serif text-lg text-muted-foreground italic sm:text-xl">
-              Essays and working notes on growth marketing, operations, and the craft of
-              building companies.
-            </p>
-          </div>
-        </section>
+        <CtHero
+          file="04 / Blog"
+          title={
+            <>
+              Notes on growth, systems, <span>and building.</span>
+            </>
+          }
+          lede="Essays and working notes on growth marketing, operations, and the craft of building companies."
+        />
 
-        <section className="mx-auto max-w-4xl px-5 py-14 sm:py-20">
-          {posts.length === 0 && (
-            <div className="py-20 text-center">
-              <h2 className="font-serif text-3xl font-medium">Nothing published yet.</h2>
-              <p className="mt-4 text-muted-foreground">Check back soon.</p>
-            </div>
-          )}
+        <section className="blk first">
+          <div className="wrap">
+            {posts.length === 0 && (
+              <div style={{ padding: "40px 0", textAlign: "center" }}>
+                <h2 className="shead">Nothing published yet.</h2>
+                <p className="lede dim">Check back soon.</p>
+              </div>
+            )}
 
-          {featured && (
-            <Link
-              to="/blog/$slug"
-              params={{ slug: featured.slug }}
-              className="group block border-y border-border py-10 sm:py-14"
-            >
-              <div className="flex flex-wrap items-center gap-3 text-xs">
-                <span className="rounded-full bg-primary/15 px-3 py-1 font-semibold text-foreground">
-                  Featured
-                </span>
-                {featured.publishedAt && (
-                  <span className="text-muted-foreground">
-                    {formatSanityDate(featured.publishedAt)}
+            {featured && (
+              <>
+                <CtLabel n="01">Featured</CtLabel>
+                <Link to="/blog/$slug" params={{ slug: featured.slug }} className="ecard feat rev" style={{ display: "block", textDecoration: "none" }}>
+                  <p className="kicker">
+                    <b>Featured</b>
+                    {featured.publishedAt && <> · {formatSanityDate(featured.publishedAt)}</>}
+                    {"  "}
+                    <CrossPostedBadge sources={findCrossPostedSources(featured.title, externalItems)} />
+                  </p>
+                  {featured.mainImage && (
+                    <div style={{ marginTop: 20, overflow: "hidden", border: "1px solid var(--line)" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
+                        alt={featured.mainImage.alt || featured.title}
+                        style={{ width: "100%", aspectRatio: "16 / 8", objectFit: "cover", display: "block" }}
+                      />
+                    </div>
+                  )}
+                  <h3>{featured.title}</h3>
+                  {featured.excerpt && <p>{featured.excerpt}</p>}
+                  <span className="go" style={{ font: "500 9.5px 'JetBrains Mono', monospace", color: "var(--kin)", textTransform: "uppercase", display: "inline-block", marginTop: 16 }}>
+                    Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
                   </span>
-                )}
-                <CrossPostedBadge
-                  sources={findCrossPostedSources(featured.title, externalItems)}
-                />
-              </div>
-              {featured.mainImage && (
-                <div className="mt-6 overflow-hidden rounded-lg">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
-                    alt={featured.mainImage.alt || featured.title}
-                    className="aspect-[16/8] w-full object-cover"
-                  />
+                </Link>
+              </>
+            )}
+
+            {rest.length > 0 && (
+              <div style={{ marginTop: featured ? 56 : 0 }}>
+                <CtLabel n={featured ? "02" : "01"}>All articles</CtLabel>
+                <h2 className="shead">
+                  All <span>articles</span>
+                </h2>
+                <div className="rows rev">
+                  {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
+                    <PostCard key={post._id} post={post} external={externalItems} />
+                  ))}
                 </div>
-              )}
-              <h2 className="mt-6 font-serif text-4xl font-medium leading-tight tracking-tight text-balance transition-colors group-hover:text-primary sm:text-5xl">
-                {featured.title}
-              </h2>
-              {featured.excerpt && (
-                <p className="mt-6 max-w-3xl font-serif text-lg leading-relaxed text-muted-foreground">
-                  {featured.excerpt}
-                </p>
-              )}
-              <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                Read the article{" "}
-                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
-            </Link>
-          )}
-
-          {rest.length > 0 && (
-            <div className="mt-12">
-              <h3 className="font-display text-sm font-semibold tracking-widest text-muted-foreground uppercase">
-                All articles
-              </h3>
-              <div className="mt-2">
-                {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
-                  <PostCard key={post._id} post={post} external={externalItems} />
-                ))}
               </div>
-            </div>
-          )}
+            )}
 
-          {externalItems.length > 0 && (
-            <div className="mt-16 border-t border-border/40 pt-10">
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-display text-xs font-medium tracking-widest text-muted-foreground/70 uppercase">
-                  Elsewhere
-                </h3>
-                <p className="text-xs text-muted-foreground/60">
+            {externalItems.length > 0 && (
+              <div style={{ marginTop: 64 }}>
+                <CtLabel n={featured ? "03" : "02"}>Elsewhere</CtLabel>
+                <h2 className="shead">Elsewhere</h2>
+                <p className="lede dim" style={{ marginBottom: 28 }}>
                   Recent notes from Substack &amp; Medium
                 </p>
+                <div className="cards c2 rev stag">
+                  {externalItems.map((item) => (
+                    <ExternalFeedCard key={item.id} item={item} />
+                  ))}
+                </div>
               </div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {externalItems.map((item) => (
-                  <ExternalFeedCard key={item.id} item={item} />
-                ))}
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

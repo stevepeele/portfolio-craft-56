@@ -1,0 +1,317 @@
+/* Control Tower core framework — generalized from the homepage system
+   (src/styles/home-tower.css, SPIIX-1114) for every remaining nav page
+   (SPIIX-1142). All rules scoped under .ctw. Same tokens, same motion
+   grammar, same numbered-file wayfinding as the homepage. */
+.ctw{--bg:#09090B;--panel:#111113;--line:#232326;--text:#F2F2F2;--muted:#808080;--kin:#FF4D00;--tint:rgba(255,77,0,.07)}
+.ctw *{box-sizing:border-box}
+.ctw :where(*:not(.music-page):not(.music-page *)){margin:0;padding:0}
+/* The music project system keeps its own spacing rules (styles.css);
+   the framework reset must not flatten its class paddings/margins.
+   :where() keeps the reset at floor specificity so every tower
+   component rule in this file still wins on order. */
+.ctw{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;font-size:15px;min-height:100vh}
+.ctw ::selection{background:var(--kin);color:#09090B}
+.ctw .wrap{width:calc(100% - 40px);margin:0 auto;max-width:1240px}
+.ctw .mono{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}
+.ctw .kicker{font:500 10px/1.9 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ctw .kicker b{color:var(--kin);font-weight:500}
+.ctw h1,.ctw h2.disp,.ctw h3.disp{font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;line-height:.98}
+.ctw a{color:inherit}
+.ctw :focus-visible{outline:2px solid var(--kin);outline-offset:3px}
+.ctw img{max-width:100%}
+.ctw .prog{position:fixed;top:0;left:0;height:2px;background:var(--kin);width:0;z-index:99;box-shadow:0 0 12px rgba(255,77,0,.7)}
+.ctw .prog:after{content:"";position:absolute;right:0;top:-1px;width:5px;height:4px;background:#fff;box-shadow:0 0 10px rgba(255,77,0,.9)}
+
+/* ---------- Site header / nav ---------- */
+.ctw header.site{position:fixed;inset:0 0 auto;z-index:90;background:rgba(9,9,11,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.ctw .hbar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.ctw .logo{font-weight:900;font-size:16px;letter-spacing:.03em;white-space:nowrap;text-decoration:none;font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase}
+.ctw .logo span{color:var(--kin)}
+.ctw nav.main{display:none}
+.ctw .pill{border:1px solid var(--line);padding:7px 10px;font:500 8.5px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ctw .pill i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--kin);margin-right:7px;animation:ctw-blink 1.6s infinite}
+@keyframes ctw-blink{50%{opacity:.2}}
+.ctw .btn.talk{display:none}
+.ctw .menubtn{background:none;border:1px solid var(--line);color:var(--text);font:600 10px "JetBrains Mono",monospace;padding:8px 11px;cursor:pointer;text-transform:uppercase}
+.ctw .mnav{border-top:1px solid var(--line);padding:10px 20px 16px;background:rgba(9,9,11,.97)}
+.ctw .mnav a,.ctw .mnav button.mgroup{display:flex;width:100%;padding:11px 0;border-top:1px solid var(--line);font:500 11px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none;background:none;border-left:0;border-right:0;border-bottom:0;cursor:pointer;text-align:left;align-items:center;justify-content:space-between}
+.ctw .mnav a.on{color:var(--kin)}
+.ctw .mnav .msub{padding-left:14px;border-left:1px solid var(--line);margin:2px 0 8px}
+.ctw .mnav .msub a{border-top:0;padding:8px 0;font-size:10px}
+.ctw .mnav .mhead{font:500 9px "JetBrains Mono",monospace;color:var(--kin);text-transform:uppercase;letter-spacing:.1em;padding:12px 0 2px}
+/* Building dropdown (desktop) */
+.ctw .ddwrap{position:relative}
+.ctw .ddpanel{position:absolute;left:50%;top:100%;transform:translateX(-50%);width:320px;padding-top:12px;z-index:95}
+.ctw .ddpanel .ddbox{border:1px solid var(--line);background:#0C0C0E;padding:10px 0;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.ctw .ddpanel .ddg{font:500 9px "JetBrains Mono",monospace;color:var(--kin);text-transform:uppercase;letter-spacing:.1em;padding:10px 18px 4px}
+.ctw .ddpanel a{display:flex;justify-content:space-between;gap:10px;padding:8px 18px;text-decoration:none;font:500 10px "JetBrains Mono",monospace!important;text-transform:uppercase;color:var(--muted)}
+.ctw .ddpanel a:hover{color:var(--text);background:var(--tint)}
+.ctw .ddpanel a small{display:block;font:400 9px Inter,sans-serif;text-transform:none;color:var(--muted);margin-top:3px;letter-spacing:0}
+.ctw .ddpanel a .dot{margin-top:5px}
+.ctw .dot{display:inline-block;width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.ctw .dot.live{background:#34d399}.ctw .dot.building{background:#fbbf24}.ctw .dot.soon{background:#38bdf8}
+
+/* ---------- Breadcrumb bar ---------- */
+.ctw .crumbs{border-bottom:1px solid var(--line);margin-top:56px}
+.ctw .crumbs .wrap{display:flex;align-items:center;gap:8px;padding-top:10px;padding-bottom:10px;font:500 9.5px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
+.ctw .crumbs a{color:var(--muted);text-decoration:none}
+.ctw .crumbs a:hover{color:var(--kin)}
+.ctw .crumbs .cur{color:var(--text)}
+.ctw .crumbs .sep{color:var(--kin)}
+
+/* ---------- Page hero ---------- */
+.ctw .phero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:118px 0 56px}
+.ctw .crumbs + main .phero,.ctw .crumbs ~ main .phero{padding-top:64px}
+.ctw .phero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.13;mask-image:linear-gradient(180deg,#000,transparent 92%)}
+.ctw .phero .scan{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.ctw .phero .scan:before{content:"";position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(180deg,transparent,rgba(255,77,0,.05),transparent);animation:ctw-scan 7s linear infinite}
+@keyframes ctw-scan{to{transform:translateY(120vh)}}
+.ctw .phero-in{position:relative;z-index:1}
+.ctw .phero .kicker{display:block;margin-bottom:24px}
+.ctw .ptitle{font-size:clamp(44px,10.5vw,84px);font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;line-height:.96;animation:ctw-mark .6s cubic-bezier(.2,.8,.2,1) both}
+.ctw .ptitle span{color:var(--kin)}
+@keyframes ctw-mark{from{clip-path:inset(100% 0 0);opacity:0;transform:translateY(25px)}to{clip-path:inset(0);opacity:1;transform:none}}
+.ctw .plede{font-size:14.5px;line-height:1.9;margin-top:24px;max-width:640px;color:var(--text)}
+.ctw .plede.dim{color:var(--muted)}
+.ctw .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.ctw .btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;background:var(--kin);color:#09090B;font:700 11px "JetBrains Mono",monospace;text-transform:uppercase;padding:13px 20px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);border:0;cursor:pointer}
+.ctw .btn:hover{box-shadow:0 0 22px rgba(255,77,0,.45)}
+.ctw .btn.o{background:transparent;color:var(--text);border:1px solid var(--line)}
+.ctw .btn.o:hover{border-color:var(--kin);box-shadow:none}
+.ctw .btn.sm{min-height:40px;padding:10px 16px;font-size:10px}
+.ctw .backlink{display:inline-flex;align-items:center;gap:8px;font:500 10px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:28px}
+.ctw .backlink:hover{color:var(--kin)}
+
+/* ---------- Sections ---------- */
+.ctw section.blk{padding:76px 0;border-top:1px solid var(--line);position:relative}
+.ctw section.blk.first{border-top:0}
+.ctw .slabel{display:flex;align-items:center;gap:12px;color:var(--muted);margin-bottom:30px;font:500 10px "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.1em}
+.ctw .slabel span{color:var(--kin)}
+.ctw .slabel i{height:1px;width:28px;background:var(--line)}
+.ctw .shead{font-size:clamp(34px,8.5vw,58px);margin-bottom:32px;font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;line-height:.98}
+.ctw .shead span{color:var(--kin)}
+.ctw .lede{font-size:13.5px;line-height:1.9;max-width:640px}
+.ctw .lede.dim,.ctw .dim{color:var(--muted)}
+.ctw .body{font-size:13.5px;line-height:1.85}
+.ctw .body.dim{color:var(--muted)}
+
+/* ---------- Ledger grids / cells / cards ---------- */
+.ctw .ledger{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .cell{background:var(--bg);padding:22px;min-width:0}
+.ctw .cell.panelbg{background:var(--panel)}
+.ctw .flabel{font:500 9px/1.8 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase}
+.ctw .flabel b{color:var(--kin);font-weight:500}
+.ctw .cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .card{background:var(--bg);padding:26px;outline:1px solid transparent;transition:outline-color .2s;min-width:0}
+.ctw .card:hover{outline-color:var(--kin);position:relative;z-index:1}
+.ctw a.card{text-decoration:none;display:block}
+.ctw .card .ck{font:400 9px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;line-height:1.8}
+.ctw .card h3{font-size:27px;margin:12px 0 8px;font-weight:900;text-transform:uppercase;font-family:"Big Shoulders Display",sans-serif;line-height:1.02}
+.ctw .card h3.grad{background:linear-gradient(120deg,var(--text),var(--muted) 55%,var(--text));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ctw .card .big{font:500 20px "JetBrains Mono",monospace;color:var(--kin);display:block}
+.ctw .card p{font-size:12.5px;color:var(--muted);line-height:1.8;margin-top:8px}
+.ctw .card .go{font:500 9.5px "JetBrains Mono",monospace;color:var(--kin);text-transform:uppercase;display:inline-block;margin-top:16px}
+.ctw .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .statgrid>div{padding:18px 16px;background:var(--bg)}
+.ctw .statgrid strong{display:block;font-size:27px;font-weight:900;font-family:"Big Shoulders Display",sans-serif;font-variant-numeric:tabular-nums}
+.ctw .statgrid strong em{font-style:normal;color:var(--kin)}
+.ctw .statgrid span{display:block;font:400 8.5px/1.7 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;margin-top:6px}
+.ctw .mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .mini>div{padding:20px;background:var(--bg)}
+.ctw .mini strong{font-size:24px;display:block;font-variant-numeric:tabular-nums}
+.ctw .mini span{display:block;font:400 8.5px/1.8 "JetBrains Mono",monospace;color:var(--muted);margin-top:7px;text-transform:uppercase}
+
+/* ---------- Rows (blog index, status log, track lists) ---------- */
+.ctw .rows{border:1px solid var(--line)}
+.ctw .row{display:grid;gap:6px;padding:20px 22px;border-top:1px solid var(--line);text-decoration:none;background:var(--bg);transition:background .2s}
+.ctw .row:first-child{border-top:0}
+.ctw a.row:hover{background:var(--tint)}
+.ctw .row .rk{font:500 9px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.ctw .row .rk b{color:var(--kin);font-weight:500}
+.ctw .row h3{font-size:23px;font-weight:900;text-transform:uppercase;font-family:"Big Shoulders Display",sans-serif;line-height:1.05}
+.ctw .row p{font-size:12.5px;color:var(--muted);line-height:1.75}
+.ctw .row .rgo{font:500 9.5px "JetBrains Mono",monospace;color:var(--kin);text-transform:uppercase}
+
+/* ---------- Tags / chips ---------- */
+.ctw .tags{display:flex;flex-wrap:wrap;gap:8px}
+.ctw .tag{border:1px solid var(--line);padding:7px 11px;font:500 9px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.ctw a.tag:hover,.ctw .tag.on{border-color:var(--kin);color:var(--text)}
+.ctw .badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--kin);color:var(--kin);padding:3px 7px;font:500 8.5px "JetBrains Mono",monospace;text-transform:uppercase;white-space:nowrap}
+
+/* ---------- Split / timeline / accordion (homepage patterns) ---------- */
+.ctw .split{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .split>div{background:var(--bg);padding:26px}
+.ctw .split h3{font:700 11px "JetBrains Mono",monospace;color:var(--kin);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.ctw .split dl div{padding:12px 0;border-top:1px solid var(--line)}
+.ctw .split dl div:first-child{border-top:0;padding-top:4px}
+.ctw .split dt{font-weight:700;font-size:14px}
+.ctw .split dd{font-size:12px;color:var(--muted);line-height:1.7;margin-top:3px}
+.ctw .tl{position:relative;margin-left:6px;padding-left:30px}
+.ctw .tl:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line)}
+.ctw .tl article{position:relative;padding:0 0 30px}
+.ctw .tl article:before{content:"";position:absolute;left:-34px;top:7px;width:7px;height:7px;background:var(--bg);border:2px solid var(--kin)}
+.ctw .tl .when{font:500 10px "JetBrains Mono",monospace;color:var(--kin)}
+.ctw .tl h3{font-size:24px;font-weight:900;text-transform:uppercase;margin:7px 0 2px;font-family:"Big Shoulders Display",sans-serif}
+.ctw .tl h3 em{font-style:normal;font-size:9px;color:var(--kin);border:1px solid var(--kin);padding:3px 6px;vertical-align:middle;margin-left:8px;font-family:"JetBrains Mono",monospace;white-space:nowrap}
+.ctw .tl .role{font-size:12px}
+.ctw .tl p{font-size:12.5px;color:var(--muted);line-height:1.8;margin-top:7px;max-width:640px}
+.ctw .tl ul{list-style:none;margin-top:10px;display:grid;gap:7px}
+.ctw .tl li{font-size:12.5px;color:var(--muted);line-height:1.7}
+.ctw .tl li span{color:var(--kin);margin-right:9px}
+.ctw .phase{border:1px solid var(--line);margin-top:-1px;background:var(--bg)}
+.ctw .phase.open{border-color:var(--kin);background:var(--tint);position:relative}
+.ctw .ptog{display:grid;grid-template-columns:30px 1fr auto;gap:12px;width:100%;min-height:56px;padding:18px;background:none;border:0;color:var(--text);text-align:left;cursor:pointer;align-items:center}
+.ctw .ptog .n{font:500 10px "JetBrains Mono",monospace;color:var(--muted)}
+.ctw .phase.open .n,.ctw .phase.open .st{color:var(--kin)}
+.ctw .ptog strong{display:block;font-size:21px;font-weight:900;text-transform:uppercase;font-family:"Big Shoulders Display",sans-serif;line-height:1.05}
+.ctw .ptog small{font:400 8.5px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted)}
+.ctw .ptog .st{font:500 9px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase}
+.ctw .pexp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s}
+.ctw .phase.open .pexp{grid-template-rows:1fr}
+.ctw .pexp>div{overflow:hidden}
+.ctw .pexp p{padding:2px 18px 0;font-size:13px;line-height:1.8}
+.ctw .pexp ul{padding:14px 18px 20px;list-style:none;display:grid;gap:9px}
+.ctw .pexp li{font-size:12px;color:var(--muted)}
+.ctw .pexp li span{color:var(--kin);margin-right:9px}
+
+/* ---------- Engage cards / quote cells ---------- */
+.ctw .egrid{display:grid;gap:14px}
+.ctw .ecard{border:1px solid var(--line);padding:26px;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%);background:var(--panel)}
+.ctw .ecard.feat{border-color:var(--kin);background:var(--tint)}
+.ctw .ecard h3{font-size:30px;margin:14px 0 10px;font-family:"Big Shoulders Display",sans-serif;text-transform:uppercase;font-weight:900;line-height:1}
+.ctw .ecard p{font-size:13px;color:var(--muted);line-height:1.8}
+.ctw .ecard dl{margin:20px 0;display:grid;gap:10px}
+.ctw .ecard dt{font:500 9px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase}
+.ctw .ecard dd{font-size:12px;line-height:1.6}
+.ctw .qgrid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ctw .qgrid article{background:var(--bg);padding:26px}
+.ctw .qgrid .qm{font-size:38px;color:var(--kin);line-height:.8}
+.ctw .qgrid blockquote{font-size:13.5px;line-height:1.85;margin:14px 0 18px}
+.ctw .qgrid h4{font:600 11px "JetBrains Mono",monospace;text-transform:uppercase}
+.ctw .qgrid p{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.6}
+
+/* ---------- Prose (blog article body) ---------- */
+.ctw .prose{max-width:720px;font-size:15.5px;line-height:1.9;color:#D8D8D8}
+.ctw .prose p{margin:0 0 26px}
+.ctw .prose h2{font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;font-size:34px;line-height:1.05;margin:52px 0 18px;color:var(--text)}
+.ctw .prose h3{font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;font-size:26px;line-height:1.08;margin:42px 0 14px;color:var(--text)}
+.ctw .prose h4{font-size:17px;font-weight:700;margin:34px 0 12px;color:var(--text)}
+.ctw .prose ul,.ctw .prose ol{margin:0 0 26px;padding-left:22px;display:grid;gap:8px}
+.ctw .prose li{line-height:1.8}
+.ctw .prose li::marker{color:var(--kin)}
+.ctw .prose a{color:var(--text);text-decoration:underline;text-decoration-color:rgba(255,77,0,.5);text-underline-offset:4px}
+.ctw .prose a:hover{text-decoration-color:var(--kin);color:var(--kin)}
+.ctw .prose strong{color:var(--text)}
+.ctw .prose blockquote{border-left:2px solid var(--kin);padding:4px 0 4px 22px;margin:34px 0;font-size:17px;line-height:1.8;color:var(--muted)}
+.ctw .prose figure{margin:38px 0}
+.ctw .prose figure img,.ctw .prose figure video{width:100%;display:block;border:1px solid var(--line)}
+.ctw .prose figcaption{font:400 9.5px/1.7 "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;text-align:center;margin-top:12px}
+.ctw .prose code{font:500 12.5px "JetBrains Mono",monospace;background:var(--panel);border:1px solid var(--line);padding:2px 6px}
+.ctw .prose pre{background:var(--panel);border:1px solid var(--line);padding:18px;overflow-x:auto;margin:0 0 26px}
+.ctw .prose pre code{background:none;border:0;padding:0}
+.ctw .prose hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.ctw .authornote{border:1px solid var(--line);background:var(--panel);padding:26px;margin-top:52px;max-width:720px}
+.ctw .authornote .flabel{margin-bottom:14px}
+.ctw .authornote p{font-size:13.5px;line-height:1.85;color:var(--muted);margin-top:10px}
+.ctw .authornote p.lead{font-size:15.5px;color:var(--text)}
+.ctw .authornote a{color:var(--text);text-decoration:underline;text-decoration-color:rgba(255,77,0,.5);text-underline-offset:4px}
+
+/* ---------- Forms ---------- */
+.ctw .form{display:grid;gap:16px}
+.ctw .form label{display:grid;gap:8px;font:500 9.5px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);letter-spacing:.08em}
+.ctw .form input,.ctw .form textarea,.ctw .form select{background:var(--panel);border:1px solid var(--line);color:var(--text);font:400 14px Inter,sans-serif;padding:13px 14px;width:100%;border-radius:0;appearance:none}
+.ctw .form input:focus,.ctw .form textarea:focus,.ctw .form select:focus{outline:2px solid var(--kin);outline-offset:1px;border-color:var(--kin)}
+.ctw .form .err{font-size:12px;color:#ff7a4d;line-height:1.6;text-transform:none;letter-spacing:0;font-family:Inter,sans-serif}
+.ctw .form .okbox{border:1px solid var(--kin);background:var(--tint);padding:18px;font-size:13.5px;line-height:1.8}
+
+/* ---------- Direct-line CTA + footer ---------- */
+.ctw .direct{border-top:1px solid var(--line);padding:76px 0}
+.ctw .direct h2{font-size:clamp(38px,9.5vw,84px);margin-bottom:24px;font-family:"Big Shoulders Display",Inter,sans-serif;text-transform:uppercase;font-weight:900;line-height:.98}
+.ctw .direct h2 span{color:var(--kin)}
+.ctw .crow{display:flex;flex-direction:column;gap:12px;font:500 12.5px "JetBrains Mono",monospace;margin-bottom:28px}
+.ctw .crow a{text-decoration:none}
+.ctw .crow a:hover{color:var(--kin)}
+.ctw footer.site{border-top:1px solid var(--line);padding:36px 0 26px}
+.ctw .fgrid{display:grid;gap:28px}
+.ctw .fgrid .flogo{font-family:"Big Shoulders Display",Inter,sans-serif;font-weight:900;font-size:20px;text-transform:uppercase}
+.ctw .fgrid .flogo span{color:var(--kin)}
+.ctw .fgrid p{font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px}
+.ctw .fgrid h5{font:500 9px "JetBrains Mono",monospace;color:var(--kin);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.ctw .fgrid nav{display:grid;gap:9px}
+.ctw .fgrid nav a{font:500 10px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.ctw .fgrid nav a:hover,.ctw .fgrid nav a.on{color:var(--text)}
+.ctw .fbot{display:flex;flex-direction:column;gap:8px;color:var(--muted);border-top:1px solid var(--line);margin-top:32px;padding-top:20px}
+.ctw .fbot .mono{color:var(--muted)}
+
+/* ---------- Legacy component seating (dashboards, modals, embeds) ---------- */
+.ctw .legacy{border:1px solid var(--line);background:var(--bg);padding:10px;overflow:hidden}
+.ctw .legacy iframe{max-width:100%}
+
+/* ---------- Music section: retoken the existing music system ---------- */
+.ctw .music-page{--mu-bg:transparent;--mu-panel:#111113;--mu-text:#F2F2F2;--mu-muted:#A8A8A8;--mu-line:#232326;background:transparent;color:var(--text)}
+.ctw .music-page img{border-radius:0!important}
+.ctw .music-kicker{font-family:"JetBrains Mono",monospace!important;color:var(--kin)!important;letter-spacing:.1em}
+
+/* ---------- Reveal ---------- */
+.ctw.js .rev{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.ctw .rev.vis{opacity:1;transform:none}
+.ctw.js .stag>*{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.ctw .vis.stag>*,.ctw .stag.vis>*{opacity:1;transform:none}
+.ctw .stag>*:nth-child(2){transition-delay:.08s}
+.ctw .stag>*:nth-child(3){transition-delay:.16s}
+.ctw .stag>*:nth-child(4){transition-delay:.24s}
+.ctw .stag>*:nth-child(5){transition-delay:.32s}
+.ctw .stag>*:nth-child(6){transition-delay:.4s}
+
+@media(min-width:801px){
+.ctw .wrap{width:calc(100% - 48px)}
+.ctw nav.main{display:flex;gap:24px;align-items:center}
+.ctw nav.main>a,.ctw nav.main .ddbtn{font:500 10px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:6px 0}
+.ctw nav.main>a:hover,.ctw nav.main .ddbtn:hover{color:var(--text)}
+.ctw nav.main>a.on,.ctw nav.main .ddbtn.on{color:var(--kin)}
+.ctw .menubtn{display:none}
+.ctw .mnav{display:none!important}
+.ctw .pill{font-size:9px;padding:8px 12px}
+.ctw .hbar{height:60px}
+.ctw .logo{font-size:19px}
+.ctw .btn.talk{display:inline-flex;min-height:38px;padding:10px 16px;font-size:10px}
+.ctw .crumbs{margin-top:60px}
+.ctw .phero{padding:150px 0 72px}
+.ctw .crumbs + main .phero,.ctw .crumbs ~ main .phero{padding-top:84px}
+.ctw section.blk{padding:104px 0}
+.ctw .shead{margin-bottom:40px}
+.ctw .ledger.c2{grid-template-columns:1.2fr 1fr}
+.ctw .ledger.c3,.ctw .cards.c3{grid-template-columns:repeat(3,1fr)}
+.ctw .cards.c2{grid-template-columns:repeat(2,1fr)}
+.ctw .cards.c4{grid-template-columns:repeat(2,1fr)}
+.ctw .cell{padding:28px}
+.ctw .statgrid{grid-template-columns:repeat(4,1fr)}
+.ctw .statgrid.c5{grid-template-columns:repeat(5,1fr)}
+.ctw .statgrid>div{padding:24px 20px}
+.ctw .statgrid strong{font-size:32px}
+.ctw .statgrid span{font-size:9px}
+.ctw .mini{grid-template-columns:repeat(4,1fr)}
+.ctw .row{grid-template-columns:170px 1fr auto;gap:22px;align-items:baseline;padding:24px 28px}
+.ctw .row h3{font-size:26px}
+.ctw .split{grid-template-columns:1fr 1fr}
+.ctw .split>div{padding:32px}
+.ctw .ptog{grid-template-columns:34px 1fr auto 18px;padding:25px}
+.ctw .ptog strong{font-size:30px}
+.ctw .pexp p{padding:2px 25px 0 71px}
+.ctw .pexp ul{padding:16px 25px 25px 71px}
+.ctw .egrid{grid-template-columns:repeat(3,1fr);gap:18px}
+.ctw .ecard{padding:32px}
+.ctw .qgrid{grid-template-columns:repeat(3,1fr)}
+.ctw .qgrid.c2{grid-template-columns:repeat(2,1fr)}
+.ctw .qgrid article{padding:30px}
+.ctw .direct{padding:104px 0}
+.ctw .crow{flex-direction:row;flex-wrap:wrap;gap:30px}
+.ctw .fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.ctw .fbot{flex-direction:row;justify-content:space-between}
+}
+@media(min-width:1100px){.ctw .cards.c4{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:reduce){
+.ctw *{animation:none!important;transition:none!important}
+.ctw .rev,.ctw .stag>*{opacity:1!important;transform:none!important}
+.ctw .ptitle{clip-path:none}
+}

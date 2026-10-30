@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Search, FileText, PhoneCall, X, Loader2 } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { Button } from "@/components/ui/button";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { trackCta } from "@/lib/segment";
 
 // SPIIX-787: single-CTA modal flow — form -> Stripe -> Cal.com audit booking.
@@ -165,36 +163,64 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 120,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "rgba(0,0,0,.7)",
+        padding: 16,
+      }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label="Claim your audit"
     >
       <div
-        className="w-full max-w-md rounded-2xl border border-border/60 bg-card p-6 sm:p-8"
+        style={{
+          width: "100%",
+          maxWidth: 448,
+          border: "1px solid var(--line)",
+          background: "var(--panel)",
+          padding: 28,
+          maxHeight: "calc(100vh - 32px)",
+          overflowY: "auto",
+        }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between">
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16 }}>
           <div>
-            <p className="eyebrow">Weekend website audit — $99</p>
-            <h2 className="mt-2 text-2xl font-bold">
+            <p className="kicker">
+              <b>Weekend website audit — $99</b>
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Big Shoulders Display',Inter,sans-serif",
+                textTransform: "uppercase",
+                fontWeight: 900,
+                fontSize: 30,
+                lineHeight: 1,
+                marginTop: 10,
+              }}
+            >
               {step === 1 ? "Your details" : "Pay $99"}
             </h2>
           </div>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="rounded-lg p-1 text-muted-foreground hover:text-foreground"
+            style={{ background: "none", border: "1px solid var(--line)", color: "var(--muted)", padding: 6, cursor: "pointer", display: "grid", placeItems: "center" }}
           >
-            <X className="h-5 w-5" />
+            <X size={18} />
           </button>
         </div>
 
         {step === 1 ? (
-          <form onSubmit={submitForm} className="mt-6 space-y-4">
-            <div>
-              <label htmlFor="audit-name" className="text-sm font-medium">Name</label>
+          <form onSubmit={submitForm} className="form" style={{ marginTop: 24 }}>
+            <label htmlFor="audit-name">
+              Name
               <input
                 id="audit-name"
                 type="text"
@@ -202,11 +228,10 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                 value={form.name}
                 onChange={set("name")}
                 placeholder="Jane Smith"
-                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
               />
-            </div>
-            <div>
-              <label htmlFor="audit-email" className="text-sm font-medium">Email</label>
+            </label>
+            <label htmlFor="audit-email">
+              Email
               <input
                 id="audit-email"
                 type="email"
@@ -214,11 +239,10 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                 value={form.email}
                 onChange={set("email")}
                 placeholder="jane@company.com"
-                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
               />
-            </div>
-            <div>
-              <label htmlFor="audit-website" className="text-sm font-medium">Website</label>
+            </label>
+            <label htmlFor="audit-website">
+              Website
               <input
                 id="audit-website"
                 type="text"
@@ -226,61 +250,59 @@ function AuditModal({ open, onClose }: { open: boolean; onClose: () => void }) {
                 value={form.website}
                 onChange={set("website")}
                 placeholder="company.com"
-                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
               />
-            </div>
-            <div>
-              <label htmlFor="audit-notes" className="text-sm font-medium">
-                Anything bugging you about it? <span className="text-muted-foreground">(optional)</span>
-              </label>
+            </label>
+            <label htmlFor="audit-notes">
+              <span>
+                Anything bugging you about it? <span style={{ textTransform: "none", letterSpacing: 0 }}>(optional)</span>
+              </span>
               <textarea
                 id="audit-notes"
                 rows={3}
                 value={form.notes}
                 onChange={set("notes")}
                 placeholder="e.g. nobody fills out the contact form"
-                className="mt-1 w-full rounded-lg border border-border/60 bg-background px-3 py-2 text-sm outline-none focus:border-primary"
               />
-            </div>
-            {error && <p className="text-sm text-red-400">{error}</p>}
-            <Button type="submit" size="lg" disabled={!valid || sending} className="w-full">
+            </label>
+            {error && <p className="err">{error}</p>}
+            <button type="submit" disabled={!valid || sending} className="btn" style={{ width: "100%", justifyContent: "center", opacity: !valid || sending ? 0.55 : 1 }}>
               {sending ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Saving…
+                  <Loader2 size={16} /> Saving…
                 </>
               ) : (
                 <>
-                  Continue to payment <ArrowRight className="ml-2 h-4 w-4" />
+                  Continue to payment <ArrowRight size={14} />
                 </>
               )}
-            </Button>
-            <p className="text-center text-xs text-muted-foreground">
+            </button>
+            <p style={{ textAlign: "center", fontSize: 12, color: "var(--muted)" }}>
               No spam, ever. Your details are only used for the audit.
             </p>
           </form>
         ) : (
-          <div className="mt-6 space-y-4">
-            <p className="text-muted-foreground">
+          <div className="form" style={{ marginTop: 24 }}>
+            <p className="body dim">
               Thanks, {form.name.trim().split(" ")[0]} — your details are saved. One last
-              step: the $99 payment locks your slot for this weekend's batch.
+              step: the $99 payment locks your slot for this weekend&apos;s batch.
             </p>
-            <Button
-              size="lg"
-              asChild
-              className="w-full"
+            <a
+              href={payUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn"
+              style={{ width: "100%", justifyContent: "center" }}
               onClick={() => trackCta("Pay $99 — audit", "audit modal", payUrl)}
             >
-              <a href={payUrl} target="_blank" rel="noreferrer">
-                Pay $99 — secure checkout <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <p className="text-center text-sm text-muted-foreground">
-              Right after payment you'll land on the booking page to pick your readout
+              Pay $99 — secure checkout <ArrowRight size={14} />
+            </a>
+            <p style={{ textAlign: "center", fontSize: 13, color: "var(--muted)", lineHeight: 1.7 }}>
+              Right after payment you&apos;ll land on the booking page to pick your readout
               hour — Monday or Tuesday.
             </p>
-            <p className="text-center text-xs text-muted-foreground">
+            <p style={{ textAlign: "center", fontSize: 12, color: "var(--muted)", lineHeight: 1.7 }}>
               Already paid and lost the booking page?{" "}
-              <a href={CAL_URL} target="_blank" rel="noreferrer" className="underline">
+              <a href={CAL_URL} target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
                 Book your hour here
               </a>
               .
@@ -300,98 +322,100 @@ function AuditPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Audit" }]} directLine={false}>
       <main>
         {/* HERO */}
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:py-24">
-            <p className="eyebrow">Weekend website audit</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              I'll tear your site down <span className="text-gradient">and hand you the fix list.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              $99. I spend the weekend inside your website — every page, every click path —
-              and Monday or Tuesday we spend an hour on exactly what I'd fix and why.
-              Then you decide what happens next.
-            </p>
-            <div className="mt-8">
-              <Button size="lg" onClick={openModal}>
-                Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Details, payment, then pick your readout hour. That's the whole process.
-            </p>
+        <CtHero
+          file="Weekend Website Audit"
+          title={
+            <>
+              I&apos;ll tear your site down <span>and hand you the fix list.</span>
+            </>
+          }
+          lede="$99. I spend the weekend inside your website — every page, every click path — and Monday or Tuesday we spend an hour on exactly what I'd fix and why. Then you decide what happens next."
+        >
+          <div className="btnrow">
+            <button type="button" className="btn" onClick={openModal}>
+              Claim your audit — $99 <ArrowRight size={14} />
+            </button>
           </div>
-        </section>
+          <p className="lede dim" style={{ marginTop: 18 }}>
+            Details, payment, then pick your readout hour. That&apos;s the whole process.
+          </p>
+        </CtHero>
 
         {/* DELIVERABLES */}
-        <section className="mx-auto max-w-5xl px-5 py-20">
-          <p className="eyebrow text-center">What you walk away with</p>
-          <h2 className="mt-4 text-center text-3xl font-bold">
-            Not a report. <span className="text-gradient">A plan.</span>
-          </h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
-            {deliverables.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-border/60 bg-card p-6">
-                <d.icon className="h-6 w-6 text-primary" />
-                <h3 className="mt-4 text-xl font-semibold">{d.title}</h3>
-                <p className="mt-2 text-muted-foreground">{d.body}</p>
-              </div>
-            ))}
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">What you walk away with</CtLabel>
+            <h2 className="shead">
+              Not a report. <span>A plan.</span>
+            </h2>
+            <div className="cards c2 rev stag">
+              {deliverables.map((d) => (
+                <article key={d.title} className="card">
+                  <p className="ck" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <d.icon size={16} color="#FF4D00" />
+                  </p>
+                  <h3 style={{ fontSize: 24 }}>{d.title}</h3>
+                  <p>{d.body}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="border-y border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <p className="eyebrow text-center">How it works</p>
-            <h2 className="mt-4 text-center text-3xl font-bold">Four steps. One weekend.</h2>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">How it works</CtLabel>
+            <h2 className="shead">Four steps. One weekend.</h2>
+            <div className="tl rev">
               {steps.map((s) => (
-                <div key={s.n} className="flex gap-4">
-                  <span className="text-2xl font-bold text-primary/70">{s.n}</span>
-                  <div>
-                    <h3 className="text-lg font-semibold">{s.title}</h3>
-                    <p className="mt-1 text-muted-foreground">{s.body}</p>
-                  </div>
-                </div>
+                <article key={s.n}>
+                  <span className="when">{s.n}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
         {/* SCARCITY */}
-        <section className="mx-auto max-w-3xl px-5 py-20 text-center">
-          <h2 className="text-3xl font-bold">
-            I'm only running <span className="text-gradient">a handful</span> of these.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-            I'm taking on a few clients before the end of the year, then I'm heads-down in
-            reorg work and audits stop. This batch is it.
-          </p>
-          <div className="mt-8">
-            <Button size="lg" onClick={openModal}>
-              Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="03">This batch</CtLabel>
+            <h2 className="shead">
+              I&apos;m only running <span>a handful</span> of these.
+            </h2>
+            <p className="lede dim">
+              I&apos;m taking on a few clients before the end of the year, then I&apos;m heads-down in
+              reorg work and audits stop. This batch is it.
+            </p>
+            <div className="btnrow">
+              <button type="button" className="btn" onClick={openModal}>
+                Claim your audit — $99 <ArrowRight size={14} />
+              </button>
+            </div>
           </div>
         </section>
 
         {/* WHO IT'S FOR + WHO I AM */}
-        <section className="border-t border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <div className="grid gap-10 sm:grid-cols-2">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="04">Who</CtLabel>
+            <div className="split rev">
               <div>
-                <p className="eyebrow">Who it's for</p>
-                <p className="mt-3 text-lg text-muted-foreground">
+                <h3>Who it&apos;s for</h3>
+                <p className="body dim">
                   Local businesses, churches, logistics companies — anyone whose website
-                  isn't pulling its weight and wants to know exactly why.
+                  isn&apos;t pulling its weight and wants to know exactly why.
                 </p>
               </div>
               <div>
-                <p className="eyebrow">Who I am</p>
-                <p className="mt-3 text-lg text-muted-foreground">
+                <h3>Who I am</h3>
+                <p className="body dim">
                   Steve Peele II — growth marketing operator. I build websites that move
                   numbers, not just look good.
                 </p>
@@ -401,27 +425,29 @@ function AuditPage() {
         </section>
 
         {/* FAQ */}
-        <section className="border-t border-border/60 bg-muted/30">
-          <div className="mx-auto max-w-3xl px-5 py-20">
-            <p className="eyebrow text-center">Fair questions</p>
-            <div className="mt-10 space-y-6">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="05">Fair questions</CtLabel>
+            <h2 className="shead">
+              Fair <span>questions.</span>
+            </h2>
+            <div className="cards c2 rev stag">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-2xl border border-border/60 bg-card p-6">
-                  <h3 className="text-lg font-semibold">{f.q}</h3>
-                  <p className="mt-2 text-muted-foreground">{f.a}</p>
-                </div>
+                <article key={f.q} className="card">
+                  <h3 style={{ fontSize: 24 }}>{f.q}</h3>
+                  <p>{f.a}</p>
+                </article>
               ))}
             </div>
-            <div className="mt-12 text-center">
-              <Button size="lg" onClick={openModal}>
-                Claim your audit — $99 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+            <div className="btnrow" style={{ marginTop: 36 }}>
+              <button type="button" className="btn" onClick={openModal}>
+                Claim your audit — $99 <ArrowRight size={14} />
+              </button>
             </div>
           </div>
         </section>
       </main>
-      <SiteFooter />
       <AuditModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </div>
+    </CtShell>
   );
 }
