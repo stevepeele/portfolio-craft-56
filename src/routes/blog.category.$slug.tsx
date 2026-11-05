@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { getCategoryBySlug } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
@@ -38,19 +37,20 @@ export const Route = createFileRoute("/blog/category/$slug")({
   },
   component: CategoryPage,
   notFoundComponent: () => (
-    <div className="min-h-screen">
-      <SiteHeader />
-      <main className="mx-auto max-w-4xl px-5 py-24 text-center">
-        <h1 className="font-serif text-4xl font-medium">Category not found.</h1>
-        <Link
-          to="/blog"
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground"
-        >
-          <ArrowLeft className="size-4" /> Back to the blog
-        </Link>
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: "Not found" }]}>
+      <main>
+        <section className="blk first">
+          <div className="wrap" style={{ textAlign: "center", padding: "40px 0" }}>
+            <h1 className="shead">Category not found.</h1>
+            <div className="btnrow" style={{ justifyContent: "center" }}>
+              <Link to="/blog" className="btn o">
+                <ArrowLeft size={14} /> Back to the blog
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   ),
 });
 
@@ -58,80 +58,65 @@ function CategoryPage() {
   const { category } = Route.useLoaderData();
 
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell
+      crumbs={[
+        { label: "Home", to: "/" },
+        { label: "Blog", to: "/blog" },
+        { label: category.name },
+      ]}
+    >
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-16 sm:py-24">
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="size-4" /> All articles
+        <CtHero file="04 / Blog" title={category.name} lede={category.description || undefined}>
+          <div style={{ marginTop: 28 }}>
+            <Link to="/blog" className="backlink">
+              <ArrowLeft size={14} /> All articles
             </Link>
-            <p className="eyebrow mt-8">Category</p>
-            <h1 className="mt-5 font-serif text-5xl font-medium tracking-tight text-balance sm:text-6xl">
-              {category.name}
-            </h1>
-            {category.description && (
-              <p className="mt-6 max-w-2xl font-serif text-lg text-muted-foreground italic sm:text-xl">
-                {category.description}
+            <p className="kicker" style={{ marginTop: 8 }}>
+              <b>Category</b>
+            </p>
+          </div>
+        </CtHero>
+
+        <section className="blk first">
+          <div className="wrap">
+            {category.posts.length === 0 ? (
+              <p className="lede dim" style={{ padding: "40px 0", textAlign: "center" }}>
+                No articles in this category yet.
               </p>
+            ) : (
+              <>
+                <CtLabel n="01">Articles</CtLabel>
+                <div className="rows rev">
+                  {category.posts.map((post: SanityPostCard) => (
+                    <Link key={post._id} to="/blog/$slug" params={{ slug: post.slug }} className="row">
+                      <span className="rk">
+                        {post.publishedAt ? formatSanityDate(post.publishedAt) : ""}
+                        {post.mainImage ? "" : ""}
+                      </span>
+                      <span>
+                        {post.mainImage && (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img
+                            src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
+                            alt={post.mainImage.alt || post.title}
+                            loading="lazy"
+                            style={{ width: 160, aspectRatio: "4 / 3", objectFit: "cover", display: "block", border: "1px solid var(--line)", marginBottom: 12 }}
+                          />
+                        )}
+                        <h3>{post.title}</h3>
+                        {post.excerpt && <p>{post.excerpt}</p>}
+                      </span>
+                      <span className="rgo">
+                        Read <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </>
             )}
           </div>
         </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-14 sm:py-20">
-          {category.posts.length === 0 ? (
-            <p className="py-20 text-center text-muted-foreground">
-              No articles in this category yet.
-            </p>
-          ) : (
-            <div>
-              {category.posts.map((post: SanityPostCard) => (
-                <Link
-                  key={post._id}
-                  to="/blog/$slug"
-                  params={{ slug: post.slug }}
-                  className="group flex gap-5 border-t border-border py-8"
-                >
-                  {post.mainImage && (
-                    <div className="hidden w-40 shrink-0 sm:block">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
-                        alt={post.mainImage.alt || post.title}
-                        loading="lazy"
-                        className="aspect-[4/3] w-full rounded-lg object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="min-w-0">
-                    {post.publishedAt && (
-                      <span className="text-xs text-muted-foreground">
-                        {formatSanityDate(post.publishedAt)}
-                      </span>
-                    )}
-                    <h2 className="mt-2 font-serif text-2xl font-medium tracking-tight text-balance transition-colors group-hover:text-primary">
-                      {post.title}
-                    </h2>
-                    {post.excerpt && (
-                      <p className="mt-2 text-muted-foreground leading-relaxed line-clamp-2">
-                        {post.excerpt}
-                      </p>
-                    )}
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                      Read{" "}
-                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

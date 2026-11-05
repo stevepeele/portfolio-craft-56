@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, FlaskConical } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { FlaskConical } from "lucide-react";
+import { CtShell, CtHero } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Smart Access — Coming Soon | Steve Peele II";
@@ -24,35 +23,34 @@ export const Route = createFileRoute("/hacking/smart-access")({
 
 function SmartAccessPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Smart Access" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / Smart Access</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Smart <span className="text-gradient">Access.</span>
-            </h1>
-          </div>
-        </section>
+        <CtHero
+          file="05 / Building — Smart Access"
+          title={
+            <>
+              Smart <span>Access.</span>
+            </>
+          }
+        />
 
-        <section className="mx-auto max-w-4xl px-5 py-20 text-center">
-          <FlaskConical className="mx-auto size-10 text-muted-foreground" aria-hidden="true" />
-          <h2 className="mt-6 text-2xl font-bold">Still on the workbench.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            This one's taking shape — details coming soon. Check the{" "}
-            <Link to="/hacking/whats-next" className="text-foreground underline underline-offset-4">
-              build queue
-            </Link>{" "}
-            to see where it sits.
-          </p>
+        <section className="blk first">
+          <div className="wrap">
+            <div className="ecard rev" style={{ textAlign: "center" }}>
+              <FlaskConical size={36} color="#FF4D00" aria-hidden="true" style={{ margin: "0 auto" }} />
+              <h3>Still on the workbench.</h3>
+              <p style={{ maxWidth: 560, margin: "10px auto 0" }}>
+                This one's taking shape — details coming soon. Check the{" "}
+                <Link to="/hacking/whats-next" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  build queue
+                </Link>{" "}
+                to see where it sits.
+              </p>
+            </div>
+          </div>
         </section>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

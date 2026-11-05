@@ -233,3 +233,12 @@
 .ct-home .rev .cline{stroke-dashoffset:0!important}
 .ct-home .rev .track i, .ct-home .u-line{transform:none!important}
 .ct-home .marq .trk{flex-wrap:wrap;width:auto}}
+
+/* SPIIX-1142: site-pages nav — additive to the approved v3 header.
+   Below 1150px the in-page anchor nav yields so the pages nav never crowds;
+   the anchors remain one tap away in the mobile menu and the page body. */
+.ct-home .fpages{display:flex;flex-wrap:wrap;gap:8px 22px}
+.ct-home .fpages a{font:500 9.5px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.ct-home .fpages a:hover{color:var(--kin)}
+@media(min-width:801px){.ct-home nav.pages{gap:18px;border-left:1px solid var(--line);padding-left:22px}}
+@media(min-width:801px) and (max-width:1149px){.ct-home nav.anchors{display:none}}

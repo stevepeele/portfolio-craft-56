@@ -221,6 +221,17 @@ const NAV_LINKS: Array<[string, string]> = [
   ["#ways", "05 Ways in"],
 ];
 
+/* Site pages (SPIIX-1142): the remaining nav, built out in this framework. */
+const NAV_PAGES: Array<[string, string]> = [
+  ["/work", "Work"],
+  ["/spiix", "SPIIX"],
+  ["/ai", "AI"],
+  ["/blog", "Blog"],
+  ["/hacking", "Building"],
+  ["/music", "Music"],
+  ["/contact", "Contact"],
+];
+
 const MOBILE_LINK_STYLE = {
   padding: "11px 0",
   borderTop: "1px solid var(--line)",
@@ -401,8 +412,15 @@ function Home() {
           <div className="logo">
             STEVE PEELE <span>II</span>
           </div>
-          <nav>
+          <nav className="anchors">
             {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <nav className="pages" aria-label="Site">
+            {NAV_PAGES.map(([href, label]) => (
               <a key={href} href={href}>
                 {label}
               </a>
@@ -432,6 +450,22 @@ function Home() {
         <div id="mnav" hidden style={{ borderTop: "1px solid var(--line)", padding: "10px 20px 16px" }}>
           <nav style={{ display: "grid", gap: 2 }} aria-label="Mobile">
             {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href} style={MOBILE_LINK_STYLE}>
+                {label}
+              </a>
+            ))}
+            <span
+              style={{
+                padding: "16px 0 2px",
+                font: "500 9px 'JetBrains Mono',monospace",
+                textTransform: "uppercase",
+                letterSpacing: ".1em",
+                color: "var(--kin)",
+              }}
+            >
+              Site
+            </span>
+            {NAV_PAGES.map(([href, label]) => (
               <a key={href} href={href} style={MOBILE_LINK_STYLE}>
                 {label}
               </a>
@@ -977,6 +1011,15 @@ function Home() {
         <div className="wrap">
           <span className="mono">Steve Peele II — Growth marketing leader, operator &amp; musician</span>
           <span className="mono">© 2026 Steve Peele II</span>
+        </div>
+        <div className="wrap" style={{ marginTop: 10 }}>
+          <nav className="fpages" aria-label="Site pages">
+            {NAV_PAGES.map(([href, label]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </nav>
         </div>
       </footer>
     </div>

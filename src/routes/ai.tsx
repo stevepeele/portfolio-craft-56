@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import "@/styles/ai.css";
+import { ArrowRight } from "lucide-react";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 
 const URL_ = "https://stevepeeleii.com/ai";
 const TITLE = "AI — How I Work With It | Steve Peele II";
@@ -26,13 +25,7 @@ export const Route = createFileRoute("/ai")({
       { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: "https://stevepeeleii.com/og-ai.jpg" },
     ],
-    links: [
-      { rel: "canonical", href: URL_ },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap",
-      },
-    ],
+    links: [{ rel: "canonical", href: URL_ }],
     scripts: [
       {
         type: "application/ld+json",
@@ -214,7 +207,9 @@ const PRINCIPLES = [
    Motion grammar: travelling pulse = work moving between stages;
    bounce-back pulse = a draft that failed the gate (rework);
    slow orbit = continuously monitored; glow = the human decision point.
-   Every label is drawn from the page's own copy. */
+   Every label is drawn from the page's own copy.
+   Ported to the Control Tower palette (SPIIX-1142): kinetic #FF4D00 = the
+   human decision point; greys = machine execution; white = verified output. */
 
 const INPUTS = ["Market signal", "Competitor signal", "CRM data", "ICP definitions", "Pipeline numbers"];
 const HUMAN = ["Judgment", "ICP instinct", "Positioning", "Offer design", "Market reading", "Accountability"];
@@ -222,84 +217,84 @@ const MACHINE = ["Research synthesis", "Data pulls & hygiene", "Segment builds",
 const CHECKS = ["Claims checked", "Numbers reconciled", "Links tested"];
 const OUTPUTS = ["Segment", "Sequence", "Page", "Report"];
 
+const MONO = "'JetBrains Mono',monospace";
+
 function Zone({ x, w, title, items, tone, foot }: { x: number; w: number; title: string; items: string[]; tone: string; foot?: string }) {
+  const stroke = tone === "amber" ? "#FF4D00" : tone === "cyan" ? "#808080" : "#232326";
+  const titleFill = tone === "amber" ? "#FF4D00" : tone === "cyan" ? "#BFBFBF" : "#808080";
+  const fill = tone === "amber" ? "rgba(255,77,0,.07)" : "#111113";
   return (
     <g>
-      <rect className={`zone-box ${tone}`} x={x} y={70} width={w} height={368} />
-      <text className={`zone-title ${tone}`} x={x + w / 2} y={102} textAnchor="middle">{title}</text>
+      <rect x={x} y={70} width={w} height={368} fill={fill} stroke={stroke} strokeWidth="1" />
+      <text x={x + w / 2} y={102} textAnchor="middle" fill={titleFill} style={{ font: `500 13px ${MONO}`, letterSpacing: ".26em" }}>{title}</text>
       {items.map((it, i) => (
         <g key={it}>
-          <rect className="chip" x={x + 14} y={122 + i * 48} width={w - 28} height={38} />
-          <text className="chip-text" x={x + w / 2} y={146 + i * 48} textAnchor="middle">{it}</text>
+          <rect x={x + 14} y={122 + i * 48} width={w - 28} height={38} fill="#111113" stroke="#3a3a3e" />
+          <text x={x + w / 2} y={146 + i * 48} textAnchor="middle" fill="#E8E8E8" style={{ font: `400 12.5px ${MONO}` }}>{it}</text>
         </g>
       ))}
-      {foot && <text className="zone-foot" x={x + w / 2} y={424} textAnchor="middle">{foot}</text>}
+      {foot && <text x={x + w / 2} y={424} textAnchor="middle" fill="#808080" style={{ font: `400 10px ${MONO}`, letterSpacing: ".08em" }}>{foot}</text>}
     </g>
   );
 }
 
 function HeroDiagram() {
   return (
-    <div className="ai-diagram ai-reveal" aria-hidden="true">
-      <div className="ai-sparks">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <span key={i} style={{ "--x": `${(i * 83) % 100}%`, "--d": `${(i % 5) * 1.7}s`, "--s": `${3 + (i % 3)}px` } as React.CSSProperties} />
-        ))}
-      </div>
-      <div className="ai-diagram-scroll">
-        <svg viewBox="0 0 1240 560" fill="none" className="ai-diagram-svg ai-map">
-          <defs>
-            <linearGradient id="aiFlow3" x1="0" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="oklch(0.74 0.05 258)" />
-              <stop offset="30%" stopColor="oklch(0.82 0.15 72)" />
-              <stop offset="62%" stopColor="oklch(0.8 0.12 196)" />
-              <stop offset="100%" stopColor="oklch(0.96 0.006 92)" />
-            </linearGradient>
-          </defs>
-          {/* rework + feedback arcs (behind zones) */}
-          <path className="flow" d="M895 70 C 895 16, 645 16, 645 70" stroke="oklch(0.82 0.15 72 / 0.65)" strokeWidth="2" />
-          <text className="arc-label amber" x="770" y="14" textAnchor="middle">↩ REWORK — FAILED THE GATE</text>
-          <path className="flow" d="M1125 438 C 1125 516, 355 516, 355 438" stroke="oklch(0.8 0.12 196 / 0.55)" strokeWidth="2" />
-          <text className="arc-label cyan" x="740" y="540" textAnchor="middle">MEASURE → LEARN — FEEDS THE NEXT CYCLE</text>
-          {/* spine */}
-          <path className="flow" d="M190 254 H1020" stroke="url(#aiFlow3)" strokeWidth="2" />
-          <Zone x={10} w={180} title="INPUTS" items={INPUTS} tone="dim" foot="HubSpot · Salesforce · Marketo" />
-          <Zone x={230} w={250} title="JUDGMENT — DECIDES" items={HUMAN} tone="amber" />
-          <Zone x={520} w={250} title="MACHINE — EXECUTES" items={MACHINE} tone="cyan" />
-          {/* gate zone */}
+    <div aria-hidden="true" style={{ border: "1px solid var(--line)", background: "var(--panel)", padding: "20px 16px 10px", marginTop: 44, overflowX: "auto" }}>
+      <svg viewBox="0 0 1240 560" fill="none" style={{ minWidth: 760, width: "100%", height: "auto", display: "block" }}>
+        <defs>
+          <linearGradient id="aiFlow3" x1="0" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#808080" />
+            <stop offset="30%" stopColor="#FF4D00" />
+            <stop offset="62%" stopColor="#BFBFBF" />
+            <stop offset="100%" stopColor="#F2F2F2" />
+          </linearGradient>
+        </defs>
+        {/* rework + feedback arcs (behind zones) */}
+        <path d="M895 70 C 895 16, 645 16, 645 70" stroke="rgba(255,77,0,.65)" strokeWidth="2" strokeDasharray="7 9" fill="none" />
+        <text x="770" y="14" textAnchor="middle" fill="#FF4D00" style={{ font: `500 11.5px ${MONO}`, letterSpacing: ".22em" }}>↩ REWORK — FAILED THE GATE</text>
+        <path d="M1125 438 C 1125 516, 355 516, 355 438" stroke="rgba(128,128,128,.55)" strokeWidth="2" strokeDasharray="7 9" fill="none" />
+        <text x="740" y="540" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11.5px ${MONO}`, letterSpacing: ".22em" }}>MEASURE → LEARN — FEEDS THE NEXT CYCLE</text>
+        {/* spine */}
+        <path d="M190 254 H1020" stroke="url(#aiFlow3)" strokeWidth="2" strokeDasharray="7 9" fill="none" />
+        <Zone x={10} w={180} title="INPUTS" items={INPUTS} tone="dim" foot="HubSpot · Salesforce · Marketo" />
+        <Zone x={230} w={250} title="JUDGMENT — DECIDES" items={HUMAN} tone="amber" />
+        <Zone x={520} w={250} title="MACHINE — EXECUTES" items={MACHINE} tone="cyan" />
+        {/* gate zone */}
+        <g>
+          <rect x={810} y={70} width={170} height={368} fill="#111113" stroke="#F2F2F2" strokeWidth="1" />
+          <text x={895} y={102} textAnchor="middle" fill="#F2F2F2" style={{ font: `500 13px ${MONO}`, letterSpacing: ".26em" }}>THE GATE</text>
           <g>
-            <rect className="zone-box gate" x={810} y={70} width={170} height={368} />
-            <text className="zone-title gate-t" x={895} y={102} textAnchor="middle">THE GATE</text>
-            <g className="gate-spin">
-              <circle cx="895" cy="168" r="46" stroke="oklch(1 0 0 / 0.35)" strokeDasharray="5 7" fill="none" />
+            <animateTransform attributeName="transform" type="rotate" from="0 895 168" to="360 895 168" dur="40s" repeatCount="indefinite" />
+            <circle cx="895" cy="168" r="46" stroke="rgba(242,242,242,.35)" strokeDasharray="5 7" fill="none" />
+          </g>
+          <path d="M895 132 L926 150 V186 L895 204 L864 186 V150 Z" fill="#111113" stroke="#F2F2F2" strokeWidth="2" />
+          <path d="M881 168 L891 178 L910 155" stroke="#F2F2F2" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {CHECKS.map((c, i) => (
+            <g key={c}>
+              <rect x={824} y={238 + i * 48} width={142} height={38} fill="#111113" stroke="#3a3a3e" />
+              <text x={895} y={262 + i * 48} textAnchor="middle" fill="#E8E8E8" style={{ font: `400 11px ${MONO}` }}>{c}</text>
             </g>
-            <path d="M895 132 L926 150 V186 L895 204 L864 186 V150 Z" fill="oklch(0.14 0.02 262)" stroke="oklch(0.96 0.006 92)" strokeWidth="2" />
-            <path d="M881 168 L891 178 L910 155" stroke="oklch(0.96 0.006 92)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-            {CHECKS.map((c, i) => (
-              <g key={c}>
-                <rect className="chip" x={824} y={238 + i * 48} width={142} height={38} />
-                <text className="chip-text sm" x={895} y={262 + i * 48} textAnchor="middle">{c}</text>
-              </g>
-            ))}
-          </g>
-          <Zone x={1020} w={210} title="OUTPUT" items={OUTPUTS} tone="dim" foot="Verified work, shipped" />
-          {/* monitored: orbit around the pipeline input */}
-          <g className="orbit o3">
-            <circle cx="100" cy="317" r="30" stroke="oklch(0.8 0.12 196 / 0.4)" strokeDasharray="3 6" fill="none" />
-            <circle cx="130" cy="317" r="3" fill="oklch(0.8 0.12 196)" />
-          </g>
-          {/* travelling pulses */}
-          <circle r="5" fill="oklch(0.96 0.006 92)"><animateMotion dur="5s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
-          <circle r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="5s" begin="2.4s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
-          <circle r="4" fill="oklch(0.82 0.15 72)"><animateMotion dur="3.4s" repeatCount="indefinite" path="M895 70 C 895 16, 645 16, 645 70" /></circle>
-          <circle r="4" fill="oklch(0.8 0.12 196)"><animateMotion dur="6.5s" repeatCount="indefinite" path="M1125 438 C 1125 516, 355 516, 355 438" /></circle>
-        </svg>
-      </div>
-      <div className="ai-diagram-cap ai-legend">
-        <span><i className="lg-dot" /> Pulse — work moving</span>
-        <span><i className="lg-back" /> Bounce-back — failed the gate</span>
-        <span><i className="lg-orbit" /> Orbit — monitored</span>
-        <span><i className="lg-glow" /> Glow — my call</span>
+          ))}
+        </g>
+        <Zone x={1020} w={210} title="OUTPUT" items={OUTPUTS} tone="dim" foot="Verified work, shipped" />
+        {/* monitored: orbit around the pipeline input */}
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="0 100 317" to="360 100 317" dur="14s" repeatCount="indefinite" />
+          <circle cx="100" cy="317" r="30" stroke="rgba(128,128,128,.4)" strokeDasharray="3 6" fill="none" />
+          <circle cx="130" cy="317" r="3" fill="#BFBFBF" />
+        </g>
+        {/* travelling pulses */}
+        <circle r="5" fill="#F2F2F2"><animateMotion dur="5s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
+        <circle r="3.5" fill="#FF4D00"><animateMotion dur="5s" begin="2.4s" repeatCount="indefinite" path="M190 254 H1020" /></circle>
+        <circle r="4" fill="#FF4D00"><animateMotion dur="3.4s" repeatCount="indefinite" path="M895 70 C 895 16, 645 16, 645 70" /></circle>
+        <circle r="4" fill="#BFBFBF"><animateMotion dur="6.5s" repeatCount="indefinite" path="M1125 438 C 1125 516, 355 516, 355 438" /></circle>
+      </svg>
+      <div style={{ display: "flex", gap: 26, flexWrap: "wrap", padding: "6px 4px 8px" }}>
+        <span className="flabel">● Pulse — work moving</span>
+        <span className="flabel"><b>● Bounce-back — failed the gate</b></span>
+        <span className="flabel">● Orbit — monitored</span>
+        <span className="flabel"><b>● Glow — my call</b></span>
       </div>
     </div>
   );
@@ -314,32 +309,28 @@ function LoopDiagram() {
     { name: "Learn", n: "05", x: 99, y: 221 },
   ];
   return (
-    <div className="ai-loopdiagram ai-reveal" aria-hidden="true">
-      <svg viewBox="0 0 560 560" fill="none">
-        <defs>
-          <marker id="aiArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="oklch(0.8 0.12 196 / 0.8)" />
-          </marker>
-        </defs>
-        <circle cx="280" cy="280" r="190" stroke="oklch(1 0 0 / 0.1)" strokeWidth="1.5" />
-        <g className="orbit loop-orbit">
-          <circle cx="280" cy="280" r="190" stroke="oklch(0.8 0.12 196 / 0.3)" strokeWidth="1.5" strokeDasharray="4 10" fill="none" />
+    <div aria-hidden="true" style={{ maxWidth: 560, margin: "40px auto 0" }}>
+      <svg viewBox="0 0 560 560" fill="none" style={{ width: "100%", height: "auto", display: "block" }}>
+        <circle cx="280" cy="280" r="190" stroke="#232326" strokeWidth="1.5" />
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="0 280 280" to="360 280 280" dur="46s" repeatCount="indefinite" />
+          <circle cx="280" cy="280" r="190" stroke="rgba(128,128,128,.3)" strokeWidth="1.5" strokeDasharray="4 10" fill="none" />
         </g>
         <path id="aiLoopPath" d="M280 90 a190 190 0 1 1 -0.01 0" stroke="none" fill="none" />
-        <circle r="5.5" fill="oklch(0.96 0.006 92)"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
-        <circle r="3.5" fill="oklch(0.82 0.15 72)"><animateMotion dur="9s" begin="4.5s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
-        <text className="loop-c1" x="280" y="266" textAnchor="middle">ONE LOOP</text>
-        <text className="loop-c2" x="280" y="296" textAnchor="middle">AT MACHINE SPEED</text>
-        <text className="arc-label cyan" x="414" y="88" textAnchor="middle">Days → an afternoon</text>
-        <text className="arc-label cyan" x="506" y="345" textAnchor="middle">Weeks → hours</text>
-        <text className="arc-label cyan" x="280" y="524" textAnchor="middle">Verified before it moves</text>
-        <text className="arc-label cyan" x="54" y="345" textAnchor="middle">A live read</text>
-        <text className="arc-label cyan" x="146" y="88" textAnchor="middle">Next bet, informed</text>
+        <circle r="5.5" fill="#F2F2F2"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
+        <circle r="3.5" fill="#FF4D00"><animateMotion dur="9s" begin="4.5s" repeatCount="indefinite"><mpath href="#aiLoopPath" /></animateMotion></circle>
+        <text x="280" y="266" textAnchor="middle" fill="#F2F2F2" style={{ font: "900 25px 'Big Shoulders Display',Inter,sans-serif", letterSpacing: ".04em" }}>ONE LOOP</text>
+        <text x="280" y="296" textAnchor="middle" fill="#FF4D00" style={{ font: `500 12.5px ${MONO}`, letterSpacing: ".3em" }}>AT MACHINE SPEED</text>
+        <text x="414" y="88" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11px ${MONO}`, letterSpacing: ".1em" }}>Days → an afternoon</text>
+        <text x="506" y="345" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11px ${MONO}`, letterSpacing: ".1em" }}>Weeks → hours</text>
+        <text x="280" y="524" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11px ${MONO}`, letterSpacing: ".1em" }}>Verified before it moves</text>
+        <text x="54" y="345" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11px ${MONO}`, letterSpacing: ".1em" }}>A live read</text>
+        <text x="146" y="88" textAnchor="middle" fill="#BFBFBF" style={{ font: `500 11px ${MONO}`, letterSpacing: ".1em" }}>Next bet, informed</text>
         {nodes.map((nd) => (
           <g key={nd.name}>
-            <circle className="loop-node" cx={nd.x} cy={nd.y} r="37" />
-            <text className="loop-n" x={nd.x} y={nd.y - 4} textAnchor="middle">{nd.n}</text>
-            <text className="loop-name" x={nd.x} y={nd.y + 15} textAnchor="middle">{nd.name}</text>
+            <circle cx={nd.x} cy={nd.y} r="37" fill="#111113" stroke="rgba(255,77,0,.5)" strokeWidth="1.5" />
+            <text x={nd.x} y={nd.y - 4} textAnchor="middle" fill="#BFBFBF" style={{ font: `500 10px ${MONO}`, letterSpacing: ".2em" }}>{nd.n}</text>
+            <text x={nd.x} y={nd.y + 15} textAnchor="middle" fill="#F2F2F2" style={{ font: "700 14.5px Inter,sans-serif" }}>{nd.name}</text>
           </g>
         ))}
       </svg>
@@ -349,186 +340,187 @@ function LoopDiagram() {
 
 function LaneDiagram({ i }: { i: number }) {
   const common = { fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  const box = { fill: "#111113", stroke: "#3a3a3e", strokeWidth: 1 };
+  const ldText = { font: `500 10.5px ${MONO}`, letterSpacing: ".14em" } as const;
+  const ldTextSm = { font: `500 10px ${MONO}`, letterSpacing: ".02em" } as const;
   if (i === 0) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
-    <circle cx="34" cy="65" r="10" stroke="oklch(0.82 0.15 72)" strokeWidth="2" fill="oklch(0.82 0.15 72 / 0.12)" />
-    <path d="M44 65 C 90 65, 100 24, 148 24 M44 65 H148 M44 65 C 90 65, 100 106, 148 106" stroke="oklch(1 0 0 / 0.3)" strokeWidth="1.5" />
-    <path d="M44 65 H148" stroke="oklch(0.82 0.15 72)" strokeWidth="2" />
+    <circle cx="34" cy="65" r="10" stroke="#FF4D00" strokeWidth="2" fill="rgba(255,77,0,.12)" />
+    <path d="M44 65 C 90 65, 100 24, 148 24 M44 65 H148 M44 65 C 90 65, 100 106, 148 106" stroke="rgba(128,128,128,.5)" strokeWidth="1.5" />
+    <path d="M44 65 H148" stroke="#FF4D00" strokeWidth="2" />
     {[24, 65, 106].map((y, k) => (<g key={y}>
-      <rect x="148" y={y - 13} width="86" height="26" className="ld-box" />
-      <path d={`M234 ${y} H286`} stroke={k === 1 ? "oklch(0.82 0.15 72)" : "oklch(1 0 0 / 0.25)"} strokeWidth="1.5" />
-      <circle cx="302" cy={y} r="7" stroke={k === 1 ? "oklch(0.82 0.15 72)" : "oklch(1 0 0 / 0.3)"} strokeWidth="1.8" fill={k === 1 ? "oklch(0.82 0.15 72 / 0.18)" : "none"} />
+      <rect x="148" y={y - 13} width="86" height="26" {...box} />
+      <path d={`M234 ${y} H286`} stroke={k === 1 ? "#FF4D00" : "rgba(128,128,128,.4)"} strokeWidth="1.5" />
+      <circle cx="302" cy={y} r="7" stroke={k === 1 ? "#FF4D00" : "rgba(128,128,128,.5)"} strokeWidth="1.8" fill={k === 1 ? "rgba(255,77,0,.18)" : "none"} />
     </g>))}
-    <text className="ld-text" x="34" y="102" textAnchor="middle">THE BET</text>
-    <text className="ld-text" x="191" y="130" textAnchor="middle">SCENARIOS</text>
+    <text x="34" y="102" textAnchor="middle" fill="#808080" style={ldText}>THE BET</text>
+    <text x="191" y="130" textAnchor="middle" fill="#808080" style={ldText}>SCENARIOS</text>
   </svg>);
   if (i === 1) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
     {["HubSpot", "Salesforce", "Marketo", "Segment"].map((s, k) => (<g key={s}>
-      <rect x={4 + k * 85} y="46" width="76" height="36" className="ld-box" />
-      <text className="ld-text sm" x={42 + k * 85} y="68" textAnchor="middle">{s}</text>
-      {k < 3 && <path d={`M${80 + k * 85} 64 H${89 + k * 85}`} stroke="oklch(0.8 0.12 196)" strokeWidth="2" />}
+      <rect x={4 + k * 85} y="46" width="76" height="36" {...box} />
+      <text x={42 + k * 85} y="68" textAnchor="middle" fill="#D8D8D8" style={ldTextSm}>{s}</text>
+      {k < 3 && <path d={`M${80 + k * 85} 64 H${89 + k * 85}`} stroke="#BFBFBF" strokeWidth="2" />}
     </g>))}
-    <path className="flow" d="M10 100 H330" stroke="oklch(0.8 0.12 196 / 0.5)" strokeWidth="1.5" />
-    <circle r="3.5" fill="oklch(0.8 0.12 196)"><animateMotion dur="3.6s" repeatCount="indefinite" path="M10 100 H330" /></circle>
-    <text className="ld-text" x="170" y="28" textAnchor="middle">FIRST TOUCH → CLOSED-WON</text>
+    <path d="M10 100 H330" stroke="rgba(128,128,128,.5)" strokeWidth="1.5" strokeDasharray="6 8" />
+    <circle r="3.5" fill="#BFBFBF"><animateMotion dur="3.6s" repeatCount="indefinite" path="M10 100 H330" /></circle>
+    <text x="170" y="28" textAnchor="middle" fill="#808080" style={ldText}>FIRST TOUCH → CLOSED-WON</text>
   </svg>);
   if (i === 2) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
-    <circle cx="105" cy="65" r="52" stroke="oklch(1 0 0 / 0.18)" strokeWidth="1.5" />
-    <circle cx="105" cy="65" r="35" stroke="oklch(1 0 0 / 0.3)" strokeWidth="1.5" />
-    <circle cx="105" cy="65" r="18" stroke="oklch(0.82 0.15 72)" strokeWidth="2" fill="oklch(0.82 0.15 72 / 0.1)" />
-    {[[62, 30], [150, 38], [55, 100], [148, 96]].map(([x, y]) => (<g key={`${x}-${y}`} stroke="oklch(1 0 0 / 0.35)" strokeWidth="1.5"><circle cx={x} cy={y} r="3.5" fill="none" /><path d={`M${x - 5} ${y - 5} L${x + 5} ${y + 5} M${x + 5} ${y - 5} L${x - 5} ${y + 5}`} /></g>))}
-    {[[96, 58], [114, 70], [105, 76]].map(([x, y]) => (<circle key={`${x}-${y}`} cx={x} cy={y} r="4" fill="oklch(0.82 0.15 72)" />))}
-    <path d="M185 30 H300 M185 65 H272 M185 100 H244" stroke="oklch(1 0 0 / 0.25)" strokeWidth="6" strokeLinecap="round" />
-    <text className="ld-text" x="240" y="126" textAnchor="middle">CUT TO THE ONES THAT MATTER</text>
+    <circle cx="105" cy="65" r="52" stroke="rgba(128,128,128,.35)" strokeWidth="1.5" />
+    <circle cx="105" cy="65" r="35" stroke="rgba(128,128,128,.5)" strokeWidth="1.5" />
+    <circle cx="105" cy="65" r="18" stroke="#FF4D00" strokeWidth="2" fill="rgba(255,77,0,.1)" />
+    {([[62, 30], [150, 38], [55, 100], [148, 96]] as Array<[number, number]>).map(([x, y]) => (<g key={`${x}-${y}`} stroke="rgba(128,128,128,.55)" strokeWidth="1.5"><circle cx={x} cy={y} r="3.5" fill="none" /><path d={`M${x - 5} ${y - 5} L${x + 5} ${y + 5} M${x + 5} ${y - 5} L${x - 5} ${y + 5}`} /></g>))}
+    {[[96, 58], [114, 70], [105, 76]].map(([x, y]) => (<circle key={`${x}-${y}`} cx={x} cy={y} r="4" fill="#FF4D00" />))}
+    <path d="M185 30 H300 M185 65 H272 M185 100 H244" stroke="rgba(128,128,128,.4)" strokeWidth="6" strokeLinecap="round" />
+    <text x="240" y="126" textAnchor="middle" fill="#808080" style={ldText}>CUT TO THE ONES THAT MATTER</text>
   </svg>);
   if (i === 3) return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
-    <path d="M16 74 H324" stroke="oklch(1 0 0 / 0.3)" strokeWidth="2" />
-    {[16, 92, 168, 244, 320].map((x, k) => (<circle key={x} cx={x} cy={74} r="6" fill="oklch(0.14 0.02 262)" stroke={k === 4 ? "oklch(0.82 0.15 72)" : "oklch(0.8 0.12 196)"} strokeWidth="2" />))}
-    <text className="ld-text sm" x="16" y="50" textAnchor="middle">FIRST TOUCH</text>
-    <text className="ld-text sm" x="168" y="50" textAnchor="middle">CUSTOMER</text>
-    <text className="ld-text sm" x="316" y="50" textAnchor="middle">ADVOCATE</text>
+    <path d="M16 74 H324" stroke="rgba(128,128,128,.5)" strokeWidth="2" />
+    {[16, 92, 168, 244, 320].map((x, k) => (<circle key={x} cx={x} cy={74} r="6" fill="#111113" stroke={k === 4 ? "#FF4D00" : "#BFBFBF"} strokeWidth="2" />))}
+    <text x="16" y="50" textAnchor="middle" fill="#D8D8D8" style={ldTextSm}>FIRST TOUCH</text>
+    <text x="168" y="50" textAnchor="middle" fill="#D8D8D8" style={ldTextSm}>CUSTOMER</text>
+    <text x="316" y="50" textAnchor="middle" fill="#D8D8D8" style={ldTextSm}>ADVOCATE</text>
     {[110, 226].map((x) => (<g key={x}>
-      <path d={`M${x} 74 L${x + 5} 92 L${x} 108 L${x - 5} 92 Z`} fill="oklch(0.82 0.15 72 / 0.25)" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
-      <path d={`M${x} 82 v14`} stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" strokeDasharray="2 3" />
+      <path d={`M${x} 74 L${x + 5} 92 L${x} 108 L${x - 5} 92 Z`} fill="rgba(255,77,0,.25)" stroke="#FF4D00" strokeWidth="1.5" />
+      <path d={`M${x} 82 v14`} stroke="#FF4D00" strokeWidth="1.5" strokeDasharray="2 3" />
     </g>))}
-    <text className="ld-text" x="170" y="126" textAnchor="middle">LEAKS FLAGGED WHILE THERE'S TIME</text>
+    <text x="170" y="126" textAnchor="middle" fill="#808080" style={ldText}>LEAKS FLAGGED WHILE THERE&apos;S TIME</text>
   </svg>);
   return (<svg viewBox="0 0 340 130" {...common} aria-hidden="true">
-    <path d="M24 108 H324" stroke="oklch(1 0 0 / 0.3)" strokeWidth="2" />
+    <path d="M24 108 H324" stroke="rgba(128,128,128,.5)" strokeWidth="2" />
     {[36, 56, 76, 62].map((h, k) => (<g key={k}>
-      <rect x={52 + k * 66} y={108 - h} width="40" height={h} className={k === 2 ? "ld-box leak" : "ld-box"} />
+      <rect x={52 + k * 66} y={108 - h} width="40" height={h} {...box} stroke={k === 2 ? "rgba(255,77,0,.6)" : "#3a3a3e"} />
     </g>))}
-    <path d="M196 62 v10 M188 80 v8 M204 84 v8" stroke="oklch(0.82 0.15 72)" strokeWidth="2" strokeDasharray="3 4" />
-    <circle cx="196" cy="98" r="3" fill="oklch(0.82 0.15 72)" />
-    <text className="ld-text" x="196" y="30" textAnchor="middle">THE LEAK</text>
-    <path d="M196 36 v-2 M190 40 l6 -4 6 4" stroke="oklch(0.82 0.15 72)" strokeWidth="1.5" />
+    <path d="M196 62 v10 M188 80 v8 M204 84 v8" stroke="#FF4D00" strokeWidth="2" strokeDasharray="3 4" />
+    <circle cx="196" cy="98" r="3" fill="#FF4D00" />
+    <text x="196" y="30" textAnchor="middle" fill="#808080" style={ldText}>THE LEAK</text>
+    <path d="M196 36 v-2 M190 40 l6 -4 6 4" stroke="#FF4D00" strokeWidth="1.5" />
   </svg>);
 }
 
 
 function SplitJoin() {
   return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <circle cx="24" cy="24" r="21" stroke="oklch(1 0 0 / 0.25)" strokeWidth="1.5" />
-      <path d="M14 17 L24 24 L14 31" stroke="oklch(0.82 0.15 72)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M24 17 L34 24 L24 31" stroke="oklch(0.8 0.12 196)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style={{ width: 48, height: 48 }}>
+      <circle cx="24" cy="24" r="21" stroke="#3a3a3e" strokeWidth="1.5" />
+      <path d="M14 17 L24 24 L14 31" stroke="#FF4D00" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M24 17 L34 24 L24 31" stroke="#BFBFBF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function AiPage() {
   return (
-    <div className="ai-root">
-      <div className="ai-progress" aria-hidden="true" />
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "AI" }]} directLine={false}>
       <main>
         {/* ---------- Hero ---------- */}
-        <section className="ai-hero">
-          <div className="ai-aurora" aria-hidden="true"><span className="a1" /><span className="a2" /><span className="a3" /></div>
-          <div className="ai-wrap">
-            <p className="ai-kicker">AI — the operating layer</p>
-            <h1 className="ai-hero-title">
-              <span className="line">Some people build with AI.</span>
-              <span className="line grow">I grow next to it.</span>
-            </h1>
-            <p className="ai-hero-sub">
-              This page isn't an ad for AI. It's how I work: <strong>fourteen years of growth judgment</strong> —
+        <CtHero
+          file="03 / AI — the operating layer"
+          title={
+            <>
+              Some people build with AI. <span>I grow next to it.</span>
+            </>
+          }
+          lede={
+            <>
+              This page isn&apos;t an ad for AI. It&apos;s how I work: <strong>fourteen years of growth judgment</strong> —
               positioning, segmentation, marketing operations, pipeline — now operationalized and run at machine
               speed. The expertise came first. AI is what it runs on.
+            </>
+          }
+        >
+          <div className="ecard feat" style={{ marginTop: 36, display: "flex", gap: 14, alignItems: "baseline" }}>
+            <span style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace" }}>▸</span>
+            <p style={{ color: "var(--text)", fontSize: 16 }}>
+              AI makes me faster at doing <em style={{ fontStyle: "normal", color: "var(--kin)" }}>what only I can do.</em>
             </p>
-            <div className="ai-thesis">
-              <span className="mark">▸</span>
-              <p>
-                AI makes me faster at doing <em>what only I can do.</em>
-              </p>
-            </div>
+          </div>
 
-            <HeroDiagram />
+          <HeroDiagram />
 
-            <div className="ai-marquee" aria-hidden="true">
-              <div className="ai-marquee-track">
-                {[0, 1].map((n) => (
-                  <span key={n}>Think <i>→</i> Build <i>→</i> Ship <i>→</i> Measure <i>→</i> Learn <i>↺</i>&nbsp;&nbsp;Think <i>→</i> Build <i>→</i> Ship <i>→</i> Measure <i>→</i> Learn <i>↺</i>&nbsp;&nbsp;</span>
-                ))}
-              </div>
-            </div>
+          <p
+            className="mono"
+            aria-hidden="true"
+            style={{ marginTop: 30, padding: "12px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", color: "var(--muted)", fontSize: 11, overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            Think <span style={{ color: "var(--kin)" }}>→</span> Build <span style={{ color: "var(--kin)" }}>→</span> Ship <span style={{ color: "var(--kin)" }}>→</span> Measure <span style={{ color: "var(--kin)" }}>→</span> Learn <span style={{ color: "var(--kin)" }}>↺</span>&nbsp;&nbsp;Think <span style={{ color: "var(--kin)" }}>→</span> Build <span style={{ color: "var(--kin)" }}>→</span> Ship <span style={{ color: "var(--kin)" }}>→</span> Measure <span style={{ color: "var(--kin)" }}>→</span> Learn <span style={{ color: "var(--kin)" }}>↺</span>&nbsp;&nbsp;
+          </p>
 
-            <div className="ai-split" aria-label="Human judgment plus machine speed">
-              <div className="ai-split-card human">
-                <p className="ai-split-tag">Human — decides</p>
+          <div aria-label="Human judgment plus machine speed" style={{ marginTop: 36 }}>
+            <div className="cards c2 rev stag">
+              <article className="card">
+                <p className="ck">Human — decides</p>
                 <h3>Judgment</h3>
                 <p>
                   The call. The angle. The no. Fourteen years of launches, misses, and exits deciding what is
                   worth doing at all.
                 </p>
-              </div>
-              <div className="ai-split-join">
-                <SplitJoin />
-              </div>
-              <div className="ai-split-card machine">
-                <p className="ai-split-tag">Machine — executes</p>
+              </article>
+              <article className="card">
+                <p className="ck" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <SplitJoin /> Machine — executes
+                </p>
                 <h3>Speed</h3>
                 <p>
                   The pull. The draft. The loop. Research, data, builds, and reporting executed in hours instead
                   of weeks.
                 </p>
-              </div>
-              <div className="ai-split-out">
-                <b>Output: verified work, shipped</b>
-                <span>Nothing ships unverified — my tap is the gate</span>
-              </div>
+              </article>
+            </div>
+            <div className="ecard" style={{ marginTop: 14, display: "flex", flexWrap: "wrap", gap: "8px 24px", alignItems: "baseline", justifyContent: "space-between" }}>
+              <p style={{ color: "var(--text)" }}><b>Output: verified work, shipped</b></p>
+              <p>Nothing ships unverified — my tap is the gate</p>
             </div>
           </div>
-        </section>
+        </CtHero>
 
         {/* ---------- Mine vs accelerated ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <p className="ai-kicker">The split</p>
-            <h2 className="ai-h2">What only I can do — and what AI accelerates</h2>
-            <p className="ai-lede">
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">The split</CtLabel>
+            <h2 className="shead">
+              What only I can do — <span>and what AI accelerates</span>
+            </h2>
+            <p className="lede dim">
               Two columns, one operator. The left side is the career. The right side is what the career now runs
               on. Confusing the two is how AI work goes wrong.
             </p>
-            <div className="ai-cols">
-              <div className="ai-col human ai-reveal">
-                <div className="ai-col-head">
-                  <h3>What only I can do</h3>
-                  <span>Stays human</span>
-                </div>
-                <ul>
+            <div className="cards c2 rev stag" style={{ marginTop: 36 }}>
+              <article className="card">
+                <p className="ck">Stays human</p>
+                <h3>What only I can do</h3>
+                <ul style={{ listStyle: "none", display: "grid", marginTop: 10 }}>
                   {MINE.map((m) => (
-                    <li key={m.title}>
-                      <span className="tick">◆</span>
+                    <li key={m.title} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, padding: "13px 0", borderTop: "1px solid var(--line)" }}>
+                      <span style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace", fontSize: 13 }}>◆</span>
                       <div>
-                        <b>{m.title}</b>
+                        <b style={{ fontSize: 14 }}>{m.title}</b>
                         <p>{m.body}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="ai-col machine ai-reveal">
-                <div className="ai-col-head">
-                  <h3>What AI accelerates</h3>
-                  <span>Runs at machine speed</span>
-                </div>
-                <ul>
+              </article>
+              <article className="card">
+                <p className="ck">Runs at machine speed</p>
+                <h3>What AI accelerates</h3>
+                <ul style={{ listStyle: "none", display: "grid", marginTop: 10 }}>
                   {ACCELERATED.map((a) => (
-                    <li key={a.title}>
-                      <span className="tick">▸</span>
+                    <li key={a.title} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 12, padding: "13px 0", borderTop: "1px solid var(--line)" }}>
+                      <span style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace", fontSize: 13 }}>▸</span>
                       <div>
-                        <b>{a.title}</b>
+                        <b style={{ fontSize: 14 }}>{a.title}</b>
                         <p>{a.body}</p>
                       </div>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             </div>
-            <div className="ai-gate ai-reveal">
-              <span className="lock">⬢</span>
+            <div className="ecard feat rev" style={{ marginTop: 18, display: "flex", gap: 14, alignItems: "flex-start" }}>
+              <span style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace", fontSize: 17 }}>⬢</span>
               <p>
-                <b>The split is the point.</b> AI never gets the final say. Every output — a segment, a sequence, a
+                <b style={{ color: "var(--text)" }}>The split is the point.</b> AI never gets the final say. Every output — a segment, a sequence, a
                 number in a report — crosses my desk and gets verified before it ships. Speed without a gate is
                 just faster mistakes.
               </p>
@@ -537,25 +529,29 @@ function AiPage() {
         </section>
 
         {/* ---------- Operating loop ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <p className="ai-kicker">The operating loop</p>
-            <h2 className="ai-h2">Same loop I've always run. Compressed.</h2>
-            <p className="ai-lede">
-              Think, build, ship, measure, learn — that's not an AI workflow, it's an operator's workflow. AI
-              doesn't change the loop. It changes how long each turn takes.
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">The operating loop</CtLabel>
+            <h2 className="shead">
+              Same loop I&apos;ve always run. <span>Compressed.</span>
+            </h2>
+            <p className="lede dim">
+              Think, build, ship, measure, learn — that&apos;s not an AI workflow, it&apos;s an operator&apos;s workflow. AI
+              doesn&apos;t change the loop. It changes how long each turn takes.
             </p>
             <LoopDiagram />
-            <div className="ai-loop">
+            <div className="cards c3 rev stag" style={{ marginTop: 40 }}>
               {LOOP.map((s, i) => (
-                <article className="ai-step ai-reveal" key={s.name}>
-                  <p className="n">STEP {s.n}</p>
-                  <h3>
+                <article className="card" key={s.name}>
+                  <p className="ck">STEP {s.n}</p>
+                  <h3 style={{ fontSize: 24 }}>
                     {s.name}
-                    {i < LOOP.length - 1 && <span className="arr">→</span>}
+                    {i < LOOP.length - 1 && <span style={{ color: "var(--muted)" }}> →</span>}
                   </h3>
                   <p>{s.body}</p>
-                  <p className="compress">{s.compress}</p>
+                  <p className="mono" style={{ marginTop: 14, paddingTop: 12, borderTop: "1px dashed var(--line)", color: "var(--kin)", lineHeight: 1.9 }}>
+                    {s.compress}
+                  </p>
                 </article>
               ))}
             </div>
@@ -563,24 +559,28 @@ function AiPage() {
         </section>
 
         {/* ---------- Core lanes ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <p className="ai-kicker">Core lanes</p>
-            <h2 className="ai-h2">Where the leverage lands</h2>
-            <p className="ai-lede">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="03">Core lanes</CtLabel>
+            <h2 className="shead">
+              Where the <span>leverage lands</span>
+            </h2>
+            <p className="lede dim">
               Not side projects, not experiments for their own sake. These are the disciplines I was hired for
               long before AI — each one now multiplied.
             </p>
-            <div className="ai-lanes">
+            <div className="cards c2 rev stag" style={{ marginTop: 36 }}>
               {LANES.map((l, li) => (
-                <article className="ai-lane ai-reveal" key={l.title}>
-                  <div className="ai-lane-diagram"><LaneDiagram i={li} /></div>
-                  <p className="idx">{l.idx}</p>
-                  <h3>{l.title}</h3>
-                  <p className="expertise">{l.expertise}</p>
-                  <div className="multiply">
-                    <span>How AI multiplies it</span>
-                    <p>{l.multiply}</p>
+                <article className="card" key={l.title}>
+                  <div className="legacy" style={{ marginBottom: 18 }}>
+                    <LaneDiagram i={li} />
+                  </div>
+                  <p className="ck">{l.idx}</p>
+                  <h3 style={{ fontSize: 24 }}>{l.title}</h3>
+                  <p>{l.expertise}</p>
+                  <div style={{ borderLeft: "2px solid var(--kin)", paddingLeft: 16, marginTop: 16 }}>
+                    <span className="flabel"><b>How AI multiplies it</b></span>
+                    <p style={{ color: "var(--text)" }}>{l.multiply}</p>
                   </div>
                 </article>
               ))}
@@ -589,24 +589,24 @@ function AiPage() {
         </section>
 
         {/* ---------- Proof strip ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <p className="ai-kicker">The record underneath</p>
-            <h2 className="ai-h2">The judgment came first</h2>
-            <div className="ai-proof ai-reveal">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="04">The record underneath</CtLabel>
+            <h2 className="shead">
+              The judgment <span>came first</span>
+            </h2>
+            <div className="statgrid rev">
               {PROOF.map((p) => (
-                <figure key={p.label}>
-                  <p className="v">{p.value}</p>
-                  <figcaption>
-                    {p.label}
-                    <br />
-                    <b>{p.where}</b>
-                  </figcaption>
-                </figure>
+                <div key={p.label}>
+                  <strong>{p.value}</strong>
+                  <span>
+                    {p.label} — {p.where}
+                  </span>
+                </div>
               ))}
             </div>
-            <p className="ai-proof-note">
-              <b>AI didn't produce these numbers.</b> Fourteen years of operating did. What's changed is the
+            <p className="lede dim" style={{ marginTop: 26 }}>
+              <b style={{ color: "var(--text)" }}>AI didn&apos;t produce these numbers.</b> Fourteen years of operating did. What&apos;s changed is the
               leverage underneath the same judgment — the research, builds, and reporting behind results like
               these now move at machine speed.
             </p>
@@ -614,39 +614,39 @@ function AiPage() {
         </section>
 
         {/* ---------- Principles ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <p className="ai-kicker">Principles</p>
-            <h2 className="ai-h2">How I hold the line</h2>
-            <div className="ai-principles">
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="05">Principles</CtLabel>
+            <h2 className="shead">
+              How I <span>hold the line</span>
+            </h2>
+            <div className="cards rev stag">
               {PRINCIPLES.map((p, i) => (
-                <div className="ai-principle ai-reveal" key={p.title}>
-                  <h3>
-                    <span className="no">PRINCIPLE 0{i + 1}</span>
-                    {p.title}
-                  </h3>
-                  <p>{p.body}</p>
-                </div>
+                <article className="card" key={p.title}>
+                  <p className="ck">PRINCIPLE 0{i + 1}</p>
+                  <h3 style={{ fontSize: 24 }}>{p.title}</h3>
+                  <p style={{ maxWidth: 720 }}>{p.body}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
         {/* ---------- CTA ---------- */}
-        <section className="ai-section">
-          <div className="ai-wrap">
-            <div className="ai-cta ai-reveal">
-              <p className="ai-kicker center">Work with me</p>
-              <h2>Want this leverage on your number?</h2>
-              <p>
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="06">Work with me</CtLabel>
+            <div className="ecard feat rev" style={{ textAlign: "center" }}>
+              <h3>Want this leverage on your number?</h3>
+              <p style={{ maxWidth: 560, margin: "10px auto 0" }}>
                 If you need growth that moves at this speed — with a person accountable for every call it makes —
-                that's the work I do.
+                that&apos;s the work I do.
               </p>
-              <div className="ai-cta-row">
-                <Link to="/contact" className="ai-btn primary">
-                  Let's Talk
+              <div className="btnrow" style={{ justifyContent: "center" }}>
+                <Link to="/contact" className="btn">
+                  Let&apos;s Talk <ArrowRight size={14} />
                 </Link>
-                <Link to="/work" className="ai-btn ghost">
+                <Link to="/work" className="btn o">
                   See the work
                 </Link>
               </div>
@@ -654,7 +654,6 @@ function AiPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }

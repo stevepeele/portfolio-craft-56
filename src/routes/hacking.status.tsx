@@ -1,7 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { createFileRoute } from "@tanstack/react-router";
+import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { statusLog } from "@/data/hacking";
@@ -27,58 +25,53 @@ export const Route = createFileRoute("/hacking/status")({
 
 function StatusPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Build log" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / Status</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              The <span className="text-gradient">build log.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              What's shipped, in order. No roadmap theater — just the record.
+        <CtHero
+          file="05 / Building — Build log"
+          title={
+            <>
+              The <span>build log.</span>
+            </>
+          }
+          lede="What's shipped, in order. No roadmap theater — just the record."
+        />
+
+        <section className="blk first">
+          <div className="wrap">
+            <CtLabel n="01">Live board</CtLabel>
+            <h2 className="shead">
+              The <span>Linear board.</span>
+            </h2>
+            <p className="lede dim">
+              Every website and dev project, straight from the tracker. Click any issue to open it
+              in Linear.
             </p>
+            <div className="legacy" style={{ marginTop: 36 }}>
+              <LinearDashboard />
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-5 py-20">
-          <p className="eyebrow">Building / Live board</p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-            The <span className="text-gradient">Linear board.</span>
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Every website and dev project, straight from the tracker. Click any issue to open it
-            in Linear.
-          </p>
-          <div className="mt-10">
-            <LinearDashboard />
+        <section className="blk">
+          <div className="wrap">
+            <CtLabel n="02">Build log</CtLabel>
+            <div className="rows rev">
+              {statusLog.map((entry) => (
+                <div key={`${entry.date}-${entry.title}`} className="row">
+                  <span className="rk">{entry.date}</span>
+                  <span>
+                    <h3>{entry.title}</h3>
+                    <p>{entry.detail}</p>
+                  </span>
+                  <span className="rgo"></span>
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          <ol className="relative space-y-8 border-l border-border/60 pl-8">
-            {statusLog.map((entry) => (
-              <li key={`${entry.date}-${entry.title}`} className="relative">
-                <span
-                  className="absolute top-1.5 -left-8 size-3 -translate-x-1/2 rounded-full bg-primary"
-                  aria-hidden="true"
-                />
-                <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-                  {entry.date}
-                </p>
-                <h2 className="mt-1 font-display text-xl font-bold">{entry.title}</h2>
-                <p className="mt-2 text-muted-foreground">{entry.detail}</p>
-              </li>
-            ))}
-          </ol>
         </section>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
