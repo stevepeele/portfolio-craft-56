@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ArrowUpRight } from "lucide-react";
+import { CtShell, CtHero } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -49,64 +48,41 @@ const sections = [
 
 function WaxAndAshPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Wax & Ash" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / Wax & Ash</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              A love note <span className="text-gradient">that burns.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Wax & Ash is a digital dead-drop for two people — one shared
-              board, one note at a time, no accounts. Read it, and it burns
-              forever.
-            </p>
-            <div className="mt-8">
-              <a
-                href="https://waxandash.stevepeeleii.com"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
-               onClick={() => trackCta("Try App", "hacking page", "https://waxandash.stevepeeleii.com")}>
-                Try it live <ArrowUpRight className="size-4" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          <div className="space-y-16">
-            {sections.map((s, i) => (
-              <article key={s.kicker} className="panel p-8 sm:p-10">
-                <p className="eyebrow">
-                  0{i + 1} / {s.kicker}
-                </p>
-                <h2 className="mt-4 text-2xl font-bold sm:text-3xl">{s.heading}</h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">{s.body}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <a
-              href="https://waxandash.stevepeeleii.com"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary inline-flex items-center gap-2"
-             onClick={() => trackCta("Try App", "hacking page", "https://waxandash.stevepeeleii.com")}>
-              Open the app <ArrowUpRight className="size-4" />
+        <CtHero file="05 / Building — Wax & Ash" title={<>A love note <span>that burns.</span></>}
+          lede={<>Wax & Ash is a digital dead-drop for two people — one shared board, one note at a time, no accounts. Read it, and it burns forever.</>}>
+          <div className="btnrow">
+            <a href="https://waxandash.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://waxandash.stevepeeleii.com")}>
+              Try it live <ArrowUpRight size={14} />
             </a>
-            <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
+          </div>
+        </CtHero>
+
+        <section className="blk first">
+          <div className="wrap">
+            <div className="cards rev">
+              {sections.map((s, i) => (
+                <article key={s.kicker} className="card">
+                  <p className="ck">{String(i + 1).padStart(2, "0")} / {s.kicker}</p>
+                  <h3>{s.heading}</h3>
+                  <p>{s.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 44 }}>
+              <div className="btnrow" style={{ marginTop: 0 }}>
+                <a href="https://waxandash.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://waxandash.stevepeeleii.com")}>
+                  Open the app <ArrowUpRight size={14} />
+                </a>
+              </div>
+              <p className="mono" style={{ marginTop: 18, color: "var(--muted)" }}>Built by SPIIX.</p>
+            </div>
           </div>
         </section>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
