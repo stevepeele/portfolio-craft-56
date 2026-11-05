@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { ArrowUpRight } from "lucide-react";
+import { CtShell, CtHero } from "@/components/ct-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -49,73 +48,46 @@ const sections = [
 
 function GigSplitPage() {
   return (
-    <div className="min-h-screen overflow-x-clip">
-      <SiteHeader />
+    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "GigSplit" }]}>
       <main>
-        <section className="hero-surface border-b border-border/60">
-          <div className="mx-auto max-w-4xl px-5 py-20">
-            <Link to="/hacking" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="size-4" /> Building
-            </Link>
-            <p className="eyebrow mt-8">Building / GigSplit</p>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-              Split the gig. <span className="text-gradient">Skip the argument.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              GigSplit turns a messy band payout into one clean screen. Gross pay in,
-              expenses out, splits handled, everybody marked paid. $9 once — cheaper
-              than one parking lot debate.
-            </p>
-            <div className="mt-8">
-              <a
-                href="https://gigsplit.stevepeeleii.com"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
-               onClick={() => trackCta("Try App", "hacking page", "https://gigsplit.stevepeeleii.com")}>
-                Try it live <ArrowUpRight className="size-4" />
-              </a>
+        <CtHero file="05 / Building — GigSplit" title={<>Split the gig. <span>Skip the argument.</span></>}
+          lede={<>GigSplit turns a messy band payout into one clean screen. Gross pay in, expenses out, splits handled, everybody marked paid. $9 once — cheaper than one parking lot debate.</>}>
+          <div className="btnrow">
+            <a href="https://gigsplit.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://gigsplit.stevepeeleii.com")}>
+              Try it live <ArrowUpRight size={14} />
+            </a>
+          </div>
+        </CtHero>
+
+        <section className="blk first">
+          <div className="wrap">
+            <div className="cards rev">
+              {sections.map((s, i) => (
+                <article key={s.kicker} className="card">
+                  <p className="ck">{String(i + 1).padStart(2, "0")} / {s.kicker}</p>
+                  <h3>{s.heading}</h3>
+                  <p>{s.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 44 }}>
+              <div className="btnrow" style={{ marginTop: 0 }}>
+                <a href="https://gigsplit.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://gigsplit.stevepeeleii.com")}>
+                  Open the app <ArrowUpRight size={14} />
+                </a>
+              </div>
+              <p className="mono" style={{ marginTop: 18, color: "var(--muted)" }}>Built by SPIIX.</p>
+              <p style={{ marginTop: 16 }}>
+                <Link to="/hacking/$appSlug/changelog" params={{ appSlug: "gigsplit" }} className="go" style={{ color: "var(--kin)", fontFamily: "'JetBrains Mono',monospace", fontSize: 10, textTransform: "uppercase", letterSpacing: ".08em", textDecoration: "none" }}>
+                  Ship history →
+                </Link>
+              </p>
             </div>
           </div>
         </section>
-
-        <section className="mx-auto max-w-4xl px-5 py-20">
-          <div className="space-y-16">
-            {sections.map((s, i) => (
-              <article key={s.kicker} className="panel p-8 sm:p-10">
-                <p className="eyebrow">
-                  0{i + 1} / {s.kicker}
-                </p>
-                <h2 className="mt-4 text-2xl font-bold sm:text-3xl">{s.heading}</h2>
-                <p className="mt-4 leading-relaxed text-muted-foreground">{s.body}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <a
-              href="https://gigsplit.stevepeeleii.com"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary inline-flex items-center gap-2"
-             onClick={() => trackCta("Try App", "hacking page", "https://gigsplit.stevepeeleii.com")}>
-              Open the app <ArrowUpRight className="size-4" />
-            </a>
-            <p className="mt-4 text-sm text-muted-foreground">Built by SPIIX.</p>
-          </div>
-        </section>
-        <div className="mx-auto max-w-4xl px-5 pb-2 text-center">
-          <Link
-            to="/hacking/$appSlug/changelog"
-            params={{ appSlug: "gigsplit" }}
-            className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-          >
-            Ship history →
-          </Link>
-        </div>
         <ValidationBeat />
       </main>
-      <SiteFooter />
-    </div>
+    </CtShell>
   );
 }
