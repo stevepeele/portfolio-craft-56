@@ -1,10 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { useEffect, useState } from "react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { useEffect, useRef, useState } from "react";
+import "@/styles/core.css";
 import { getFeaturedPost, getLatestPosts } from "@/lib/sanity-queries";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
+
+const CORE_FONT_LINK = {
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
+} as const;
 
 const title = "Blog — Notes on Growth, Systems & Building | Steve Peele II";
 const description =
@@ -24,10 +29,82 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/blog" }],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/blog" }, CORE_FONT_LINK],
   }),
   component: BlogIndexPage,
 });
+
+/* ------------------------------------------------------------------ */
+/* Core writing — pared-down rebuild (SPIIX-1189). Presentation only:  */
+/* the loader, Sanity queries, cross-post matching, and external feed  */
+/* fetch below are unchanged from the Control Tower version.           */
+/* ------------------------------------------------------------------ */
+
+function CoreHeader() {
+  return (
+    <header className="core-topbar">
+      <div className="core-wrap core-topbar-inner">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-mainnav" aria-label="Main">
+          <Link to="/work" className="core-navlink">
+            Work
+          </Link>
+          <Link to="/blog" className="core-navlink core-active" aria-current="page">
+            Writing
+          </Link>
+          <Link to="/contact" className="core-navlink">
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function CoreFooter() {
+  return (
+    <footer className="core-pagefoot">
+      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+      <div className="core-pagefoot-right">
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
+function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>, dep: unknown) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("core-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("core-in");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
+      else io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [rootRef, dep]);
+}
 
 function normalizeTitle(t: string): string {
   return t
@@ -59,7 +136,7 @@ function findCrossPostedSources(title: string, items: { title: string; source: s
 function CrossPostedBadge({ sources }: { sources: string[] }) {
   if (sources.length === 0) return null;
   return (
-    <span title="This piece is also published on another platform" className="badge">
+    <span title="This piece is also published on another platform" className="core-badge">
       Also on {sources.join(" + ")}
     </span>
   );
@@ -82,8 +159,8 @@ function PostCard({ post, external }: { post: SanityPostCard; external: External
   if (post.categories?.length) metaParts.push(post.categories.map((c) => c.name).join(" · "));
   if (post.author?.name) metaParts.push(`by ${post.author.name}`);
   return (
-    <Link to="/blog/$slug" params={{ slug: post.slug }} className="row">
-      <span className="rk">
+    <Link to="/blog/$slug" params={{ slug: post.slug }} className="core-writing-row">
+      <span className="core-writing-meta">
         {metaParts.join("  ·  ")}
         {isNew && (
           <>
@@ -104,22 +181,17 @@ function PostCard({ post, external }: { post: SanityPostCard; external: External
           </>
         )}
       </span>
-      <span>
-        {post.mainImage && (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
-            alt={post.mainImage.alt || post.title}
-            loading="lazy"
-            style={{ width: 160, aspectRatio: "4 / 3", objectFit: "cover", display: "block", border: "1px solid var(--line)", marginBottom: 12 }}
-          />
-        )}
-        <h3>{post.title}</h3>
-        {post.excerpt && <p>{post.excerpt}</p>}
-      </span>
-      <span className="rgo">
-        Read <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
-      </span>
+      {post.mainImage && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
+          alt={post.mainImage.alt || post.title}
+          loading="lazy"
+          className="core-writing-thumb"
+        />
+      )}
+      <h3>{post.title}</h3>
+      {post.excerpt && <p>{post.excerpt}</p>}
     </Link>
   );
 }
@@ -142,15 +214,15 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
       })
     : "";
   return (
-    <a href={item.link} target="_blank" rel="noopener noreferrer" className="card">
-      <p className="ck">
+    <a href={item.link} target="_blank" rel="noopener noreferrer" className="core-writing-row">
+      <span className="core-writing-meta">
         Also on {item.source}
         {date && <> · {date}</>}
-      </p>
-      <h3 style={{ fontSize: 20 }}>{item.title}</h3>
-      <span className="go">
-        Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
       </span>
+      <h3>{item.title}</h3>
+      <p>
+        Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
+      </p>
     </a>
   );
 }
@@ -158,6 +230,8 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
 function BlogIndexPage() {
   const { featured, posts } = Route.useLoaderData();
   const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef, externalItems.length);
 
   useEffect(() => {
     let cancelled = false;
@@ -183,87 +257,80 @@ function BlogIndexPage() {
     : (posts as SanityPostCard[]);
 
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog" }]}>
-      <main>
-        <CtHero
-          file="04 / Blog"
-          title={
-            <>
-              Notes on growth, systems, <span>and building.</span>
-            </>
-          }
-          lede="Essays and working notes on growth marketing, operations, and the craft of building companies."
-        />
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <h1>Writing</h1>
+          <p>Essays and working notes on growth marketing, operations, and the craft of building companies.</p>
+        </div>
 
-        <section className="blk first">
-          <div className="wrap">
-            {posts.length === 0 && (
-              <div style={{ padding: "40px 0", textAlign: "center" }}>
-                <h2 className="shead">Nothing published yet.</h2>
-                <p className="lede dim">Check back soon.</p>
-              </div>
-            )}
-
-            {featured && (
-              <>
-                <CtLabel n="01">Featured</CtLabel>
-                <Link to="/blog/$slug" params={{ slug: featured.slug }} className="ecard feat rev" style={{ display: "block", textDecoration: "none" }}>
-                  <p className="kicker">
-                    <b>Featured</b>
-                    {featured.publishedAt && <> · {formatSanityDate(featured.publishedAt)}</>}
-                    {"  "}
-                    <CrossPostedBadge sources={findCrossPostedSources(featured.title, externalItems)} />
-                  </p>
-                  {featured.mainImage && (
-                    <div style={{ marginTop: 20, overflow: "hidden", border: "1px solid var(--line)" }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
-                        alt={featured.mainImage.alt || featured.title}
-                        style={{ width: "100%", aspectRatio: "16 / 8", objectFit: "cover", display: "block" }}
-                      />
-                    </div>
-                  )}
-                  <h3>{featured.title}</h3>
-                  {featured.excerpt && <p>{featured.excerpt}</p>}
-                  <span className="go" style={{ font: "500 9.5px 'JetBrains Mono', monospace", color: "var(--kin)", textTransform: "uppercase", display: "inline-block", marginTop: 16 }}>
-                    Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
-                  </span>
-                </Link>
-              </>
-            )}
-
-            {rest.length > 0 && (
-              <div style={{ marginTop: featured ? 56 : 0 }}>
-                <CtLabel n={featured ? "02" : "01"}>All articles</CtLabel>
-                <h2 className="shead">
-                  All <span>articles</span>
-                </h2>
-                <div className="rows rev">
-                  {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
-                    <PostCard key={post._id} post={post} external={externalItems} />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {externalItems.length > 0 && (
-              <div style={{ marginTop: 64 }}>
-                <CtLabel n={featured ? "03" : "02"}>Elsewhere</CtLabel>
-                <h2 className="shead">Elsewhere</h2>
-                <p className="lede dim" style={{ marginBottom: 28 }}>
-                  Recent notes from Substack &amp; Medium
-                </p>
-                <div className="cards c2 rev stag">
-                  {externalItems.map((item) => (
-                    <ExternalFeedCard key={item.id} item={item} />
-                  ))}
-                </div>
-              </div>
-            )}
+        {posts.length === 0 && (
+          <div className="core-empty core-reveal">
+            <h2>Nothing published yet.</h2>
+            <p>Check back soon.</p>
           </div>
-        </section>
+        )}
+
+        {featured && (
+          <div style={{ marginTop: 56 }} className="core-reveal">
+            <p className="core-section-label">Featured</p>
+            <Link
+              to="/blog/$slug"
+              params={{ slug: featured.slug }}
+              className="core-featured"
+              style={{ borderTop: "1px solid var(--core-line)" }}
+            >
+              <span className="core-writing-meta">
+                Featured
+                {featured.publishedAt && <> · {formatSanityDate(featured.publishedAt)}</>}
+                {"  "}
+                <CrossPostedBadge sources={findCrossPostedSources(featured.title, externalItems)} />
+              </span>
+              {featured.mainImage && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
+                  alt={featured.mainImage.alt || featured.title}
+                  className="core-featured-img"
+                />
+              )}
+              <h3>{featured.title}</h3>
+              {featured.excerpt && <p>{featured.excerpt}</p>}
+              <span className="core-textlink">
+                Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+              </span>
+            </Link>
+          </div>
+        )}
+
+        {rest.length > 0 && (
+          <div style={{ marginTop: featured ? 56 : 0 }} className="core-reveal">
+            <p className="core-section-label">All articles</p>
+            <div className="core-writing-list" style={{ marginTop: 0 }}>
+              {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
+                <PostCard key={post._id} post={post} external={externalItems} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {externalItems.length > 0 && (
+          <div style={{ marginTop: 64 }} className="core-reveal">
+            <p className="core-section-label">Elsewhere</p>
+            <p className="core-writing-note" style={{ marginTop: 0, marginBottom: 4 }}>
+              Recent notes from Substack &amp; Medium
+            </p>
+            <div className="core-writing-list" style={{ marginTop: 20 }}>
+              {externalItems.map((item) => (
+                <ExternalFeedCard key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <CoreFooter />
       </main>
-    </CtShell>
+    </div>
   );
 }
