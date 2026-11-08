@@ -93,7 +93,7 @@
 }
 .core-mainnav {
   display: flex;
-  gap: 28px;
+  gap: 26px;
   align-items: center;
   flex-shrink: 0;
 }
@@ -121,9 +121,29 @@
   height: 1px;
   background: var(--core-accent);
 }
+/* Six-item nav (SPIIX-1202): tighten before wrapping, then wrap under
+   the wordmark so small screens never crowd. */
+@media (max-width: 1020px) {
+  .core-mainnav {
+    gap: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .core-topbar-inner {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .core-mainnav {
+    order: 3;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding-bottom: 2px;
+  }
+}
 @media (max-width: 560px) {
   .core-mainnav {
-    gap: 16px;
+    gap: 8px 16px;
   }
   .core-wordmark {
     font-size: 16px;
@@ -134,7 +154,7 @@
 }
 @media (max-width: 380px) {
   .core-mainnav {
-    gap: 12px;
+    gap: 8px 12px;
   }
   .core-wordmark {
     font-size: 15px;
@@ -811,6 +831,98 @@ a.core-featured:hover h3 {
   font-size: 15.5px;
   color: var(--core-ink-2);
   line-height: 1.55;
+}
+
+/* Inline links inside prose (SPIIX-1202) */
+.core-prose a.core-inline-link {
+  font-weight: 600;
+  border-bottom: 1px solid var(--core-line-2);
+  padding-bottom: 1px;
+}
+.core-prose a.core-inline-link:hover {
+  color: var(--core-accent);
+  border-color: var(--core-accent);
+}
+
+/* Company I keep: restored logo-name slider (SPIIX-1202). PLX-291 put
+   the marquee on the pre-redesign home page; the Nov 6 pared-down
+   redesign dropped it. The set is text wordmarks from the workedWith
+   record, so there are no image assets. CSS-only motion; under
+   reduced motion the strip wraps as a static list. */
+.core-keep {
+  padding: 60px 0 8px;
+}
+.core-keep-label {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--core-ink-3);
+  font-weight: 600;
+  margin: 0;
+}
+.core-keep-viewport {
+  margin-top: 28px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+.core-keep-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 56px;
+  padding-right: 56px;
+}
+.core-keep-name {
+  font-family: var(--core-serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--core-ink-3);
+  transition: color 0.3s ease;
+}
+.core-keep-name:hover {
+  color: var(--core-ink);
+}
+@keyframes core-keep-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .core-keep-track {
+    animation: core-keep-scroll 48s linear infinite;
+  }
+  .core-keep-viewport:hover .core-keep-track {
+    animation-play-state: paused;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .core-keep-viewport {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .core-keep-track {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+    row-gap: 14px;
+  }
+  .core-keep-dup {
+    display: none;
+  }
 }
 
 /* Blog (SPIIX-1201): index toolbar, article reading experience. */

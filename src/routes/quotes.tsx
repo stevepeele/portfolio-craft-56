@@ -36,7 +36,7 @@ function QuotesPage() {
 
   return (
     <div className="core-root" ref={rootRef}>
-      <CoreHeader active="work" />
+      <CoreHeader active="quotes" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Quotes</h1>
@@ -85,11 +85,37 @@ function QuotesPage() {
           </div>
         </section>
 
+        <section className="core-section core-reveal">
+          <p className="core-section-label">Three chairs, one description</p>
+          <div className="core-prose">
+            <p>
+              The voices above watched the work from three chairs: peers who ran teams alongside
+              Steve, clients he served, and teammates on his own teams. The details change from
+              seat to seat. The description does not: command of the full marketing engine, sharp
+              questions before big moves, and plans that turn into shipped results.
+            </p>
+            <p>
+              The outcomes behind the words are itemized in the{" "}
+              <Link to="/work" className="core-inline-link">
+                work record
+              </Link>{" "}
+              and the full{" "}
+              <Link to="/experience" className="core-inline-link">
+                career history
+              </Link>
+              . For the thinking behind the work, there is the{" "}
+              <Link to="/blog" className="core-inline-link">
+                writing
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+
         <div className="core-work-close core-reveal">
           <p>
-            The short version: people who have run teams with Steve, reported to him, or hired him
-            describe the same operator. Focused on outcomes, steady under pressure, and built for
-            what comes next.
+            The record is the proof; these are the references. If the work sounds like the problem
+            in front of you, the next step is a conversation.
           </p>
           <Link to="/work-together" className="core-textlink">
             Work together →

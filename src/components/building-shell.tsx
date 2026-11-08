@@ -73,11 +73,20 @@ export function BuildingShell({
             <Link to="/work" className="core-navlink">
               Work
             </Link>
+            <Link to="/experience" className="core-navlink">
+              Experience
+            </Link>
+            <Link to="/quotes" className="core-navlink">
+              Quotes
+            </Link>
             <Link to="/blog" className="core-navlink">
               Writing
             </Link>
             <Link to="/hacking" className="core-navlink core-active" aria-current="page">
               Building
+            </Link>
+            <Link to="/work-together" className="core-navlink">
+              Work Together
             </Link>
             <Link to="/contact" className="core-navlink">
               Contact

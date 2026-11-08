@@ -11,7 +11,27 @@ export const CORE_FONT_LINK = {
   href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
 } as const;
 
-export type CorePageKey = "work" | "blog" | "contact" | null;
+export type CorePageKey =
+  | "work"
+  | "experience"
+  | "quotes"
+  | "blog"
+  | "work-together"
+  | "contact"
+  | null;
+
+/* Nav expanded in SPIIX-1202: Experience, Quotes, and Work Together
+   join Work, Writing, and Contact. The wordmark is the home link.
+   core.css wraps this nav under the wordmark at small widths. */
+
+const NAV_ITEMS: Array<{ to: string; label: string; key: Exclude<CorePageKey, null> }> = [
+  { to: "/work", label: "Work", key: "work" },
+  { to: "/experience", label: "Experience", key: "experience" },
+  { to: "/quotes", label: "Quotes", key: "quotes" },
+  { to: "/blog", label: "Writing", key: "blog" },
+  { to: "/work-together", label: "Work Together", key: "work-together" },
+  { to: "/contact", label: "Contact", key: "contact" },
+];
 
 export function CoreHeader({ active = null }: { active?: CorePageKey }) {
   return (
@@ -21,27 +41,16 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
           Steve Peele II<span>.</span>
         </Link>
         <nav className="core-mainnav" aria-label="Main">
-          <Link
-            to="/work"
-            className={`core-navlink${active === "work" ? " core-active" : ""}`}
-            aria-current={active === "work" ? "page" : undefined}
-          >
-            Work
-          </Link>
-          <Link
-            to="/blog"
-            className={`core-navlink${active === "blog" ? " core-active" : ""}`}
-            aria-current={active === "blog" ? "page" : undefined}
-          >
-            Writing
-          </Link>
-          <Link
-            to="/contact"
-            className={`core-navlink${active === "contact" ? " core-active" : ""}`}
-            aria-current={active === "contact" ? "page" : undefined}
-          >
-            Contact
-          </Link>
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.key}
+              to={item.to as "/work"}
+              className={`core-navlink${active === item.key ? " core-active" : ""}`}
+              aria-current={active === item.key ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>

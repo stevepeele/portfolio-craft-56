@@ -5,7 +5,7 @@ import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/compone
 
 const title = "Work Together: Engagement Options | Steve Peele II";
 const description =
-  "Three ways to work with Steve Peele II: fractional marketing leadership, a full-time leadership seat, or advisory and audit engagements. Each starts with a direct conversation.";
+  "Three ways to work with Steve Peele II: a full-time leadership seat, fractional marketing leadership, or advisory and audit engagements. Each starts with a direct conversation.";
 
 export const Route = createFileRoute("/work-together")({
   head: () => ({
@@ -22,11 +22,13 @@ export const Route = createFileRoute("/work-together")({
   component: WorkTogetherPage,
 });
 
-/* Work Together (SPIIX-1199). The engagement options are the ones the
-   public record already supports: the fractional seat held at Amify,
-   the full-time leadership availability stated on the home page, and
-   the ongoing advisory practice plus the SPIIX audit. Every option
-   routes to the direct channels on /contact. No form. */
+/* Work Together (SPIIX-1199; FTE moved first in SPIIX-1202, per
+   Steve's order). The engagement options are the ones the public
+   record already supports: the full-time leadership availability
+   stated on the home page and in his active search, the fractional
+   seat held at Amify, and the ongoing advisory practice plus the
+   SPIIX audit. Every option routes to the direct channels on
+   /contact. No form. */
 
 const OPTIONS: Array<{
   kicker: string;
@@ -38,17 +40,17 @@ const OPTIONS: Array<{
 }> = [
   {
     kicker: "Option 01",
-    title: "Fractional marketing leadership",
-    body: "A senior marketing leader embedded with your team part-time: positioning, demand, and the operating system behind both, owned end to end. This is the seat held at Amify, where a company-wide repositioning produced $6M in incremental revenue.",
-    fit: "Fits growth-stage companies that need senior marketing leadership before a full-time hire makes sense.",
+    title: "Full-time leadership",
+    body: "Steve is open to FTE roles leading marketing operations, growth, or demand generation, remote-first or hybrid from Cincinnati. The record behind the hire: fourteen years across SaaS, marketplaces, and enterprise tech, currently Head of Marketing Operations at Launch by NTT DATA, running global demand programs on $8M+ budgets with $350M+ in pipeline generated, and a founder run at Tixxy that reached $1M+ ARR in its first year before it.",
+    fit: "Fits companies hiring a senior marketing leader to own the growth engine full-time: the positioning, the demand, and the operating system that makes both measurable.",
     cta: "Start the conversation",
     to: "/contact",
   },
   {
     kicker: "Option 02",
-    title: "Full-time leadership",
-    body: "A head of marketing operations or growth leadership seat, full-time. Fourteen years across SaaS, marketplaces, and enterprise tech, from zero-to-one builds through acquisition, with global team and budget ownership.",
-    fit: "Fits companies hiring a senior marketing leader to build or rebuild the growth engine.",
+    title: "Fractional marketing leadership",
+    body: "A senior marketing leader embedded with your team part-time: positioning, demand, and the operating system behind both, owned end to end. This is the seat held at Amify, where a company-wide repositioning produced $6M in incremental revenue.",
+    fit: "Fits growth-stage companies that need senior marketing leadership before a full-time hire makes sense.",
     cta: "Start the conversation",
     to: "/contact",
   },
@@ -62,13 +64,36 @@ const OPTIONS: Array<{
   },
 ];
 
+const PROOF: Array<{ company: string; role: string; result: string }> = [
+  {
+    company: "Launch by NTT DATA",
+    role: "Head of Marketing Operations",
+    result: "$350M+ pipeline · 4:1 ROI across digital demand",
+  },
+  {
+    company: "Amify",
+    role: "Fractional VP of Marketing",
+    result: "$6M incremental revenue from a company-wide repositioning",
+  },
+  {
+    company: "Dotloop",
+    role: "Marketing Operations, startup stage",
+    result: "400%+ user growth through the acquisition by Zillow Group",
+  },
+  {
+    company: "Tixxy",
+    role: "Founder & Head of Growth",
+    result: "$1M+ ARR in year one, positioned for acquisition",
+  },
+];
+
 function WorkTogetherPage() {
   const rootRef = useRef<HTMLDivElement>(null);
   useCoreReveal(rootRef);
 
   return (
     <div className="core-root" ref={rootRef}>
-      <CoreHeader />
+      <CoreHeader active="work-together" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Work together</h1>
@@ -96,6 +121,36 @@ function WorkTogetherPage() {
             </article>
           ))}
         </div>
+
+        <section className="core-section core-reveal">
+          <p className="core-section-label">The record behind the offer</p>
+          <div className="core-record">
+            {PROOF.map((r) => (
+              <div className="core-record-row" key={r.company}>
+                <div>
+                  <div className="core-record-company">{r.company}</div>
+                  <div className="core-record-role">{r.role}</div>
+                </div>
+                <div className="core-record-result">{r.result}</div>
+              </div>
+            ))}
+          </div>
+          <Link to="/work" className="core-textlink">
+            Full work record →
+          </Link>
+        </section>
+
+        <section className="core-section core-reveal">
+          <p className="core-section-label">How it starts</p>
+          <div className="core-prose">
+            <p>
+              It starts with a direct conversation: the problem in plain terms and the constraints
+              on the table. Then a straight read on fit, including when the fit is not there. Then
+              a defined scope, so the work, the timeline, and the measure of success are agreed
+              before anything begins.
+            </p>
+          </div>
+        </section>
 
         <div className="core-work-close core-reveal">
           <p>

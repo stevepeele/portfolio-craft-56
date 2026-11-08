@@ -42,8 +42,17 @@ function CoreHeader() {
           <Link to="/work" className="core-navlink core-active" aria-current="page">
             Work
           </Link>
+          <Link to="/experience" className="core-navlink">
+            Experience
+          </Link>
+          <Link to="/quotes" className="core-navlink">
+            Quotes
+          </Link>
           <Link to="/blog" className="core-navlink">
             Writing
+          </Link>
+          <Link to="/work-together" className="core-navlink">
+            Work Together
           </Link>
           <Link to="/contact" className="core-navlink">
             Contact
@@ -157,6 +166,7 @@ const RECORD: Array<{ date: string; company: string; role: string; result: strin
 /* Selected project record from src/data/resume.ts (SPIIX-1199). The
    /portfolio redirect lands on the #projects anchor below. */
 import { portfolioProjects, featuredRecommendations } from "@/data/resume";
+import { CompanyKeep } from "@/components/company-keep";
 
 const PROJECTS = portfolioProjects.map((p) => ({
   company: p.company,
@@ -195,6 +205,10 @@ function WorkPage() {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="core-reveal">
+          <CompanyKeep />
         </div>
 
         <section className="core-section core-reveal" id="projects">

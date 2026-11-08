@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
+import { CompanyKeep } from "@/components/company-keep";
 import { certifications, education } from "@/data/resume";
 
 const title = "Experience: Career History | Steve Peele II";
@@ -135,7 +136,7 @@ function ExperiencePage() {
 
   return (
     <div className="core-root" ref={rootRef}>
-      <CoreHeader active="work" />
+      <CoreHeader active="experience" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Experience</h1>
@@ -166,6 +167,32 @@ function ExperiencePage() {
             </article>
           ))}
         </div>
+
+        <div className="core-reveal">
+          <CompanyKeep />
+        </div>
+
+        <section className="core-section core-reveal">
+          <p className="core-section-label">By the numbers</p>
+          <div className="core-proof-grid">
+            <div>
+              <div className="core-proof-num">$350M+</div>
+              <div className="core-proof-label">pipeline generated at Launch by NTT DATA</div>
+            </div>
+            <div>
+              <div className="core-proof-num">$8M+</div>
+              <div className="core-proof-label">global budget owned at Launch</div>
+            </div>
+            <div>
+              <div className="core-proof-num">400%+</div>
+              <div className="core-proof-label">user growth across the Dotloop run</div>
+            </div>
+            <div>
+              <div className="core-proof-num">$1M+</div>
+              <div className="core-proof-label">ARR in Tixxy's first year</div>
+            </div>
+          </div>
+        </section>
 
         <section className="core-section core-reveal">
           <p className="core-section-label">Education</p>
