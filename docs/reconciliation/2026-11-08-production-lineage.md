@@ -42,6 +42,16 @@ These are already true of `7ec4a25` plus the untouched redirect files. This bran
 - `/experience` redirects to `/work#experience`, `/recommendations` to `/work#recommendations`, and `/portfolio` to `/work#projects`. The core work page has none of those ids. On main, `src/routes/work.tsx` still has them. Landing the core without editing the redirect files leaves those hashes with no target, which is the deployed route state.
 - Quotes, `/experience` as a page, `/work-together`, `/building`, and nav redesign stay deferred.
 
+## Regression
+
+`bun test tests/mainsite-reconciliation.test.ts`: 4 pass.
+
+`bunx vite build` (not `bun run build`, so `prebuild` did not run): pass, local `.vercel/output` only. The build printed a deploy hint and was not deployed. The output directory was deleted afterward and is not part of the commit.
+
+`bun install --frozen-lockfile` did not change `package.json` or `bun.lock`.
+
+`bun test` on `tests/spiix-models.test.ts`, `tests/growth-ladders.test.ts`, and `tests/spiix-leads.test.ts`: 15 pass, 1 fail. The failure is `tests/spiix-leads.test.ts` expecting no autoresponse field. `src/lib/spiix-leads.ts` and that test file match main, so the reconciliation diff did not cause it. It was not fixed.
+
 ## Publish gate
 
 No `.github` workflow is in the repo. `vite.config.ts` sets Nitro `preset: "vercel"` so a local build can emit `.vercel/output`. That is an output format, not a deploy. `bun run build` also runs `prebuild`, which fetches feeds and rewrites the sitemap from Sanity. This reconciliation does not run `prebuild`.

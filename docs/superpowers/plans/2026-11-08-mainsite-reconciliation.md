@@ -99,16 +99,16 @@ Do not push.
 
 ### Task 3: Local regression only
 
-- [ ] **Step 1: Install from the existing lockfile without changing it**
+- [x] **Step 1: Install from the existing lockfile without changing it**
 
 Run: `bun install --frozen-lockfile`
 Expected: `package.json` and `bun.lock` stay equal to main. If install would edit the lockfile, restore it and do not commit the edit.
 
-- [ ] **Step 2: Build without prebuild**
+- [x] **Step 2: Build without prebuild**
 
 Run: `bunx vite build`
 Expected: local `.vercel/output` only. This preset names the output format. It is not a deploy command. Do not run `vercel deploy`.
 
-- [ ] **Step 3: Stop before remote publish**
+- [x] **Step 3: Stop before remote publish**
 
 Push and `ManagePullRequest` stay blocked while GitHub actor identity is unverified or while a branch publish can move `stevepeeleii.com`. Missing project settings are UNKNOWN, not safe.
