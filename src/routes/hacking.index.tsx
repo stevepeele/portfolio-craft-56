@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, FlaskConical } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { hackingApps } from "@/data/hacking";
 import { hackingNav, hackingNavGroups } from "@/data/navigation";
@@ -43,9 +43,9 @@ const appStatusMeta = {
 
 function HackingPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building"
           title={
             <>
@@ -62,11 +62,11 @@ function HackingPage() {
               Build progress
             </Link>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">The apps</CtLabel>
+            <BuildingLabel n="01">The apps</BuildingLabel>
             <h2 className="shead">On the bench right now.</h2>
             <div className="cards c3 rev stag">
               {hackingApps.map((app) => {
@@ -114,7 +114,7 @@ function HackingPage() {
 
         <section className="blk">
           <div className="wrap">
-            <CtLabel n="02">Everything else</CtLabel>
+            <BuildingLabel n="02">Everything else</BuildingLabel>
             <h2 className="shead">The full index.</h2>
             {hackingNavGroups
               .filter((g) => g.key !== "start")
@@ -145,6 +145,6 @@ function HackingPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -48,16 +48,16 @@ const sections = [
 
 function GigSplitPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "GigSplit" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "GigSplit" }]}>
       <main>
-        <CtHero file="05 / Building — GigSplit" title={<>Split the gig. <span>Skip the argument.</span></>}
+        <BuildingHero file="05 / Building — GigSplit" title={<>Split the gig. <span>Skip the argument.</span></>}
           lede={<>GigSplit turns a messy band payout into one clean screen. Gross pay in, expenses out, splits handled, everybody marked paid. $9 once — cheaper than one parking lot debate.</>}>
           <div className="btnrow">
             <a href="https://gigsplit.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://gigsplit.stevepeeleii.com")}>
               Try it live <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -88,6 +88,6 @@ function GigSplitPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

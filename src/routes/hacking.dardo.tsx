@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -48,16 +48,16 @@ const sections = [
 
 function DardoPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Dardo" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Dardo" }]}>
       <main>
-        <CtHero file="05 / Building — Dardo" title={<>Your AI sidekick <span>for the field.</span></>}
+        <BuildingHero file="05 / Building — Dardo" title={<>Your AI sidekick <span>for the field.</span></>}
           lede={<>Dardo is an AI sidekick for real estate agents — one-tap capture, passive mileage and routing, and an evening brief with your follow-ups already drafted. $4.99 a month.</>}>
           <div className="btnrow">
             <a href="https://dardo.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://dardo.stevepeeleii.com")}>
               Try it live <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -88,6 +88,6 @@ function DardoPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

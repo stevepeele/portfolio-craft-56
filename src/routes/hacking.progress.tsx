@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat, ValidationAutoOpen } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 
@@ -24,9 +24,9 @@ export const Route = createFileRoute("/hacking/progress")({
 
 function ProgressPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Live board" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Live board" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building — Live board"
           title={
             <>
@@ -46,6 +46,6 @@ function ProgressPage() {
         <ValidationBeat />
         <ValidationAutoOpen />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

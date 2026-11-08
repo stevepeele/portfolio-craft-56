@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Muse Vault — Stop Prompting From Scratch | Steve Peele II";
@@ -41,20 +41,20 @@ const nextItems = [
 
 function MuseVaultPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Muse Vault" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Muse Vault" }]}>
       <main>
-        <CtHero file="05 / Building — Muse Vault" title={<>Stop prompting <span>from scratch.</span></>}
+        <BuildingHero file="05 / Building — Muse Vault" title={<>Stop prompting <span>from scratch.</span></>}
           lede={<>A free gallery of 98 battle-tested Muse templates. Find one, copy it, paste it into Muse, follow the install steps. Most install in under a minute.</>}>
           <div className="btnrow">
             <a href={appUrl} target="_blank" rel="noreferrer" className="btn">
               Open Muse Vault <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">Why I built it</CtLabel>
+            <BuildingLabel n="01">Why I built it</BuildingLabel>
             <h2 className="shead">Every morning I rebuilt my tools instead of reaching for them.</h2>
             <p className="lede dim" style={{ marginTop: 16 }}>The same briefing prompt, rewritten a hundred times. The same inbox triage setup. The same deep-research workflow before big decisions — each one from scratch, each one slightly worse than the last. I live inside Muse the way a carpenter lives inside a workshop. So I built the shelf.</p>
             <p className="lede dim" style={{ marginTop: 16 }}>It started as Muse Templates, went through PromptVault, and landed on Muse Vault — two renames in one night. The final one stuck because it's honest about what it is: a vault. Shelf your best work, pull it down whenever you need it.</p>
@@ -69,7 +69,7 @@ function MuseVaultPage() {
             </div>
 
             <div style={{ marginTop: 56 }}>
-              <CtLabel n="02">What&apos;s next</CtLabel>
+              <BuildingLabel n="02">What&apos;s next</BuildingLabel>
               <h2 className="shead">On the build queue</h2>
               <div className="ledger rev">
                 {nextItems.map((item) => (
@@ -100,6 +100,6 @@ function MuseVaultPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

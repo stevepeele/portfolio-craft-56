@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Binsly — Save Anything. Read It Later. | Steve Peele II";
@@ -47,16 +47,16 @@ const sections = [
 
 function BinslyPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Binsly" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Binsly" }]}>
       <main>
-        <CtHero file="05 / Building — Binsly" title={<>Save anything. <span>Read it later.</span></>}
+        <BuildingHero file="05 / Building — Binsly" title={<>Save anything. <span>Read it later.</span></>}
           lede={<>Binsly is a read-it-later inbox — one calm place for everything you want to read, watch, or come back to. No feed. No algorithm. Just your stuff, waiting for you.</>}>
           <div className="btnrow">
             <a href="https://linklib.base44.app" target="_blank" rel="noreferrer" className="btn">
               Try Binsly <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -87,6 +87,6 @@ function BinslyPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }
