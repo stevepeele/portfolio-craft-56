@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
-import { caseHighlights, experience, heroStats, portfolioProjects, profile, recommendations } from "@/data/resume";
+import { useEffect, useRef } from "react";
+import "@/styles/core.css";
+
+const CORE_FONT_LINK = {
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
+} as const;
 
 const title = "Work — Results, Experience & Recommendations | Steve Peele II";
 const description =
@@ -17,193 +21,151 @@ export const Route = createFileRoute("/work")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/work" }],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/work" }, CORE_FONT_LINK],
   }),
   component: WorkPage,
 });
 
-const sections = [
-  { id: "results", label: "Results" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "recommendations", label: "Recommendations" },
+/* ------------------------------------------------------------------ */
+/* Core work — pared-down rebuild (SPIIX-1189). Port of the approved   */
+/* mockup: a chronological record, no Control Tower shell.             */
+/* ------------------------------------------------------------------ */
+
+function CoreHeader() {
+  return (
+    <header className="core-topbar">
+      <div className="core-wrap core-topbar-inner">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-mainnav" aria-label="Main">
+          <Link to="/work" className="core-navlink core-active" aria-current="page">
+            Work
+          </Link>
+          <Link to="/blog" className="core-navlink">
+            Writing
+          </Link>
+          <Link to="/contact" className="core-navlink">
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function CoreFooter() {
+  return (
+    <footer className="core-pagefoot">
+      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+      <div className="core-pagefoot-right">
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
+function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("core-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("core-in");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
+      else io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [rootRef]);
+}
+
+const RECORD: Array<{ date: string; company: string; role: string; result: string }> = [
+  {
+    date: "2020 — Present",
+    company: "Launch by NTT DATA",
+    role: "Head of Marketing Operations",
+    result: "$350M+ pipeline across 5+ regions, execution velocity +25%.",
+  },
+  {
+    date: "2020 — 2023",
+    company: "Tixxy",
+    role: "Founder, Head of Growth",
+    result: "$1M+ ARR in year one, churn cut 25% before acquisition.",
+  },
+  {
+    date: "2021 — 2022",
+    company: "Amify",
+    role: "Fractional VP Marketing",
+    result: "$6M incremental revenue from a company-wide repositioning.",
+  },
+  {
+    date: "2017 — 2019",
+    company: "Astronomer",
+    role: "Director of Growth Experimentation",
+    result: "60% more qualified leads, 30% higher funnel conversion.",
+  },
+  {
+    date: "2009 — 2016",
+    company: "Dotloop",
+    role: "Marketing Operations, founding team",
+    result: "Built marketing infrastructure through hypergrowth to Zillow acquisition.",
+  },
 ];
 
 function WorkPage() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef);
+
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Portfolio" }]}>
-      <main>
-        <CtHero
-          file="02 / Portfolio"
-          title={
-            <>
-              Outcomes, not <span>activity reports.</span>
-            </>
-          }
-          lede="Results, the roles behind them, the projects, and what people who worked with me say."
-        >
-          <nav aria-label="On this page" className="tags" style={{ marginTop: 30 }}>
-            {sections.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className="tag">
-                {s.label}
-              </a>
-            ))}
-          </nav>
-        </CtHero>
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <h1>Work</h1>
+          <p>A chronological record. Roles, scope, and the result that mattered.</p>
+        </div>
 
-        <section id="results" className="blk first" style={{ scrollMarginTop: 70 }}>
-          <div className="wrap">
-            <CtLabel n="01">The Results</CtLabel>
-            <h2 className="shead">
-              Selected <span>results.</span>
-            </h2>
-            <div className="statgrid rev">
-              {heroStats.map((s) => (
-                <div key={s.label}>
-                  <strong>{s.value}</strong>
-                  <span>{s.label}</span>
-                </div>
-              ))}
-            </div>
-            <div className="cards c2 rev stag" style={{ marginTop: 40 }}>
-              {caseHighlights.map((c) => (
-                <article key={c.company} className="card">
-                  <p className="ck">
-                    {c.sector}
-                    {c.acquired && (
-                      <>
-                        {"  "}
-                        <span className="badge">Acquired</span>
-                      </>
-                    )}
-                  </p>
-                  <h3>{c.company}</h3>
-                  <div style={{ display: "grid", gap: 12, marginTop: 14 }}>
-                    {c.metrics.map((m) => (
-                      <div key={m.label}>
-                        <span className="big">{m.value}</span>
-                        <span
-                          className="flabel"
-                          style={{ display: "block", marginTop: 2, textTransform: "uppercase" }}
-                        >
-                          {m.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <p>{c.summary}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="core-work-list core-reveal">
+          {RECORD.map((r) => (
+            <article className="core-work-row" key={r.company}>
+              <div className="core-work-date">{r.date}</div>
+              <div className="core-work-main">
+                <h3>{r.company}</h3>
+                <div className="core-work-role">{r.role}</div>
+                <p className="core-work-result">{r.result}</p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-        <section id="experience" className="blk" style={{ scrollMarginTop: 70 }}>
-          <div className="wrap">
-            <CtLabel n="02">Experience</CtLabel>
-            <h2 className="shead">
-              Where I&apos;ve done <span>the work.</span>
-            </h2>
-            <div className="tl rev" style={{ marginBottom: 40 }}>
-              {experience.map((e) => (
-                <article key={e.company + e.role}>
-                  <span className="when">{e.period}</span>
-                  <h3>
-                    {e.company}
-                    {e.note ? <em>{e.note}</em> : null}
-                  </h3>
-                  <div className="role">{e.role}</div>
-                  {e.bullets?.length ? (
-                    <ul>
-                      {e.bullets.map((b) => (
-                        <li key={b}>
-                          <span>—</span>
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-            <a href={profile.cv} target="_blank" rel="noreferrer" className="btn o">
-              View full CV <ArrowRight size={14} />
-            </a>
-          </div>
-        </section>
+        <div className="core-work-close core-reveal">
+          <p>
+            The work moves through four levers in order: positioning that clarifies why you win,
+            demand that creates real pipeline, operations that make execution repeatable, and
+            measurement that shows what to do next. No lever works alone, and none is skipped.
+          </p>
+        </div>
 
-        <section id="projects" className="blk" style={{ scrollMarginTop: 70 }}>
-          <div className="wrap">
-            <CtLabel n="03">Projects</CtLabel>
-            <h2 className="shead">
-              Selected <span>projects.</span>
-            </h2>
-            <div className="cards c2 rev stag">
-              {portfolioProjects.map((p) => (
-                <article key={p.title} className="card">
-                  <p className="ck">
-                    {p.company} · {p.period}
-                  </p>
-                  <h3 style={{ fontSize: 24 }}>{p.title}</h3>
-                  <p>{p.summary}</p>
-                  <ul className="tags" style={{ marginTop: 16, listStyle: "none" }}>
-                    {p.levers.map((l) => (
-                      <li key={l} className="tag">
-                        {l}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="recommendations" className="blk" style={{ scrollMarginTop: 70 }}>
-          <div className="wrap">
-            <CtLabel n="04">Recommendations</CtLabel>
-            <h2 className="shead">
-              What leaders and <span>teammates say.</span>
-            </h2>
-            <div className="qgrid rev stag">
-              {recommendations.map((r) => (
-                <article key={r.name}>
-                  <div className="qm">“</div>
-                  <blockquote>&ldquo;{r.quote}&rdquo;</blockquote>
-                  <h4>{r.name}</h4>
-                  <p>{r.title}</p>
-                </article>
-              ))}
-            </div>
-            <div className="btnrow" style={{ marginTop: 36 }}>
-              <Link to="/contact" className="btn">
-                Let&apos;s Talk <ArrowRight size={14} />
-              </Link>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn o">
-                Read them on LinkedIn
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="blk">
-          <div className="wrap">
-            <CtLabel n="05">Put the experience to work</CtLabel>
-            <h2 className="shead">
-              Need senior growth leadership <span>without a full-time hire?</span>
-            </h2>
-            <p className="lede dim">
-              See how SPIIX combines fractional growth leadership, marketing operations, demand
-              generation, and execution.
-            </p>
-            <div className="btnrow">
-              <Link to="/fractional-growth-advisory" className="btn">
-                Explore fractional growth advisory <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CoreFooter />
       </main>
-    </CtShell>
+    </div>
   );
 }
