@@ -1,1 +1,345 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IEFycm93VXBSaWdodCwgRXh0ZXJuYWxMaW5rIH0gZnJvbSAibHVjaWRlLXJlYWN0IjsKaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VSZWYsIHVzZVN0YXRlIH0gZnJvbSAicmVhY3QiOwppbXBvcnQgIkAvc3R5bGVzL2NvcmUuY3NzIjsKaW1wb3J0IHsgZ2V0RmVhdHVyZWRQb3N0LCBnZXRMYXRlc3RQb3N0cyB9IGZyb20gIkAvbGliL3Nhbml0eS1xdWVyaWVzIjsKaW1wb3J0IHsgc2FuaXR5SW1hZ2VVcmwgYXMgdXJsRm9yLCBmb3JtYXRTYW5pdHlEYXRlIH0gZnJvbSAiQC9saWIvc2FuaXR5IjsKaW1wb3J0IHR5cGUgeyBTYW5pdHlQb3N0Q2FyZCB9IGZyb20gIkAvbGliL3Nhbml0eS1xdWVyaWVzIjsKCmNvbnN0IENPUkVfRk9OVF9MSU5LID0gewogIHJlbDogInN0eWxlc2hlZXQiLAogIGhyZWY6ICJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUZyYXVuY2VzOm9wc3osd2dodEA5Li4xNDQsNDAwOzkuLjE0NCw1MDA7OS4uMTQ0LDYwMCZmYW1pbHk9TmV3c3JlYWRlcjppdGFsLG9wc3osd2dodEAwLDYuLjcyLDQwMDsxLDYuLjcyLDQwMCZkaXNwbGF5PXN3YXAiLAp9IGFzIGNvbnN0OwoKY29uc3QgdGl0bGUgPSAiQmxvZyDigJQgTm90ZXMgb24gR3Jvd3RoLCBTeXN0ZW1zICYgQnVpbGRpbmcgfCBTdGV2ZSBQZWVsZSBJSSI7CmNvbnN0IGRlc2NyaXB0aW9uID0KICAiRXNzYXlzIGFuZCB3b3JraW5nIG5vdGVzIG9uIGdyb3d0aCBtYXJrZXRpbmcsIG9wZXJhdGlvbnMsIGFuZCBidWlsZGluZyDigJQgZnJvbSBTdGV2ZSBQZWVsZSBJSS4iOwoKZXhwb3J0IGNvbnN0IFJvdXRlID0gY3JlYXRlRmlsZVJvdXRlKCIvYmxvZy8iKSh7CiAgbG9hZGVyOiBhc3luYyAoKSA9PiB7CiAgICBjb25zdCBbZmVhdHVyZWQsIHBvc3RzXSA9IGF3YWl0IFByb21pc2UuYWxsKFtnZXRGZWF0dXJlZFBvc3QoKSwgZ2V0TGF0ZXN0UG9zdHMoMjQpXSk7CiAgICByZXR1cm4geyBmZWF0dXJlZCwgcG9zdHMgfTsKICB9LAogIGhlYWQ6ICgpID0+ICh7CiAgICBtZXRhOiBbCiAgICAgIHsgdGl0bGUgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiB0aXRsZSB9LCB7IHByb3BlcnR5OiAib2c6aW1hZ2UiLCBjb250ZW50OiAiaHR0cHM6Ly9zdGV2ZXBlZWxlaWkuY29tL29nLWJsb2cuanBnIiB9LCB7IHByb3BlcnR5OiAib2c6aW1hZ2U6d2lkdGgiLCBjb250ZW50OiAiMTIwMCIgfSwgeyBwcm9wZXJ0eTogIm9nOmltYWdlOmhlaWdodCIsIGNvbnRlbnQ6ICI2MzAiIH0sIHsgbmFtZTogInR3aXR0ZXI6aW1hZ2UiLCBjb250ZW50OiAiaHR0cHM6Ly9zdGV2ZXBlZWxlaWkuY29tL29nLWJsb2cuanBnIiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6ZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dHlwZSIsIGNvbnRlbnQ6ICJ3ZWJzaXRlIiB9LAogICAgICB7IG5hbWU6ICJ0d2l0dGVyOmNhcmQiLCBjb250ZW50OiAic3VtbWFyeV9sYXJnZV9pbWFnZSIgfSwKICAgIF0sCiAgICBsaW5rczogW3sgcmVsOiAiY2Fub25pY2FsIiwgaHJlZjogImh0dHBzOi8vc3RldmVwZWVsZWlpLmNvbS9ibG9nIiB9LCBDT1JFX0ZPTlRfTElOS10sCiAgfSksCiAgY29tcG9uZW50OiBCbG9nSW5kZXhQYWdlLAp9KTsKCi8qIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqLwovKiBDb3JlIHdyaXRpbmcg4oCUIHBhcmVkLWRvd24gcmVidWlsZCAoU1BJSVgtMTE4OSkuIFByZXNlbnRhdGlvbiBvbmx5OiAgKi8KLyogdGhlIGxvYWRlciwgU2FuaXR5IHF1ZXJpZXMsIGNyb3NzLXBvc3QgbWF0Y2hpbmcsIGFuZCBleHRlcm5hbCBmZWVkICAqLwovKiBmZXRjaCBiZWxvdyBhcmUgdW5jaGFuZ2VkIGZyb20gdGhlIENvbnRyb2wgVG93ZXIgdmVyc2lvbi4gICAgICAgICAgICovCi8qIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqLwoKZnVuY3Rpb24gQ29yZUhlYWRlcigpIHsKICByZXR1cm4gKAogICAgPGhlYWRlciBjbGFzc05hbWU9ImNvcmUtdG9wYmFyIj4KICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd3JhcCBjb3JlLXRvcGJhci1pbm5lciI+CiAgICAgICAgPExpbmsgdG89Ii8iIGNsYXNzTmFtZT0iY29yZS13b3JkbWFyayI+CiAgICAgICAgICBTdGV2ZSBQZWVsZSBJSTxzcGFuPi48L3NwYW4+CiAgICAgICAgPC9MaW5rPgogICAgICAgIDxuYXYgY2xhc3NOYW1lPSJjb3JlLW1haW5uYXYiIGFyaWEtbGFiZWw9Ik1haW4iPgogICAgICAgICAgPExpbmsgdG89Ii93b3JrIiBjbGFzc05hbWU9ImNvcmUtbmF2bGluayI+CiAgICAgICAgICAgIFdvcmsKICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDxMaW5rIHRvPSIvZXhwZXJpZW5jZSIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICBFeHBlcmllbmNlCiAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL3F1b3RlcyIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICBRdW90ZXMKICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDxMaW5rIHRvPSIvYmxvZyIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsgY29yZS1hY3RpdmUiIGFyaWEtY3VycmVudD0icGFnZSI+CiAgICAgICAgICAgIFdyaXRpbmcKICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDxMaW5rIHRvPSIvd29yay10b2dldGhlciIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICBXb3JrIFRvZ2V0aGVyCiAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2NvbnRhY3QiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgQ29udGFjdAogICAgICAgICAgPC9MaW5rPgogICAgICAgIDwvbmF2PgogICAgICA8L2Rpdj4KICAgIDwvaGVhZGVyPgogICk7Cn0KCmZ1bmN0aW9uIENvcmVGb290ZXIoKSB7CiAgcmV0dXJuICgKICAgIDxmb290ZXIgY2xhc3NOYW1lPSJjb3JlLXBhZ2Vmb290Ij4KICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QtbGVmdCI+U3RldmUgUGVlbGUgSUkgwrcgQ2luY2lubmF0aSwgT2hpbzwvZGl2PgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1wYWdlZm9vdC1yaWdodCI+CiAgICAgICAgPGEgaHJlZj0ibWFpbHRvOnN0ZXZlQHN0ZXZlcGVlbGVpaS5jb20iPnN0ZXZlQHN0ZXZlcGVlbGVpaS5jb208L2E+CiAgICAgICAgPGEgaHJlZj0iaHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vc3BpaSIgdGFyZ2V0PSJfYmxhbmsiIHJlbD0ibm9yZWZlcnJlciI+CiAgICAgICAgICBMaW5rZWRJbgogICAgICAgIDwvYT4KICAgICAgPC9kaXY+CiAgICA8L2Zvb3Rlcj4KICApOwp9CgovKiogRmFkZS1hbmQtcmlzZSBvbiBzZWN0aW9uIGVudHJ5LCBvbmNlIG9ubHkuIEhvbm9ycyByZWR1Y2VkIG1vdGlvbiB2aWEgQ1NTLiAqLwpmdW5jdGlvbiB1c2VDb3JlUmV2ZWFsKHJvb3RSZWY6IFJlYWN0LlJlZk9iamVjdDxIVE1MRGl2RWxlbWVudCB8IG51bGw+LCBkZXA6IHVua25vd24pIHsKICB1c2VFZmZlY3QoKCkgPT4gewogICAgY29uc3Qgcm9vdCA9IHJvb3RSZWYuY3VycmVudDsKICAgIGlmICghcm9vdCkgcmV0dXJuOwogICAgY29uc3QgZWxzID0gQXJyYXkuZnJvbShyb290LnF1ZXJ5U2VsZWN0b3JBbGw8SFRNTEVsZW1lbnQ+KCIuY29yZS1yZXZlYWwiKSk7CiAgICBpZiAoISgiSW50ZXJzZWN0aW9uT2JzZXJ2ZXIiIGluIHdpbmRvdykpIHsKICAgICAgZWxzLmZvckVhY2goKGVsKSA9PiBlbC5jbGFzc0xpc3QuYWRkKCJjb3JlLWluIikpOwogICAgICByZXR1cm47CiAgICB9CiAgICBjb25zdCBpbyA9IG5ldyBJbnRlcnNlY3Rpb25PYnNlcnZlcigKICAgICAgKGVudHJpZXMpID0+IHsKICAgICAgICBlbnRyaWVzLmZvckVhY2goKGVuKSA9PiB7CiAgICAgICAgICBpZiAoZW4uaXNJbnRlcnNlY3RpbmcpIHsKICAgICAgICAgICAgZW4udGFyZ2V0LmNsYXNzTGlzdC5hZGQoImNvcmUtaW4iKTsKICAgICAgICAgICAgaW8udW5vYnNlcnZlKGVuLnRhcmdldCk7CiAgICAgICAgICB9CiAgICAgICAgfSk7CiAgICAgIH0sCiAgICAgIHsgdGhyZXNob2xkOiAwLjA4LCByb290TWFyZ2luOiAiMHB4IDBweCAtNDBweCAwcHgiIH0sCiAgICApOwogICAgZWxzLmZvckVhY2goKGVsKSA9PiB7CiAgICAgIGlmIChlbC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS50b3AgPCB3aW5kb3cuaW5uZXJIZWlnaHQpIGVsLmNsYXNzTGlzdC5hZGQoImNvcmUtaW4iKTsKICAgICAgZWxzZSBpby5vYnNlcnZlKGVsKTsKICAgIH0pOwogICAgcmV0dXJuICgpID0+IGlvLmRpc2Nvbm5lY3QoKTsKICB9LCBbcm9vdFJlZiwgZGVwXSk7Cn0KCmZ1bmN0aW9uIG5vcm1hbGl6ZVRpdGxlKHQ6IHN0cmluZyk6IHN0cmluZyB7CiAgcmV0dXJuIHQKICAgIC50b0xvd2VyQ2FzZSgpCiAgICAucmVwbGFjZSgvW15hLXowLTldKy9nLCAiICIpCiAgICAudHJpbSgpOwp9CgovKioKICogQ3Jvc3MtcG9zdGVkIGNhbGxvdXQgKFBMWC0zMzIpOiByZXR1cm5zIHRoZSBleHRlcm5hbCBzb3VyY2VzIHdob3NlCiAqIG5vcm1hbGl6ZWQgdGl0bGUgbWF0Y2hlcyB0aGUgZ2l2ZW4gU2FuaXR5IHBvc3QgdGl0bGUuIENvbnNlcnZhdGl2ZToKICogZXhhY3Qgbm9ybWFsaXplZCBtYXRjaCwgb3IgYSBsb25nIGNvbnRhaW5tZW50IGluIGVpdGhlciBkaXJlY3Rpb24KICogKGd1YXJkcyBhZ2FpbnN0IHN1YnRpdGxlIGRyaWZ0KS4KICovCmZ1bmN0aW9uIGZpbmRDcm9zc1Bvc3RlZFNvdXJjZXModGl0bGU6IHN0cmluZywgaXRlbXM6IHsgdGl0bGU6IHN0cmluZzsgc291cmNlOiBzdHJpbmcgfVtdKTogc3RyaW5nW10gewogIGNvbnN0IG4gPSBub3JtYWxpemVUaXRsZSh0aXRsZSk7CiAgaWYgKG4ubGVuZ3RoIDwgMTIpIHJldHVybiBbXTsKICBjb25zdCBzb3VyY2VzID0gbmV3IFNldDxzdHJpbmc+KCk7CiAgZm9yIChjb25zdCBpdGVtIG9mIGl0ZW1zKSB7CiAgICBjb25zdCBtID0gbm9ybWFsaXplVGl0bGUoaXRlbS50aXRsZSk7CiAgICBpZiAoIW0pIGNvbnRpbnVlOwogICAgaWYgKG4gPT09IG0gfHwgKG4ubGVuZ3RoID4gMjQgJiYgbS5pbmNsdWRlcyhuKSkgfHwgKG0ubGVuZ3RoID4gMjQgJiYgbi5pbmNsdWRlcyhtKSkpIHsKICAgICAgc291cmNlcy5hZGQoaXRlbS5zb3VyY2UpOwogICAgfQogIH0KICByZXR1cm4gWy4uLnNvdXJjZXNdOwp9CgpmdW5jdGlvbiBDcm9zc1Bvc3RlZEJhZGdlKHsgc291cmNlcyB9OiB7IHNvdXJjZXM6IHN0cmluZ1tdIH0pIHsKICBpZiAoc291cmNlcy5sZW5ndGggPT09IDApIHJldHVybiBudWxsOwogIHJldHVybiAoCiAgICA8c3BhbiB0aXRsZT0iVGhpcyBwaWVjZSBpcyBhbHNvIHB1Ymxpc2hlZCBvbiBhbm90aGVyIHBsYXRmb3JtIiBjbGFzc05hbWU9ImNvcmUtYmFkZ2UiPgogICAgICBBbHNvIG9uIHtzb3VyY2VzLmpvaW4oIiArICIpfQogICAgPC9zcGFuPgogICk7Cn0KCmZ1bmN0aW9uIGlzTmV3UG9zdChwdWJsaXNoZWRBdD86IHN0cmluZyk6IGJvb2xlYW4gewogIGlmICghcHVibGlzaGVkQXQpIHJldHVybiBmYWxzZTsKICBjb25zdCBwdWJsaXNoZWQgPSBuZXcgRGF0ZShwdWJsaXNoZWRBdCk7CiAgY29uc3Qgbm93ID0gbmV3IERhdGUoKTsKICBjb25zdCBkaWZmRGF5cyA9IChub3cuZ2V0VGltZSgpIC0gcHVibGlzaGVkLmdldFRpbWUoKSkgLyAoMTAwMCAqIDYwICogNjAgKiAyNCk7CiAgcmV0dXJuIGRpZmZEYXlzIDw9IDc7Cn0KCmZ1bmN0aW9uIFBvc3RDYXJkKHsgcG9zdCwgZXh0ZXJuYWwgfTogeyBwb3N0OiBTYW5pdHlQb3N0Q2FyZDsgZXh0ZXJuYWw6IEV4dGVybmFsRmVlZEl0ZW1bXSB9KSB7CiAgY29uc3QgY3Jvc3NQb3N0ZWQgPSBmaW5kQ3Jvc3NQb3N0ZWRTb3VyY2VzKHBvc3QudGl0bGUsIGV4dGVybmFsKTsKICBjb25zdCBpc05ldyA9IGlzTmV3UG9zdChwb3N0LnB1Ymxpc2hlZEF0KTsKICBjb25zdCBpc0hvdCA9IHBvc3QuZmVhdHVyZWQgPT09IHRydWU7CiAgY29uc3QgbWV0YVBhcnRzOiBzdHJpbmdbXSA9IFtdOwogIGlmIChwb3N0LnB1Ymxpc2hlZEF0KSBtZXRhUGFydHMucHVzaChmb3JtYXRTYW5pdHlEYXRlKHBvc3QucHVibGlzaGVkQXQpKTsKICBpZiAocG9zdC5jYXRlZ29yaWVzPy5sZW5ndGgpIG1ldGFQYXJ0cy5wdXNoKHBvc3QuY2F0ZWdvcmllcy5tYXAoKGMpID0+IGMubmFtZSkuam9pbigiIMK3ICIpKTsKICBpZiAocG9zdC5hdXRob3I/Lm5hbWUpIG1ldGFQYXJ0cy5wdXNoKGBieSAke3Bvc3QuYXV0aG9yLm5hbWV9YCk7CiAgcmV0dXJuICgKICAgIDxMaW5rIHRvPSIvYmxvZy8kc2x1ZyIgcGFyYW1zPXt7IHNsdWc6IHBvc3Quc2x1ZyB9fSBjbGFzc05hbWU9ImNvcmUtd3JpdGluZy1yb3ciPgogICAgICA8c3BhbiBjbGFzc05hbWU9ImNvcmUtd3JpdGluZy1tZXRhIj4KICAgICAgICB7bWV0YVBhcnRzLmpvaW4oIiAgwrcgICIpfQogICAgICAgIHtpc05ldyAmJiAoCiAgICAgICAgICA8PgogICAgICAgICAgICB7IiAgIn0KICAgICAgICAgICAgPGI+TmV3PC9iPgogICAgICAgICAgPC8+CiAgICAgICAgKX0KICAgICAgICB7aXNIb3QgJiYgKAogICAgICAgICAgPD4KICAgICAgICAgICAgeyIgICJ9CiAgICAgICAgICAgIDxiPkhvdDwvYj4KICAgICAgICAgIDwvPgogICAgICAgICl9CiAgICAgICAge2Nyb3NzUG9zdGVkLmxlbmd0aCA+IDAgJiYgKAogICAgICAgICAgPD4KICAgICAgICAgICAgeyIgICJ9CiAgICAgICAgICAgIDxDcm9zc1Bvc3RlZEJhZGdlIHNvdXJjZXM9e2Nyb3NzUG9zdGVkfSAvPgogICAgICAgICAgPC8+CiAgICAgICAgKX0KICAgICAgPC9zcGFuPgogICAgICB7cG9zdC5tYWluSW1hZ2UgJiYgKAogICAgICAgIC8qIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBAbmV4dC9uZXh0L25vLWltZy1lbGVtZW50ICovCiAgICAgICAgPGltZwogICAgICAgICAgc3JjPXt1cmxGb3IocG9zdC5tYWluSW1hZ2UpLndpZHRoKDQwMCkuaGVpZ2h0KDMwMCkuZml0KCJjcm9wIikudXJsKCl9CiAgICAgICAgICBhbHQ9e3Bvc3QubWFpbkltYWdlLmFsdCB8fCBwb3N0LnRpdGxlfQogICAgICAgICAgbG9hZGluZz0ibGF6eSIKICAgICAgICAgIGNsYXNzTmFtZT0iY29yZS13cml0aW5nLXRodW1iIgogICAgICAgIC8+CiAgICAgICl9CiAgICAgIDxoMz57cG9zdC50aXRsZX08L2gzPgogICAgICB7cG9zdC5leGNlcnB0ICYmIDxwPntwb3N0LmV4Y2VycHR9PC9wPn0KICAgIDwvTGluaz4KICApOwp9Cgp0eXBlIEV4dGVybmFsRmVlZEl0ZW0gPSB7CiAgaWQ6IHN0cmluZzsKICB0aXRsZTogc3RyaW5nOwogIGxpbms6IHN0cmluZzsKICBwdWJEYXRlOiBzdHJpbmc7CiAgZXhjZXJwdDogc3RyaW5nOwogIHNvdXJjZTogIlN1YnN0YWNrIiB8ICJNZWRpdW0iOwp9OwoKZnVuY3Rpb24gRXh0ZXJuYWxGZWVkQ2FyZCh7IGl0ZW0gfTogeyBpdGVtOiBFeHRlcm5hbEZlZWRJdGVtIH0pIHsKICBjb25zdCBkYXRlID0gaXRlbS5wdWJEYXRlCiAgICA/IG5ldyBEYXRlKGl0ZW0ucHViRGF0ZSkudG9Mb2NhbGVEYXRlU3RyaW5nKCJlbi1VUyIsIHsKICAgICAgICBtb250aDogInNob3J0IiwKICAgICAgICBkYXk6ICJudW1lcmljIiwKICAgICAgICB5ZWFyOiAibnVtZXJpYyIsCiAgICAgIH0pCiAgICA6ICIiOwogIHJldHVybiAoCiAgICA8YSBocmVmPXtpdGVtLmxpbmt9IHRhcmdldD0iX2JsYW5rIiByZWw9Im5vb3BlbmVyIG5vcmVmZXJyZXIiIGNsYXNzTmFtZT0iY29yZS13cml0aW5nLXJvdyI+CiAgICAgIDxzcGFuIGNsYXNzTmFtZT0iY29yZS13cml0aW5nLW1ldGEiPgogICAgICAgIEFsc28gb24ge2l0ZW0uc291cmNlfQogICAgICAgIHtkYXRlICYmIDw+IMK3IHtkYXRlfTwvPn0KICAgICAgPC9zcGFuPgogICAgICA8aDM+e2l0ZW0udGl0bGV9PC9oMz4KICAgICAgPHA+CiAgICAgICAgUmVhZCBvbiB7aXRlbS5zb3VyY2V9IDxFeHRlcm5hbExpbmsgc2l6ZT17MTJ9IHN0eWxlPXt7IHZlcnRpY2FsQWxpZ246ICItMXB4IiB9fSAvPgogICAgICA8L3A+CiAgICA8L2E+CiAgKTsKfQoKZnVuY3Rpb24gQmxvZ0luZGV4UGFnZSgpIHsKICBjb25zdCB7IGZlYXR1cmVkLCBwb3N0cyB9ID0gUm91dGUudXNlTG9hZGVyRGF0YSgpOwogIGNvbnN0IFtleHRlcm5hbEl0ZW1zLCBzZXRFeHRlcm5hbEl0ZW1zXSA9IHVzZVN0YXRlPEV4dGVybmFsRmVlZEl0ZW1bXT4oW10pOwogIGNvbnN0IHJvb3RSZWYgPSB1c2VSZWY8SFRNTERpdkVsZW1lbnQ+KG51bGwpOwogIHVzZUNvcmVSZXZlYWwocm9vdFJlZiwgZXh0ZXJuYWxJdGVtcy5sZW5ndGgpOwoKICB1c2VFZmZlY3QoKCkgPT4gewogICAgbGV0IGNhbmNlbGxlZCA9IGZhbHNlOwogICAgKGFzeW5jICgpID0+IHsKICAgICAgdHJ5IHsKICAgICAgICBjb25zdCByZXMgPSBhd2FpdCBmZXRjaCgiL3dyaXRpbmctZmVlZHMuanNvbiIpOwogICAgICAgIGlmIChyZXMub2spIHsKICAgICAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpOwogICAgICAgICAgaWYgKCFjYW5jZWxsZWQgJiYgQXJyYXkuaXNBcnJheShkYXRhLml0ZW1zKSAmJiBkYXRhLml0ZW1zLmxlbmd0aCA+IDApIHsKICAgICAgICAgICAgc2V0RXh0ZXJuYWxJdGVtcyhkYXRhLml0ZW1zLnNsaWNlKDAsIDYpKTsKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0gY2F0Y2ggewogICAgICAgIC8vIEdyYWNlZnVsIGZhbGxiYWNrOiBzZWN0aW9uIHN0YXlzIGhpZGRlbgogICAgICB9CiAgICB9KSgpOwogICAgcmV0dXJuICgpID0+IHsKICAgICAgY2FuY2VsbGVkID0gdHJ1ZTsKICAgIH07CiAgfSwgW10pOwogIGNvbnN0IHJlc3QgPSBmZWF0dXJlZAogICAgPyAocG9zdHMgYXMgU2FuaXR5UG9zdENhcmRbXSkuZmlsdGVyKChwOiBTYW5pdHlQb3N0Q2FyZCkgPT4gcC5faWQgIT09IGZlYXR1cmVkLl9pZCkKICAgIDogKHBvc3RzIGFzIFNhbml0eVBvc3RDYXJkW10pOwoKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcm9vdCIgcmVmPXtyb290UmVmfT4KICAgICAgPENvcmVIZWFkZXIgLz4KICAgICAgPG1haW4gY2xhc3NOYW1lPSJjb3JlLXdyYXAiPgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXZpZXctaGVhZCBjb3JlLXJldmVhbCI+CiAgICAgICAgICA8aDE+V3JpdGluZzwvaDE+CiAgICAgICAgICA8cD5Fc3NheXMgYW5kIHdvcmtpbmcgbm90ZXMgb24gZ3Jvd3RoIG1hcmtldGluZywgb3BlcmF0aW9ucywgYW5kIHRoZSBjcmFmdCBvZiBidWlsZGluZyBjb21wYW5pZXMuPC9wPgogICAgICAgIDwvZGl2PgoKICAgICAgICB7cG9zdHMubGVuZ3RoID09PSAwICYmICgKICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLWVtcHR5IGNvcmUtcmV2ZWFsIj4KICAgICAgICAgICAgPGgyPk5vdGhpbmcgcHVibGlzaGVkIHlldC48L2gyPgogICAgICAgICAgICA8cD5DaGVjayBiYWNrIHNvb24uPC9wPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgKX0KCiAgICAgICAge2ZlYXR1cmVkICYmICgKICAgICAgICAgIDxkaXYgc3R5bGU9e3sgbWFyZ2luVG9wOiA1NiB9fSBjbGFzc05hbWU9ImNvcmUtcmV2ZWFsIj4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLXNlY3Rpb24tbGFiZWwiPkZlYXR1cmVkPC9wPgogICAgICAgICAgICA8TGluawogICAgICAgICAgICAgIHRvPSIvYmxvZy8kc2x1ZyIKICAgICAgICAgICAgICBwYXJhbXM9e3sgc2x1ZzogZmVhdHVyZWQuc2x1ZyB9fQogICAgICAgICAgICAgIGNsYXNzTmFtZT0iY29yZS1mZWF0dXJlZCIKICAgICAgICAgICAgICBzdHlsZT17eyBib3JkZXJUb3A6ICIxcHggc29saWQgdmFyKC0tY29yZS1saW5lKSIgfX0KICAgICAgICAgICAgPgogICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iY29yZS13cml0aW5nLW1ldGEiPgogICAgICAgICAgICAgICAgRmVhdHVyZWQKICAgICAgICAgICAgICAgIHtmZWF0dXJlZC5wdWJsaXNoZWRBdCAmJiA8PiDCtyB7Zm9ybWF0U2FuaXR5RGF0ZShmZWF0dXJlZC5wdWJsaXNoZWRBdCl9PC8+fQogICAgICAgICAgICAgICAgeyIgICJ9CiAgICAgICAgICAgICAgICA8Q3Jvc3NQb3N0ZWRCYWRnZSBzb3VyY2VzPXtmaW5kQ3Jvc3NQb3N0ZWRTb3VyY2VzKGZlYXR1cmVkLnRpdGxlLCBleHRlcm5hbEl0ZW1zKX0gLz4KICAgICAgICAgICAgICA8L3NwYW4+CiAgICAgICAgICAgICAge2ZlYXR1cmVkLm1haW5JbWFnZSAmJiAoCiAgICAgICAgICAgICAgICAvKiBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgQG5leHQvbmV4dC9uby1pbWctZWxlbWVudCAqLwogICAgICAgICAgICAgICAgPGltZwogICAgICAgICAgICAgICAgICBzcmM9e3VybEZvcihmZWF0dXJlZC5tYWluSW1hZ2UpLndpZHRoKDEyMDApLmhlaWdodCg2MzApLmZpdCgiY3JvcCIpLnVybCgpfQogICAgICAgICAgICAgICAgICBhbHQ9e2ZlYXR1cmVkLm1haW5JbWFnZS5hbHQgfHwgZmVhdHVyZWQudGl0bGV9CiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iY29yZS1mZWF0dXJlZC1pbWciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICl9CiAgICAgICAgICAgICAgPGgzPntmZWF0dXJlZC50aXRsZX08L2gzPgogICAgICAgICAgICAgIHtmZWF0dXJlZC5leGNlcnB0ICYmIDxwPntmZWF0dXJlZC5leGNlcnB0fTwvcD59CiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJjb3JlLXRleHRsaW5rIj4KICAgICAgICAgICAgICAgIFJlYWQgdGhlIGFydGljbGUgPEFycm93VXBSaWdodCBzaXplPXsxNH0gc3R5bGU9e3sgdmVydGljYWxBbGlnbjogIi0ycHgiIH19IC8+CiAgICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICApfQoKICAgICAgICB7cmVzdC5sZW5ndGggPiAwICYmICgKICAgICAgICAgIDxkaXYgc3R5bGU9e3sgbWFyZ2luVG9wOiBmZWF0dXJlZCA/IDU2IDogMCB9fSBjbGFzc05hbWU9ImNvcmUtcmV2ZWFsIj4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLXNlY3Rpb24tbGFiZWwiPkFsbCBhcnRpY2xlczwvcD4KICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd3JpdGluZy1saXN0IiBzdHlsZT17eyBtYXJnaW5Ub3A6IDAgfX0+CiAgICAgICAgICAgICAgeyhyZXN0IGFzIFNhbml0eVBvc3RDYXJkW10pLm1hcCgocG9zdDogU2FuaXR5UG9zdENhcmQpID0+ICgKICAgICAgICAgICAgICAgIDxQb3N0Q2FyZCBrZXk9e3Bvc3QuX2lkfSBwb3N0PXtwb3N0fSBleHRlcm5hbD17ZXh0ZXJuYWxJdGVtc30gLz4KICAgICAgICAgICAgICApKX0KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICApfQoKICAgICAgICB7ZXh0ZXJuYWxJdGVtcy5sZW5ndGggPiAwICYmICgKICAgICAgICAgIDxkaXYgc3R5bGU9e3sgbWFyZ2luVG9wOiA2NCB9fSBjbGFzc05hbWU9ImNvcmUtcmV2ZWFsIj4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLXNlY3Rpb24tbGFiZWwiPkVsc2V3aGVyZTwvcD4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLXdyaXRpbmctbm90ZSIgc3R5bGU9e3sgbWFyZ2luVG9wOiAwLCBtYXJnaW5Cb3R0b206IDQgfX0+CiAgICAgICAgICAgICAgUmVjZW50IG5vdGVzIGZyb20gU3Vic3RhY2sgJmFtcDsgTWVkaXVtCiAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd3JpdGluZy1saXN0IiBzdHlsZT17eyBtYXJnaW5Ub3A6IDIwIH19PgogICAgICAgICAgICAgIHtleHRlcm5hbEl0ZW1zLm1hcCgoaXRlbSkgPT4gKAogICAgICAgICAgICAgICAgPEV4dGVybmFsRmVlZENhcmQga2V5PXtpdGVtLmlkfSBpdGVtPXtpdGVtfSAvPgogICAgICAgICAgICAgICkpfQogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDwvZGl2PgogICAgICAgICl9CgogICAgICAgIDxDb3JlRm9vdGVyIC8+CiAgICAgIDwvbWFpbj4KICAgIDwvZGl2PgogICk7Cn0K
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import "@/styles/core.css";
+import { getFeaturedPost, getLatestPosts } from "@/lib/sanity-queries";
+import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
+import type { SanityPostCard } from "@/lib/sanity-queries";
+
+const CORE_FONT_LINK = {
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
+} as const;
+
+const title = "Blog — Notes on Growth, Systems & Building | Steve Peele II";
+const description =
+  "Essays and working notes on growth marketing, operations, and building — from Steve Peele II.";
+
+export const Route = createFileRoute("/blog/")({
+  loader: async () => {
+    const [featured, posts] = await Promise.all([getFeaturedPost(), getLatestPosts(24)]);
+    return { featured, posts };
+  },
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title }, { property: "og:image", content: "https://stevepeeleii.com/og-blog.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-blog.jpg" },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/blog" }, CORE_FONT_LINK],
+  }),
+  component: BlogIndexPage,
+});
+
+/* ------------------------------------------------------------------ */
+/* Core writing — pared-down rebuild (SPIIX-1189). Presentation only:  */
+/* the loader, Sanity queries, cross-post matching, and external feed  */
+/* fetch below are unchanged from the Control Tower version.           */
+/* ------------------------------------------------------------------ */
+
+function CoreHeader() {
+  return (
+    <header className="core-topbar">
+      <div className="core-wrap core-topbar-inner">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-mainnav" aria-label="Main">
+          <Link to="/work" className="core-navlink">
+            Work
+          </Link>
+          <Link to="/experience" className="core-navlink">
+            Experience
+          </Link>
+          <Link to="/quotes" className="core-navlink">
+            Quotes
+          </Link>
+          <Link to="/blog" className="core-navlink core-active" aria-current="page">
+            Writing
+          </Link>
+          <Link to="/work-together" className="core-navlink">
+            Work Together
+          </Link>
+          <Link to="/contact" className="core-navlink">
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function CoreFooter() {
+  return (
+    <footer className="core-pagefoot">
+      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+      <div className="core-pagefoot-right">
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
+function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>, dep: unknown) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("core-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("core-in");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
+      else io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [rootRef, dep]);
+}
+
+function normalizeTitle(t: string): string {
+  return t
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+/**
+ * Cross-posted callout (PLX-332): returns the external sources whose
+ * normalized title matches the given Sanity post title. Conservative:
+ * exact normalized match, or a long containment in either direction
+ * (guards against subtitle drift).
+ */
+function findCrossPostedSources(title: string, items: { title: string; source: string }[]): string[] {
+  const n = normalizeTitle(title);
+  if (n.length < 12) return [];
+  const sources = new Set<string>();
+  for (const item of items) {
+    const m = normalizeTitle(item.title);
+    if (!m) continue;
+    if (n === m || (n.length > 24 && m.includes(n)) || (m.length > 24 && n.includes(m))) {
+      sources.add(item.source);
+    }
+  }
+  return [...sources];
+}
+
+function CrossPostedBadge({ sources }: { sources: string[] }) {
+  if (sources.length === 0) return null;
+  return (
+    <span title="This piece is also published on another platform" className="core-badge">
+      Also on {sources.join(" + ")}
+    </span>
+  );
+}
+
+function isNewPost(publishedAt?: string): boolean {
+  if (!publishedAt) return false;
+  const published = new Date(publishedAt);
+  const now = new Date();
+  const diffDays = (now.getTime() - published.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays <= 7;
+}
+
+function PostCard({ post, external }: { post: SanityPostCard; external: ExternalFeedItem[] }) {
+  const crossPosted = findCrossPostedSources(post.title, external);
+  const isNew = isNewPost(post.publishedAt);
+  const isHot = post.featured === true;
+  const metaParts: string[] = [];
+  if (post.publishedAt) metaParts.push(formatSanityDate(post.publishedAt));
+  if (post.categories?.length) metaParts.push(post.categories.map((c) => c.name).join(" · "));
+  if (post.author?.name) metaParts.push(`by ${post.author.name}`);
+  return (
+    <Link to="/blog/$slug" params={{ slug: post.slug }} className="core-writing-row">
+      <span className="core-writing-meta">
+        {metaParts.join("  ·  ")}
+        {isNew && (
+          <>
+            {"  "}
+            <b>New</b>
+          </>
+        )}
+        {isHot && (
+          <>
+            {"  "}
+            <b>Hot</b>
+          </>
+        )}
+        {crossPosted.length > 0 && (
+          <>
+            {"  "}
+            <CrossPostedBadge sources={crossPosted} />
+          </>
+        )}
+      </span>
+      {post.mainImage && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
+          alt={post.mainImage.alt || post.title}
+          loading="lazy"
+          className="core-writing-thumb"
+        />
+      )}
+      <h3>{post.title}</h3>
+      {post.excerpt && <p>{post.excerpt}</p>}
+    </Link>
+  );
+}
+
+type ExternalFeedItem = {
+  id: string;
+  title: string;
+  link: string;
+  pubDate: string;
+  excerpt: string;
+  source: "Substack" | "Medium";
+};
+
+function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
+  const date = item.pubDate
+    ? new Date(item.pubDate).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      })
+    : "";
+  return (
+    <a href={item.link} target="_blank" rel="noopener noreferrer" className="core-writing-row">
+      <span className="core-writing-meta">
+        Also on {item.source}
+        {date && <> · {date}</>}
+      </span>
+      <h3>{item.title}</h3>
+      <p>
+        Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
+      </p>
+    </a>
+  );
+}
+
+function BlogIndexPage() {
+  const { featured, posts } = Route.useLoaderData();
+  const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef, externalItems.length);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/writing-feeds.json");
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled && Array.isArray(data.items) && data.items.length > 0) {
+            setExternalItems(data.items.slice(0, 6));
+          }
+        }
+      } catch {
+        // Graceful fallback: section stays hidden
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const rest = featured
+    ? (posts as SanityPostCard[]).filter((p: SanityPostCard) => p._id !== featured._id)
+    : (posts as SanityPostCard[]);
+
+  return (
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <h1>Writing</h1>
+          <p>Essays and working notes on growth marketing, operations, and the craft of building companies.</p>
+        </div>
+
+        {posts.length === 0 && (
+          <div className="core-empty core-reveal">
+            <h2>Nothing published yet.</h2>
+            <p>Check back soon.</p>
+          </div>
+        )}
+
+        {featured && (
+          <div style={{ marginTop: 56 }} className="core-reveal">
+            <p className="core-section-label">Featured</p>
+            <Link
+              to="/blog/$slug"
+              params={{ slug: featured.slug }}
+              className="core-featured"
+              style={{ borderTop: "1px solid var(--core-line)" }}
+            >
+              <span className="core-writing-meta">
+                Featured
+                {featured.publishedAt && <> · {formatSanityDate(featured.publishedAt)}</>}
+                {"  "}
+                <CrossPostedBadge sources={findCrossPostedSources(featured.title, externalItems)} />
+              </span>
+              {featured.mainImage && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
+                  alt={featured.mainImage.alt || featured.title}
+                  className="core-featured-img"
+                />
+              )}
+              <h3>{featured.title}</h3>
+              {featured.excerpt && <p>{featured.excerpt}</p>}
+              <span className="core-textlink">
+                Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+              </span>
+            </Link>
+          </div>
+        )}
+
+        {rest.length > 0 && (
+          <div style={{ marginTop: featured ? 56 : 0 }} className="core-reveal">
+            <p className="core-section-label">All articles</p>
+            <div className="core-writing-list" style={{ marginTop: 0 }}>
+              {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
+                <PostCard key={post._id} post={post} external={externalItems} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {externalItems.length > 0 && (
+          <div style={{ marginTop: 64 }} className="core-reveal">
+            <p className="core-section-label">Elsewhere</p>
+            <p className="core-writing-note" style={{ marginTop: 0, marginBottom: 4 }}>
+              Recent notes from Substack &amp; Medium
+            </p>
+            <div className="core-writing-list" style={{ marginTop: 20 }}>
+              {externalItems.map((item) => (
+                <ExternalFeedCard key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <CoreFooter />
+      </main>
+    </div>
+  );
+}

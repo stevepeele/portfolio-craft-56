@@ -1,1 +1,101 @@
-aW1wb3J0IHsgTGluayB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwppbXBvcnQgeyB1c2VFZmZlY3QsIHR5cGUgUmVmT2JqZWN0IH0gZnJvbSAicmVhY3QiOwoKLyogU2hhcmVkIGNocm9tZSBmb3IgdGhlIHBhcmVkLWRvd24gY29yZSBwYWdlcyAoU1BJSVgtMTE5OSkuIE1hdGNoZXMgdGhlCiAgIGhlYWRlciwgZm9vdGVyLCBmb250cywgYW5kIHJldmVhbCBiZWhhdmlvciBvZiB0aGUgU1BJSVgtMTE4OSBjb3JlCiAgIHJvdXRlcyAoaW5kZXgsIHdvcmssIGJsb2cgaW5kZXgsIGNvbnRhY3QpIGV4YWN0bHksIHNvIHRoZSBuZXcgY29yZQogICBwYWdlcyAocXVvdGVzLCBleHBlcmllbmNlLCB3b3JrIHRvZ2V0aGVyKSByZWFkIGFzIG9uZSBzaXRlLiAqLwoKZXhwb3J0IGNvbnN0IENPUkVfRk9OVF9MSU5LID0gewogIHJlbDogInN0eWxlc2hlZXQiLAogIGhyZWY6ICJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUZyYXVuY2VzOm9wc3osd2dodEA5Li4xNDQsNDAwOzkuLjE0NCw1MDA7OS4uMTQ0LDYwMCZmYW1pbHk9TmV3c3JlYWRlcjppdGFsLG9wc3osd2dodEAwLDYuLjcyLDQwMDsxLDYuLjcyLDQwMCZkaXNwbGF5PXN3YXAiLAp9IGFzIGNvbnN0OwoKZXhwb3J0IHR5cGUgQ29yZVBhZ2VLZXkgPQogIHwgIndvcmsiCiAgfCAiZXhwZXJpZW5jZSIKICB8ICJxdW90ZXMiCiAgfCAiYmxvZyIKICB8ICJ3b3JrLXRvZ2V0aGVyIgogIHwgImNvbnRhY3QiCiAgfCBudWxsOwoKLyogTmF2IGV4cGFuZGVkIGluIFNQSUlYLTEyMDI6IEV4cGVyaWVuY2UsIFF1b3RlcywgYW5kIFdvcmsgVG9nZXRoZXIKICAgam9pbiBXb3JrLCBXcml0aW5nLCBhbmQgQ29udGFjdC4gVGhlIHdvcmRtYXJrIGlzIHRoZSBob21lIGxpbmsuCiAgIGNvcmUuY3NzIHdyYXBzIHRoaXMgbmF2IHVuZGVyIHRoZSB3b3JkbWFyayBhdCBzbWFsbCB3aWR0aHMuICovCgpjb25zdCBOQVZfSVRFTVM6IEFycmF5PHsgdG86IHN0cmluZzsgbGFiZWw6IHN0cmluZzsga2V5OiBFeGNsdWRlPENvcmVQYWdlS2V5LCBudWxsPiB9PiA9IFsKICB7IHRvOiAiL3dvcmsiLCBsYWJlbDogIldvcmsiLCBrZXk6ICJ3b3JrIiB9LAogIHsgdG86ICIvZXhwZXJpZW5jZSIsIGxhYmVsOiAiRXhwZXJpZW5jZSIsIGtleTogImV4cGVyaWVuY2UiIH0sCiAgeyB0bzogIi9xdW90ZXMiLCBsYWJlbDogIlF1b3RlcyIsIGtleTogInF1b3RlcyIgfSwKICB7IHRvOiAiL2Jsb2ciLCBsYWJlbDogIldyaXRpbmciLCBrZXk6ICJibG9nIiB9LAogIHsgdG86ICIvd29yay10b2dldGhlciIsIGxhYmVsOiAiV29yayBUb2dldGhlciIsIGtleTogIndvcmstdG9nZXRoZXIiIH0sCiAgeyB0bzogIi9jb250YWN0IiwgbGFiZWw6ICJDb250YWN0Iiwga2V5OiAiY29udGFjdCIgfSwKXTsKCmV4cG9ydCBmdW5jdGlvbiBDb3JlSGVhZGVyKHsgYWN0aXZlID0gbnVsbCB9OiB7IGFjdGl2ZT86IENvcmVQYWdlS2V5IH0pIHsKICByZXR1cm4gKAogICAgPGhlYWRlciBjbGFzc05hbWU9ImNvcmUtdG9wYmFyIj4KICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd3JhcCBjb3JlLXRvcGJhci1pbm5lciI+CiAgICAgICAgPExpbmsgdG89Ii8iIGNsYXNzTmFtZT0iY29yZS13b3JkbWFyayI+CiAgICAgICAgICBTdGV2ZSBQZWVsZSBJSTxzcGFuPi48L3NwYW4+CiAgICAgICAgPC9MaW5rPgogICAgICAgIDxuYXYgY2xhc3NOYW1lPSJjb3JlLW1haW5uYXYiIGFyaWEtbGFiZWw9Ik1haW4iPgogICAgICAgICAge05BVl9JVEVNUy5tYXAoKGl0ZW0pID0+ICgKICAgICAgICAgICAgPExpbmsKICAgICAgICAgICAgICBrZXk9e2l0ZW0ua2V5fQogICAgICAgICAgICAgIHRvPXtpdGVtLnRvIGFzICIvd29yayJ9CiAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgY29yZS1uYXZsaW5rJHthY3RpdmUgPT09IGl0ZW0ua2V5ID8gIiBjb3JlLWFjdGl2ZSIgOiAiIn1gfQogICAgICAgICAgICAgIGFyaWEtY3VycmVudD17YWN0aXZlID09PSBpdGVtLmtleSA/ICJwYWdlIiA6IHVuZGVmaW5lZH0KICAgICAgICAgICAgPgogICAgICAgICAgICAgIHtpdGVtLmxhYmVsfQogICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICApKX0KICAgICAgICA8L25hdj4KICAgICAgPC9kaXY+CiAgICA8L2hlYWRlcj4KICApOwp9CgpleHBvcnQgZnVuY3Rpb24gQ29yZUZvb3RlcigpIHsKICByZXR1cm4gKAogICAgPGZvb3RlciBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QiPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1wYWdlZm9vdC1sZWZ0Ij5TdGV2ZSBQZWVsZSBJSSDCtyBDaW5jaW5uYXRpLCBPaGlvPC9kaXY+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXBhZ2Vmb290LXJpZ2h0Ij4KICAgICAgICA8YSBocmVmPSJtYWlsdG86c3RldmVAc3RldmVwZWVsZWlpLmNvbSI+c3RldmVAc3RldmVwZWVsZWlpLmNvbTwvYT4KICAgICAgICA8YSBocmVmPSJodHRwczovL2xpbmtlZGluLmNvbS9pbi9zcGlpIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub3JlZmVycmVyIj4KICAgICAgICAgIExpbmtlZEluCiAgICAgICAgPC9hPgogICAgICA8L2Rpdj4KICAgIDwvZm9vdGVyPgogICk7Cn0KCi8qKiBGYWRlLWFuZC1yaXNlIG9uIHNlY3Rpb24gZW50cnksIG9uY2Ugb25seS4gSG9ub3JzIHJlZHVjZWQgbW90aW9uIHZpYSBDU1MuICovCmV4cG9ydCBmdW5jdGlvbiB1c2VDb3JlUmV2ZWFsKHJvb3RSZWY6IFJlZk9iamVjdDxIVE1MRGl2RWxlbWVudCB8IG51bGw+KSB7CiAgdXNlRWZmZWN0KCgpID0+IHsKICAgIGNvbnN0IHJvb3QgPSByb290UmVmLmN1cnJlbnQ7CiAgICBpZiAoIXJvb3QpIHJldHVybjsKICAgIGNvbnN0IGVscyA9IEFycmF5LmZyb20ocm9vdC5xdWVyeVNlbGVjdG9yQWxsPEhUTUxFbGVtZW50PigiLmNvcmUtcmV2ZWFsIikpOwogICAgaWYgKCEoIkludGVyc2VjdGlvbk9ic2VydmVyIiBpbiB3aW5kb3cpKSB7CiAgICAgIGVscy5mb3JFYWNoKChlbCkgPT4gZWwuY2xhc3NMaXN0LmFkZCgiY29yZS1pbiIpKTsKICAgICAgcmV0dXJuOwogICAgfQogICAgY29uc3QgaW8gPSBuZXcgSW50ZXJzZWN0aW9uT2JzZXJ2ZXIoCiAgICAgIChlbnRyaWVzKSA9PiB7CiAgICAgICAgZW50cmllcy5mb3JFYWNoKChlbikgPT4gewogICAgICAgICAgaWYgKGVuLmlzSW50ZXJzZWN0aW5nKSB7CiAgICAgICAgICAgIGVuLnRhcmdldC5jbGFzc0xpc3QuYWRkKCJjb3JlLWluIik7CiAgICAgICAgICAgIGlvLnVub2JzZXJ2ZShlbi50YXJnZXQpOwogICAgICAgICAgfQogICAgICAgIH0pOwogICAgICB9LAogICAgICB7IHRocmVzaG9sZDogMC4wOCwgcm9vdE1hcmdpbjogIjBweCAwcHggLTQwcHggMHB4IiB9LAogICAgKTsKICAgIGVscy5mb3JFYWNoKChlbCkgPT4gewogICAgICBpZiAoZWwuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCkudG9wIDwgd2luZG93LmlubmVySGVpZ2h0KSBlbC5jbGFzc0xpc3QuYWRkKCJjb3JlLWluIik7CiAgICAgIGVsc2UgaW8ub2JzZXJ2ZShlbCk7CiAgICB9KTsKICAgIHJldHVybiAoKSA9PiBpby5kaXNjb25uZWN0KCk7CiAgfSwgW3Jvb3RSZWZdKTsKfQo=
+import { Link } from "@tanstack/react-router";
+import { useEffect, type RefObject } from "react";
+
+/* Shared chrome for the pared-down core pages (SPIIX-1199). Matches the
+   header, footer, fonts, and reveal behavior of the SPIIX-1189 core
+   routes (index, work, blog index, contact) exactly, so the new core
+   pages (quotes, experience, work together) read as one site. */
+
+export const CORE_FONT_LINK = {
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
+} as const;
+
+export type CorePageKey =
+  | "work"
+  | "experience"
+  | "quotes"
+  | "blog"
+  | "work-together"
+  | "contact"
+  | null;
+
+/* Nav expanded in SPIIX-1202: Experience, Quotes, and Work Together
+   join Work, Writing, and Contact. The wordmark is the home link.
+   core.css wraps this nav under the wordmark at small widths. */
+
+const NAV_ITEMS: Array<{ to: string; label: string; key: Exclude<CorePageKey, null> }> = [
+  { to: "/work", label: "Work", key: "work" },
+  { to: "/experience", label: "Experience", key: "experience" },
+  { to: "/quotes", label: "Quotes", key: "quotes" },
+  { to: "/blog", label: "Writing", key: "blog" },
+  { to: "/work-together", label: "Work Together", key: "work-together" },
+  { to: "/contact", label: "Contact", key: "contact" },
+];
+
+export function CoreHeader({ active = null }: { active?: CorePageKey }) {
+  return (
+    <header className="core-topbar">
+      <div className="core-wrap core-topbar-inner">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-mainnav" aria-label="Main">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.key}
+              to={item.to as "/work"}
+              className={`core-navlink${active === item.key ? " core-active" : ""}`}
+              aria-current={active === item.key ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export function CoreFooter() {
+  return (
+    <footer className="core-pagefoot">
+      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+      <div className="core-pagefoot-right">
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
+export function useCoreReveal(rootRef: RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("core-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("core-in");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
+      else io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [rootRef]);
+}

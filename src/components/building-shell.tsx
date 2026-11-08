@@ -1,1 +1,199 @@
-aW1wb3J0IHsgTGluaywgdXNlTG9jYXRpb24gfSBmcm9tICJAdGFuc3RhY2svcmVhY3Qtcm91dGVyIjsKaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VSZWYsIHR5cGUgUmVhY3ROb2RlIH0gZnJvbSAicmVhY3QiOwppbXBvcnQgIkAvc3R5bGVzL2NvcmUuY3NzIjsKaW1wb3J0ICJAL3N0eWxlcy9idWlsZGluZy5jc3MiOwppbXBvcnQgeyBwcm9maWxlIH0gZnJvbSAiQC9kYXRhL3Jlc3VtZSI7CgovKiBCdWlsZGluZyBzaGVsbCAoU1BJSVgtMTE5OSkuIERyb3AtaW4gcmVwbGFjZW1lbnQgZm9yIHRoZSBDb250cm9sIFRvd2VyCiAgIHNoZWxsIG9uIHRoZSAvaGFja2luZyByb3V0ZXMgb25seTogc2FtZSBjb21wb25lbnQgQVBJIChjcnVtYnMsCiAgIGRpcmVjdExpbmUpIGFuZCB0aGUgcGFnZXMga2VlcCB0aGVpciBjbGFzcyB2b2NhYnVsYXJ5LCBidXQgdGhlIGNocm9tZQogICBhbmQgc3R5bGluZyBhcmUgdGhlIHBhcmVkLWRvd24gY29yZSBkZXNpZ24uIE90aGVyIEN0U2hlbGwgc2VjdGlvbnMKICAgKEFJLCBibG9nIHBvc3RzLCBtdXNpYykgYXJlIHVudG91Y2hlZCwgYW5kIHNvIGlzIHRoZSBzY2FmZm9sZGluZwogICByZWNvcmQgdGhlc2UgcGFnZXMgbWlycm9yLiAqLwoKZXhwb3J0IHR5cGUgQ3J1bWIgPSB7IGxhYmVsOiBzdHJpbmc7IHRvPzogc3RyaW5nIH07Cgpjb25zdCBGT05UX0hSRUYgPQogICJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUZyYXVuY2VzOm9wc3osd2dodEA5Li4xNDQsNDAwOzkuLjE0NCw1MDA7OS4uMTQ0LDYwMCZmYW1pbHk9TmV3c3JlYWRlcjppdGFsLG9wc3osd2dodEAwLDYuLjcyLDQwMDsxLDYuLjcyLDQwMCZkaXNwbGF5PXN3YXAiOwoKZXhwb3J0IGZ1bmN0aW9uIEJ1aWxkaW5nU2hlbGwoewogIGNoaWxkcmVuLAogIGNydW1icywKICBkaXJlY3RMaW5lID0gdHJ1ZSwKfTogewogIGNoaWxkcmVuOiBSZWFjdE5vZGU7CiAgY3J1bWJzPzogQ3J1bWJbXTsKICBkaXJlY3RMaW5lPzogYm9vbGVhbjsKfSkgewogIGNvbnN0IHJvb3RSZWYgPSB1c2VSZWY8SFRNTERpdkVsZW1lbnQ+KG51bGwpOwogIGNvbnN0IHBhdGhuYW1lID0gdXNlTG9jYXRpb24oeyBzZWxlY3Q6IChsKSA9PiBsLnBhdGhuYW1lIH0pOwoKICB1c2VFZmZlY3QoKCkgPT4gewogICAgY29uc3Qgcm9vdCA9IHJvb3RSZWYuY3VycmVudDsKICAgIGlmICghcm9vdCkgcmV0dXJuOwogICAgcm9vdC5jbGFzc0xpc3QuYWRkKCJqcyIpOwogICAgY29uc3QgUkVEVUNFRCA9IHdpbmRvdy5tYXRjaE1lZGlhKCIocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogcmVkdWNlKSIpLm1hdGNoZXM7CiAgICBsZXQgaW86IEludGVyc2VjdGlvbk9ic2VydmVyIHwgbnVsbCA9IG51bGw7CiAgICBpZiAoIVJFRFVDRUQgJiYgIkludGVyc2VjdGlvbk9ic2VydmVyIiBpbiB3aW5kb3cpIHsKICAgICAgaW8gPSBuZXcgSW50ZXJzZWN0aW9uT2JzZXJ2ZXIoCiAgICAgICAgKGVudHJpZXMpID0+IHsKICAgICAgICAgIGZvciAoY29uc3QgZSBvZiBlbnRyaWVzKSB7CiAgICAgICAgICAgIGlmIChlLmlzSW50ZXJzZWN0aW5nKSB7CiAgICAgICAgICAgICAgZS50YXJnZXQuY2xhc3NMaXN0LmFkZCgidmlzIik7CiAgICAgICAgICAgICAgaW8/LnVub2JzZXJ2ZShlLnRhcmdldCk7CiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICB9LAogICAgICAgIHsgdGhyZXNob2xkOiAwLjEgfSwKICAgICAgKTsKICAgICAgcm9vdC5xdWVyeVNlbGVjdG9yQWxsKCIucmV2IikuZm9yRWFjaCgoZWwpID0+IGlvPy5vYnNlcnZlKGVsKSk7CiAgICB9IGVsc2UgewogICAgICByb290LnF1ZXJ5U2VsZWN0b3JBbGwoIi5yZXYiKS5mb3JFYWNoKChlbCkgPT4gZWwuY2xhc3NMaXN0LmFkZCgidmlzIikpOwogICAgfQogICAgLyogU2FmZXR5OiBuZXZlciBsZWF2ZSBjb250ZW50IGhpZGRlbiBpZiB0aGUgb2JzZXJ2ZXIgbWlzc2VzIGFuIGVsZW1lbnQuICovCiAgICBjb25zdCB0ID0gd2luZG93LnNldFRpbWVvdXQoCiAgICAgICgpID0+IHJvb3QucXVlcnlTZWxlY3RvckFsbCgiLnJldjpub3QoLnZpcykiKS5mb3JFYWNoKChlbCkgPT4gZWwuY2xhc3NMaXN0LmFkZCgidmlzIikpLAogICAgICAyNTAwLAogICAgKTsKICAgIHJldHVybiAoKSA9PiB7CiAgICAgIGlvPy5kaXNjb25uZWN0KCk7CiAgICAgIHdpbmRvdy5jbGVhclRpbWVvdXQodCk7CiAgICB9OwogIH0sIFtwYXRobmFtZV0pOwoKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcm9vdCBibGQtcm9vdCIgcmVmPXtyb290UmVmfT4KICAgICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPXtGT05UX0hSRUZ9IC8+CiAgICAgIDxoZWFkZXIgY2xhc3NOYW1lPSJjb3JlLXRvcGJhciI+CiAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd3JhcCBjb3JlLXRvcGJhci1pbm5lciI+CiAgICAgICAgICA8TGluayB0bz0iLyIgY2xhc3NOYW1lPSJjb3JlLXdvcmRtYXJrIj4KICAgICAgICAgICAgU3RldmUgUGVlbGUgSUk8c3Bhbj4uPC9zcGFuPgogICAgICAgICAgPC9MaW5rPgogICAgICAgICAgPG5hdiBjbGFzc05hbWU9ImNvcmUtbWFpbm5hdiIgYXJpYS1sYWJlbD0iTWFpbiI+CiAgICAgICAgICAgIDxMaW5rIHRvPSIvd29yayIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICAgIFdvcmsKICAgICAgICAgICAgPC9MaW5rPgogICAgICAgICAgICA8TGluayB0bz0iL2V4cGVyaWVuY2UiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgICBFeHBlcmllbmNlCiAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii9xdW90ZXMiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgICBRdW90ZXMKICAgICAgICAgICAgPC9MaW5rPgogICAgICAgICAgICA8TGluayB0bz0iL2Jsb2ciIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgICBXcml0aW5nCiAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii9oYWNraW5nIiBjbGFzc05hbWU9ImNvcmUtbmF2bGluayBjb3JlLWFjdGl2ZSIgYXJpYS1jdXJyZW50PSJwYWdlIj4KICAgICAgICAgICAgICBCdWlsZGluZwogICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICAgIDxMaW5rIHRvPSIvd29yay10b2dldGhlciIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICAgIFdvcmsgVG9nZXRoZXIKICAgICAgICAgICAgPC9MaW5rPgogICAgICAgICAgICA8TGluayB0bz0iL2NvbnRhY3QiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgICBDb250YWN0CiAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDwvbmF2PgogICAgICAgIDwvZGl2PgogICAgICA8L2hlYWRlcj4KCiAgICAgIHtjcnVtYnMgJiYgY3J1bWJzLmxlbmd0aCA+IDAgJiYgKAogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjcnVtYnMiPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9IndyYXAiPgogICAgICAgICAgICB7Y3J1bWJzLm1hcCgoYywgaSkgPT4gKAogICAgICAgICAgICAgIDxzcGFuIGtleT17Yy5sYWJlbH0gc3R5bGU9e3sgZGlzcGxheTogImlubGluZS1mbGV4IiwgZ2FwOiA4LCBhbGlnbkl0ZW1zOiAiY2VudGVyIiB9fT4KICAgICAgICAgICAgICAgIHtpID4gMCAmJiAoCiAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0ic2VwIiBhcmlhLWhpZGRlbj0idHJ1ZSI+CiAgICAgICAgICAgICAgICAgICAgLwogICAgICAgICAgICAgICAgICA8L3NwYW4+CiAgICAgICAgICAgICAgICApfQogICAgICAgICAgICAgICAge2MudG8gPyA8TGluayB0bz17Yy50b30+e2MubGFiZWx9PC9MaW5rPiA6IDxzcGFuIGNsYXNzTmFtZT0iY3VyIj57Yy5sYWJlbH08L3NwYW4+fQogICAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICAgICAgKSl9CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgKX0KCiAgICAgIHtjaGlsZHJlbn0KCiAgICAgIHtkaXJlY3RMaW5lICYmICgKICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9ImRpcmVjdCI+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0id3JhcCI+CiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0ic2xhYmVsIj4KICAgICAgICAgICAgICA8c3Bhbj4wNzwvc3Bhbj4KICAgICAgICAgICAgICA8aT48L2k+IERpcmVjdCBMaW5lCiAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgPGgyPgogICAgICAgICAgICAgIEJyaW5nIHRoZSBoYXJkIDxzcGFuPnByb2JsZW0uPC9zcGFuPgogICAgICAgICAgICA8L2gyPgogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY3JvdyI+CiAgICAgICAgICAgICAgPGEgaHJlZj17YG1haWx0bzoke3Byb2ZpbGUuZW1haWx9YH0+e3Byb2ZpbGUuZW1haWx9PC9hPgogICAgICAgICAgICAgIDxhIGhyZWY9e2B0ZWw6JHtwcm9maWxlLnBob25lLnJlcGxhY2UoL1wuL2csICIiKX1gfT57cHJvZmlsZS5waG9uZX08L2E+CiAgICAgICAgICAgICAgPHNwYW4+e3Byb2ZpbGUubG9jYXRpb259PC9zcGFuPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPExpbmsgdG89Ii93b3JrLXRvZ2V0aGVyIiBjbGFzc05hbWU9ImJ0biI+CiAgICAgICAgICAgICAgV29yayB0b2dldGhlcgogICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L3NlY3Rpb24+CiAgICAgICl9CgogICAgICA8ZGl2IGNsYXNzTmFtZT0id3JhcCI+CiAgICAgICAgPG5hdiBjbGFzc05hbWU9ImJsZC1mb290bmF2IiBhcmlhLWxhYmVsPSJCdWlsZGluZyI+CiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9ImJsZC1mb290bmF2LWxhYmVsIj5CdWlsZGluZzwvc3Bhbj4KICAgICAgICAgIDxMaW5rIHRvPSIvaGFja2luZyI+V2h5IEkgYnVpbGQ8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2hhY2tpbmcvc3RhdHVzIj5CdWlsZCBsb2c8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2hhY2tpbmcvcHJvZ3Jlc3MiPkxpdmUgYm9hcmQ8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2hhY2tpbmcvd2hhdHMtbmV4dCI+VXAgbmV4dDwvTGluaz4KICAgICAgICAgIDxMaW5rIHRvPSIvc2NhZmZvbGRpbmciPlNjYWZmb2xkaW5nIHJlY29yZDwvTGluaz4KICAgICAgICA8L25hdj4KICAgICAgPC9kaXY+CgogICAgICA8ZGl2IGNsYXNzTmFtZT0id3JhcCI+CiAgICAgICAgPGZvb3RlciBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QiIHN0eWxlPXt7IG1hcmdpblRvcDogMCwgYm9yZGVyVG9wOiAwIH19PgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QtbGVmdCI+U3RldmUgUGVlbGUgSUkgwrcgQ2luY2lubmF0aSwgT2hpbzwvZGl2PgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QtcmlnaHQiPgogICAgICAgICAgICA8YSBocmVmPXtgbWFpbHRvOiR7cHJvZmlsZS5lbWFpbH1gfT57cHJvZmlsZS5lbWFpbH08L2E+CiAgICAgICAgICAgIDxhIGhyZWY9e3Byb2ZpbGUubGlua2VkaW59IHRhcmdldD0iX2JsYW5rIiByZWw9Im5vcmVmZXJyZXIiPgogICAgICAgICAgICAgIExpbmtlZEluCiAgICAgICAgICAgIDwvYT4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZm9vdGVyPgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICk7Cn0KCi8qIFBhZ2UgaGVybyBpbiB0aGUgY29yZSBmcmFtZS4gYGZpbGVgIGlzIHRoZSBudW1iZXJlZCBsYWJlbCwgZS5nLiAiMDUgLyBCdWlsZGluZyIuICovCmV4cG9ydCBmdW5jdGlvbiBCdWlsZGluZ0hlcm8oewogIGZpbGUsCiAgdGl0bGUsCiAgbGVkZSwKICBjaGlsZHJlbiwKfTogewogIGZpbGU6IHN0cmluZzsKICB0aXRsZTogUmVhY3ROb2RlOwogIGxlZGU/OiBSZWFjdE5vZGU7CiAgY2hpbGRyZW4/OiBSZWFjdE5vZGU7Cn0pIHsKICByZXR1cm4gKAogICAgPGRpdiBjbGFzc05hbWU9InBoZXJvIj4KICAgICAgPGRpdiBjbGFzc05hbWU9IndyYXAiPgogICAgICAgIDxwIGNsYXNzTmFtZT0ia2lja2VyIj4KICAgICAgICAgIDxiPntmaWxlfTwvYj4KICAgICAgICA8L3A+CiAgICAgICAgPGgxIGNsYXNzTmFtZT0icHRpdGxlIj57dGl0bGV9PC9oMT4KICAgICAgICB7bGVkZSAmJiA8cCBjbGFzc05hbWU9InBsZWRlIj57bGVkZX08L3A+fQogICAgICAgIHtjaGlsZHJlbn0KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICApOwp9CgovKiBOdW1iZXJlZCBzZWN0aW9uIGxhYmVsLCBjb3JlIHBhdHRlcm4uICovCmV4cG9ydCBmdW5jdGlvbiBCdWlsZGluZ0xhYmVsKHsgbiwgY2hpbGRyZW4gfTogeyBuOiBzdHJpbmc7IGNoaWxkcmVuOiBSZWFjdE5vZGUgfSkgewogIHJldHVybiAoCiAgICA8cCBjbGFzc05hbWU9InNsYWJlbCI+CiAgICAgIDxzcGFuPntufTwvc3Bhbj4KICAgICAgPGk+PC9pPiB7Y2hpbGRyZW59CiAgICA8L3A+CiAgKTsKfQo=
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useRef, type ReactNode } from "react";
+import "@/styles/core.css";
+import "@/styles/building.css";
+import { profile } from "@/data/resume";
+
+/* Building shell (SPIIX-1199). Drop-in replacement for the Control Tower
+   shell on the /hacking routes only: same component API (crumbs,
+   directLine) and the pages keep their class vocabulary, but the chrome
+   and styling are the pared-down core design. Other CtShell sections
+   (AI, blog posts, music) are untouched, and so is the scaffolding
+   record these pages mirror. */
+
+export type Crumb = { label: string; to?: string };
+
+const FONT_HREF =
+  "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap";
+
+export function BuildingShell({
+  children,
+  crumbs,
+  directLine = true,
+}: {
+  children: ReactNode;
+  crumbs?: Crumb[];
+  directLine?: boolean;
+}) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const pathname = useLocation({ select: (l) => l.pathname });
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    root.classList.add("js");
+    const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let io: IntersectionObserver | null = null;
+    if (!REDUCED && "IntersectionObserver" in window) {
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("vis");
+              io?.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.1 },
+      );
+      root.querySelectorAll(".rev").forEach((el) => io?.observe(el));
+    } else {
+      root.querySelectorAll(".rev").forEach((el) => el.classList.add("vis"));
+    }
+    /* Safety: never leave content hidden if the observer misses an element. */
+    const t = window.setTimeout(
+      () => root.querySelectorAll(".rev:not(.vis)").forEach((el) => el.classList.add("vis")),
+      2500,
+    );
+    return () => {
+      io?.disconnect();
+      window.clearTimeout(t);
+    };
+  }, [pathname]);
+
+  return (
+    <div className="core-root bld-root" ref={rootRef}>
+      <link rel="stylesheet" href={FONT_HREF} />
+      <header className="core-topbar">
+        <div className="core-wrap core-topbar-inner">
+          <Link to="/" className="core-wordmark">
+            Steve Peele II<span>.</span>
+          </Link>
+          <nav className="core-mainnav" aria-label="Main">
+            <Link to="/work" className="core-navlink">
+              Work
+            </Link>
+            <Link to="/experience" className="core-navlink">
+              Experience
+            </Link>
+            <Link to="/quotes" className="core-navlink">
+              Quotes
+            </Link>
+            <Link to="/blog" className="core-navlink">
+              Writing
+            </Link>
+            <Link to="/hacking" className="core-navlink core-active" aria-current="page">
+              Building
+            </Link>
+            <Link to="/work-together" className="core-navlink">
+              Work Together
+            </Link>
+            <Link to="/contact" className="core-navlink">
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </header>
+
+      {crumbs && crumbs.length > 0 && (
+        <div className="crumbs">
+          <div className="wrap">
+            {crumbs.map((c, i) => (
+              <span key={c.label} style={{ display: "inline-flex", gap: 8, alignItems: "center" }}>
+                {i > 0 && (
+                  <span className="sep" aria-hidden="true">
+                    /
+                  </span>
+                )}
+                {c.to ? <Link to={c.to}>{c.label}</Link> : <span className="cur">{c.label}</span>}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {children}
+
+      {directLine && (
+        <section className="direct">
+          <div className="wrap">
+            <p className="slabel">
+              <span>07</span>
+              <i></i> Direct Line
+            </p>
+            <h2>
+              Bring the hard <span>problem.</span>
+            </h2>
+            <div className="crow">
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              <a href={`tel:${profile.phone.replace(/\./g, "")}`}>{profile.phone}</a>
+              <span>{profile.location}</span>
+            </div>
+            <Link to="/work-together" className="btn">
+              Work together
+            </Link>
+          </div>
+        </section>
+      )}
+
+      <div className="wrap">
+        <nav className="bld-footnav" aria-label="Building">
+          <span className="bld-footnav-label">Building</span>
+          <Link to="/hacking">Why I build</Link>
+          <Link to="/hacking/status">Build log</Link>
+          <Link to="/hacking/progress">Live board</Link>
+          <Link to="/hacking/whats-next">Up next</Link>
+          <Link to="/scaffolding">Scaffolding record</Link>
+        </nav>
+      </div>
+
+      <div className="wrap">
+        <footer className="core-pagefoot" style={{ marginTop: 0, borderTop: 0 }}>
+          <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+          <div className="core-pagefoot-right">
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+/* Page hero in the core frame. `file` is the numbered label, e.g. "05 / Building". */
+export function BuildingHero({
+  file,
+  title,
+  lede,
+  children,
+}: {
+  file: string;
+  title: ReactNode;
+  lede?: ReactNode;
+  children?: ReactNode;
+}) {
+  return (
+    <div className="phero">
+      <div className="wrap">
+        <p className="kicker">
+          <b>{file}</b>
+        </p>
+        <h1 className="ptitle">{title}</h1>
+        {lede && <p className="plede">{lede}</p>}
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* Numbered section label, core pattern. */
+export function BuildingLabel({ n, children }: { n: string; children: ReactNode }) {
+  return (
+    <p className="slabel">
+      <span>{n}</span>
+      <i></i> {children}
+    </p>
+  );
+}

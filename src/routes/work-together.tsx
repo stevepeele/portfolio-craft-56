@@ -1,1 +1,169 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IHVzZVJlZiB9IGZyb20gInJlYWN0IjsKaW1wb3J0ICJAL3N0eWxlcy9jb3JlLmNzcyI7CmltcG9ydCB7IENPUkVfRk9OVF9MSU5LLCBDb3JlRm9vdGVyLCBDb3JlSGVhZGVyLCB1c2VDb3JlUmV2ZWFsIH0gZnJvbSAiQC9jb21wb25lbnRzL2NvcmUtY2hyb21lIjsKCmNvbnN0IHRpdGxlID0gIldvcmsgVG9nZXRoZXI6IEVuZ2FnZW1lbnQgT3B0aW9ucyB8IFN0ZXZlIFBlZWxlIElJIjsKY29uc3QgZGVzY3JpcHRpb24gPQogICJUaHJlZSB3YXlzIHRvIHdvcmsgd2l0aCBTdGV2ZSBQZWVsZSBJSTogYSBmdWxsLXRpbWUgbGVhZGVyc2hpcCBzZWF0LCBmcmFjdGlvbmFsIG1hcmtldGluZyBsZWFkZXJzaGlwLCBvciBhZHZpc29yeSBhbmQgYXVkaXQgZW5nYWdlbWVudHMuIEVhY2ggc3RhcnRzIHdpdGggYSBkaXJlY3QgY29udmVyc2F0aW9uLiI7CgpleHBvcnQgY29uc3QgUm91dGUgPSBjcmVhdGVGaWxlUm91dGUoIi93b3JrLXRvZ2V0aGVyIikoewogIGhlYWQ6ICgpID0+ICh7CiAgICBtZXRhOiBbCiAgICAgIHsgdGl0bGUgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiB0aXRsZSB9LAogICAgICB7IHByb3BlcnR5OiAib2c6ZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dHlwZSIsIGNvbnRlbnQ6ICJ3ZWJzaXRlIiB9LAogICAgICB7IG5hbWU6ICJ0d2l0dGVyOmNhcmQiLCBjb250ZW50OiAic3VtbWFyeV9sYXJnZV9pbWFnZSIgfSwKICAgIF0sCiAgICBsaW5rczogW3sgcmVsOiAiY2Fub25pY2FsIiwgaHJlZjogImh0dHBzOi8vc3RldmVwZWVsZWlpLmNvbS93b3JrLXRvZ2V0aGVyIiB9LCBDT1JFX0ZPTlRfTElOS10sCiAgfSksCiAgY29tcG9uZW50OiBXb3JrVG9nZXRoZXJQYWdlLAp9KTsKCi8qIFdvcmsgVG9nZXRoZXIgKFNQSUlYLTExOTk7IEZURSBtb3ZlZCBmaXJzdCBpbiBTUElJWC0xMjAyLCBwZXIKICAgU3RldmUncyBvcmRlcikuIFRoZSBlbmdhZ2VtZW50IG9wdGlvbnMgYXJlIHRoZSBvbmVzIHRoZSBwdWJsaWMKICAgcmVjb3JkIGFscmVhZHkgc3VwcG9ydHM6IHRoZSBmdWxsLXRpbWUgbGVhZGVyc2hpcCBhdmFpbGFiaWxpdHkKICAgc3RhdGVkIG9uIHRoZSBob21lIHBhZ2UgYW5kIGluIGhpcyBhY3RpdmUgc2VhcmNoLCB0aGUgZnJhY3Rpb25hbAogICBzZWF0IGhlbGQgYXQgQW1pZnksIGFuZCB0aGUgb25nb2luZyBhZHZpc29yeSBwcmFjdGljZSBwbHVzIHRoZQogICBTUElJWCBhdWRpdC4gRXZlcnkgb3B0aW9uIHJvdXRlcyB0byB0aGUgZGlyZWN0IGNoYW5uZWxzIG9uCiAgIC9jb250YWN0LiBObyBmb3JtLiAqLwoKY29uc3QgT1BUSU9OUzogQXJyYXk8ewogIGtpY2tlcjogc3RyaW5nOwogIHRpdGxlOiBzdHJpbmc7CiAgYm9keTogc3RyaW5nOwogIGZpdDogc3RyaW5nOwogIGN0YTogc3RyaW5nOwogIHRvOiAiL2NvbnRhY3QiIHwgIi9zcGlpeC9lbmdhZ2UvZ3RtLWF1ZGl0IjsKfT4gPSBbCiAgewogICAga2lja2VyOiAiT3B0aW9uIDAxIiwKICAgIHRpdGxlOiAiRnVsbC10aW1lIGxlYWRlcnNoaXAiLAogICAgYm9keTogIlN0ZXZlIGlzIG9wZW4gdG8gRlRFIHJvbGVzIGxlYWRpbmcgbWFya2V0aW5nIG9wZXJhdGlvbnMsIGdyb3d0aCwgb3IgZGVtYW5kIGdlbmVyYXRpb24sIHJlbW90ZS1maXJzdCBvciBoeWJyaWQgZnJvbSBDaW5jaW5uYXRpLiBUaGUgcmVjb3JkIGJlaGluZCB0aGUgaGlyZTogZm91cnRlZW4geWVhcnMgYWNyb3NzIFNhYVMsIG1hcmtldHBsYWNlcywgYW5kIGVudGVycHJpc2UgdGVjaCwgY3VycmVudGx5IEhlYWQgb2YgTWFya2V0aW5nIE9wZXJhdGlvbnMgYXQgTGF1bmNoIGJ5IE5UVCBEQVRBLCBydW5uaW5nIGdsb2JhbCBkZW1hbmQgcHJvZ3JhbXMgb24gJDhNKyBidWRnZXRzIHdpdGggJDM1ME0rIGluIHBpcGVsaW5lIGdlbmVyYXRlZCwgYW5kIGEgZm91bmRlciBydW4gYXQgVGl4eHkgdGhhdCByZWFjaGVkICQxTSsgQVJSIGluIGl0cyBmaXJzdCB5ZWFyIGJlZm9yZSBpdC4iLAogICAgZml0OiAiRml0cyBjb21wYW5pZXMgaGlyaW5nIGEgc2VuaW9yIG1hcmtldGluZyBsZWFkZXIgdG8gb3duIHRoZSBncm93dGggZW5naW5lIGZ1bGwtdGltZTogdGhlIHBvc2l0aW9uaW5nLCB0aGUgZGVtYW5kLCBhbmQgdGhlIG9wZXJhdGluZyBzeXN0ZW0gdGhhdCBtYWtlcyBib3RoIG1lYXN1cmFibGUuIiwKICAgIGN0YTogIlN0YXJ0IHRoZSBjb252ZXJzYXRpb24iLAogICAgdG86ICIvY29udGFjdCIsCiAgfSwKICB7CiAgICBraWNrZXI6ICJPcHRpb24gMDIiLAogICAgdGl0bGU6ICJGcmFjdGlvbmFsIG1hcmtldGluZyBsZWFkZXJzaGlwIiwKICAgIGJvZHk6ICJBIHNlbmlvciBtYXJrZXRpbmcgbGVhZGVyIGVtYmVkZGVkIHdpdGggeW91ciB0ZWFtIHBhcnQtdGltZTogcG9zaXRpb25pbmcsIGRlbWFuZCwgYW5kIHRoZSBvcGVyYXRpbmcgc3lzdGVtIGJlaGluZCBib3RoLCBvd25lZCBlbmQgdG8gZW5kLiBUaGlzIGlzIHRoZSBzZWF0IGhlbGQgYXQgQW1pZnksIHdoZXJlIGEgY29tcGFueS13aWRlIHJlcG9zaXRpb25pbmcgcHJvZHVjZWQgJDZNIGluIGluY3JlbWVudGFsIHJldmVudWUuIiwKICAgIGZpdDogIkZpdHMgZ3Jvd3RoLXN0YWdlIGNvbXBhbmllcyB0aGF0IG5lZWQgc2VuaW9yIG1hcmtldGluZyBsZWFkZXJzaGlwIGJlZm9yZSBhIGZ1bGwtdGltZSBoaXJlIG1ha2VzIHNlbnNlLiIsCiAgICBjdGE6ICJTdGFydCB0aGUgY29udmVyc2F0aW9uIiwKICAgIHRvOiAiL2NvbnRhY3QiLAogIH0sCiAgewogICAga2lja2VyOiAiT3B0aW9uIDAzIiwKICAgIHRpdGxlOiAiQWR2aXNvcnkgYW5kIGF1ZGl0cyIsCiAgICBib2R5OiAiQSBkZWZpbmVkIGVuZ2FnZW1lbnQgYWdhaW5zdCBvbmUgaGFyZCBwcm9ibGVtOiBhIHBpcGVsaW5lIHRoYXQgaXMgbm90IGNvbnZlcnRpbmcsIGEgZ28tdG8tbWFya2V0IG1vdGlvbiB0aGF0IG5lZWRzIGRpYWdub3Npcywgb3IgYSBmdW5uZWwgdGhhdCBuZWVkcyBhbiBvdXRzaWRlIG9wZXJhdG9yJ3MgcmVhZC4gQWR2aXNvcnkgd29yayB3aXRoIGVhcmx5IHRvIG1pZCBzdGFnZSB2ZW50dXJlcyBpcyBvbmdvaW5nLCBhbmQgdGhlIFNQSUlYIEdUTSBhdWRpdCBpcyB0aGUgcHJvZHVjdGl6ZWQgdmVyc2lvbi4iLAogICAgZml0OiAiRml0cyBmb3VuZGVycyBhbmQgbWFya2V0aW5nIGxlYWRlcnMgd2hvIG5lZWQgYSBkaWFnbm9zaXMgYW5kIGEgcGxhbiBiZWZvcmUgY29tbWl0dGluZyB0byBhIGxhcmdlciBlbmdhZ2VtZW50LiIsCiAgICBjdGE6ICJTdGFydCB0aGUgY29udmVyc2F0aW9uIiwKICAgIHRvOiAiL2NvbnRhY3QiLAogIH0sCl07Cgpjb25zdCBQUk9PRjogQXJyYXk8eyBjb21wYW55OiBzdHJpbmc7IHJvbGU6IHN0cmluZzsgcmVzdWx0OiBzdHJpbmcgfT4gPSBbCiAgewogICAgY29tcGFueTogIkxhdW5jaCBieSBOVFQgREFUQSIsCiAgICByb2xlOiAiSGVhZCBvZiBNYXJrZXRpbmcgT3BlcmF0aW9ucyIsCiAgICByZXN1bHQ6ICIkMzUwTSsgcGlwZWxpbmUgwrcgNDoxIFJPSSBhY3Jvc3MgZGlnaXRhbCBkZW1hbmQiLAogIH0sCiAgewogICAgY29tcGFueTogIkFtaWZ5IiwKICAgIHJvbGU6ICJGcmFjdGlvbmFsIFZQIG9mIE1hcmtldGluZyIsCiAgICByZXN1bHQ6ICIkNk0gaW5jcmVtZW50YWwgcmV2ZW51ZSBmcm9tIGEgY29tcGFueS13aWRlIHJlcG9zaXRpb25pbmciLAogIH0sCiAgewogICAgY29tcGFueTogIkRvdGxvb3AiLAogICAgcm9sZTogIk1hcmtldGluZyBPcGVyYXRpb25zLCBzdGFydHVwIHN0YWdlIiwKICAgIHJlc3VsdDogIjQwMCUrIHVzZXIgZ3Jvd3RoIHRocm91Z2ggdGhlIGFjcXVpc2l0aW9uIGJ5IFppbGxvdyBHcm91cCIsCiAgfSwKICB7CiAgICBjb21wYW55OiAiVGl4eHkiLAogICAgcm9sZTogIkZvdW5kZXIgJiBIZWFkIG9mIEdyb3d0aCIsCiAgICByZXN1bHQ6ICIkMU0rIEFSUiBpbiB5ZWFyIG9uZSwgcG9zaXRpb25lZCBmb3IgYWNxdWlzaXRpb24iLAogIH0sCl07CgpmdW5jdGlvbiBXb3JrVG9nZXRoZXJQYWdlKCkgewogIGNvbnN0IHJvb3RSZWYgPSB1c2VSZWY8SFRNTERpdkVsZW1lbnQ+KG51bGwpOwogIHVzZUNvcmVSZXZlYWwocm9vdFJlZik7CgogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1yb290IiByZWY9e3Jvb3RSZWZ9PgogICAgICA8Q29yZUhlYWRlciBhY3RpdmU9IndvcmstdG9nZXRoZXIiIC8+CiAgICAgIDxtYWluIGNsYXNzTmFtZT0iY29yZS13cmFwIj4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS12aWV3LWhlYWQgY29yZS1yZXZlYWwiPgogICAgICAgICAgPGgxPldvcmsgdG9nZXRoZXI8L2gxPgogICAgICAgICAgPHA+CiAgICAgICAgICAgIFRocmVlIHdheXMgaW4sIGRlcGVuZGluZyBvbiB0aGUgcHJvYmxlbS4gRXZlcnkgb25lIG9mIHRoZW0gc3RhcnRzIHRoZSBzYW1lIHdheTogYQogICAgICAgICAgICBkaXJlY3QgY29udmVyc2F0aW9uLCBubyBmb3JtIGFuZCBubyBmdW5uZWwuCiAgICAgICAgICA8L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1zdWJuYXYiPgogICAgICAgICAgICA8TGluayB0bz0iL3dvcmsiPlRoZSB3b3JrIHJlY29yZDwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii9leHBlcmllbmNlIj5DYXJlZXIgaGlzdG9yeTwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii9xdW90ZXMiPlF1b3RlczwvTGluaz4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgoKICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1vcHRpb25zIGNvcmUtcmV2ZWFsIj4KICAgICAgICAgIHtPUFRJT05TLm1hcCgobykgPT4gKAogICAgICAgICAgICA8YXJ0aWNsZSBjbGFzc05hbWU9ImNvcmUtb3B0aW9uIiBrZXk9e28udGl0bGV9PgogICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT0iY29yZS1vcHRpb24ta2lja2VyIj57by5raWNrZXJ9PC9wPgogICAgICAgICAgICAgIDxoMz57by50aXRsZX08L2gzPgogICAgICAgICAgICAgIDxwPntvLmJvZHl9PC9wPgogICAgICAgICAgICAgIDxwPntvLmZpdH08L3A+CiAgICAgICAgICAgICAgPExpbmsgdG89e28udG99IGNsYXNzTmFtZT0iY29yZS10ZXh0bGluayI+CiAgICAgICAgICAgICAgICB7by5jdGF9IOKGkgogICAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgICAgPC9hcnRpY2xlPgogICAgICAgICAgKSl9CiAgICAgICAgPC9kaXY+CgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iY29yZS1zZWN0aW9uIGNvcmUtcmV2ZWFsIj4KICAgICAgICAgIDxwIGNsYXNzTmFtZT0iY29yZS1zZWN0aW9uLWxhYmVsIj5UaGUgcmVjb3JkIGJlaGluZCB0aGUgb2ZmZXI8L3A+CiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1yZWNvcmQiPgogICAgICAgICAgICB7UFJPT0YubWFwKChyKSA9PiAoCiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcmVjb3JkLXJvdyIga2V5PXtyLmNvbXBhbnl9PgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcmVjb3JkLWNvbXBhbnkiPntyLmNvbXBhbnl9PC9kaXY+CiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXJlY29yZC1yb2xlIj57ci5yb2xlfTwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1yZWNvcmQtcmVzdWx0Ij57ci5yZXN1bHR9PC9kaXY+CiAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICkpfQogICAgICAgICAgPC9kaXY+CiAgICAgICAgICA8TGluayB0bz0iL3dvcmsiIGNsYXNzTmFtZT0iY29yZS10ZXh0bGluayI+CiAgICAgICAgICAgIEZ1bGwgd29yayByZWNvcmQg4oaSCiAgICAgICAgICA8L0xpbms+CiAgICAgICAgPC9zZWN0aW9uPgoKICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9ImNvcmUtc2VjdGlvbiBjb3JlLXJldmVhbCI+CiAgICAgICAgICA8cCBjbGFzc05hbWU9ImNvcmUtc2VjdGlvbi1sYWJlbCI+SG93IGl0IHN0YXJ0czwvcD4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXByb3NlIj4KICAgICAgICAgICAgPHA+CiAgICAgICAgICAgICAgSXQgc3RhcnRzIHdpdGggYSBkaXJlY3QgY29udmVyc2F0aW9uOiB0aGUgcHJvYmxlbSBpbiBwbGFpbiB0ZXJtcyBhbmQgdGhlIGNvbnN0cmFpbnRzCiAgICAgICAgICAgICAgb24gdGhlIHRhYmxlLiBUaGVuIGEgc3RyYWlnaHQgcmVhZCBvbiBmaXQsIGluY2x1ZGluZyB3aGVuIHRoZSBmaXQgaXMgbm90IHRoZXJlLiBUaGVuCiAgICAgICAgICAgICAgYSBkZWZpbmVkIHNjb3BlLCBzbyB0aGUgd29yaywgdGhlIHRpbWVsaW5lLCBhbmQgdGhlIG1lYXN1cmUgb2Ygc3VjY2VzcyBhcmUgYWdyZWVkCiAgICAgICAgICAgICAgYmVmb3JlIGFueXRoaW5nIGJlZ2lucy4KICAgICAgICAgICAgPC9wPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9zZWN0aW9uPgoKICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS13b3JrLWNsb3NlIGNvcmUtcmV2ZWFsIj4KICAgICAgICAgIDxwPgogICAgICAgICAgICBOb3Qgc3VyZSB3aGljaCBzaGFwZSBmaXRzPyBTYXkgd2hhdCB0aGUgcHJvYmxlbSBpcyBpbiBwbGFpbiB0ZXJtcyBhbmQgeW91IHdpbGwgZ2V0IGEKICAgICAgICAgICAgc3RyYWlnaHQgYW5zd2VyIGFib3V0IHdoZXRoZXIgaXQgaXMgYSBmaXQsIGluY2x1ZGluZyB3aGVuIGl0IGlzIG5vdC4KICAgICAgICAgIDwvcD4KICAgICAgICAgIDxMaW5rIHRvPSIvY29udGFjdCIgY2xhc3NOYW1lPSJjb3JlLXRleHRsaW5rIj4KICAgICAgICAgICAgR28gdG8gY29udGFjdCDihpIKICAgICAgICAgIDwvTGluaz4KICAgICAgICA8L2Rpdj4KCiAgICAgICAgPENvcmVGb290ZXIgLz4KICAgICAgPC9tYWluPgogICAgPC9kaXY+CiAgKTsKfQo=
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useRef } from "react";
+import "@/styles/core.css";
+import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
+
+const title = "Work Together: Engagement Options | Steve Peele II";
+const description =
+  "Three ways to work with Steve Peele II: a full-time leadership seat, fractional marketing leadership, or advisory and audit engagements. Each starts with a direct conversation.";
+
+export const Route = createFileRoute("/work-together")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/work-together" }, CORE_FONT_LINK],
+  }),
+  component: WorkTogetherPage,
+});
+
+/* Work Together (SPIIX-1199; FTE moved first in SPIIX-1202, per
+   Steve's order). The engagement options are the ones the public
+   record already supports: the full-time leadership availability
+   stated on the home page and in his active search, the fractional
+   seat held at Amify, and the ongoing advisory practice plus the
+   SPIIX audit. Every option routes to the direct channels on
+   /contact. No form. */
+
+const OPTIONS: Array<{
+  kicker: string;
+  title: string;
+  body: string;
+  fit: string;
+  cta: string;
+  to: "/contact" | "/spiix/engage/gtm-audit";
+}> = [
+  {
+    kicker: "Option 01",
+    title: "Full-time leadership",
+    body: "Steve is open to FTE roles leading marketing operations, growth, or demand generation, remote-first or hybrid from Cincinnati. The record behind the hire: fourteen years across SaaS, marketplaces, and enterprise tech, currently Head of Marketing Operations at Launch by NTT DATA, running global demand programs on $8M+ budgets with $350M+ in pipeline generated, and a founder run at Tixxy that reached $1M+ ARR in its first year before it.",
+    fit: "Fits companies hiring a senior marketing leader to own the growth engine full-time: the positioning, the demand, and the operating system that makes both measurable.",
+    cta: "Start the conversation",
+    to: "/contact",
+  },
+  {
+    kicker: "Option 02",
+    title: "Fractional marketing leadership",
+    body: "A senior marketing leader embedded with your team part-time: positioning, demand, and the operating system behind both, owned end to end. This is the seat held at Amify, where a company-wide repositioning produced $6M in incremental revenue.",
+    fit: "Fits growth-stage companies that need senior marketing leadership before a full-time hire makes sense.",
+    cta: "Start the conversation",
+    to: "/contact",
+  },
+  {
+    kicker: "Option 03",
+    title: "Advisory and audits",
+    body: "A defined engagement against one hard problem: a pipeline that is not converting, a go-to-market motion that needs diagnosis, or a funnel that needs an outside operator's read. Advisory work with early to mid stage ventures is ongoing, and the SPIIX GTM audit is the productized version.",
+    fit: "Fits founders and marketing leaders who need a diagnosis and a plan before committing to a larger engagement.",
+    cta: "Start the conversation",
+    to: "/contact",
+  },
+];
+
+const PROOF: Array<{ company: string; role: string; result: string }> = [
+  {
+    company: "Launch by NTT DATA",
+    role: "Head of Marketing Operations",
+    result: "$350M+ pipeline · 4:1 ROI across digital demand",
+  },
+  {
+    company: "Amify",
+    role: "Fractional VP of Marketing",
+    result: "$6M incremental revenue from a company-wide repositioning",
+  },
+  {
+    company: "Dotloop",
+    role: "Marketing Operations, startup stage",
+    result: "400%+ user growth through the acquisition by Zillow Group",
+  },
+  {
+    company: "Tixxy",
+    role: "Founder & Head of Growth",
+    result: "$1M+ ARR in year one, positioned for acquisition",
+  },
+];
+
+function WorkTogetherPage() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef);
+
+  return (
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader active="work-together" />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <h1>Work together</h1>
+          <p>
+            Three ways in, depending on the problem. Every one of them starts the same way: a
+            direct conversation, no form and no funnel.
+          </p>
+          <div className="core-subnav">
+            <Link to="/work">The work record</Link>
+            <Link to="/experience">Career history</Link>
+            <Link to="/quotes">Quotes</Link>
+          </div>
+        </div>
+
+        <div className="core-options core-reveal">
+          {OPTIONS.map((o) => (
+            <article className="core-option" key={o.title}>
+              <p className="core-option-kicker">{o.kicker}</p>
+              <h3>{o.title}</h3>
+              <p>{o.body}</p>
+              <p>{o.fit}</p>
+              <Link to={o.to} className="core-textlink">
+                {o.cta} →
+              </Link>
+            </article>
+          ))}
+        </div>
+
+        <section className="core-section core-reveal">
+          <p className="core-section-label">The record behind the offer</p>
+          <div className="core-record">
+            {PROOF.map((r) => (
+              <div className="core-record-row" key={r.company}>
+                <div>
+                  <div className="core-record-company">{r.company}</div>
+                  <div className="core-record-role">{r.role}</div>
+                </div>
+                <div className="core-record-result">{r.result}</div>
+              </div>
+            ))}
+          </div>
+          <Link to="/work" className="core-textlink">
+            Full work record →
+          </Link>
+        </section>
+
+        <section className="core-section core-reveal">
+          <p className="core-section-label">How it starts</p>
+          <div className="core-prose">
+            <p>
+              It starts with a direct conversation: the problem in plain terms and the constraints
+              on the table. Then a straight read on fit, including when the fit is not there. Then
+              a defined scope, so the work, the timeline, and the measure of success are agreed
+              before anything begins.
+            </p>
+          </div>
+        </section>
+
+        <div className="core-work-close core-reveal">
+          <p>
+            Not sure which shape fits? Say what the problem is in plain terms and you will get a
+            straight answer about whether it is a fit, including when it is not.
+          </p>
+          <Link to="/contact" className="core-textlink">
+            Go to contact →
+          </Link>
+        </div>
+
+        <CoreFooter />
+      </main>
+    </div>
+  );
+}

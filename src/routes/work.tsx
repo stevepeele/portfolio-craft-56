@@ -1,1 +1,256 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBMaW5rIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXJvdXRlciI7CmltcG9ydCB7IHVzZUVmZmVjdCwgdXNlUmVmIH0gZnJvbSAicmVhY3QiOwppbXBvcnQgIkAvc3R5bGVzL2NvcmUuY3NzIjsKCmNvbnN0IENPUkVfRk9OVF9MSU5LID0gewogIHJlbDogInN0eWxlc2hlZXQiLAogIGhyZWY6ICJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PUZyYXVuY2VzOm9wc3osd2dodEA5Li4xNDQsNDAwOzkuLjE0NCw1MDA7OS4uMTQ0LDYwMCZmYW1pbHk9TmV3c3JlYWRlcjppdGFsLG9wc3osd2dodEAwLDYuLjcyLDQwMDsxLDYuLjcyLDQwMCZkaXNwbGF5PXN3YXAiLAp9IGFzIGNvbnN0OwoKY29uc3QgdGl0bGUgPSAiV29yayDigJQgUmVzdWx0cywgRXhwZXJpZW5jZSAmIFJlY29tbWVuZGF0aW9ucyB8IFN0ZXZlIFBlZWxlIElJIjsKY29uc3QgZGVzY3JpcHRpb24gPQogICJTdGV2ZSBQZWVsZSBJSSdzIGdyb3d0aCBtYXJrZXRpbmcgcmVjb3JkIGluIG9uZSBwbGFjZTogc2VsZWN0ZWQgcmVzdWx0cywgY2FyZWVyIGV4cGVyaWVuY2UsIHByb2plY3RzLCBhbmQgcmVjb21tZW5kYXRpb25zIGZyb20gbGVhZGVycyBhbmQgdGVhbW1hdGVzLiI7CgpleHBvcnQgY29uc3QgUm91dGUgPSBjcmVhdGVGaWxlUm91dGUoIi93b3JrIikoewogIGhlYWQ6ICgpID0+ICh7CiAgICBtZXRhOiBbCiAgICAgIHsgdGl0bGUgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiB0aXRsZSB9LCB7IHByb3BlcnR5OiAib2c6aW1hZ2UiLCBjb250ZW50OiAiaHR0cHM6Ly9zdGV2ZXBlZWxlaWkuY29tL29nLXdvcmsuanBnIiB9LCB7IHByb3BlcnR5OiAib2c6aW1hZ2U6d2lkdGgiLCBjb250ZW50OiAiMTIwMCIgfSwgeyBwcm9wZXJ0eTogIm9nOmltYWdlOmhlaWdodCIsIGNvbnRlbnQ6ICI2MzAiIH0sIHsgbmFtZTogInR3aXR0ZXI6aW1hZ2UiLCBjb250ZW50OiAiaHR0cHM6Ly9zdGV2ZXBlZWxlaWkuY29tL29nLXdvcmsuanBnIiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6ZGVzY3JpcHRpb24iLCBjb250ZW50OiBkZXNjcmlwdGlvbiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dHlwZSIsIGNvbnRlbnQ6ICJ3ZWJzaXRlIiB9LAogICAgICB7IG5hbWU6ICJ0d2l0dGVyOmNhcmQiLCBjb250ZW50OiAic3VtbWFyeV9sYXJnZV9pbWFnZSIgfSwKICAgIF0sCiAgICBsaW5rczogW3sgcmVsOiAiY2Fub25pY2FsIiwgaHJlZjogImh0dHBzOi8vc3RldmVwZWVsZWlpLmNvbS93b3JrIiB9LCBDT1JFX0ZPTlRfTElOS10sCiAgfSksCiAgY29tcG9uZW50OiBXb3JrUGFnZSwKfSk7CgovKiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gKi8KLyogQ29yZSB3b3JrIOKAlCBwYXJlZC1kb3duIHJlYnVpbGQgKFNQSUlYLTExODkpLiBQb3J0IG9mIHRoZSBhcHByb3ZlZCAgICovCi8qIG1vY2t1cDogYSBjaHJvbm9sb2dpY2FsIHJlY29yZCwgbm8gQ29udHJvbCBUb3dlciBzaGVsbC4gICAgICAgICAgICAgKi8KLyogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICovCgpmdW5jdGlvbiBDb3JlSGVhZGVyKCkgewogIHJldHVybiAoCiAgICA8aGVhZGVyIGNsYXNzTmFtZT0iY29yZS10b3BiYXIiPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS13cmFwIGNvcmUtdG9wYmFyLWlubmVyIj4KICAgICAgICA8TGluayB0bz0iLyIgY2xhc3NOYW1lPSJjb3JlLXdvcmRtYXJrIj4KICAgICAgICAgIFN0ZXZlIFBlZWxlIElJPHNwYW4+Ljwvc3Bhbj4KICAgICAgICA8L0xpbms+CiAgICAgICAgPG5hdiBjbGFzc05hbWU9ImNvcmUtbWFpbm5hdiIgYXJpYS1sYWJlbD0iTWFpbiI+CiAgICAgICAgICA8TGluayB0bz0iL3dvcmsiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIGNvcmUtYWN0aXZlIiBhcmlhLWN1cnJlbnQ9InBhZ2UiPgogICAgICAgICAgICBXb3JrCiAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2V4cGVyaWVuY2UiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgRXhwZXJpZW5jZQogICAgICAgICAgPC9MaW5rPgogICAgICAgICAgPExpbmsgdG89Ii9xdW90ZXMiIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgUXVvdGVzCiAgICAgICAgICA8L0xpbms+CiAgICAgICAgICA8TGluayB0bz0iL2Jsb2ciIGNsYXNzTmFtZT0iY29yZS1uYXZsaW5rIj4KICAgICAgICAgICAgV3JpdGluZwogICAgICAgICAgPC9MaW5rPgogICAgICAgICAgPExpbmsgdG89Ii93b3JrLXRvZ2V0aGVyIiBjbGFzc05hbWU9ImNvcmUtbmF2bGluayI+CiAgICAgICAgICAgIFdvcmsgVG9nZXRoZXIKICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDxMaW5rIHRvPSIvY29udGFjdCIgY2xhc3NOYW1lPSJjb3JlLW5hdmxpbmsiPgogICAgICAgICAgICBDb250YWN0CiAgICAgICAgICA8L0xpbms+CiAgICAgICAgPC9uYXY+CiAgICAgIDwvZGl2PgogICAgPC9oZWFkZXI+CiAgKTsKfQoKZnVuY3Rpb24gQ29yZUZvb3RlcigpIHsKICByZXR1cm4gKAogICAgPGZvb3RlciBjbGFzc05hbWU9ImNvcmUtcGFnZWZvb3QiPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1wYWdlZm9vdC1sZWZ0Ij5TdGV2ZSBQZWVsZSBJSSDCtyBDaW5jaW5uYXRpLCBPaGlvPC9kaXY+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXBhZ2Vmb290LXJpZ2h0Ij4KICAgICAgICA8YSBocmVmPSJtYWlsdG86c3RldmVAc3RldmVwZWVsZWlpLmNvbSI+c3RldmVAc3RldmVwZWVsZWlpLmNvbTwvYT4KICAgICAgICA8YSBocmVmPSJodHRwczovL2xpbmtlZGluLmNvbS9pbi9zcGlpIiB0YXJnZXQ9Il9ibGFuayIgcmVsPSJub3JlZmVycmVyIj4KICAgICAgICAgIExpbmtlZEluCiAgICAgICAgPC9hPgogICAgICA8L2Rpdj4KICAgIDwvZm9vdGVyPgogICk7Cn0KCi8qKiBGYWRlLWFuZC1yaXNlIG9uIHNlY3Rpb24gZW50cnksIG9uY2Ugb25seS4gSG9ub3JzIHJlZHVjZWQgbW90aW9uIHZpYSBDU1MuICovCmZ1bmN0aW9uIHVzZUNvcmVSZXZlYWwocm9vdFJlZjogUmVhY3QuUmVmT2JqZWN0PEhUTUxEaXZFbGVtZW50IHwgbnVsbD4pIHsKICB1c2VFZmZlY3QoKCkgPT4gewogICAgY29uc3Qgcm9vdCA9IHJvb3RSZWYuY3VycmVudDsKICAgIGlmICghcm9vdCkgcmV0dXJuOwogICAgY29uc3QgZWxzID0gQXJyYXkuZnJvbShyb290LnF1ZXJ5U2VsZWN0b3JBbGw8SFRNTEVsZW1lbnQ+KCIuY29yZS1yZXZlYWwiKSk7CiAgICBpZiAoISgiSW50ZXJzZWN0aW9uT2JzZXJ2ZXIiIGluIHdpbmRvdykpIHsKICAgICAgZWxzLmZvckVhY2goKGVsKSA9PiBlbC5jbGFzc0xpc3QuYWRkKCJjb3JlLWluIikpOwogICAgICByZXR1cm47CiAgICB9CiAgICBjb25zdCBpbyA9IG5ldyBJbnRlcnNlY3Rpb25PYnNlcnZlcigKICAgICAgKGVudHJpZXMpID0+IHsKICAgICAgICBlbnRyaWVzLmZvckVhY2goKGVuKSA9PiB7CiAgICAgICAgICBpZiAoZW4uaXNJbnRlcnNlY3RpbmcpIHsKICAgICAgICAgICAgZW4udGFyZ2V0LmNsYXNzTGlzdC5hZGQoImNvcmUtaW4iKTsKICAgICAgICAgICAgaW8udW5vYnNlcnZlKGVuLnRhcmdldCk7CiAgICAgICAgICB9CiAgICAgICAgfSk7CiAgICAgIH0sCiAgICAgIHsgdGhyZXNob2xkOiAwLjA4LCByb290TWFyZ2luOiAiMHB4IDBweCAtNDBweCAwcHgiIH0sCiAgICApOwogICAgZWxzLmZvckVhY2goKGVsKSA9PiB7CiAgICAgIGlmIChlbC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS50b3AgPCB3aW5kb3cuaW5uZXJIZWlnaHQpIGVsLmNsYXNzTGlzdC5hZGQoImNvcmUtaW4iKTsKICAgICAgZWxzZSBpby5vYnNlcnZlKGVsKTsKICAgIH0pOwogICAgcmV0dXJuICgpID0+IGlvLmRpc2Nvbm5lY3QoKTsKICB9LCBbcm9vdFJlZl0pOwp9Cgpjb25zdCBSRUNPUkQ6IEFycmF5PHsgZGF0ZTogc3RyaW5nOyBjb21wYW55OiBzdHJpbmc7IHJvbGU6IHN0cmluZzsgcmVzdWx0OiBzdHJpbmcgfT4gPSBbCiAgewogICAgZGF0ZTogIjIwMjAg4oCTIFByZXNlbnQiLAogICAgY29tcGFueTogIkxhdW5jaCBieSBOVFQgREFUQSIsCiAgICByb2xlOiAiSGVhZCBvZiBNYXJrZXRpbmcgT3BlcmF0aW9ucyAmIEdsb2JhbCBJbnRlZ3JhdGlvbiBMZWFkIiwKICAgIHJlc3VsdDogIiQzNTBNKyBwaXBlbGluZSBhY3Jvc3MgNSsgcmVnaW9ucywgZXhlY3V0aW9uIHZlbG9jaXR5ICsyNSUsICQyNU0rIGluIG5ldyByZXZlbnVlIGZyb20gQUJNIHByb2dyYW1zLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyMCDigJMgMjAyMyIsCiAgICBjb21wYW55OiAiVGl4eHkiLAogICAgcm9sZTogIkZvdW5kZXIgJiBIZWFkIG9mIEdyb3d0aCIsCiAgICByZXN1bHQ6ICIkMU0rIEFSUiBpbiB5ZWFyIG9uZSwgY2h1cm4gY3V0IDI1JSBiZWZvcmUgYWNxdWlzaXRpb24uIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDIxIOKAkyAyMDIyIiwKICAgIGNvbXBhbnk6ICJBbWlmeSIsCiAgICByb2xlOiAiRnJhY3Rpb25hbCBWUCBvZiBNYXJrZXRpbmciLAogICAgcmVzdWx0OiAiJDZNIGluY3JlbWVudGFsIHJldmVudWUgZnJvbSBhIGNvbXBhbnktd2lkZSByZXBvc2l0aW9uaW5nLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAyMCIsCiAgICBjb21wYW55OiAiQnV5c2lkZSIsCiAgICByb2xlOiAiRGlyZWN0b3Igb2YgUGxhdGZvcm0gR3Jvd3RoIiwKICAgIHJlc3VsdDogIlBsYXRmb3JtIGFkb3B0aW9uIHVwIDUwJSwgbWFya2V0aW5nIGVmZmljaWVuY3kgdXAgMzAlIG9uIGEgcmVidWlsdCBhbmFseXRpY3MgbGF5ZXIuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDIwIiwKICAgIGNvbXBhbnk6ICJFdmVyeXRoaW5nIEJ1dCBUaGUgSG91c2UiLAogICAgcm9sZTogIkRpZ2l0YWwgR3Jvd3RoIE1hbmFnZXIiLAogICAgcmVzdWx0OiAiTmV3LXVzZXIgZ3Jvd3RoIG9mIDUwJSwgY29udmVyc2lvbiB1cCAzMCUgb24gMjAlIGxlc3Mgc3BlbmQuIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDE5IiwKICAgIGNvbXBhbnk6ICJBUEkgTmF0aW9uIiwKICAgIHJvbGU6ICJIZWFkIG9mIEdyb3d0aCBNYXJrZXRpbmciLAogICAgcmVzdWx0OiAiSW5ib3VuZCBkZW1hbmQgdXAgNTAlLCBjYW1wYWlnbiBST0kgdXAgNDUlIHRocm91Z2ggbXVsdGktdG91Y2ggYXR0cmlidXRpb24uIiwKICB9LAogIHsKICAgIGRhdGU6ICIyMDE3IOKAkyAyMDE5IiwKICAgIGNvbXBhbnk6ICJBc3Ryb25vbWVyIiwKICAgIHJvbGU6ICJEaXJlY3RvciBvZiBHcm93dGggRXhwZXJpbWVudGF0aW9uIiwKICAgIHJlc3VsdDogIjYwJSBtb3JlIHF1YWxpZmllZCBsZWFkcywgMzAlIGhpZ2hlciBmdW5uZWwgY29udmVyc2lvbi4iLAogIH0sCiAgewogICAgZGF0ZTogIjIwMTYg4oCTIDIwMTciLAogICAgY29tcGFueTogIklubWFuIE5ld3MiLAogICAgcm9sZTogIkRpcmVjdG9yIG9mIERlbWFuZCBHZW5lcmF0aW9uIiwKICAgIHJlc3VsdDogIk9yZ2FuaWMgdHJhZmZpYyB1cCA3MCUgdGhyb3VnaCBmdWxsLWZ1bm5lbCBjb250ZW50IGFuZCB0ZWNobmljYWwgU0VPLiIsCiAgfSwKICB7CiAgICBkYXRlOiAiMjAwOSDigJMgMjAxNiIsCiAgICBjb21wYW55OiAiRG90bG9vcCIsCiAgICByb2xlOiAiTWFya2V0aW5nIE9wZXJhdGlvbnMgTWFuYWdlciIsCiAgICByZXN1bHQ6ICJCdWlsdCBtYXJrZXRpbmcgaW5mcmFzdHJ1Y3R1cmUgZnJvbSB0aGUgc3RhcnR1cCBzdGFnZSB0aHJvdWdoIGh5cGVyZ3Jvd3RoIHRvIHRoZSBaaWxsb3cgYWNxdWlzaXRpb24uIiwKICB9LApdOwoKLyogU2VsZWN0ZWQgcHJvamVjdCByZWNvcmQgZnJvbSBzcmMvZGF0YS9yZXN1bWUudHMgKFNQSUlYLTExOTkpLiBUaGUKICAgL3BvcnRmb2xpbyByZWRpcmVjdCBsYW5kcyBvbiB0aGUgI3Byb2plY3RzIGFuY2hvciBiZWxvdy4gKi8KaW1wb3J0IHsgcG9ydGZvbGlvUHJvamVjdHMsIGZlYXR1cmVkUmVjb21tZW5kYXRpb25zIH0gZnJvbSAiQC9kYXRhL3Jlc3VtZSI7CmltcG9ydCB7IENvbXBhbnlLZWVwIH0gZnJvbSAiQC9jb21wb25lbnRzL2NvbXBhbnkta2VlcCI7Cgpjb25zdCBQUk9KRUNUUyA9IHBvcnRmb2xpb1Byb2plY3RzLm1hcCgocCkgPT4gKHsKICBjb21wYW55OiBwLmNvbXBhbnksCiAgdGl0bGU6IHAudGl0bGUsCiAgbWV0cmljczogcC5tZXRyaWNzLm1hcCgobSkgPT4gYCR7bS52YWx1ZX0gJHttLmxhYmVsLnRvTG93ZXJDYXNlKCl9YCkuam9pbigiIMK3ICIpLAp9KSk7Cgpjb25zdCBGRUFUVVJFRF9RVU9URSA9IGZlYXR1cmVkUmVjb21tZW5kYXRpb25zWzBdOwoKZnVuY3Rpb24gV29ya1BhZ2UoKSB7CiAgY29uc3Qgcm9vdFJlZiA9IHVzZVJlZjxIVE1MRGl2RWxlbWVudD4obnVsbCk7CiAgdXNlQ29yZVJldmVhbChyb290UmVmKTsKCiAgcmV0dXJuICgKICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXJvb3QiIHJlZj17cm9vdFJlZn0+CiAgICAgIDxDb3JlSGVhZGVyIC8+CiAgICAgIDxtYWluIGNsYXNzTmFtZT0iY29yZS13cmFwIj4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS12aWV3LWhlYWQgY29yZS1yZXZlYWwiPgogICAgICAgICAgPGgxPldvcms8L2gxPgogICAgICAgICAgPHA+QSBjaHJvbm9sb2dpY2FsIHJlY29yZC4gUm9sZXMsIHNjb3BlLCBhbmQgdGhlIHJlc3VsdCB0aGF0IG1hdHRlcmVkLjwvcD4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXN1Ym5hdiI+CiAgICAgICAgICAgIDxMaW5rIHRvPSIvZXhwZXJpZW5jZSI+RnVsbCBjYXJlZXIgaGlzdG9yeTwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii9xdW90ZXMiPlF1b3RlczwvTGluaz4KICAgICAgICAgICAgPExpbmsgdG89Ii93b3JrLXRvZ2V0aGVyIj5Xb3JrIHRvZ2V0aGVyPC9MaW5rPgogICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXdvcmstbGlzdCBjb3JlLXJldmVhbCIgaWQ9ImV4cGVyaWVuY2UiPgogICAgICAgICAge1JFQ09SRC5tYXAoKHIpID0+ICgKICAgICAgICAgICAgPGFydGljbGUgY2xhc3NOYW1lPSJjb3JlLXdvcmstcm93IiBrZXk9e3IuY29tcGFueX0+CiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd29yay1kYXRlIj57ci5kYXRlfTwvZGl2PgogICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXdvcmstbWFpbiI+CiAgICAgICAgICAgICAgICA8aDM+e3IuY29tcGFueX08L2gzPgogICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd29yay1yb2xlIj57ci5yb2xlfTwvZGl2PgogICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLXdvcmstcmVzdWx0Ij57ci5yZXN1bHR9PC9wPgogICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8L2FydGljbGU+CiAgICAgICAgICApKX0KICAgICAgICA8L2Rpdj4KCiAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcmV2ZWFsIj4KICAgICAgICAgIDxDb21wYW55S2VlcCAvPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9ImNvcmUtc2VjdGlvbiBjb3JlLXJldmVhbCIgaWQ9InByb2plY3RzIj4KICAgICAgICAgIDxwIGNsYXNzTmFtZT0iY29yZS1zZWN0aW9uLWxhYmVsIj5TZWxlY3RlZCBwcm9qZWN0czwvcD4KICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXJlY29yZCI+CiAgICAgICAgICAgIHtQUk9KRUNUUy5tYXAoKHApID0+ICgKICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1yZWNvcmQtcm93IiBrZXk9e2Ake3AuY29tcGFueX0tJHtwLnRpdGxlfWB9PgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcmVjb3JkLWNvbXBhbnkiPntwLmNvbXBhbnl9PC9kaXY+CiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJjb3JlLXJlY29yZC1yb2xlIj57cC50aXRsZX08L2Rpdj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtcmVjb3JkLXJlc3VsdCI+e3AubWV0cmljc308L2Rpdj4KICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgKSl9CiAgICAgICAgICA8L2Rpdj4KICAgICAgICAgIDxMaW5rIHRvPSIvZXhwZXJpZW5jZSIgY2xhc3NOYW1lPSJjb3JlLXRleHRsaW5rIj4KICAgICAgICAgICAgRnVsbCBjYXJlZXIgaGlzdG9yeSDihpIKICAgICAgICAgIDwvTGluaz4KICAgICAgICA8L3NlY3Rpb24+CgogICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iY29yZS10ZXN0aW1vbmlhbCBjb3JlLXJldmVhbCIgaWQ9InJlY29tbWVuZGF0aW9ucyI+CiAgICAgICAgICA8YmxvY2txdW90ZT4KICAgICAgICAgICAgPHA+4oCce0ZFQVRVUkVEX1FVT1RFLnF1b3RlLnJlcGxhY2VBbGwoIiDigJQgIiwgIiwgIil94oCdPC9wPgogICAgICAgICAgICA8Y2l0ZT4KICAgICAgICAgICAgICA8c3Ryb25nPntGRUFUVVJFRF9RVU9URS5uYW1lfTwvc3Ryb25nPiAmbmJzcDvCtyZuYnNwOyB7RkVBVFVSRURfUVVPVEUudGl0bGV9CiAgICAgICAgICAgIDwvY2l0ZT4KICAgICAgICAgIDwvYmxvY2txdW90ZT4KICAgICAgICAgIDxMaW5rIHRvPSIvcXVvdGVzIiBjbGFzc05hbWU9ImNvcmUtdGV4dGxpbmsiPgogICAgICAgICAgICBBbGwgcXVvdGVzIOKGkgogICAgICAgICAgPC9MaW5rPgogICAgICAgIDwvc2VjdGlvbj4KCiAgICAgICAgPGRpdiBjbGFzc05hbWU9ImNvcmUtd29yay1jbG9zZSBjb3JlLXJldmVhbCI+CiAgICAgICAgICA8cD4KICAgICAgICAgICAgVGhlIHdvcmsgbW92ZXMgdGhyb3VnaCBmb3VyIGxldmVycyBpbiBvcmRlcjogcG9zaXRpb25pbmcgdGhhdCBjbGFyaWZpZXMgd2h5IHlvdSB3aW4sCiAgICAgICAgICAgIGRlbWFuZCB0aGF0IGNyZWF0ZXMgcmVhbCBwaXBlbGluZSwgb3BlcmF0aW9ucyB0aGF0IG1ha2UgZXhlY3V0aW9uIHJlcGVhdGFibGUsIGFuZAogICAgICAgICAgICBtZWFzdXJlbWVudCB0aGF0IHNob3dzIHdoYXQgdG8gZG8gbmV4dC4gTm8gbGV2ZXIgd29ya3MgYWxvbmUsIGFuZCBub25lIGlzIHNraXBwZWQuCiAgICAgICAgICA8L3A+CiAgICAgICAgPC9kaXY+CgogICAgICAgIDxDb3JlRm9vdGVyIC8+CiAgICAgIDwvbWFpbj4KICAgIDwvZGl2PgogICk7Cn0K
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
+import "@/styles/core.css";
+
+const CORE_FONT_LINK = {
+  rel: "stylesheet",
+  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
+} as const;
+
+const title = "Work — Results, Experience & Recommendations | Steve Peele II";
+const description =
+  "Steve Peele II's growth marketing record in one place: selected results, career experience, projects, and recommendations from leaders and teammates.";
+
+export const Route = createFileRoute("/work")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title }, { property: "og:image", content: "https://stevepeeleii.com/og-work.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-work.jpg" },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/work" }, CORE_FONT_LINK],
+  }),
+  component: WorkPage,
+});
+
+/* ------------------------------------------------------------------ */
+/* Core work — pared-down rebuild (SPIIX-1189). Port of the approved   */
+/* mockup: a chronological record, no Control Tower shell.             */
+/* ------------------------------------------------------------------ */
+
+function CoreHeader() {
+  return (
+    <header className="core-topbar">
+      <div className="core-wrap core-topbar-inner">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-mainnav" aria-label="Main">
+          <Link to="/work" className="core-navlink core-active" aria-current="page">
+            Work
+          </Link>
+          <Link to="/experience" className="core-navlink">
+            Experience
+          </Link>
+          <Link to="/quotes" className="core-navlink">
+            Quotes
+          </Link>
+          <Link to="/blog" className="core-navlink">
+            Writing
+          </Link>
+          <Link to="/work-together" className="core-navlink">
+            Work Together
+          </Link>
+          <Link to="/contact" className="core-navlink">
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function CoreFooter() {
+  return (
+    <footer className="core-pagefoot">
+      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
+      <div className="core-pagefoot-right">
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
+        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </footer>
+  );
+}
+
+/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
+function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("core-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("core-in");
+            io.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    els.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
+      else io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [rootRef]);
+}
+
+const RECORD: Array<{ date: string; company: string; role: string; result: string }> = [
+  {
+    date: "2020 – Present",
+    company: "Launch by NTT DATA",
+    role: "Head of Marketing Operations & Global Integration Lead",
+    result: "$350M+ pipeline across 5+ regions, execution velocity +25%, $25M+ in new revenue from ABM programs.",
+  },
+  {
+    date: "2020 – 2023",
+    company: "Tixxy",
+    role: "Founder & Head of Growth",
+    result: "$1M+ ARR in year one, churn cut 25% before acquisition.",
+  },
+  {
+    date: "2021 – 2022",
+    company: "Amify",
+    role: "Fractional VP of Marketing",
+    result: "$6M incremental revenue from a company-wide repositioning.",
+  },
+  {
+    date: "2020",
+    company: "Buyside",
+    role: "Director of Platform Growth",
+    result: "Platform adoption up 50%, marketing efficiency up 30% on a rebuilt analytics layer.",
+  },
+  {
+    date: "2020",
+    company: "Everything But The House",
+    role: "Digital Growth Manager",
+    result: "New-user growth of 50%, conversion up 30% on 20% less spend.",
+  },
+  {
+    date: "2019",
+    company: "API Nation",
+    role: "Head of Growth Marketing",
+    result: "Inbound demand up 50%, campaign ROI up 45% through multi-touch attribution.",
+  },
+  {
+    date: "2017 – 2019",
+    company: "Astronomer",
+    role: "Director of Growth Experimentation",
+    result: "60% more qualified leads, 30% higher funnel conversion.",
+  },
+  {
+    date: "2016 – 2017",
+    company: "Inman News",
+    role: "Director of Demand Generation",
+    result: "Organic traffic up 70% through full-funnel content and technical SEO.",
+  },
+  {
+    date: "2009 – 2016",
+    company: "Dotloop",
+    role: "Marketing Operations Manager",
+    result: "Built marketing infrastructure from the startup stage through hypergrowth to the Zillow acquisition.",
+  },
+];
+
+/* Selected project record from src/data/resume.ts (SPIIX-1199). The
+   /portfolio redirect lands on the #projects anchor below. */
+import { portfolioProjects, featuredRecommendations } from "@/data/resume";
+import { CompanyKeep } from "@/components/company-keep";
+
+const PROJECTS = portfolioProjects.map((p) => ({
+  company: p.company,
+  title: p.title,
+  metrics: p.metrics.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(" · "),
+}));
+
+const FEATURED_QUOTE = featuredRecommendations[0];
+
+function WorkPage() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef);
+
+  return (
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <h1>Work</h1>
+          <p>A chronological record. Roles, scope, and the result that mattered.</p>
+          <div className="core-subnav">
+            <Link to="/experience">Full career history</Link>
+            <Link to="/quotes">Quotes</Link>
+            <Link to="/work-together">Work together</Link>
+          </div>
+        </div>
+
+        <div className="core-work-list core-reveal" id="experience">
+          {RECORD.map((r) => (
+            <article className="core-work-row" key={r.company}>
+              <div className="core-work-date">{r.date}</div>
+              <div className="core-work-main">
+                <h3>{r.company}</h3>
+                <div className="core-work-role">{r.role}</div>
+                <p className="core-work-result">{r.result}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="core-reveal">
+          <CompanyKeep />
+        </div>
+
+        <section className="core-section core-reveal" id="projects">
+          <p className="core-section-label">Selected projects</p>
+          <div className="core-record">
+            {PROJECTS.map((p) => (
+              <div className="core-record-row" key={`${p.company}-${p.title}`}>
+                <div>
+                  <div className="core-record-company">{p.company}</div>
+                  <div className="core-record-role">{p.title}</div>
+                </div>
+                <div className="core-record-result">{p.metrics}</div>
+              </div>
+            ))}
+          </div>
+          <Link to="/experience" className="core-textlink">
+            Full career history →
+          </Link>
+        </section>
+
+        <section className="core-testimonial core-reveal" id="recommendations">
+          <blockquote>
+            <p>“{FEATURED_QUOTE.quote.replaceAll(" — ", ", ")}”</p>
+            <cite>
+              <strong>{FEATURED_QUOTE.name}</strong> &nbsp;·&nbsp; {FEATURED_QUOTE.title}
+            </cite>
+          </blockquote>
+          <Link to="/quotes" className="core-textlink">
+            All quotes →
+          </Link>
+        </section>
+
+        <div className="core-work-close core-reveal">
+          <p>
+            The work moves through four levers in order: positioning that clarifies why you win,
+            demand that creates real pipeline, operations that make execution repeatable, and
+            measurement that shows what to do next. No lever works alone, and none is skipped.
+          </p>
+        </div>
+
+        <CoreFooter />
+      </main>
+    </div>
+  );
+}

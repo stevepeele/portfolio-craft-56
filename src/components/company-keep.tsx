@@ -1,1 +1,34 @@
-aW1wb3J0IHsgd29ya2VkV2l0aCB9IGZyb20gIkAvZGF0YS9yZXN1bWUiOwoKLyogQ29tcGFueSBJIGtlZXAgKFNQSUlYLTEyMDIpLiBSZXN0b3JlcyB0aGUgbG9nbyBzbGlkZXIgdGhhdCBQTFgtMjkxCiAgIGFkZGVkIHRvIHRoZSBwcmUtcmVkZXNpZ24gaG9tZSBwYWdlIGFuZCB0aGUgTm92IDYgcGFyZWQtZG93bgogICByZWRlc2lnbiBkcm9wcGVkLiBUaGUgaGlzdG9yaWNhbCBjb21wb25lbnQgd2FzIGEgQ1NTIG1hcnF1ZWUgb2YKICAgdGV4dCB3b3JkbWFya3MgZnJvbSB0aGUgd29ya2VkV2l0aCByZWNvcmQgaW4gc3JjL2RhdGEvcmVzdW1lLnRzOwogICB0aGVyZSB3ZXJlIG5ldmVyIGltYWdlIGxvZ28gYXNzZXRzLiBUaGUgc2V0IGlzIHRoYXQgcmVjb3JkLCBtaW51cwogICBvbmUgbmFtZTogWmlsbG93IGFjcXVpcmVkIERvdGxvb3AsIGFuZCBTdGV2ZSBuZXZlciBoZWxkIGEgc2VhdAogICB0aGVyZSwgc28gaXQgY29tZXMgb3V0LiBNb3Rpb24gaXMgQ1NTIG9ubHkgYW5kIHN0b3BzIGVudGlyZWx5CiAgIHVuZGVyIHJlZHVjZWQgbW90aW9uLCB3aGVyZSB0aGUgc3RyaXAgd3JhcHMgYXMgYSBzdGF0aWMgbGlzdC4gKi8KCmNvbnN0IENPTVBBTklFUyA9IHdvcmtlZFdpdGguZmlsdGVyKChuYW1lKSA9PiBuYW1lICE9PSAiWmlsbG93Iik7CgpleHBvcnQgZnVuY3Rpb24gQ29tcGFueUtlZXAoKSB7CiAgcmV0dXJuICgKICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0iY29yZS1rZWVwIiBhcmlhLWxhYmVsPSJDb21wYW5pZXMgU3RldmUgUGVlbGUgSUkgaGFzIHdvcmtlZCB3aXRoIj4KICAgICAgPHAgY2xhc3NOYW1lPSJjb3JlLWtlZXAtbGFiZWwiPkNvbXBhbnkgSSBrZWVwPC9wPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1rZWVwLXZpZXdwb3J0Ij4KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iY29yZS1rZWVwLXRyYWNrIj4KICAgICAgICAgIHtDT01QQU5JRVMubWFwKChuYW1lKSA9PiAoCiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iY29yZS1rZWVwLW5hbWUiIGtleT17bmFtZX0+CiAgICAgICAgICAgICAge25hbWV9CiAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICAgICkpfQogICAgICAgICAge0NPTVBBTklFUy5tYXAoKG5hbWUpID0+ICgKICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJjb3JlLWtlZXAtbmFtZSBjb3JlLWtlZXAtZHVwIiBrZXk9e2BkdXAtJHtuYW1lfWB9IGFyaWEtaGlkZGVuPSJ0cnVlIj4KICAgICAgICAgICAgICB7bmFtZX0KICAgICAgICAgICAgPC9zcGFuPgogICAgICAgICAgKSl9CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgPC9zZWN0aW9uPgogICk7Cn0K
+import { workedWith } from "@/data/resume";
+
+/* Company I keep (SPIIX-1202). Restores the logo slider that PLX-291
+   added to the pre-redesign home page and the Nov 6 pared-down
+   redesign dropped. The historical component was a CSS marquee of
+   text wordmarks from the workedWith record in src/data/resume.ts;
+   there were never image logo assets. The set is that record, minus
+   one name: Zillow acquired Dotloop, and Steve never held a seat
+   there, so it comes out. Motion is CSS only and stops entirely
+   under reduced motion, where the strip wraps as a static list. */
+
+const COMPANIES = workedWith.filter((name) => name !== "Zillow");
+
+export function CompanyKeep() {
+  return (
+    <section className="core-keep" aria-label="Companies Steve Peele II has worked with">
+      <p className="core-keep-label">Company I keep</p>
+      <div className="core-keep-viewport">
+        <div className="core-keep-track">
+          {COMPANIES.map((name) => (
+            <span className="core-keep-name" key={name}>
+              {name}
+            </span>
+          ))}
+          {COMPANIES.map((name) => (
+            <span className="core-keep-name core-keep-dup" key={`dup-${name}`} aria-hidden="true">
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
