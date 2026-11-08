@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import "@/styles/core.css";
+import { CompanyKeep } from "@/components/company-keep";
 
 const CORE_FONT_LINK = {
   rel: "stylesheet",
@@ -81,8 +82,17 @@ function CoreHeader() {
           <Link to="/work" className="core-navlink">
             Work
           </Link>
+          <Link to="/experience" className="core-navlink">
+            Experience
+          </Link>
+          <Link to="/quotes" className="core-navlink">
+            Quotes
+          </Link>
           <Link to="/blog" className="core-navlink">
             Writing
+          </Link>
+          <Link to="/work-together" className="core-navlink">
+            Work Together
           </Link>
           <Link to="/contact" className="core-navlink">
             Contact
@@ -280,6 +290,10 @@ function Home() {
             </div>
           </div>
         </section>
+
+        <div className="core-reveal">
+          <CompanyKeep />
+        </div>
 
         <section className="core-section core-reveal">
           <p className="core-section-label">The Record</p>
