@@ -14,8 +14,9 @@ export type SanityPostCard = {
   publishedAt?: string;
   featured?: boolean;
   mainImage?: { asset: { url: string }; alt?: string };
+  tags?: string[];
   author?: { name: string };
-  categories?: { name: string; slug: string }[];
+  categories?: { _id?: string; name: string; slug: string }[];
 };
 
 export type SanityPost = SanityPostCard & {
@@ -24,7 +25,15 @@ export type SanityPost = SanityPostCard & {
   seoDescription?: string;
   socialImage?: { asset: { url: string } };
   tags?: string[];
+  /** URL of the embedded audio readout file, when the post has one (SPIIX-1201). */
+  audioUrl?: string;
   relatedPosts?: SanityPostCard[];
+};
+
+/** Card plus the plain-text stats the blog index and category pages need. */
+export type SanityBlogCard = SanityPostCard & {
+  wordCount?: number;
+  bodyText?: string;
 };
 
 const cardFields = `
@@ -35,8 +44,9 @@ const cardFields = `
   publishedAt,
   featured,
   mainImage { asset-> { url }, alt },
+  tags,
   author-> { name },
-  categories[]-> { name, "slug": slug.current }
+  categories[]-> { _id, name, "slug": slug.current }
 `;
 
 const postFields = `
@@ -45,7 +55,7 @@ const postFields = `
   seoTitle,
   seoDescription,
   socialImage { asset-> { url } },
-  tags,
+  "audioUrl": audio.asset->url,
   relatedPosts[]-> { ${cardFields} }
 `;
 
@@ -116,6 +126,23 @@ export async function getCategoryBySlug(slug: string): Promise<{
 export async function getAllCategories(): Promise<{ name: string; slug: string }[]> {
   return safeFetch(
     `*[_type == "category"] | order(name asc) { name, "slug": slug.current }`,
+  );
+}
+
+/**
+ * Cards for the blog index and category pages (SPIIX-1201): the card fields
+ * plus a word count and the body's plain text, both computed by Sanity so
+ * reading time and fallback excerpts never need the raw Portable Text on
+ * listing pages. Callers derive display fields and drop bodyText.
+ */
+export async function getBlogCards(limit = 30): Promise<SanityBlogCard[]> {
+  return safeFetch(
+    `*[_type == "post" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] {
+      ${cardFields},
+      "wordCount": length(string::split(pt::text(body), " ")),
+      "bodyText": pt::text(body)
+    }`,
+    { limit },
   );
 }
 

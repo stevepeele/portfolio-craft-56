@@ -1,24 +1,46 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ExternalLink, Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/core.css";
-import { getFeaturedPost, getLatestPosts } from "@/lib/sanity-queries";
+import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
+import { CategoryChips, PostRow, type BlogCategoryRef } from "@/components/blog-ui";
+import { getBlogCards, getFeaturedPost } from "@/lib/sanity-queries";
+import { fallbackExcerpt, readingMinutes, wordCountFromText } from "@/lib/blog-utils";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 
-const CORE_FONT_LINK = {
-  rel: "stylesheet",
-  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
-} as const;
-
 const title = "Blog — Notes on Growth, Systems & Building | Steve Peele II";
 const description =
-  "Essays and working notes on growth marketing, operations, and building — from Steve Peele II.";
+  "Essays and working notes on growth marketing, operations, and building, from Steve Peele II.";
+
+/** Listing view model: card fields plus computed reading time and excerpt. */
+type PostView = SanityPostCard & { minutes: number; displayExcerpt: string };
 
 export const Route = createFileRoute("/blog/")({
   loader: async () => {
-    const [featured, posts] = await Promise.all([getFeaturedPost(), getLatestPosts(24)]);
-    return { featured, posts };
+    const [featured, cards] = await Promise.all([getFeaturedPost(), getBlogCards(30)]);
+    const posts: PostView[] = cards.map((c) => {
+      const words = c.wordCount ?? wordCountFromText(c.bodyText ?? "");
+      const { bodyText: _bodyText, wordCount: _wordCount, ...card } = c;
+      return {
+        ...card,
+        minutes: readingMinutes(words),
+        displayExcerpt: c.excerpt ?? fallbackExcerpt(c.bodyText ?? ""),
+      };
+    });
+    const lead = featured
+      ? (posts.find((p) => p._id === featured._id) ?? null)
+      : (posts[0] ?? null);
+    const categories: BlogCategoryRef[] = [];
+    for (const p of posts) {
+      for (const c of p.categories ?? []) {
+        if (!categories.some((x) => x.slug === c.slug)) {
+          categories.push({ name: c.name, slug: c.slug });
+        }
+      }
+    }
+    categories.sort((a, b) => a.name.localeCompare(b.name));
+    return { lead, leadIsFeatured: Boolean(featured), posts, categories };
   },
   head: () => ({
     meta: [
@@ -35,76 +57,10 @@ export const Route = createFileRoute("/blog/")({
 });
 
 /* ------------------------------------------------------------------ */
-/* Core writing — pared-down rebuild (SPIIX-1189). Presentation only:  */
-/* the loader, Sanity queries, cross-post matching, and external feed  */
-/* fetch below are unchanged from the Control Tower version.           */
+/* Blog index (SPIIX-1201): lead story, searchable and filterable     */
+/* archive, external writing feeds. Presentation and loader only;     */
+/* cross-post matching below is unchanged from the SPIIX-1189 page.   */
 /* ------------------------------------------------------------------ */
-
-function CoreHeader() {
-  return (
-    <header className="core-topbar">
-      <div className="core-wrap core-topbar-inner">
-        <Link to="/" className="core-wordmark">
-          Steve Peele II<span>.</span>
-        </Link>
-        <nav className="core-mainnav" aria-label="Main">
-          <Link to="/work" className="core-navlink">
-            Work
-          </Link>
-          <Link to="/blog" className="core-navlink core-active" aria-current="page">
-            Writing
-          </Link>
-          <Link to="/contact" className="core-navlink">
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function CoreFooter() {
-  return (
-    <footer className="core-pagefoot">
-      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
-      <div className="core-pagefoot-right">
-        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
-        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-      </div>
-    </footer>
-  );
-}
-
-/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
-function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>, dep: unknown) {
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
-    if (!("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("core-in"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            en.target.classList.add("core-in");
-            io.unobserve(en.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
-    );
-    els.forEach((el) => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
-      else io.observe(el);
-    });
-    return () => io.disconnect();
-  }, [rootRef, dep]);
-}
 
 function normalizeTitle(t: string): string {
   return t
@@ -150,49 +106,29 @@ function isNewPost(publishedAt?: string): boolean {
   return diffDays <= 7;
 }
 
-function PostCard({ post, external }: { post: SanityPostCard; external: ExternalFeedItem[] }) {
+function RowBadges({ post, external }: { post: PostView; external: ExternalFeedItem[] }) {
   const crossPosted = findCrossPostedSources(post.title, external);
-  const isNew = isNewPost(post.publishedAt);
-  const isHot = post.featured === true;
-  const metaParts: string[] = [];
-  if (post.publishedAt) metaParts.push(formatSanityDate(post.publishedAt));
-  if (post.categories?.length) metaParts.push(post.categories.map((c) => c.name).join(" · "));
-  if (post.author?.name) metaParts.push(`by ${post.author.name}`);
   return (
-    <Link to="/blog/$slug" params={{ slug: post.slug }} className="core-writing-row">
-      <span className="core-writing-meta">
-        {metaParts.join("  ·  ")}
-        {isNew && (
-          <>
-            {"  "}
-            <b>New</b>
-          </>
-        )}
-        {isHot && (
-          <>
-            {"  "}
-            <b>Hot</b>
-          </>
-        )}
-        {crossPosted.length > 0 && (
-          <>
-            {"  "}
-            <CrossPostedBadge sources={crossPosted} />
-          </>
-        )}
-      </span>
-      {post.mainImage && (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
-          alt={post.mainImage.alt || post.title}
-          loading="lazy"
-          className="core-writing-thumb"
-        />
+    <>
+      {isNewPost(post.publishedAt) && (
+        <>
+          {"  "}
+          <b>New</b>
+        </>
       )}
-      <h3>{post.title}</h3>
-      {post.excerpt && <p>{post.excerpt}</p>}
-    </Link>
+      {post.featured === true && (
+        <>
+          {"  "}
+          <b>Hot</b>
+        </>
+      )}
+      {crossPosted.length > 0 && (
+        <>
+          {"  "}
+          <CrossPostedBadge sources={crossPosted} />
+        </>
+      )}
+    </>
   );
 }
 
@@ -228,10 +164,12 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
 }
 
 function BlogIndexPage() {
-  const { featured, posts } = Route.useLoaderData();
+  const { lead, leadIsFeatured, posts, categories } = Route.useLoaderData();
   const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
+  const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
   const rootRef = useRef<HTMLDivElement>(null);
-  useCoreReveal(rootRef, externalItems.length);
+  useCoreReveal(rootRef);
 
   useEffect(() => {
     let cancelled = false;
@@ -252,13 +190,31 @@ function BlogIndexPage() {
       cancelled = true;
     };
   }, []);
-  const rest = featured
-    ? (posts as SanityPostCard[]).filter((p: SanityPostCard) => p._id !== featured._id)
-    : (posts as SanityPostCard[]);
+
+  const filtering = query.trim() !== "" || activeCategory !== "all";
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const pool = filtering ? posts : posts.filter((p) => !lead || p._id !== lead._id);
+    return pool.filter((p) => {
+      if (activeCategory !== "all") {
+        if (!(p.categories ?? []).some((c) => c.slug === activeCategory)) return false;
+      }
+      if (q) {
+        const hay = `${p.title} ${p.displayExcerpt}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [posts, lead, filtering, query, activeCategory]);
+
+  const leadMeta: string[] = [];
+  if (lead?.publishedAt) leadMeta.push(formatSanityDate(lead.publishedAt));
+  if (lead?.categories?.length) leadMeta.push(lead.categories.map((c) => c.name).join(" · "));
+  if (lead?.minutes) leadMeta.push(`${lead.minutes} min read`);
 
   return (
     <div className="core-root" ref={rootRef}>
-      <CoreHeader />
+      <CoreHeader active="blog" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Writing</h1>
@@ -272,31 +228,30 @@ function BlogIndexPage() {
           </div>
         )}
 
-        {featured && (
+        {lead && !filtering && (
           <div style={{ marginTop: 56 }} className="core-reveal">
-            <p className="core-section-label">Featured</p>
+            <p className="core-section-label">{leadIsFeatured ? "Featured" : "The latest"}</p>
             <Link
               to="/blog/$slug"
-              params={{ slug: featured.slug }}
+              params={{ slug: lead.slug }}
               className="core-featured"
               style={{ borderTop: "1px solid var(--core-line)" }}
             >
               <span className="core-writing-meta">
-                Featured
-                {featured.publishedAt && <> · {formatSanityDate(featured.publishedAt)}</>}
+                {leadMeta.join("  ·  ")}
                 {"  "}
-                <CrossPostedBadge sources={findCrossPostedSources(featured.title, externalItems)} />
+                <CrossPostedBadge sources={findCrossPostedSources(lead.title, externalItems)} />
               </span>
-              {featured.mainImage && (
+              {lead.mainImage && (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
-                  src={urlFor(featured.mainImage).width(1200).height(630).fit("crop").url()}
-                  alt={featured.mainImage.alt || featured.title}
+                  src={urlFor(lead.mainImage).width(1200).height(630).fit("crop").url()}
+                  alt={lead.mainImage.alt || lead.title}
                   className="core-featured-img"
                 />
               )}
-              <h3>{featured.title}</h3>
-              {featured.excerpt && <p>{featured.excerpt}</p>}
+              <h3>{lead.title}</h3>
+              {lead.displayExcerpt && <p>{lead.displayExcerpt}</p>}
               <span className="core-textlink">
                 Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
               </span>
@@ -304,18 +259,70 @@ function BlogIndexPage() {
           </div>
         )}
 
-        {rest.length > 0 && (
-          <div style={{ marginTop: featured ? 56 : 0 }} className="core-reveal">
-            <p className="core-section-label">All articles</p>
-            <div className="core-writing-list" style={{ marginTop: 0 }}>
-              {(rest as SanityPostCard[]).map((post: SanityPostCard) => (
-                <PostCard key={post._id} post={post} external={externalItems} />
-              ))}
+        {posts.length > 0 && (
+          <>
+            <div className="blog-toolbar">
+              <div className="blog-search">
+                <Search size={15} aria-hidden />
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search articles"
+                  aria-label="Search articles by title or excerpt"
+                />
+              </div>
+              {categories.length > 0 && (
+                <CategoryChips
+                  categories={categories}
+                  active={activeCategory}
+                  onSelect={setActiveCategory}
+                />
+              )}
             </div>
-          </div>
+
+            <div className="blog-archive-head">
+              <p className="core-section-label">{filtering ? "Results" : "All articles"}</p>
+              <span className="blog-count">
+                {filtering
+                  ? `${visible.length} of ${posts.length} articles`
+                  : `${posts.length} articles`}
+              </span>
+            </div>
+
+            {visible.length > 0 ? (
+              <div className="core-writing-list" style={{ marginTop: 16 }}>
+                {visible.map((post) => (
+                  <PostRow
+                    key={post._id}
+                    post={post}
+                    minutes={post.minutes}
+                    excerptText={post.displayExcerpt}
+                    metaExtra={<RowBadges post={post} external={externalItems} />}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="core-empty">
+                <h2>No articles match.</h2>
+                <p>Try a different search, or browse the full archive.</p>
+                <button
+                  type="button"
+                  className="blog-chip"
+                  style={{ marginTop: 18 }}
+                  onClick={() => {
+                    setQuery("");
+                    setActiveCategory("all");
+                  }}
+                >
+                  Clear search and filters
+                </button>
+              </div>
+            )}
+          </>
         )}
 
-        {externalItems.length > 0 && (
+        {externalItems.length > 0 && !filtering && (
           <div style={{ marginTop: 64 }} className="core-reveal">
             <p className="core-section-label">Elsewhere</p>
             <p className="core-writing-note" style={{ marginTop: 0, marginBottom: 4 }}>
