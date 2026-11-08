@@ -2,6 +2,7 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/recommendations")({
   beforeLoad: () => {
-    throw redirect({ to: "/work", hash: "recommendations", statusCode: 301 });
+    // SPIIX-1199: recommendations now live on their own page at /quotes.
+    throw redirect({ to: "/quotes", statusCode: 301 });
   },
 });

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "StagePlot AI — Input List to Stage Plot | Steve Peele II";
@@ -41,20 +41,20 @@ const nextItems = [
 
 function StagePlotPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "StagePlot AI" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "StagePlot AI" }]}>
       <main>
-        <CtHero file="05 / Building — StagePlot AI" title={<>Input list in. <span>Stage plot out.</span></>}
+        <BuildingHero file="05 / Building — StagePlot AI" title={<>Input list in. <span>Stage plot out.</span></>}
           lede={<>Paste a band's input list, get a professional stage plot + channel sheet in seconds. No more PowerPoint rectangles at 1am.</>}>
           <div className="btnrow">
             <a href="https://stageplot.stevepeeleii.com/" target="_blank" rel="noreferrer" className="btn">
               Try StagePlot AI <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">Why I built it</CtLabel>
+            <BuildingLabel n="01">Why I built it</BuildingLabel>
             <h2 className="shead">The 1am stage plot problem.</h2>
             <p className="lede dim" style={{ marginTop: 16 }}>It's 1am. Load-in's at 8. The input list finally arrives — 19 channels and three "???s" — and you're in PowerPoint drawing rectangles. The mic choices are 90% automatic anyway. The layout follows conventions everyone knows. The channel sheet is formatting. None of it's hard. It's just tedious. So I automated the tedious part.</p>
 
@@ -68,7 +68,7 @@ function StagePlotPage() {
             </div>
 
             <div style={{ marginTop: 56 }}>
-              <CtLabel n="02">What&apos;s next</CtLabel>
+              <BuildingLabel n="02">What&apos;s next</BuildingLabel>
               <h2 className="shead">On the build queue</h2>
               <div className="ledger rev">
                 {nextItems.map((item) => (
@@ -99,6 +99,6 @@ function StagePlotPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

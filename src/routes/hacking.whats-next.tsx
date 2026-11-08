@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Circle, CircleDot, CheckCircle2 } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { buildQueue } from "@/data/hacking";
@@ -32,9 +32,9 @@ const statusMeta = {
 
 function WhatsNextPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Up next" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Up next" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building — What's next"
           title={
             <>
@@ -46,7 +46,7 @@ function WhatsNextPage() {
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">The queue</CtLabel>
+            <BuildingLabel n="01">The queue</BuildingLabel>
             <div className="rows rev">
               {buildQueue.map((item, i) => {
                 const meta = statusMeta[item.status];
@@ -89,7 +89,7 @@ function WhatsNextPage() {
 
         <section className="blk">
           <div className="wrap">
-            <CtLabel n="02">Live board</CtLabel>
+            <BuildingLabel n="02">Live board</BuildingLabel>
             <h2 className="shead">
               The <span>Linear board.</span>
             </h2>
@@ -103,6 +103,6 @@ function WhatsNextPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

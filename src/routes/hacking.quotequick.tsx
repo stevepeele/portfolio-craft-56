@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -48,16 +48,16 @@ const sections = [
 
 function QuoteQuickPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "QuoteQuick" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "QuoteQuick" }]}>
       <main>
-        <CtHero file="05 / Building — QuoteQuick" title={<>Quote it today. <span>Win it today.</span></>}
+        <BuildingHero file="05 / Building — QuoteQuick" title={<>Quote it today. <span>Win it today.</span></>}
           lede={<>QuoteQuick turns line items and a job-site photo into a branded PDF quote in minutes. Built for contractors and day laborers — the same crew Stampd serves. $19 once.</>}>
           <div className="btnrow">
             <a href="https://quotequick.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://quotequick.stevepeeleii.com")}>
               Try it live <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -88,6 +88,6 @@ function QuoteQuickPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

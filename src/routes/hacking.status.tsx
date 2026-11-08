@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { LinearDashboard } from "@/components/linear-dashboard";
 import { statusLog } from "@/data/hacking";
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/hacking/status")({
 
 function StatusPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Build log" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Build log" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building — Build log"
           title={
             <>
@@ -39,7 +39,7 @@ function StatusPage() {
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">Live board</CtLabel>
+            <BuildingLabel n="01">Live board</BuildingLabel>
             <h2 className="shead">
               The <span>Linear board.</span>
             </h2>
@@ -55,7 +55,7 @@ function StatusPage() {
 
         <section className="blk">
           <div className="wrap">
-            <CtLabel n="02">Build log</CtLabel>
+            <BuildingLabel n="02">Build log</BuildingLabel>
             <div className="rows rev">
               {statusLog.map((entry) => (
                 <div key={`${entry.date}-${entry.title}`} className="row">
@@ -72,6 +72,6 @@ function StatusPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }
