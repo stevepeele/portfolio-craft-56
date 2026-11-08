@@ -74,6 +74,14 @@ export const post = defineType({
       ],
     }),
     defineField({
+      name: "audio",
+      title: "Audio readout",
+      type: "file",
+      options: { accept: "audio/*" },
+      description:
+        "Audio readout of this article (MP3). When set, an embedded player appears at the top of the article page. Blog completeness rule: every post ships with a readout, a hero image, and supporting visuals.",
+    }),
+    defineField({
       name: "publishedAt",
       title: "Publication date",
       type: "datetime",

@@ -1,15 +1,35 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
-import { getCategoryBySlug } from "@/lib/sanity-queries";
-import type { SanityPostCard } from "@/lib/sanity-queries";
-import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
+import { ArrowLeft } from "lucide-react";
+import { useRef } from "react";
+import "@/styles/core.css";
+import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
+import { PostRow } from "@/components/blog-ui";
+import { getAllCategories, getBlogCards, getCategoryBySlug } from "@/lib/sanity-queries";
+import { fallbackExcerpt, readingMinutes, wordCountFromText } from "@/lib/blog-utils";
 
 export const Route = createFileRoute("/blog/category/$slug")({
   loader: async ({ params }) => {
-    const category = await getCategoryBySlug(params.slug);
+    const [category, cards, allCategories] = await Promise.all([
+      getCategoryBySlug(params.slug),
+      getBlogCards(50),
+      getAllCategories(),
+    ]);
     if (!category) throw notFound();
-    return { category };
+    const stats = new Map(
+      cards.map((c) => [
+        c._id,
+        {
+          minutes: readingMinutes(c.wordCount ?? wordCountFromText(c.bodyText ?? "")),
+          displayExcerpt: c.excerpt ?? fallbackExcerpt(c.bodyText ?? ""),
+        },
+      ]),
+    );
+    const posts = category.posts.map((p) => ({
+      ...p,
+      minutes: stats.get(p._id)?.minutes ?? 0,
+      displayExcerpt: stats.get(p._id)?.displayExcerpt ?? p.excerpt ?? "",
+    }));
+    return { category: { ...category, posts }, allCategories };
   },
   head: ({ loaderData, params }) => {
     const category = loaderData?.category;
@@ -32,91 +52,83 @@ export const Route = createFileRoute("/blog/category/$slug")({
           rel: "canonical",
           href: `https://stevepeeleii.com/blog/category/${params.slug}`,
         },
+        CORE_FONT_LINK,
       ],
     };
   },
   component: CategoryPage,
   notFoundComponent: () => (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: "Not found" }]}>
-      <main>
-        <section className="blk first">
-          <div className="wrap" style={{ textAlign: "center", padding: "40px 0" }}>
-            <h1 className="shead">Category not found.</h1>
-            <div className="btnrow" style={{ justifyContent: "center" }}>
-              <Link to="/blog" className="btn o">
-                <ArrowLeft size={14} /> Back to the blog
-              </Link>
-            </div>
-          </div>
-        </section>
+    <div className="core-root">
+      <CoreHeader active="blog" />
+      <main className="core-wrap">
+        <div className="core-empty" style={{ paddingTop: 96 }}>
+          <h2>Category not found.</h2>
+          <p>That category does not exist, or has no published articles.</p>
+          <Link to="/blog" className="core-textlink">
+            Back to the blog
+          </Link>
+        </div>
+        <CoreFooter />
       </main>
-    </CtShell>
+    </div>
   ),
 });
 
+/* Category page (SPIIX-1201): same listing system as the blog index. */
+
 function CategoryPage() {
-  const { category } = Route.useLoaderData();
+  const { category, allCategories } = Route.useLoaderData();
+  const rootRef = useRef<HTMLDivElement>(null);
+  useCoreReveal(rootRef);
+  const others = (allCategories ?? []).filter((c) => c.name !== category.name);
 
   return (
-    <CtShell
-      crumbs={[
-        { label: "Home", to: "/" },
-        { label: "Blog", to: "/blog" },
-        { label: category.name },
-      ]}
-    >
-      <main>
-        <CtHero file="04 / Blog" title={category.name} lede={category.description || undefined}>
-          <div style={{ marginTop: 28 }}>
-            <Link to="/blog" className="backlink">
-              <ArrowLeft size={14} /> All articles
-            </Link>
-            <p className="kicker" style={{ marginTop: 8 }}>
-              <b>Category</b>
-            </p>
+    <div className="core-root" ref={rootRef}>
+      <CoreHeader active="blog" />
+      <main className="core-wrap">
+        <div className="core-view-head core-reveal">
+          <Link to="/blog" className="blog-backlink">
+            <ArrowLeft size={14} /> All articles
+          </Link>
+          <h1 style={{ marginTop: 20 }}>{category.name}</h1>
+          {category.description && <p>{category.description}</p>}
+          <div className="core-subnav">
+            <Link to="/blog">All writing</Link>
+            {others.map((c) => (
+              <Link key={c.slug} to="/blog/category/$slug" params={{ slug: c.slug }}>
+                {c.name}
+              </Link>
+            ))}
           </div>
-        </CtHero>
+        </div>
 
-        <section className="blk first">
-          <div className="wrap">
-            {category.posts.length === 0 ? (
-              <p className="lede dim" style={{ padding: "40px 0", textAlign: "center" }}>
-                No articles in this category yet.
-              </p>
-            ) : (
-              <>
-                <CtLabel n="01">Articles</CtLabel>
-                <div className="rows rev">
-                  {category.posts.map((post: SanityPostCard) => (
-                    <Link key={post._id} to="/blog/$slug" params={{ slug: post.slug }} className="row">
-                      <span className="rk">
-                        {post.publishedAt ? formatSanityDate(post.publishedAt) : ""}
-                        {post.mainImage ? "" : ""}
-                      </span>
-                      <span>
-                        {post.mainImage && (
-                          /* eslint-disable-next-line @next/next/no-img-element */
-                          <img
-                            src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
-                            alt={post.mainImage.alt || post.title}
-                            loading="lazy"
-                            style={{ width: 160, aspectRatio: "4 / 3", objectFit: "cover", display: "block", border: "1px solid var(--line)", marginBottom: 12 }}
-                          />
-                        )}
-                        <h3>{post.title}</h3>
-                        {post.excerpt && <p>{post.excerpt}</p>}
-                      </span>
-                      <span className="rgo">
-                        Read <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </>
-            )}
+        <div className="blog-archive-head">
+          <p className="core-section-label">Articles</p>
+          <span className="blog-count">
+            {category.posts.length} {category.posts.length === 1 ? "article" : "articles"}
+          </span>
+        </div>
+
+        {category.posts.length === 0 ? (
+          <div className="core-empty">
+            <h2>No articles here yet.</h2>
+            <p>Nothing has been published in this category.</p>
           </div>
-        </section>
+        ) : (
+          <div className="core-writing-list" style={{ marginTop: 16 }}>
+            {category.posts.map((post) => (
+              <PostRow
+                key={post._id}
+                post={post}
+                minutes={post.minutes}
+                excerptText={post.displayExcerpt}
+              />
+            ))}
+          </div>
+        )}
+
+        <CoreFooter />
       </main>
-    </CtShell>
+    </div>
   );
 }
