@@ -23,6 +23,21 @@
       "source": "/hacking/promptvault/changelog",
       "destination": "/hacking/muse-vault/changelog",
       "permanent": true
+    },
+    {
+      "source": "/building",
+      "destination": "/hacking",
+      "permanent": true
+    },
+    {
+      "source": "/building/:path*",
+      "destination": "/hacking/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/hacking/wax-and-ash/changelog",
+      "destination": "/hacking/wax-and-ash",
+      "permanent": true
     }
   ],
   "rewrites": [
