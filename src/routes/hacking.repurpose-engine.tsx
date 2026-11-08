@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -48,16 +48,16 @@ const sections = [
 
 function RepurposeEnginePage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Repurpose Engine" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Repurpose Engine" }]}>
       <main>
-        <CtHero file="05 / Building — Repurpose Engine" title={<>Write once. <span>Ship everywhere.</span></>}
+        <BuildingHero file="05 / Building — Repurpose Engine" title={<>Write once. <span>Ship everywhere.</span></>}
           lede={<>Repurpose Engine turns one post into ten platform-native versions — each one shaped for where it lives, not the same text pasted everywhere.</>}>
           <div className="btnrow">
             <a href="https://repurpose.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://repurpose.stevepeeleii.com")}>
               Try it live <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -88,6 +88,6 @@ function RepurposeEnginePage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

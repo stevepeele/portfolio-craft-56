@@ -13,6 +13,9 @@ const SITE = "https://stevepeeleii.com";
 const STATIC_URLS = [
   ["/", 1.0],
   ["/work", 0.9],
+  ["/experience", 0.8],
+  ["/quotes", 0.7],
+  ["/work-together", 0.7],
   ["/spiix", 0.9],
   ["/ai", 0.8],
   ["/contact", 0.8],
@@ -56,10 +59,12 @@ const STATIC_URLS = [
 ];
 
 // App slugs with /hacking/<slug>/changelog pages (from src/data/hacking.ts).
+// SPIIX-1199: promptvault excluded (its changelog 301s to muse-vault) and
+// wax-and-ash excluded (no changelog exists; the URL 301s to the app page).
 const HACKING_APP_SLUGS = [
   "binsly", "profolio", "smart-access", "stageplot-ai", "monitor-mix-cheat",
   "nexus", "dardo", "stampd", "repurpose-engine", "gigsplit", "quotequick",
-  "promptvault", "prepwise", "muse-vault", "wax-and-ash",
+  "prepwise", "muse-vault",
 ];
 
 // ---- Sanity: published post + category slugs ----

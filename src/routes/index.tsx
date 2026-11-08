@@ -299,7 +299,7 @@ function Home() {
           </Link>
         </section>
 
-        <section className="core-section core-reveal">
+        <section className="core-section core-reveal" id="about">
           <p className="core-section-label">How I work</p>
           <div className="core-prose">
             <p>
@@ -322,6 +322,9 @@ function Home() {
               <strong>Jacob Bonta</strong> &nbsp;·&nbsp; Colleague, Everything But The House
             </cite>
           </blockquote>
+          <Link to="/quotes" className="core-textlink">
+            More quotes →
+          </Link>
         </section>
 
         <CoreFooter />

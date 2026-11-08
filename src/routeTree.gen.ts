@@ -24,6 +24,7 @@ import { Route as GrowthLaddersRouteImport } from './routes/growth-ladders'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as ObviouslyRouteImport } from './routes/obviously'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as QuotesRouteImport } from './routes/quotes'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
 import { Route as ScaffoldingRouteImport } from './routes/scaffolding'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -32,6 +33,7 @@ import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WorkTogetherRouteImport } from './routes/work-together'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
@@ -183,6 +185,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuotesRoute = QuotesRouteImport.update({
+  id: '/quotes',
+  path: '/quotes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecommendationsRoute = RecommendationsRouteImport.update({
   id: '/recommendations',
   path: '/recommendations',
@@ -221,6 +228,11 @@ const StudioRoute = StudioRouteImport.update({
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkTogetherRoute = WorkTogetherRouteImport.update({
+  id: '/work-together',
+  path: '/work-together',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -621,6 +633,7 @@ export interface FileRoutesByFullPath {
   '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
+  '/quotes': typeof QuotesRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
@@ -629,6 +642,7 @@ export interface FileRoutesByFullPath {
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -719,12 +733,14 @@ export interface FileRoutesByTo {
   '/growth-ladders': typeof GrowthLaddersRoute
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
+  '/quotes': typeof QuotesRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/software': typeof SoftwareRoute
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -816,6 +832,7 @@ export interface FileRoutesById {
   '/music': typeof MusicRouteWithChildren
   '/obviously': typeof ObviouslyRoute
   '/portfolio': typeof PortfolioRoute
+  '/quotes': typeof QuotesRoute
   '/recommendations': typeof RecommendationsRoute
   '/scaffolding': typeof ScaffoldingRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
@@ -824,6 +841,7 @@ export interface FileRoutesById {
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
   '/work': typeof WorkRoute
+  '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hacking/binsly': typeof HackingBinslyRoute
   '/hacking/dardo': typeof HackingDardoRoute
@@ -917,6 +935,7 @@ export interface FileRouteTypes {
     | '/music'
     | '/obviously'
     | '/portfolio'
+    | '/quotes'
     | '/recommendations'
     | '/scaffolding'
     | '/services'
@@ -925,6 +944,7 @@ export interface FileRouteTypes {
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/work-together'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -1015,12 +1035,14 @@ export interface FileRouteTypes {
     | '/growth-ladders'
     | '/obviously'
     | '/portfolio'
+    | '/quotes'
     | '/recommendations'
     | '/scaffolding'
     | '/software'
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/work-together'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -1111,6 +1133,7 @@ export interface FileRouteTypes {
     | '/music'
     | '/obviously'
     | '/portfolio'
+    | '/quotes'
     | '/recommendations'
     | '/scaffolding'
     | '/services'
@@ -1119,6 +1142,7 @@ export interface FileRouteTypes {
     | '/sprint'
     | '/studio'
     | '/work'
+    | '/work-together'
     | '/blog/$slug'
     | '/hacking/binsly'
     | '/hacking/dardo'
@@ -1211,6 +1235,7 @@ export interface RootRouteChildren {
   MusicRoute: typeof MusicRouteWithChildren
   ObviouslyRoute: typeof ObviouslyRoute
   PortfolioRoute: typeof PortfolioRoute
+  QuotesRoute: typeof QuotesRoute
   RecommendationsRoute: typeof RecommendationsRoute
   ScaffoldingRoute: typeof ScaffoldingRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
@@ -1219,6 +1244,7 @@ export interface RootRouteChildren {
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
   WorkRoute: typeof WorkRoute
+  WorkTogetherRoute: typeof WorkTogetherRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HackingBinslyRoute: typeof HackingBinslyRoute
   HackingDardoRoute: typeof HackingDardoRoute
@@ -1350,6 +1376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quotes': {
+      id: '/quotes'
+      path: '/quotes'
+      fullPath: '/quotes'
+      preLoaderRoute: typeof QuotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recommendations': {
       id: '/recommendations'
       path: '/recommendations'
@@ -1404,6 +1437,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work-together': {
+      id: '/work-together'
+      path: '/work-together'
+      fullPath: '/work-together'
+      preLoaderRoute: typeof WorkTogetherRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -2127,6 +2167,7 @@ const rootRouteChildren: RootRouteChildren = {
   MusicRoute: MusicRouteWithChildren,
   ObviouslyRoute: ObviouslyRoute,
   PortfolioRoute: PortfolioRoute,
+  QuotesRoute: QuotesRoute,
   RecommendationsRoute: RecommendationsRoute,
   ScaffoldingRoute: ScaffoldingRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
@@ -2135,6 +2176,7 @@ const rootRouteChildren: RootRouteChildren = {
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
   WorkRoute: WorkRoute,
+  WorkTogetherRoute: WorkTogetherRoute,
   BlogSlugRoute: BlogSlugRoute,
   HackingBinslyRoute: HackingBinslyRoute,
   HackingDardoRoute: HackingDardoRoute,

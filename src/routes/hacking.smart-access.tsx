@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FlaskConical } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Smart Access — Coming Soon | Steve Peele II";
@@ -23,9 +23,9 @@ export const Route = createFileRoute("/hacking/smart-access")({
 
 function SmartAccessPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Smart Access" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Smart Access" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building — Smart Access"
           title={
             <>
@@ -51,6 +51,6 @@ function SmartAccessPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

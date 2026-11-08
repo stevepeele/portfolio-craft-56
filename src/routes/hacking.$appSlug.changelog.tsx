@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero, BuildingLabel } from "@/components/building-shell";
 import { hackingApps } from "@/data/hacking";
 import { changelogs, type ChangelogEntry } from "@/data/changelogs";
 
@@ -46,7 +46,7 @@ const typeMeta: Record<ChangelogEntry["type"], { label: string; color: string }>
 function ChangelogPage() {
   const { app, entries } = Route.useLoaderData();
   return (
-    <CtShell
+    <BuildingShell
       crumbs={[
         { label: "Home", to: "/" },
         { label: "Building", to: "/hacking" },
@@ -55,7 +55,7 @@ function ChangelogPage() {
       ]}
     >
       <main>
-        <CtHero
+        <BuildingHero
           file={`05 / Building — ${app.label} / Changelog`}
           title={
             <>
@@ -67,7 +67,7 @@ function ChangelogPage() {
 
         <section className="blk first">
           <div className="wrap">
-            <CtLabel n="01">Ship history</CtLabel>
+            <BuildingLabel n="01">Ship history</BuildingLabel>
             {entries.length === 0 ? (
               <div className="ecard rev">
                 <p>No changelog entries yet — check back after the next ship.</p>
@@ -96,6 +96,6 @@ function ChangelogPage() {
           </div>
         </section>
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

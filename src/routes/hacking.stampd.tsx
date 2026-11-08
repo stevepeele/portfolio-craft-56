@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 import { trackCta } from "@/lib/segment";
 
@@ -48,16 +48,16 @@ const sections = [
 
 function StampdPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Stampd" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Stampd" }]}>
       <main>
-        <CtHero file="05 / Building — Stampd" title={<>Clock in. <span>Get paid right.</span></>}
+        <BuildingHero file="05 / Building — Stampd" title={<>Clock in. <span>Get paid right.</span></>}
           lede={<>Stampd is a no-training shift and pay tracker for contractors and day laborers — tap to clock in and out, and the pay math handles itself. $29 one-time.</>}>
           <div className="btnrow">
             <a href="https://stampd.stevepeeleii.com" target="_blank" rel="noreferrer" className="btn" onClick={() => trackCta("Try App", "hacking page", "https://stampd.stevepeeleii.com")}>
               Try it live <ArrowUpRight size={14} />
             </a>
           </div>
-        </CtHero>
+        </BuildingHero>
 
         <section className="blk first">
           <div className="wrap">
@@ -88,6 +88,6 @@ function StampdPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }

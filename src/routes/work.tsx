@@ -99,36 +99,72 @@ function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>) {
 
 const RECORD: Array<{ date: string; company: string; role: string; result: string }> = [
   {
-    date: "2020 — Present",
+    date: "2020 – Present",
     company: "Launch by NTT DATA",
-    role: "Head of Marketing Operations",
-    result: "$350M+ pipeline across 5+ regions, execution velocity +25%.",
+    role: "Head of Marketing Operations & Global Integration Lead",
+    result: "$350M+ pipeline across 5+ regions, execution velocity +25%, $25M+ in new revenue from ABM programs.",
   },
   {
-    date: "2020 — 2023",
+    date: "2020 – 2023",
     company: "Tixxy",
-    role: "Founder, Head of Growth",
+    role: "Founder & Head of Growth",
     result: "$1M+ ARR in year one, churn cut 25% before acquisition.",
   },
   {
-    date: "2021 — 2022",
+    date: "2021 – 2022",
     company: "Amify",
-    role: "Fractional VP Marketing",
+    role: "Fractional VP of Marketing",
     result: "$6M incremental revenue from a company-wide repositioning.",
   },
   {
-    date: "2017 — 2019",
+    date: "2020",
+    company: "Buyside",
+    role: "Director of Platform Growth",
+    result: "Platform adoption up 50%, marketing efficiency up 30% on a rebuilt analytics layer.",
+  },
+  {
+    date: "2020",
+    company: "Everything But The House",
+    role: "Digital Growth Manager",
+    result: "New-user growth of 50%, conversion up 30% on 20% less spend.",
+  },
+  {
+    date: "2019",
+    company: "API Nation",
+    role: "Head of Growth Marketing",
+    result: "Inbound demand up 50%, campaign ROI up 45% through multi-touch attribution.",
+  },
+  {
+    date: "2017 – 2019",
     company: "Astronomer",
     role: "Director of Growth Experimentation",
     result: "60% more qualified leads, 30% higher funnel conversion.",
   },
   {
-    date: "2009 — 2016",
+    date: "2016 – 2017",
+    company: "Inman News",
+    role: "Director of Demand Generation",
+    result: "Organic traffic up 70% through full-funnel content and technical SEO.",
+  },
+  {
+    date: "2009 – 2016",
     company: "Dotloop",
-    role: "Marketing Operations, founding team",
-    result: "Built marketing infrastructure through hypergrowth to Zillow acquisition.",
+    role: "Marketing Operations Manager",
+    result: "Built marketing infrastructure from the startup stage through hypergrowth to the Zillow acquisition.",
   },
 ];
+
+/* Selected project record from src/data/resume.ts (SPIIX-1199). The
+   /portfolio redirect lands on the #projects anchor below. */
+import { portfolioProjects, featuredRecommendations } from "@/data/resume";
+
+const PROJECTS = portfolioProjects.map((p) => ({
+  company: p.company,
+  title: p.title,
+  metrics: p.metrics.map((m) => `${m.value} ${m.label.toLowerCase()}`).join(" · "),
+}));
+
+const FEATURED_QUOTE = featuredRecommendations[0];
 
 function WorkPage() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -141,9 +177,14 @@ function WorkPage() {
         <div className="core-view-head core-reveal">
           <h1>Work</h1>
           <p>A chronological record. Roles, scope, and the result that mattered.</p>
+          <div className="core-subnav">
+            <Link to="/experience">Full career history</Link>
+            <Link to="/quotes">Quotes</Link>
+            <Link to="/work-together">Work together</Link>
+          </div>
         </div>
 
-        <div className="core-work-list core-reveal">
+        <div className="core-work-list core-reveal" id="experience">
           {RECORD.map((r) => (
             <article className="core-work-row" key={r.company}>
               <div className="core-work-date">{r.date}</div>
@@ -155,6 +196,36 @@ function WorkPage() {
             </article>
           ))}
         </div>
+
+        <section className="core-section core-reveal" id="projects">
+          <p className="core-section-label">Selected projects</p>
+          <div className="core-record">
+            {PROJECTS.map((p) => (
+              <div className="core-record-row" key={`${p.company}-${p.title}`}>
+                <div>
+                  <div className="core-record-company">{p.company}</div>
+                  <div className="core-record-role">{p.title}</div>
+                </div>
+                <div className="core-record-result">{p.metrics}</div>
+              </div>
+            ))}
+          </div>
+          <Link to="/experience" className="core-textlink">
+            Full career history →
+          </Link>
+        </section>
+
+        <section className="core-testimonial core-reveal" id="recommendations">
+          <blockquote>
+            <p>“{FEATURED_QUOTE.quote.replaceAll(" — ", ", ")}”</p>
+            <cite>
+              <strong>{FEATURED_QUOTE.name}</strong> &nbsp;·&nbsp; {FEATURED_QUOTE.title}
+            </cite>
+          </blockquote>
+          <Link to="/quotes" className="core-textlink">
+            All quotes →
+          </Link>
+        </section>
 
         <div className="core-work-close core-reveal">
           <p>

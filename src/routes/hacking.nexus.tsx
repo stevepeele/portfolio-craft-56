@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FlaskConical } from "lucide-react";
-import { CtShell, CtHero } from "@/components/ct-shell";
+import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
 const title = "Nexus — Coming Soon | Steve Peele II";
@@ -23,9 +23,9 @@ export const Route = createFileRoute("/hacking/nexus")({
 
 function NexusPage() {
   return (
-    <CtShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Nexus" }]}>
+    <BuildingShell crumbs={[{ label: "Home", to: "/" }, { label: "Building", to: "/hacking" }, { label: "Nexus" }]}>
       <main>
-        <CtHero
+        <BuildingHero
           file="05 / Building — Nexus"
           title={
             <>
@@ -51,6 +51,6 @@ function NexusPage() {
         </section>
         <ValidationBeat />
       </main>
-    </CtShell>
+    </BuildingShell>
   );
 }
