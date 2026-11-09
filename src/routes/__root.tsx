@@ -13,47 +13,55 @@ import { useEffect, type ReactNode } from "react";
 import { SpiiGuide } from "@/components/spii-guide";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import posthog from "posthog-js";
-import { initSegment, segmentPage } from "@/lib/segment";
+import {
+  initSpiix,
+  spiixTrack,
+  spiixIdentify,
+  spiixPageview,
+  spiixDecorate,
+  spiixDistinctId,
+  posthog,
+} from "@/lib/spiix-posthog";
 import { useSiteAnalytics } from "@/lib/site-analytics";
 import { useLocation } from "@tanstack/react-router";
 
 /* ------------------------------------------------------------------ */
-/* PostHog analytics (decision made 2026-10-11).                       */
-/* Activates only when VITE_POSTHOG_KEY is set; until then every       */
-/* capture is skipped. Client-side only — never runs during SSR.       */
+/* SPIIX standard PostHog pipeline (SPIIX-1227, 2026-11-09).           */
+/* PostHog project 613918 is the single client pipe for this property: */
+/* no Segment client code initializes, no GA page tags. The standard   */
+/* module registers org / brand / property_id / surface / env /        */
+/* taxonomy_version plus first and last touch attribution on every     */
+/* event, gates itself off non-production hosts, and captures a        */
+/* pageview on load and on every SPA route change. hi.stevepeeleii.com */
+/* is served by this same app and gets its own registry property_id.   */
+/* The literal fallback is the public project key: a missing env var   */
+/* must never ship a placeholder or silently kill analytics again.     */
 /* ------------------------------------------------------------------ */
-const POSTHOG_KEY = import.meta.env['VITE_POSTHOG_KEY'] as string | undefined;
-const POSTHOG_HOST =
-  (import.meta.env['VITE_POSTHOG_HOST'] as string | undefined) ?? "https://us.i.posthog.com";
+const POSTHOG_KEY =
+  (import.meta.env["VITE_POSTHOG_KEY"] as string | undefined) ?? "phc_tN5yyT4HZcxr9XWPnMrEtPrD7gH2rnDiV59BKJsVwirX";
+const POSTHOG_HOST = import.meta.env["VITE_POSTHOG_HOST"] as string | undefined;
 
-let posthogReady = false;
-
-function ensurePostHog(): boolean {
-  if (posthogReady) return true;
-  if (typeof window === "undefined" || !POSTHOG_KEY) return false;
-  try {
-    posthog.init(POSTHOG_KEY, {
-      api_host: POSTHOG_HOST,
-      capture_pageview: false,
-      autocapture: false,
-      persistence: "localStorage",
-    });
-    posthogReady = true;
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-/** Fire-and-forget pageview. Never throws; analytics must never break the site. */
-function trackPageview(): void {
-  if (!ensurePostHog()) return;
-  try {
-    posthog.capture("$pageview");
-  } catch {
-    /* analytics must never break the site */
-  }
+function initAnalytics() {
+  if (typeof window === "undefined") return;
+  const isHi = window.location.hostname === "hi.stevepeeleii.com";
+  initSpiix({
+    key: POSTHOG_KEY,
+    ...(POSTHOG_HOST ? { api_host: POSTHOG_HOST } : {}),
+    property_id: isHi ? "stevepeeleii.hi" : "stevepeeleii.main",
+    brand: "stevepeeleii",
+    surface: "web",
+    person_profiles: "identified_only",
+    autocapture: true,
+  });
+  const w = window as unknown as { spiix?: unknown; posthog?: unknown };
+  w.posthog = posthog;
+  w.spiix = {
+    track: spiixTrack,
+    identify: spiixIdentify,
+    pageview: spiixPageview,
+    decorate: spiixDecorate,
+    distinctId: spiixDistinctId,
+  };
 }
 
 function NotFoundComponent() {
@@ -231,7 +239,6 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const router = useRouter();
   const pathname = useLocation({ select: (s) => s.pathname });
 
   // Behavioral analytics: scroll depth, outbound links, engaged time (resets per page).
@@ -247,24 +254,11 @@ function RootComponent() {
     document.body.appendChild(script);
   }, []);
 
-  // PostHog pageviews: initial load + every client-side navigation.
+  // Standard PostHog pipeline: init once at the app root. The module
+  // captures the initial pageview and every SPA route change itself.
   useEffect(() => {
-    trackPageview();
-    const unsub = router.history.subscribe(() => {
-      trackPageview();
-    });
-    return unsub;
-  }, [router]);
-
-  // Segment: init once + page tracking on every client-side navigation.
-  useEffect(() => {
-    initSegment();
-    segmentPage();
-    const unsub = router.history.subscribe(() => {
-      segmentPage();
-    });
-    return unsub;
-  }, [router]);
+    initAnalytics();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

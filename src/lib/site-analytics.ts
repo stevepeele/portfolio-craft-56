@@ -1,5 +1,5 @@
 /**
- * Sitewide behavioral analytics (Segment).
+ * Sitewide behavioral analytics (PostHog, SPIIX-1227).
  * Scroll depth, outbound link clicks, engaged time. Resets per page view.
  * Passive listeners only; everything is guarded and cleaned up on route change.
  */
@@ -15,11 +15,9 @@ const ENGAGED_VISITOR_PAGES = 2;
 const ENGAGED_VISITOR_SECONDS = 45;
 
 function isIdentified(): boolean {
+  // Set by the analytics identify path (src/lib/segment.ts, SPIIX-1227).
   try {
-    const a = window.analytics as unknown as {
-      user?: () => { id?: () => string | null };
-    };
-    return !!a?.user?.()?.id?.();
+    return sessionStorage.getItem("spiix_identified") === "1";
   } catch {
     return false;
   }

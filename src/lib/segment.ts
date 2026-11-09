@@ -1,13 +1,17 @@
 /**
- * Segment analytics — now powered by @plxio/core-ajs.
+ * Analytics event API for the main site (SPIIX-1227, 2026-11-09).
  *
- * This module is the app-specific wrapper: it initializes core-ajs with this
- * app's config and re-exports the shared helpers. All event helpers from the
- * old hand-rolled implementation are preserved with identical signatures.
+ * This module used to be the Segment wrapper (core-ajs). Segment is out of
+ * the critical path by Steve's decision: PostHog project 613918 is the single
+ * pipe, initialized once at the app root via the standard module
+ * (src/lib/spiix-posthog.ts, initSpiix). No Segment client code loads or
+ * initializes on this property anymore; the vendored core-ajs bundle is
+ * unreferenced and ships nothing.
  *
- * Orchestration doc: ~/workspace/analytics/SEGMENT-ORCHESTRATION.md
- * Library source:    ~/workspace/analytics/core-ajs/
- * Vendored build:    ./vendor/core-ajs/ (rebuild from source when it changes)
+ * The exported signatures are preserved so existing call sites keep working;
+ * every helper now routes to PostHog through the standard module, which
+ * attaches org / brand / property_id / surface / env / taxonomy_version and
+ * the first and last touch attribution snapshots to every event.
  *
  * Usage:
  *   import { track } from "@/lib/segment";
@@ -15,60 +19,87 @@
  */
 
 import {
-  init as coreInit,
-  page as corePage,
-  track as coreTrack,
-  identify as coreIdentify,
-  alias as coreAlias,
-  group as coreGroup,
-  hashEmail,
-} from "../vendor/core-ajs/index";
+  spiixTrack,
+  spiixIdentify,
+  posthog,
+} from "./spiix-posthog";
 
-const WRITE_KEY = "nVAni0C30OpRgeXayoLejzUCGTPxuuAG";
-const APP_ID = "stevepeeleii";
-
-/** Initialize Segment. Safe to call multiple times (core-ajs no-ops after first). */
-export function initSegment() {
-  if (typeof window === "undefined") return;
-  coreInit({
-    writeKey: WRITE_KEY,
-    appId: APP_ID,
-    appVersion: "1.0.0",
-    debug: false,
-  });
+/** SHA-256 hex of the lowercase email. The only form an email may take as a userId. */
+export async function hashEmail(email: string): Promise<string> {
+  const data = new TextEncoder().encode(email.trim().toLowerCase());
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
-/** Track a page view (call on route changes). */
+function markIdentified() {
+  try {
+    sessionStorage.setItem("spiix_identified", "1");
+  } catch {
+    /* ignore */
+  }
+}
+
+/**
+ * Deprecated no-op kept for call-site compatibility. PostHog initialization
+ * happens once in src/routes/__root.tsx via initSpiix; there is no Segment
+ * snippet to inject anymore.
+ */
+export function initSegment() {
+  /* PostHog is the single pipe; see src/lib/spiix-posthog.ts */
+}
+
+/** Named page view helper. Plain route pageviews are captured by the standard module. */
 export function segmentPage(name?: string, props?: Record<string, unknown>) {
-  corePage(name, props);
+  if (name) spiixTrack("Page Viewed", { name, ...(props || {}) });
 }
 
 /** Track a custom event (taxonomy: past tense, Title Case). */
 export function track(event: string, props?: Record<string, unknown>) {
-  coreTrack(event, props);
+  spiixTrack(event, props);
 }
 
 /**
  * Identify a user. Pass the auth UUID when available; otherwise pass an
- * email and we'll hash it. Automatically aliases the anonymous identity.
+ * email and it is SHA-256 hashed first. Never identifies by raw email.
+ * The standard module aliases the anonymous identity before identifying.
  */
 export async function identify(idOrEmail: string, traits?: Record<string, unknown>) {
   const userId = idOrEmail.includes("@") ? await hashEmail(idOrEmail) : idOrEmail;
-  coreAlias(userId);
-  coreIdentify(userId, traits);
+  spiixIdentify(userId, traits);
+  markIdentified();
+}
+
+/**
+ * Identify from an email capture or signup form: userId is the SHA-256 hash
+ * of the lowercase email, never the raw email.
+ */
+export async function identifyByEmail(email: string, traits?: Record<string, unknown>) {
+  const cleaned = email.trim().toLowerCase();
+  if (!cleaned.includes("@")) return;
+  const userId = await hashEmail(cleaned);
+  spiixIdentify(userId, { email: cleaned, ...(traits || {}) });
+  markIdentified();
 }
 
 /** Alias an anonymous identity to a known userId. */
 export function alias(userId: string, previousId?: string) {
-  coreAlias(userId, previousId);
+  try {
+    if (previousId) posthog.alias(userId, previousId);
+  } catch {
+    /* analytics must never break the site */
+  }
 }
 
 /** Associate the user with a group (org, team). */
 export function group(groupId: string, traits?: Record<string, unknown>) {
-  coreGroup(groupId, traits);
+  try {
+    posthog.group("company", groupId, traits);
+  } catch {
+    /* analytics must never break the site */
+  }
 }
-
-export { hashEmail };
 
 // ---------- App-specific event helpers (signatures unchanged) ----------
 

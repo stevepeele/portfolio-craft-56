@@ -6,6 +6,7 @@ import { deliverGrowthLadderSignup, growthLadderSignupSchema } from "@/lib/growt
 import { recordGrowthLadderSignup } from "@/lib/growth-ladders.functions";
 import { hasMonolithAccess } from "@/lib/spiix-access";
 import { useSpamGuard } from "@/lib/spam-guard";
+import { identifyByEmail } from "@/lib/segment";
 
 const URL_ = "https://stevepeeleii.com/growth-ladders";
 const TITLE = "Growth Ladders — Operators Edition | Steve Peele II";
@@ -124,6 +125,7 @@ function GrowthLadders() {
     });
     if (!parsed.success) { setError("Check each field — name, a real email, company, and role."); return; }
     setError(null); setDone(true);
+    void identifyByEmail(parsed.data.email, { form: "growth-ladders", name: parsed.data.name, company: parsed.data.company, role: parsed.data.role });
     const guarded = { ...parsed.data, ...getGuardFields() };
     void recordGrowthLadderSignup({ data: guarded }).catch(() => undefined);
     void deliverGrowthLadderSignup(parsed.data);

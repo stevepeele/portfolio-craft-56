@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowDown, Check } from "lucide-react";
-import { segmentPage, track, trackEmailCapture } from "@/lib/segment";
+import { segmentPage, track, trackEmailCapture, identifyByEmail } from "@/lib/segment";
 import { formsubmitSignalEndpoint } from "@/lib/spiix-leads";
 import { obviously_cover as coverImage } from "@/assets/obviously/obviously_cover";
 import { obviously_notice as noticeImage } from "@/assets/obviously/obviously_notice";
@@ -100,6 +100,7 @@ function SignupForm({ compact = false }: { compact?: boolean }) {
           }),
         });
         trackEmailCapture("obviously-book", compact ? "hero" : "cta");
+        void identifyByEmail(email.trim(), { form: "obviously-book" });
       } catch {
         /* never block the reader */
       }
