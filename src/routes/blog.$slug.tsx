@@ -35,7 +35,7 @@ export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     const post = await getPostBySlug(params.slug);
     if (!post) throw notFound();
-    const all = await getLatestPosts(50);
+    const all = await getLatestPosts();
     // Editor picks first; then genuinely related (shared category, then
     // shared tags); then recency fills any remaining slots.
     const manual = post.relatedPosts ?? [];
@@ -100,10 +100,10 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   component: BlogPostPage,
   notFoundComponent: () => (
-    <div className="core-root">
+    <div className="core-root blog-surface">
       <CoreHeader active="blog" />
       <main className="core-wrap">
-        <div className="core-empty" style={{ paddingTop: 96 }}>
+        <div className="core-empty blog-missing">
           <h2>Article not found.</h2>
           <p>This piece may have been unpublished or moved.</p>
           <Link to="/blog" className="core-textlink">
@@ -152,11 +152,7 @@ function ReadingProgress() {
 function makePortableComponents(headingIds: Map<string, string>) {
   return {
     types: {
-      ctaButton: ({
-        value,
-      }: {
-        value?: { text?: string; url?: string; variant?: string };
-      }) => {
+      ctaButton: ({ value }: { value?: { text?: string; url?: string; variant?: string } }) => {
         const primary = (value?.variant ?? "primary") === "primary";
         const external = value?.url?.startsWith("http");
         return (
@@ -193,7 +189,11 @@ function makePortableComponents(headingIds: Map<string, string>) {
           </figure>
         );
       },
-      image: ({ value }: { value: { asset: { _ref: string }; alt?: string; caption?: string } }) => (
+      image: ({
+        value,
+      }: {
+        value: { asset: { _ref: string }; alt?: string; caption?: string };
+      }) => (
         <figure>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={urlFor(value).width(1200).url()} alt={value.alt || ""} loading="lazy" />
@@ -216,20 +216,16 @@ function makePortableComponents(headingIds: Map<string, string>) {
         <h3 id={value?._key ? headingIds.get(value._key) : undefined}>{children}</h3>
       ),
       h4: ({ children }: { children?: React.ReactNode }) => <h4>{children}</h4>,
-      blockquote: ({ children }: { children?: React.ReactNode }) => <blockquote>{children}</blockquote>,
+      blockquote: ({ children }: { children?: React.ReactNode }) => (
+        <blockquote>{children}</blockquote>
+      ),
     },
     list: {
       bullet: ({ children }: { children?: React.ReactNode }) => <ul>{children}</ul>,
       number: ({ children }: { children?: React.ReactNode }) => <ol>{children}</ol>,
     },
     marks: {
-      link: ({
-        children,
-        value,
-      }: {
-        children?: React.ReactNode;
-        value?: { href?: string };
-      }) => (
+      link: ({ children, value }: { children?: React.ReactNode; value?: { href?: string } }) => (
         <a
           href={value?.href}
           target={value?.href?.startsWith("http") ? "_blank" : undefined}
@@ -248,13 +244,13 @@ function AuthorNote({ authorName }: { authorName?: string | undefined }) {
     <div className="blog-authornote">
       <p className="blog-note-label">A note from the author</p>
       <p>
-        Thanks for reading. If this sparked something, a question, a disagreement, a project
-        idea, I want to hear it.
+        Thanks for reading. If this sparked something, a question, a disagreement, a project idea, I
+        want to hear it.
       </p>
       <p>
         The fastest way to reach me is{" "}
-        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>, or say hello through
-        the <Link to="/contact">contact page</Link>.
+        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>, or say hello through the{" "}
+        <Link to="/contact">contact page</Link>.
       </p>
       <p>{name}</p>
     </div>
@@ -268,19 +264,13 @@ function BlogPostPage() {
 
   const body = useMemo(() => normalizeBody(post.body), [post.body]);
   const headings = useMemo(() => extractHeadings(body), [body]);
-  const headingIds = useMemo(
-    () => new Map(headings.map((h) => [h.blockKey, h.id])),
-    [headings],
-  );
-  const components = useMemo(
-    () => makePortableComponents(headingIds) as never,
-    [headingIds],
-  );
+  const headingIds = useMemo(() => new Map(headings.map((h) => [h.blockKey, h.id])), [headings]);
+  const components = useMemo(() => makePortableComponents(headingIds) as never, [headingIds]);
   const minutes = readingMinutes(wordCountFromText(plainTextFromBody(post.body)));
   const showToc = headings.length >= 3;
 
   return (
-    <div className="core-root" ref={rootRef}>
+    <div className="core-root blog-surface" ref={rootRef}>
       <ReadingProgress />
       <CoreHeader active="blog" />
       <main className="core-wrap">
@@ -388,7 +378,7 @@ function BlogPostPage() {
           {related && related.length > 0 && (
             <div className="blog-related">
               <p className="core-section-label">Related reading</p>
-              <div className="core-writing-list">
+              <div className="blog-list">
                 {related.map((rel: SanityPostCard) => (
                   <PostRow key={rel._id} post={rel} excerptText={rel.excerpt} />
                 ))}

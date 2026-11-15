@@ -36,6 +36,13 @@ export type SanityBlogCard = SanityPostCard & {
   bodyText?: string;
 };
 
+/**
+ * Published writing only. Drafts never leave the published perspective,
+ * and a future publishedAt stays off the archive and the article route.
+ */
+export const PUBLISHED_POST_FILTER =
+  '_type == "post" && defined(slug.current) && defined(publishedAt) && publishedAt <= now()';
+
 const cardFields = `
   _id,
   title,
@@ -59,16 +66,20 @@ const postFields = `
   relatedPosts[]-> { ${cardFields} }
 `;
 
-export async function getLatestPosts(limit = 24): Promise<SanityPostCard[]> {
+export async function getLatestPosts(limit?: number): Promise<SanityPostCard[]> {
+  const range = typeof limit === "number" ? "[0...$limit]" : "";
   return safeFetch(
-    `*[_type == "post" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
-    { limit },
+    `*[${PUBLISHED_POST_FILTER}] | order(publishedAt desc) ${range} { ${cardFields} }`,
+    typeof limit === "number" ? { limit } : {},
   );
 }
 
-export async function getLatestPostsExcluding(excludeId: string, limit = 3): Promise<SanityPostCard[]> {
+export async function getLatestPostsExcluding(
+  excludeId: string,
+  limit = 3,
+): Promise<SanityPostCard[]> {
   return safeFetch(
-    `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && _id != $excludeId] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    `*[${PUBLISHED_POST_FILTER} && _id != $excludeId] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
     { excludeId, limit },
   );
 }
@@ -90,22 +101,21 @@ export async function getRelatedPosts(
     params.tags = tags;
   }
   return safeFetch(
-    `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && ${filters.join(" && ")}] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
+    `*[${PUBLISHED_POST_FILTER} && ${filters.join(" && ")}] | order(publishedAt desc) [0...$limit] { ${cardFields} }`,
     params,
   );
 }
 
 export async function getFeaturedPost(): Promise<SanityPostCard | null> {
   return safeFetch(
-    `*[_type == "post" && featured == true && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0] { ${cardFields} }`,
+    `*[${PUBLISHED_POST_FILTER} && featured == true] | order(publishedAt desc) [0] { ${cardFields} }`,
   );
 }
 
 export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
-  return safeFetch(
-    `*[_type == "post" && slug.current == $slug && defined(publishedAt) && publishedAt <= now()] [0] { ${postFields} }`,
-    { slug },
-  );
+  return safeFetch(`*[${PUBLISHED_POST_FILTER} && slug.current == $slug] [0] { ${postFields} }`, {
+    slug,
+  });
 }
 
 export async function getCategoryBySlug(slug: string): Promise<{
@@ -117,16 +127,14 @@ export async function getCategoryBySlug(slug: string): Promise<{
     `*[_type == "category" && slug.current == $slug] [0] {
       name,
       description,
-      "posts": *[_type == "post" && references(^._id) && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) { ${cardFields} }
+      "posts": *[${PUBLISHED_POST_FILTER} && references(^._id)] | order(publishedAt desc) { ${cardFields} }
     }`,
     { slug },
   );
 }
 
 export async function getAllCategories(): Promise<{ name: string; slug: string }[]> {
-  return safeFetch(
-    `*[_type == "category"] | order(name asc) { name, "slug": slug.current }`,
-  );
+  return safeFetch(`*[_type == "category"] | order(name asc) { name, "slug": slug.current }`);
 }
 
 /**
@@ -134,21 +142,24 @@ export async function getAllCategories(): Promise<{ name: string; slug: string }
  * plus a word count and the body's plain text, both computed by Sanity so
  * reading time and fallback excerpts never need the raw Portable Text on
  * listing pages. Callers derive display fields and drop bodyText.
+ * Omit limit to load every published post. The archive pages through that
+ * full set, so a cap here would hide writing from readers.
  */
-export async function getBlogCards(limit = 30): Promise<SanityBlogCard[]> {
+export async function getBlogCards(limit?: number): Promise<SanityBlogCard[]> {
+  const range = typeof limit === "number" ? "[0...$limit]" : "";
   return safeFetch(
-    `*[_type == "post" && defined(publishedAt) && publishedAt <= now()] | order(publishedAt desc) [0...$limit] {
+    `*[${PUBLISHED_POST_FILTER}] | order(publishedAt desc) ${range} {
       ${cardFields},
       "wordCount": length(string::split(pt::text(body), " ")),
       "bodyText": pt::text(body)
     }`,
-    { limit },
+    typeof limit === "number" ? { limit } : {},
   );
 }
 
 export async function getAllPostSlugs(): Promise<string[]> {
   const rows = await safeFetch<{ slug: string }[]>(
-    `*[_type == "post" && defined(publishedAt) && defined(slug.current)] { "slug": slug.current }`,
+    `*[${PUBLISHED_POST_FILTER}] | order(publishedAt desc) { "slug": slug.current }`,
   );
   return rows.map((r) => r.slug);
 }
