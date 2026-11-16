@@ -24,6 +24,9 @@ export const Route = createFileRoute("/hacking/$appSlug/changelog")({
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
+        ...(["nexus", "smart-access"].includes(app.slug)
+          ? [{ name: "robots", content: "noindex, nofollow" }]
+          : []),
       ],
       links: [
         {

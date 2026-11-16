@@ -3,8 +3,8 @@ import { FlaskConical } from "lucide-react";
 import { BuildingShell, BuildingHero } from "@/components/building-shell";
 import { ValidationBeat } from "@/components/validation-modal";
 
-const title = "Nexus — Coming Soon | Steve Peele II";
-const description = "Nexus: something new on Steve Peele II's workbench. Details coming soon.";
+const title = "Nexus | Steve Peele II";
+const description = "Nexus is on the workbench. There is no public build yet.";
 
 export const Route = createFileRoute("/hacking/nexus")({
   head: () => ({
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/hacking/nexus")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
     links: [{ rel: "canonical", href: "https://stevepeeleii.com/hacking/nexus" }],
   }),
@@ -40,11 +41,11 @@ function NexusPage() {
               <FlaskConical size={36} color="#FF4D00" aria-hidden="true" style={{ margin: "0 auto" }} />
               <h3>Still on the workbench.</h3>
               <p style={{ maxWidth: 560, margin: "10px auto 0" }}>
-                This one's taking shape — details coming soon. Check the{" "}
+                Nothing public to try yet. The{" "}
                 <Link to="/hacking/whats-next" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: 4 }}>
                   build queue
                 </Link>{" "}
-                to see where it sits.
+                shows where it sits.
               </p>
             </div>
           </div>

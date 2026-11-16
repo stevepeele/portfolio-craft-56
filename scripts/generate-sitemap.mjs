@@ -25,14 +25,8 @@ const STATIC_URLS = [
   ["/blog", 0.7],
   ["/spiix/os", 0.7],
   ["/spiix/impact", 0.7],
-  ["/spiix/diagnostics", 0.7],
   ["/spiix/signal", 0.7],
-  ["/spiix/signal-report", 0.7],
-  ["/demand-curve-analysis", 0.6],
-  ["/faith", 0.6],
-  ["/obviously", 0.6],
   ["/software", 0.6],
-  ["/sprint", 0.6],
   ["/spiix/compare", 0.6],
   ["/spiix/connect", 0.6],
   ["/spiix/who-i-help", 0.6],
@@ -48,11 +42,9 @@ const STATIC_URLS = [
   ["/hacking/gigsplit", 0.5],
   ["/hacking/monitor-mix-cheat", 0.5],
   ["/hacking/muse-vault", 0.5],
-  ["/hacking/nexus", 0.5],
   ["/hacking/profolio", 0.5],
   ["/hacking/quotequick", 0.5],
   ["/hacking/repurpose-engine", 0.5],
-  ["/hacking/smart-access", 0.5],
   ["/hacking/stageplot-ai", 0.5],
   ["/hacking/stampd", 0.5],
   ["/hacking/wax-and-ash", 0.5],
@@ -62,8 +54,8 @@ const STATIC_URLS = [
 // SPIIX-1199: promptvault excluded (its changelog 301s to muse-vault) and
 // wax-and-ash excluded (no changelog exists; the URL 301s to the app page).
 const HACKING_APP_SLUGS = [
-  "binsly", "profolio", "smart-access", "stageplot-ai", "monitor-mix-cheat",
-  "nexus", "dardo", "stampd", "repurpose-engine", "gigsplit", "quotequick",
+  "binsly", "profolio", "stageplot-ai", "monitor-mix-cheat",
+  "dardo", "stampd", "repurpose-engine", "gigsplit", "quotequick",
   "prepwise", "muse-vault",
 ];
 
@@ -106,7 +98,7 @@ async function getDynamicUrls() {
     for (const p of posts) {
       // SPIIX-1203 kill list: held out of the site data layer until the
       // Sanity unpublish lands; keep it out of the sitemap too.
-      if (p.slug && p.slug !== "launching-muse-vault") urls.push([`/blog/${p.slug}`, 0.6]);
+      if (p.slug) urls.push([`/blog/${p.slug}`, 0.6]);
     }
     // SPIIX-1203 data layer: imports + categories that live in
     // src/lib/blog-data.generated.ts until Sanity writes are unblocked.

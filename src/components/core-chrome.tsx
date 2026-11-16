@@ -22,6 +22,7 @@ export type CorePageKey =
   | "quotes"
   | "blog"
   | "music"
+  | "hacking"
   | "spiix"
   | "work-together"
   | "contact"
@@ -32,9 +33,9 @@ type NavItem = { to: string; label: string; key: Exclude<CorePageKey, null> };
 /** Primary destinations, in reading order. Work Together is the CTA. */
 export const CORE_NAV_ITEMS: NavItem[] = [
   { to: "/work", label: "Work", key: "work" },
-  { to: "/experience", label: "Experience", key: "experience" },
   { to: "/blog", label: "Writing", key: "blog" },
   { to: "/music", label: "Music", key: "music" },
+  { to: "/hacking", label: "Building", key: "hacking" },
   { to: "/spiix", label: "SPIIX", key: "spiix" },
   { to: "/contact", label: "Contact", key: "contact" },
 ];
@@ -47,9 +48,10 @@ export const CORE_NAV_CTA: NavItem = {
 
 /** Everything reachable from the mobile menu, including footer-only pages. */
 const MOBILE_NAV_ITEMS: NavItem[] = [
-  ...CORE_NAV_ITEMS.slice(0, 2),
+  CORE_NAV_ITEMS[0]!,
+  { to: "/experience", label: "Experience", key: "experience" },
   { to: "/quotes", label: "Quotes", key: "quotes" },
-  ...CORE_NAV_ITEMS.slice(2),
+  ...CORE_NAV_ITEMS.slice(1),
   CORE_NAV_CTA,
 ];
 
@@ -57,7 +59,7 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="core-topbar">
-      <div className="core-wrap core-topbar-inner">
+      <div className="core-frame core-topbar-inner">
         <Link to="/" className="core-wordmark" onClick={() => setMenuOpen(false)}>
           Steve Peele II<span>.</span>
         </Link>
@@ -120,7 +122,9 @@ const FOOTER_EXPLORE: Array<{ to: string; label: string }> = [
   { to: "/work", label: "Work" },
   { to: "/experience", label: "Experience" },
   { to: "/quotes", label: "Quotes" },
+  { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
+  { to: "/hacking", label: "Building" },
   { to: "/spiix", label: "SPIIX" },
   { to: "/work-together", label: "Work Together" },
   { to: "/contact", label: "Contact" },
@@ -151,8 +155,8 @@ export function CoreFooter() {
             Steve Peele II<span>.</span>
           </Link>
           <p>
-            Growth marketing leader, operator, and musician. I build growth systems and companies,
-            and I write about the work as it happens.
+            Growth operator, builder, and musician. I run growth systems, ship the tools the work
+            needs, and write about it as it happens.
           </p>
           <p className="core-foot-loc">Cincinnati, Ohio · Working everywhere</p>
         </div>

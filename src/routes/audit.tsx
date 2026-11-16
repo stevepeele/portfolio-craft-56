@@ -28,11 +28,9 @@ export const Route = createFileRoute("/audit")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
-    links: [
-      { rel: "canonical", href: "https://stevepeeleii.com/audit" },
-      { rel: "robots", content: "noindex" },
-    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/audit" }],
   }),
   component: AuditPage,
 });

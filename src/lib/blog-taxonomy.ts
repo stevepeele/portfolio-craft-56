@@ -53,7 +53,9 @@ export const IMPORTED_POSTS: ImportedPostDef[] = DATA.imports;
 /** Kill list (SPIIX-1203 runbook, clear case): a duplicate launch post for
  *  the same product as promptvault-launch, superseded twice over. Held out
  *  of every listing and route here until the Sanity unpublish lands. */
-export const SUPPRESSED_SLUGS: ReadonlySet<string> = new Set(["launching-muse-vault"]);
+/* Every published Sanity post stays on a public route. Do not suppress
+   a published slug here; unpublish it in Sanity if it should leave the archive. */
+export const SUPPRESSED_SLUGS: ReadonlySet<string> = new Set();
 
 const categoryBySlug = new Map(BLOG_CATEGORIES.map((c) => [c.slug, c]));
 const taxonomyBySlug = new Map(Object.entries(DATA.taxonomy));

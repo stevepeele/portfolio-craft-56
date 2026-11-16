@@ -2,9 +2,11 @@
    CORE_NAV_ITEMS in src/components/core-chrome.tsx so the two shells
    never disagree about what the site's sections are called. Home is
    the wordmark in both shells, not a nav item. */
+/* Legacy shells (site header, scaffolding) keep a Building menu, so
+   Building is not repeated here. The core header lists it as a link.
+   Experience stays reachable from Work and the footer. */
 export const primaryNav = [
-  { to: "/work", label: "Work", exact: false, match: ["/work", "/portfolio"] },
-  { to: "/experience", label: "Experience", exact: false, match: ["/experience"] },
+  { to: "/work", label: "Work", exact: false, match: ["/work", "/portfolio", "/experience"] },
   { to: "/blog", label: "Writing", exact: false, match: ["/blog"] },
   { to: "/music", label: "Music", exact: false, match: ["/music"] },
   { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },

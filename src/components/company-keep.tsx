@@ -14,7 +14,7 @@ const COMPANIES = workedWith.filter((name) => name !== "Zillow");
 export function CompanyKeep() {
   return (
     <section className="core-keep" aria-label="Companies Steve Peele II has worked with">
-      <p className="core-keep-label">Company I keep</p>
+      <p className="core-keep-label">Companies</p>
       <div className="core-keep-viewport">
         <div className="core-keep-track">
           {COMPANIES.map((name) => (

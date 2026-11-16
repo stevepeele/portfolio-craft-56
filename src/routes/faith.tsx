@@ -21,11 +21,9 @@ export const Route = createFileRoute("/faith")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
-    links: [
-      { rel: "canonical", href: "https://stevepeeleii.com/faith" },
-      { rel: "robots", content: "noindex" },
-    ],
+    links: [{ rel: "canonical", href: "https://stevepeeleii.com/faith" }],
   }),
   component: FaithPage,
 });

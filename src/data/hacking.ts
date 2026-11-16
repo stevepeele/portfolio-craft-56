@@ -131,18 +131,18 @@ export const hackingApps: HackingApp[] = [
   {
     slug: "smart-access",
     label: "Smart Access",
-    blurb: "Coming soon",
+    blurb: "On the workbench",
     status: "soon",
-    description: "Details coming soon — this one's still taking shape on the workbench.",
-    why: "Watch this space.",
+    description: "No public build yet.",
+    why: "Not ready to show.",
   },
   {
     slug: "nexus",
     label: "Nexus",
-    blurb: "Coming soon",
+    blurb: "On the workbench",
     status: "soon",
-    description: "Details coming soon — this one's still taking shape on the workbench.",
-    why: "Watch this space.",
+    description: "No public build yet.",
+    why: "Not ready to show.",
   },
 ];
 
