@@ -1,11 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink, Search } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
-import { CategoryChips, PostRow, type BlogCategoryRef } from "@/components/blog-ui";
-import { getBlogCards, getFeaturedPost } from "@/lib/sanity-queries";
-import { fallbackExcerpt, readingMinutes, wordCountFromText } from "@/lib/blog-utils";
+import { ArchivePager, CategoryChips, PostRow, type BlogCategoryRef } from "@/components/blog-ui";
+import {
+  archivePageCount,
+  clampArchivePage,
+  parseArchivePage,
+  sliceArchive,
+} from "@/lib/blog-archive";
+import { getBlogCards } from "@/lib/sanity-queries";
+import { fallbackExcerpt, readingMinutes, tidyExcerpt, wordCountFromText } from "@/lib/blog-utils";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 
@@ -17,20 +23,24 @@ const description =
 type PostView = SanityPostCard & { minutes: number; displayExcerpt: string };
 
 export const Route = createFileRoute("/blog/")({
-  loader: async () => {
-    const [featured, cards] = await Promise.all([getFeaturedPost(), getBlogCards(30)]);
+  validateSearch: (search: Record<string, unknown>): { page?: number } => {
+    const page = parseArchivePage(search["page"]);
+    return page > 1 ? { page } : {};
+  },
+  loaderDeps: ({ search }) => ({ page: search.page ?? 1 }),
+  loader: async ({ deps }) => {
+    const cards = await getBlogCards();
     const posts: PostView[] = cards.map((c) => {
       const words = c.wordCount ?? wordCountFromText(c.bodyText ?? "");
       const { bodyText: _bodyText, wordCount: _wordCount, ...card } = c;
       return {
         ...card,
         minutes: readingMinutes(words),
-        displayExcerpt: c.excerpt ?? fallbackExcerpt(c.bodyText ?? ""),
+        displayExcerpt: tidyExcerpt(c.excerpt ?? fallbackExcerpt(c.bodyText ?? "")),
       };
     });
-    const lead = featured
-      ? (posts.find((p) => p._id === featured._id) ?? null)
-      : (posts[0] ?? null);
+    const featured = posts.find((p) => p.featured === true) ?? null;
+    const lead = featured ?? posts[0] ?? null;
     const categories: BlogCategoryRef[] = [];
     for (const p of posts) {
       for (const c of p.categories ?? []) {
@@ -40,19 +50,35 @@ export const Route = createFileRoute("/blog/")({
       }
     }
     categories.sort((a, b) => a.name.localeCompare(b.name));
+    const archiveCount = posts.filter((post) => !lead || post._id !== lead._id).length;
+    const pageCount = archivePageCount(archiveCount);
+    const page = clampArchivePage(deps.page, pageCount);
+    if (deps.page !== page) {
+      throw redirect({ to: "/blog", search: page > 1 ? { page } : {} });
+    }
     return { lead, leadIsFeatured: Boolean(featured), posts, categories };
   },
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title }, { property: "og:image", content: "https://stevepeeleii.com/og-blog.jpg" }, { property: "og:image:width", content: "1200" }, { property: "og:image:height", content: "630" }, { name: "twitter:image", content: "https://stevepeeleii.com/og-blog.jpg" },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "https://stevepeeleii.com/blog" }, CORE_FONT_LINK],
-  }),
+  head: ({ match }) => {
+    const page = match.search.page ?? 1;
+    const pageTitle = page > 1 ? `${title} (page ${page})` : title;
+    const canonical =
+      page > 1 ? `https://stevepeeleii.com/blog?page=${page}` : "https://stevepeeleii.com/blog";
+    return {
+      meta: [
+        { title: pageTitle },
+        { name: "description", content: description },
+        { property: "og:title", content: pageTitle },
+        { property: "og:image", content: "https://stevepeeleii.com/og-blog.jpg" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { name: "twitter:image", content: "https://stevepeeleii.com/og-blog.jpg" },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: canonical }, CORE_FONT_LINK],
+    };
+  },
   component: BlogIndexPage,
 });
 
@@ -75,7 +101,10 @@ function normalizeTitle(t: string): string {
  * exact normalized match, or a long containment in either direction
  * (guards against subtitle drift).
  */
-function findCrossPostedSources(title: string, items: { title: string; source: string }[]): string[] {
+function findCrossPostedSources(
+  title: string,
+  items: { title: string; source: string }[],
+): string[] {
   const n = normalizeTitle(title);
   if (n.length < 12) return [];
   const sources = new Set<string>();
@@ -150,26 +179,35 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
       })
     : "";
   return (
-    <a href={item.link} target="_blank" rel="noopener noreferrer" className="core-writing-row">
-      <span className="core-writing-meta">
-        Also on {item.source}
-        {date && <> · {date}</>}
+    <a href={item.link} target="_blank" rel="noopener noreferrer" className="blog-card">
+      <span className="blog-card-copy">
+        <span className="core-writing-meta">
+          Also on {item.source}
+          {date && <> · {date}</>}
+        </span>
+        <h2>{item.title}</h2>
+        <p>
+          Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
+        </p>
       </span>
-      <h3>{item.title}</h3>
-      <p>
-        Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
-      </p>
     </a>
   );
 }
 
 function BlogIndexPage() {
   const { lead, leadIsFeatured, posts, categories } = Route.useLoaderData();
+  const search = Route.useSearch();
+  const navigate = useNavigate();
   const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const rootRef = useRef<HTMLDivElement>(null);
   useCoreReveal(rootRef);
+
+  const goToFirstPage = () => {
+    if ((search.page ?? 1) === 1) return;
+    void navigate({ to: "/blog", search: {}, replace: true });
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -192,10 +230,10 @@ function BlogIndexPage() {
   }, []);
 
   const filtering = query.trim() !== "" || activeCategory !== "all";
-  const visible = useMemo(() => {
+  const pool = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const pool = filtering ? posts : posts.filter((p) => !lead || p._id !== lead._id);
-    return pool.filter((p) => {
+    return posts.filter((p) => {
+      if (!filtering && lead && p._id === lead._id) return false;
       if (activeCategory !== "all") {
         if (!(p.categories ?? []).some((c) => c.slug === activeCategory)) return false;
       }
@@ -206,6 +244,15 @@ function BlogIndexPage() {
       return true;
     });
   }, [posts, lead, filtering, query, activeCategory]);
+  const pageCount = archivePageCount(pool.length);
+  const page = clampArchivePage(search.page ?? 1, pageCount);
+  const visible = sliceArchive(pool, page);
+
+  useEffect(() => {
+    const requested = search.page ?? 1;
+    if (requested === page) return;
+    void navigate({ to: "/blog", search: page > 1 ? { page } : {}, replace: true });
+  }, [navigate, page, search.page]);
 
   const leadMeta: string[] = [];
   if (lead?.publishedAt) leadMeta.push(formatSanityDate(lead.publishedAt));
@@ -213,12 +260,15 @@ function BlogIndexPage() {
   if (lead?.minutes) leadMeta.push(`${lead.minutes} min read`);
 
   return (
-    <div className="core-root" ref={rootRef}>
+    <div className="core-root blog-surface" ref={rootRef}>
       <CoreHeader active="blog" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Writing</h1>
-          <p>Essays and working notes on growth marketing, operations, and the craft of building companies.</p>
+          <p>
+            Essays and working notes on growth marketing, operations, and the craft of building
+            companies.
+          </p>
         </div>
 
         {posts.length === 0 && (
@@ -228,35 +278,35 @@ function BlogIndexPage() {
           </div>
         )}
 
-        {lead && !filtering && (
-          <div style={{ marginTop: 56 }} className="core-reveal">
+        {lead && !filtering && page === 1 && (
+          <section className="blog-lead core-reveal">
             <p className="core-section-label">{leadIsFeatured ? "Featured" : "The latest"}</p>
-            <Link
-              to="/blog/$slug"
-              params={{ slug: lead.slug }}
-              className="core-featured"
-              style={{ borderTop: "1px solid var(--core-line)" }}
-            >
+            <Link to="/blog/$slug" params={{ slug: lead.slug }} className="blog-lead-link">
+              {lead.mainImage && (
+                <img
+                  src={urlFor(lead.mainImage).width(1600).height(900).fit("crop").url()}
+                  alt={
+                    lead.mainImage.alt && lead.mainImage.alt !== lead.title
+                      ? lead.mainImage.alt
+                      : ""
+                  }
+                  width={1600}
+                  height={900}
+                  className="blog-lead-img"
+                />
+              )}
               <span className="core-writing-meta">
                 {leadMeta.join("  ·  ")}
                 {"  "}
                 <CrossPostedBadge sources={findCrossPostedSources(lead.title, externalItems)} />
               </span>
-              {lead.mainImage && (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={urlFor(lead.mainImage).width(1200).height(630).fit("crop").url()}
-                  alt={lead.mainImage.alt || lead.title}
-                  className="core-featured-img"
-                />
-              )}
-              <h3>{lead.title}</h3>
+              <h2>{lead.title}</h2>
               {lead.displayExcerpt && <p>{lead.displayExcerpt}</p>}
               <span className="core-textlink">
                 Read the article <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
               </span>
             </Link>
-          </div>
+          </section>
         )}
 
         {posts.length > 0 && (
@@ -267,7 +317,10 @@ function BlogIndexPage() {
                 <input
                   type="search"
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    goToFirstPage();
+                  }}
                   placeholder="Search articles"
                   aria-label="Search articles by title or excerpt"
                 />
@@ -276,32 +329,39 @@ function BlogIndexPage() {
                 <CategoryChips
                   categories={categories}
                   active={activeCategory}
-                  onSelect={setActiveCategory}
+                  onSelect={(slug) => {
+                    setActiveCategory(slug);
+                    goToFirstPage();
+                  }}
                 />
               )}
             </div>
 
             <div className="blog-archive-head">
               <p className="core-section-label">{filtering ? "Results" : "All articles"}</p>
-              <span className="blog-count">
+              <span className="blog-count" aria-live="polite">
                 {filtering
-                  ? `${visible.length} of ${posts.length} articles`
-                  : `${posts.length} articles`}
+                  ? `${pool.length} of ${posts.length} articles`
+                  : `${posts.length} ${posts.length === 1 ? "article" : "articles"}`}
+                {pageCount > 1 ? ` · Page ${page} of ${pageCount}` : ""}
               </span>
             </div>
 
             {visible.length > 0 ? (
-              <div className="core-writing-list" style={{ marginTop: 16 }}>
-                {visible.map((post) => (
-                  <PostRow
-                    key={post._id}
-                    post={post}
-                    minutes={post.minutes}
-                    excerptText={post.displayExcerpt}
-                    metaExtra={<RowBadges post={post} external={externalItems} />}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="blog-list">
+                  {visible.map((post) => (
+                    <PostRow
+                      key={post._id}
+                      post={post}
+                      minutes={post.minutes}
+                      excerptText={post.displayExcerpt}
+                      metaExtra={<RowBadges post={post} external={externalItems} />}
+                    />
+                  ))}
+                </div>
+                <ArchivePager page={page} pageCount={pageCount} />
+              </>
             ) : (
               <div className="core-empty">
                 <h2>No articles match.</h2>
@@ -322,13 +382,11 @@ function BlogIndexPage() {
           </>
         )}
 
-        {externalItems.length > 0 && !filtering && (
-          <div style={{ marginTop: 64 }} className="core-reveal">
+        {externalItems.length > 0 && !filtering && page === 1 && (
+          <div className="blog-elsewhere core-reveal">
             <p className="core-section-label">Elsewhere</p>
-            <p className="core-writing-note" style={{ marginTop: 0, marginBottom: 4 }}>
-              Recent notes from Substack &amp; Medium
-            </p>
-            <div className="core-writing-list" style={{ marginTop: 20 }}>
+            <p className="core-writing-note">Recent notes from Substack &amp; Medium</p>
+            <div className="blog-list">
               {externalItems.map((item) => (
                 <ExternalFeedCard key={item.id} item={item} />
               ))}

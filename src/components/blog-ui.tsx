@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { formatSanityDate, sanityImageUrl as urlFor } from "@/lib/sanity";
 
-/* Shared blog listing UI (SPIIX-1201): the archive row and the category
-   chips used by the blog index, category pages, and related sections. */
+/* Shared blog listing UI: editorial article cards, category chips, and
+   the archive pager. Used by the index, category pages, and related reading. */
 
 export function postMetaParts(post: SanityPostCard, minutes?: number): string[] {
   const parts: string[] = [];
@@ -26,23 +26,34 @@ export function PostRow({
   metaExtra?: ReactNode;
 }) {
   const meta = postMetaParts(post, minutes);
+  const image = post.mainImage;
+  const alt = image?.alt && image.alt !== post.title ? image.alt : "";
   return (
-    <Link to="/blog/$slug" params={{ slug: post.slug }} className="core-writing-row">
-      <span className="core-writing-meta">
-        {meta.join("  ·  ")}
-        {metaExtra}
+    <Link
+      to="/blog/$slug"
+      params={{ slug: post.slug }}
+      className={image ? "blog-card has-media" : "blog-card"}
+    >
+      <span className="blog-card-copy">
+        {meta.length > 0 && (
+          <span className="core-writing-meta">
+            {meta.join("  ·  ")}
+            {metaExtra}
+          </span>
+        )}
+        <h2>{post.title}</h2>
+        {excerptText && <p>{excerptText}</p>}
       </span>
-      {post.mainImage && (
-        /* eslint-disable-next-line @next/next/no-img-element */
+      {image && (
         <img
-          src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
-          alt={post.mainImage.alt || post.title}
+          src={urlFor(image).width(640).height(480).fit("crop").url()}
+          alt={alt}
+          width={640}
+          height={480}
           loading="lazy"
-          className="core-writing-thumb"
+          className="blog-card-media"
         />
       )}
-      <h3>{post.title}</h3>
-      {excerptText && <p>{excerptText}</p>}
     </Link>
   );
 }
@@ -81,5 +92,101 @@ export function CategoryChips({
         </button>
       ))}
     </div>
+  );
+}
+
+function ArchivePageLink({
+  n,
+  page,
+  categorySlug,
+  className,
+  children,
+}: {
+  n: number;
+  page: number;
+  categorySlug?: string | undefined;
+  className?: string | undefined;
+  children: ReactNode;
+}) {
+  const current = n === page;
+  const numbered = className === undefined;
+  const shared = {
+    className: numbered ? (current ? "is-current" : undefined) : className,
+    ...(numbered && current ? { "aria-current": "page" as const } : {}),
+  };
+  if (categorySlug) {
+    return n > 1 ? (
+      <Link
+        to="/blog/category/$slug"
+        params={{ slug: categorySlug }}
+        search={{ page: n }}
+        {...shared}
+      >
+        {children}
+      </Link>
+    ) : (
+      <Link to="/blog/category/$slug" params={{ slug: categorySlug }} {...shared}>
+        {children}
+      </Link>
+    );
+  }
+  return n > 1 ? (
+    <Link to="/blog" search={{ page: n }} {...shared}>
+      {children}
+    </Link>
+  ) : (
+    <Link to="/blog" {...shared}>
+      {children}
+    </Link>
+  );
+}
+
+export function ArchivePager({
+  page,
+  pageCount,
+  categorySlug,
+}: {
+  page: number;
+  pageCount: number;
+  /** Set on a category archive. Omit on the main writing index. */
+  categorySlug?: string;
+}) {
+  if (pageCount <= 1) return null;
+  return (
+    <nav className="blog-pager" aria-label={`Archive pages, page ${page} of ${pageCount}`}>
+      {page > 1 ? (
+        <ArchivePageLink
+          n={page - 1}
+          page={page}
+          categorySlug={categorySlug}
+          className="blog-pager-step"
+        >
+          Previous
+        </ArchivePageLink>
+      ) : (
+        <span className="blog-pager-step is-disabled">Previous</span>
+      )}
+      <ol>
+        {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+          <li key={n}>
+            <ArchivePageLink n={n} page={page} categorySlug={categorySlug}>
+              {n}
+            </ArchivePageLink>
+          </li>
+        ))}
+      </ol>
+      {page < pageCount ? (
+        <ArchivePageLink
+          n={page + 1}
+          page={page}
+          categorySlug={categorySlug}
+          className="blog-pager-step"
+        >
+          Next
+        </ArchivePageLink>
+      ) : (
+        <span className="blog-pager-step is-disabled">Next</span>
+      )}
+    </nav>
   );
 }

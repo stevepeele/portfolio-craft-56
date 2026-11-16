@@ -42,9 +42,27 @@ export function readingMinutes(wordCount: number): number {
   return Math.max(1, Math.round(wordCount / 200));
 }
 
+/**
+ * Drop stored markdown markers from a listing excerpt: heading hashes and
+ * a single-line *italic* wrapper. The article page promotes those markers
+ * into real type; the card should show the sentence.
+ */
+export function tidyExcerpt(text: string): string {
+  return text
+    .replace(/(^|\s)#{1,3}\s+/g, "$1")
+    .replace(/(^|\s)\*([^*\n]+)\*(?=\s|$)/g, "$1$2")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 /** One-line excerpt derived from body text for posts without an excerpt. */
 export function fallbackExcerpt(text: string, maxChars = 190): string {
-  const clean = text.replace(/\s+/g, " ").trim();
+  const paragraphs = text
+    .split(/\n\s*\n/)
+    .map((part) => tidyExcerpt(part))
+    .filter(Boolean);
+  const opening = paragraphs[0] ?? "";
+  const clean = opening.length >= 80 ? opening : paragraphs.join(" ") || tidyExcerpt(text);
   if (clean.length <= maxChars) return clean;
   const cut = clean.slice(0, maxChars);
   const lastSpace = cut.lastIndexOf(" ");
@@ -116,7 +134,60 @@ export function normalizeBody(body: unknown[] | undefined): unknown[] {
       });
     }
   }
-  return out;
+  return promotePlainMarkup(out);
+}
+
+/**
+ * A few essays were stored as plain paragraphs that still carry markdown
+ * markers: a line that is only "## Heading", or a single-line *italic* dek.
+ * Promote those to real headings and emphasis so the article page can
+ * typeset them. Markers are display syntax, not part of the sentence.
+ * Paragraphs with existing annotations are left alone.
+ */
+function promotePlainMarkup(blocks: unknown[]): unknown[] {
+  return blocks.map((raw) => {
+    const b = raw as PTBlock;
+    if (!b || b._type !== "block" || b.listItem) return raw;
+    if (b.style && b.style !== "normal") return raw;
+    const spans = b.children ?? [];
+    if (spans.some((span) => (span.marks ?? []).length > 0)) return raw;
+    const text = blockText(b).replace(/\s+$/g, "").replace(/^\s+/g, "");
+    if (!text || text.includes("\n")) return raw;
+
+    const heading = /^(#{1,3})\s+(\S.*)$/.exec(text);
+    if (heading) {
+      const level = heading[1]?.length ?? 2;
+      return {
+        ...b,
+        style: level >= 3 ? "h3" : "h2",
+        children: [
+          {
+            _type: "span",
+            _key: `${b._key ?? "h"}-text`,
+            text: heading[2]?.trim() ?? "",
+            marks: [],
+          },
+        ],
+      };
+    }
+
+    const italic = /^\*([^*].*[^*])\*$/.exec(text) ?? /^\*([^*])\*$/.exec(text);
+    if (italic) {
+      return {
+        ...b,
+        children: [
+          {
+            _type: "span",
+            _key: spans[0]?._key ?? `${b._key ?? "em"}-text`,
+            text: italic[1]?.trim() ?? "",
+            marks: ["em"],
+          },
+        ],
+      };
+    }
+
+    return raw;
+  });
 }
 
 export type TocEntry = { blockKey: string; id: string; level: 2 | 3; text: string };
