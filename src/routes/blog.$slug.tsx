@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef } from "react";
 import { PortableText } from "@portabletext/react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
-import { PostRow } from "@/components/blog-ui";
+import { FollowStrip, PostRow } from "@/components/blog-ui";
+import { crossPostsFor } from "@/lib/external-writing";
 import { getLatestPosts, getPostBySlug } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { seriesNavFor } from "@/lib/blog-taxonomy";
@@ -49,7 +50,12 @@ export const Route = createFileRoute("/blog/$slug")({
     const related = [...manual, ...auto].slice(0, 3);
     const { newer, older } = chronologicalNeighbors(all, post.slug);
     const seriesNav = seriesNavFor(params.slug, all);
-    return { post, related, newer, older, seriesNav };
+    // External homes for this piece (Substack / Medium), from the
+    // build-time feed snapshot. Imported posts already carry their
+    // provenance in sourceUrl, so this only fires for native posts
+    // that were also syndicated.
+    const crossPosts = post.sourceUrl ? [] : crossPostsFor(post.title);
+    return { post, related, newer, older, seriesNav, crossPosts };
   },
   head: ({ loaderData }) => {
     const post = loaderData?.post;
@@ -260,7 +266,7 @@ function AuthorNote({ authorName }: { authorName?: string | undefined }) {
 }
 
 function BlogPostPage() {
-  const { post, related, newer, older, seriesNav } = Route.useLoaderData();
+  const { post, related, newer, older, seriesNav, crossPosts } = Route.useLoaderData();
   const rootRef = useRef<HTMLDivElement>(null);
   useCoreReveal(rootRef);
 
@@ -305,6 +311,20 @@ function BlogPostPage() {
                   {post.sourceName ?? "another platform"}
                 </a>
                 . Collected here as part of the full archive.
+              </p>
+            )}
+            {crossPosts.length > 0 && (
+              <p className="blog-source">
+                Also published on{" "}
+                {crossPosts.map((c, i) => (
+                  <span key={c.source}>
+                    {i > 0 && " and "}
+                    <a href={c.link} target="_blank" rel="noopener noreferrer">
+                      {c.source}
+                    </a>
+                  </span>
+                ))}
+                .
               </p>
             )}
           </header>
@@ -421,6 +441,7 @@ function BlogPostPage() {
             </div>
           )}
         </article>
+        <FollowStrip />
         <CoreFooter />
       </main>
     </div>

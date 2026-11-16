@@ -1,10 +1,34 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 import { formatSanityDate, sanityImageUrl as urlFor } from "@/lib/sanity";
+import { MEDIUM_HOME, MEDIUM_NAME, SUBSTACK_HOME, SUBSTACK_NAME } from "@/lib/external-writing";
 
 /* Shared blog listing UI: editorial article cards, category chips, and
    the archive pager. Used by the index, category pages, and related reading. */
+
+/** Subscribe / follow strip for the two external homes of the writing. */
+export function FollowStrip() {
+  return (
+    <div className="blog-follow core-reveal">
+      <a href={SUBSTACK_HOME} target="_blank" rel="noopener noreferrer" className="blog-follow-card">
+        <span className="core-writing-meta">Substack · {SUBSTACK_NAME}</span>
+        <span className="blog-follow-title">Get new essays by email</span>
+        <span className="blog-follow-cta">
+          Subscribe free <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+        </span>
+      </a>
+      <a href={MEDIUM_HOME} target="_blank" rel="noopener noreferrer" className="blog-follow-card">
+        <span className="core-writing-meta">Medium · {MEDIUM_NAME}</span>
+        <span className="blog-follow-title">Follow the personal essays</span>
+        <span className="blog-follow-cta">
+          Follow on Medium <ArrowUpRight size={14} style={{ verticalAlign: "-2px" }} />
+        </span>
+      </a>
+    </div>
+  );
+}
 
 export function postMetaParts(post: SanityPostCard, minutes?: number): string[] {
   const parts: string[] = [];

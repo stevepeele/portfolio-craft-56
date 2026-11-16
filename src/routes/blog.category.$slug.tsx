@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
-import { ArchivePager, PostRow } from "@/components/blog-ui";
+import { ArchivePager, FollowStrip, PostRow } from "@/components/blog-ui";
 import {
   archivePageCount,
   clampArchivePage,
@@ -171,6 +171,7 @@ function CategoryPage() {
           </>
         )}
 
+        <FollowStrip />
         <CoreFooter />
       </main>
     </div>

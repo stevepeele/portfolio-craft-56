@@ -1,0 +1,215 @@
+{
+  "fetchedAt": "2026-11-16T01:25:19.148Z",
+  "items": [
+    {
+      "id": "substack-stop-writing-instructions-start-writing",
+      "title": "Stop Writing Instructions. Start Writing Violations.",
+      "link": "https://stevepeeleii.substack.com/p/stop-writing-instructions-start-writing",
+      "pubDate": "Fri, 30 Oct 2026 11:12:43 GMT",
+      "excerpt": "Your agent doesn’t have a knowledge problem. It has a consequences problem. Every agentic tool on the market right now hands you the same thing: a bigger instructions box. A longer system prompt. A CLAUDE.md, an AGENTS.md, a rules file, a c…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-the-voice-that-wasnt-mine",
+      "title": "The voice that wasn't mine",
+      "link": "https://stevepeeleii.substack.com/p/the-voice-that-wasnt-mine",
+      "pubDate": "Fri, 16 Oct 2026 20:24:12 GMT",
+      "excerpt": "Hey — Quick field report from today's sprint. My AI pipeline caught a prompt injection that impersonated my own operator, ordering policy changes in her voice. The checks killed it cold. Here's the full anatomy, written up while it's fresh.…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-i-gave-my-ai-an-org-chart-its-the",
+      "title": "I gave my AI an org chart. It's the best system I've ever built.",
+      "link": "https://stevepeeleii.substack.com/p/i-gave-my-ai-an-org-chart-its-the",
+      "pubDate": "Thu, 15 Oct 2026 04:55:42 GMT",
+      "excerpt": "This week I did something that sounds absurd until you see it work: I wrote an org chart for my artificial intelligence. Not a metaphor. A real one. Five layers, three execution arms, eight standing work lanes, a triage runbook, hard rules,…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-i-run-a-5-layer-ai-org-and-the-org-chart-is-the-product-efa539cc8b00",
+      "title": "I Run a 5-Layer AI Org and the Org Chart Is the Product",
+      "link": "https://stevepeeleii.medium.com/i-run-a-5-layer-ai-org-and-the-org-chart-is-the-product-efa539cc8b00",
+      "pubDate": "Thu, 15 Oct 2026 04:01:10 GMT",
+      "excerpt": "",
+      "image": "https://cdn-images-1.medium.com/max/2564/1*vxFaSeVF_xEZk-O4dNTWlA.png",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-the-first-10-minutes-of-soundcheck",
+      "title": "The first 10 minutes of soundcheck are the worst part of my gig",
+      "link": "https://stevepeeleii.substack.com/p/the-first-10-minutes-of-soundcheck",
+      "pubDate": "Mon, 12 Oct 2026 12:11:46 GMT",
+      "excerpt": "The band is on stage. Twenty-four channels. Every fader is at zero and they're all looking at you. That first 10 minutes of soundcheck is the worst part of monitor engineering. Not the mixing — the mixing is fun. It's the starting-from-noth…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-profolio-v1-real-accounts-real-backend",
+      "title": "Profolio v1: real accounts, real backend",
+      "link": "https://stevepeeleii.substack.com/p/profolio-v1-real-accounts-real-backend",
+      "pubDate": "Sat, 10 Oct 2026 12:35:46 GMT",
+      "excerpt": "I have a folder on my computer called \"career stuff.\" Resumes from 2019, 2021, 2023. A \"master resume\" that's nine pages long. Cover letter templates with [COMPANY NAME] still in them. Every time I needed to send something to someone, I'd o…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-i-spent-a-week-automating-the-most",
+      "title": "I spent a week automating the most boring part of my gig",
+      "link": "https://stevepeeleii.substack.com/p/i-spent-a-week-automating-the-most",
+      "pubDate": "Sat, 10 Oct 2026 12:10:38 GMT",
+      "excerpt": "There's a specific kind of tired that hits at 1am when the input list finally arrives and you open PowerPoint. You know the routine. Rectangles for the drums. Smaller rectangles for the wedges. Labels in 10pt font. Export a PDF that looks l…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-you-do-not-need-a-new-life-you-need",
+      "title": "You Do Not Need a New Life. You Need a Better Next Move.",
+      "link": "https://stevepeeleii.substack.com/p/you-do-not-need-a-new-life-you-need",
+      "pubDate": "Wed, 16 Sep 2026 09:12:56 GMT",
+      "excerpt": "There is a kind of stress that makes you believe your entire life is broken. You look at the unfinished work. The unanswered texts. The money situation. The goals you have been meaning to pursue. The version of yourself you thought you woul…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-understanding-my-neurodivergent-operating-system-fc8162d32a9e",
+      "title": "Understanding My Neurodivergent Operating System",
+      "link": "https://medium.com/the-top-of-my-mind/understanding-my-neurodivergent-operating-system-fc8162d32a9e",
+      "pubDate": "Sun, 02 Aug 2026 05:56:56 GMT",
+      "excerpt": "There are a handful of nights in my life that make a lot more sense now. Not because the events themselves changed, but because I finally understand the operating system underneath them. For most of my life, I thought I was just: overly int…",
+      "image": "",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-no-questions-just-observation-and-resolve-a41dd8dd3b78",
+      "title": "No questions. Just observation. and Resolve…. some words.",
+      "link": "https://stevepeeleii.medium.com/no-questions-just-observation-and-resolve-a41dd8dd3b78",
+      "pubDate": "Sat, 22 Nov 2025 02:49:28 GMT",
+      "excerpt": "Lately, I’ve been paying closer attention to the quiet honesty in people’s words, actions, and convictions. Not the polished stories we all tell, but the lived truth that spills out in how someone treats you, responds to you, or refuses to.…",
+      "image": "https://cdn-images-1.medium.com/max/1024/0*JiPVdSzhLW7hcm9D",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-i-got-stuck-and-god-is-still-unsticking-me-07be27965c8f",
+      "title": "I Got Stuck. And God Is Still Unsticking Me.",
+      "link": "https://medium.com/daily-writing-random-thoughts/i-got-stuck-and-god-is-still-unsticking-me-07be27965c8f",
+      "pubDate": "Sun, 17 Aug 2025 09:54:58 GMT",
+      "excerpt": "There are some truths I’ve circled for years like a wounded animal — afraid to speak them, afraid of what they’d mean if I did. But healing begins where honesty starts, and for me, that begins here: I struggle to swallow what I now believe…",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*Vp5aGNoUEh1-xCwPC8cc4g@2x.jpeg",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-something-like-understanding-962343873949",
+      "title": "Something like understanding",
+      "link": "https://medium.com/the-top-of-my-mind/something-like-understanding-962343873949",
+      "pubDate": "Sat, 14 Jun 2025 08:12:46 GMT",
+      "excerpt": "Unraveling doesn’t always look like breaking.",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*gkcwwk27-u3alLcKwMpvUQ@2x.jpeg",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-i-cant-solve-this-but-i-can-see-you-9f6a511af8cf",
+      "title": "I can’t solve this, but i can see you",
+      "link": "https://medium.com/the-top-of-my-mind/i-cant-solve-this-but-i-can-see-you-9f6a511af8cf",
+      "pubDate": "Fri, 29 Nov 2024 09:00:03 GMT",
+      "excerpt": "I can’t solve it, but I see you “Hearing the Flood: Learning to Listen to What Others Carry” — — — — - I’ve spent a lot of time writing about what it’s like to live in my own mental flood — the constant overthinking, the weight of masking,…",
+      "image": "",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-these-currents-move-but-also-drown-5a4d004e3cbc",
+      "title": "These currents move but also drown",
+      "link": "https://medium.com/the-top-of-my-mind/these-currents-move-but-also-drown-5a4d004e3cbc",
+      "pubDate": "Fri, 29 Nov 2024 08:49:04 GMT",
+      "excerpt": "Riding the Current: Finding Balance in the Overwhelm This is in no way a ploy for pity or a lack of acknowledgement of my own contributions to internal and conflicting mental debates. Thanks for listening. — — — — — — — — I’ve been sitting…",
+      "image": "",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-life-is-a-flood-most-are-trying-not-to-drown-in-2940ce45cb90",
+      "title": "Life is a flood most are trying not to drown in.",
+      "link": "https://medium.com/the-top-of-my-mind/life-is-a-flood-most-are-trying-not-to-drown-in-2940ce45cb90",
+      "pubDate": "Sat, 09 Nov 2024 13:17:00 GMT",
+      "excerpt": "Life Feels Like a Flood: Staying Afloat When the World Overwhelms Some days — or weeks, or entire stretches of life — feel like a fucking flood. Every moment is a battle to keep my head above water, to stay upright against a current of thou…",
+      "image": "",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-living-in-a-loop-a-chaotic-spiral-into-obsessing-over-everything-while-no",
+      "title": "Living in a loop: A chaotic spiral into obsessing over everything, while not understanding anything.",
+      "link": "https://medium.com/an-idea/living-in-a-loop-a-chaotic-spiral-into-obsessing-over-everything-while-not-understanding-anything-6ab2137ac98e",
+      "pubDate": "Sat, 02 Nov 2024 16:49:57 GMT",
+      "excerpt": "Living in a loop: Understanding everything and nothing at all. Living with a mind that seems to operate on a different wavelength is a constant, grinding battle. Every day, I’m faced with the reality of trying to navigate a world that doesn…",
+      "image": "",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "medium-sorry-for-being-sorry-22b3ae954403",
+      "title": "Sorry for stumbling or fumbling or grumbling or tumbling the wrong way or not at all or not enough.",
+      "link": "https://medium.com/the-top-of-my-mind/sorry-for-being-sorry-22b3ae954403",
+      "pubDate": "Sat, 25 Nov 2023 02:53:06 GMT",
+      "excerpt": "I’m sorry for giving it all yet not enough or not the right way or whatever else was wrong about giving a fuck. Calming photo to not trigger any cocked guns or explosives nearby. I apologize that my pleas and efforts weren’t enough for you…",
+      "image": "https://cdn-images-1.medium.com/max/1024/1*5F35dZf_2NTg-igtbWxsRQ@2x.jpeg",
+      "source": "Medium",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-mental-health-in-startups-a-comprehensive",
+      "title": "Mental Health in Startups: A Comprehensive Guide to Navigating the Challenges and Thriving in the Startup Environment",
+      "link": "https://stevepeeleii.substack.com/p/mental-health-in-startups-a-comprehensive",
+      "pubDate": "Thu, 11 May 2023 08:48:14 GMT",
+      "excerpt": "",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-mentally-suffering-no-help-78bb4bab6882",
+      "title": "Mentally Suffering: No Help",
+      "link": "https://stevepeeleii.substack.com/p/mentally-suffering-no-help-78bb4bab6882",
+      "pubDate": "Tue, 07 Mar 2023 07:01:35 GMT",
+      "excerpt": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!8CHW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff7045798-8f76-459b-b4ab-f564bb0aaa81_2600x1733.jpeg",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-goodbye-nothing-left-f20fdd29252c",
+      "title": "Goodbye, Nothing Left.",
+      "link": "https://stevepeeleii.substack.com/p/goodbye-nothing-left-f20fdd29252c",
+      "pubDate": "Fri, 20 Jan 2023 14:42:25 GMT",
+      "excerpt": "Being in a difficult mental state can be difficult to overcome, but it is not impossible. No one should feel like they have no way out and…",
+      "image": "https://substackcdn.com/image/fetch/$s_!N-tV!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2663e568-7800-4adf-9287-31e823158fe9_2600x1734.png",
+      "source": "Substack",
+      "alsoOn": []
+    },
+    {
+      "id": "substack-im-worthy-of-peace-404f13be1d96",
+      "title": "I’m Worthy of Peace",
+      "link": "https://stevepeeleii.substack.com/p/im-worthy-of-peace-404f13be1d96",
+      "pubDate": "Thu, 19 Jan 2023 14:42:25 GMT",
+      "excerpt": "Everyone deserves peace in their lives and it doesn’t have to be something that’s out of reach. It may take some time and effort to find…",
+      "image": "",
+      "source": "Substack",
+      "alsoOn": []
+    }
+  ]
+}

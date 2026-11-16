@@ -1,9 +1,13 @@
+/* Primary destinations for the legacy shell. Labels and routes mirror
+   CORE_NAV_ITEMS in src/components/core-chrome.tsx so the two shells
+   never disagree about what the site's sections are called. Home is
+   the wordmark in both shells, not a nav item. */
 export const primaryNav = [
-  { to: "/", label: "Home", exact: true, match: ["/"] },
-  { to: "/work", label: "Portfolio", exact: false, match: ["/work", "/portfolio"] },
+  { to: "/work", label: "Work", exact: false, match: ["/work", "/portfolio"] },
+  { to: "/experience", label: "Experience", exact: false, match: ["/experience"] },
+  { to: "/blog", label: "Writing", exact: false, match: ["/blog"] },
+  { to: "/music", label: "Music", exact: false, match: ["/music"] },
   { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
-  { to: "/ai", label: "AI", exact: false, match: ["/ai"] },
-  { to: "/blog", label: "Blog", exact: false, match: ["/blog"] },
 ] as const;
 
 export type HackingNavGroup = "start" | "track" | "apps";

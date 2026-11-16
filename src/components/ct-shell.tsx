@@ -18,10 +18,7 @@ import { profile } from "@/data/resume";
 
 export type Crumb = { label: string; to?: string };
 
-const SITE_NAV = [
-  ...primaryNav,
-  { to: "/music", label: "Music", exact: false, match: ["/music"] },
-] as const;
+const SITE_NAV = [...primaryNav] as const;
 
 export function CtShell({
   children,

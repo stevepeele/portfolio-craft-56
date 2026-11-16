@@ -1,11 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import "@/styles/core.css";
-
-const CORE_FONT_LINK = {
-  rel: "stylesheet",
-  href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap",
-} as const;
+import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -35,80 +31,6 @@ export const Route = createFileRoute("/contact")({
 /* no cards, no Control Tower shell.                                   */
 /* ------------------------------------------------------------------ */
 
-function CoreHeader() {
-  return (
-    <header className="core-topbar">
-      <div className="core-wrap core-topbar-inner">
-        <Link to="/" className="core-wordmark">
-          Steve Peele II<span>.</span>
-        </Link>
-        <nav className="core-mainnav" aria-label="Main">
-          <Link to="/work" className="core-navlink">
-            Work
-          </Link>
-          <Link to="/experience" className="core-navlink">
-            Experience
-          </Link>
-          <Link to="/quotes" className="core-navlink">
-            Quotes
-          </Link>
-          <Link to="/blog" className="core-navlink">
-            Writing
-          </Link>
-          <Link to="/work-together" className="core-navlink">
-            Work Together
-          </Link>
-          <Link to="/contact" className="core-navlink core-active" aria-current="page">
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function CoreFooter() {
-  return (
-    <footer className="core-pagefoot" style={{ marginTop: 120 }}>
-      <div className="core-pagefoot-left">Steve Peele II · Cincinnati, Ohio</div>
-      <div className="core-pagefoot-right">
-        <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
-        <a href="https://linkedin.com/in/spii" target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-      </div>
-    </footer>
-  );
-}
-
-/** Fade-and-rise on section entry, once only. Honors reduced motion via CSS. */
-function useCoreReveal(rootRef: React.RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const els = Array.from(root.querySelectorAll<HTMLElement>(".core-reveal"));
-    if (!("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("core-in"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            en.target.classList.add("core-in");
-            io.unobserve(en.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
-    );
-    els.forEach((el) => {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("core-in");
-      else io.observe(el);
-    });
-    return () => io.disconnect();
-  }, [rootRef]);
-}
 
 function ContactPage() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -116,7 +38,7 @@ function ContactPage() {
 
   return (
     <div className="core-root" ref={rootRef}>
-      <CoreHeader />
+      <CoreHeader active="contact" />
       <main className="core-wrap">
         <div className="core-view-head core-reveal">
           <h1>Contact</h1>

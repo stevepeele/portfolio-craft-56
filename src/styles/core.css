@@ -121,41 +121,84 @@
   height: 1px;
   background: var(--core-accent);
 }
-/* Six-item nav (SPIIX-1202): tighten before wrapping, then wrap under
-   the wordmark so small screens never crowd. */
-@media (max-width: 1020px) {
+/* Nav CTA + mobile menu. The desktop row carries six destinations
+   plus the Work Together CTA; below 1020px the row gives way to a
+   real menu button and a full-width panel, so small screens get a
+   menu instead of a wrapped row of links. */
+.core-root .core-navcta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--core-paper);
+  background: var(--core-ink);
+  padding: 8px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+.core-root .core-navcta:hover {
+  color: var(--core-paper);
+  background: var(--core-accent);
+}
+.core-root .core-navcta.core-active {
+  background: var(--core-accent);
+}
+.core-menubtn {
+  display: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--core-ink);
+  background: none;
+  border: 1px solid var(--core-line-2);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+.core-mobilemenu {
+  border-top: 1px solid var(--core-line);
+}
+.core-mobilemenu-inner {
+  padding-top: 10px;
+  padding-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.core-mobilelink {
+  font-family: var(--core-serif);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--core-line);
+  color: var(--core-ink);
+}
+.core-mobilelink.core-active {
+  color: var(--core-accent);
+}
+.core-mobilemenu-foot {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  color: var(--core-ink-3);
+}
+@media (max-width: 1120px) {
   .core-mainnav {
     gap: 20px;
   }
 }
-@media (max-width: 900px) {
-  .core-topbar-inner {
-    flex-wrap: wrap;
-    row-gap: 6px;
-  }
+@media (max-width: 1020px) {
   .core-mainnav {
-    order: 3;
-    flex-basis: 100%;
-    flex-wrap: wrap;
-    gap: 10px 20px;
-    padding-bottom: 2px;
+    display: none;
+  }
+  .core-menubtn {
+    display: inline-block;
   }
 }
 @media (max-width: 560px) {
-  .core-mainnav {
-    gap: 8px 16px;
-  }
   .core-wordmark {
     font-size: 16px;
   }
-  .core-navlink {
-    font-size: 13.5px;
-  }
 }
 @media (max-width: 380px) {
-  .core-mainnav {
-    gap: 8px 12px;
-  }
   .core-wordmark {
     font-size: 15px;
   }
@@ -456,6 +499,86 @@
 .core-pagefoot-right a {
   color: var(--core-ink-2);
   border-bottom: 1px solid var(--core-line-2);
+}
+
+/* Full footer (core-foot): brand block, Explore / Writing / Connect
+   columns, and a copyright bar. Rendered by CoreFooter on every core
+   page; the legacy shell mirrors the same structure. */
+.core-foot {
+  margin-top: 96px;
+  border-top: 1px solid var(--core-line);
+  padding: 52px 0 0;
+}
+.core-foot-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.15fr 1fr;
+  gap: 36px 32px;
+}
+.core-foot-brand p {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--core-ink-2);
+  max-width: 30ch;
+}
+.core-foot-brand .core-foot-loc {
+  color: var(--core-ink-3);
+  font-size: 13.5px;
+}
+.core-foot-head {
+  margin: 2px 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--core-ink-3);
+}
+.core-foot-link {
+  display: block;
+  padding: 3.5px 0;
+  font-size: 14.5px;
+  color: var(--core-ink-2);
+}
+.core-foot-link:hover {
+  color: var(--core-accent);
+}
+.core-foot-bar {
+  margin-top: 48px;
+  border-top: 1px solid var(--core-line);
+  padding: 20px 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--core-ink-3);
+}
+.core-foot-top {
+  font: inherit;
+  font-size: 13px;
+  color: var(--core-ink-2);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.core-foot-top:hover {
+  color: var(--core-accent);
+}
+@media (max-width: 860px) {
+  .core-foot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .core-foot-brand {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 480px) {
+  .core-foot-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 /* Inner page head (Work / Writing / Contact) */
@@ -1126,6 +1249,58 @@ a.blog-card:hover h2 {
 }
 .blog-elsewhere .blog-list {
   margin-top: 18px;
+}
+
+/* External rows + follow strip */
+.blog-ext-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--core-ink-2);
+}
+a.blog-card:hover .blog-ext-read {
+  color: var(--core-accent);
+}
+.blog-follow {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.blog-follow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--core-line-2);
+  padding: 22px 24px;
+}
+.blog-follow-card:hover {
+  color: inherit;
+  border-color: var(--core-accent);
+}
+.blog-follow-title {
+  font-family: var(--core-serif);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.blog-follow-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--core-accent);
+}
+@media (max-width: 640px) {
+  .blog-follow {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Article */

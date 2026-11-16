@@ -24,6 +24,8 @@ function crumbsFor(path: string): Crumb[] {
   const p = path.replace(/\/$/, "") || "/";
   if (p === "/") return [];
   if (p === "/work") return [{ label: "Home", to: "/" }, { label: "Work" }];
+  if (p === "/experience") return [{ label: "Home", to: "/" }, { label: "Experience" }];
+  if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
   if (p === "/spiix") return [{ label: "Home", to: "/" }, { label: "SPIIX" }];
   if (p === "/ai") return [{ label: "Home", to: "/" }, { label: "AI" }];
   if (p === "/services")
@@ -35,10 +37,9 @@ function crumbsFor(path: string): Crumb[] {
       { label: "Offers", to: "/spiix/compare" },
       { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
-  if (p === "/music") return [{ label: "Home", to: "/" }, { label: "Music" }];
-  if (p === "/blog") return [{ label: "Home", to: "/" }, { label: "Blog" }];
+  if (p === "/blog") return [{ label: "Home", to: "/" }, { label: "Writing" }];
   if (p.startsWith("/blog/"))
-    return [{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: "Article" }];
+    return [{ label: "Home", to: "/" }, { label: "Writing", to: "/blog" }, { label: "Article" }];
   if (p === "/hacking") return [{ label: "Home", to: "/" }, { label: "Building" }];
   if (p.startsWith("/hacking/"))
     return [

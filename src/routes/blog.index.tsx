@@ -1,9 +1,15 @@
 import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-router";
-import { ArrowUpRight, ExternalLink, Search } from "lucide-react";
+import { ArrowUpRight, Search } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
-import { ArchivePager, CategoryChips, PostRow, type BlogCategoryRef } from "@/components/blog-ui";
+import {
+  ArchivePager,
+  CategoryChips,
+  FollowStrip,
+  PostRow,
+  type BlogCategoryRef,
+} from "@/components/blog-ui";
 import {
   archivePageCount,
   clampArchivePage,
@@ -13,6 +19,13 @@ import {
 import { getBlogCards } from "@/lib/sanity-queries";
 import { collectionSummaries } from "@/lib/blog-taxonomy";
 import { fallbackExcerpt, readingMinutes, tidyExcerpt, wordCountFromText } from "@/lib/blog-utils";
+import {
+  crossPostsFor,
+  externalOnlyItems,
+  formatExternalDate,
+  type CrossPost,
+  type ExternalFeedItem,
+} from "@/lib/external-writing";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
 
@@ -52,13 +65,34 @@ export const Route = createFileRoute("/blog/")({
     }
     categories.sort((a, b) => a.name.localeCompare(b.name));
     const collections = collectionSummaries(posts);
+    // External writing, resolved in the loader from the build-time feed
+    // snapshot (src/lib/external-writing.ts): cross-posts badge the post
+    // they belong to; external-only pieces list separately, never as
+    // duplicates of archive posts.
+    const crossPosts: Record<string, CrossPost[]> = {};
+    for (const p of posts) {
+      const found = crossPostsFor(p.title);
+      if (found.length > 0) crossPosts[p._id] = found;
+    }
+    const externalOnly = externalOnlyItems(
+      posts.map((p) => p.title),
+      6,
+    );
     const archiveCount = posts.filter((post) => !lead || post._id !== lead._id).length;
     const pageCount = archivePageCount(archiveCount);
     const page = clampArchivePage(deps.page, pageCount);
     if (deps.page !== page) {
       throw redirect({ to: "/blog", search: page > 1 ? { page } : {} });
     }
-    return { lead, leadIsFeatured: Boolean(featured), posts, categories, collections };
+    return {
+      lead,
+      leadIsFeatured: Boolean(featured),
+      posts,
+      categories,
+      collections,
+      crossPosts,
+      externalOnly,
+    };
   },
   head: ({ match }) => {
     const page = match.search.page ?? 1;
@@ -86,45 +120,16 @@ export const Route = createFileRoute("/blog/")({
 
 /* ------------------------------------------------------------------ */
 /* Blog index (SPIIX-1201): lead story, searchable and filterable     */
-/* archive, external writing feeds. Presentation and loader only;     */
-/* cross-post matching below is unchanged from the SPIIX-1189 page.   */
+/* archive, collections, and external writing. Cross-post matching    */
+/* lives in src/lib/external-writing.ts and is resolved in the        */
+/* loader; this file only presents it.                                */
 /* ------------------------------------------------------------------ */
 
-function normalizeTitle(t: string): string {
-  return t
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-/**
- * Cross-posted callout (PLX-332): returns the external sources whose
- * normalized title matches the given Sanity post title. Conservative:
- * exact normalized match, or a long containment in either direction
- * (guards against subtitle drift).
- */
-function findCrossPostedSources(
-  title: string,
-  items: { title: string; source: string }[],
-): string[] {
-  const n = normalizeTitle(title);
-  if (n.length < 12) return [];
-  const sources = new Set<string>();
-  for (const item of items) {
-    const m = normalizeTitle(item.title);
-    if (!m) continue;
-    if (n === m || (n.length > 24 && m.includes(n)) || (m.length > 24 && n.includes(m))) {
-      sources.add(item.source);
-    }
-  }
-  return [...sources];
-}
-
-function CrossPostedBadge({ sources }: { sources: string[] }) {
-  if (sources.length === 0) return null;
+function CrossPostedBadge({ crossPosts }: { crossPosts: CrossPost[] }) {
+  if (crossPosts.length === 0) return null;
   return (
     <span title="This piece is also published on another platform" className="core-badge">
-      Also on {sources.join(" + ")}
+      Also on {crossPosts.map((c) => c.source).join(" + ")}
     </span>
   );
 }
@@ -137,8 +142,14 @@ function isNewPost(publishedAt?: string): boolean {
   return diffDays <= 7;
 }
 
-function RowBadges({ post, external }: { post: PostView; external: ExternalFeedItem[] }) {
-  const crossPosted = findCrossPostedSources(post.title, external);
+function RowBadges({
+  post,
+  crossPosts,
+}: {
+  post: PostView;
+  crossPosts: Record<string, CrossPost[]>;
+}) {
+  const found = crossPosts[post._id] ?? [];
   return (
     <>
       {isNewPost(post.publishedAt) && (
@@ -153,54 +164,54 @@ function RowBadges({ post, external }: { post: PostView; external: ExternalFeedI
           <b>Hot</b>
         </>
       )}
-      {crossPosted.length > 0 && (
+      {found.length > 0 && (
         <>
           {"  "}
-          <CrossPostedBadge sources={crossPosted} />
+          <CrossPostedBadge crossPosts={found} />
         </>
       )}
     </>
   );
 }
 
-type ExternalFeedItem = {
-  id: string;
-  title: string;
-  link: string;
-  pubDate: string;
-  excerpt: string;
-  source: "Substack" | "Medium";
-};
-
-function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
-  const date = item.pubDate
-    ? new Date(item.pubDate).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      })
-    : "";
+/** External-only piece: a first-class archive row that reads off-site. */
+function ExternalRow({ item }: { item: ExternalFeedItem }) {
+  const date = formatExternalDate(item.pubDate);
+  const alsoOn = item.alsoOn ?? [];
   return (
-    <a href={item.link} target="_blank" rel="noopener noreferrer" className="blog-card">
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={item.image ? "blog-card has-media" : "blog-card"}
+    >
       <span className="blog-card-copy">
         <span className="core-writing-meta">
-          Also on {item.source}
+          {item.source}
+          {alsoOn.length > 0 && <> + {alsoOn.join(" + ")}</>}
           {date && <> · {date}</>}
         </span>
         <h2>{item.title}</h2>
-        <p>
-          Read on {item.source} <ExternalLink size={12} style={{ verticalAlign: "-1px" }} />
-        </p>
+        {item.excerpt && <p>{item.excerpt}</p>}
+        <span className="blog-ext-read">
+          Read on {item.source} <ArrowUpRight size={13} style={{ verticalAlign: "-1px" }} />
+        </span>
       </span>
+      {item.image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={item.image} alt="" loading="lazy" className="blog-card-media" />
+      )}
     </a>
   );
 }
 
+
+
 function BlogIndexPage() {
-  const { lead, leadIsFeatured, posts, categories, collections } = Route.useLoaderData();
+  const { lead, leadIsFeatured, posts, categories, collections, crossPosts, externalOnly } =
+    Route.useLoaderData();
   const search = Route.useSearch();
   const navigate = useNavigate();
-  const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const rootRef = useRef<HTMLDivElement>(null);
@@ -210,26 +221,6 @@ function BlogIndexPage() {
     if ((search.page ?? 1) === 1) return;
     void navigate({ to: "/blog", search: {}, replace: true });
   };
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetch("/writing-feeds.json");
-        if (res.ok) {
-          const data = await res.json();
-          if (!cancelled && Array.isArray(data.items) && data.items.length > 0) {
-            setExternalItems(data.items.slice(0, 6));
-          }
-        }
-      } catch {
-        // Graceful fallback: section stays hidden
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const filtering = query.trim() !== "" || activeCategory !== "all";
   const pool = useMemo(() => {
@@ -300,7 +291,7 @@ function BlogIndexPage() {
               <span className="core-writing-meta">
                 {leadMeta.join("  ·  ")}
                 {"  "}
-                <CrossPostedBadge sources={findCrossPostedSources(lead.title, externalItems)} />
+                <CrossPostedBadge crossPosts={crossPosts[lead._id] ?? []} />
               </span>
               <h2>{lead.title}</h2>
               {lead.displayExcerpt && <p>{lead.displayExcerpt}</p>}
@@ -358,7 +349,7 @@ function BlogIndexPage() {
                       post={post}
                       minutes={post.minutes}
                       excerptText={post.displayExcerpt}
-                      metaExtra={<RowBadges post={post} external={externalItems} />}
+                      metaExtra={<RowBadges post={post} crossPosts={crossPosts} />}
                     />
                   ))}
                 </div>
@@ -409,13 +400,18 @@ function BlogIndexPage() {
           </div>
         )}
 
-        {externalItems.length > 0 && !filtering && page === 1 && (
+        {!filtering && page === 1 && <FollowStrip />}
+
+        {externalOnly.length > 0 && !filtering && page === 1 && (
           <div className="blog-elsewhere core-reveal">
-            <p className="core-section-label">Elsewhere</p>
-            <p className="core-writing-note">Recent notes from Substack &amp; Medium</p>
+            <p className="core-section-label">Only on Substack &amp; Medium</p>
+            <p className="core-writing-note">
+              Pieces that have not been collected into this archive yet. Everything else from both
+              platforms is already in the archive above, badged where it also ran.
+            </p>
             <div className="blog-list">
-              {externalItems.map((item) => (
-                <ExternalFeedCard key={item.id} item={item} />
+              {externalOnly.map((item) => (
+                <ExternalRow key={item.id} item={item} />
               ))}
             </div>
           </div>
