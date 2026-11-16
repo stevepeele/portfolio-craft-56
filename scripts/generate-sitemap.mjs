@@ -104,7 +104,19 @@ async function getDynamicUrls() {
       `*[_type == "post" && defined(publishedAt) && publishedAt <= now() && defined(slug.current)] { "slug": slug.current }`,
     );
     for (const p of posts) {
-      if (p.slug) urls.push([`/blog/${p.slug}`, 0.6]);
+      // SPIIX-1203 kill list: held out of the site data layer until the
+      // Sanity unpublish lands; keep it out of the sitemap too.
+      if (p.slug && p.slug !== "launching-muse-vault") urls.push([`/blog/${p.slug}`, 0.6]);
+    }
+    // SPIIX-1203 data layer: imports + categories that live in
+    // src/lib/blog-data.generated.ts until Sanity writes are unblocked.
+    try {
+      const extra = JSON.parse(
+        readFileSync(new URL("./blog-sitemap-urls.json", import.meta.url), "utf8"),
+      );
+      for (const u of extra) urls.push(u);
+    } catch {
+      console.warn("generate-sitemap: blog-sitemap-urls.json missing — skipping data-layer URLs");
     }
     const cats = await sanityQuery(
       projectId, dataset,

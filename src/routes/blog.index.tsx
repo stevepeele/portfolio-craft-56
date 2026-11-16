@@ -11,6 +11,7 @@ import {
   sliceArchive,
 } from "@/lib/blog-archive";
 import { getBlogCards } from "@/lib/sanity-queries";
+import { collectionSummaries } from "@/lib/blog-taxonomy";
 import { fallbackExcerpt, readingMinutes, tidyExcerpt, wordCountFromText } from "@/lib/blog-utils";
 import { sanityImageUrl as urlFor, formatSanityDate } from "@/lib/sanity";
 import type { SanityPostCard } from "@/lib/sanity-queries";
@@ -50,13 +51,14 @@ export const Route = createFileRoute("/blog/")({
       }
     }
     categories.sort((a, b) => a.name.localeCompare(b.name));
+    const collections = collectionSummaries(posts);
     const archiveCount = posts.filter((post) => !lead || post._id !== lead._id).length;
     const pageCount = archivePageCount(archiveCount);
     const page = clampArchivePage(deps.page, pageCount);
     if (deps.page !== page) {
       throw redirect({ to: "/blog", search: page > 1 ? { page } : {} });
     }
-    return { lead, leadIsFeatured: Boolean(featured), posts, categories };
+    return { lead, leadIsFeatured: Boolean(featured), posts, categories, collections };
   },
   head: ({ match }) => {
     const page = match.search.page ?? 1;
@@ -195,7 +197,7 @@ function ExternalFeedCard({ item }: { item: ExternalFeedItem }) {
 }
 
 function BlogIndexPage() {
-  const { lead, leadIsFeatured, posts, categories } = Route.useLoaderData();
+  const { lead, leadIsFeatured, posts, categories, collections } = Route.useLoaderData();
   const search = Route.useSearch();
   const navigate = useNavigate();
   const [externalItems, setExternalItems] = useState<ExternalFeedItem[]>([]);
@@ -380,6 +382,31 @@ function BlogIndexPage() {
               </div>
             )}
           </>
+        )}
+
+        {collections.length > 0 && !filtering && page === 1 && (
+          <div className="blog-collections core-reveal">
+            <p className="core-section-label">Collections</p>
+            <p className="core-writing-note">
+              Series that read as one long document, in order.
+            </p>
+            <div className="blog-list">
+              {collections.map((c) => (
+                <Link
+                  key={c.slug}
+                  to="/blog/$slug"
+                  params={{ slug: c.firstSlug! }}
+                  className="blog-card"
+                >
+                  <span className="blog-card-copy">
+                    <span className="core-writing-meta">{c.count} pieces</span>
+                    <h2>{c.name}</h2>
+                    <p>{c.description}</p>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
         )}
 
         {externalItems.length > 0 && !filtering && page === 1 && (

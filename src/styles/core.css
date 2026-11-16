@@ -1549,6 +1549,70 @@ a.blog-card:hover h2 {
   margin-top: 8px;
 }
 
+/* SPIIX-1203: source attribution + series (collection) navigation */
+.blog-source {
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: var(--core-ink-2);
+}
+.blog-source a {
+  font-weight: 600;
+  color: var(--core-ink);
+  border-bottom: 1px solid var(--core-accent);
+}
+.blog-source a:hover {
+  color: var(--core-accent);
+}
+.blog-series {
+  margin-top: 56px;
+  border: 1px solid var(--core-line);
+  background: var(--core-paper);
+  padding: 22px 22px 24px;
+}
+.blog-series .blog-series-name {
+  font-family: var(--core-serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-top: 6px;
+}
+.blog-series .blog-series-desc {
+  margin-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--core-ink-2);
+}
+.blog-series .blog-series-links {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+.blog-series .blog-series-links a {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--core-ink);
+}
+.blog-series .blog-series-links a:hover {
+  color: var(--core-accent);
+}
+.blog-series .blog-series-links span {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--core-ink-2);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* SPIIX-1203: collections strip on the blog index */
+.blog-collections {
+  margin-top: 64px;
+}
+.blog-collections .blog-list {
+  margin-top: 8px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .core-reveal {
     opacity: 1 !important;

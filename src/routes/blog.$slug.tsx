@@ -7,6 +7,7 @@ import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/compone
 import { PostRow } from "@/components/blog-ui";
 import { getLatestPosts, getPostBySlug } from "@/lib/sanity-queries";
 import type { SanityPostCard } from "@/lib/sanity-queries";
+import { seriesNavFor } from "@/lib/blog-taxonomy";
 import {
   chronologicalNeighbors,
   extractHeadings,
@@ -47,7 +48,8 @@ export const Route = createFileRoute("/blog/$slug")({
     );
     const related = [...manual, ...auto].slice(0, 3);
     const { newer, older } = chronologicalNeighbors(all, post.slug);
-    return { post, related, newer, older };
+    const seriesNav = seriesNavFor(params.slug, all);
+    return { post, related, newer, older, seriesNav };
   },
   head: ({ loaderData }) => {
     const post = loaderData?.post;
@@ -258,7 +260,7 @@ function AuthorNote({ authorName }: { authorName?: string | undefined }) {
 }
 
 function BlogPostPage() {
-  const { post, related, newer, older } = Route.useLoaderData();
+  const { post, related, newer, older, seriesNav } = Route.useLoaderData();
   const rootRef = useRef<HTMLDivElement>(null);
   useCoreReveal(rootRef);
 
@@ -296,6 +298,15 @@ function BlogPostPage() {
                 </Link>
               ))}
             </div>
+            {post.sourceUrl && (
+              <p className="blog-source">
+                Originally published on{" "}
+                <a href={post.sourceUrl} target="_blank" rel="noopener noreferrer">
+                  {post.sourceName ?? "another platform"}
+                </a>
+                . Collected here as part of the full archive.
+              </p>
+            )}
           </header>
 
           {post.mainImage && (
@@ -349,6 +360,30 @@ function BlogPostPage() {
 
             <AuthorNote authorName={post.author?.name} />
           </div>
+
+          {seriesNav && (
+            <section className="blog-series" aria-label={`Part of ${seriesNav.series.name}`}>
+              <p className="core-section-label">
+                Part {seriesNav.index + 1} of {seriesNav.total} in a collection
+              </p>
+              <p className="blog-series-name">{seriesNav.series.name}</p>
+              <p className="blog-series-desc">{seriesNav.series.description}</p>
+              <div className="blog-series-links">
+                {seriesNav.prev && (
+                  <Link to="/blog/$slug" params={{ slug: seriesNav.prev.slug }}>
+                    <span>Previous in the collection</span>
+                    {seriesNav.prev.title}
+                  </Link>
+                )}
+                {seriesNav.next && (
+                  <Link to="/blog/$slug" params={{ slug: seriesNav.next.slug }}>
+                    <span>Next in the collection</span>
+                    {seriesNav.next.title}
+                  </Link>
+                )}
+              </div>
+            </section>
+          )}
 
           {(older || newer) && (
             <nav className="blog-prevnext" aria-label="More articles">
