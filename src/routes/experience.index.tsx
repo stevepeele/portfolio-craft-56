@@ -3,13 +3,14 @@ import { useRef } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
 import { CompanyKeep } from "@/components/company-keep";
+import { CaseStudySection } from "@/components/case-study";
 import { certifications, education } from "@/data/resume";
 
 const title = "Experience: Career History | Steve Peele II";
 const description =
   "Steve Peele II's full career history: growth marketing and marketing operations roles from Dotloop's startup stage through Launch by NTT DATA, with the results from each seat.";
 
-export const Route = createFileRoute("/experience")({
+export const Route = createFileRoute("/experience/")({
   head: () => ({
     meta: [
       { title },
@@ -146,6 +147,7 @@ function ExperiencePage() {
           </p>
           <div className="core-subnav">
             <Link to="/work">The work record</Link>
+            <Link to="/experience/case-studies">Case studies</Link>
             <Link to="/quotes">Quotes</Link>
             <Link to="/work-together">Work together</Link>
           </div>
@@ -167,6 +169,8 @@ function ExperiencePage() {
             </article>
           ))}
         </div>
+
+        <CaseStudySection />
 
         <div className="core-reveal">
           <CompanyKeep />

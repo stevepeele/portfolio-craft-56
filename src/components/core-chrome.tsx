@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type RefObject } from "react";
-import { MEDIUM_HOME, SUBSTACK_HOME } from "@/lib/external-writing";
 
 /* ------------------------------------------------------------------ */
 /* Shared chrome for the core pages: the ONE header and footer for    */
@@ -118,91 +117,32 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
   );
 }
 
-const FOOTER_EXPLORE: Array<{ to: string; label: string }> = [
-  { to: "/work", label: "Work" },
+/* Simplified footer (2026-11-16): the essentials only — the name line,
+   the primary section nav on one row, and the copyright bar. The old
+   Explore / Writing / Connect columns duplicated the header nav, the
+   blog index, and the contact page, so they are gone. */
+const FOOTER_NAV: Array<{ to: string; label: string }> = [
   { to: "/experience", label: "Experience" },
-  { to: "/quotes", label: "Quotes" },
+  { to: "/work", label: "Work" },
   { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
   { to: "/hacking", label: "Building" },
   { to: "/spiix", label: "SPIIX" },
-  { to: "/work-together", label: "Work Together" },
   { to: "/contact", label: "Contact" },
-];
-
-const FOOTER_CATEGORIES: Array<{ slug: string; label: string }> = [
-  { slug: "growth", label: "Growth & Operating Systems" },
-  { slug: "ai-and-operators", label: "AI & Operators" },
-  { slug: "building", label: "Building" },
-  { slug: "personal", label: "Personal" },
-  { slug: "music", label: "Music & Stage" },
-];
-
-const FOOTER_CONNECT: Array<{ href: string; label: string }> = [
-  { href: "mailto:steve@stevepeeleii.com", label: "Email" },
-  { href: "https://linkedin.com/in/spii", label: "LinkedIn" },
-  { href: "https://x.com/stevepeeleii", label: "X" },
-  { href: "https://instagram.com/stevepeeleii", label: "Instagram" },
-  { href: "https://cv.stevepeeleii.com/", label: "CV" },
 ];
 
 export function CoreFooter() {
   return (
     <footer className="core-foot">
-      <div className="core-foot-grid">
-        <div className="core-foot-brand">
-          <Link to="/" className="core-wordmark">
-            Steve Peele II<span>.</span>
-          </Link>
-          <p>
-            Growth operator, builder, and musician. I run growth systems, ship the tools the work
-            needs, and write about it as it happens.
-          </p>
-          <p className="core-foot-loc">Cincinnati, Ohio · Working everywhere</p>
-        </div>
-        <nav className="core-foot-col" aria-label="Explore">
-          <p className="core-foot-head">Explore</p>
-          {FOOTER_EXPLORE.map((l) => (
-            <Link key={l.to} to={l.to as "/work"} className="core-foot-link">
+      <div className="core-foot-main">
+        <Link to="/" className="core-wordmark">
+          Steve Peele II<span>.</span>
+        </Link>
+        <nav className="core-foot-nav" aria-label="Footer">
+          {FOOTER_NAV.map((l) => (
+            <Link key={l.to} to={l.to as "/work"} className="core-foot-navlink">
               {l.label}
             </Link>
-          ))}
-        </nav>
-        <nav className="core-foot-col" aria-label="Writing">
-          <p className="core-foot-head">Writing</p>
-          <Link to="/blog" className="core-foot-link">
-            All articles
-          </Link>
-          {FOOTER_CATEGORIES.map((c) => (
-            <Link
-              key={c.slug}
-              to="/blog/category/$slug"
-              params={{ slug: c.slug }}
-              className="core-foot-link"
-            >
-              {c.label}
-            </Link>
-          ))}
-          <a href={SUBSTACK_HOME} target="_blank" rel="noreferrer" className="core-foot-link">
-            Substack ↗
-          </a>
-          <a href={MEDIUM_HOME} target="_blank" rel="noreferrer" className="core-foot-link">
-            Medium ↗
-          </a>
-        </nav>
-        <nav className="core-foot-col" aria-label="Connect">
-          <p className="core-foot-head">Connect</p>
-          {FOOTER_CONNECT.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              {...(l.href.startsWith("http")
-                ? { target: "_blank", rel: "noreferrer" }
-                : {})}
-              className="core-foot-link"
-            >
-              {l.label}
-            </a>
           ))}
         </nav>
       </div>

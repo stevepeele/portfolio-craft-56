@@ -17,7 +17,6 @@ import { Route as AuditRouteImport } from './routes/audit'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CvRouteImport } from './routes/cv'
 import { Route as DemandCurveAnalysisRouteImport } from './routes/demand-curve-analysis'
-import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as FaithRouteImport } from './routes/faith'
 import { Route as FractionalGrowthAdvisoryRouteImport } from './routes/fractional-growth-advisory'
 import { Route as GrowthLaddersRouteImport } from './routes/growth-ladders'
@@ -36,6 +35,7 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as WorkTogetherRouteImport } from './routes/work-together'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as ExperienceIndexRouteImport } from './routes/experience.index'
 import { Route as HackingIndexRouteImport } from './routes/hacking.index'
 import { Route as HackingBinslyRouteImport } from './routes/hacking.binsly'
 import { Route as HackingDardoRouteImport } from './routes/hacking.dardo'
@@ -96,6 +96,8 @@ import { Route as SpiixSignalsRouteImport } from './routes/spiix.signals'
 import { Route as SpiixWhoIHelpRouteImport } from './routes/spiix.who-i-help'
 import { Route as StudioSplatRouteImport } from './routes/studio.$'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.category.$slug'
+import { Route as ExperienceCaseStudiesIndexRouteImport } from './routes/experience.case-studies.index'
+import { Route as ExperienceCaseStudiesSlugRouteImport } from './routes/experience.case-studies.$slug'
 import { Route as HackingAppSlugChangelogRouteImport } from './routes/hacking.$appSlug.changelog'
 import { Route as ScaffoldingArchitectureIndexRouteImport } from './routes/scaffolding.architecture.index'
 import { Route as ScaffoldingArchitectureAnalyticsRouteImport } from './routes/scaffolding.architecture.analytics'
@@ -147,11 +149,6 @@ const CvRoute = CvRouteImport.update({
 const DemandCurveAnalysisRoute = DemandCurveAnalysisRouteImport.update({
   id: '/demand-curve-analysis',
   path: '/demand-curve-analysis',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExperienceRoute = ExperienceRouteImport.update({
-  id: '/experience',
-  path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaithRoute = FaithRouteImport.update({
@@ -243,6 +240,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
   path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperienceIndexRoute = ExperienceIndexRouteImport.update({
+  id: '/experience/',
+  path: '/experience/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackingIndexRoute = HackingIndexRouteImport.update({
@@ -547,6 +549,18 @@ const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
   path: '/blog/category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceCaseStudiesIndexRoute =
+  ExperienceCaseStudiesIndexRouteImport.update({
+    id: '/experience/case-studies/',
+    path: '/experience/case-studies/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ExperienceCaseStudiesSlugRoute =
+  ExperienceCaseStudiesSlugRouteImport.update({
+    id: '/experience/case-studies/$slug',
+    path: '/experience/case-studies/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HackingAppSlugChangelogRoute = HackingAppSlugChangelogRouteImport.update({
   id: '/hacking/$appSlug/changelog',
   path: '/hacking/$appSlug/changelog',
@@ -626,7 +640,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
-  '/experience': typeof ExperienceRoute
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
@@ -700,11 +713,13 @@ export interface FileRoutesByFullPath {
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
+  '/experience/': typeof ExperienceIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/music/': typeof MusicIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/experience/case-studies/$slug': typeof ExperienceCaseStudiesSlugRoute
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
@@ -716,6 +731,7 @@ export interface FileRoutesByFullPath {
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/experience/case-studies/': typeof ExperienceCaseStudiesIndexRoute
   '/scaffolding/architecture/': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRoutesByTo {
@@ -727,7 +743,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
-  '/experience': typeof ExperienceRoute
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
@@ -797,11 +812,13 @@ export interface FileRoutesByTo {
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/studio/$': typeof StudioSplatRoute
   '/blog': typeof BlogIndexRoute
+  '/experience': typeof ExperienceIndexRoute
   '/hacking': typeof HackingIndexRoute
   '/music': typeof MusicIndexRoute
   '/services': typeof ServicesIndexRoute
   '/spiix': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/experience/case-studies/$slug': typeof ExperienceCaseStudiesSlugRoute
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
@@ -813,6 +830,7 @@ export interface FileRoutesByTo {
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/experience/case-studies': typeof ExperienceCaseStudiesIndexRoute
   '/scaffolding/architecture': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRoutesById {
@@ -825,7 +843,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cv': typeof CvRoute
   '/demand-curve-analysis': typeof DemandCurveAnalysisRoute
-  '/experience': typeof ExperienceRoute
   '/faith': typeof FaithRoute
   '/fractional-growth-advisory': typeof FractionalGrowthAdvisoryRoute
   '/growth-ladders': typeof GrowthLaddersRoute
@@ -899,11 +916,13 @@ export interface FileRoutesById {
   '/spiix/who-i-help': typeof SpiixWhoIHelpRoute
   '/studio/$': typeof StudioSplatRoute
   '/blog/': typeof BlogIndexRoute
+  '/experience/': typeof ExperienceIndexRoute
   '/hacking/': typeof HackingIndexRoute
   '/music/': typeof MusicIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/spiix/': typeof SpiixIndexRoute
   '/blog/category/$slug': typeof BlogCategorySlugRoute
+  '/experience/case-studies/$slug': typeof ExperienceCaseStudiesSlugRoute
   '/hacking/$appSlug/changelog': typeof HackingAppSlugChangelogRoute
   '/scaffolding/architecture/analytics': typeof ScaffoldingArchitectureAnalyticsRoute
   '/scaffolding/architecture/data-flows': typeof ScaffoldingArchitectureDataFlowsRoute
@@ -915,6 +934,7 @@ export interface FileRoutesById {
   '/spiix/engage/elite-mentorship': typeof SpiixEngageEliteMentorshipRoute
   '/spiix/engage/fractional-advisory': typeof SpiixEngageFractionalAdvisoryRoute
   '/spiix/engage/gtm-audit': typeof SpiixEngageGtmAuditRoute
+  '/experience/case-studies/': typeof ExperienceCaseStudiesIndexRoute
   '/scaffolding/architecture/': typeof ScaffoldingArchitectureIndexRoute
 }
 export interface FileRouteTypes {
@@ -928,7 +948,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
-    | '/experience'
     | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
@@ -1002,11 +1021,13 @@ export interface FileRouteTypes {
     | '/spiix/who-i-help'
     | '/studio/$'
     | '/blog/'
+    | '/experience/'
     | '/hacking/'
     | '/music/'
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/experience/case-studies/$slug'
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
@@ -1018,6 +1039,7 @@ export interface FileRouteTypes {
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/experience/case-studies/'
     | '/scaffolding/architecture/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -1029,7 +1051,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
-    | '/experience'
     | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
@@ -1099,11 +1120,13 @@ export interface FileRouteTypes {
     | '/spiix/who-i-help'
     | '/studio/$'
     | '/blog'
+    | '/experience'
     | '/hacking'
     | '/music'
     | '/services'
     | '/spiix'
     | '/blog/category/$slug'
+    | '/experience/case-studies/$slug'
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
@@ -1115,6 +1138,7 @@ export interface FileRouteTypes {
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/experience/case-studies'
     | '/scaffolding/architecture'
   id:
     | '__root__'
@@ -1126,7 +1150,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cv'
     | '/demand-curve-analysis'
-    | '/experience'
     | '/faith'
     | '/fractional-growth-advisory'
     | '/growth-ladders'
@@ -1200,11 +1223,13 @@ export interface FileRouteTypes {
     | '/spiix/who-i-help'
     | '/studio/$'
     | '/blog/'
+    | '/experience/'
     | '/hacking/'
     | '/music/'
     | '/services/'
     | '/spiix/'
     | '/blog/category/$slug'
+    | '/experience/case-studies/$slug'
     | '/hacking/$appSlug/changelog'
     | '/scaffolding/architecture/analytics'
     | '/scaffolding/architecture/data-flows'
@@ -1216,6 +1241,7 @@ export interface FileRouteTypes {
     | '/spiix/engage/elite-mentorship'
     | '/spiix/engage/fractional-advisory'
     | '/spiix/engage/gtm-audit'
+    | '/experience/case-studies/'
     | '/scaffolding/architecture/'
   fileRoutesById: FileRoutesById
 }
@@ -1228,7 +1254,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CvRoute: typeof CvRoute
   DemandCurveAnalysisRoute: typeof DemandCurveAnalysisRoute
-  ExperienceRoute: typeof ExperienceRoute
   FaithRoute: typeof FaithRoute
   FractionalGrowthAdvisoryRoute: typeof FractionalGrowthAdvisoryRoute
   GrowthLaddersRoute: typeof GrowthLaddersRoute
@@ -1264,9 +1289,12 @@ export interface RootRouteChildren {
   HackingWhatsNextRoute: typeof HackingWhatsNextRoute
   PreviewSlugRoute: typeof PreviewSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  ExperienceIndexRoute: typeof ExperienceIndexRoute
   HackingIndexRoute: typeof HackingIndexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
+  ExperienceCaseStudiesSlugRoute: typeof ExperienceCaseStudiesSlugRoute
   HackingAppSlugChangelogRoute: typeof HackingAppSlugChangelogRoute
+  ExperienceCaseStudiesIndexRoute: typeof ExperienceCaseStudiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1325,13 +1353,6 @@ declare module '@tanstack/react-router' {
       path: '/demand-curve-analysis'
       fullPath: '/demand-curve-analysis'
       preLoaderRoute: typeof DemandCurveAnalysisRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/experience': {
-      id: '/experience'
-      path: '/experience'
-      fullPath: '/experience'
-      preLoaderRoute: typeof ExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faith': {
@@ -1458,6 +1479,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience/': {
+      id: '/experience/'
+      path: '/experience'
+      fullPath: '/experience/'
+      preLoaderRoute: typeof ExperienceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hacking/': {
@@ -1880,6 +1908,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience/case-studies/': {
+      id: '/experience/case-studies/'
+      path: '/experience/case-studies'
+      fullPath: '/experience/case-studies/'
+      preLoaderRoute: typeof ExperienceCaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience/case-studies/$slug': {
+      id: '/experience/case-studies/$slug'
+      path: '/experience/case-studies/$slug'
+      fullPath: '/experience/case-studies/$slug'
+      preLoaderRoute: typeof ExperienceCaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hacking/$appSlug/changelog': {
       id: '/hacking/$appSlug/changelog'
       path: '/hacking/$appSlug/changelog'
@@ -2160,7 +2202,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CvRoute: CvRoute,
   DemandCurveAnalysisRoute: DemandCurveAnalysisRoute,
-  ExperienceRoute: ExperienceRoute,
   FaithRoute: FaithRoute,
   FractionalGrowthAdvisoryRoute: FractionalGrowthAdvisoryRoute,
   GrowthLaddersRoute: GrowthLaddersRoute,
@@ -2196,9 +2237,12 @@ const rootRouteChildren: RootRouteChildren = {
   HackingWhatsNextRoute: HackingWhatsNextRoute,
   PreviewSlugRoute: PreviewSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  ExperienceIndexRoute: ExperienceIndexRoute,
   HackingIndexRoute: HackingIndexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
+  ExperienceCaseStudiesSlugRoute: ExperienceCaseStudiesSlugRoute,
   HackingAppSlugChangelogRoute: HackingAppSlugChangelogRoute,
+  ExperienceCaseStudiesIndexRoute: ExperienceCaseStudiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
