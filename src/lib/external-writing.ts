@@ -82,10 +82,16 @@ export function crossPostsFor(postTitle: string): CrossPost[] {
 
 /**
  * Feed items with no home on the blog yet: the pieces that exist only
- * on Substack or Medium. Anything whose title matches a blog post is a
- * cross-post (badged on the post), never a duplicate card here.
+ * on Substack or Medium, listed as link-out cards (cover, title,
+ * preview) that read at the original. Anything whose title matches a
+ * blog post is a cross-post (badged on the post), never a duplicate
+ * card here. The full set is listed by default: the snapshot is the
+ * complete catalog of both platforms, not a recent-posts teaser.
  */
-export function externalOnlyItems(postTitles: string[], limit = 6): ExternalFeedItem[] {
+export function externalOnlyItems(
+  postTitles: string[],
+  limit = Number.POSITIVE_INFINITY,
+): ExternalFeedItem[] {
   return EXTERNAL_ITEMS.filter(
     (item) => !postTitles.some((t) => titlesMatch(t, item.title)),
   ).slice(0, limit);

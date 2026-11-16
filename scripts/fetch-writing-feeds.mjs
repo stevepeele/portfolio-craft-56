@@ -1,5 +1,8 @@
 // Fetches Substack + Medium RSS feeds and writes a clean, deduped JSON
-// snapshot to src/data/writing-feeds.json. Run before build:
+// snapshot to src/data/writing-feeds.json. The Substack public archive
+// API is merged in as well, because RSS only carries recent posts and
+// the snapshot is meant to be the complete catalog of both platforms.
+// Run before build:
 // `node scripts/fetch-writing-feeds.mjs` (wired as the `feeds` script and
 // the first step of `prebuild`).
 //
@@ -217,9 +220,106 @@ for (const feed of FEEDS) {
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Substack archive: RSS only carries recent posts, so the snapshot   */
+/* would silently drop the back catalog. The public archive API lists */
+/* every published post (title, subtitle, cover image, date), so it   */
+/* is merged in here: the RSS record stays canonical (richer excerpt  */
+/* and image extraction), the archive fills its gaps and contributes  */
+/* the posts RSS no longer carries, paywalled ones included — the     */
+/* blog cards link out to the original, so a paywall stub is still a  */
+/* valid card. Failure posture matches the feeds: if the archive is   */
+/* unreachable, the RSS snapshot stands on its own.                   */
+/* ------------------------------------------------------------------ */
+
+const SUBSTACK_ARCHIVE = "https://stevepeeleii.substack.com/api/v1/archive";
+
+function cleanArchiveExcerpt(post) {
+  const raw = (post.subtitle || post.description || "").trim();
+  if (!raw || /^continue reading/i.test(raw)) return "";
+  const text = decodeEntities(raw).replace(/\s+/g, " ").trim();
+  if (text.length < 40) return "";
+  return text.length > 240 ? text.slice(0, 240).trimEnd() + "…" : text;
+}
+
+async function fetchSubstackArchive() {
+  const items = [];
+  let cursor = null;
+  for (let page = 0; page < 10; page++) {
+    const params = new URLSearchParams({ sort: "new", limit: "12" });
+    if (cursor) params.set("cursor", cursor);
+    const res = await fetch(`${SUBSTACK_ARCHIVE}?${params}`, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; stevepeeleii.com feed fetcher)" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const posts = Array.isArray(data) ? data : (data.posts ?? []);
+    for (const post of posts) {
+      const title = decodeEntities(post.title ?? "")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (!title || EXCLUDED_TITLES.has(normalizeTitle(title))) continue;
+      const link = cleanLink(
+        post.canonical_url || `https://stevepeeleii.substack.com/p/${post.slug}`,
+      );
+      items.push({
+        id: slugId(link, "Substack"),
+        title,
+        link,
+        pubDate: post.post_date ?? "",
+        excerpt: cleanArchiveExcerpt(post),
+        image: post.cover_image ?? "",
+        source: "Substack",
+        alsoOn: [],
+      });
+    }
+    cursor = Array.isArray(data) ? null : data.nextCursor;
+    if (!cursor || posts.length === 0) break;
+  }
+  return items;
+}
+
+/** Merge same-platform archive records into the RSS records: fill empty
+ *  fields, append posts the feed no longer carries, never duplicate and
+ *  never mark a same-platform record as a cross-post. */
+function mergeSameSource(target, archiveItems) {
+  const byKey = new Map();
+  for (const item of target) {
+    byKey.set(normalizeTitle(item.title), item);
+    byKey.set(item.id, item);
+  }
+  let added = 0;
+  for (const item of archiveItems) {
+    const existing = byKey.get(normalizeTitle(item.title)) ?? byKey.get(item.id);
+    if (!existing) {
+      target.push(item);
+      byKey.set(normalizeTitle(item.title), item);
+      byKey.set(item.id, item);
+      added++;
+      continue;
+    }
+    if (!existing.excerpt && item.excerpt) existing.excerpt = item.excerpt;
+    if (!existing.image && item.image) existing.image = item.image;
+    if (!existing.pubDate && item.pubDate) existing.pubDate = item.pubDate;
+  }
+  return added;
+}
+
+let substackArchiveOk = false;
+try {
+  const archiveItems = await fetchSubstackArchive();
+  const added = mergeSameSource(collected, archiveItems);
+  substackArchiveOk = archiveItems.length > 0;
+  console.log(`Substack archive: ${archiveItems.length} posts, ${added} new to the snapshot`);
+} catch (err) {
+  console.error(`Substack archive failed: ${err.message}`);
+}
+
 if (failedSources.size > 0) {
   const prev = previousItems();
   for (const source of failedSources) {
+    // A healthy archive pass already supplied the full Substack set.
+    if (source === "Substack" && substackArchiveOk) continue;
     const kept = prev.filter((i) => i.source === source);
     if (kept.length > 0) {
       collected.push(...kept);
