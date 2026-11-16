@@ -5,7 +5,7 @@ import { CtShell, CtHero, CtLabel } from "@/components/ct-shell";
 const URL_ = "https://stevepeeleii.com/ai";
 const TITLE = "AI — How I Work With It | Steve Peele II";
 const DESC =
-  "Not AI for its own sake. How Steve Peele II uses AI to operationalize 14 years of growth judgment — marketing operations, segmentation, lifecycle, and pipeline — at machine speed. Some people build with AI. I grow next to it.";
+  "Not AI for its own sake. How Steve Peele II uses AI to operationalize 14 years of growth judgment: marketing operations, segmentation, lifecycle, and pipeline, at machine speed. Some people build with AI. I grow next to it.";
 
 export const Route = createFileRoute("/ai")({
   head: () => ({

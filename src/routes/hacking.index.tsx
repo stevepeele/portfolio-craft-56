@@ -38,7 +38,7 @@ const appStatusMeta = {
   live: { label: "Live", dot: "live" },
   building: { label: "Building", dot: "building" },
   queued: { label: "Queued", dot: "soon" },
-  soon: { label: "Soon", dot: "soon" },
+  soon: { label: "Workbench", dot: "soon" },
 } as const;
 
 function HackingPage() {
@@ -89,7 +89,7 @@ function HackingPage() {
                       </span>
                     ) : (
                       <span className="go" style={{ color: "var(--muted)" }}>
-                        Page coming soon
+                        No page yet
                       </span>
                     )}
                   </>

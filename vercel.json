@@ -38,6 +38,18 @@
       "source": "/hacking/wax-and-ash/changelog",
       "destination": "/hacking/wax-and-ash",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.stevepeeleii.com" }],
+      "destination": "https://stevepeeleii.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "stevepeeleii.vercel.app" }],
+      "destination": "https://stevepeeleii.com/:path*",
+      "permanent": true
     }
   ],
   "rewrites": [

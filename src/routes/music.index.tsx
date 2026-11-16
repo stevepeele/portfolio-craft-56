@@ -39,7 +39,7 @@ function MusicPage() {
               One thread.
               <br />
               <br />
-              Guitarist, songwriter, producer. The work speaks — pick a project and listen.
+              Guitarist, songwriter, producer. The work speaks. Pick a project and listen.
             </>
           }
         >
@@ -57,7 +57,7 @@ function MusicPage() {
           <div className="wrap">
             <CtLabel n="01">The Projects</CtLabel>
             <h2 className="shead">
-              Five projects. <span>01—05</span>
+              Five projects. <span>01-05</span>
             </h2>
 
             <div className="ecard feat rev">

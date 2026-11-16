@@ -2,14 +2,14 @@
    (src/styles/home-tower.css, SPIIX-1114) for every remaining nav page
    (SPIIX-1142). All rules scoped under .ctw. Same tokens, same motion
    grammar, same numbered-file wayfinding as the homepage. */
-.ctw{--bg:#09090B;--panel:#111113;--line:#232326;--text:#F2F2F2;--muted:#808080;--kin:#FF4D00;--tint:rgba(255,77,0,.07)}
+.ctw{--bg:#faf8f4;--panel:#f3efe6;--line:#e6e0d6;--text:#141310;--muted:#3d3a35;--kin:#c8371b;--tint:rgba(200,55,27,.07)}
 .ctw *{box-sizing:border-box}
 .ctw :where(*:not(.music-page):not(.music-page *)){margin:0;padding:0}
 /* The music project system keeps its own spacing rules (styles.css);
    the framework reset must not flatten its class paddings/margins.
    :where() keeps the reset at floor specificity so every tower
    component rule in this file still wins on order. */
-.ctw{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;font-size:15px;min-height:100vh}
+.ctw{background:var(--bg);color:var(--text);font-family:"Newsreader",Georgia,serif;overflow-x:clip;font-size:17px;line-height:1.6;min-height:100vh}
 .ctw ::selection{background:var(--kin);color:#09090B}
 .ctw .wrap{width:calc(100% - 40px);margin:0 auto;max-width:1240px}
 .ctw .mono{font:500 10px "JetBrains Mono",ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}
@@ -314,4 +314,101 @@
 .ctw *{animation:none!important;transition:none!important}
 .ctw .rev,.ctw .stag>*{opacity:1!important;transform:none!important}
 .ctw .ptitle{clip-path:none}
+}
+
+/* Paper system. Same tokens as the core site, so Music, AI, and the
+   other tower pages do not drop into a second brand. */
+@media (prefers-color-scheme: dark) {
+  .ctw {
+    --bg: #131210;
+    --panel: #1c1a17;
+    --line: #2a2723;
+    --text: #f2eee6;
+    --muted: #cfc9bb;
+    --kin: #e85a3a;
+    --tint: rgba(232, 90, 58, 0.1);
+  }
+}
+.ctw h1,
+.ctw h2,
+.ctw h3,
+.ctw .ptitle,
+.ctw .shead,
+.ctw .logo,
+.ctw .direct h2,
+.ctw .card h3,
+.ctw .row h3,
+.ctw .tl h3,
+.ctw .ecard h3,
+.ctw .prose h2,
+.ctw .prose h3,
+.ctw .fgrid .flogo,
+.ctw .statgrid strong,
+.ctw .ptog strong {
+  font-family: "Fraunces", Georgia, serif;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.ctw .logo { font-size: 18px; }
+.ctw .ptitle { animation: none; clip-path: none; line-height: 0.98; }
+.ctw .phero:before,
+.ctw .phero .scan { display: none; }
+.ctw header.site {
+  position: sticky;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+}
+.ctw .crumbs { margin-top: 0; }
+.ctw .phero { padding-top: 56px; }
+.ctw .crumbs + main .phero,
+.ctw .crumbs ~ main .phero { padding-top: 40px; }
+.ctw nav.main > a,
+.ctw .menubtn,
+.ctw .mnav a,
+.ctw .kicker,
+.ctw .mono,
+.ctw .slabel {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+.ctw nav.main > a.on { color: var(--text); font-weight: 600; }
+.ctw .btn,
+.ctw .btn.talk {
+  background: var(--text);
+  color: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0;
+  clip-path: none;
+  border-radius: 999px;
+  min-height: 42px;
+}
+.ctw .btn:hover,
+.ctw .btn.talk:hover { background: var(--kin); color: var(--bg); box-shadow: none; }
+.ctw .btn.o { background: transparent; color: var(--text); border-radius: 999px; }
+.ctw.js .rev,
+.ctw.js .stag > * { opacity: 1; transform: none; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ctw .rev {
+      animation: ctw-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
+  }
+}
+@keyframes ctw-rise {
+  from { transform: translateY(10px); }
+  to { transform: none; }
+}
+@media (max-width: 1100px) {
+  .ctw nav.main { display: none; }
+  .ctw .menubtn { display: inline-block; }
+  .ctw .btn.talk { display: none; }
+  .ctw .mnav { display: block !important; }
 }

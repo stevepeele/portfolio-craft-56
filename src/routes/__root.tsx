@@ -170,7 +170,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "14+ years building scalable growth systems. $350M+ pipeline driven. Creator of SPIIX and Growth Ladders.",
       },
       { name: "twitter:image", content: "https://stevepeeleii.com/og-image.jpg" },
-      { name: "theme-color", content: "#0a0a0a" },
+      { name: "theme-color", content: "#faf8f4" },
     ],
     scripts: [
       {

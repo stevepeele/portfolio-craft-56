@@ -14,14 +14,8 @@
   <url><loc>https://stevepeeleii.com/blog</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/os</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/impact</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
-  <url><loc>https://stevepeeleii.com/spiix/diagnostics</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/signal</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
-  <url><loc>https://stevepeeleii.com/spiix/signal-report</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority></url>
-  <url><loc>https://stevepeeleii.com/demand-curve-analysis</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
-  <url><loc>https://stevepeeleii.com/faith</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
-  <url><loc>https://stevepeeleii.com/obviously</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/software</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
-  <url><loc>https://stevepeeleii.com/sprint</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/compare</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/connect</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/spiix/who-i-help</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
@@ -37,20 +31,16 @@
   <url><loc>https://stevepeeleii.com/hacking/gigsplit</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/monitor-mix-cheat</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/muse-vault</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
-  <url><loc>https://stevepeeleii.com/hacking/nexus</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/profolio</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/quotequick</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/repurpose-engine</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
-  <url><loc>https://stevepeeleii.com/hacking/smart-access</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/stageplot-ai</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/stampd</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/wax-and-ash</loc><lastmod>2026-11-16</lastmod><priority>0.5</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/binsly/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/profolio/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
-  <url><loc>https://stevepeeleii.com/hacking/smart-access/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/stageplot-ai/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/monitor-mix-cheat/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
-  <url><loc>https://stevepeeleii.com/hacking/nexus/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/dardo/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/stampd/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
   <url><loc>https://stevepeeleii.com/hacking/repurpose-engine/changelog</loc><lastmod>2026-11-16</lastmod><priority>0.4</priority></url>
@@ -66,6 +56,7 @@
   <url><loc>https://stevepeeleii.com/blog/fourteen-hours</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/blog/the-parsing-layer</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/blog/promptvault-launch</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
+  <url><loc>https://stevepeeleii.com/blog/launching-muse-vault</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/blog/building-between-bedtimes</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/blog/four-exits-and-a-job-search</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>
   <url><loc>https://stevepeeleii.com/blog/nobody-needs-another-dashboard</loc><lastmod>2026-11-16</lastmod><priority>0.6</priority></url>

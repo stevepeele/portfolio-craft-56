@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "@/styles/core.css";
 import { CORE_FONT_LINK, CoreFooter, CoreHeader, useCoreReveal } from "@/components/core-chrome";
 import { CompanyKeep } from "@/components/company-keep";
@@ -7,17 +7,17 @@ import { CompanyKeep } from "@/components/company-keep";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
+      { title: "Steve Peele II | Growth Operator, Builder, and Musician" },
       {
         name: "description",
         content:
-          "Steve Peele II is a growth marketing leader, operator, musician, and connector with 14+ years building scalable marketing, revenue, and growth systems.",
+          "Steve Peele II is a growth operator and builder. Fourteen years connecting strategy, data, and execution for SaaS and tech companies, plus the tools he ships.",
       },
-      { property: "og:title", content: "Steve Peele II | Growth Marketing Leader, Operator & Musician" },
+      { property: "og:title", content: "Steve Peele II | Growth Operator, Builder, and Musician" },
       {
         property: "og:description",
         content:
-          "A growth marketing leader and operator connecting strategy, people, technology, data, creative, and execution.",
+          "Growth operator and builder. Fourteen years of strategy, data, and execution, plus the tools the work needed.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -98,94 +98,44 @@ const RECORD: Array<{ company: string; role: string; result: string }> = [
 
 function Home() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const trajRef = useRef<HTMLDivElement>(null);
-  const pathRef = useRef<SVGPathElement>(null);
-  const dotRef = useRef<SVGCircleElement>(null);
-
   useCoreReveal(rootRef);
-
-  /* Trajectory line: stroke-draw once when it enters view. */
-  useEffect(() => {
-    const container = trajRef.current;
-    const path = pathRef.current;
-    const dot = dotRef.current;
-    if (!container || !path) return;
-    let timer: number | undefined;
-    const draw = () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        dot?.setAttribute("opacity", "1");
-        return;
-      }
-      let len = 980;
-      try {
-        len = path.getTotalLength();
-      } catch {
-        /* keep fallback length */
-      }
-      path.style.strokeDasharray = String(len);
-      path.style.strokeDashoffset = String(len);
-      void path.getBoundingClientRect();
-      path.style.transition = "stroke-dashoffset 1.8s cubic-bezier(.22,1,.36,1) 0.2s";
-      path.style.strokeDashoffset = "0";
-      if (dot) {
-        timer = window.setTimeout(() => {
-          dot.style.transition = "opacity .4s ease";
-          dot.setAttribute("opacity", "1");
-        }, 1750);
-      }
-    };
-    if (!("IntersectionObserver" in window)) {
-      draw();
-      return () => window.clearTimeout(timer);
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          draw();
-          io.disconnect();
-        }
-      },
-      { threshold: 0.2 },
-    );
-    io.observe(container);
-    return () => {
-      io.disconnect();
-      window.clearTimeout(timer);
-    };
-  }, []);
 
   return (
     <div className="core-root" ref={rootRef}>
       <CoreHeader />
       <main className="core-wrap">
-        <section className="core-hero core-reveal">
-          <p className="core-eyebrow">Growth marketing leader · Cincinnati</p>
+        <section className="core-hero">
           <h1>
-            Growth marketing that builds <em>real pipeline.</em>
+            Growth operator <em>and builder.</em>
           </h1>
           <p className="core-hero-lede">
             Fourteen years connecting strategy, data, and execution for SaaS and tech companies,
-            from early startup through acquisition.
+            from early startup through acquisition. I run the growth system, and I build the tools
+            when the stack does not have them. Cincinnati.
           </p>
           <div className="core-hero-meta">
-            <Link to="/contact" className="core-avail">
-              Available for fractional and full-time leadership
+            <Link to="/work-together" className="core-navcta">
+              Work together
             </Link>
-            <Link to="/contact" className="core-cta-link">
-              Get in touch →
+            <Link to="/work" className="core-cta-link">
+              See the record
             </Link>
           </div>
-
-          <div className="core-trajectory" aria-hidden="true" ref={trajRef}>
-            <svg viewBox="0 0 880 120" preserveAspectRatio="none" role="img" aria-label="">
-              <line x1="0" y1="108" x2="880" y2="108" className="core-baseline" />
-              <path
-                ref={pathRef}
-                d="M0,102 C90,98 140,92 210,84 C290,74 340,78 410,62 C480,46 540,48 610,32 C680,16 760,14 880,6"
-              />
-              <circle className="core-dot" cx="880" cy="6" r="4" ref={dotRef} opacity="0" />
-            </svg>
-          </div>
+          <p className="core-hero-note">Available for fractional and full-time leadership.</p>
+          <nav className="core-paths" aria-label="Also on this site">
+            <Link to="/hacking">
+              <strong>Building</strong>
+              <span>Tools shipped when the work needed one.</span>
+            </Link>
+            <Link to="/blog">
+              <strong>Writing</strong>
+              <span>Notes on growth, operating, and making things.</span>
+            </Link>
+            <Link to="/music">
+              <strong>Music</strong>
+              <span>Guitar, songwriting, and five projects.</span>
+            </Link>
+          </nav>
         </section>
 
         <section className="core-proof core-reveal" aria-label="Selected results">

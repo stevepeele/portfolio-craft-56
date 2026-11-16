@@ -1,14 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
 import "@/styles/tower.css";
-import {
-  hackingMatch,
-  hackingNav,
-  hackingNavGroups,
-  hackingStatusDotClass,
-  primaryNav,
-} from "@/data/navigation";
+import { CORE_FONT_LINK, CORE_NAV_ITEMS } from "@/components/core-chrome";
 import { profile } from "@/data/resume";
 
 /* Control Tower shell (SPIIX-1142) — the shared core framework for every
@@ -18,7 +11,23 @@ import { profile } from "@/data/resume";
 
 export type Crumb = { label: string; to?: string };
 
-const SITE_NAV = [...primaryNav] as const;
+const SITE_NAV = CORE_NAV_ITEMS;
+
+function navActive(to: string, pathname: string) {
+  if (to === "/work") {
+    return pathname === "/work" || pathname.startsWith("/experience") || pathname.startsWith("/portfolio");
+  }
+  if (to === "/hacking") return pathname === "/hacking" || pathname.startsWith("/hacking/");
+  if (to === "/spiix") {
+    return (
+      pathname === "/spiix" ||
+      pathname.startsWith("/spiix/") ||
+      pathname.startsWith("/advisory") ||
+      pathname.startsWith("/services")
+    );
+  }
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
 
 export function CtShell({
   children,
@@ -31,15 +40,7 @@ export function CtShell({
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [buildingOpen, setBuildingOpen] = useState(false);
-  const [ddOpen, setDdOpen] = useState(false);
   const pathname = useLocation({ select: (l) => l.pathname });
-
-  const isActive = (match: readonly string[], exact: boolean) =>
-    match.some((m) => (exact ? pathname === m : pathname === m || pathname.startsWith(m + "/")));
-  const buildingActive = hackingMatch.some(
-    (m) => pathname === m || pathname.startsWith(m + "/"),
-  );
 
   useEffect(() => {
     const root = rootRef.current;
@@ -94,12 +95,11 @@ export function CtShell({
 
   useEffect(() => {
     setMenuOpen(false);
-    setDdOpen(false);
-    setBuildingOpen(false);
   }, [pathname]);
 
   return (
     <div className="ctw" ref={rootRef}>
+      <link rel="stylesheet" href={CORE_FONT_LINK.href} />
       <div className="prog" aria-hidden="true"></div>
       <header className="site">
         <div className="wrap hbar">
@@ -108,11 +108,11 @@ export function CtShell({
           </Link>
           <nav className="main" aria-label="Primary">
             {SITE_NAV.map((l) => {
-              const active = isActive(l.match, l.exact);
+              const active = navActive(l.to, pathname);
               return (
                 <Link
                   key={l.to}
-                  to={l.to}
+                  to={l.to as "/work"}
                   aria-current={active ? "page" : undefined}
                   className={active ? "on" : undefined}
                 >
@@ -120,56 +120,10 @@ export function CtShell({
                 </Link>
               );
             })}
-            <div
-              className="ddwrap"
-              onMouseEnter={() => setDdOpen(true)}
-              onMouseLeave={() => setDdOpen(false)}
-            >
-              <button
-                type="button"
-                className={`ddbtn${buildingActive ? " on" : ""}`}
-                aria-expanded={ddOpen}
-                aria-haspopup="true"
-                onClick={() => setDdOpen((v) => !v)}
-              >
-                Building
-                <ChevronDown size={13} aria-hidden="true" />
-              </button>
-              {ddOpen && (
-                <div className="ddpanel" role="menu" aria-label="Building">
-                  <div className="ddbox">
-                    {hackingNavGroups.map((g) => (
-                      <div key={g.key}>
-                        {g.label !== "" && <p className="ddg">{g.label}</p>}
-                        {hackingNav
-                          .filter((h) => h.group === g.key)
-                          .map((h) => (
-                            <Link key={h.to} to={h.to} role="menuitem" onClick={() => setDdOpen(false)}>
-                              <span>
-                                {h.label}
-                                <small>{h.blurb}</small>
-                              </span>
-                              {h.status && (
-                                <span
-                                  className={`dot ${hackingStatusDotClass[h.status] === "bg-emerald-400" ? "live" : hackingStatusDotClass[h.status] === "bg-amber-400" ? "building" : "soon"}`}
-                                  aria-hidden="true"
-                                />
-                              )}
-                            </Link>
-                          ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
           </nav>
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <div className="pill">
-              <i></i>Signal · Listening
-            </div>
-            <Link to="/contact" className="btn talk">
-              Let&apos;s Talk
+            <Link to="/work-together" className="btn talk">
+              Work together
             </Link>
             <button
               type="button"
@@ -186,43 +140,14 @@ export function CtShell({
           <div className="mnav" id="ctw-mnav">
             <nav aria-label="Mobile">
               {SITE_NAV.map((l) => {
-                const active = isActive(l.match, l.exact);
+                const active = navActive(l.to, pathname);
                 return (
-                  <Link key={l.to} to={l.to} className={active ? "on" : undefined}>
+                  <Link key={l.to} to={l.to as "/work"} className={active ? "on" : undefined}>
                     {l.label}
                   </Link>
                 );
               })}
-              <button
-                type="button"
-                className="mgroup"
-                aria-expanded={buildingOpen}
-                onClick={() => setBuildingOpen((v) => !v)}
-              >
-                Building
-                <ChevronDown
-                  size={14}
-                  aria-hidden="true"
-                  style={{ transform: buildingOpen ? "rotate(180deg)" : undefined }}
-                />
-              </button>
-              {buildingOpen && (
-                <div className="msub">
-                  {hackingNavGroups.map((g) => (
-                    <div key={g.key}>
-                      {g.label !== "" && <p className="mhead">{g.label}</p>}
-                      {hackingNav
-                        .filter((h) => h.group === g.key)
-                        .map((h) => (
-                          <Link key={h.to} to={h.to}>
-                            {h.label}
-                          </Link>
-                        ))}
-                    </div>
-                  ))}
-                </div>
-              )}
-              <Link to="/contact">Let&apos;s Talk</Link>
+              <Link to="/work-together">Work together</Link>
             </nav>
           </div>
         )}
