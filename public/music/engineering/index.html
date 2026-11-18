@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Engineering. Steve Peele II, audio engineer and production programmer. House engineering, monitoring, playback, production design and programming, and deployable systems for touring bands.">
+<link rel="icon" href="data:,">
+<title>Engineering - Steve Peele II</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#141619;
+    --bg2:#191c1f;
+    --panel:#1e2124;
+    --panel2:#22262a;
+    --line:#33383d;
+    --line-soft:#262b2f;
+    --ink:#eceeed;
+    --ink-dim:#b3babb;
+    --ink-faint:#828c90;
+    --amber:#e3a63d;
+    --amber-soft:rgba(227,166,61,.14);
+    --green:#57b47e;
+    --radius:8px;
+    --worn-green:#5a6b4f;
+    --worn-green-dark:#2e3829;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:center top;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(1000px 520px at 50% -100px, rgba(227,166,61,.055), transparent 65%);
+  }
+  a{color:inherit}
+  .mono{font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px; position:relative; z-index:1}
+
+  /* top bar */
+  .topbar{position:relative; z-index:2; border-bottom:1px solid var(--line); background:rgba(20,22,25,.94)}
+  .topbar-in{max-width:1180px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:56px}
+  .back-link{display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:8px 4px; text-decoration:none; font-family:"IBM Plex Mono", monospace; font-size:13px; letter-spacing:.06em}
+  .back-link:hover{color:var(--amber)}
+  .back-link .arrow{color:var(--amber); font-size:16px}
+  .top-meta{font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase; text-align:right}
+  .top-meta strong{color:var(--ink-dim); font-weight:600}
+
+  /* hero */
+  .hero{padding:64px 0 10px}
+  .eyebrow{font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); margin:0 0 18px}
+  h1{margin:0; font-size:clamp(44px, 9vw, 96px); line-height:.95; letter-spacing:-.025em; font-weight:700}
+  .role-line{margin:20px 0 0; font-size:clamp(18px, 2.6vw, 24px); font-weight:600; line-height:1.35; max-width:760px}
+  .role-line span{color:var(--amber)}
+  .hero-lede{margin:18px 0 0; max-width:680px; color:var(--ink-dim); font-size:16.5px}
+  .hero-lede strong{color:var(--ink); font-weight:600}
+  .hero-meta{margin-top:26px; display:flex; flex-wrap:wrap; gap:8px 26px; font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line-soft); padding-top:16px}
+  .hero-meta b{color:var(--ink-dim); font-weight:500}
+
+  /* contents index */
+  .index{margin-top:30px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg2); padding:18px 20px}
+  .index h2{margin:0 0 10px; font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink-faint)}
+  .index ol{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; gap:2px}
+  .index a{display:flex; align-items:baseline; gap:14px; text-decoration:none; padding:9px 2px; border-top:1px solid var(--line-soft); min-height:44px}
+  .index li:first-child a{border-top:none}
+  .index a:hover .idx-title{color:var(--amber)}
+  .idx-num{font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--amber); flex:none; width:34px}
+  .idx-title{font-weight:600; font-size:15.5px}
+  .idx-note{margin-left:auto; font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-faint); text-align:right}
+
+  /* section shell */
+  section.block{padding:72px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; border-top:1px solid var(--ink-dim); padding-top:16px; margin-bottom:6px}
+  .sec-num{font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--amber); letter-spacing:.1em}
+  .sec-head h2{margin:0; font-size:clamp(28px, 4.6vw, 40px); line-height:1.05; letter-spacing:-.015em; font-weight:700}
+  .sec-note{font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--ink-faint); margin-left:auto; letter-spacing:.06em; text-transform:uppercase}
+  .sec-intro{color:var(--ink-dim); max-width:700px; margin:14px 0 0; font-size:16px}
+  .sec-intro strong{color:var(--ink); font-weight:600}
+
+  /* universe diagram */
+  .universe-card{margin-top:28px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(180deg, #1b1e21, #17191c); padding:20px 18px 12px; overflow:hidden}
+  .universe-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:4px}
+  .universe-head h3{margin:0; font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+  .universe-legend{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-faint); display:flex; gap:16px; flex-wrap:wrap}
+  .universe-legend i{display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:1px}
+  .dot-amber{background:var(--amber)} .dot-green{background:var(--green)}
+  .universe-svg{width:100%; height:auto; display:block}
+  .universe-mobile{display:none}
+  .star{fill:#cfd6d3}
+  @keyframes twinkle{0%,100%{opacity:.18}50%{opacity:.55}}
+  .star.tw{animation:twinkle 4.5s ease-in-out infinite}
+  .star.tw2{animation:twinkle 6s ease-in-out infinite; animation-delay:1.4s}
+  .star.tw3{animation:twinkle 5.2s ease-in-out infinite; animation-delay:2.6s}
+  @media (prefers-reduced-motion: reduce){ .star.tw,.star.tw2,.star.tw3{animation:none; opacity:.3} }
+  .universe-foot{border-top:1px solid var(--line-soft); margin-top:6px; padding:14px 2px 8px; display:grid; grid-template-columns:1fr; gap:8px}
+  .universe-foot p{margin:0; color:var(--ink-dim); font-size:14.5px; max-width:760px}
+  .universe-links{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+  .universe-links a{font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.04em; text-decoration:none; border:1px solid var(--line); border-radius:99px; padding:8px 13px; color:var(--ink-dim); background:#141619; min-height:36px; display:inline-flex; align-items:center}
+  .universe-links a:hover{color:var(--amber); border-color:var(--amber)}
+
+  /* hero constellation: the systems map as the main graphic */
+  .hero{padding-top:18px}
+  .map-idline{display:flex; align-items:baseline; gap:6px 12px; flex-wrap:wrap; border-bottom:1px solid var(--line-soft); padding-bottom:13px; margin-bottom:13px}
+  .map-idline h1{margin:0; font-size:clamp(25px, 3.4vw, 33px); line-height:1.1; letter-spacing:-.015em; font-weight:700}
+  .map-id-sep{color:var(--amber); font-weight:600; font-size:19px}
+  .map-id-name{font-weight:600; font-size:16px}
+  .map-id-role{font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.08em; color:var(--ink-faint)}
+  .hero-intro{margin-top:30px}
+  .hero-intro .hero-lede:first-child{margin-top:0}
+  .hero-id{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap}
+  .hero-id-meta{font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); text-align:right; padding-bottom:10px; line-height:1.9}
+  .hero-id-meta strong{color:var(--amber); font-weight:600}
+  .hero-map{margin-top:0; border:1px solid var(--line); border-radius:10px; background:radial-gradient(900px 420px at 50% -60px, rgba(227,166,61,.07), transparent 65%), radial-gradient(700px 500px at 85% 110%, rgba(87,180,126,.05), transparent 60%), linear-gradient(180deg, #1c1f22, #15171a); padding:22px 20px 14px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .hero-map .universe-head h3{font-size:13px}
+  .hero-map .map-stage{margin-top:10px}
+  .hero-map .universe-svg{min-height:340px}
+  .gov-field{animation:fieldPulse 7s ease-in-out infinite}
+  @keyframes fieldPulse{0%,100%{opacity:.55}50%{opacity:1}}
+  .cluster circle{transform-box:fill-box; transform-origin:center; animation:breathe 3.8s ease-in-out infinite}
+  .cluster circle:nth-of-type(2n){animation-delay:.7s}
+  .cluster circle:nth-of-type(3n){animation-delay:1.3s}
+  @keyframes breathe{0%,100%{opacity:.75}50%{opacity:1}}
+  .cluster.is-selected circle{animation-duration:2.2s}
+  .dep{animation:seqGlow 14s ease-in-out infinite}
+  .dep:nth-child(2){animation-delay:2.2s}
+  .dep:nth-child(3){animation-delay:4.4s}
+  .dep:nth-child(4){animation-delay:6.6s}
+  .dep:nth-child(5){animation-delay:8.8s}
+  .dep:nth-child(6){animation-delay:11s}
+  @keyframes seqGlow{0%,100%{stroke-opacity:.75}12%{stroke-opacity:1}24%{stroke-opacity:.75}}
+  .signal-pulse{filter:drop-shadow(0 0 5px rgba(227,166,61,.9))}
+  @media (max-width:760px){
+    .hero-map .map-stage{display:block}
+    .hero-map .map-selector{display:flex}
+    .hero-map .map-detail{display:block}
+    .hero-map .universe-svg{min-height:0}
+    .hero-id-meta{text-align:left; padding-bottom:0}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .gov-field,.cluster circle,.dep{animation:none}
+    .signal-pulse{display:none}
+    .hero-map .map-stack{display:block}
+  }
+
+  /* systems map */
+  .map-selector{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+  .map-selector button{font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.04em; border:1px solid var(--line); background:#141619; color:var(--ink-dim); border-radius:99px; padding:10px 15px; min-height:40px; cursor:pointer}
+  .map-selector button:hover{color:var(--ink); border-color:var(--ink-faint)}
+  .map-selector button.is-active{color:#1a1305; background:var(--amber); border-color:var(--amber); font-weight:600}
+  .map-stage{margin-top:16px}
+  .cluster{cursor:pointer; outline:none}
+  .cluster .cluster-box{transition:stroke .25s ease, opacity .25s ease}
+  .cluster.is-dim{opacity:.38}
+  .cluster.is-selected .cluster-box{stroke:var(--amber); stroke-width:2}
+  .cluster:focus-visible .cluster-box{stroke:var(--amber); stroke-width:2}
+  .dep{transition:opacity .25s ease}
+  .dep.is-active{stroke:var(--amber) !important; stroke-width:3 !important; opacity:1 !important}
+  .dep.is-dim{opacity:.12 !important}
+  .dep-label{transition:opacity .25s ease}
+  .dep-label.is-dim{opacity:.15}
+  .dep-label.is-active{fill:var(--amber)}
+  .gov{transition:opacity .25s ease}
+  .gov.is-active{stroke:var(--amber) !important; opacity:1 !important}
+  .gov.is-dim{opacity:.1 !important}
+  .map-detail{margin-top:16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg2); padding:24px 22px}
+  .map-detail-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
+  .map-detail-head h3{margin:0; font-size:22px; font-weight:700; letter-spacing:-.01em}
+  .map-detail-head span{font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber)}
+  .map-detail-role{margin:8px 0 0; color:var(--ink-dim); font-size:15.5px; max-width:720px}
+  .detail-cols{display:grid; grid-template-columns:1fr; gap:16px; margin-top:18px}
+  .detail-col h4{margin:0 0 6px; font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); font-weight:600}
+  .detail-col p{margin:0; font-size:14.5px; color:var(--ink-dim)}
+  .detail-col p strong{color:var(--ink); font-weight:600}
+  .detail-comps{list-style:none; margin:14px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--line-soft)}
+  .detail-comps li{border-bottom:1px solid var(--line-soft); padding:11px 0 11px 30px; position:relative; font-size:14.5px; color:var(--ink-dim)}
+  .detail-comps li b{color:var(--ink); font-weight:600}
+  .detail-comps .dc-num{position:absolute; left:0; top:13px; font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--amber)}
+  .detail-engage{margin:16px 0 0; font-size:14.5px; color:var(--ink-dim); border-top:1px solid var(--line-soft); padding-top:14px}
+  .detail-engage strong{color:var(--ink); font-weight:600}
+  .workflow{margin-top:16px; border:1px solid var(--line); border-radius:var(--radius); background:#17191c; padding:20px 22px 8px}
+  .workflow h3{margin:0; font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600}
+  .workflow > p{margin:6px 0 0; color:var(--ink-dim); font-size:14.5px; max-width:700px}
+  .workflow ol{list-style:none; margin:14px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:0}
+  .workflow li{border-top:1px solid var(--line-soft); padding:14px 0 14px 44px; position:relative}
+  .workflow .wf-num{position:absolute; left:0; top:16px; font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--amber)}
+  .workflow li strong{display:block; font-size:15.5px; font-weight:600}
+  .workflow li span{color:var(--ink-dim); font-size:14px; display:block; max-width:640px}
+  .workflow li em{font-style:normal; font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-faint); display:block; margin-top:4px; letter-spacing:.03em}
+  .map-stack{display:none; margin-top:16px}
+  .map-stack article{border:1px solid var(--line); border-radius:var(--radius); background:var(--bg2); padding:20px 18px; margin-top:12px}
+  .map-stack h3{margin:0; font-size:18px; font-weight:700}
+  .map-stack h3 span{display:block; font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); margin-bottom:4px; font-weight:500}
+  .map-stack p{margin:8px 0 0; color:var(--ink-dim); font-size:14.5px}
+  .map-stack p strong{color:var(--ink); font-weight:600}
+  @media (min-width:768px){
+    .detail-cols{grid-template-columns:1fr 1fr}
+    .detail-comps{grid-template-columns:1fr 1fr; column-gap:32px}
+    .workflow ol{grid-template-columns:repeat(5, 1fr); column-gap:22px}
+    .workflow li{padding:14px 0 14px 0}
+    .workflow .wf-num{position:static; display:block; margin-bottom:6px}
+  }
+  @media (max-width:760px){
+    .map-stage, .map-selector{display:none}
+    .map-stack{display:block}
+    .map-detail{display:none}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cluster .cluster-box, .dep, .gov, .dep-label{transition:none}
+    .map-stack{display:block}
+  }
+
+  /* engage on its own line */
+  .engage-line{margin:22px 0 0; border-top:1px solid var(--line); padding-top:14px; font-size:14.5px; color:var(--ink-dim); max-width:720px}
+  .engage-line .el-label{display:block; font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); margin-bottom:4px}
+  .engage-line strong{color:var(--ink); font-weight:600}
+
+  /* engagement by facet */
+  .facet-list{list-style:none; margin:18px 0 0; padding:0; border-top:1px solid var(--line)}
+  .facet-list li{display:grid; grid-template-columns:1fr; gap:2px; padding:15px 0; border-bottom:1px solid var(--line-soft)}
+  .facet-list strong{font-size:16px; font-weight:600}
+  .facet-list span{color:var(--ink-dim); font-size:14.5px; max-width:620px}
+  .facet-list .facet-tag{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--amber); letter-spacing:.08em}
+  @media (min-width:768px){
+    .facet-list li{grid-template-columns:52px 220px 1fr; gap:16px; align-items:baseline}
+  }
+
+  /* listening notes */
+  .listen{margin-top:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg2); padding:26px 22px 10px}
+  .listen-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:4px}
+  .listen-head h3{margin:0; font-size:21px; font-weight:700; letter-spacing:-.01em}
+  .listen-head span{font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint)}
+  .listen > p{margin:6px 0 4px; color:var(--ink-dim); font-size:15px; max-width:640px}
+  .listen-list{list-style:none; margin:8px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:0}
+  .listen-list li{border-top:1px solid var(--line-soft); padding:18px 0 18px 46px; position:relative}
+  .listen-list .ln{position:absolute; left:0; top:20px; font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--amber)}
+  .listen-list strong{display:block; font-size:16px; font-weight:600; margin-bottom:3px}
+  .listen-list span{color:var(--ink-dim); font-size:14.5px; display:block; max-width:620px}
+
+  /* constellations */
+  .constellation{margin-top:6px}
+  .constellation-visual{margin-top:26px; border:1px solid var(--line); border-radius:var(--radius); background:radial-gradient(700px 220px at 50% 0%, rgba(227,166,61,.05), transparent 70%), #191c1f; padding:10px 8px 2px; overflow:hidden}
+  .constellation-visual svg{width:100%; height:auto; display:block}
+  .c-line{stroke:#4b545a; stroke-width:1.4; fill:none; stroke-dasharray:1200; stroke-dashoffset:1200; transition:stroke-dashoffset 1.6s ease .15s}
+  .c-line-soft{stroke:#333a3f; stroke-width:1; fill:none; stroke-dasharray:1200; stroke-dashoffset:1200; transition:stroke-dashoffset 1.6s ease .35s}
+  .c-node{transform-box:fill-box; transform-origin:center; transform:scale(.55); opacity:.25; transition:transform .9s cubic-bezier(.2,.8,.25,1), opacity .9s ease}
+  .constellation-visual.inview .c-line, .constellation-visual.inview .c-line-soft{stroke-dashoffset:0}
+  .constellation-visual.inview .c-node{transform:scale(1); opacity:1}
+  .constellation-visual.inview .c-node:nth-of-type(2){transition-delay:.08s}
+  @media (prefers-reduced-motion: reduce){
+    .c-line,.c-line-soft{stroke-dashoffset:0; transition:none}
+    .c-node{transform:none; opacity:1; transition:none}
+  }
+  .lead-line{margin:22px 0 0; font-size:clamp(19px, 2.8vw, 23px); font-weight:600; line-height:1.4; max-width:760px}
+  .body-copy{margin:12px 0 0; color:var(--ink-dim); font-size:16px; max-width:720px}
+  .body-copy + .body-copy{margin-top:10px}
+  .comp-head{margin:30px 0 0; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .comp-head h3{margin:0; font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--ink-faint)}
+  .comp-head span{font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--ink-faint)}
+  .comp-grid{list-style:none; margin:14px 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--line)}
+  .comp-grid li{border-bottom:1px solid var(--line-soft); padding:18px 0 18px 46px; position:relative}
+  .comp-num{position:absolute; left:0; top:20px; font-family:"IBM Plex Mono", monospace; font-size:11.5px; color:var(--amber); border:1px solid var(--line); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center; background:#17191c}
+  .comp-grid strong{display:block; font-size:16.5px; font-weight:600; margin-bottom:2px}
+  .comp-grid span{color:var(--ink-dim); font-size:14.5px; display:block; max-width:640px}
+  .spec-note{margin:20px 0 0; font-family:"IBM Plex Mono", monospace; font-size:12px; line-height:1.7; color:var(--ink-faint); max-width:720px}
+  .spec-note b{color:var(--ink-dim); font-weight:500}
+
+  /* field log */
+  .log{margin-top:26px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg2); overflow:hidden}
+  .log-row{display:grid; grid-template-columns:1fr; gap:4px; padding:20px 22px; border-top:1px solid var(--line-soft)}
+  .log-row:first-child{border-top:none}
+  .log-when{font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--amber)}
+  .log-what strong{display:block; font-size:16.5px; font-weight:600}
+  .log-what span{color:var(--ink-dim); font-size:14.5px; display:block; max-width:680px}
+  .log-note{margin:14px 2px 0; color:var(--ink-faint); font-size:13px; font-family:"IBM Plex Mono", monospace}
+
+  /* availability */
+  .avail{margin-top:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); padding:28px 22px; display:grid; grid-template-columns:1fr; gap:18px}
+  .avail h3{margin:0 0 6px; font-size:22px; font-weight:700; letter-spacing:-.01em}
+  .avail p{margin:0; color:var(--ink-dim); font-size:15.5px; max-width:580px}
+  .avail-actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+  .btn{display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:12px 20px; background:var(--amber); color:#1a1305; text-decoration:none; font-weight:700; font-size:15px; border-radius:5px; border:1px solid var(--amber)}
+  .btn:hover{background:#f0b34e}
+  .btn-ghost{display:inline-flex; align-items:center; min-height:48px; padding:12px 18px; border:1px solid var(--line); border-radius:5px; text-decoration:none; font-family:"IBM Plex Mono", monospace; font-size:13px; color:var(--ink-dim)}
+  .btn-ghost:hover{color:var(--ink); border-color:var(--ink-faint)}
+
+  /* doors and footer */
+  .doors{margin-top:72px; border-top:1px solid var(--line)}
+  .door-prev{display:block; text-decoration:none; background:linear-gradient(90deg, var(--worn-green-dark), var(--worn-green) 130%); border-bottom:1px solid var(--line); padding:22px 0}
+  .door-prev .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px}
+  .door-prev .d-label{font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#c9d2bd}
+  .door-prev .d-name{font-size:clamp(22px, 4vw, 30px); font-weight:700; margin-top:2px; display:block}
+  .door-prev .d-arrow{font-size:26px; color:#dfe7d2; flex:none}
+  .closing{padding:36px 0 8px}
+  .closing p{margin:0; font-size:clamp(19px, 3vw, 24px); font-weight:600; max-width:640px; line-height:1.4}
+  .closing p span{color:var(--ink-faint)}
+  .closing a{display:inline-flex; align-items:center; min-height:44px; margin-top:10px; font-family:"IBM Plex Mono", monospace; font-size:13px; letter-spacing:.06em; color:var(--amber); text-decoration:none; padding:8px 0}
+  footer.site-foot{border-top:1px solid var(--line); margin-top:28px; padding:18px 0 30px; font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-faint)}
+  footer.site-foot .wrap{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+  footer.site-foot a{min-height:36px; display:inline-flex; align-items:center; color:var(--ink-dim); text-decoration:none; padding:6px 0}
+  footer.site-foot a:hover{color:var(--amber)}
+
+  @media (max-width:480px){
+    h1{font-size:46px}
+    .hero{padding-top:14px}
+    .universe-desktop{display:none}
+    .universe-mobile{display:block}
+    .idx-note{display:none}
+  }
+  @media (min-width:640px){
+    .index ol{grid-template-columns:1fr 1fr}
+    .index li:nth-child(2) a{border-top:none}
+    .comp-grid{grid-template-columns:1fr 1fr; column-gap:36px}
+    .listen-list{grid-template-columns:1fr 1fr; column-gap:36px}
+    .listen-list li:nth-child(2){border-top:none}
+  }
+  @media (min-width:768px){
+    .wrap{padding:0 28px}
+    .topbar-in{padding:0 28px}
+    .log-row{grid-template-columns:180px 1fr; gap:16px; align-items:start}
+    .avail{grid-template-columns:1fr auto; align-items:center; padding:32px 28px}
+    .universe-foot{grid-template-columns:1fr auto; align-items:start; gap:20px}
+  }
+  @media (min-width:1440px){
+    .wrap{max-width:1240px}
+    .topbar-in{max-width:1240px}
+  }
+</style>
+<script>
+window.__SPIIX_CFG__ = {
+  key: "phc_tN5yyT4HZcxr9XWPnMrEtPrD7gH2rnDiV59BKJsVwirX",
+  property_id: "stevepeeleii.main",
+  brand: "stevepeeleii",
+  surface: "web",
+  person_profiles: "identified_only",
+  autocapture: true
+};
+</script>
+<script src="/spiix-posthog.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="back-link" href="https://stevepeeleii.com/music"><span class="arrow" aria-hidden="true">&larr;</span> MUSIC</a>
+    <div class="top-meta">06 / 06 &nbsp;<strong>ENGINEERING</strong><br>THE PRACTICE</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-map" id="universe">
+      <div class="map-idline">
+        <h1>Engineering</h1>
+        <span class="map-id-sep" aria-hidden="true">/</span>
+        <span class="map-id-name">Steve Peele II</span>
+        <span class="map-id-role">audio engineer and production programmer</span>
+      </div>
+      <div class="universe-head">
+        <h3>My Universe / The ecosystem, mapped</h3>
+        <div class="universe-legend"><span><i class="dot-amber"></i>Selected layer and its paths</span><span><i class="dot-green"></i>Dependency</span></div>
+      </div>
+      <p style="margin:4px 0 0; color:var(--ink-dim); font-size:14.5px; max-width:760px">Engineering, mapped as it is actually worked. Each layer is a cluster of competencies, not a single point. Lines are dependencies: follow them and you can see what a failure, or a good decision, in one layer does to the rest. Select any layer to expand its constellation in place.</p>
+      <div class="map-selector" role="group" aria-label="Select a layer of the system">
+        <button type="button" data-select="capture">Capture</button>
+        <button type="button" data-select="console" class="is-active">Console</button>
+        <button type="button" data-select="monitoring">Monitoring / IEM</button>
+        <button type="button" data-select="playback">Playback</button>
+        <button type="button" data-select="house">House</button>
+        <button type="button" data-select="production">Production Design</button>
+      </div>
+
+      <div class="map-stage">
+      <svg class="universe-svg" id="systemsSvg" viewBox="0 0 1160 600" role="img" aria-label="Systems map: production design governs capture, console, monitoring, playback, and house. Capture feeds the console. The console feeds monitoring and the house. Playback feeds both monitoring and the house. Monitoring protects the performance that capture and the console shape.">
+        <defs>
+          <marker id="arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#57b47e"></path>
+          </marker>
+          <marker id="arrSA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#e3a63d"></path>
+          </marker>
+        </defs>
+        <rect class="gov-field" x="8" y="8" width="1144" height="584" rx="12" fill="rgba(227,166,61,.02)" stroke="#3a4046" stroke-dasharray="3 7"></rect>
+        <text x="28" y="36" fill="#828c90" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">THE SYSTEM / SELECT A LAYER TO TRACE ITS DEPENDENCIES</text>
+        <g>
+          <circle class="star tw" cx="80" cy="70" r="1.5"></circle><circle class="star" cx="220" cy="56" r="1.1" opacity=".3"></circle>
+          <circle class="star tw2" cx="920" cy="64" r="1.4"></circle><circle class="star" cx="1060" cy="52" r="1.1" opacity=".28"></circle>
+          <circle class="star tw3" cx="70" cy="540" r="1.3"></circle><circle class="star" cx="1080" cy="548" r="1.4" opacity=".3"></circle><circle class="star tw" cx="420" cy="540" r="1.2"></circle><circle class="star tw2" cx="560" cy="556" r="1.5"></circle><circle class="star" cx="700" cy="540" r="1.1" opacity=".3"></circle><circle class="star tw3" cx="180" cy="90" r="1.2"></circle><circle class="star tw" cx="1010" cy="420" r="1.3"></circle><circle class="star" cx="60" cy="420" r="1.1" opacity=".28"></circle><circle class="star tw2" cx="520" cy="70" r="1.1"></circle><circle class="star tw3" cx="880" cy="520" r="1.4"></circle>
+        </g>
+
+        <!-- governance paths (production design to every layer) -->
+        <g fill="none" stroke="#5a5340" stroke-width="1.2" stroke-dasharray="4 5">
+          <path class="gov" data-from="production" data-to="capture" d="M 480 128 C 340 150 220 170 140 196"></path>
+          <path class="gov" data-from="production" data-to="console" d="M 560 132 C 500 160 460 175 440 196"></path>
+          <path class="gov" data-from="production" data-to="monitoring" d="M 640 132 C 680 145 700 150 720 158"></path>
+          <path class="gov" data-from="production" data-to="playback" d="M 700 128 C 780 200 760 280 735 336"></path>
+          <path class="gov" data-from="production" data-to="house" d="M 660 124 C 820 140 950 165 1010 196"></path>
+        </g>
+
+        <!-- dependency paths -->
+        <g fill="none" stroke="#57b47e" stroke-width="2">
+          <path class="dep" data-from="capture" data-to="console" d="M 238 272 H 296" marker-end="url(#arrS)"></path>
+          <path class="dep" data-from="console" data-to="monitoring" d="M 544 232 C 575 215 590 205 606 198" marker-end="url(#arrS)"></path>
+          <path class="dep" data-from="console" data-to="house" d="M 544 292 C 680 306 800 292 892 278" marker-end="url(#arrS)"></path>
+          <path class="dep" data-from="playback" data-to="monitoring" d="M 722 336 V 302" marker-end="url(#arrS)"></path>
+          <path class="dep" data-from="playback" data-to="house" d="M 850 372 C 880 360 892 340 900 330" marker-end="url(#arrS)"></path>
+          <path class="dep" data-from="monitoring" data-to="capture" d="M 606 178 C 430 128 230 140 148 194" stroke-dasharray="6 5" marker-end="url(#arrS)"></path>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#9fb3a8">
+          <text class="dep-label" data-from="capture" data-to="console" x="242" y="258">feeds</text>
+          <text class="dep-label" data-from="console" data-to="monitoring" x="548" y="200">monitor mixes</text>
+          <text class="dep-label" data-from="console" data-to="house" x="668" y="322">house mix and output</text>
+          <text class="dep-label" data-from="playback" data-to="monitoring" x="732" y="322">click, cues, tracks</text>
+          <text class="dep-label" data-from="playback" data-to="house" x="856" y="392">tracks in the mix</text>
+          <text class="dep-label" data-from="monitoring" data-to="capture" x="300" y="128">monitoring protects the performance</text>
+        </g>
+
+        <!-- Production design cluster -->
+        <g class="cluster" data-layer="production" tabindex="0" role="button" aria-label="Select production design layer">
+          <rect class="cluster-box" x="330" y="48" width="500" height="84" rx="8" fill="#1c1f22" stroke="#4b545a"></rect>
+          <text x="580" y="74" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">00 / PRODUCTION DESIGN</text>
+          <text x="580" y="96" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="14" font-weight="700">The frame that governs every layer</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="392" cy="114" r="3" fill="#e3a63d"></circle><text x="402" y="118">Advance</text>
+            <circle cx="492" cy="114" r="3" fill="#e3a63d"></circle><text x="502" y="118">Design</text>
+            <circle cx="582" cy="114" r="3" fill="#e3a63d"></circle><text x="592" y="118">Programming</text>
+            <circle cx="706" cy="114" r="3" fill="#e3a63d"></circle><text x="716" y="118">Documentation</text>
+          </g>
+        </g>
+
+        <!-- Capture cluster -->
+        <g class="cluster" data-layer="capture" tabindex="0" role="button" aria-label="Select capture layer">
+          <rect class="cluster-box" x="30" y="196" width="208" height="152" rx="8" fill="#1c1f22" stroke="#4b545a"></rect>
+          <text x="134" y="222" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">01 / CAPTURE</text>
+          <text x="134" y="244" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="15" font-weight="700">Sources</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="52" cy="272" r="3.5" fill="#57b47e"></circle><text x="63" y="276">Mic choice</text>
+            <circle cx="52" cy="296" r="3.5" fill="#57b47e"></circle><text x="63" y="300">Placement</text>
+            <circle cx="140" cy="272" r="3.5" fill="#57b47e"></circle><text x="151" y="276">Gain</text>
+            <circle cx="140" cy="296" r="3.5" fill="#57b47e"></circle><text x="151" y="300">Patch and splits</text>
+            <circle cx="52" cy="320" r="3.5" fill="#57b47e"></circle><text x="63" y="324">Source integrity</text>
+          </g>
+        </g>
+
+        <!-- Console cluster -->
+        <g class="cluster" data-layer="console" tabindex="0" role="button" aria-label="Select console layer">
+          <rect class="cluster-box" x="296" y="196" width="248" height="152" rx="8" fill="#1c1f22" stroke="#4b545a"></rect>
+          <text x="420" y="222" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">02 / CONSOLE</text>
+          <text x="420" y="244" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="15" font-weight="700">Processing and Control</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="318" cy="272" r="3.5" fill="#57b47e"></circle><text x="329" y="276">Gain structure</text>
+            <circle cx="318" cy="296" r="3.5" fill="#57b47e"></circle><text x="329" y="300">Routing</text>
+            <circle cx="428" cy="272" r="3.5" fill="#57b47e"></circle><text x="439" y="276">Mix architecture</text>
+            <circle cx="428" cy="296" r="3.5" fill="#57b47e"></circle><text x="439" y="300">Scenes</text>
+            <circle cx="318" cy="320" r="3.5" fill="#57b47e"></circle><text x="329" y="324">Show control</text>
+          </g>
+        </g>
+
+        <!-- Monitoring cluster -->
+        <g class="cluster" data-layer="monitoring" tabindex="0" role="button" aria-label="Select monitoring layer">
+          <rect class="cluster-box" x="606" y="158" width="244" height="144" rx="8" fill="#1c1f22" stroke="#4b545a"></rect>
+          <text x="728" y="184" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">03 / MONITORING</text>
+          <text x="728" y="206" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="15" font-weight="700">In-Ear Systems</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="628" cy="230" r="3.5" fill="#57b47e"></circle><text x="639" y="234">Per musician mixes</text>
+            <circle cx="628" cy="254" r="3.5" fill="#57b47e"></circle><text x="639" y="258">RF discipline</text>
+            <circle cx="628" cy="278" r="3.5" fill="#57b47e"></circle><text x="639" y="282">Hearing discipline</text>
+            <circle cx="762" cy="230" r="3.5" fill="#57b47e"></circle><text x="773" y="234">Talkback</text>
+            <circle cx="762" cy="254" r="3.5" fill="#57b47e"></circle><text x="773" y="258">Stability</text>
+          </g>
+        </g>
+
+        <!-- Playback cluster -->
+        <g class="cluster" data-layer="playback" tabindex="0" role="button" aria-label="Select playback layer">
+          <rect class="cluster-box" x="606" y="336" width="244" height="144" rx="8" fill="#1c1f22" stroke="#4b545a"></rect>
+          <text x="728" y="362" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">04 / PLAYBACK</text>
+          <text x="728" y="384" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="15" font-weight="700">Tracks, Click, Cues</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="628" cy="408" r="3.5" fill="#57b47e"></circle><text x="639" y="412">Session build</text>
+            <circle cx="628" cy="432" r="3.5" fill="#57b47e"></circle><text x="639" y="436">Redundancy</text>
+            <circle cx="628" cy="456" r="3.5" fill="#57b47e"></circle><text x="639" y="460">Failover</text>
+            <circle cx="762" cy="408" r="3.5" fill="#57b47e"></circle><text x="773" y="412">Cues</text>
+            <circle cx="762" cy="432" r="3.5" fill="#57b47e"></circle><text x="773" y="436">Changes</text>
+          </g>
+        </g>
+
+        <!-- House cluster -->
+        <g class="cluster" data-layer="house" tabindex="0" role="button" aria-label="Select house layer">
+          <rect class="cluster-box" x="900" y="196" width="222" height="152" rx="8" fill="#221f18" stroke="#4b545a"></rect>
+          <text x="1011" y="222" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2">05 / HOUSE</text>
+          <text x="1011" y="244" text-anchor="middle" fill="#eceeed" font-family="Archivo, sans-serif" font-size="15" font-weight="700">FOH and Room</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#b3babb">
+            <circle cx="922" cy="272" r="3.5" fill="#57b47e"></circle><text x="933" y="276">Room reading</text>
+            <circle cx="922" cy="296" r="3.5" fill="#57b47e"></circle><text x="933" y="300">Tuning</text>
+            <circle cx="1022" cy="272" r="3.5" fill="#57b47e"></circle><text x="1033" y="276">Vocal clarity</text>
+            <circle cx="1022" cy="296" r="3.5" fill="#57b47e"></circle><text x="1033" y="300">Translation</text>
+            <circle cx="922" cy="320" r="3.5" fill="#57b47e"></circle><text x="933" y="324">Headroom</text>
+          </g>
+        </g>
+
+        <text x="28" y="566" fill="#828c90" font-family="IBM Plex Mono, monospace" font-size="11">Dashed amber: production design governs. Dashed green: a protective return path, not a signal feed.</text>
+      <g aria-hidden="true">
+          <circle class="signal-pulse" r="5" fill="#e3a63d"><animateMotion dur="2.8s" repeatCount="indefinite" path="M 238 272 H 296"></animateMotion></circle>
+          <circle class="signal-pulse" r="5" fill="#e3a63d"><animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite" path="M 544 232 C 575 215 590 205 606 198"></animateMotion></circle>
+          <circle class="signal-pulse" r="5" fill="#57b47e"><animateMotion dur="4.2s" begin="1.2s" repeatCount="indefinite" path="M 544 292 C 680 306 800 292 892 278"></animateMotion></circle>
+          <circle class="signal-pulse" r="5" fill="#e3a63d"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" path="M 722 336 V 302"></animateMotion></circle>
+          <circle class="signal-pulse" r="5" fill="#57b47e"><animateMotion dur="3s" begin="1.6s" repeatCount="indefinite" path="M 850 372 C 880 360 892 340 900 330"></animateMotion></circle>
+          <circle class="signal-pulse" r="4.5" fill="#e3a63d"><animateMotion dur="5.5s" begin="2s" repeatCount="indefinite" path="M 606 178 C 430 128 230 140 148 194"></animateMotion></circle>
+        </g>
+      </svg>
+      </div>
+
+      <div class="map-detail" id="mapDetail" aria-live="polite">
+        <div class="map-detail-head"><span id="mdKicker">02 / Console</span><h3 id="mdTitle">Processing and Control</h3></div>
+        <p class="map-detail-role" id="mdRole">The console is where captured sources and playback returns become two different products: the mixes the band plays inside, and the mix the audience hears. Every routing and gain decision made here is felt in both.</p>
+        <div class="detail-cols">
+          <div class="detail-col"><h4>Depends on</h4><p id="mdDepends"><strong>Capture</strong>, for clean sources at consistent gain. <strong>Playback</strong>, returning as inputs that must sit inside the live arrangement. <strong>Production design</strong>, for the show file, scenes, and patch decided in advance.</p></div>
+          <div class="detail-col"><h4>Feeds</h4><p id="mdFeeds"><strong>Monitoring</strong>, with the per musician mixes built here. <strong>House</strong>, with the main mix, system output, and headroom the room is heard through.</p></div>
+        </div>
+        <ul class="detail-comps" id="mdComps">
+          <li><span class="dc-num">1</span><b>Gain structure.</b> Clean, consistent gain with headroom preserved at every stage.</li>
+          <li><span class="dc-num">2</span><b>Routing and bussing.</b> A path that keeps house and monitors independent.</li>
+          <li><span class="dc-num">3</span><b>Mix architecture.</b> Layers that hold together and adapt quickly in the show.</li>
+          <li><span class="dc-num">4</span><b>Scene programming.</b> Snapshots labeled and documented, recalled without surprise.</li>
+          <li><span class="dc-num">5</span><b>Processing judgment.</b> Equalization and dynamics that serve intelligibility first.</li>
+          <li><span class="dc-num">6</span><b>Show control.</b> Calm operation under show conditions, changes made early and small.</li>
+        </ul>
+        <p class="detail-engage" id="mdEngage"><strong>On its own:</strong> console and show file work can be engaged separately, from building a show file for your engineer to running the desk for a show or run.</p>
+      </div>
+
+    </div>
+
+    <div class="hero-intro">
+      <p class="hero-lede">I build and run the systems that carry a performance from the first input to the last seat in the room. <strong>House, monitoring, playback, production design, and deployable systems are each a discipline in their own right,</strong> and each one is practiced here to the same standard.</p>
+      <p class="hero-lede">What connects them is systems thinking: knowing how a decision in one facet changes the others. That understanding travels with whichever facet a production engages, whether that is one facet on its own or several together. What follows is each facet in depth, and the connections between them.</p>
+      <div class="hero-meta">
+        <span>Base: <b>Cincinnati and Loveland, Ohio</b></span>
+        <span>Work: <b>Single shows, runs, and tour preparation</b></span>
+        <span>Focus: <b>Live bands and live production</b></span>
+      </div>
+    </div>
+
+    <nav class="index" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#universe"><span class="idx-num">A</span><span class="idx-title">My Universe</span><span class="idx-note">The system as a whole</span></a></li>
+        <li><a href="#house"><span class="idx-num">01</span><span class="idx-title">House Engineering</span><span class="idx-note">Constellation</span></a></li>
+        <li><a href="#monitoring"><span class="idx-num">02</span><span class="idx-title">Monitoring</span><span class="idx-note">Constellation</span></a></li>
+        <li><a href="#playback"><span class="idx-num">03</span><span class="idx-title">Playback</span><span class="idx-note">Constellation</span></a></li>
+        <li><a href="#production"><span class="idx-num">04</span><span class="idx-title">Production Design and Programming</span><span class="idx-note">Constellation</span></a></li>
+        <li><a href="#systems"><span class="idx-num">05</span><span class="idx-title">Deployable Systems and Deployment</span><span class="idx-note">Constellation</span></a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- MY UNIVERSE -->
+  <section class="block" aria-labelledby="universe-h">
+    <div class="sec-head">
+      <span class="sec-num">SEC. A</span>
+      <h2 id="universe-h">My Universe</h2>
+      <span class="sec-note">The systems map</span>
+    </div>
+    <p class="sec-intro">A show is a connected system. Change the monitor mix and you change how the singer phrases. Change the playback architecture and you change how the band breathes. Retune the room and every decision at the desk that follows it changes with it.</p>
+    <p class="sec-intro"><strong>My Universe is that system, mapped as it is actually worked:</strong> capture, console, monitoring, playback, and house as connected layers, held inside production design. The map at the top of this page is the working version of it. Select any layer to see what it depends on, what it feeds, and the constellation of competencies inside it. A production does not have to engage all of it. Whichever layer is engaged is handled with the whole system in view.</p>
+
+    <div class="universe-card systems-map">
+      <div class="workflow" aria-labelledby="workflow-h">
+        <h3 id="workflow-h">How the work flows</h3>
+        <p>The same cycle, every engagement, whatever the facet. The map above is the system. This is the order it is worked in.</p>
+        <ol>
+          <li><span class="wf-num">W.01</span><strong>Design</strong><span>Advance, plots, system and show design. Decisions are made while they are still cheap to change.</span><em>Production design leads. All layers planned.</em></li>
+          <li><span class="wf-num">W.02</span><strong>Build</strong><span>Rig assembled, patched, labeled, and tested. Playback built redundant. Show file programmed.</span><em>Capture, console, playback, systems.</em></li>
+          <li><span class="wf-num">W.03</span><strong>Soundcheck</strong><span>Room read and tuned, sources gained, monitor mixes built per musician, playback checked against the band.</span><em>Capture, monitoring, house, playback.</em></li>
+          <li><span class="wf-num">W.04</span><strong>Show</strong><span>The performance protected in real time: mixes held, cues delivered, problems corrected before the audience hears them.</span><em>All layers, live.</em></li>
+          <li><span class="wf-num">W.05</span><strong>Strike</strong><span>Documented teardown, faults logged, show file and notes updated so the next date starts from what was learned.</span><em>Documentation back into design.</em></li>
+        </ol>
+      </div>
+
+      <div class="map-stack" aria-label="The system, layer by layer">
+        <article>
+          <h3><span>01 / Capture</span>Sources</h3>
+          <p><strong>Depends on:</strong> the performance itself, and the monitoring that protects it. <strong>Feeds:</strong> the console, with every source the rest of the system will shape.</p>
+          <p><strong>Competencies:</strong> microphone selection, placement, gain and headroom, stage patch and splits, source integrity, fast fault finding at the input.</p>
+          <p><strong>On its own:</strong> capture and stage patch can be engaged as part of a rig build or a recording minded live setup.</p>
+        </article>
+        <article>
+          <h3><span>02 / Console</span>Processing and Control</h3>
+          <p><strong>Depends on:</strong> capture for clean sources, playback returning as inputs, production design for the show file. <strong>Feeds:</strong> monitoring with per musician mixes, and the house with the main mix and system output.</p>
+          <p><strong>Competencies:</strong> gain structure, routing and bussing, mix architecture, scene programming, processing judgment, show control.</p>
+          <p><strong>On its own:</strong> show file builds, console programming, or running the desk for a show or run.</p>
+        </article>
+        <article>
+          <h3><span>03 / Monitoring</span>In-Ear Systems</h3>
+          <p><strong>Depends on:</strong> console mixes, playback for click, cues, and tracks in the ears, and RF that holds for the whole show. <strong>Feeds:</strong> the performance itself. A stable monitor world is what allows capture and the console to shape a confident performance, which is why its path on the map returns to capture.</p>
+          <p><strong>Competencies:</strong> mixes built per musician, RF discipline, signal integrity, level and hearing discipline, soundcheck method, quiet talkback and cueing.</p>
+          <p><strong>On its own:</strong> monitor engineering for a single show or a run, whether or not I am at front of house.</p>
+        </article>
+        <article>
+          <h3><span>04 / Playback</span>Tracks, Click, Cues</h3>
+          <p><strong>Depends on:</strong> production design for the show structure, and the console for its returns. <strong>Feeds:</strong> monitoring, with click, cues, and tracks the band plays to, and the house mix, with the parts of the arrangement that cannot be played live.</p>
+          <p><strong>Competencies:</strong> session architecture, redundancy and failover, click and cue design, integration with the live band, change management, rehearsal discipline.</p>
+          <p><strong>On its own:</strong> playback designed, built, and operated for a production that already has its house and monitor engineers.</p>
+        </article>
+        <article>
+          <h3><span>05 / House</span>FOH and Room</h3>
+          <p><strong>Depends on:</strong> the console mix, playback sitting inside it, and a room read honestly before doors. <strong>Feeds:</strong> the audience. It is the layer every other layer is ultimately judged through.</p>
+          <p><strong>Competencies:</strong> room assessment, system tuning and alignment, gain structure, vocal intelligibility, low frequency management, translation checks from every listening position.</p>
+          <p><strong>On its own:</strong> front of house for a single show, a run, or a room that needs a steady hand.</p>
+        </article>
+        <article>
+          <h3><span>00 / Production Design</span>The Frame</h3>
+          <p><strong>Depends on:</strong> accurate advance information and the artist's intent. <strong>Governs:</strong> every layer. It sets the patch, the show file, the playback structure, the monitor plan, and the house approach before load in, so show day is execution, not invention.</p>
+          <p><strong>Competencies:</strong> technical advance, stage and system design, show programming, coordination across departments, documentation, consistency across venues.</p>
+          <p><strong>On its own:</strong> design and programming ahead of a show or tour, handed to the team that will run it.</p>
+        </article>
+      </div>
+
+      <div class="universe-foot">
+        <p>Read the map as a signal path and it explains a show. Read it as dependencies and it explains most show failures, which are usually a broken connection between layers rather than a fault inside one. The sections below expand each layer in full.</p>
+        <div class="universe-links">
+          <a href="#house">House</a><a href="#monitoring">Monitoring</a><a href="#playback">Playback</a><a href="#production">Production</a><a href="#systems">Systems</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTENING NOTES -->
+    <div class="listen" aria-labelledby="listen-h">
+      <div class="listen-head"><h3 id="listen-h">Listening Notes</h3><span>What I listen for</span></div>
+      <p>Listening is the discipline underneath all the others. Systems and equipment matter only insofar as they serve what can actually be heard, in that room, on that night.</p>
+      <ul class="listen-list">
+        <li><span class="ln">L.01</span><strong>The room before the mix</strong><span>I listen to the room empty, then as it fills. Its reflections, its low frequency build up, the places where speech loses clarity. The mix is built for that room, on that day, not recalled from the last one.</span></li>
+        <li><span class="ln">L.02</span><strong>The vocal, intelligible at any level</strong><span>If the words cannot be understood, the performance has not reached the audience. Everything else is placed around the vocal, preserving presence without forcing level.</span></li>
+        <li><span class="ln">L.03</span><strong>Low frequency with intention</strong><span>Kick, bass, and playback low end have to occupy separate, defined places. Power down there comes from clarity, not from accumulation.</span></li>
+        <li><span class="ln">L.04</span><strong>Translation</strong><span>A mix is only finished when it holds at the desk, at the back wall, in the front rows, and in the monitors on stage. I check it from every position the band and the audience will hear it from.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONSTELLATION 01: HOUSE -->
+  <section class="block constellation" id="house" aria-labelledby="house-h">
+    <div class="sec-head">
+      <span class="sec-num">CONSTELLATION 01</span>
+      <h2 id="house-h">House Engineering</h2>
+      <span class="sec-note">Front of house</span>
+    </div>
+    <div class="constellation-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 170" role="presentation">
+        <path class="c-line" d="M 70 108 L 190 52 L 320 92 L 450 44 L 580 96 L 715 58"></path>
+        <path class="c-line-soft" d="M 70 108 L 320 92 M 190 52 L 450 44 M 320 92 L 580 96 M 450 44 L 715 58"></path>
+        <g class="c-node"><circle cx="70" cy="108" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="70" y="113" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">1</text></g>
+        <g class="c-node"><circle cx="190" cy="52" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="190" y="57" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">2</text></g>
+        <g class="c-node"><circle cx="320" cy="92" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="320" y="97" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">3</text></g>
+        <g class="c-node"><circle cx="450" cy="44" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="450" y="49" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">4</text></g>
+        <g class="c-node"><circle cx="580" cy="96" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="580" y="101" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">5</text></g>
+        <g class="c-node"><circle cx="715" cy="58" r="17" fill="#221f18" stroke="#e3a63d"></circle><text x="715" y="63" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">6</text></g>
+        <circle cx="120" cy="130" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="390" cy="128" r="1.4" fill="#cfd6d3" opacity=".3"></circle><circle cx="650" cy="126" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="255" cy="24" r="1.3" fill="#cfd6d3" opacity=".3"></circle><circle cx="530" cy="26" r="1.4" fill="#cfd6d3" opacity=".3"></circle>
+      </svg>
+    </div>
+    <p class="lead-line">Mixes that translate, and judgment that holds under show conditions.</p>
+    <p class="body-copy">Front of house is a series of decisions made in real time, in a room that keeps changing as people arrive, as the band settles, and as the night builds. The discipline is not knowing which control to move. It is knowing what the room will need ten seconds from now, and making the smaller, earlier correction instead of the larger, later one.</p>
+    <p class="body-copy">I mix for intelligibility first, then for impact. Headroom is protected throughout, so the moments that should lift are able to. When the work is done well, the audience does not notice the engineering at all. They notice the band.</p>
+    <div class="comp-head"><h3>Competencies</h3><span>Numbered to the constellation above</span></div>
+    <ul class="comp-grid">
+      <li><span class="comp-num">1</span><strong>Room assessment</strong><span>Reading size, surfaces, occupancy, and coverage before a note is played, and adjusting the plan to what is actually there.</span></li>
+      <li><span class="comp-num">2</span><strong>System tuning and alignment</strong><span>Setting level, equalization, and delay so the system itself disappears and the music is what remains.</span></li>
+      <li><span class="comp-num">3</span><strong>Gain structure</strong><span>Clean, consistent gain from input to output, with headroom preserved at every stage of the path.</span></li>
+      <li><span class="comp-num">4</span><strong>Mix architecture</strong><span>Building a mix in layers that hold together and can be adapted quickly without losing their centre.</span></li>
+      <li><span class="comp-num">5</span><strong>Feedback and dynamics control</strong><span>Anticipating problems before the audience hears them, and managing dynamics without flattening the performance.</span></li>
+      <li><span class="comp-num">6</span><strong>Show judgment</strong><span>Knowing when to push, when to pull back, and when to leave a good mix alone.</span></li>
+    </ul>
+    <p class="engage-line"><span class="el-label">Engaged on its own</span><strong>House engineering can be booked by itself:</strong> front of house for a single show, a run, or a tour, managed end to end within that facet, from soundcheck to the last song.</p>
+  </section>
+
+  <!-- CONSTELLATION 02: MONITORING -->
+  <section class="block constellation" id="monitoring" aria-labelledby="monitoring-h">
+    <div class="sec-head">
+      <span class="sec-num">CONSTELLATION 02</span>
+      <h2 id="monitoring-h">Monitoring</h2>
+      <span class="sec-note">In-ear systems</span>
+    </div>
+    <div class="constellation-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 170" role="presentation">
+        <path class="c-line" d="M 70 62 L 190 112 L 320 58 L 450 116 L 580 60 L 715 104"></path>
+        <path class="c-line-soft" d="M 70 62 L 320 58 M 190 112 L 450 116 M 320 58 L 580 60 M 190 112 L 580 60"></path>
+        <g class="c-node"><circle cx="70" cy="62" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="70" y="67" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">1</text></g>
+        <g class="c-node"><circle cx="190" cy="112" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="190" y="117" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">2</text></g>
+        <g class="c-node"><circle cx="320" cy="58" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="320" y="63" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">3</text></g>
+        <g class="c-node"><circle cx="450" cy="116" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="450" y="121" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">4</text></g>
+        <g class="c-node"><circle cx="580" cy="60" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="580" y="65" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">5</text></g>
+        <g class="c-node"><circle cx="715" cy="104" r="17" fill="#221f18" stroke="#e3a63d"></circle><text x="715" y="109" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">6</text></g>
+        <circle cx="130" cy="28" r="1.5" fill="#cfd6d3" opacity=".32"></circle><circle cx="400" cy="140" r="1.4" fill="#cfd6d3" opacity=".3"></circle><circle cx="660" cy="30" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="260" cy="142" r="1.3" fill="#cfd6d3" opacity=".28"></circle>
+      </svg>
+    </div>
+    <p class="lead-line">Monitoring that protects the performance.</p>
+    <p class="body-copy">A monitor mix is not a smaller house mix. It is the environment the musician plays inside. If it is harsh, crowded, or unpredictable, the performance tightens around it. If it is clear and stable, musicians stop thinking about the system and play.</p>
+    <p class="body-copy">My responsibility is that stability, night after night, and the level discipline that protects hearing across a long run of shows. A mix that is trusted does not need to be loud. It needs to be right, and to stay right.</p>
+    <div class="comp-head"><h3>Competencies</h3><span>Numbered to the constellation above</span></div>
+    <ul class="comp-grid">
+      <li><span class="comp-num">1</span><strong>Mixes built per musician</strong><span>Each mix shaped around what that player needs in order to perform, not a copy of another mix with the level changed.</span></li>
+      <li><span class="comp-num">2</span><strong>RF discipline</strong><span>Coordinated frequencies, checked range, and clean antenna practice, so wireless systems are never left to chance.</span></li>
+      <li><span class="comp-num">3</span><strong>Signal integrity</strong><span>Splits and routing that keep monitor and house independent, so a change in one does not compromise the other.</span></li>
+      <li><span class="comp-num">4</span><strong>Level and hearing discipline</strong><span>Mixes that remain clear at responsible levels, sustained across a full set and a full tour.</span></li>
+      <li><span class="comp-num">5</span><strong>Soundcheck method</strong><span>A repeatable process that gets every mix close quickly, then refines it from the musician's language, not the engineer's.</span></li>
+      <li><span class="comp-num">6</span><strong>Communication on stage</strong><span>Quiet, precise talkback and cueing that supports the show without ever becoming part of it.</span></li>
+    </ul>
+    <p class="engage-line"><span class="el-label">Engaged on its own</span><strong>Monitoring can be booked by itself:</strong> a monitor mix and in ear system run for your show or run, whether or not I am at front of house.</p>
+  </section>
+
+  <!-- CONSTELLATION 03: PLAYBACK -->
+  <section class="block constellation" id="playback" aria-labelledby="playback-h">
+    <div class="sec-head">
+      <span class="sec-num">CONSTELLATION 03</span>
+      <h2 id="playback-h">Playback</h2>
+      <span class="sec-note">Tracks, click, and cues</span>
+    </div>
+    <div class="constellation-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 170" role="presentation">
+        <path class="c-line" d="M 70 88 L 190 88 L 320 48 L 450 88 L 580 88 L 715 48"></path>
+        <path class="c-line-soft" d="M 70 88 L 450 88 M 190 88 L 580 88 M 320 48 L 580 88 M 190 88 L 320 48"></path>
+        <g class="c-node"><circle cx="70" cy="88" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="70" y="93" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">1</text></g>
+        <g class="c-node"><circle cx="190" cy="88" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="190" y="93" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">2</text></g>
+        <g class="c-node"><circle cx="320" cy="48" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="320" y="53" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">3</text></g>
+        <g class="c-node"><circle cx="450" cy="88" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="450" y="93" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">4</text></g>
+        <g class="c-node"><circle cx="580" cy="88" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="580" y="93" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">5</text></g>
+        <g class="c-node"><circle cx="715" cy="48" r="17" fill="#221f18" stroke="#e3a63d"></circle><text x="715" y="53" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">6</text></g>
+        <circle cx="130" cy="132" r="1.5" fill="#cfd6d3" opacity=".32"></circle><circle cx="385" cy="132" r="1.4" fill="#cfd6d3" opacity=".3"></circle><circle cx="645" cy="122" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="255" cy="22" r="1.3" fill="#cfd6d3" opacity=".28"></circle>
+      </svg>
+    </div>
+    <p class="lead-line">Playback that cannot fail, and does not ask to be noticed.</p>
+    <p class="body-copy">Playback carries click, cues, and the parts of the arrangement that cannot be played live. When it works, the audience never considers it. When it fails, everyone does. There is no middle state, so it is engineered accordingly.</p>
+    <p class="body-copy">I treat playback as a performance system in its own right: structured, rehearsed, redundant, and integrated with the band so closely that the boundary between what is played and what is played back stops being the point. The show continues even if a component does not. That is planned in advance, not improvised under pressure.</p>
+    <div class="comp-head"><h3>Competencies</h3><span>Numbered to the constellation above</span></div>
+    <ul class="comp-grid">
+      <li><span class="comp-num">1</span><strong>Session architecture</strong><span>Sessions built in a consistent, legible structure that another engineer can open, understand, and run.</span></li>
+      <li><span class="comp-num">2</span><strong>Redundancy and failover</strong><span>A second path, tested in advance, with a changeover that can be executed calmly in the middle of a show.</span></li>
+      <li><span class="comp-num">3</span><strong>Click, cues, and count ins</strong><span>Clear, musical guidance for the band, voiced and timed so it supports phrasing rather than policing it.</span></li>
+      <li><span class="comp-num">4</span><strong>Integration with the live band</strong><span>Levels, tuning, and timing aligned in rehearsal, so playback sits inside the performance instead of on top of it.</span></li>
+      <li><span class="comp-num">5</span><strong>Change management</strong><span>Edits, set changes, and rearrangements made without destabilising a show file that already works.</span></li>
+      <li><span class="comp-num">6</span><strong>Rehearsal and show discipline</strong><span>The same checks, in the same order, every date, until reliability is a habit rather than a hope.</span></li>
+    </ul>
+    <p class="engage-line"><span class="el-label">Engaged on its own</span><strong>Playback can be booked by itself:</strong> designed, built, and operated for a production that already has its house and monitor engineers in place.</p>
+  </section>
+
+  <!-- CONSTELLATION 04: PRODUCTION -->
+  <section class="block constellation" id="production" aria-labelledby="production-h">
+    <div class="sec-head">
+      <span class="sec-num">CONSTELLATION 04</span>
+      <h2 id="production-h">Production Design and Programming</h2>
+      <span class="sec-note">Design and show programming</span>
+    </div>
+    <div class="constellation-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 170" role="presentation">
+        <path class="c-line" d="M 70 96 L 190 44 L 320 100 L 450 52 L 580 102 L 715 66"></path>
+        <path class="c-line-soft" d="M 70 96 L 320 100 M 190 44 L 580 102 M 320 100 L 450 52 M 450 52 L 715 66"></path>
+        <g class="c-node"><circle cx="70" cy="96" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="70" y="101" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">1</text></g>
+        <g class="c-node"><circle cx="190" cy="44" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="190" y="49" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">2</text></g>
+        <g class="c-node"><circle cx="320" cy="100" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="320" y="105" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">3</text></g>
+        <g class="c-node"><circle cx="450" cy="52" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="450" y="57" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">4</text></g>
+        <g class="c-node"><circle cx="580" cy="102" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="580" y="107" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">5</text></g>
+        <g class="c-node"><circle cx="715" cy="66" r="17" fill="#221f18" stroke="#e3a63d"></circle><text x="715" y="71" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">6</text></g>
+        <circle cx="125" cy="136" r="1.5" fill="#cfd6d3" opacity=".32"></circle><circle cx="385" cy="26" r="1.4" fill="#cfd6d3" opacity=".3"></circle><circle cx="640" cy="136" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="520" cy="24" r="1.3" fill="#cfd6d3" opacity=".28"></circle>
+      </svg>
+    </div>
+    <p class="lead-line">Production design that serves the artist and the room.</p>
+    <p class="body-copy">Design is the work done before load in that determines whether load in is calm. Programming is how that design is made repeatable. Together they mean the show the artist intended is the show that happens, in a club, a theatre, or a room that was never built for concerts.</p>
+    <p class="body-copy">Good design also respects scale. It sizes the system to the room and the crew available to run it, decides what travels and what is sourced locally, and leaves nothing important to be invented on show day. The result is not spectacle for its own sake. It is a production that fits.</p>
+    <div class="comp-head"><h3>Competencies</h3><span>Numbered to the constellation above</span></div>
+    <ul class="comp-grid">
+      <li><span class="comp-num">1</span><strong>Technical advance</strong><span>Accurate information exchanged early: plots, lists, power, and constraints, with no surprises left for show day.</span></li>
+      <li><span class="comp-num">2</span><strong>Stage and system design</strong><span>Layout and system choices sized to the room, the programme, and the crew available to run them.</span></li>
+      <li><span class="comp-num">3</span><strong>Show programming</strong><span>Scenes, snapshots, and cues programmed, labeled, and documented so the show runs as designed, every night.</span></li>
+      <li><span class="comp-num">4</span><strong>Coordination across departments</strong><span>Audio planned alongside stage, lighting, and backline as one production, rather than competing setups.</span></li>
+      <li><span class="comp-num">5</span><strong>Documentation</strong><span>Plots, input lists, and show notes written clearly enough to be used under pressure, by someone else.</span></li>
+      <li><span class="comp-num">6</span><strong>Consistency across venues</strong><span>A core show that adapts to each room without being rebuilt from the beginning each time.</span></li>
+    </ul>
+    <p class="engage-line"><span class="el-label">Engaged on its own</span><strong>Production design and programming can be booked by themselves:</strong> the design, advance, and show programming done ahead of the date, and handed to the team that will run it.</p>
+  </section>
+
+  <!-- CONSTELLATION 05: SYSTEMS -->
+  <section class="block constellation" id="systems" aria-labelledby="systems-h">
+    <div class="sec-head">
+      <span class="sec-num">CONSTELLATION 05</span>
+      <h2 id="systems-h">Deployable Systems and Deployment</h2>
+      <span class="sec-note">Builds and touring deployment</span>
+    </div>
+    <div class="constellation-visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 170" role="presentation">
+        <path class="c-line" d="M 70 56 L 190 100 L 320 50 L 450 104 L 580 54 L 715 92"></path>
+        <path class="c-line-soft" d="M 70 56 L 320 50 M 190 100 L 450 104 M 320 50 L 580 54 M 450 104 L 715 92"></path>
+        <g class="c-node"><circle cx="70" cy="56" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="70" y="61" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">1</text></g>
+        <g class="c-node"><circle cx="190" cy="100" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="190" y="105" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">2</text></g>
+        <g class="c-node"><circle cx="320" cy="50" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="320" y="55" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">3</text></g>
+        <g class="c-node"><circle cx="450" cy="104" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="450" y="109" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">4</text></g>
+        <g class="c-node"><circle cx="580" cy="54" r="17" fill="#1e2124" stroke="#e3a63d"></circle><text x="580" y="59" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">5</text></g>
+        <g class="c-node"><circle cx="715" cy="92" r="17" fill="#221f18" stroke="#e3a63d"></circle><text x="715" y="97" text-anchor="middle" fill="#e3a63d" font-family="IBM Plex Mono, monospace" font-size="11">6</text></g>
+        <circle cx="125" cy="132" r="1.5" fill="#cfd6d3" opacity=".32"></circle><circle cx="390" cy="138" r="1.4" fill="#cfd6d3" opacity=".3"></circle><circle cx="650" cy="28" r="1.6" fill="#cfd6d3" opacity=".35"></circle><circle cx="255" cy="24" r="1.3" fill="#cfd6d3" opacity=".28"></circle>
+      </svg>
+    </div>
+    <p class="lead-line">Deployable systems that any engineer can walk up to and run.</p>
+    <p class="body-copy">Anyone can assemble equipment. The work is designing a system that travels, deploys quickly, fails gracefully, and reads clearly to an engineer who did not build it. Labeling, documentation, and logical layout are not finishing touches. They are the design. If a system needs its builder standing beside it to explain it, it is not finished.</p>
+    <p class="body-copy">On tour, that discipline compounds. Fast changeovers, consistent patch, serviceable wiring, and a show file that behaves the same in every room give the band the one thing touring rarely offers: a stable technical foundation to perform from. Systems are built, programmed, and tested before the run, and handed over with the plots and notes the work actually requires.</p>
+    <div class="comp-head"><h3>Competencies</h3><span>Numbered to the constellation above</span></div>
+    <ul class="comp-grid">
+      <li><span class="comp-num">1</span><strong>System architecture</strong><span>The whole signal path designed as one system, from stage input to house output and monitor split.</span></li>
+      <li><span class="comp-num">2</span><strong>Wiring, labeling, and documentation</strong><span>Every cable, port, and path identified, so a fault can be traced in minutes rather than guessed at.</span></li>
+      <li><span class="comp-num">3</span><strong>Power and grounding</strong><span>Clean, safe power distribution and grounding practice that prevents noise and protects equipment and people.</span></li>
+      <li><span class="comp-num">4</span><strong>Patch and changeover speed</strong><span>Layouts that allow a full band to be patched, checked, and ready within the time the schedule actually allows.</span></li>
+      <li><span class="comp-num">5</span><strong>Roadworthiness and serviceability</strong><span>Builds that withstand transport, can be serviced in the field, and do not depend on fragile workarounds.</span></li>
+      <li><span class="comp-num">6</span><strong>Handover</strong><span>Systems delivered with the plots, notes, and walkthrough another engineer needs to run the show without me.</span></li>
+    </ul>
+    <p class="engage-line"><span class="el-label">Engaged on its own</span><strong>A rig build can be booked by itself:</strong> a deployable system designed, built, programmed, and documented for your band, or for your own engineer to run.</p>
+    <p class="spec-note">Spec note: <b>a recent deployable build centers on a StudioLive 16R with Helix Rack processing, integrating mixing, processing, and playback in a single rack footprint for full band use.</b></p>
+  </section>
+
+  <!-- FIELD LOG -->
+  <section class="block" aria-labelledby="log-h">
+    <div class="sec-head">
+      <span class="sec-num">SEC. B</span>
+      <h2 id="log-h">Field Log</h2>
+      <span class="sec-note">A record, kept plainly</span>
+    </div>
+    <p class="sec-intro">Selected recent work, stated as it happened. This is a record, not a complete history, and no work is claimed here beyond what is listed.</p>
+    <div class="log">
+      <div class="log-row">
+        <div class="log-when">Oct 2026 / Live</div>
+        <div class="log-what"><strong>The Feels, Factory 52</strong><span>Front of house for the show at Factory 52 and Braxton Brewery, load in to load out.</span></div>
+      </div>
+      <div class="log-row">
+        <div class="log-when">Ongoing / Projects</div>
+        <div class="log-what"><strong>Coldharbour, Until the Dead Walk, Grave Friends, Wasted Away</strong><span>Backline, PA, and rack systems across projects I also play in. Building and running systems from inside a band changes how you design them for other engineers.</span></div>
+      </div>
+      <div class="log-row">
+        <div class="log-when">Ongoing / Venue</div>
+        <div class="log-what"><strong>Sozo Loveland</strong><span>Production support for events at Sozo Loveland in Loveland, Ohio.</span></div>
+      </div>
+    </div>
+    <p class="log-note">Note: specifics on any entry are available on request.</p>
+
+    <div class="avail" style="display:block">
+      <div>
+        <h3>Engagement, by facet</h3>
+        <p>Book one facet, or several. There is no required bundle and no expectation that one engagement covers a whole production. Each facet below can be engaged on its own, and each is managed end to end within the facets chosen: design, build, rehearsal, show, and handover where it applies. Where several facets are engaged together, they are worked with their connections already understood.</p>
+      </div>
+      <ul class="facet-list">
+        <li><span class="facet-tag">01</span><strong>House</strong><span>Front of house mixing for a show, a run, or a tour.</span></li>
+        <li><span class="facet-tag">02</span><strong>Monitoring</strong><span>Monitor engineering and in ear systems, run from stage side.</span></li>
+        <li><span class="facet-tag">03</span><strong>Playback</strong><span>Playback design, build, and operation, redundant and rehearsed.</span></li>
+        <li><span class="facet-tag">04</span><strong>Production design</strong><span>Design and show programming ahead of the date, handed to your team or run by me.</span></li>
+        <li><span class="facet-tag">05</span><strong>Deployable systems</strong><span>A rig designed and built for your band, documented for any engineer to run.</span></li>
+      </ul>
+      <p style="margin:18px 0 0; color:var(--ink-dim); font-size:15px; max-width:620px">Single shows, runs, and tour preparation, based in Ohio and built to travel. Tell me which facet the production needs, and that is the conversation we will have.</p>
+      <div class="avail-actions" style="margin-top:20px">
+        <a class="btn" href="https://stevepeeleii.com">Book engineering work <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn-ghost" href="https://stevepeeleii.com/music">Back to the music</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="doors" aria-label="More in this section">
+  <a class="door-prev" href="https://stevepeeleii.com/music/wasted-away">
+    <span class="wrap">
+      <span><span class="d-label">Previous / 05</span><span class="d-name">Wasted Away</span></span>
+      <span class="d-arrow" aria-hidden="true">&larr;</span>
+    </span>
+  </a>
+  <div class="wrap closing">
+    <p>This is the other side of the same music. <span>The bands are on the other five pages. This page is how they are heard.</span></p>
+    <a href="https://stevepeeleii.com/music">Return to the hub / All five projects &rarr;</a>
+  </div>
+</nav>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>ENGINEERING / STEVE PEELE II</span>
+    <a href="https://stevepeeleii.com">stevepeeleii.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Constellation expansion on scroll */
+  var visuals = document.querySelectorAll(".constellation-visual");
+  if(reduce || !("IntersectionObserver" in window)){
+    visuals.forEach(function(el){ el.classList.add("inview"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("inview");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25, rootMargin: "0px 0px 60px 0px" });
+    visuals.forEach(function(el){ io.observe(el); });
+    /* Fallback: reveal anything already past after a short delay so content never stays collapsed */
+    setTimeout(function(){
+      visuals.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if(r.top < window.innerHeight) el.classList.add("inview");
+      });
+    }, 1200);
+  }
+
+  /* Universe pulses */
+  function pointAlong(pts, t){
+    var segs = [], total = 0, i, dx, dy, len;
+    for(i=0;i<pts.length-1;i++){
+      dx = pts[i+1][0]-pts[i][0]; dy = pts[i+1][1]-pts[i][1];
+      len = Math.sqrt(dx*dx+dy*dy); segs.push(len); total += len;
+    }
+    var d = t * total;
+    for(i=0;i<segs.length;i++){
+      if(d <= segs[i] || i === segs.length-1){
+        var r = segs[i] === 0 ? 0 : d / segs[i];
+        return [ pts[i][0] + (pts[i+1][0]-pts[i][0])*r, pts[i][1] + (pts[i+1][1]-pts[i][1])*r ];
+      }
+      d -= segs[i];
+    }
+    return pts[pts.length-1];
+  }
+  function runPulse(el, tracks){
+    if(!el) return;
+    if(reduce){
+      var p = pointAlong(tracks[0].pts, 0.52);
+      el.setAttribute("cx", p[0]); el.setAttribute("cy", p[1]);
+      return;
+    }
+    var start = null;
+    function frame(ts){
+      if(!document.body.contains(el)) return;
+      if(start === null) start = ts;
+      var elapsed = (ts - start) % (tracks[0].dur * tracks.length);
+      var idx = Math.floor(elapsed / tracks[0].dur);
+      var t = (elapsed % tracks[0].dur) / tracks[0].dur;
+      var tt = t < 0.88 ? t / 0.88 : 1;
+      var pt = pointAlong(tracks[idx].pts, tt);
+      el.setAttribute("cx", pt[0]); el.setAttribute("cy", pt[1]);
+      el.setAttribute("opacity", t > 0.96 ? "0" : "1");
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var tracksD = [
+    { pts: [[205,215],[320,215],[545,215],[640,215],[640,148],[865,148],[955,148],[1042,148],[1042,215]], dur: 5200 },
+    { pts: [[205,215],[320,215],[545,215],[640,215],[640,288],[865,288],[955,288],[1042,288],[1042,215]], dur: 5200 }
+  ];
+  var tracksM = [
+    { pts: [[180,138],[180,176],[180,282],[100,312],[100,332],[100,398],[100,428],[180,462]], dur: 5200 },
+    { pts: [[180,138],[180,176],[180,282],[260,312],[260,332],[260,398],[260,428],[180,462]], dur: 5200 }
+  ];
+  tracksD[0].dur = 5200; tracksD[1].dur = 5200;
+  runPulse(document.getElementById("pulseD"), tracksD);
+  runPulse(document.getElementById("pulseM"), tracksM);
+
+  /* Systems map: layer selection, dependency tracing, in place expansion */
+  var LAYERS = {
+    capture: {
+      kicker: "01 / Capture", title: "Sources",
+      role: "Everything downstream is decided here first. A source captured badly cannot be repaired at the desk, only managed. Capture is the discipline of getting the performance into the system cleanly, at consistent gain, with nothing lost between the stage and the console.",
+      depends: "<strong>The performance itself</strong>, and the monitoring that protects it. Musicians who can hear themselves clearly play sources worth capturing.",
+      feeds: "<strong>The console</strong>, with every vocal, instrument, and stage source the rest of the system will shape.",
+      comps: [
+        ["Microphone selection", "The right microphone for the source and the stage it is on."],
+        ["Placement", "Position that captures the source and rejects what surrounds it."],
+        ["Gain and headroom", "Inputs gained consistently, with room left for the loudest moment."],
+        ["Patch and splits", "Stage patch and splits that keep house and monitors independent."],
+        ["Source integrity", "Cables, connectors, and stands checked before they can fail quietly."],
+        ["Fault finding", "Problems traced to the input in minutes, under show pressure."]
+      ],
+      engage: "<strong>On its own:</strong> capture and stage patch work is engaged as part of a rig build or a live setup where the inputs have to be right from the first note."
+    },
+    console: {
+      kicker: "02 / Console", title: "Processing and Control",
+      role: "The console is where captured sources and playback returns become two different products: the mixes the band plays inside, and the mix the audience hears. Every routing and gain decision made here is felt in both.",
+      depends: "<strong>Capture</strong>, for clean sources at consistent gain. <strong>Playback</strong>, returning as inputs that must sit inside the live arrangement. <strong>Production design</strong>, for the show file, scenes, and patch decided in advance.",
+      feeds: "<strong>Monitoring</strong>, with the per musician mixes built here. <strong>House</strong>, with the main mix, system output, and headroom the room is heard through.",
+      comps: [
+        ["Gain structure", "Clean, consistent gain with headroom preserved at every stage."],
+        ["Routing and bussing", "A path that keeps house and monitors independent."],
+        ["Mix architecture", "Layers that hold together and adapt quickly in the show."],
+        ["Scene programming", "Snapshots labeled and documented, recalled without surprise."],
+        ["Processing judgment", "Equalization and dynamics that serve intelligibility first."],
+        ["Show control", "Calm operation under show conditions, changes made early and small."]
+      ],
+      engage: "<strong>On its own:</strong> console and show file work can be engaged separately, from building a show file for your engineer to running the desk for a show or run."
+    },
+    monitoring: {
+      kicker: "03 / Monitoring", title: "In-Ear Systems",
+      role: "Monitoring is the environment the musician plays inside. It is also the protective layer of the whole system: a band that can hear itself clearly and safely plays the performance that capture and the console then shape. When monitoring fails, every other layer is working with a lesser performance.",
+      depends: "<strong>Console</strong>, where the mixes are built. <strong>Playback</strong>, for click, cues, and tracks delivered in the ears. <strong>RF</strong> that holds clean for the entire show.",
+      feeds: "<strong>The performance itself.</strong> Its return path on the map runs back to capture, because a stable monitor world produces the sources the rest of the system receives.",
+      comps: [
+        ["Mixes built per musician", "Each mix shaped around what that player needs in order to perform."],
+        ["RF discipline", "Coordinated frequencies, checked range, clean antenna practice."],
+        ["Signal integrity", "Splits and routing that keep monitor and house independent."],
+        ["Level and hearing discipline", "Clear at responsible levels, sustained across a full run."],
+        ["Soundcheck method", "A repeatable process that gets every mix close, then refines it fast."],
+        ["Communication on stage", "Quiet, precise talkback that supports the show without joining it."]
+      ],
+      engage: "<strong>On its own:</strong> a monitor mix can be booked by itself, for a single show or a full run, whether or not I am at front of house."
+    },
+    playback: {
+      kicker: "04 / Playback", title: "Tracks, Click, Cues",
+      role: "Playback carries the parts of the arrangement that cannot be played live, and the timing the band plays to. It is the only layer that feeds two destinations at once, and the one with no acceptable failure mode, so it is built redundant and rehearsed until the changeover is calm.",
+      depends: "<strong>Production design</strong>, for the show structure it must serve. <strong>The console</strong>, for its returns into both mixes. <strong>Rehearsal</strong>, where its integration with the band is actually decided.",
+      feeds: "<strong>Monitoring</strong>, with click, cues, and tracks the band plays to. <strong>The house mix</strong>, with the recorded parts of the arrangement, placed inside the live performance.",
+      comps: [
+        ["Session architecture", "Sessions built legibly, so another engineer can open and run them."],
+        ["Redundancy and failover", "A second path, tested in advance, changeover executable mid show."],
+        ["Click, cues, and count ins", "Musical guidance that supports phrasing rather than policing it."],
+        ["Integration with the live band", "Levels, tuning, and timing aligned in rehearsal, not at doors."],
+        ["Change management", "Set changes and edits made without destabilising a working show file."],
+        ["Rehearsal and show discipline", "The same checks, in the same order, every date."]
+      ],
+      engage: "<strong>On its own:</strong> playback can be booked by itself, designed, built, and operated for a production that already has its house and monitor engineers."
+    },
+    house: {
+      kicker: "05 / House", title: "FOH and Room",
+      role: "The house is where the system meets the audience, and the layer every other layer is ultimately judged through. The work is judgment in a room that keeps changing: tuning it honestly, protecting headroom, and keeping the vocal intelligible at every seat that matters.",
+      depends: "<strong>The console</strong>, for the mix and system output. <strong>Playback</strong>, sitting inside that mix at the right weight. <strong>Capture</strong>, because no house mix recovers a source that was lost on stage.",
+      feeds: "<strong>The audience.</strong> Nothing downstream remains to correct it, which is why the decisions here are made early and conservatively.",
+      comps: [
+        ["Room assessment", "Size, surfaces, occupancy, and coverage read before a note is played."],
+        ["System tuning and alignment", "Level, equalization, and delay set so the system disappears."],
+        ["Vocal intelligibility", "The words understood at any level, from any seat."],
+        ["Low frequency management", "Kick, bass, and playback low end in separate, defined places."],
+        ["Dynamics and headroom", "Impact preserved because the loud moments were planned for."],
+        ["Translation checks", "The mix verified at the desk, the back wall, and the front rows."]
+      ],
+      engage: "<strong>On its own:</strong> front of house can be booked by itself, for a single show, a run, or a tour."
+    },
+    production: {
+      kicker: "00 / Production Design", title: "The Frame That Governs",
+      role: "Production design is the governing layer. It does not carry signal. It decides, before load in, how every other layer will be built, patched, programmed, and run, so that show day is execution rather than invention. Its dashed paths on the map reach every cluster because its decisions do.",
+      depends: "<strong>Accurate advance information</strong> from the venue and the artist, and a clear statement of what the show is meant to be.",
+      feeds: "<strong>Every layer.</strong> It sets the patch for capture, the show file for the console, the monitor plan, the playback structure, and the house approach for each room.",
+      comps: [
+        ["Technical advance", "Plots, lists, power, and constraints settled early, without surprises."],
+        ["Stage and system design", "Choices sized to the room, the programme, and the crew."],
+        ["Show programming", "Scenes, snapshots, and cues programmed, labeled, documented."],
+        ["Coordination across departments", "Audio planned with stage, lighting, and backline as one production."],
+        ["Documentation", "Notes written clearly enough to be used under pressure, by someone else."],
+        ["Consistency across venues", "A core show that adapts per room without being rebuilt each time."]
+      ],
+      engage: "<strong>On its own:</strong> production design and programming can be booked by themselves, ahead of a show or tour, and handed to the team that will run it."
+    }
+  };
+
+  var svg = document.getElementById("systemsSvg");
+  var buttons = document.querySelectorAll("[data-select]");
+  function selectLayer(key){
+    var d = LAYERS[key];
+    if(!d) return;
+    buttons.forEach(function(b){ b.classList.toggle("is-active", b.getAttribute("data-select") === key); });
+    if(svg){
+      svg.querySelectorAll(".cluster").forEach(function(c){
+        var mine = c.getAttribute("data-layer") === key;
+        c.classList.toggle("is-selected", mine);
+        c.classList.toggle("is-dim", !mine);
+      });
+      svg.querySelectorAll(".dep, .gov").forEach(function(p){
+        var touches = p.getAttribute("data-from") === key || p.getAttribute("data-to") === key;
+        p.classList.toggle("is-active", touches);
+        p.classList.toggle("is-dim", !touches);
+        if(touches && p.classList.contains("dep")) p.setAttribute("marker-end", "url(#arrSA)");
+        else if(p.classList.contains("dep")) p.setAttribute("marker-end", "url(#arrS)");
+      });
+      svg.querySelectorAll(".dep-label").forEach(function(t){
+        var touches = t.getAttribute("data-from") === key || t.getAttribute("data-to") === key;
+        t.classList.toggle("is-active", touches);
+        t.classList.toggle("is-dim", !touches);
+      });
+    }
+    document.getElementById("mdKicker").textContent = d.kicker;
+    document.getElementById("mdTitle").textContent = d.title;
+    document.getElementById("mdRole").textContent = d.role;
+    document.getElementById("mdDepends").innerHTML = d.depends;
+    document.getElementById("mdFeeds").innerHTML = d.feeds;
+    document.getElementById("mdEngage").innerHTML = d.engage;
+    var list = document.getElementById("mdComps");
+    list.innerHTML = "";
+    d.comps.forEach(function(c, i){
+      var li = document.createElement("li");
+      var num = document.createElement("span"); num.className = "dc-num"; num.textContent = String(i + 1);
+      var b = document.createElement("b"); b.textContent = c[0] + ". ";
+      li.appendChild(num); li.appendChild(b); li.appendChild(document.createTextNode(c[1]));
+      list.appendChild(li);
+    });
+  }
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){ selectLayer(b.getAttribute("data-select")); });
+  });
+  if(svg){
+    svg.querySelectorAll(".cluster").forEach(function(c){
+      c.addEventListener("click", function(){ selectLayer(c.getAttribute("data-layer")); });
+      c.addEventListener("keydown", function(e){
+        if(e.key === "Enter" || e.key === " "){ e.preventDefault(); selectLayer(c.getAttribute("data-layer")); }
+      });
+    });
+  }
+  selectLayer("console");
+})();
+</script>
+</body>
+</html>

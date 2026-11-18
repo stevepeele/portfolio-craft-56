@@ -229,6 +229,32 @@
       .door-prev:hover .go{background:#8a2f24;border-color:#8a2f24;color:#fff}
       .door-prev .go .arr{display:inline-block}
 
+      /* next door: Engineering, charcoal with a signal amber edge */
+      .door-next{
+        display:block;text-decoration:none;position:relative;overflow:hidden;
+        background:linear-gradient(180deg,#101010 0%,#1b1b19 55%,#121211 100%);
+        color:#e8e4d8;border-top:4px solid #f0a51e;
+        padding:clamp(2.2rem,5vw,3.4rem) clamp(1.1rem,4vw,2.5rem);
+      }
+      .door-next .dwrap{max-width:68rem;margin:0 auto;display:block}
+      .door-next .dlabel{
+        display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+        font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#f0a51e;
+      }
+      .door-next .dlabel .from{color:#8f8a7c}
+      .door-next h2{
+        margin:.9rem 0 0;font-size:clamp(2rem,6vw,3.4rem);line-height:1.02;
+        font-weight:700;text-transform:uppercase;letter-spacing:-.01em;color:#f2efe6;
+      }
+      .door-next .dline{margin:1rem 0 0;max-width:28rem;font-size:.98rem;line-height:1.7;color:#b3ad9d}
+      .door-next .go{
+        display:inline-flex;align-items:center;gap:.8rem;margin-top:1.8rem;min-height:2.75rem;
+        border:1px solid rgba(240,165,30,.6);color:#f2efe6;
+        font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.15rem;
+      }
+      .door-next:hover .go{background:#f0a51e;border-color:#f0a51e;color:#141310}
+      .door-next .go .arr{display:inline-block}
+
       /* ---------- footer ---------- */
       footer{
         padding:1.6rem clamp(1.1rem,4vw,2.5rem) 2.2rem;
@@ -329,6 +355,15 @@ window.__SPIIX_CFG__ = {
           <h2>Grave Friends</h2>
           <p class="dline">Back one room: deep red, one beam of light, the ache carried together.</p>
           <span class="go"><span class="arr" aria-hidden="true">&larr;</span> Enter Grave Friends</span>
+        </span>
+      </a>
+
+      <a class="door-next" href="/music/engineering">
+        <span class="dwrap">
+          <span class="dlabel"><span>Next</span><span class="from">Engineering practice</span></span>
+          <h2>Engineering</h2>
+          <p class="dline">Not a band. The other side of the work: live production, house systems, and touring deployment.</p>
+          <span class="go">Enter Engineering <span class="arr" aria-hidden="true">&rarr;</span></span>
         </span>
       </a>
     </main>
