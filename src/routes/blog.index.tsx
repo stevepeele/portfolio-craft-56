@@ -74,10 +74,7 @@ export const Route = createFileRoute("/blog/")({
       const found = crossPostsFor(p.title);
       if (found.length > 0) crossPosts[p._id] = found;
     }
-    const externalOnly = externalOnlyItems(
-      posts.map((p) => p.title),
-      6,
-    );
+    const externalOnly = externalOnlyItems(posts.map((p) => p.title));
     const archiveCount = posts.filter((post) => !lead || post._id !== lead._id).length;
     const pageCount = archivePageCount(archiveCount);
     const page = clampArchivePage(deps.page, pageCount);
