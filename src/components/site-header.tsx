@@ -8,6 +8,7 @@ import {
   hackingStatusDotClass,
   openGuide,
   primaryNav,
+  SIGNALS_URL,
 } from "@/data/navigation";
 import { EbookBanner } from "@/components/ebook-banner";
 import { MuseReferralBanner } from "@/components/muse-referral-banner";
@@ -29,12 +30,12 @@ function crumbsFor(path: string): Crumb[] {
   if (p === "/spiix") return [{ label: "Home", to: "/" }, { label: "SPIIX" }];
   if (p === "/ai") return [{ label: "Home", to: "/" }, { label: "AI" }];
   if (p === "/services")
-    return [{ label: "Home", to: "/" }, { label: "SPIIX", to: "/spiix" }, { label: "Offers" }];
+    return [{ label: "Home", to: "/" }, { label: "SPIIX", to: SIGNALS_URL }, { label: "Offers" }];
   if (p.startsWith("/services/"))
     return [
       { label: "Home", to: "/" },
-      { label: "SPIIX", to: "/spiix" },
-      { label: "Offers", to: "/spiix/compare" },
+      { label: "SPIIX", to: SIGNALS_URL },
+      { label: "Offers", to: SIGNALS_URL },
       { label: offerNames[p.split("/")[2] ?? ""] ?? "Offer" },
     ];
   if (p === "/blog") return [{ label: "Home", to: "/" }, { label: "Writing" }];
@@ -95,6 +96,13 @@ export function SiteHeader() {
           <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
             {primaryNav.map((l) => {
               const active = isActive(l.match, l.exact);
+              if (l.href) {
+                return (
+                  <a key={l.to} href={l.href} className={navClass(active)}>
+                    {l.label}
+                  </a>
+                );
+              }
               return (
                 <Link key={l.to} to={l.to} aria-current={active ? "page" : undefined} className={navClass(active)}>
                   {l.label}
@@ -179,15 +187,23 @@ export function SiteHeader() {
               {[...primaryNav, { to: "/contact", label: "Let's Talk", exact: false, match: ["/contact"] } as const].map(
                 (l) => {
                   const active = isActive(l.match, l.exact);
+                  const className = `rounded-lg border-l-2 px-3 py-2.5 text-sm font-medium ${
+                    active ? "border-primary bg-surface text-foreground" : "border-transparent text-muted-foreground"
+                  }`;
+                  if ("href" in l && l.href) {
+                    return (
+                      <a key={l.to} href={l.href} onClick={() => setOpen(false)} className={className}>
+                        {l.label}
+                      </a>
+                    );
+                  }
                   return (
                     <Link
                       key={l.to}
                       to={l.to}
                       onClick={() => setOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className={`rounded-lg border-l-2 px-3 py-2.5 text-sm font-medium ${
-                        active ? "border-primary bg-surface text-foreground" : "border-transparent text-muted-foreground"
-                      }`}
+                      className={className}
                     >
                       {l.label}
                     </Link>
@@ -252,9 +268,15 @@ export function SiteHeader() {
                   <li key={c.label} className="flex items-center gap-1">
                     {i > 0 && <ChevronRight className="size-3 opacity-60" aria-hidden="true" />}
                     {c.to ? (
-                      <Link to={c.to} className="hover:text-foreground">
-                        {c.label}
-                      </Link>
+                      c.to.startsWith("http") ? (
+                        <a href={c.to} className="hover:text-foreground">
+                          {c.label}
+                        </a>
+                      ) : (
+                        <Link to={c.to} className="hover:text-foreground">
+                          {c.label}
+                        </Link>
+                      )
                     ) : (
                       <span aria-current="page" className="font-semibold text-foreground">
                         {c.label}

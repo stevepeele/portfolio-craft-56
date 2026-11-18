@@ -5,6 +5,26 @@
   "outputDirectory": ".vercel/output",
   "redirects": [
     {
+      "source": "/spiix/signal",
+      "destination": "https://www.signalsbyspii.com/#/diagnostic",
+      "permanent": true
+    },
+    {
+      "source": "/spiix/monolith",
+      "destination": "https://www.signalsbyspii.com/#/book",
+      "permanent": true
+    },
+    {
+      "source": "/spiix",
+      "destination": "https://www.signalsbyspii.com/",
+      "permanent": true
+    },
+    {
+      "source": "/spiix/:path*",
+      "destination": "https://www.signalsbyspii.com/",
+      "permanent": true
+    },
+    {
       "destination": "/blog",
       "permanent": true,
       "source": "/writing"

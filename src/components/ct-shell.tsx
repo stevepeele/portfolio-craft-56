@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import "@/styles/tower.css";
-import { CORE_FONT_LINK, CORE_NAV_ITEMS } from "@/components/core-chrome";
+import { CORE_FONT_LINK, CORE_NAV_ITEMS, SIGNALS_URL } from "@/components/core-chrome";
 import { profile } from "@/data/resume";
 
 /* Control Tower shell (SPIIX-1142) — the shared core framework for every
@@ -108,6 +108,13 @@ export function CtShell({
           </Link>
           <nav className="main" aria-label="Primary">
             {SITE_NAV.map((l) => {
+              if (l.href) {
+                return (
+                  <a key={l.to} href={l.href}>
+                    {l.label}
+                  </a>
+                );
+              }
               const active = navActive(l.to, pathname);
               return (
                 <Link
@@ -140,6 +147,13 @@ export function CtShell({
           <div className="mnav" id="ctw-mnav">
             <nav aria-label="Mobile">
               {SITE_NAV.map((l) => {
+                if (l.href) {
+                  return (
+                    <a key={l.to} href={l.href}>
+                      {l.label}
+                    </a>
+                  );
+                }
                 const active = navActive(l.to, pathname);
                 return (
                   <Link key={l.to} to={l.to as "/work"} className={active ? "on" : undefined}>
@@ -213,11 +227,17 @@ export function CtShell({
             <div>
               <h5>Pages</h5>
               <nav aria-label="Footer pages">
-                {SITE_NAV.map((l) => (
-                  <Link key={l.to} to={l.to}>
-                    {l.label}
-                  </Link>
-                ))}
+                {SITE_NAV.map((l) =>
+                  l.href ? (
+                    <a key={l.to} href={l.href}>
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link key={l.to} to={l.to}>
+                      {l.label}
+                    </Link>
+                  ),
+                )}
                 <Link to="/contact">Let&apos;s Talk</Link>
               </nav>
             </div>
@@ -239,7 +259,7 @@ export function CtShell({
                 <a href={profile.cv} target="_blank" rel="noreferrer">
                   CV
                 </a>
-                <Link to="/spiix">SPIIX</Link>
+                <a href={SIGNALS_URL}>SPIIX</a>
                 <Link to="/blog">Blog</Link>
               </nav>
             </div>

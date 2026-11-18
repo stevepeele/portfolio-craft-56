@@ -89,21 +89,38 @@ export function SpiiGuide() {
           <ul className="mt-3 space-y-1.5">
             {pathways.map((p) => (
               <li key={p.id}>
-                <Link
-                  to={p.to}
-                  {...(p.hash ? { hash: p.hash } : {})}
-                  onClick={() => close(false)}
-                  className="group block rounded-xl border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-surface-raised focus-visible:border-primary focus-visible:outline-none"
-                >
-                  <span className="flex items-center justify-between gap-2 text-sm font-semibold text-foreground">
-                    {p.label}
-                    <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">{p.need}</span>
-                  <span className="mt-1 block text-[11px] font-semibold tracking-widest text-primary uppercase">
-                    {p.destination}
-                  </span>
-                </Link>
+                {p.href ? (
+                  <a
+                    href={p.href}
+                    onClick={() => close(false)}
+                    className="group block rounded-xl border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-surface-raised focus-visible:border-primary focus-visible:outline-none"
+                  >
+                    <span className="flex items-center justify-between gap-2 text-sm font-semibold text-foreground">
+                      {p.label}
+                      <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                    <span className="mt-0.5 block text-xs text-muted-foreground">{p.need}</span>
+                    <span className="mt-1 block text-[11px] font-semibold tracking-widest text-primary uppercase">
+                      {p.destination}
+                    </span>
+                  </a>
+                ) : (
+                  <Link
+                    to={p.to}
+                    {...(p.hash ? { hash: p.hash } : {})}
+                    onClick={() => close(false)}
+                    className="group block rounded-xl border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-surface-raised focus-visible:border-primary focus-visible:outline-none"
+                  >
+                    <span className="flex items-center justify-between gap-2 text-sm font-semibold text-foreground">
+                      {p.label}
+                      <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                    <span className="mt-0.5 block text-xs text-muted-foreground">{p.need}</span>
+                    <span className="mt-1 block text-[11px] font-semibold tracking-widest text-primary uppercase">
+                      {p.destination}
+                    </span>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

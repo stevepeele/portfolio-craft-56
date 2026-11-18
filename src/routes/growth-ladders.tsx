@@ -227,7 +227,7 @@ function GrowthLadders() {
             <button className="gl-btn gl-btn-ghost" onClick={() => go("gl-signal")}>Just climb ↑</button>
           </div>
           <p style={{ marginTop: "1.5rem", fontSize: ".85rem", opacity: .7 }}>
-            Built on <Link to="/spiix" style={{ textDecoration: "underline" }}>SPIIX</Link> — the strategic operating system for repeatable growth.
+            Built on <a href="https://www.signalsbyspii.com/" style={{ textDecoration: "underline" }}>SPIIX</a> — the strategic operating system for repeatable growth.
           </p>
           <p className="gl-kicker" style={{ marginTop: "3rem", opacity: .6 }}>Scroll up. The ladder goes up.</p>
         </div>

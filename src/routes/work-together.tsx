@@ -36,7 +36,7 @@ const OPTIONS: Array<{
   body: string;
   fit: string;
   cta: string;
-  to: "/contact" | "/spiix/engage/gtm-audit";
+  to: "/contact";
 }> = [
   {
     kicker: "Option 01",

@@ -1,3 +1,3 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/services/")({ beforeLoad: () => { throw redirect({ to: "/spiix/compare", statusCode: 301 }); } });
+export const Route = createFileRoute("/services/")({ beforeLoad: () => { throw redirect({ href: "https://www.signalsbyspii.com/", statusCode: 301 }); } });

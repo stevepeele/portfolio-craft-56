@@ -135,11 +135,13 @@ const questions = [
   ],
 ];
 
-const engageLinks = {
-  "gtm-audit": "/spiix/engage/gtm-audit",
-  "fractional-advisory": "/spiix/engage/fractional-advisory",
-  "elite-mentorship": "/spiix/engage/elite-mentorship",
-} as const;
+/* SPIIX engagements now live at Signals by SPII. */
+const SIGNALS_URL = "https://www.signalsbyspii.com/";
+const engageLinks: Record<string, string> = {
+  "gtm-audit": SIGNALS_URL,
+  "fractional-advisory": SIGNALS_URL,
+  "elite-mentorship": SIGNALS_URL,
+};
 
 const stats = [
   ["14+ years", "Across SaaS, technology, startups, and growth-stage companies"],
@@ -176,12 +178,12 @@ function SpiixServicePage() {
           lede="Steve Peele II helps SaaS, technology, and growth-stage teams connect growth strategy, demand generation, marketing operations, lifecycle, data, and execution. SPIIX is the advisory practice behind that work."
         >
           <div className="btnrow">
-            <Link to="/spiix/signal" className="btn">
+            <a href={SIGNALS_URL} className="btn">
               GET THE SIGNAL <ArrowRight size={14} />
-            </Link>
-            <Link to="/spiix/os" className="btn o">
+            </a>
+            <a href={SIGNALS_URL} className="btn o">
               READ THE OS <ArrowRight size={14} />
-            </Link>
+            </a>
           </div>
         </CtHero>
 
@@ -260,8 +262,8 @@ function SpiixServicePage() {
             <h2 className="shead">One filter for qualified work.</h2>
             <div className="egrid rev stag">
               {spiixOriginal.gm.map((item, i) => (
-                <Link
-                  to={engageLinks[item.slug]}
+                <a
+                  href={engageLinks[item.slug]}
                   key={item.slug}
                   className="ecard"
                   style={{ display: "block", textDecoration: "none" }}
@@ -275,7 +277,7 @@ function SpiixServicePage() {
                     View details <ArrowRight size={13} />
                   </span>
                   <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>Engagement {i + 1}</span>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -297,29 +299,39 @@ function SpiixServicePage() {
                   desc: "The entire body of work: the SPIIX book, with the diagnostic and free download.",
                 },
                 {
-                  to: "/spiix/os",
+                  to: SIGNALS_URL,
                   title: "The OS",
                   desc: "The mechanism that puts the framework to work: owners, workflows, and decision rights.",
                 },
                 {
-                  to: "/spiix/signals",
+                  to: SIGNALS_URL,
                   title: "Signal",
                   desc: "The defined measure: its unit, cohort, window, and decision.",
                 },
                 {
-                  to: "/spiix/signal",
+                  to: SIGNALS_URL,
                   title: "Get the Signal",
                   desc: "The framework for reading constraints and choosing the next move. Includes instant guide access.",
                 },
-              ].map((card) => (
-                <Link to={card.to} key={card.to} className="card">
-                  <h3 style={{ fontSize: 24 }}>{card.title}</h3>
-                  <p>{card.desc}</p>
-                  <span className="go">
-                    Open <ArrowRight size={12} style={{ verticalAlign: "-2px" }} />
-                  </span>
-                </Link>
-              ))}
+              ].map((card) =>
+                card.to.startsWith("http") ? (
+                  <a href={card.to} key={card.title} className="card">
+                    <h3 style={{ fontSize: 24 }}>{card.title}</h3>
+                    <p>{card.desc}</p>
+                    <span className="go">
+                      Open <ArrowRight size={12} style={{ verticalAlign: "-2px" }} />
+                    </span>
+                  </a>
+                ) : (
+                  <Link to={card.to} key={card.title} className="card">
+                    <h3 style={{ fontSize: 24 }}>{card.title}</h3>
+                    <p>{card.desc}</p>
+                    <span className="go">
+                      Open <ArrowRight size={12} style={{ verticalAlign: "-2px" }} />
+                    </span>
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         </section>
@@ -401,9 +413,9 @@ function SpiixServicePage() {
               Start with the framework, book a direct conversation, or email Steve. No elaborate funnel required.
             </p>
             <div className="btnrow">
-              <Link to="/spiix/signal" className="btn">
+              <a href={SIGNALS_URL} className="btn">
                 GET THE SIGNAL <ArrowRight size={14} />
-              </Link>
+              </a>
               <a href={`mailto:${profile.email}`} className="btn o">
                 {profile.email}
               </a>

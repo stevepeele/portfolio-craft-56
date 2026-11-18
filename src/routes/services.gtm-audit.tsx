@@ -1,2 +1,2 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-export const Route = createFileRoute("/services/gtm-audit")({ beforeLoad: () => { throw redirect({ to: "/spiix/engage/gtm-audit", statusCode: 301 }); } });
+export const Route = createFileRoute("/services/gtm-audit")({ beforeLoad: () => { throw redirect({ href: "https://www.signalsbyspii.com/", statusCode: 301 }); } });

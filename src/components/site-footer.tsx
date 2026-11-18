@@ -7,15 +7,15 @@ import { profile } from "@/data/resume";
    Connect columns duplicated the header nav and are gone, so the whole
    site ends every page the same way, whichever shell rendered it. */
 
-const footerNav = [
+const footerNav: Array<{ to: string; label: string; href?: string }> = [
   { to: "/experience", label: "Experience" },
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
   { to: "/hacking", label: "Building" },
-  { to: "/spiix", label: "SPIIX" },
+  { to: "/spiix", href: "https://www.signalsbyspii.com/", label: "SPIIX" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
 
 export function SiteFooter() {
   return (
@@ -26,15 +26,25 @@ export function SiteFooter() {
             Steve Peele <span className="text-gradient">II</span>
           </Link>
           <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
-            {footerNav.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {footerNav.map((l) =>
+              l.href ? (
+                <a
+                  key={l.to}
+                  href={l.href}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground">

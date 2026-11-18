@@ -27,7 +27,10 @@ export type CorePageKey =
   | "contact"
   | null;
 
-type NavItem = { to: string; label: string; key: Exclude<CorePageKey, null> };
+/** SPIIX moved to its own site, Signals by SPII; SPIIX entries link there. */
+export const SIGNALS_URL = "https://www.signalsbyspii.com/";
+
+type NavItem = { to: string; label: string; key: Exclude<CorePageKey, null>; href?: string };
 
 /** Primary destinations, in reading order. Work Together is the CTA. */
 export const CORE_NAV_ITEMS: NavItem[] = [
@@ -35,7 +38,7 @@ export const CORE_NAV_ITEMS: NavItem[] = [
   { to: "/blog", label: "Writing", key: "blog" },
   { to: "/music", label: "Music", key: "music" },
   { to: "/hacking", label: "Building", key: "hacking" },
-  { to: "/spiix", label: "SPIIX", key: "spiix" },
+  { to: "/spiix", href: SIGNALS_URL, label: "SPIIX", key: "spiix" },
   { to: "/contact", label: "Contact", key: "contact" },
 ];
 
@@ -63,16 +66,22 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
           Steve Peele II<span>.</span>
         </Link>
         <nav className="core-mainnav" aria-label="Main">
-          {CORE_NAV_ITEMS.map((item) => (
-            <Link
-              key={item.key}
-              to={item.to as "/work"}
-              className={`core-navlink${active === item.key ? " core-active" : ""}`}
-              aria-current={active === item.key ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {CORE_NAV_ITEMS.map((item) =>
+            item.href ? (
+              <a key={item.key} href={item.href} className="core-navlink">
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.key}
+                to={item.to as "/work"}
+                className={`core-navlink${active === item.key ? " core-active" : ""}`}
+                aria-current={active === item.key ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <Link
             to={CORE_NAV_CTA.to as "/work-together"}
             className={`core-navcta${active === CORE_NAV_CTA.key ? " core-active" : ""}`}
@@ -94,17 +103,23 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
       {menuOpen && (
         <nav id="core-mobile-menu" className="core-mobilemenu" aria-label="Menu">
           <div className="core-wrap core-mobilemenu-inner">
-            {MOBILE_NAV_ITEMS.map((item) => (
-              <Link
-                key={item.key}
-                to={item.to as "/work"}
-                className={`core-mobilelink${active === item.key ? " core-active" : ""}`}
-                aria-current={active === item.key ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {MOBILE_NAV_ITEMS.map((item) =>
+              item.href ? (
+                <a key={item.key} href={item.href} className="core-mobilelink" onClick={() => setMenuOpen(false)}>
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.key}
+                  to={item.to as "/work"}
+                  className={`core-mobilelink${active === item.key ? " core-active" : ""}`}
+                  aria-current={active === item.key ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <p className="core-mobilemenu-foot">
               <a href="mailto:steve@stevepeeleii.com">steve@stevepeeleii.com</a>
               <span aria-hidden> · </span>
@@ -121,13 +136,13 @@ export function CoreHeader({ active = null }: { active?: CorePageKey }) {
    the primary section nav on one row, and the copyright bar. The old
    Explore / Writing / Connect columns duplicated the header nav, the
    blog index, and the contact page, so they are gone. */
-const FOOTER_NAV: Array<{ to: string; label: string }> = [
+const FOOTER_NAV: Array<{ to: string; label: string; href?: string }> = [
   { to: "/experience", label: "Experience" },
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
   { to: "/hacking", label: "Building" },
-  { to: "/spiix", label: "SPIIX" },
+  { to: "/spiix", href: SIGNALS_URL, label: "SPIIX" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -139,11 +154,17 @@ export function CoreFooter() {
           Steve Peele II<span>.</span>
         </Link>
         <nav className="core-foot-nav" aria-label="Footer">
-          {FOOTER_NAV.map((l) => (
-            <Link key={l.to} to={l.to as "/work"} className="core-foot-navlink">
-              {l.label}
-            </Link>
-          ))}
+          {FOOTER_NAV.map((l) =>
+            l.href ? (
+              <a key={l.to} href={l.href} className="core-foot-navlink">
+                {l.label}
+              </a>
+            ) : (
+              <Link key={l.to} to={l.to as "/work"} className="core-foot-navlink">
+                {l.label}
+              </Link>
+            ),
+          )}
         </nav>
       </div>
       <div className="core-foot-bar">

@@ -5,12 +5,23 @@
 /* Legacy shells (site header, scaffolding) keep a Building menu, so
    Building is not repeated here. The core header lists it as a link.
    Experience stays reachable from Work and the footer. */
-export const primaryNav = [
+/** SPIIX moved to its own site, Signals by SPII; the SPIIX entry links there. */
+export const SIGNALS_URL = "https://www.signalsbyspii.com/";
+
+export type PrimaryNavItem = {
+  to: string;
+  label: string;
+  exact: boolean;
+  match: readonly string[];
+  href?: string;
+};
+
+export const primaryNav: PrimaryNavItem[] = [
   { to: "/work", label: "Work", exact: false, match: ["/work", "/portfolio", "/experience"] },
   { to: "/blog", label: "Writing", exact: false, match: ["/blog"] },
   { to: "/music", label: "Music", exact: false, match: ["/music"] },
-  { to: "/spiix", label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
-] as const;
+  { to: "/spiix", href: SIGNALS_URL, label: "SPIIX", exact: false, match: ["/spiix", "/advisory", "/services"] },
+];
 
 export type HackingNavGroup = "start" | "track" | "apps";
 
@@ -108,6 +119,7 @@ export type Pathway = {
   need: string;
   destination: string;
   to: "/" | "/work" | "/spiix" | "/spiix/compare" | "/music";
+  href?: string;
   hash?: string;
 };
 
@@ -126,6 +138,7 @@ export const pathways: Pathway[] = [
     need: "You want something scoped, built, and shipped fast.",
     destination: "SPIIX / Offers",
     to: "/spiix/compare",
+    href: SIGNALS_URL,
   },
   {
     id: "executive",
@@ -141,6 +154,7 @@ export const pathways: Pathway[] = [
     need: "You could use an experienced sounding board.",
     destination: "SPIIX / Advisory",
     to: "/spiix",
+    href: SIGNALS_URL,
   },
   {
     id: "thinker",

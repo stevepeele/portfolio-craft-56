@@ -146,9 +146,9 @@ function MusicPage() {
                 <Link to="/work" className="btn o">
                   Explore the portfolio <ArrowUpRight size={14} />
                 </Link>
-                <Link to="/spiix" className="btn o">
+                <a href="https://www.signalsbyspii.com/" className="btn o">
                   SPIIX <ArrowUpRight size={14} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
