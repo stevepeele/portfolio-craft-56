@@ -2,9 +2,10 @@
    CORE_NAV_ITEMS in src/components/core-chrome.tsx so the two shells
    never disagree about what the site's sections are called. Home is
    the wordmark in both shells, not a nav item. */
-/* Legacy shells (site header, scaffolding) keep a Building menu, so
-   Building is not repeated here. The core header lists it as a link.
-   Experience stays reachable from Work and the footer. */
+/* Building (/hacking) is not in the global nav on Steve's order
+   (2026-11-21); the section stays live at its URLs, unlinked, the same
+   treatment Music had before it returned to the nav. Experience stays
+   reachable from Work and the footer. */
 /** SPIIX moved to its own site, Signals by SPII; the SPIIX entry links there. */
 export const SIGNALS_URL = "https://www.signalsbyspii.com/";
 

@@ -37,7 +37,6 @@ export const CORE_NAV_ITEMS: NavItem[] = [
   { to: "/work", label: "Work", key: "work" },
   { to: "/blog", label: "Writing", key: "blog" },
   { to: "/music", label: "Music", key: "music" },
-  { to: "/hacking", label: "Building", key: "hacking" },
   { to: "/spiix", href: SIGNALS_URL, label: "SPIIX", key: "spiix" },
   { to: "/contact", label: "Contact", key: "contact" },
 ];
@@ -141,7 +140,6 @@ const FOOTER_NAV: Array<{ to: string; label: string; href?: string }> = [
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
-  { to: "/hacking", label: "Building" },
   { to: "/spiix", href: SIGNALS_URL, label: "SPIIX" },
   { to: "/contact", label: "Contact" },
 ];

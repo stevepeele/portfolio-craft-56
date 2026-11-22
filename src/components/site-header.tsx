@@ -1,15 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronRight, Compass, Menu, X } from "lucide-react";
-import {
-  hackingMatch,
-  hackingNav,
-  hackingNavGroups,
-  hackingStatusDotClass,
-  openGuide,
-  primaryNav,
-  SIGNALS_URL,
-} from "@/data/navigation";
+import { useState } from "react";
+import { ChevronRight, Compass, Menu, X } from "lucide-react";
+import { hackingNav, openGuide, primaryNav, SIGNALS_URL } from "@/data/navigation";
 import { EbookBanner } from "@/components/ebook-banner";
 import { MuseReferralBanner } from "@/components/muse-referral-banner";
 
@@ -54,29 +46,10 @@ function crumbsFor(path: string): Crumb[] {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [hackingOpen, setHackingOpen] = useState(false);
-  const [mobileHackingOpen, setMobileHackingOpen] = useState(false);
-  const hackingRef = useRef<HTMLDivElement>(null);
   const pathname = useLocation({ select: (l) => l.pathname });
   const isActive = (match: readonly string[], exact: boolean) =>
     match.some((m) => (exact ? pathname === m : pathname === m || pathname.startsWith(m + "/")));
-  const hackingActive = hackingMatch.some((m) => pathname === m || pathname.startsWith(m + "/"));
   const crumbs = crumbsFor(pathname);
-
-  useEffect(() => {
-    const onClick = (e: MouseEvent) => {
-      if (hackingRef.current && !hackingRef.current.contains(e.target as Node)) setHackingOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setHackingOpen(false);
-    };
-    document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, []);
 
   const navClass = (active: boolean) =>
     `relative text-sm font-medium transition-colors ${
@@ -109,61 +82,6 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-
-            {/* Building dropdown */}
-            <div ref={hackingRef} className="relative" onMouseEnter={() => setHackingOpen(true)} onMouseLeave={() => setHackingOpen(false)}>
-              <button
-                type="button"
-                aria-expanded={hackingOpen}
-                aria-haspopup="true"
-                onClick={() => setHackingOpen((v) => !v)}
-                className={`${navClass(hackingActive)} inline-flex items-center gap-1`}
-              >
-                Building
-                <ChevronDown className={`size-3.5 transition-transform ${hackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
-              </button>
-              {hackingOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3" role="menu" aria-label="Building">
-                  <div className="overflow-hidden rounded-xl border border-border bg-popover py-2 shadow-2xl">
-                    {hackingNavGroups.map((g) => (
-                      <div key={g.key}>
-                        {g.label !== "" && (
-                          <p className="px-4 pt-2 pb-1 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
-                            {g.label}
-                          </p>
-                        )}
-                        {hackingNav
-                          .filter((h) => h.group === g.key)
-                          .map((h) => (
-                            <Link
-                              key={h.to}
-                              to={h.to}
-                              role="menuitem"
-                              onClick={() => setHackingOpen(false)}
-                              className="flex items-start justify-between gap-3 px-4 py-2.5 transition-colors hover:bg-surface"
-                            >
-                              <span>
-                                <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-                                  {h.status && (
-                                    <span
-                                      className={`size-1.5 shrink-0 rounded-full ${hackingStatusDotClass[h.status]}`}
-                                      aria-hidden="true"
-                                    />
-                                  )}
-                                  {h.label}
-                                </span>
-                                <span className="block text-xs text-muted-foreground">{h.blurb}</span>
-                              </span>
-                              <ChevronRight className="mt-1 size-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
-                            </Link>
-                          ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-            </div>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -209,50 +127,6 @@ export function SiteHeader() {
                     </Link>
                   );
                 },
-              )}
-
-              {/* Mobile Building section */}
-              <button
-                type="button"
-                aria-expanded={mobileHackingOpen}
-                onClick={() => setMobileHackingOpen((v) => !v)}
-                className={`flex w-full items-center justify-between rounded-lg border-l-2 px-3 py-2.5 text-sm font-medium ${
-                  hackingActive ? "border-primary bg-surface text-foreground" : "border-transparent text-muted-foreground"
-                }`}
-              >
-                Building
-                <ChevronDown className={`size-4 transition-transform ${mobileHackingOpen ? "rotate-180" : ""}`} aria-hidden="true" />
-              </button>
-              {mobileHackingOpen && (
-                <div className="ml-3 flex flex-col gap-1 border-l border-border/60 pl-3">
-                  {hackingNavGroups.map((g) => (
-                    <div key={g.key} className="flex flex-col gap-1">
-                      {g.label !== "" && (
-                        <p className="px-3 pt-2 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
-                          {g.label}
-                        </p>
-                      )}
-                      {hackingNav
-                        .filter((h) => h.group === g.key)
-                        .map((h) => (
-                          <Link
-                            key={h.to}
-                            to={h.to}
-                            onClick={() => setOpen(false)}
-                            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-surface hover:text-foreground"
-                          >
-                            {h.status && (
-                              <span
-                                className={`size-1.5 shrink-0 rounded-full ${hackingStatusDotClass[h.status]}`}
-                                aria-hidden="true"
-                              />
-                            )}
-                            {h.label}
-                          </Link>
-                        ))}
-                    </div>
-                  ))}
-                </div>
               )}
             </div>
           </nav>

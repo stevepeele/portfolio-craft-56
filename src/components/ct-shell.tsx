@@ -5,7 +5,7 @@ import { CORE_FONT_LINK, CORE_NAV_ITEMS, SIGNALS_URL } from "@/components/core-c
 import { profile } from "@/data/resume";
 
 /* Control Tower shell (SPIIX-1142) — the shared core framework for every
-   nav page: fixed status header with the full site nav, Building dropdown,
+   nav page: fixed status header with the full site nav,
    scroll progress, filed footer. Mirrors the homepage header/footer
    (SPIIX-1114) so home and the rest of the site read as one instrument. */
 
@@ -239,15 +239,6 @@ export function CtShell({
                   ),
                 )}
                 <Link to="/contact">Let&apos;s Talk</Link>
-              </nav>
-            </div>
-            <div>
-              <h5>Building</h5>
-              <nav aria-label="Footer building">
-                <Link to="/hacking">Why I build</Link>
-                <Link to="/hacking/status">Build log</Link>
-                <Link to="/hacking/whats-next">Up next</Link>
-                <Link to="/hacking/progress">Live board</Link>
               </nav>
             </div>
             <div>

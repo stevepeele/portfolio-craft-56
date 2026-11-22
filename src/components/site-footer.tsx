@@ -12,7 +12,6 @@ const footerNav: Array<{ to: string; label: string; href?: string }> = [
   { to: "/work", label: "Work" },
   { to: "/blog", label: "Writing" },
   { to: "/music", label: "Music" },
-  { to: "/hacking", label: "Building" },
   { to: "/spiix", href: "https://www.signalsbyspii.com/", label: "SPIIX" },
   { to: "/contact", label: "Contact" },
 ];
