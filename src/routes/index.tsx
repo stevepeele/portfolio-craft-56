@@ -123,10 +123,6 @@ function Home() {
           </div>
           <p className="core-hero-note">Available for fractional and full-time leadership.</p>
           <nav className="core-paths" aria-label="Also on this site">
-            <Link to="/hacking">
-              <strong>Building</strong>
-              <span>Tools shipped when the work needed one.</span>
-            </Link>
             <Link to="/blog">
               <strong>Writing</strong>
               <span>Notes on growth, operating, and making things.</span>
