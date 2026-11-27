@@ -31,6 +31,7 @@ import { Route as SoftwareRouteImport } from './routes/software'
 import { Route as SpiixRouteImport } from './routes/spiix'
 import { Route as SprintRouteImport } from './routes/sprint'
 import { Route as StudioRouteImport } from './routes/studio'
+import { Route as ThreeChairsRouteImport } from './routes/three-chairs'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WorkTogetherRouteImport } from './routes/work-together'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -220,6 +221,11 @@ const SprintRoute = SprintRouteImport.update({
 const StudioRoute = StudioRouteImport.update({
   id: '/studio',
   path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThreeChairsRoute = ThreeChairsRouteImport.update({
+  id: '/three-chairs',
+  path: '/three-chairs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkRoute = WorkRouteImport.update({
@@ -654,6 +660,7 @@ export interface FileRoutesByFullPath {
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
+  '/three-chairs': typeof ThreeChairsRoute
   '/work': typeof WorkRoute
   '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -754,6 +761,7 @@ export interface FileRoutesByTo {
   '/software': typeof SoftwareRoute
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
+  '/three-chairs': typeof ThreeChairsRoute
   '/work': typeof WorkRoute
   '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -857,6 +865,7 @@ export interface FileRoutesById {
   '/spiix': typeof SpiixRouteWithChildren
   '/sprint': typeof SprintRoute
   '/studio': typeof StudioRouteWithChildren
+  '/three-chairs': typeof ThreeChairsRoute
   '/work': typeof WorkRoute
   '/work-together': typeof WorkTogetherRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -962,6 +971,7 @@ export interface FileRouteTypes {
     | '/spiix'
     | '/sprint'
     | '/studio'
+    | '/three-chairs'
     | '/work'
     | '/work-together'
     | '/blog/$slug'
@@ -1062,6 +1072,7 @@ export interface FileRouteTypes {
     | '/software'
     | '/sprint'
     | '/studio'
+    | '/three-chairs'
     | '/work'
     | '/work-together'
     | '/blog/$slug'
@@ -1164,6 +1175,7 @@ export interface FileRouteTypes {
     | '/spiix'
     | '/sprint'
     | '/studio'
+    | '/three-chairs'
     | '/work'
     | '/work-together'
     | '/blog/$slug'
@@ -1268,6 +1280,7 @@ export interface RootRouteChildren {
   SpiixRoute: typeof SpiixRouteWithChildren
   SprintRoute: typeof SprintRoute
   StudioRoute: typeof StudioRouteWithChildren
+  ThreeChairsRoute: typeof ThreeChairsRoute
   WorkRoute: typeof WorkRoute
   WorkTogetherRoute: typeof WorkTogetherRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -1451,6 +1464,13 @@ declare module '@tanstack/react-router' {
       path: '/studio'
       fullPath: '/studio'
       preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/three-chairs': {
+      id: '/three-chairs'
+      path: '/three-chairs'
+      fullPath: '/three-chairs'
+      preLoaderRoute: typeof ThreeChairsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -2216,6 +2236,7 @@ const rootRouteChildren: RootRouteChildren = {
   SpiixRoute: SpiixRouteWithChildren,
   SprintRoute: SprintRoute,
   StudioRoute: StudioRouteWithChildren,
+  ThreeChairsRoute: ThreeChairsRoute,
   WorkRoute: WorkRoute,
   WorkTogetherRoute: WorkTogetherRoute,
   BlogSlugRoute: BlogSlugRoute,

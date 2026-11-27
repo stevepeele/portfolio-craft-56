@@ -110,6 +110,9 @@ function QuotesPage() {
               .
             </p>
           </div>
+          <Link to="/three-chairs" className="core-textlink">
+            The full page: three chairs, one description →
+          </Link>
         </section>
 
         <div className="core-work-close core-reveal">
